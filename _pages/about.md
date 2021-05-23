@@ -3,7 +3,7 @@ layout: page
 title: Study with me
 permalink: /about/
 ---
-## 수상
+### 수상
 
 `-` 1학년 2학기 때 장학금 10만원...
 
