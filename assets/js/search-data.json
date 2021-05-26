@@ -3,7 +3,7 @@
     
         "post0": {
             "title": "더하기",
-            "content": "1+1 . 2 . 2+2 . 4 . 3+3 . 6 .",
+            "content": "toc: true | branch: master | badges: true | comments: true | author: 한재수 | categories: [python] | . &#44611;&#54728;&#48652; &#52852;&#53580;&#44256;&#47532; &#49444;&#51221; . toc: true | branch: master | badges: true | comments: true | author: 한재수 | categories: [python] | . - 위에 내용을 아무곳에나 붙여 넣는다 . - categories에 해당하는 부분이 깃허브 홈페이지에서 tag에 보이는 부분이다. . 1+1 . 2 . 2+2 . 4 . 3+3 . 6 .",
             "url": "https://gkswotn12345.github.io/green/2021/05/24/%EB%8D%94%ED%95%98%EA%B8%B0.html",
             "relUrl": "/2021/05/24/%EB%8D%94%ED%95%98%EA%B8%B0.html",
             "date": " • May 24, 2021"
