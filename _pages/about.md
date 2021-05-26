@@ -13,7 +13,7 @@ permalink: /about/
 
 `-` 1학년 2학기: 4.50
 
-`-` 2학년 1학기: ???
+`-` 2학년 1학기: 4.00(희망)
 
 ### 프로그래밍 언어
 
@@ -25,7 +25,7 @@ permalink: /about/
 
 ### 자격증
 
-`-` 있겠냐
+`-` 있겠니
 
 ### 토익
 
@@ -37,11 +37,11 @@ permalink: /about/
 
 ### 공모전
 
-`-` ㅋ
+`-` .
 
 ### 봉사활동
 
-`-` ㅋㅋ
+`-` ..
 
 This website is powered by **[fastpages](https://github.com/fastai/fastpages)** [^1].
 
