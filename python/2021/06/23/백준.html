@@ -1,0 +1,932 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>백준 문제풀기(작성 중) | Jaesu’s blog</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="백준 문제풀기(작성 중)" />
+<meta name="author" content="한재수" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="단계별로 문제풀기" />
+<meta property="og:description" content="단계별로 문제풀기" />
+<link rel="canonical" href="https://gkswotn12345.github.io/green/python/2021/06/23/%EB%B0%B1%EC%A4%80.html" />
+<meta property="og:url" content="https://gkswotn12345.github.io/green/python/2021/06/23/%EB%B0%B1%EC%A4%80.html" />
+<meta property="og:site_name" content="Jaesu’s blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-06-23T00:00:00-05:00" />
+<script type="application/ld+json">
+{"description":"단계별로 문제풀기","url":"https://gkswotn12345.github.io/green/python/2021/06/23/%EB%B0%B1%EC%A4%80.html","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://gkswotn12345.github.io/green/python/2021/06/23/%EB%B0%B1%EC%A4%80.html"},"headline":"백준 문제풀기(작성 중)","dateModified":"2021-06-23T00:00:00-05:00","datePublished":"2021-06-23T00:00:00-05:00","author":{"@type":"Person","name":"한재수"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/green/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://gkswotn12345.github.io/green/feed.xml" title="Jaesu's blog" /><link rel="shortcut icon" type="image/x-icon" href="/green/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.css" integrity="sha512-h7nl+xz8wgDlNM4NqKEM4F1NkIRS17M9+uJwIGwuo8vGqIl4BhuCKdxjWEINm+xyrUjNCnK5dCrhM0sj+wTIXw==" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.js" integrity="sha512-/CMIhXiDA3m2c9kzRyd97MTb3MC6OVnx4TElQ7fkkoRghwDf6gi41gaT1PwF270W6+J60uTmwgeRpNpJdRV6sg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/contrib/auto-render.min.js" integrity="sha512-Do7uJAaHZm5OLrIv/yN4w0iG1dbu01kzdMNnFfu/mAqgUk6Nniv2JYHcwH+cNwjqgLcqcuBBk+JRvprLVI8azg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha512-0doc9hKxR3PYwso42RD1p5ySZpzzuDiOwMrdCEh2WdJZCjcmFKc/wEnL+z8fBQrnHoiNWbo+3fiGkOYXBdQp4A==" crossorigin="anonymous"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement( document.body, {
+        delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "[%", right: "%]", display: true},
+            {left: "$", right: "$", display: false}
+        ]}
+        );
+    });
+    </script>
+
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/green/">Jaesu&#39;s blog</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/green/about/">Study with me</a><a class="page-link" href="/green/search/">Search</a><a class="page-link" href="/green/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">백준 문제풀기(작성 중)</h1><p class="page-description">단계별로 문제풀기</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2021-06-23T00:00:00-05:00" itemprop="datePublished">
+        Jun 23, 2021
+      </time>• 
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">한재수</span></span>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      3 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/green/categories/#python">python</a>
+        
+      
+      </p>
+    
+
+    
+      
+        <div class="pb-5 d-flex flex-wrap flex-justify-end">
+          <div class="px-2">
+
+    <a href="https://github.com/gkswotn12345/green/tree/master/_notebooks/2021-06-23-백준.ipynb" role="button" target="_blank">
+<img class="notebook-badge-image" src="/green/assets/badges/github.svg" alt="View On GitHub">
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://mybinder.org/v2/gh/gkswotn12345/green/master?filepath=_notebooks%2F2021-06-23-%EB%B0%B1%EC%A4%80.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/green/assets/badges/binder.svg" alt="Open In Binder"/>
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://colab.research.google.com/github/gkswotn12345/green/blob/master/_notebooks/2021-06-23-백준.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/green/assets/badges/colab.svg" alt="Open In Colab"/>
+    </a>
+</div>
+        </div>
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul class="section-nav">
+<li class="toc-entry toc-h2"><a href="#사칙연산">사칙연산 </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#두-자연수-A와-B가-주어진다.-이때,-A+B,-A-B,-A*B,-A/B(몫),-A%B(나머지)를-출력하는-프로그램을-작성하시오.">두 자연수 A와 B가 주어진다. 이때, A+B, A-B, A*B, A/B(몫), A%B(나머지)를 출력하는 프로그램을 작성하시오. </a></li>
+<li class="toc-entry toc-h3"><a href="#두-정수-A와-B를-입력받은-다음,-A+B를-출력하는-프로그램을-작성하시오.">두 정수 A와 B를 입력받은 다음, A+B를 출력하는 프로그램을 작성하시오. </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#if문">if문 </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#두-정수-A와-B가-주어졌을-때,-A와-B를-비교하는-프로그램을-작성하시오.">두 정수 A와 B가 주어졌을 때, A와 B를 비교하는 프로그램을 작성하시오. </a></li>
+<li class="toc-entry toc-h3"><a href="#시험-점수를-입력받아-90-~-100점은-A,-80-~-89점은-B,-70-~-79점은-C,-60-~-69점은-D,-나머지-점수는-F를-출력하는-프로그램을-작성하시오.">시험 점수를 입력받아 90 ~ 100점은 A, 80 ~ 89점은 B, 70 ~ 79점은 C, 60 ~ 69점은 D, 나머지 점수는 F를 출력하는 프로그램을 작성하시오. </a></li>
+<li class="toc-entry toc-h3"><a href="#연도가-주어졌을-때,-윤년이면-1,-아니면-0을-출력하는-프로그램을-작성하시오.">연도가 주어졌을 때, 윤년이면 1, 아니면 0을 출력하는 프로그램을 작성하시오. </a></li>
+<li class="toc-entry toc-h3"><a href="#사분면-고르기">사분면 고르기 </a></li>
+<li class="toc-entry toc-h3"><a href="#알람-시계">알람 시계 </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#for문">for문 </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#N을-입력받은-뒤,-구구단-N단을-출력하는-프로그램을-작성하시오.-출력-형식에-맞춰서-출력하면-된다.">N을 입력받은 뒤, 구구단 N단을 출력하는 프로그램을 작성하시오. 출력 형식에 맞춰서 출력하면 된다. </a></li>
+<li class="toc-entry toc-h3"><a href="#두-정수-A와-B를-입력받은-다음,-A+B를-출력하는-프로그램을-작성하시오.">두 정수 A와 B를 입력받은 다음, A+B를 출력하는 프로그램을 작성하시오. </a></li>
+<li class="toc-entry toc-h3"><a href="#n이-주어졌을-때,-1부터-n까지-합을-구하는-프로그램을-작성하시오.">n이 주어졌을 때, 1부터 n까지 합을 구하는 프로그램을 작성하시오. </a></li>
+<li class="toc-entry toc-h3"><a href="#sys.stdin.readline()">sys.stdin.readline() </a></li>
+</ul>
+</li>
+</ul><!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2021-06-23-백준.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="사칙연산">
+<a class="anchor" href="#%EC%82%AC%EC%B9%99%EC%97%B0%EC%82%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>사칙연산<a class="anchor-link" href="#%EC%82%AC%EC%B9%99%EC%97%B0%EC%82%B0"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="두-자연수-A와-B가-주어진다.-이때,-A+B,-A-B,-A*B,-A/B(몫),-A%B(나머지)를-출력하는-프로그램을-작성하시오.">
+<a class="anchor" href="#%EB%91%90-%EC%9E%90%EC%97%B0%EC%88%98-A%EC%99%80-B%EA%B0%80-%EC%A3%BC%EC%96%B4%EC%A7%84%EB%8B%A4.-%EC%9D%B4%EB%95%8C,-A+B,-A-B,-A*B,-A/B(%EB%AA%AB),-A%B(%EB%82%98%EB%A8%B8%EC%A7%80)%EB%A5%BC-%EC%B6%9C%EB%A0%A5%ED%95%98%EB%8A%94-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8%EC%9D%84-%EC%9E%91%EC%84%B1%ED%95%98%EC%8B%9C%EC%98%A4." aria-hidden="true"><span class="octicon octicon-link"></span></a>두 자연수 A와 B가 주어진다. 이때, A+B, A-B, A*B, A/B(몫), A%B(나머지)를 출력하는 프로그램을 작성하시오.<a class="anchor-link" href="#%EB%91%90-%EC%9E%90%EC%97%B0%EC%88%98-A%EC%99%80-B%EA%B0%80-%EC%A3%BC%EC%96%B4%EC%A7%84%EB%8B%A4.-%EC%9D%B4%EB%95%8C,-A+B,-A-B,-A*B,-A/B(%EB%AA%AB),-A%B(%EB%82%98%EB%A8%B8%EC%A7%80)%EB%A5%BC-%EC%B6%9C%EB%A0%A5%ED%95%98%EB%8A%94-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8%EC%9D%84-%EC%9E%91%EC%84%B1%ED%95%98%EC%8B%9C%EC%98%A4."> </a>
+</h3>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="o">-</span><span class="n">b</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="o">*</span><span class="n">b</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="o">//</span><span class="n">b</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="o">%</span><span class="k">b</span>)
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+</div>
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>10
+4
+21
+2
+1
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="두-정수-A와-B를-입력받은-다음,-A+B를-출력하는-프로그램을-작성하시오.">
+<a class="anchor" href="#%EB%91%90-%EC%A0%95%EC%88%98-A%EC%99%80-B%EB%A5%BC-%EC%9E%85%EB%A0%A5%EB%B0%9B%EC%9D%80-%EB%8B%A4%EC%9D%8C,-A+B%EB%A5%BC-%EC%B6%9C%EB%A0%A5%ED%95%98%EB%8A%94-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8%EC%9D%84-%EC%9E%91%EC%84%B1%ED%95%98%EC%8B%9C%EC%98%A4." aria-hidden="true"><span class="octicon octicon-link"></span></a>두 정수 A와 B를 입력받은 다음, A+B를 출력하는 프로그램을 작성하시오.<a class="anchor-link" href="#%EB%91%90-%EC%A0%95%EC%88%98-A%EC%99%80-B%EB%A5%BC-%EC%9E%85%EB%A0%A5%EB%B0%9B%EC%9D%80-%EB%8B%A4%EC%9D%8C,-A+B%EB%A5%BC-%EC%B6%9C%EB%A0%A5%ED%95%98%EB%8A%94-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8%EC%9D%84-%EC%9E%91%EC%84%B1%ED%95%98%EC%8B%9C%EC%98%A4."> </a>
+</h3>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+</div>
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>12
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="if문">
+<a class="anchor" href="#if%EB%AC%B8" aria-hidden="true"><span class="octicon octicon-link"></span></a>if문<a class="anchor-link" href="#if%EB%AC%B8"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="두-정수-A와-B가-주어졌을-때,-A와-B를-비교하는-프로그램을-작성하시오.">
+<a class="anchor" href="#%EB%91%90-%EC%A0%95%EC%88%98-A%EC%99%80-B%EA%B0%80-%EC%A3%BC%EC%96%B4%EC%A1%8C%EC%9D%84-%EB%95%8C,-A%EC%99%80-B%EB%A5%BC-%EB%B9%84%EA%B5%90%ED%95%98%EB%8A%94-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8%EC%9D%84-%EC%9E%91%EC%84%B1%ED%95%98%EC%8B%9C%EC%98%A4." aria-hidden="true"><span class="octicon octicon-link"></span></a>두 정수 A와 B가 주어졌을 때, A와 B를 비교하는 프로그램을 작성하시오.<a class="anchor-link" href="#%EB%91%90-%EC%A0%95%EC%88%98-A%EC%99%80-B%EA%B0%80-%EC%A3%BC%EC%96%B4%EC%A1%8C%EC%9D%84-%EB%95%8C,-A%EC%99%80-B%EB%A5%BC-%EB%B9%84%EA%B5%90%ED%95%98%EB%8A%94-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8%EC%9D%84-%EC%9E%91%EC%84%B1%ED%95%98%EC%8B%9C%EC%98%A4."> </a>
+</h3>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">A</span><span class="p">,</span> <span class="n">B</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+<span class="k">if</span> <span class="n">A</span><span class="o">&gt;</span><span class="n">B</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">'&gt;'</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">A</span><span class="o">&lt;</span><span class="n">B</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">'&lt;'</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">'=='</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+</div>
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>&gt;
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="시험-점수를-입력받아-90-~-100점은-A,-80-~-89점은-B,-70-~-79점은-C,-60-~-69점은-D,-나머지-점수는-F를-출력하는-프로그램을-작성하시오.">
+<a class="anchor" href="#%EC%8B%9C%ED%97%98-%EC%A0%90%EC%88%98%EB%A5%BC-%EC%9E%85%EB%A0%A5%EB%B0%9B%EC%95%84-90-~-100%EC%A0%90%EC%9D%80-A,-80-~-89%EC%A0%90%EC%9D%80-B,-70-~-79%EC%A0%90%EC%9D%80-C,-60-~-69%EC%A0%90%EC%9D%80-D,-%EB%82%98%EB%A8%B8%EC%A7%80-%EC%A0%90%EC%88%98%EB%8A%94-F%EB%A5%BC-%EC%B6%9C%EB%A0%A5%ED%95%98%EB%8A%94-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8%EC%9D%84-%EC%9E%91%EC%84%B1%ED%95%98%EC%8B%9C%EC%98%A4." aria-hidden="true"><span class="octicon octicon-link"></span></a>시험 점수를 입력받아 90 ~ 100점은 A, 80 ~ 89점은 B, 70 ~ 79점은 C, 60 ~ 69점은 D, 나머지 점수는 F를 출력하는 프로그램을 작성하시오.<a class="anchor-link" href="#%EC%8B%9C%ED%97%98-%EC%A0%90%EC%88%98%EB%A5%BC-%EC%9E%85%EB%A0%A5%EB%B0%9B%EC%95%84-90-~-100%EC%A0%90%EC%9D%80-A,-80-~-89%EC%A0%90%EC%9D%80-B,-70-~-79%EC%A0%90%EC%9D%80-C,-60-~-69%EC%A0%90%EC%9D%80-D,-%EB%82%98%EB%A8%B8%EC%A7%80-%EC%A0%90%EC%88%98%EB%8A%94-F%EB%A5%BC-%EC%B6%9C%EB%A0%A5%ED%95%98%EB%8A%94-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8%EC%9D%84-%EC%9E%91%EC%84%B1%ED%95%98%EC%8B%9C%EC%98%A4."> </a>
+</h3>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">result</span><span class="p">(</span><span class="n">grade</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">grade</span> <span class="o">&gt;=</span> <span class="mi">90</span> <span class="ow">and</span> <span class="n">grade</span> <span class="o">&lt;=</span> <span class="mi">100</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"A"</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">grade</span> <span class="o">&gt;=</span> <span class="mi">80</span> <span class="ow">and</span> <span class="n">grade</span> <span class="o">&lt;=</span> <span class="mi">89</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"B"</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">grade</span> <span class="o">&gt;=</span> <span class="mi">70</span> <span class="ow">and</span> <span class="n">grade</span> <span class="o">&lt;=</span> <span class="mi">79</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"C"</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">grade</span> <span class="o">&gt;=</span> <span class="mi">60</span> <span class="ow">and</span> <span class="n">grade</span> <span class="o">&lt;=</span> <span class="mi">69</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"D"</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"F"</span><span class="p">)</span>
+<span class="n">grade</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+<span class="n">result</span><span class="p">(</span><span class="n">grade</span><span class="p">)</span>    
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+</div>
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>A
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="연도가-주어졌을-때,-윤년이면-1,-아니면-0을-출력하는-프로그램을-작성하시오.">
+<a class="anchor" href="#%EC%97%B0%EB%8F%84%EA%B0%80-%EC%A3%BC%EC%96%B4%EC%A1%8C%EC%9D%84-%EB%95%8C,-%EC%9C%A4%EB%85%84%EC%9D%B4%EB%A9%B4-1,-%EC%95%84%EB%8B%88%EB%A9%B4-0%EC%9D%84-%EC%B6%9C%EB%A0%A5%ED%95%98%EB%8A%94-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8%EC%9D%84-%EC%9E%91%EC%84%B1%ED%95%98%EC%8B%9C%EC%98%A4." aria-hidden="true"><span class="octicon octicon-link"></span></a>연도가 주어졌을 때, 윤년이면 1, 아니면 0을 출력하는 프로그램을 작성하시오.<a class="anchor-link" href="#%EC%97%B0%EB%8F%84%EA%B0%80-%EC%A3%BC%EC%96%B4%EC%A1%8C%EC%9D%84-%EB%95%8C,-%EC%9C%A4%EB%85%84%EC%9D%B4%EB%A9%B4-1,-%EC%95%84%EB%8B%88%EB%A9%B4-0%EC%9D%84-%EC%B6%9C%EB%A0%A5%ED%95%98%EB%8A%94-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8%EC%9D%84-%EC%9E%91%EC%84%B1%ED%95%98%EC%8B%9C%EC%98%A4."> </a>
+</h3>
+<ul>
+<li>
+<p>윤년은 연도가 4의 배수이면서, 100의 배수가 아닐 때 또는 400의 배수일 때이다.</p>
+</li>
+<li>
+<p>예를 들어, 2012년은 4의 배수이면서 100의 배수가 아니라서 윤년이다. 1900년은 100의 배수이고 400의 배수는 아니기 때문에 윤년이 아니다. 하지만, 2000년은 400의 배수이기 때문에 윤년이다.</p>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">leap_year</span><span class="p">(</span><span class="n">year</span><span class="p">):</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">year</span><span class="o">%</span><span class="k">4</span> ==0 and year%100 != 0) or year%400 == 0:
+        <span class="nb">print</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">year</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+<span class="n">leap_year</span><span class="p">(</span><span class="n">year</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+</div>
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>1
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="사분면-고르기">
+<a class="anchor" href="#%EC%82%AC%EB%B6%84%EB%A9%B4-%EA%B3%A0%EB%A5%B4%EA%B8%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>사분면 고르기<a class="anchor-link" href="#%EC%82%AC%EB%B6%84%EB%A9%B4-%EA%B3%A0%EB%A5%B4%EA%B8%B0"> </a>
+</h3>
+<ul>
+<li>첫 줄에는 정수 x가 주어진다. (−1000 ≤ x ≤ 1000; x ≠ 0) 다음 줄에는 정수 y가 주어진다. (−1000 ≤ y ≤ 1000; y ≠ 0)</li>
+<li>점 (x, y)의 사분면 번호(1, 2, 3, 4 중 하나)를 출력한다.</li>
+</ul>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">quadrant</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">a</span><span class="o">&gt;</span><span class="mi">0</span> <span class="ow">and</span> <span class="n">b</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">a</span><span class="o">&gt;</span><span class="mi">0</span> <span class="ow">and</span> <span class="n">b</span><span class="o">&lt;</span><span class="mi">0</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">a</span><span class="o">&lt;</span><span class="mi">0</span> <span class="ow">and</span> <span class="n">b</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">a</span><span class="o">&lt;</span><span class="mi">0</span> <span class="ow">and</span> <span class="n">b</span><span class="o">&lt;</span><span class="mi">0</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+<span class="n">y</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+<span class="n">quadrant</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+</div>
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>4
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="알람-시계">
+<a class="anchor" href="#%EC%95%8C%EB%9E%8C-%EC%8B%9C%EA%B3%84" aria-hidden="true"><span class="octicon octicon-link"></span></a>알람 시계<a class="anchor-link" href="#%EC%95%8C%EB%9E%8C-%EC%8B%9C%EA%B3%84"> </a>
+</h3>
+<ul>
+<li>45분 일찍 알람 설정하기</li>
+</ul>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">h</span><span class="p">,</span> <span class="n">m</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+<span class="k">if</span> <span class="n">m</span> <span class="o">&gt;=</span> <span class="mi">45</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">m</span><span class="o">-</span><span class="mi">45</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">h</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span> 
+    <span class="nb">print</span><span class="p">(</span><span class="mi">23</span><span class="p">,</span> <span class="n">m</span><span class="o">+</span><span class="mi">15</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">h</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">m</span><span class="o">+</span><span class="mi">15</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+</div>
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>23 40
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="for문">
+<a class="anchor" href="#for%EB%AC%B8" aria-hidden="true"><span class="octicon octicon-link"></span></a>for문<a class="anchor-link" href="#for%EB%AC%B8"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="N을-입력받은-뒤,-구구단-N단을-출력하는-프로그램을-작성하시오.-출력-형식에-맞춰서-출력하면-된다.">
+<a class="anchor" href="#N%EC%9D%84-%EC%9E%85%EB%A0%A5%EB%B0%9B%EC%9D%80-%EB%92%A4,-%EA%B5%AC%EA%B5%AC%EB%8B%A8-N%EB%8B%A8%EC%9D%84-%EC%B6%9C%EB%A0%A5%ED%95%98%EB%8A%94-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8%EC%9D%84-%EC%9E%91%EC%84%B1%ED%95%98%EC%8B%9C%EC%98%A4.-%EC%B6%9C%EB%A0%A5-%ED%98%95%EC%8B%9D%EC%97%90-%EB%A7%9E%EC%B6%B0%EC%84%9C-%EC%B6%9C%EB%A0%A5%ED%95%98%EB%A9%B4-%EB%90%9C%EB%8B%A4." aria-hidden="true"><span class="octicon octicon-link"></span></a>N을 입력받은 뒤, 구구단 N단을 출력하는 프로그램을 작성하시오. 출력 형식에 맞춰서 출력하면 된다.<a class="anchor-link" href="#N%EC%9D%84-%EC%9E%85%EB%A0%A5%EB%B0%9B%EC%9D%80-%EB%92%A4,-%EA%B5%AC%EA%B5%AC%EB%8B%A8-N%EB%8B%A8%EC%9D%84-%EC%B6%9C%EB%A0%A5%ED%95%98%EB%8A%94-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8%EC%9D%84-%EC%9E%91%EC%84%B1%ED%95%98%EC%8B%9C%EC%98%A4.-%EC%B6%9C%EB%A0%A5-%ED%98%95%EC%8B%9D%EC%97%90-%EB%A7%9E%EC%B6%B0%EC%84%9C-%EC%B6%9C%EB%A0%A5%ED%95%98%EB%A9%B4-%EB%90%9C%EB%8B%A4."> </a>
+</h3>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">'</span><span class="si">%s</span><span class="s1"> * </span><span class="si">%s</span><span class="s1"> = </span><span class="si">%s</span><span class="s1">'</span> <span class="o">%</span> <span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">n</span><span class="o">*</span><span class="n">i</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+</div>
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>4 * 1 = 4
+4 * 2 = 8
+4 * 3 = 12
+4 * 4 = 16
+4 * 5 = 20
+4 * 6 = 24
+4 * 7 = 28
+4 * 8 = 32
+4 * 9 = 36
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="두-정수-A와-B를-입력받은-다음,-A+B를-출력하는-프로그램을-작성하시오.">
+<a class="anchor" href="#%EB%91%90-%EC%A0%95%EC%88%98-A%EC%99%80-B%EB%A5%BC-%EC%9E%85%EB%A0%A5%EB%B0%9B%EC%9D%80-%EB%8B%A4%EC%9D%8C,-A+B%EB%A5%BC-%EC%B6%9C%EB%A0%A5%ED%95%98%EB%8A%94-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8%EC%9D%84-%EC%9E%91%EC%84%B1%ED%95%98%EC%8B%9C%EC%98%A4." aria-hidden="true"><span class="octicon octicon-link"></span></a>두 정수 A와 B를 입력받은 다음, A+B를 출력하는 프로그램을 작성하시오.<a class="anchor-link" href="#%EB%91%90-%EC%A0%95%EC%88%98-A%EC%99%80-B%EB%A5%BC-%EC%9E%85%EB%A0%A5%EB%B0%9B%EC%9D%80-%EB%8B%A4%EC%9D%8C,-A+B%EB%A5%BC-%EC%B6%9C%EB%A0%A5%ED%95%98%EB%8A%94-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8%EC%9D%84-%EC%9E%91%EC%84%B1%ED%95%98%EC%8B%9C%EC%98%A4."> </a>
+</h3>
+<ul>
+<li>첫째 줄에 테스트 케이스의 개수 T가 주어진다.</li>
+<li>각 테스트 케이스마다 A+B를 출력한다.</li>
+</ul>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">T</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">T</span><span class="p">):</span>
+    <span class="n">A</span><span class="p">,</span> <span class="n">B</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="o">+</span><span class="n">B</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+</div>
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>6
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+
+</div>
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>10
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+
+</div>
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>75
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="n이-주어졌을-때,-1부터-n까지-합을-구하는-프로그램을-작성하시오.">
+<a class="anchor" href="#n%EC%9D%B4-%EC%A3%BC%EC%96%B4%EC%A1%8C%EC%9D%84-%EB%95%8C,-1%EB%B6%80%ED%84%B0-n%EA%B9%8C%EC%A7%80-%ED%95%A9%EC%9D%84-%EA%B5%AC%ED%95%98%EB%8A%94-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8%EC%9D%84-%EC%9E%91%EC%84%B1%ED%95%98%EC%8B%9C%EC%98%A4." aria-hidden="true"><span class="octicon octicon-link"></span></a>n이 주어졌을 때, 1부터 n까지 합을 구하는 프로그램을 작성하시오.<a class="anchor-link" href="#n%EC%9D%B4-%EC%A3%BC%EC%96%B4%EC%A1%8C%EC%9D%84-%EB%95%8C,-1%EB%B6%80%ED%84%B0-n%EA%B9%8C%EC%A7%80-%ED%95%A9%EC%9D%84-%EA%B5%AC%ED%95%98%EB%8A%94-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8%EC%9D%84-%EC%9E%91%EC%84%B1%ED%95%98%EC%8B%9C%EC%98%A4."> </a>
+</h3>
+<ul>
+<li>반복문 있는 버전</li>
+</ul>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+<span class="nb">sum</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+    <span class="nb">sum</span> <span class="o">+=</span> <span class="n">i</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">sum</span><span class="p">)</span>    
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+</div>
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>55
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>반복문 없는 버전</li>
+</ul>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">n</span> <span class="o">*</span> <span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+</div>
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>55
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="sys.stdin.readline()">
+<a class="anchor" href="#sys.stdin.readline()" aria-hidden="true"><span class="octicon octicon-link"></span></a><code>sys.stdin.readline()</code><a class="anchor-link" href="#sys.stdin.readline()"> </a>
+</h3>
+<ul>
+<li>본격적으로 for문 문제를 풀기 전에 주의해야 할 점이 있다. </li>
+<li>입출력 방식이 느리면 여러 줄을 입력받거나 출력할 때 시간초과가 날 수 있다는 점이다.</li>
+<li>Python을 사용하고 있다면 input() 대신 sys.stdin.readline()을 사용할 수 있다. </li>
+<li>단, 이때는 맨 끝의 개행문자까지 같이 입력받기 때문에 문자열을 저장하고 싶을 경우 .rstrip()을 추가로 해 주는 것이 좋다.</li>
+</ul>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+<span class="n">T</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">T</span><span class="p">):</span>
+    <span class="n">A</span><span class="p">,</span> <span class="n">B</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="n">sys</span><span class="o">.</span><span class="n">stdin</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="o">+</span><span class="n">B</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+</div>
+
+<div class="output_area">
+
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansi-red-intense-fg ansi-bold">---------------------------------------------------------------------------</span>
+<span class="ansi-red-intense-fg ansi-bold">ValueError</span>                                Traceback (most recent call last)
+<span class="ansi-green-intense-fg ansi-bold">&lt;ipython-input-38-173fe188e1c6&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">      2</span> T <span class="ansi-yellow-intense-fg ansi-bold">=</span> int<span class="ansi-yellow-intense-fg ansi-bold">(</span>input<span class="ansi-yellow-intense-fg ansi-bold">(</span><span class="ansi-yellow-intense-fg ansi-bold">)</span><span class="ansi-yellow-intense-fg ansi-bold">)</span>
+<span class="ansi-green-fg">      3</span> <span class="ansi-green-intense-fg ansi-bold">for</span> i <span class="ansi-green-intense-fg ansi-bold">in</span> range<span class="ansi-yellow-intense-fg ansi-bold">(</span>T<span class="ansi-yellow-intense-fg ansi-bold">)</span><span class="ansi-yellow-intense-fg ansi-bold">:</span>
+<span class="ansi-green-intense-fg ansi-bold">----&gt; 4</span><span class="ansi-yellow-intense-fg ansi-bold">     </span>A<span class="ansi-yellow-intense-fg ansi-bold">,</span> B <span class="ansi-yellow-intense-fg ansi-bold">=</span> map<span class="ansi-yellow-intense-fg ansi-bold">(</span>int<span class="ansi-yellow-intense-fg ansi-bold">,</span> sys<span class="ansi-yellow-intense-fg ansi-bold">.</span>stdin<span class="ansi-yellow-intense-fg ansi-bold">.</span>readline<span class="ansi-yellow-intense-fg ansi-bold">(</span><span class="ansi-yellow-intense-fg ansi-bold">)</span><span class="ansi-yellow-intense-fg ansi-bold">.</span>split<span class="ansi-yellow-intense-fg ansi-bold">(</span><span class="ansi-yellow-intense-fg ansi-bold">)</span><span class="ansi-yellow-intense-fg ansi-bold">)</span>
+<span class="ansi-green-fg">      5</span>     print<span class="ansi-yellow-intense-fg ansi-bold">(</span>A<span class="ansi-yellow-intense-fg ansi-bold">+</span>B<span class="ansi-yellow-intense-fg ansi-bold">)</span>
+
+<span class="ansi-red-intense-fg ansi-bold">ValueError</span>: not enough values to unpack (expected 2, got 0)</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>error 왜 뜨지?</li>
+</ul>
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+  </div><!-- from https://github.com/utterance/utterances -->
+<script src="https://utteranc.es/client.js"
+        repo="gkswotn12345/green"
+        issue-term="title"
+        label="blogpost-comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script><a class="u-url" href="/green/python/2021/06/23/%EB%B0%B1%EC%A4%80.html" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/green/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/green/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/green/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>An easy to use blogging platform with support for Jupyter Notebooks.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/gkswotn12345" title="gkswotn12345"><svg class="svg-icon grey"><use xlink:href="/green/assets/minima-social-icons.svg#github"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
