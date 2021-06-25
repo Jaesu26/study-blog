@@ -96,7 +96,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      5 min read
+      7 min read
     
 </span></p>
 
@@ -177,6 +177,15 @@ window.onload = wrap_img;
 <ul>
 <li class="toc-entry toc-h3"><a href="#N개의-합">N개의 합 </a></li>
 <li class="toc-entry toc-h3"><a href="#셀프-넘버">셀프 넘버 </a></li>
+<li class="toc-entry toc-h3"><a href="#한수">한수 </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#재귀함수(중요함-아마도-그리고-헷갈림)">재귀함수(중요함 아마도 그리고 헷갈림) </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#팩토리얼">팩토리얼 </a></li>
+<li class="toc-entry toc-h3"><a href="#피보나치-수열">피보나치 수열 </a></li>
+<li class="toc-entry toc-h3"><a href="#별-찍기">별 찍기 </a></li>
+<li class="toc-entry toc-h3"><a href="#print('문자열')">print(&#39;문자열&#39;) </a></li>
 </ul>
 </li>
 </ul><!--
@@ -1554,6 +1563,307 @@ window.onload = wrap_img;
     <span class="nb">print</span><span class="p">(</span><span class="n">z</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
     
 <span class="c1"># 출력이 너무 길어서 출력은 생략</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="한수">
+<a class="anchor" href="#%ED%95%9C%EC%88%98" aria-hidden="true"><span class="octicon octicon-link"></span></a>한수<a class="anchor-link" href="#%ED%95%9C%EC%88%98"> </a>
+</h3>
+<ul>
+<li>어떤 양의 정수 X의 각 자리가 등차수열을 이룬다면, 그 수를 한수라고 한다. </li>
+<li>등차수열은 연속된 두 개의 수의 차이가 일정한 수열을 말한다.</li>
+<li>N이 주어졌을 때, 1보다 크거나 같고, N보다 작거나 같은 한수의 개수를 출력하는 프로그램을 작성하시오. </li>
+</ul>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+<span class="k">def</span> <span class="nf">solve</span><span class="p">(</span><span class="n">a</span><span class="p">):</span>  
+    <span class="k">if</span> <span class="n">a</span> <span class="o">&lt;</span> <span class="mi">100</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">n</span> <span class="o">=</span> <span class="mi">99</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="n">a</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+            <span class="k">if</span> <span class="nb">int</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)[</span><span class="mi">1</span><span class="p">])</span> <span class="o">-</span> <span class="nb">int</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span> <span class="o">==</span> <span class="nb">int</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)[</span><span class="mi">2</span><span class="p">])</span> <span class="o">-</span> <span class="nb">int</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)[</span><span class="mi">1</span><span class="p">]):</span>
+                <span class="n">n</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> 
+<span class="n">solve</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+</div>
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>129
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="재귀함수(중요함-아마도-그리고-헷갈림)">
+<a class="anchor" href="#%EC%9E%AC%EA%B7%80%ED%95%A8%EC%88%98(%EC%A4%91%EC%9A%94%ED%95%A8-%EC%95%84%EB%A7%88%EB%8F%84-%EA%B7%B8%EB%A6%AC%EA%B3%A0-%ED%97%B7%EA%B0%88%EB%A6%BC)" aria-hidden="true"><span class="octicon octicon-link"></span></a>재귀함수(중요함 아마도 그리고 헷갈림)<a class="anchor-link" href="#%EC%9E%AC%EA%B7%80%ED%95%A8%EC%88%98(%EC%A4%91%EC%9A%94%ED%95%A8-%EC%95%84%EB%A7%88%EB%8F%84-%EA%B7%B8%EB%A6%AC%EA%B3%A0-%ED%97%B7%EA%B0%88%EB%A6%BC)"> </a>
+</h2>
+<ul>
+<li>재귀함수를 구상해보자.</li>
+<li>재귀함수는 관계가 중요하다.</li>
+<li>팩토리얼에서는 $fact(x)= x * fact(x)$ 관계가 성립한다.</li>
+<li>$fact(0), fact(1)$ 은 1이다.</li>
+<li>x가 0 또는 1일 때는 return을 1로 설정하고 나머지의 경우에는  $fact(x)= x * fact(x)$ 을 return한다면 재귀함수가 된다.</li>
+<li>즉, 기본값 [$fact(0 or 1)=1$] 을 알고 관계식 [$fact(x)= x * fact(x)$] 을 안다면 재귀함수로 구현할 수 있다.</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="팩토리얼">
+<a class="anchor" href="#%ED%8C%A9%ED%86%A0%EB%A6%AC%EC%96%BC" aria-hidden="true"><span class="octicon octicon-link"></span></a>팩토리얼<a class="anchor-link" href="#%ED%8C%A9%ED%86%A0%EB%A6%AC%EC%96%BC"> </a>
+</h3>
+<ul>
+<li>0보다 크거나 같은 정수 N이 주어진다. </li>
+<li>이때, 재귀함수를 이용하여 N!을 출력하는 프로그램을 작성하시오.</li>
+</ul>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+<span class="k">def</span> <span class="nf">fact</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">1</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">x</span><span class="o">*</span><span class="n">fact</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">fact</span><span class="p">(</span><span class="n">N</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="피보나치-수열">
+<a class="anchor" href="#%ED%94%BC%EB%B3%B4%EB%82%98%EC%B9%98-%EC%88%98%EC%97%B4" aria-hidden="true"><span class="octicon octicon-link"></span></a>피보나치 수열<a class="anchor-link" href="#%ED%94%BC%EB%B3%B4%EB%82%98%EC%B9%98-%EC%88%98%EC%97%B4"> </a>
+</h3>
+<ul>
+<li>n이 주어졌을 때, n번째 피보나치 수를 구하는 프로그램을 작성하시오.</li>
+<li>0번째 피보나치 수는 0이고, 1번째 피보나치 수는 1이다. </li>
+<li>그 다음 2번째 부터는 바로 앞 두 피보나치 수의 합이 된다.</li>
+</ul>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+<span class="k">def</span> <span class="nf">fibo</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">0</span>
+    <span class="k">elif</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">1</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">fibo</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">fibo</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">fibo</span><span class="p">(</span><span class="n">N</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+</div>
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>55
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="별-찍기">
+<a class="anchor" href="#%EB%B3%84-%EC%B0%8D%EA%B8%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>별 찍기<a class="anchor-link" href="#%EB%B3%84-%EC%B0%8D%EA%B8%B0"> </a>
+</h3>
+<ul>
+<li>N이 3의 거듭제곱(3, 9, 27, ...)이라고 할 때, 크기 N의 패턴은 N×N 정사각형 모양이다.</li>
+<li>크기 3의 패턴은 가운데에 공백이 있고, 가운데를 제외한 모든 칸에 별이 하나씩 있는 패턴이다.</li>
+<li>N이 3보다 클 경우, 크기 N의 패턴은 공백으로 채워진 가운데의 (N/3)×(N/3) 정사각형을 크기 N/3의 패턴으로 둘러싼 형태이다. </li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="print('문자열')">
+<a class="anchor" href="#print('%EB%AC%B8%EC%9E%90%EC%97%B4')" aria-hidden="true"><span class="octicon octicon-link"></span></a>print('문자열')<a class="anchor-link" href="#print('%EB%AC%B8%EC%9E%90%EC%97%B4')"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>$\star$ 과 $\star$ 사이에 빈칸이 있다. 이유는 <code>,</code>(콤마) 때문이다. </li>
+</ul>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">'*'</span><span class="p">,</span> <span class="s1">'*'</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="s2">""</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>* *</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>
+<code>,</code>(콤마)를 없애면 $\star$ 과 $\star$ 사이에 빈칸이 없다.</li>
+</ul>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">'*'</span> <span class="s1">'*'</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="s2">""</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>**</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">star</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+        <span class="k">return</span> <span class="nb">print</span><span class="p">(</span><span class="s1">'***</span><span class="se">\n</span><span class="s1">* *</span><span class="se">\n</span><span class="s1">***'</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="s2">""</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">star</span><span class="p">(</span><span class="n">x</span><span class="o">/</span><span class="mi">3</span><span class="p">)</span><span class="o">*</span><span class="mi">3</span>
 </pre></div>
 
     </div>
