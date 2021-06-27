@@ -96,7 +96,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      10 min read
+      11 min read
     
 </span></p>
 
@@ -189,9 +189,11 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h3"><a href="#하노이-탑-이동-순서">하노이 탑 이동 순서 </a></li>
 </ul>
 </li>
-<li class="toc-entry toc-h2"><a href="#브루트-포스">브루트 포스 </a>
+<li class="toc-entry toc-h2"><a href="#브루트-포스(brute-force)">브루트 포스(brute force) </a>
 <ul>
 <li class="toc-entry toc-h3"><a href="#블랙잭">블랙잭 </a></li>
+<li class="toc-entry toc-h3"><a href="#분해합">분해합 </a></li>
+<li class="toc-entry toc-h3"><a href="#임의의-숫자의-(각-자릿수-+-자기-자신)">임의의 숫자의 (각 자릿수 + 자기 자신) </a></li>
 </ul>
 </li>
 <li class="toc-entry toc-h2"><a href="#소수">소수 </a>
@@ -1962,9 +1964,11 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="브루트-포스">
-<a class="anchor" href="#%EB%B8%8C%EB%A3%A8%ED%8A%B8-%ED%8F%AC%EC%8A%A4" aria-hidden="true"><span class="octicon octicon-link"></span></a>브루트 포스<a class="anchor-link" href="#%EB%B8%8C%EB%A3%A8%ED%8A%B8-%ED%8F%AC%EC%8A%A4"> </a>
+<h2 id="브루트-포스(brute-force)">
+<a class="anchor" href="#%EB%B8%8C%EB%A3%A8%ED%8A%B8-%ED%8F%AC%EC%8A%A4(brute-force)" aria-hidden="true"><span class="octicon octicon-link"></span></a>브루트 포스(brute force)<a class="anchor-link" href="#%EB%B8%8C%EB%A3%A8%ED%8A%B8-%ED%8F%AC%EC%8A%A4(brute-force)"> </a>
 </h2>
+<p><code>-</code> 완전탐색 알고리즘으로 가능한 모든 경우의 수를 탐색한다. --&gt; 100%확률로 정답 출력</p>
+
 </div>
 </div>
 </div>
@@ -2023,6 +2027,116 @@ window.onload = wrap_img;
 <pre>21
 </pre>
 </div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="분해합">
+<a class="anchor" href="#%EB%B6%84%ED%95%B4%ED%95%A9" aria-hidden="true"><span class="octicon octicon-link"></span></a>분해합<a class="anchor-link" href="#%EB%B6%84%ED%95%B4%ED%95%A9"> </a>
+</h3>
+<ul>
+<li>어떤 자연수 N이 있을 때, 그 자연수 N의 분해합은 N과 N을 이루는 각 자리수의 합을 의미한다. </li>
+<li>어떤 자연수 M의 분해합이 N인 경우, M을 N의 생성자라 한다. </li>
+<li>예를 들어, 245의 분해합은 256(=245+2+4+5)이 된다. </li>
+<li>따라서 245는 256의 생성자가 된다. 물론, 어떤 자연수의 경우에는 생성자가 없을 수도 있다. </li>
+<li>반대로, 생성자가 여러 개인 자연수도 있을 수 있다.</li>
+<li>자연수 N이 주어졌을 때, N의 가장 작은 생성자를 구해내는 프로그램을 작성하시오.</li>
+</ul>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+<span class="k">def</span> <span class="nf">solve</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="nb">list</span><span class="o">=</span><span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">x</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+        <span class="n">generator</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="nb">sum</span><span class="p">([</span><span class="nb">int</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)[</span><span class="n">j</span><span class="p">])</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)))])</span>
+        <span class="k">if</span> <span class="n">generator</span> <span class="o">==</span> <span class="n">x</span><span class="p">:</span>
+            <span class="nb">list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+            
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="nb">list</span><span class="p">))</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">0</span>
+    
+<span class="nb">print</span><span class="p">(</span><span class="n">solve</span><span class="p">(</span><span class="n">N</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+</div>
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>198
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="임의의-숫자의-(각-자릿수-+-자기-자신)">
+<a class="anchor" href="#%EC%9E%84%EC%9D%98%EC%9D%98-%EC%88%AB%EC%9E%90%EC%9D%98-(%EA%B0%81-%EC%9E%90%EB%A6%BF%EC%88%98-+-%EC%9E%90%EA%B8%B0-%EC%9E%90%EC%8B%A0)" aria-hidden="true"><span class="octicon octicon-link"></span></a>임의의 숫자의 (각 자릿수 + 자기 자신)<a class="anchor-link" href="#%EC%9E%84%EC%9D%98%EC%9D%98-%EC%88%AB%EC%9E%90%EC%9D%98-(%EA%B0%81-%EC%9E%90%EB%A6%BF%EC%88%98-+-%EC%9E%90%EA%B8%B0-%EC%9E%90%EC%8B%A0)"> </a>
+</h3>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">x</span><span class="o">=</span><span class="mi">12345</span>
+<span class="nb">sum</span><span class="p">([</span><span class="nb">int</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="p">)[</span><span class="n">i</span><span class="p">])</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="p">)))])</span><span class="o">+</span><span class="n">x</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>12360</pre>
+</div>
+
 </div>
 
 </div>
