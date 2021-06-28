@@ -96,7 +96,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      11 min read
+      12 min read
     
 </span></p>
 
@@ -204,6 +204,14 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h4"><a href="#소수판정-의문점">소수판정 의문점 </a></li>
 </ul>
 </li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#파이썬-코드-실행-시간-측정">파이썬 코드 실행 시간 측정 </a></li>
+<li class="toc-entry toc-h2"><a href="#기본-수학1-(시간-초과-주의)">기본 수학1 (시간 초과 주의) </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#달팽이는-올라가고-싶다.">달팽이는 올라가고 싶다. </a></li>
+<li class="toc-entry toc-h3"><a href="#손익분기점">손익분기점 </a></li>
+<li class="toc-entry toc-h3"><a href="#Fly-me-to-the-Alpha-Centauri">Fly me to the Alpha Centauri </a></li>
 </ul>
 </li>
 </ul><!--
@@ -2119,7 +2127,7 @@ window.onload = wrap_img;
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">x</span><span class="o">=</span><span class="mi">12345</span>
-<span class="nb">sum</span><span class="p">([</span><span class="nb">int</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="p">)[</span><span class="n">i</span><span class="p">])</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="p">)))])</span><span class="o">+</span><span class="n">x</span>
+<span class="nb">sum</span><span class="p">([</span><span class="nb">int</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="p">)[</span><span class="n">i</span><span class="p">])</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="p">)))])</span><span class="o">+</span><span class="n">x</span>   <span class="c1">### 리스트 컴프리헨션</span>
 </pre></div>
 
     </div>
@@ -2251,6 +2259,14 @@ window.onload = wrap_img;
 </div>
 </div>
 </div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 아파트 임대 --&gt; 시간 초과 코드</p>
+
+</div>
+</div>
+</div>
     
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -2259,7 +2275,7 @@ window.onload = wrap_img;
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
-<span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">sqrt</span>
+<span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">sqrt</span> 
 
 <span class="k">def</span> <span class="nf">Is_prime_number</span><span class="p">(</span><span class="n">a</span><span class="p">):</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">sqrt</span><span class="p">(</span><span class="n">a</span><span class="p">))</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
@@ -2347,6 +2363,280 @@ window.onload = wrap_img;
 </pre></div>
 <p><code>-</code> 위에 코드는 문제가 있다. x에 2나 3을 넣으면 return이 없다.</p>
 
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="파이썬-코드-실행-시간-측정">
+<a class="anchor" href="#%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EC%BD%94%EB%93%9C-%EC%8B%A4%ED%96%89-%EC%8B%9C%EA%B0%84-%EC%B8%A1%EC%A0%95" aria-hidden="true"><span class="octicon octicon-link"></span></a>파이썬 코드 실행 시간 측정<a class="anchor-link" href="#%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EC%BD%94%EB%93%9C-%EC%8B%A4%ED%96%89-%EC%8B%9C%EA%B0%84-%EC%B8%A1%EC%A0%95"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">time</span>
+
+<span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="c1">## 시작 시간 저장</span>
+
+<span class="c1">## -----작업 코드-----</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">"time :"</span><span class="p">,</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">start</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="기본-수학1-(시간-초과-주의)">
+<a class="anchor" href="#%EA%B8%B0%EB%B3%B8-%EC%88%98%ED%95%991-(%EC%8B%9C%EA%B0%84-%EC%B4%88%EA%B3%BC-%EC%A3%BC%EC%9D%98)" aria-hidden="true"><span class="octicon octicon-link"></span></a>기본 수학1 (시간 초과 주의)<a class="anchor-link" href="#%EA%B8%B0%EB%B3%B8-%EC%88%98%ED%95%991-(%EC%8B%9C%EA%B0%84-%EC%B4%88%EA%B3%BC-%EC%A3%BC%EC%9D%98)"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="달팽이는-올라가고-싶다.">
+<a class="anchor" href="#%EB%8B%AC%ED%8C%BD%EC%9D%B4%EB%8A%94-%EC%98%AC%EB%9D%BC%EA%B0%80%EA%B3%A0-%EC%8B%B6%EB%8B%A4." aria-hidden="true"><span class="octicon octicon-link"></span></a>달팽이는 올라가고 싶다.<a class="anchor-link" href="#%EB%8B%AC%ED%8C%BD%EC%9D%B4%EB%8A%94-%EC%98%AC%EB%9D%BC%EA%B0%80%EA%B3%A0-%EC%8B%B6%EB%8B%A4."> </a>
+</h3>
+<ul>
+<li>
+<p>땅 위에 달팽이가 있다. 이 달팽이는 높이가 V미터인 나무 막대를 올라갈 것이다.</p>
+</li>
+<li>
+<p>달팽이는 낮에 A미터 올라갈 수 있다. 하지만, 밤에 잠을 자는 동안 B미터 미끄러진다. 또, 정상에 올라간 후에는 미끄러지지 않는다.</p>
+</li>
+<li>
+<p>달팽이가 나무 막대를 모두 올라가려면, 며칠이 걸리는지 구하는 프로그램을 작성하시오.</p>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 달팽이는 올라가고 싶다 --&gt; 시간 초과 코드(while 반복문 사용)</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">V</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span><span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>  <span class="c1">### 시간 초과</span>
+
+<span class="n">day</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">h</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="k">while</span> <span class="mi">1</span><span class="p">:</span>
+    <span class="n">h</span> <span class="o">+=</span> <span class="n">A</span>
+    
+    <span class="k">if</span> <span class="n">h</span> <span class="o">&gt;=</span> <span class="n">V</span><span class="p">:</span>
+        <span class="k">break</span>   
+        
+    <span class="n">h</span> <span class="o">-=</span> <span class="n">B</span>
+    <span class="n">day</span> <span class="o">+=</span> <span class="mi">1</span> 
+    
+<span class="nb">print</span><span class="p">(</span><span class="n">day</span><span class="p">)</span>    
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+</div>
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>25
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 달팽이는 올라가고 싶다 --&gt; 시간 초과 해결한 코드(한 줄 수식)</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
+<span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">V</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span><span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>  <span class="c1">### 시간 초과 해결</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">ceil</span><span class="p">((</span><span class="n">V</span><span class="o">-</span><span class="n">A</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">A</span><span class="o">-</span><span class="n">B</span><span class="p">))</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+</div>
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>25
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="손익분기점">
+<a class="anchor" href="#%EC%86%90%EC%9D%B5%EB%B6%84%EA%B8%B0%EC%A0%90" aria-hidden="true"><span class="octicon octicon-link"></span></a>손익분기점<a class="anchor-link" href="#%EC%86%90%EC%9D%B5%EB%B6%84%EA%B8%B0%EC%A0%90"> </a>
+</h3>
+<ul>
+<li>A는 고정 비용, B는 가변 비용, C는 수익, k는 판매량</li>
+<li>$C*k &gt; A + B*k$ --&gt; $k &gt; \frac{A}{C-B}$</li>
+</ul>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+<span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">C</span><span class="o">-</span><span class="n">B</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">0.5</span><span class="p">:</span>   <span class="c1">### C == B 여부를 판단</span>
+    <span class="nb">print</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    
+<span class="k">elif</span> <span class="nb">int</span><span class="p">(</span><span class="n">A</span><span class="o">/</span><span class="p">(</span><span class="n">C</span><span class="o">-</span><span class="n">B</span><span class="p">))</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">A</span><span class="o">/</span><span class="p">(</span><span class="n">C</span><span class="o">-</span><span class="n">B</span><span class="p">))</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+</div>
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>-1
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 위에 코드보다 더 간결한 코드</p>
+<p><code>-</code> A에 관계없이 B &gt;= C이면 손익분기점이 없다.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+<span class="k">if</span> <span class="n">B</span> <span class="o">&gt;=</span> <span class="n">C</span><span class="p">:</span>   <span class="c1">### C == B 여부를 판단</span>
+    <span class="nb">print</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>   
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">A</span><span class="o">/</span><span class="p">(</span><span class="n">C</span><span class="o">-</span><span class="n">B</span><span class="p">))</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+</div>
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>11
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Fly-me-to-the-Alpha-Centauri">
+<a class="anchor" href="#Fly-me-to-the-Alpha-Centauri" aria-hidden="true"><span class="octicon octicon-link"></span></a>Fly me to the Alpha Centauri<a class="anchor-link" href="#Fly-me-to-the-Alpha-Centauri"> </a>
+</h3>
 </div>
 </div>
 </div>
