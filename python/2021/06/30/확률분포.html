@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>이산 확률 분포(작성 중) | Jaesu’s blog</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="이산 확률 분포(작성 중)" />
+<meta name="author" content="한재수" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="여러가지 이산 확률 분포" />
+<meta property="og:description" content="여러가지 이산 확률 분포" />
+<link rel="canonical" href="https://gkswotn12345.github.io/green/python/2021/06/30/%ED%99%95%EB%A5%A0%EB%B6%84%ED%8F%AC.html" />
+<meta property="og:url" content="https://gkswotn12345.github.io/green/python/2021/06/30/%ED%99%95%EB%A5%A0%EB%B6%84%ED%8F%AC.html" />
+<meta property="og:site_name" content="Jaesu’s blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-06-30T00:00:00-05:00" />
+<script type="application/ld+json">
+{"description":"여러가지 이산 확률 분포","url":"https://gkswotn12345.github.io/green/python/2021/06/30/%ED%99%95%EB%A5%A0%EB%B6%84%ED%8F%AC.html","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://gkswotn12345.github.io/green/python/2021/06/30/%ED%99%95%EB%A5%A0%EB%B6%84%ED%8F%AC.html"},"headline":"이산 확률 분포(작성 중)","dateModified":"2021-06-30T00:00:00-05:00","datePublished":"2021-06-30T00:00:00-05:00","author":{"@type":"Person","name":"한재수"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/green/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://gkswotn12345.github.io/green/feed.xml" title="Jaesu's blog" /><link rel="shortcut icon" type="image/x-icon" href="/green/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.css" integrity="sha512-h7nl+xz8wgDlNM4NqKEM4F1NkIRS17M9+uJwIGwuo8vGqIl4BhuCKdxjWEINm+xyrUjNCnK5dCrhM0sj+wTIXw==" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.js" integrity="sha512-/CMIhXiDA3m2c9kzRyd97MTb3MC6OVnx4TElQ7fkkoRghwDf6gi41gaT1PwF270W6+J60uTmwgeRpNpJdRV6sg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/contrib/auto-render.min.js" integrity="sha512-Do7uJAaHZm5OLrIv/yN4w0iG1dbu01kzdMNnFfu/mAqgUk6Nniv2JYHcwH+cNwjqgLcqcuBBk+JRvprLVI8azg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha512-0doc9hKxR3PYwso42RD1p5ySZpzzuDiOwMrdCEh2WdJZCjcmFKc/wEnL+z8fBQrnHoiNWbo+3fiGkOYXBdQp4A==" crossorigin="anonymous"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement( document.body, {
+        delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "[%", right: "%]", display: true},
+            {left: "$", right: "$", display: false}
+        ]}
+        );
+    });
+    </script>
+
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/green/">Jaesu&#39;s blog</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/green/about/">Study with me</a><a class="page-link" href="/green/search/">Search</a><a class="page-link" href="/green/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">이산 확률 분포(작성 중)</h1><p class="page-description">여러가지 이산 확률 분포</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2021-06-30T00:00:00-05:00" itemprop="datePublished">
+        Jun 30, 2021
+      </time>• 
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">한재수</span></span>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      1 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/green/categories/#python">python</a>
+        
+      
+      </p>
+    
+
+    
+      
+        <div class="pb-5 d-flex flex-wrap flex-justify-end">
+          <div class="px-2">
+
+    <a href="https://github.com/gkswotn12345/green/tree/master/_notebooks/2021-06-30-확률분포.ipynb" role="button" target="_blank">
+<img class="notebook-badge-image" src="/green/assets/badges/github.svg" alt="View On GitHub">
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://mybinder.org/v2/gh/gkswotn12345/green/master?filepath=_notebooks%2F2021-06-30-%ED%99%95%EB%A5%A0%EB%B6%84%ED%8F%AC.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/green/assets/badges/binder.svg" alt="Open In Binder"/>
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://colab.research.google.com/github/gkswotn12345/green/blob/master/_notebooks/2021-06-30-확률분포.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/green/assets/badges/colab.svg" alt="Open In Colab"/>
+    </a>
+</div>
+        </div>
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul class="section-nav">
+<li class="toc-entry toc-h2"><a href="#확률-분포란?">확률 분포란? </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#그렇다면-확률-변수란?">그렇다면 확률 변수란? </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#이산-확률-분포">이산 확률 분포 </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#베르누이-시행">베르누이 시행 </a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#베르누이-시행-조건">베르누이 시행 조건 </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h3"><a href="#이항-분포">이항 분포 </a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#이항-분포의-확률-질량-함수(PMF)">이항 분포의 확률 질량 함수(PMF) </a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul><!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2021-06-30-확률분포.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="확률-분포란?">
+<a class="anchor" href="#%ED%99%95%EB%A5%A0-%EB%B6%84%ED%8F%AC%EB%9E%80?" aria-hidden="true"><span class="octicon octicon-link"></span></a>확률 분포란?<a class="anchor-link" href="#%ED%99%95%EB%A5%A0-%EB%B6%84%ED%8F%AC%EB%9E%80?"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 확률 분포(probability distribution)는 확률 변수가 특정한 값을 가질 확률을 나타내는 함수를 의미한다. --&gt; 출처: <a href="https://ko.wikipedia.org/wiki/%ED%99%95%EB%A5%A0_%EB%B6%84%ED%8F%AC">https://ko.wikipedia.org/wiki/%ED%99%95%EB%A5%A0_%EB%B6%84%ED%8F%AC</a></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="그렇다면-확률-변수란?">
+<a class="anchor" href="#%EA%B7%B8%EB%A0%87%EB%8B%A4%EB%A9%B4-%ED%99%95%EB%A5%A0-%EB%B3%80%EC%88%98%EB%9E%80?" aria-hidden="true"><span class="octicon octicon-link"></span></a>그렇다면 확률 변수란?<a class="anchor-link" href="#%EA%B7%B8%EB%A0%87%EB%8B%A4%EB%A9%B4-%ED%99%95%EB%A5%A0-%EB%B3%80%EC%88%98%EB%9E%80?"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 확률변수(Random Variable)란 <code>무작위 실험</code>을 했을 때, <code>특정 확률</code>로 발생하는 각각의 결과를 <code>수치</code>로 표현한 변수</p>
+<p><code>-</code> <code>무작위 실험</code> --&gt; 동전 던지기</p>
+<p><code>-</code> <code>특정 확률</code> --&gt; 앞면이 나올 확률 $\frac{1}{2}$, 뒷면이 나올 확률 $\frac{1}{2}$</p>
+<p><code>-</code> <code>수치</code> --&gt; 앞면 = $1$, 뒷면 = $2$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="이산-확률-분포">
+<a class="anchor" href="#%EC%9D%B4%EC%82%B0-%ED%99%95%EB%A5%A0-%EB%B6%84%ED%8F%AC" aria-hidden="true"><span class="octicon octicon-link"></span></a>이산 확률 분포<a class="anchor-link" href="#%EC%9D%B4%EC%82%B0-%ED%99%95%EB%A5%A0-%EB%B6%84%ED%8F%AC"> </a>
+</h2>
+<ul>
+<li>이산 확률 변수가 가지는 확률 분포</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="베르누이-시행">
+<a class="anchor" href="#%EB%B2%A0%EB%A5%B4%EB%88%84%EC%9D%B4-%EC%8B%9C%ED%96%89" aria-hidden="true"><span class="octicon octicon-link"></span></a>베르누이 시행<a class="anchor-link" href="#%EB%B2%A0%EB%A5%B4%EB%88%84%EC%9D%B4-%EC%8B%9C%ED%96%89"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 임의의 결과가 <code>성공</code> 또는 <code>실패</code>와 같이 가능한 결과가 <code>2 가지</code></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="베르누이-시행-조건">
+<a class="anchor" href="#%EB%B2%A0%EB%A5%B4%EB%88%84%EC%9D%B4-%EC%8B%9C%ED%96%89-%EC%A1%B0%EA%B1%B4" aria-hidden="true"><span class="octicon octicon-link"></span></a>베르누이 시행 조건<a class="anchor-link" href="#%EB%B2%A0%EB%A5%B4%EB%88%84%EC%9D%B4-%EC%8B%9C%ED%96%89-%EC%A1%B0%EA%B1%B4"> </a>
+</h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 각 시행의 결과는 상호 배타적인 두 사건(성공 or 실패)으로 구분</p>
+<p><code>-</code> 성공 확률 p, 실패 확률 q일 때, $p+q=1$</p>
+<p><code>-</code> 각 시행은 독립적</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="이항-분포">
+<a class="anchor" href="#%EC%9D%B4%ED%95%AD-%EB%B6%84%ED%8F%AC" aria-hidden="true"><span class="octicon octicon-link"></span></a>이항 분포<a class="anchor-link" href="#%EC%9D%B4%ED%95%AD-%EB%B6%84%ED%8F%AC"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 성공 확률이 p인 베르누이 시행을 독립적으로 n번 반복했을 때 성공 횟수 X는 이항 분포를 따름</p>
+<p><code>-</code> 기호로는 $X\sim B(n,p)$</p>
+<p><code>-</code> 독립적 시행 --&gt; 각 시행은 서로 영향을 주지 않음</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="이항-분포의-확률-질량-함수(PMF)">
+<a class="anchor" href="#%EC%9D%B4%ED%95%AD-%EB%B6%84%ED%8F%AC%EC%9D%98-%ED%99%95%EB%A5%A0-%EC%A7%88%EB%9F%89-%ED%95%A8%EC%88%98(PMF)" aria-hidden="true"><span class="octicon octicon-link"></span></a>이항 분포의 확률 질량 함수(PMF)<a class="anchor-link" href="#%EC%9D%B4%ED%95%AD-%EB%B6%84%ED%8F%AC%EC%9D%98-%ED%99%95%EB%A5%A0-%EC%A7%88%EB%9F%89-%ED%95%A8%EC%88%98(PMF)"> </a>
+</h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>$f(x)\, =\, _{n}\rm C_{x}\,p^{x}\,p^{n-x}\,=\binom{n}{x}\,p^{k}\,p^{n-x}$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 성공 확률 $p$인 베르누이 시행을 $n$번 시행하여 그 중 $x$번을 성공할 확률 질량 함수</p>
+<p><code>-</code> 베르누이 분포는 이항 분포에서 $n=1$일 때이다.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">binomial</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">size</span><span class="p">)</span>
+</pre></div>
+<p><code>-</code> $n$은 표본 크기, $p$는 성공 확률, size는 반복 횟수</p>
+<div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">binomial</span><span class="p">(</span><span class="n">n</span> <span class="o">=</span> <span class="mi">50</span><span class="p">,</span> <span class="n">p</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">)</span>
+</pre></div>
+<p><code>-</code> 성공 확률이 <code>p = 0.5</code>인 베르누이 시행을 <code>n = 50</code>번 반복하는 것을 <code>size = 1000</code>번 반복한다.</p>
+<p><code>-</code> 동전 던지기($p=0.5$)를 $n$ = $50$번 시행하여 앞면이 나온 횟수($X=0,1,2,\dots,49,50$)를 $size = 1000$번 기록한다.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> <code>np.random.binomial(n = 10, p = 0.5, size = 100)</code>을 히스토그램으로 나타내면?</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">sample</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">binomial</span><span class="p">(</span><span class="n">n</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">p</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">sample</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,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%0A">
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+</div>
+
+
+
+  </div><!-- from https://github.com/utterance/utterances -->
+<script src="https://utteranc.es/client.js"
+        repo="gkswotn12345/green"
+        issue-term="title"
+        label="blogpost-comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script><a class="u-url" href="/green/python/2021/06/30/%ED%99%95%EB%A5%A0%EB%B6%84%ED%8F%AC.html" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/green/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/green/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/green/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>An easy to use blogging platform with support for Jupyter Notebooks.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/gkswotn12345" title="gkswotn12345"><svg class="svg-icon grey"><use xlink:href="/green/assets/minima-social-icons.svg#github"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
