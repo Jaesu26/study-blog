@@ -96,7 +96,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      15 min read
+      18 min read
     
 </span></p>
 
@@ -194,6 +194,7 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h3"><a href="#블랙잭">블랙잭 </a></li>
 <li class="toc-entry toc-h3"><a href="#분해합">분해합 </a></li>
 <li class="toc-entry toc-h3"><a href="#임의의-숫자의-(각-자릿수-+-자기-자신)">임의의 숫자의 (각 자릿수 + 자기 자신) </a></li>
+<li class="toc-entry toc-h3"><a href="#IQ-Test(밑에-상황-때문에-반례-찾아-봤음)-+-맞는-것-같은데-계속-틀림...,-그래서-다른-사람-코드-봤는데-왜-틀렸는지-모르겠음.">IQ Test(밑에 상황 때문에 반례 찾아 봤음) + 맞는 것 같은데 계속 틀림..., 그래서 다른 사람 코드 봤는데 왜 틀렸는지 모르겠음. </a></li>
 </ul>
 </li>
 <li class="toc-entry toc-h2"><a href="#소수">소수 </a>
@@ -2015,7 +2016,7 @@ window.onload = wrap_img;
                         <span class="n">card_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">card</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">+</span><span class="n">card</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">+</span><span class="n">card</span><span class="p">[</span><span class="n">k</span><span class="p">])</span>
     <span class="nb">print</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">card_list</span><span class="p">))</span>
 
-<span class="n">blackjack</span><span class="p">(</span><span class="n">card</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">M</span><span class="p">)</span>  <span class="c1">## 아쉬운점: for문3번사용</span>
+<span class="n">blackjack</span><span class="p">(</span><span class="n">card</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">M</span><span class="p">)</span>  <span class="c1">## 아쉬운점: for문3번사용 --&gt; O(n^3)</span>
 </pre></div>
 
     </div>
@@ -2146,6 +2147,306 @@ window.onload = wrap_img;
 <pre>12360</pre>
 </div>
 
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="IQ-Test(밑에-상황-때문에-반례-찾아-봤음)-+-맞는-것-같은데-계속-틀림...,-그래서-다른-사람-코드-봤는데-왜-틀렸는지-모르겠음.">
+<a class="anchor" href="#IQ-Test(%EB%B0%91%EC%97%90-%EC%83%81%ED%99%A9-%EB%95%8C%EB%AC%B8%EC%97%90-%EB%B0%98%EB%A1%80-%EC%B0%BE%EC%95%84-%EB%B4%A4%EC%9D%8C)-+-%EB%A7%9E%EB%8A%94-%EA%B2%83-%EA%B0%99%EC%9D%80%EB%8D%B0-%EA%B3%84%EC%86%8D-%ED%8B%80%EB%A6%BC...,-%EA%B7%B8%EB%9E%98%EC%84%9C-%EB%8B%A4%EB%A5%B8-%EC%82%AC%EB%9E%8C-%EC%BD%94%EB%93%9C-%EB%B4%A4%EB%8A%94%EB%8D%B0-%EC%99%9C-%ED%8B%80%EB%A0%B8%EB%8A%94%EC%A7%80-%EB%AA%A8%EB%A5%B4%EA%B2%A0%EC%9D%8C." aria-hidden="true"><span class="octicon octicon-link"></span></a>IQ Test(밑에 상황 때문에 반례 찾아 봤음) + 맞는 것 같은데 계속 틀림..., 그래서 다른 사람 코드 봤는데 왜 틀렸는지 모르겠음.<a class="anchor-link" href="#IQ-Test(%EB%B0%91%EC%97%90-%EC%83%81%ED%99%A9-%EB%95%8C%EB%AC%B8%EC%97%90-%EB%B0%98%EB%A1%80-%EC%B0%BE%EC%95%84-%EB%B4%A4%EC%9D%8C)-+-%EB%A7%9E%EB%8A%94-%EA%B2%83-%EA%B0%99%EC%9D%80%EB%8D%B0-%EA%B3%84%EC%86%8D-%ED%8B%80%EB%A6%BC...,-%EA%B7%B8%EB%9E%98%EC%84%9C-%EB%8B%A4%EB%A5%B8-%EC%82%AC%EB%9E%8C-%EC%BD%94%EB%93%9C-%EB%B4%A4%EB%8A%94%EB%8D%B0-%EC%99%9C-%ED%8B%80%EB%A0%B8%EB%8A%94%EC%A7%80-%EB%AA%A8%EB%A5%B4%EA%B2%A0%EC%9D%8C."> </a>
+</h3>
+<ul>
+<li>
+<p>IQ Test의 문제 중에는 공통된 패턴을 찾는 문제가 있다. 수열이 주어졌을 때 다음 수를 찾는 문제이다.</p>
+</li>
+<li>
+<p>예를 들어 1, 2, 3, 4, 5가 주어졌다. 다음 수는 무엇인가? 당연히 답은 6이다.</p>
+</li>
+<li>
+<p>약간 더 어려운 문제를 보면 3, 6, 12, 24, 48이 주어졌을 때 다음 수는 무엇인가? 역시 답은 96이다.</p>
+</li>
+<li>
+<p>이제 제일 어려운 문제를 보자.</p>
+</li>
+<li>
+<p>1, 4, 13, 40이 주어졌을 때 다음 수는 무엇일까? 답은 121이다.</p>
+</li>
+<li>
+<p>그 이유는 항상 다음 수는 앞 수 * 3 + 1이기 때문이다.</p>
+</li>
+<li>
+<p>은진이는 위의 3문제를 모두 풀지 못했으므로 자동으로 풀어주는 프로그램을 작성하기로 했다.</p>
+</li>
+<li>
+<p>항상 모든 답은 구하는 규칙은 앞 수 * a + b이다. 그리고 a와 b는 정수이다.</p>
+</li>
+<li>
+<p>수 N개가 주어졌을 때 규칙에 맞는 다음 수를 구하는 프로그램을 작성하시오.</p>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> N은 2여도 1, 1 과 같이 답이 있을 수 있다.</p>
+<p><code>-</code> 일반적으로 N = 2이면 다음 수는 여러개이다,</p>
+<p><code>-</code> $1, 2$ --&gt; 다음 수 $3(a=0, b=1)$ or $-8(a=-10, b=12)$ 등등</p>
+<p><code>-</code> a, b 둘다 0일 수 도 있음</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 스파게티 코드 + 틀렸습니다</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div class="highlight"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+
+<span class="n">N_list</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">()))</span>
+
+<span class="k">def</span> <span class="nf">sequence_rule</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span> <span class="ow">and</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">!=</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span>
+        <span class="k">return</span> <span class="s1">'A'</span>
+    <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span> <span class="ow">and</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span>
+        <span class="k">return</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s1">'A'</span>
+
+    <span class="k">if</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="p">:</span>
+        <span class="n">a</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">elif</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>  <span class="ow">and</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">!=</span> <span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">]:</span>
+        <span class="k">return</span> <span class="s1">'B'</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">a</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">-</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">/</span> <span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+    <span class="n">b</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">a</span> <span class="o">*</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">a</span> <span class="o">*</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">b</span> <span class="o">!=</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]:</span>
+            <span class="k">return</span> <span class="s1">'B'</span>
+        <span class="k">elif</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>  <span class="c1">## 이 부분이 문제였다. x[i+1] == 0이면 그 뒤는 확인 안하고 return 0 실행</span>
+            <span class="k">return</span> <span class="mi">0</span>
+
+    <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">a</span> <span class="o">*</span> <span class="n">x</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">sequence_rule</span><span class="p">(</span><span class="n">N_list</span><span class="p">))</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 위에 있는 코드를 정리하자</p>
+<p><code>-</code> 틀렸습니다</p>
+<p><code>-</code> <code>exit(0)</code> --&gt; python 프로그램 종료</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+
+<span class="n">N_list</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">()))</span>
+
+<span class="k">def</span> <span class="nf">sequence_rule2</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">A</span>
+        
+    <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span> <span class="ow">and</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span>
+        <span class="k">return</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    
+    <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span> <span class="ow">and</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">!=</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span>
+        <span class="k">return</span> <span class="s1">'A'</span>
+    
+    <span class="k">elif</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span>  <span class="c1">## a=1, b=0 or a=0, b=x[0]</span>
+        <span class="n">a</span> <span class="o">=</span> <span class="mi">0</span>
+    
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">a</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span> <span class="o">/</span> <span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+        
+    <span class="n">b</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">a</span>
+    
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">a</span> <span class="o">*</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">b</span> <span class="o">!=</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]:</span>
+            <span class="k">return</span> <span class="s1">'B'</span>
+         
+    <span class="k">return</span> <span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">a</span> <span class="o">*</span> <span class="n">x</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">b</span><span class="p">))</span>
+    
+<span class="nb">print</span><span class="p">(</span><span class="n">sequence_rule2</span><span class="p">(</span><span class="n">N_list</span><span class="p">))</span>
+         
+
+        
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+</div>
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>121
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> <code>continue</code> --&gt; 아래 코드를 실행하지 않고 건너뜀</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>       <span class="c1"># 0부터 99까지 증가하면서 100번 반복</span>
+    <span class="k">if</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>         <span class="c1"># i를 2로 나누었을 때 나머지가 0면 짝수</span>
+        <span class="k">continue</span>           <span class="c1"># 아래 코드를 실행하지 않고 건너뜀</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>1
+3
+5
+7
+9
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 맞았습니다(3시간 걸림 힘들다)</p>
+<p><code>-</code> 위의 코드와 밑의 코드는 무슨 차이일까...</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">()))</span>
+
+
+<span class="k">if</span> <span class="n">N</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">'A'</span><span class="p">)</span>
+    
+<span class="k">elif</span> <span class="n">N</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">'A'</span><span class="p">)</span>
+        
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span>  <span class="c1">## a=1, b=0 or a=0, b=x[0]</span>
+        <span class="n">a</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">b</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">a</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">-</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">//</span> <span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="n">b</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">a</span>
+    
+    <span class="n">result</span> <span class="o">=</span> <span class="kc">True</span>
+    
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span> <span class="o">==</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]:</span>
+            <span class="k">continue</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="k">if</span> <span class="n">result</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">*</span> <span class="n">x</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">'B'</span><span class="p">)</span>
+         
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+</div>
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>121
+</pre>
+</div>
 </div>
 
 </div>
@@ -2345,7 +2646,7 @@ window.onload = wrap_img;
             <span class="k">return</span> <span class="kc">False</span> <span class="c1"># 소수가 아님</span>
     <span class="k">return</span> <span class="kc">True</span> <span class="c1"># 소수임</span>
 </pre></div>
-<p><code>-</code> 위에 코드는 문제가 없다. x에 2나 3을 넣어도 잘 작동함.</p>
+<p><code>-</code> 위에 코드는 문제가 없다.$\,$ x에 2나 3을 넣어도 잘 작동함.</p>
 
 </div>
 </div>
@@ -2363,6 +2664,7 @@ window.onload = wrap_img;
             <span class="k">return</span> <span class="kc">True</span> <span class="c1"># 소수임</span>
 </pre></div>
 <p><code>-</code> 위에 코드는 문제가 있다. x에 2나 3을 넣으면 return이 없다.</p>
+<p><code>-</code> 아마 2나 3을 넣으면 <code>range(2,1)</code> 이 돼서 그럴 것이다.</p>
 
 </div>
 </div>
