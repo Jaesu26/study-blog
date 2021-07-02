@@ -96,7 +96,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      19 min read
+      21 min read
     
 </span></p>
 
@@ -195,6 +195,8 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h3"><a href="#분해합">분해합 </a></li>
 <li class="toc-entry toc-h3"><a href="#임의의-숫자의-(각-자릿수-+-자기-자신)">임의의 숫자의 (각 자릿수 + 자기 자신) </a></li>
 <li class="toc-entry toc-h3"><a href="#IQ-Test(밑에-상황-때문에-반례-찾아-봤음)-+-맞는-것-같은데-계속-틀림...,-그래서-다른-사람-코드-봤는데-왜-틀렸는지-모르겠음.">IQ Test(밑에 상황 때문에 반례 찾아 봤음) + 맞는 것 같은데 계속 틀림..., 그래서 다른 사람 코드 봤는데 왜 틀렸는지 모르겠음. </a></li>
+<li class="toc-entry toc-h3"><a href="#영화감독-숌">영화감독 숌 </a></li>
+<li class="toc-entry toc-h3"><a href="#체스판-다시-칠하기">체스판 다시 칠하기 </a></li>
 </ul>
 </li>
 <li class="toc-entry toc-h2"><a href="#소수">소수 </a>
@@ -2455,6 +2457,200 @@ window.onload = wrap_img;
 </div>
     
 
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="영화감독-숌">
+<a class="anchor" href="#%EC%98%81%ED%99%94%EA%B0%90%EB%8F%85-%EC%88%8C" aria-hidden="true"><span class="octicon octicon-link"></span></a>영화감독 숌<a class="anchor-link" href="#%EC%98%81%ED%99%94%EA%B0%90%EB%8F%85-%EC%88%8C"> </a>
+</h3>
+<ul>
+<li>종말의 숫자란 어떤 수에 6이 적어도 3개이상 연속으로 들어가는 수를 말한다. </li>
+<li>제일 작은 종말의 숫자는 666이고, 그 다음으로 큰 수는 1666, 2666, 3666, .... 과 같다.</li>
+<li>숌이 만든 ($N\leq10000$)번째 영화의 제목에 들어간 숫자를 출력하는 프로그램을 작성하시오. </li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> $N\leq 10000$ --&gt; 계산 결과 영화제목은 최대 7자리</p>
+<p><code>-</code> 7자리 수까지 666을 포함하는 수를 모두 생성한 후 오름차순으로 정렬</p>
+<p><code>-</code> 문제점: 666xxx 같은 수를 표현한다고 치자 --&gt; 이때 xxx = 010이라면 자연수가 아니므로 010을 수로 표현할 수 없음</p>
+<p><code>-</code> 666xxx --&gt; 66600x + 6660xx</p>
+<p><code>-</code> 하지만 좋은 방법이 떠오름</p>
+<p><code>-</code> 666xxx --&gt; 66yxxx , <code>y = 6</code>이므로 yxxx =&gt; range(6000,7000)</p>
+<p><code>-</code> 위와 같이 표현하면 666010도 표현 가능!</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="p">[</span><span class="mi">666</span><span class="p">]</span>
+
+<span class="n">result</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="nb">int</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">+</span> <span class="s1">'666'</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3000</span><span class="p">)])</span>                              <span class="c1">## x666, xy666, xyy666, 1yyy666, 2yyy666 --&gt; 앞으로 나오는 x는 자연수, y는 0포함 </span>
+<span class="n">result</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="nb">int</span><span class="p">(</span><span class="s1">'66'</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">))</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">6000</span><span class="p">,</span><span class="mi">7000</span><span class="p">)])</span>                             <span class="c1">## 666yyy</span>
+<span class="n">result</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="nb">int</span><span class="p">(</span><span class="s1">'66'</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">))</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">600</span><span class="p">,</span> <span class="mi">700</span><span class="p">)])</span>                              <span class="c1">## 666yy</span>
+<span class="n">result</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="nb">int</span><span class="p">(</span><span class="s1">'666'</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">))</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)])</span>                                   <span class="c1">## 666y</span>
+
+<span class="n">result</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="nb">int</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">+</span> <span class="s1">'66'</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">j</span><span class="p">))</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">600</span><span class="p">,</span> <span class="mi">700</span><span class="p">)])</span>  <span class="c1">## x666yy, 1y666yy, 2y666yy</span>
+<span class="n">result</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="nb">int</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">+</span> <span class="s1">'66'</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">j</span><span class="p">))</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">60</span><span class="p">,</span> <span class="mi">70</span><span class="p">)])</span>   <span class="c1">## x666y, xy666y   </span>
+
+<span class="n">result</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="nb">int</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">+</span> <span class="s1">'66'</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">j</span><span class="p">))</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">6000</span><span class="p">,</span> <span class="mi">7000</span><span class="p">)])</span>   <span class="c1">## 1666yyy, 2666yyy</span>
+<span class="n">result</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="nb">int</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">+</span> <span class="s1">'666'</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">j</span><span class="p">))</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">300</span><span class="p">)</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)])</span>      <span class="c1">## 1yy666y, 2yy666y</span>
+<span class="n">result</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="nb">int</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">+</span> <span class="s1">'666'</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">3000</span><span class="p">)])</span>                                <span class="c1">## 1yyy666, 2yyy666 </span>
+ 
+<span class="n">result</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">result</span><span class="p">))</span>
+<span class="n">result</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+
+<span class="n">N</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+</div>
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>1666
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 다른 사람 아이디어 보고 만든 코드 --&gt; 내 코드보다 코드 길이가 10배 짧아서 10배 좋다고 생각할라 했는데 시간이 너무 오래 걸리네? --&gt; 내 실수인 걸로 할라 했는데 숏코딩 보니까 다른 사람도 시간이 오래 걸렸다.</p>
+<p><code>-</code> 종말의 수는 $10000$개가 최대이므로 아무거 커도 $3000000$ 이하이다.</p>
+<p><code>-</code> $3000000$까지의 숫자 중 $666$을 포함하면 새로운 리스트에 포함한다.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">result</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="nb">int</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">))</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">666</span><span class="p">,</span><span class="mi">3000000</span><span class="p">)</span> <span class="k">if</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">'666'</span><span class="p">)</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+
+<span class="n">N</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+</div>
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>1666
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 숏코딩으로 만들었음(가독성 쓰레기)</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">([</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">9</span><span class="o">**</span><span class="mi">7</span><span class="p">)</span><span class="k">if</span><span class="s1">'666'</span><span class="ow">in</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)][</span><span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+</div>
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>1666
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="체스판-다시-칠하기">
+<a class="anchor" href="#%EC%B2%B4%EC%8A%A4%ED%8C%90-%EB%8B%A4%EC%8B%9C-%EC%B9%A0%ED%95%98%EA%B8%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>체스판 다시 칠하기<a class="anchor-link" href="#%EC%B2%B4%EC%8A%A4%ED%8C%90-%EB%8B%A4%EC%8B%9C-%EC%B9%A0%ED%95%98%EA%B8%B0"> </a>
+</h3>
+<ul>
+<li>8*8 크기의 체스판으로 잘라낸 후에 몇 개의 정사각형을 다시 칠한다.</li>
+<li>다시 칠해야 하는 정사각형의 최소 개수를 구하는 프로그램을 작성하시오.</li>
+</ul>
+
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
