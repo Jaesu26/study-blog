@@ -96,7 +96,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      21 min read
+      22 min read
     
 </span></p>
 
@@ -2320,7 +2320,7 @@ window.onload = wrap_img;
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>121
+<pre>13
 </pre>
 </div>
 </div>
@@ -2644,9 +2644,99 @@ window.onload = wrap_img;
 <a class="anchor" href="#%EC%B2%B4%EC%8A%A4%ED%8C%90-%EB%8B%A4%EC%8B%9C-%EC%B9%A0%ED%95%98%EA%B8%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>체스판 다시 칠하기<a class="anchor-link" href="#%EC%B2%B4%EC%8A%A4%ED%8C%90-%EB%8B%A4%EC%8B%9C-%EC%B9%A0%ED%95%98%EA%B8%B0"> </a>
 </h3>
 <ul>
-<li>8*8 크기의 체스판으로 잘라낸 후에 몇 개의 정사각형을 다시 칠한다.</li>
+<li>$8\times8$ 크기의 체스판으로 잘라낸 후에 몇 개의 정사각형을 다시 칠한다.</li>
 <li>다시 칠해야 하는 정사각형의 최소 개수를 구하는 프로그램을 작성하시오.</li>
 </ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 밑에 있는 코드 왜 틀림???????????????</p>
+<p><code>-</code> W로 채워진 8$\times$8 체스판을 input 하면 답이 32가 나와야 하는데 chess1, chess2 = 24, 25가 나온다.(원인 불명)</p>
+<p><code>-</code> 아 왜 틀렸냐고... 안해 다른 거 할 거야</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div class="highlight"><pre><span></span><span class="n">N</span><span class="p">,</span> <span class="n">M</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+<span class="n">data</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+    <span class="n">data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">input</span><span class="p">()))</span>
+
+<span class="k">def</span> <span class="nf">chess</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">m</span><span class="p">):</span>
+
+    <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">7</span>
+    <span class="n">chess_list</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">while</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">7</span> <span class="ow">and</span> <span class="n">y</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">:</span>
+        <span class="n">a</span><span class="p">,</span> <span class="n">b</span>  <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">7</span>
+
+        <span class="k">while</span> <span class="n">a</span> <span class="o">&lt;</span> <span class="n">m</span> <span class="o">-</span> <span class="mi">7</span> <span class="ow">and</span> <span class="n">b</span> <span class="o">&lt;</span> <span class="n">m</span><span class="p">:</span>
+            <span class="n">chess1</span><span class="p">,</span> <span class="n">chess2</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span>
+
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+
+                <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+
+                    <span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">x</span><span class="p">)</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span><span class="mi">0</span><span class="p">:</span>
+                        <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="n">j</span><span class="p">)</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>  
+                            <span class="k">if</span> <span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">==</span> <span class="s1">'B'</span><span class="p">:</span>
+                                <span class="n">chess1</span> <span class="o">+=</span> <span class="mi">1</span>
+
+                            <span class="k">else</span><span class="p">:</span>
+                                <span class="n">chess2</span> <span class="o">+=</span> <span class="mi">1</span>
+
+                        <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="n">j</span><span class="p">)</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+                            <span class="k">if</span> <span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">==</span> <span class="s1">'B'</span><span class="p">:</span>
+                                <span class="n">chess2</span> <span class="o">+=</span> <span class="mi">1</span>
+
+                            <span class="k">else</span><span class="p">:</span>
+                                <span class="n">chess1</span> <span class="o">+=</span> <span class="mi">1</span>
+
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="n">j</span><span class="p">)</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>  
+                            <span class="k">if</span> <span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">==</span> <span class="s1">'B'</span><span class="p">:</span>
+                                <span class="n">chess2</span> <span class="o">+=</span> <span class="mi">1</span>
+
+                            <span class="k">else</span><span class="p">:</span>
+                                <span class="n">chess1</span> <span class="o">+=</span> <span class="mi">1</span>
+
+                        <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="n">j</span><span class="p">)</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+                            <span class="k">if</span> <span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">==</span> <span class="s1">'B'</span><span class="p">:</span>
+                                <span class="n">chess1</span> <span class="o">+=</span> <span class="mi">1</span>
+
+                            <span class="k">else</span><span class="p">:</span>
+                                <span class="n">chess2</span> <span class="o">+=</span> <span class="mi">1</span>
+
+            <span class="n">chess_list</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="n">chess1</span><span class="p">,</span> <span class="n">chess2</span><span class="p">])</span>    
+            <span class="n">a</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="n">b</span> <span class="o">+=</span> <span class="mi">1</span>
+
+        <span class="n">x</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="n">y</span> <span class="o">+=</span> <span class="mi">1</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="n">chess_list</span><span class="p">)</span>
+
+<span class="n">chess</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">M</span><span class="p">)</span>
+</pre></div>
+<p><code>-</code> <code>input</code></p>
+<p>8, 8</p>
+<p>WWWWWWWW</p>
+<p>WWWWWWWW</p>
+<p>WWWWWWWW</p>
+<p>WWWWWWWW</p>
+<p>WWWWWWWW</p>
+<p>WWWWWWWW</p>
+<p>WWWWWWWW</p>
+<p>WWWWWWWW</p>
+<p><code>-</code> output</p>
+<p>[24, 25]</p>
 
 </div>
 </div>
