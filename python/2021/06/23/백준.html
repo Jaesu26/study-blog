@@ -1682,10 +1682,10 @@ window.onload = wrap_img;
 </h2>
 <p><code>-</code> 재귀함수를 구상해보자.</p>
 <p><code>-</code> 재귀함수는 관계가 중요하다.</p>
-<p><code>-</code> 팩토리얼에서는 $fact(x)= x * fact(x)$ 관계가 성립한다.</p>
+<p><code>-</code> 팩토리얼에서는 $fact(x)= x * fact(x-1)$ 관계가 성립한다.</p>
 <p><code>-</code> $fact(0), fact(1)$ 은 1이다.</p>
-<p><code>-</code> x가 0 또는 1일 때는 return을 1로 설정하고 나머지의 경우에는  $fact(x)= x * fact(x)$ 을 return한다면 재귀함수가 된다.</p>
-<p><code>-</code> 즉, 기본값 [$fact(0 or 1)=1$] 을 알고 관계식 [$fact(x)= x * fact(x)$] 을 안다면 재귀함수로 구현할 수 있다.</p>
+<p><code>-</code> x가 0 또는 1일 때는 return을 1로 설정하고 나머지의 경우에는  $fact(x)= x * fact(x-1)$ 을 return한다면 재귀함수가 된다.</p>
+<p><code>-</code> 즉, 기본값 [$fact(0 or 1)=1$] 을 알고 관계식 [$fact(x)= x * fact(x-1)$] 을 안다면 재귀함수로 구현할 수 있다.</p>
 
 </div>
 </div>
