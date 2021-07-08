@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>탐색 알고리즘 | Jaesu’s blog</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="탐색 알고리즘" />
+<meta name="author" content="한재수" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="작성 중" />
+<meta property="og:description" content="작성 중" />
+<link rel="canonical" href="https://gkswotn12345.github.io/green/python/algorithm/2021/07/09/%ED%83%90%EC%83%89-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98.html" />
+<meta property="og:url" content="https://gkswotn12345.github.io/green/python/algorithm/2021/07/09/%ED%83%90%EC%83%89-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98.html" />
+<meta property="og:site_name" content="Jaesu’s blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-07-09T00:00:00-05:00" />
+<script type="application/ld+json">
+{"description":"작성 중","url":"https://gkswotn12345.github.io/green/python/algorithm/2021/07/09/%ED%83%90%EC%83%89-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98.html","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://gkswotn12345.github.io/green/python/algorithm/2021/07/09/%ED%83%90%EC%83%89-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98.html"},"headline":"탐색 알고리즘","dateModified":"2021-07-09T00:00:00-05:00","datePublished":"2021-07-09T00:00:00-05:00","author":{"@type":"Person","name":"한재수"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/green/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://gkswotn12345.github.io/green/feed.xml" title="Jaesu's blog" /><link rel="shortcut icon" type="image/x-icon" href="/green/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.css" integrity="sha512-h7nl+xz8wgDlNM4NqKEM4F1NkIRS17M9+uJwIGwuo8vGqIl4BhuCKdxjWEINm+xyrUjNCnK5dCrhM0sj+wTIXw==" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.js" integrity="sha512-/CMIhXiDA3m2c9kzRyd97MTb3MC6OVnx4TElQ7fkkoRghwDf6gi41gaT1PwF270W6+J60uTmwgeRpNpJdRV6sg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/contrib/auto-render.min.js" integrity="sha512-Do7uJAaHZm5OLrIv/yN4w0iG1dbu01kzdMNnFfu/mAqgUk6Nniv2JYHcwH+cNwjqgLcqcuBBk+JRvprLVI8azg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha512-0doc9hKxR3PYwso42RD1p5ySZpzzuDiOwMrdCEh2WdJZCjcmFKc/wEnL+z8fBQrnHoiNWbo+3fiGkOYXBdQp4A==" crossorigin="anonymous"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement( document.body, {
+        delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "[%", right: "%]", display: true},
+            {left: "$", right: "$", display: false}
+        ]}
+        );
+    });
+    </script>
+
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/green/">Jaesu&#39;s blog</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/green/about/">Study with me</a><a class="page-link" href="/green/search/">Search</a><a class="page-link" href="/green/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">탐색 알고리즘</h1><p class="page-description">작성 중</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2021-07-09T00:00:00-05:00" itemprop="datePublished">
+        Jul 9, 2021
+      </time>• 
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">한재수</span></span>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      4 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/green/categories/#python">python</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/green/categories/#algorithm">algorithm</a>
+        
+      
+      </p>
+    
+
+    
+      
+        <div class="pb-5 d-flex flex-wrap flex-justify-end">
+          <div class="px-2">
+
+    <a href="https://github.com/gkswotn12345/green/tree/master/_notebooks/2021-07-09-탐색-알고리즘.ipynb" role="button" target="_blank">
+<img class="notebook-badge-image" src="/green/assets/badges/github.svg" alt="View On GitHub">
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://mybinder.org/v2/gh/gkswotn12345/green/master?filepath=_notebooks%2F2021-07-09-%ED%83%90%EC%83%89-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/green/assets/badges/binder.svg" alt="Open In Binder"/>
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://colab.research.google.com/github/gkswotn12345/green/blob/master/_notebooks/2021-07-09-탐색-알고리즘.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/green/assets/badges/colab.svg" alt="Open In Colab"/>
+    </a>
+</div>
+        </div>
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul class="section-nav">
+<li class="toc-entry toc-h2"><a href="#깊이-우선-탐색(Depth-First-Search,-DFS)">깊이 우선 탐색(Depth First Search, DFS) </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#DFS-장점">DFS 장점 </a></li>
+<li class="toc-entry toc-h3"><a href="#DFS-단점">DFS 단점 </a></li>
+<li class="toc-entry toc-h3"><a href="#DFS-코드-구현(스택)">DFS 코드 구현(스택) </a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#리스트-활용">리스트 활용 </a></li>
+<li class="toc-entry toc-h4"><a href="#deque-활용">deque 활용 </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h3"><a href="#재귀함수-활용">재귀함수 활용 </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#너비-우선-탐색(Breadth-First-Search,-BFS)">너비 우선 탐색(Breadth First Search, BFS) </a></li>
+<li class="toc-entry toc-h2"><a href="#백트래킹((backtracking)">백트래킹((backtracking) </a></li>
+</ul><!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2021-07-09-탐색-알고리즘.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="깊이-우선-탐색(Depth-First-Search,-DFS)">
+<a class="anchor" href="#%EA%B9%8A%EC%9D%B4-%EC%9A%B0%EC%84%A0-%ED%83%90%EC%83%89(Depth-First-Search,-DFS)" aria-hidden="true"><span class="octicon octicon-link"></span></a>깊이 우선 탐색(Depth First Search, DFS)<a class="anchor-link" href="#%EA%B9%8A%EC%9D%B4-%EC%9A%B0%EC%84%A0-%ED%83%90%EC%83%89(Depth-First-Search,-DFS)"> </a>
+</h2>
+<p><code>-</code> 모든 정점을 한번만 방문</p>
+<p><code>-</code> 시작 노드에서 다음 분기로 넘어가기 전에 해당 분기를 완벽하게 탐색</p>
+<p><code>-</code> <code>방문할 노드</code>와 <code>방문한 노드</code>를 기준으로 탐색</p>
+<p><code>-</code> 특정 노드가 <code>방문할 노드</code> --&gt; <code>탐색</code>, <code>방문한 노드</code>면 --&gt; <code>지나감</code></p>
+<p><code>-</code> 그래프나 트리는 <code>dictionary</code>로 생성</p>
+<p><code>-</code> <code>스택 구조</code> or <code>재귀 함수</code>로 구현 가능</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="DFS-장점">
+<a class="anchor" href="#DFS-%EC%9E%A5%EC%A0%90" aria-hidden="true"><span class="octicon octicon-link"></span></a>DFS 장점<a class="anchor-link" href="#DFS-%EC%9E%A5%EC%A0%90"> </a>
+</h3>
+<p><code>-</code> 단지 현 경로상의 노드들만을 기억하면 되므로 저장공간의 수요가 비교적 적음</p>
+<p><code>-</code> 목표노드가 깊은 단계에 있을 경우 해를 빨리 구함</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="DFS-단점">
+<a class="anchor" href="#DFS-%EB%8B%A8%EC%A0%90" aria-hidden="true"><span class="octicon octicon-link"></span></a>DFS 단점<a class="anchor-link" href="#DFS-%EB%8B%A8%EC%A0%90"> </a>
+</h3>
+<p><code>-</code> 해가 없는 경로에 깊이 빠질 가능성 존재</p>
+<p><code>-</code> 얻어진 해가 최단 경로가 된다는 보장이 없음 --&gt; 목표에 이르는 경로가 다수일 때 해에 다다르면 탐색을 끝내버림 --&gt; 이때 얻어진 해는 최적이 아닐 수 있음</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>DFS 참고: <a href="https://ko.wikipedia.org/wiki/%EA%B9%8A%EC%9D%B4_%EC%9A%B0%EC%84%A0_%ED%83%90%EC%83%89">https://ko.wikipedia.org/wiki/%EA%B9%8A%EC%9D%B4_%EC%9A%B0%EC%84%A0_%ED%83%90%EC%83%89</a>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="DFS-코드-구현(스택)">
+<a class="anchor" href="#DFS-%EC%BD%94%EB%93%9C-%EA%B5%AC%ED%98%84(%EC%8A%A4%ED%83%9D)" aria-hidden="true"><span class="octicon octicon-link"></span></a>DFS 코드 구현(스택)<a class="anchor-link" href="#DFS-%EC%BD%94%EB%93%9C-%EA%B5%AC%ED%98%84(%EC%8A%A4%ED%83%9D)"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> tree 구조</p>
+<p><code>-</code> 노드: [A], [B], [C], [D], [E], [F], [G], [H], [I], [J]</p>
+<p><code>-</code> 분기: [A, B, E], [A, B, F, I], [A, C, G], [A, D, H, I]</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">tree</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'A'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'B'</span><span class="p">,</span> <span class="s1">'C'</span><span class="p">,</span> <span class="s1">'D'</span><span class="p">],</span>
+        <span class="s1">'B'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'A'</span><span class="p">,</span> <span class="s1">'E'</span><span class="p">,</span> <span class="s1">'F'</span><span class="p">],</span>
+        <span class="s1">'C'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'A'</span><span class="p">,</span> <span class="s1">'G'</span><span class="p">],</span>
+        <span class="s1">'D'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'A'</span><span class="p">,</span> <span class="s1">'H'</span><span class="p">],</span>
+        <span class="s1">'E'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'B'</span><span class="p">],</span>
+        <span class="s1">'F'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'B'</span><span class="p">,</span> <span class="s1">'I'</span><span class="p">],</span>
+        <span class="s1">'G'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'C'</span><span class="p">],</span>
+        <span class="s1">'H'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'D'</span><span class="p">,</span> <span class="s1">'J'</span><span class="p">],</span>
+        <span class="s1">'I'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'F'</span><span class="p">],</span>
+        <span class="s1">'J'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'H'</span><span class="p">]}</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="리스트-활용">
+<a class="anchor" href="#%EB%A6%AC%EC%8A%A4%ED%8A%B8-%ED%99%9C%EC%9A%A9" aria-hidden="true"><span class="octicon octicon-link"></span></a>리스트 활용<a class="anchor-link" href="#%EB%A6%AC%EC%8A%A4%ED%8A%B8-%ED%99%9C%EC%9A%A9"> </a>
+</h4>
+<p><code>-</code> <code>list.pop()</code>은 성능이 떨어짐 --&gt; $O(n)$</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">DFS_list</span><span class="p">(</span><span class="n">graph</span><span class="p">,</span> <span class="n">start_node</span><span class="p">):</span>
+    <span class="n">visited</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1">## 방문한 노드</span>
+    <span class="n">will_visit</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1">## 방문할 노드</span>
+    <span class="n">will_visit</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">start_node</span><span class="p">)</span> <span class="c1">## 방문할 노드에 시작 노드 추가</span>
+
+    <span class="k">while</span> <span class="n">will_visit</span><span class="p">:</span>  <span class="c1">## 방문할 노드가 있다면(리스트에 원소가 있으면 True)</span>
+        <span class="n">node</span> <span class="o">=</span> <span class="n">will_visit</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span> <span class="c1">## 마지막 노드 추가(스택 구조 사용) </span>
+        
+        <span class="k">if</span> <span class="n">node</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">visited</span><span class="p">:</span>  <span class="c1">## 만약 아직 방문한 노드가 아니라면</span>
+            <span class="n">visited</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>  <span class="c1">## 이제 방문했으니까 방문한 노드에 추가</span>
+            <span class="n">will_visit</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="nb">reversed</span><span class="p">(</span><span class="n">graph</span><span class="p">[</span><span class="n">node</span><span class="p">]))</span> <span class="c1">## 방문한 노드에 연결된 노드를 탐색해보자</span>
+            
+        <span class="nb">print</span><span class="p">(</span><span class="n">visited</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">will_visit</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">'-------------------------------------------------------'</span><span class="p">)</span> <span class="c1">## 방문과정 확인</span>
+    
+    <span class="k">return</span> <span class="n">visited</span> <span class="c1">## 방문한 노드를 반환</span>
+
+<span class="n">DFS_list</span><span class="p">(</span><span class="n">tree</span><span class="p">,</span> <span class="s1">'A'</span><span class="p">)</span> <span class="c1">## 마지막은 return 값</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>['A']
+['D', 'C', 'B']
+-------------------------------------------------------
+['A', 'B']
+['D', 'C', 'F', 'E', 'A']
+-------------------------------------------------------
+['A', 'B']
+['D', 'C', 'F', 'E']
+-------------------------------------------------------
+['A', 'B', 'E']
+['D', 'C', 'F', 'B']
+-------------------------------------------------------
+['A', 'B', 'E']
+['D', 'C', 'F']
+-------------------------------------------------------
+['A', 'B', 'E', 'F']
+['D', 'C', 'I', 'B']
+-------------------------------------------------------
+['A', 'B', 'E', 'F']
+['D', 'C', 'I']
+-------------------------------------------------------
+['A', 'B', 'E', 'F', 'I']
+['D', 'C', 'F']
+-------------------------------------------------------
+['A', 'B', 'E', 'F', 'I']
+['D', 'C']
+-------------------------------------------------------
+['A', 'B', 'E', 'F', 'I', 'C']
+['D', 'G', 'A']
+-------------------------------------------------------
+['A', 'B', 'E', 'F', 'I', 'C']
+['D', 'G']
+-------------------------------------------------------
+['A', 'B', 'E', 'F', 'I', 'C', 'G']
+['D', 'C']
+-------------------------------------------------------
+['A', 'B', 'E', 'F', 'I', 'C', 'G']
+['D']
+-------------------------------------------------------
+['A', 'B', 'E', 'F', 'I', 'C', 'G', 'D']
+['H', 'A']
+-------------------------------------------------------
+['A', 'B', 'E', 'F', 'I', 'C', 'G', 'D']
+['H']
+-------------------------------------------------------
+['A', 'B', 'E', 'F', 'I', 'C', 'G', 'D', 'H']
+['J', 'D']
+-------------------------------------------------------
+['A', 'B', 'E', 'F', 'I', 'C', 'G', 'D', 'H']
+['J']
+-------------------------------------------------------
+['A', 'B', 'E', 'F', 'I', 'C', 'G', 'D', 'H', 'J']
+['H']
+-------------------------------------------------------
+['A', 'B', 'E', 'F', 'I', 'C', 'G', 'D', 'H', 'J']
+[]
+-------------------------------------------------------
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>['A', 'B', 'E', 'F', 'I', 'C', 'G', 'D', 'H', 'J']</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="deque-활용">
+<a class="anchor" href="#deque-%ED%99%9C%EC%9A%A9" aria-hidden="true"><span class="octicon octicon-link"></span></a>deque 활용<a class="anchor-link" href="#deque-%ED%99%9C%EC%9A%A9"> </a>
+</h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 성능이 좋음 --&gt; $O(1)$</p>
+<p><code>-</code> 사용: from collections import deque</p>
+<p><code>-</code> visit도 dictionary를 사용하여 해시로 구현하면 $O(1)$로 효율$\uparrow$(추가 예정)</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">DFS_deque</span><span class="p">(</span><span class="n">graph</span><span class="p">,</span> <span class="n">start_node</span><span class="p">):</span>
+    <span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">deque</span> <span class="c1">## deque패키지 import</span>
+    <span class="n">visited</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1">## 방문한 노드</span>
+    <span class="n">will_visit</span> <span class="o">=</span> <span class="n">deque</span><span class="p">()</span> <span class="c1">## 방문할 노드</span>
+    <span class="n">will_visit</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">start_node</span><span class="p">)</span> <span class="c1">## 방문할 노드에 시작 노드 추가</span>
+
+    <span class="k">while</span> <span class="n">will_visit</span><span class="p">:</span>  <span class="c1">## 방문할 노드가 있다면(리스트에 원소가 있으면 True)</span>
+        <span class="n">node</span> <span class="o">=</span> <span class="n">will_visit</span><span class="o">.</span><span class="n">popleft</span><span class="p">()</span> <span class="c1">## 마지막 노드 추가(스택 구조 사용) </span>
+        
+        <span class="k">if</span> <span class="n">node</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">visited</span><span class="p">:</span>  <span class="c1">## 만약 아직 방문한 노드가 아니라면</span>
+            <span class="n">visited</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>  <span class="c1">## 이제 방문했으니까 방문한 노드에 추가</span>
+            <span class="n">will_visit</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">graph</span><span class="p">[</span><span class="n">node</span><span class="p">])</span> <span class="c1">## 방문한 노드에 연결된 노드를 탐색해보자</span>
+       
+        <span class="nb">print</span><span class="p">(</span><span class="n">visited</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">will_visit</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">'-------------------------------------------------------'</span><span class="p">)</span> <span class="c1">## 방문과정 확인</span>
+
+    <span class="k">return</span> <span class="n">visited</span> <span class="c1">## 방문한 노드를 반환</span>
+
+<span class="n">DFS_deque</span><span class="p">(</span><span class="n">tree</span><span class="p">,</span> <span class="s1">'A'</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>['A']
+deque(['B', 'C', 'D'])
+-------------------------------------------------------
+['A', 'B']
+deque(['C', 'D', 'A', 'E', 'F'])
+-------------------------------------------------------
+['A', 'B', 'C']
+deque(['D', 'A', 'E', 'F', 'A', 'G'])
+-------------------------------------------------------
+['A', 'B', 'C', 'D']
+deque(['A', 'E', 'F', 'A', 'G', 'A', 'H'])
+-------------------------------------------------------
+['A', 'B', 'C', 'D']
+deque(['E', 'F', 'A', 'G', 'A', 'H'])
+-------------------------------------------------------
+['A', 'B', 'C', 'D', 'E']
+deque(['F', 'A', 'G', 'A', 'H', 'B'])
+-------------------------------------------------------
+['A', 'B', 'C', 'D', 'E', 'F']
+deque(['A', 'G', 'A', 'H', 'B', 'B', 'I'])
+-------------------------------------------------------
+['A', 'B', 'C', 'D', 'E', 'F']
+deque(['G', 'A', 'H', 'B', 'B', 'I'])
+-------------------------------------------------------
+['A', 'B', 'C', 'D', 'E', 'F', 'G']
+deque(['A', 'H', 'B', 'B', 'I', 'C'])
+-------------------------------------------------------
+['A', 'B', 'C', 'D', 'E', 'F', 'G']
+deque(['H', 'B', 'B', 'I', 'C'])
+-------------------------------------------------------
+['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H']
+deque(['B', 'B', 'I', 'C', 'D', 'J'])
+-------------------------------------------------------
+['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H']
+deque(['B', 'I', 'C', 'D', 'J'])
+-------------------------------------------------------
+['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H']
+deque(['I', 'C', 'D', 'J'])
+-------------------------------------------------------
+['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I']
+deque(['C', 'D', 'J', 'F'])
+-------------------------------------------------------
+['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I']
+deque(['D', 'J', 'F'])
+-------------------------------------------------------
+['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I']
+deque(['J', 'F'])
+-------------------------------------------------------
+['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J']
+deque(['F', 'H'])
+-------------------------------------------------------
+['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J']
+deque(['H'])
+-------------------------------------------------------
+['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J']
+deque([])
+-------------------------------------------------------
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J']</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="재귀함수-활용">
+<a class="anchor" href="#%EC%9E%AC%EA%B7%80%ED%95%A8%EC%88%98-%ED%99%9C%EC%9A%A9" aria-hidden="true"><span class="octicon octicon-link"></span></a>재귀함수 활용<a class="anchor-link" href="#%EC%9E%AC%EA%B7%80%ED%95%A8%EC%88%98-%ED%99%9C%EC%9A%A9"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="너비-우선-탐색(Breadth-First-Search,-BFS)">
+<a class="anchor" href="#%EB%84%88%EB%B9%84-%EC%9A%B0%EC%84%A0-%ED%83%90%EC%83%89(Breadth-First-Search,-BFS)" aria-hidden="true"><span class="octicon octicon-link"></span></a>너비 우선 탐색(Breadth First Search, BFS)<a class="anchor-link" href="#%EB%84%88%EB%B9%84-%EC%9A%B0%EC%84%A0-%ED%83%90%EC%83%89(Breadth-First-Search,-BFS)"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="백트래킹((backtracking)">
+<a class="anchor" href="#%EB%B0%B1%ED%8A%B8%EB%9E%98%ED%82%B9((backtracking)" aria-hidden="true"><span class="octicon octicon-link"></span></a>백트래킹((backtracking)<a class="anchor-link" href="#%EB%B0%B1%ED%8A%B8%EB%9E%98%ED%82%B9((backtracking)"> </a>
+</h2>
+</div>
+</div>
+</div>
+</div>
+
+
+
+  </div><!-- from https://github.com/utterance/utterances -->
+<script src="https://utteranc.es/client.js"
+        repo="gkswotn12345/green"
+        issue-term="title"
+        label="blogpost-comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script><a class="u-url" href="/green/python/algorithm/2021/07/09/%ED%83%90%EC%83%89-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98.html" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/green/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/green/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/green/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>An easy to use blogging platform with support for Jupyter Notebooks.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/gkswotn12345" title="gkswotn12345"><svg class="svg-icon grey"><use xlink:href="/green/assets/minima-social-icons.svg#github"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

@@ -11,13 +11,13 @@
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="작성 중" />
 <meta property="og:description" content="작성 중" />
-<link rel="canonical" href="https://gkswotn12345.github.io/green/python/2021/06/25/%EB%8D%B0%EC%9D%B4%ED%84%B0%EA%B3%BC%ED%95%99.html" />
-<meta property="og:url" content="https://gkswotn12345.github.io/green/python/2021/06/25/%EB%8D%B0%EC%9D%B4%ED%84%B0%EA%B3%BC%ED%95%99.html" />
+<link rel="canonical" href="https://gkswotn12345.github.io/green/python/statistics/2021/06/25/%EB%8D%B0%EC%9D%B4%ED%84%B0%EA%B3%BC%ED%95%99.html" />
+<meta property="og:url" content="https://gkswotn12345.github.io/green/python/statistics/2021/06/25/%EB%8D%B0%EC%9D%B4%ED%84%B0%EA%B3%BC%ED%95%99.html" />
 <meta property="og:site_name" content="Jaesu’s blog" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2021-06-25T00:00:00-05:00" />
 <script type="application/ld+json">
-{"description":"작성 중","url":"https://gkswotn12345.github.io/green/python/2021/06/25/%EB%8D%B0%EC%9D%B4%ED%84%B0%EA%B3%BC%ED%95%99.html","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://gkswotn12345.github.io/green/python/2021/06/25/%EB%8D%B0%EC%9D%B4%ED%84%B0%EA%B3%BC%ED%95%99.html"},"headline":"데이터과학","dateModified":"2021-06-25T00:00:00-05:00","datePublished":"2021-06-25T00:00:00-05:00","author":{"@type":"Person","name":"한재수"},"@context":"https://schema.org"}</script>
+{"description":"작성 중","url":"https://gkswotn12345.github.io/green/python/statistics/2021/06/25/%EB%8D%B0%EC%9D%B4%ED%84%B0%EA%B3%BC%ED%95%99.html","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://gkswotn12345.github.io/green/python/statistics/2021/06/25/%EB%8D%B0%EC%9D%B4%ED%84%B0%EA%B3%BC%ED%95%99.html"},"headline":"데이터과학","dateModified":"2021-06-25T00:00:00-05:00","datePublished":"2021-06-25T00:00:00-05:00","author":{"@type":"Person","name":"한재수"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/green/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://gkswotn12345.github.io/green/feed.xml" title="Jaesu's blog" /><link rel="shortcut icon" type="image/x-icon" href="/green/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
@@ -104,6 +104,9 @@ window.onload = wrap_img;
       <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
       
         <a class="category-tags-link" href="/green/categories/#python">python</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/green/categories/#statistics">statistics</a>
         
       
       </p>
@@ -166,12 +169,9 @@ window.onload = wrap_img;
 <h3 id="회귀모형">
 <a class="anchor" href="#%ED%9A%8C%EA%B7%80%EB%AA%A8%ED%98%95" aria-hidden="true"><span class="octicon octicon-link"></span></a>회귀모형<a class="anchor-link" href="#%ED%9A%8C%EA%B7%80%EB%AA%A8%ED%98%95"> </a>
 </h3>
-<ul>
-<li>$y_i=\beta_0+\beta_1 x_{1}+\epsilon_i$</li>
-<li>$y_i$는 관측값, $\beta_0$는 절편, $\beta_1$은 기울기, $\epsilon_i$는 오차항 { $\mathbb{N}\sim(0,\sigma^2$) }</li>
-<li>$\sum_{i=1}^{n}\epsilon_i^2 = \sum_{i=1}^{n} (y_i-\beta_0-\beta_1 x_{1})^2$ 을 최소화하는 $\beta_0,\beta_1$을 추정한다. --&gt; <strong>최소제곱추정</strong>
-</li>
-</ul>
+<p><code>-</code> $y_i=\beta_0+\beta_1 x_{1}+\epsilon_i$</p>
+<p><code>-</code> $y_i$는 관측값, $\beta_0$는 절편, $\beta_1$은 기울기, $\epsilon_i$는 오차항 { $\mathbb{N}\sim(0,\sigma^2$) }</p>
+<p><code>-</code> $\sum_{i=1}^{n}\epsilon_i^2 = \sum_{i=1}^{n} (y_i-\beta_0-\beta_1 x_{1})^2$ 을 최소화하는 $\beta_0,\beta_1$을 추정한다. --&gt; <code>최소제곱추정</code></p>
 
 </div>
 </div>
@@ -182,12 +182,9 @@ window.onload = wrap_img;
 <h3 id="함수의-최소값">
 <a class="anchor" href="#%ED%95%A8%EC%88%98%EC%9D%98-%EC%B5%9C%EC%86%8C%EA%B0%92" aria-hidden="true"><span class="octicon octicon-link"></span></a>함수의 최소값<a class="anchor-link" href="#%ED%95%A8%EC%88%98%EC%9D%98-%EC%B5%9C%EC%86%8C%EA%B0%92"> </a>
 </h3>
-<ul>
-<li>함수 $f(x)$가 있다고 하자. 이 함수의 최소값을 알고 싶다. --&gt; <code>미분</code>
-</li>
-<li>convex fuction (볼록 함수 --&gt; 아래로 볼록)는 임의의 두 점 $x_1,x_2$와 [0,1] 사이의 값 t에 대해 $f(tx_1+(1-t)x_2)\geq tf(x_1)+(1-t)f(x_2)$가 항상 성립하는 함수이다.</li>
-<li>$f''(x) &gt; 0$이면 $f(x)$는 아래로 볼록하다.</li>
-</ul>
+<p><code>-</code> 함수 $f(x)$가 있다고 하자. 이 함수의 최소값을 알고 싶다. --&gt; <code>미분</code></p>
+<p><code>-</code> convex fuction (볼록 함수 --&gt; 아래로 볼록)는 임의의 두 점 $x_1,x_2$와 [0,1] 사이의 값 t에 대해 $f(tx_1+(1-t)x_2)\geq tf(x_1)+(1-t)f(x_2)$가 항상 성립하는 함수이다.</p>
+<p><code>-</code> $f''(x) &gt; 0$이면 $f(x)$는 아래로 볼록하다.</p>
 
 </div>
 </div>
@@ -216,17 +213,12 @@ window.onload = wrap_img;
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <ol>
-<li>
-<p>$
-\bf L = \sum_{i=1}^{n}\boldsymbol{\epsilon_i}^2 = \boldsymbol{\epsilon}^{\top}\boldsymbol{\epsilon} = (y - X\boldsymbol{\beta})^\top(Y - X\boldsymbol{\beta})\\
-\,\,\,\, = (y^{\top} - \boldsymbol{\beta}^{\top}X^{\top})(y - \boldsymbol{\beta}X) = y^{\top}y - y^{\top}X\boldsymbol{\beta} - \boldsymbol{\beta}^{\top}X^{\top}y + \beta^{\top}X^{\top}X\boldsymbol{\beta}$</p>
-</li>
-<li>
-<p>$\frac{\partial L}{\partial \beta} = 0 - 2\bf X^{\top}y + 2X^{\top}X\boldsymbol{\beta} = 0$</p>
-</li>
-<li>
-<p>$\bf X^{\top}y = X^{\top}X\boldsymbol{\beta} \Leftrightarrow \boldsymbol{\hat\beta} = \big(\bf X^{\top}X\big)^{-1}X^{\top}y $</p>
-</li>
+<li>$\bf L = \sum_{i=1}^{n}\boldsymbol{\epsilon_i}^2 = \boldsymbol{\epsilon}^{\top}\boldsymbol{\epsilon} = (y - X\boldsymbol{\beta})^\top(Y - X\boldsymbol{\beta})\\
+\,\,\,\, = (y^{\top} - \boldsymbol{\beta}^{\top}X^{\top})(y - \boldsymbol{\beta}X) = y^{\top}y - y^{\top}X\boldsymbol{\beta} - \boldsymbol{\beta}^{\top}X^{\top}y + \boldsymbol\beta^{\top}X^{\top}X\boldsymbol{\beta}$</li>
+<li>$\frac{\partial \bf L}{\partial \boldsymbol\beta} = \bf 0 - 2\bf X^{\top}y + 2X^{\top}X\boldsymbol{\beta} = 0$</li>
+</ol>
+<ol>
+<li>$\bf X^{\top}y = X^{\top}X\boldsymbol{\beta} \Leftrightarrow \boldsymbol{\hat\beta} = \big(\bf X^{\top}X\big)^{-1}X^{\top}y $</li>
 </ol>
 
 </div>
@@ -252,7 +244,7 @@ window.onload = wrap_img;
         theme="github-light"
         crossorigin="anonymous"
         async>
-</script><a class="u-url" href="/green/python/2021/06/25/%EB%8D%B0%EC%9D%B4%ED%84%B0%EA%B3%BC%ED%95%99.html" hidden></a>
+</script><a class="u-url" href="/green/python/statistics/2021/06/25/%EB%8D%B0%EC%9D%B4%ED%84%B0%EA%B3%BC%ED%95%99.html" hidden></a>
 </article>
       </div>
     </main><footer class="site-footer h-card">
