@@ -96,7 +96,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      6 min read
+      8 min read
     
 </span></p>
 
@@ -159,15 +159,30 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h4"><a href="#균일-분포-plot">균일 분포 plot </a></li>
 </ul>
 </li>
-<li class="toc-entry toc-h3"><a href="#카이제곱-분포($x^2$분포)">카이제곱 분포($x^2$분포) </a></li>
-<li class="toc-entry toc-h3"><a href="#카이제곱-분포의-확률-밀도-함수">카이제곱 분포의 확률 밀도 함수 </a></li>
-<li class="toc-entry toc-h3"><a href="#감마함수(Gamma-Function)">감마함수(Gamma Function) </a>
+<li class="toc-entry toc-h3"><a href="#카이제곱-분포($x^2$분포)">카이제곱 분포($x^2$분포) </a>
 <ul>
-<li class="toc-entry toc-h4"><a href="#감마함수-성질">감마함수 성질 </a></li>
+<li class="toc-entry toc-h4"><a href="#카이제곱-분포의-확률-밀도-함수">카이제곱 분포의 확률 밀도 함수 </a></li>
 <li class="toc-entry toc-h4"><a href="#카이제곱-분포의-기댓값과-분산">카이제곱 분포의 기댓값과 분산 </a></li>
 <li class="toc-entry toc-h4"><a href="#카이제곱-분포-plot">카이제곱 분포 plot </a></li>
 </ul>
 </li>
+<li class="toc-entry toc-h3"><a href="#감마-분포">감마 분포 </a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#감마함수(Gamma-Function)">감마함수(Gamma Function) </a>
+<ul>
+<li class="toc-entry toc-h5"><a href="#감마함수-성질">감마함수 성질 </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h4"><a href="#감마-분포의-확률-밀도-함수">감마 분포의 확률 밀도 함수 </a></li>
+<li class="toc-entry toc-h4"><a href="#감마-분포의-기댓값과-분산">감마 분포의 기댓값과 분산 </a></li>
+<li class="toc-entry toc-h4"><a href="#감마-분포-plot">감마 분포 plot </a></li>
+<li class="toc-entry toc-h4"><a href="#$\alpha$와$\beta$에-따른-감마-분포-모양">$\alpha$와$\beta$에 따른 감마 분포 모양 </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h3"><a href="#지수-분포(작성-예정)">지수 분포(작성 예정) </a></li>
+<li class="toc-entry toc-h3"><a href="#t-분포(작성-예정)">t 분포(작성 예정) </a></li>
+<li class="toc-entry toc-h3"><a href="#F-분포(작성-예정)">F 분포(작성 예정) </a></li>
+<li class="toc-entry toc-h3"><a href="#베타-분포(작성-예정)">베타 분포(작성 예정) </a></li>
 </ul>
 </li>
 <li class="toc-entry toc-h2"><a href="#이산-확률-분포">이산 확률 분포 </a>
@@ -192,6 +207,9 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h4"><a href="#포아송-분포-plot">포아송 분포 plot </a></li>
 </ul>
 </li>
+<li class="toc-entry toc-h3"><a href="#기하-분포(작성-예정)">기하 분포(작성 예정) </a></li>
+<li class="toc-entry toc-h3"><a href="#초기하-분포(작성-예정)">초기하 분포(작성 예정) </a></li>
+<li class="toc-entry toc-h3"><a href="#음이항-분포(작성-예정)">음이항 분포(작성 예정) </a></li>
 </ul>
 </li>
 </ul><!--
@@ -442,8 +460,8 @@ $</p>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> 기댓값 = $\frac{a+b}{2}$</p>
-<p><code>-</code> 분산 = $\frac{(b-a)^{2}}{12}$</p>
+<p><code>-</code> $E(X) = \frac{a+b}{2}$</p>
+<p><code>-</code> $Var(X) = \frac{(b-a)^{2}}{12}$</p>
 
 </div>
 </div>
@@ -534,7 +552,7 @@ $</p>
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> $k$개의 <code>서로 독립</code>인 <code>표준 정규 확률변수</code>를 <code>각각 제곱</code>하여 합해 얻어진 분포</p>
 <p><code>-</code> 이때 $k$는 자유도이며 카이제곱 분포의 매개변수</p>
-<p><code>-</code> 신뢰구간이나 가설검정 등의 모델에서 사용</p>
+<p><code>-</code> 모분산을 구하거나 적합도 검정, 독립성/동질성 검정 등의 모델에서 사용</p>
 <p><code>-</code> $k$개의 독립적이고 표준정규분포를 따르는 확률변수 $Z_1,\dots,Z_k$가 있을 때 자유도 $k$의 카이제곱 분포는</p>
 <p><code>-</code> 확률변수 $Q = \sum^{k}_{i=1}Z{_i}{^2}$의 분포임</p>
 <p><code>-</code> 따라서 $Q \sim X{_k}{^i}$</p>
@@ -546,9 +564,9 @@ $</p>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="카이제곱-분포의-확률-밀도-함수">
+<h4 id="카이제곱-분포의-확률-밀도-함수">
 <a class="anchor" href="#%EC%B9%B4%EC%9D%B4%EC%A0%9C%EA%B3%B1-%EB%B6%84%ED%8F%AC%EC%9D%98-%ED%99%95%EB%A5%A0-%EB%B0%80%EB%8F%84-%ED%95%A8%EC%88%98" aria-hidden="true"><span class="octicon octicon-link"></span></a>카이제곱 분포의 확률 밀도 함수<a class="anchor-link" href="#%EC%B9%B4%EC%9D%B4%EC%A0%9C%EA%B3%B1-%EB%B6%84%ED%8F%AC%EC%9D%98-%ED%99%95%EB%A5%A0-%EB%B0%80%EB%8F%84-%ED%95%A8%EC%88%98"> </a>
-</h3>
+</h4>
 </div>
 </div>
 </div>
@@ -571,47 +589,11 @@ $</p>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="감마함수(Gamma-Function)">
-<a class="anchor" href="#%EA%B0%90%EB%A7%88%ED%95%A8%EC%88%98(Gamma-Function)" aria-hidden="true"><span class="octicon octicon-link"></span></a>감마함수(Gamma Function)<a class="anchor-link" href="#%EA%B0%90%EB%A7%88%ED%95%A8%EC%88%98(Gamma-Function)"> </a>
-</h3>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>$\Gamma(\alpha) = \int_{0}^{\infty}x^{\alpha-1}e^{-x}dx,\,\alpha \geq 0$</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="감마함수-성질">
-<a class="anchor" href="#%EA%B0%90%EB%A7%88%ED%95%A8%EC%88%98-%EC%84%B1%EC%A7%88" aria-hidden="true"><span class="octicon octicon-link"></span></a>감마함수 성질<a class="anchor-link" href="#%EA%B0%90%EB%A7%88%ED%95%A8%EC%88%98-%EC%84%B1%EC%A7%88"> </a>
-</h4>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> $\Gamma(\alpha+1) = \alpha\Gamma(\alpha)$</p>
-<p><code>-</code> $\Gamma(n) = (n-1)!,\, n \in \mathbb{N}$</p>
-<p><code>-</code> $\Gamma(\frac{1}{2}) = \sqrt{\pi}$</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
 <h4 id="카이제곱-분포의-기댓값과-분산">
 <a class="anchor" href="#%EC%B9%B4%EC%9D%B4%EC%A0%9C%EA%B3%B1-%EB%B6%84%ED%8F%AC%EC%9D%98-%EA%B8%B0%EB%8C%93%EA%B0%92%EA%B3%BC-%EB%B6%84%EC%82%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>카이제곱 분포의 기댓값과 분산<a class="anchor-link" href="#%EC%B9%B4%EC%9D%B4%EC%A0%9C%EA%B3%B1-%EB%B6%84%ED%8F%AC%EC%9D%98-%EA%B8%B0%EB%8C%93%EA%B0%92%EA%B3%BC-%EB%B6%84%EC%82%B0"> </a>
 </h4>
-<p><code>-</code> 기댓값 = $k$</p>
-<p><code>-</code> 분산 = $2k$</p>
+<p><code>-</code> $E(X) = k$</p>
+<p><code>-</code> $Var(X) = 2k$</p>
 
 </div>
 </div>
@@ -835,6 +817,255 @@ $</p>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="감마-분포">
+<a class="anchor" href="#%EA%B0%90%EB%A7%88-%EB%B6%84%ED%8F%AC" aria-hidden="true"><span class="octicon octicon-link"></span></a>감마 분포<a class="anchor-link" href="#%EA%B0%90%EB%A7%88-%EB%B6%84%ED%8F%AC"> </a>
+</h3>
+<p><code>-</code> 감마 분포는 지수 분포나 푸아송 분포 등의 매개변수에 대한 켤레 사전 확률 분포</p>
+<p><code>-</code> 이에 따라 베이즈 확률론에서 사전 확률 분포로 사용</p>
+<p><code>-</code> $\alpha$개의 사건이 일어날 때까지 걸리는 대기 시간에 대한 분포</p>
+<p><code>-</code> 지수 분포를 한 번의 사건이 아닌 여러 개의 사건으로 확장</p>
+<p><code>-</code> 지수 분포의 모수가$\beta$ --&gt; $\beta$ = 사건 사이의 평균 시간</p>
+<p><code>-</code> 모수가 $\beta$인 지수 분포를 따르는 확률 변수 X가 $\alpha$개가 있고 각 확률 변수 X는 i.i.d를 따름 --&gt; 이 확률 변수의 합은 모수가 $\alpha, \beta$인 감마 분포를 따름</p>
+<p><code>-</code> 감마 분포 참고: <a href="https://ko.wikipedia.org/wiki/%EA%B0%90%EB%A7%88_%EB%B6%84%ED%8F%AC">https://ko.wikipedia.org/wiki/%EA%B0%90%EB%A7%88_%EB%B6%84%ED%8F%AC</a></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="감마함수(Gamma-Function)">
+<a class="anchor" href="#%EA%B0%90%EB%A7%88%ED%95%A8%EC%88%98(Gamma-Function)" aria-hidden="true"><span class="octicon octicon-link"></span></a>감마함수(Gamma Function)<a class="anchor-link" href="#%EA%B0%90%EB%A7%88%ED%95%A8%EC%88%98(Gamma-Function)"> </a>
+</h4>
+<p><code>-</code> 복소수 범위까지 일반화 된 팩토리얼(!)</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>$\Gamma(\alpha) = \int_{0}^{\infty}x^{\alpha-1}e^{-x}dx,\,\alpha \geq 0$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h5 id="감마함수-성질">
+<a class="anchor" href="#%EA%B0%90%EB%A7%88%ED%95%A8%EC%88%98-%EC%84%B1%EC%A7%88" aria-hidden="true"><span class="octicon octicon-link"></span></a>감마함수 성질<a class="anchor-link" href="#%EA%B0%90%EB%A7%88%ED%95%A8%EC%88%98-%EC%84%B1%EC%A7%88"> </a>
+</h5>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> $\Gamma(\alpha+1) = \alpha\Gamma(\alpha)$</p>
+<p><code>-</code> $\Gamma(n) = (n-1)!,\, n \in \mathbb{N}$</p>
+<p><code>-</code> $\Gamma(\frac{1}{2}) = \sqrt{\pi}$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="감마-분포의-확률-밀도-함수">
+<a class="anchor" href="#%EA%B0%90%EB%A7%88-%EB%B6%84%ED%8F%AC%EC%9D%98-%ED%99%95%EB%A5%A0-%EB%B0%80%EB%8F%84-%ED%95%A8%EC%88%98" aria-hidden="true"><span class="octicon octicon-link"></span></a>감마 분포의 확률 밀도 함수<a class="anchor-link" href="#%EA%B0%90%EB%A7%88-%EB%B6%84%ED%8F%AC%EC%9D%98-%ED%99%95%EB%A5%A0-%EB%B0%80%EB%8F%84-%ED%95%A8%EC%88%98"> </a>
+</h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>$f(x; \alpha,\beta) = \frac{1}{\beta^{\alpha}\Gamma(\alpha)}x^{\alpha - 1}e^{-\frac{x}{\beta}},(x,\alpha, \beta \geq 0)$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 확률 변수 $X$가 감마 분포를 따른 다면 $X \sim Gamma(\alpha,\beta)$</p>
+<p><code>-</code> 발생하기 까지의 평균$\beta = \frac{1}{\lambda}$의 시간이 소요되는 어떤 사건이 $\alpha$번 발생하는데 걸리는 시간 $X$에 대한 확률 분포</p>
+<p><code>-</code> $\lambda$는 포아송 분포의 모수로 단위 시간당 평균 발생 횟수</p>
+<p><code>-</code> $\alpha = 1$일 때 $\lambda = \frac{1}{\beta}$인 지수 분포를 따름</p>
+<p><code>-</code> $X\sim Gamma(1,\beta) \Leftrightarrow exp(\frac{1}{\beta})$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="감마-분포의-기댓값과-분산">
+<a class="anchor" href="#%EA%B0%90%EB%A7%88-%EB%B6%84%ED%8F%AC%EC%9D%98-%EA%B8%B0%EB%8C%93%EA%B0%92%EA%B3%BC-%EB%B6%84%EC%82%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>감마 분포의 기댓값과 분산<a class="anchor-link" href="#%EA%B0%90%EB%A7%88-%EB%B6%84%ED%8F%AC%EC%9D%98-%EA%B8%B0%EB%8C%93%EA%B0%92%EA%B3%BC-%EB%B6%84%EC%82%B0"> </a>
+</h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> $E(X) = \alpha\beta$</p>
+<p><code>-</code> $Var(X) = \alpha\beta^{2}$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="감마-분포-plot">
+<a class="anchor" href="#%EA%B0%90%EB%A7%88-%EB%B6%84%ED%8F%AC-plot" aria-hidden="true"><span class="octicon octicon-link"></span></a>감마 분포 plot<a class="anchor-link" href="#%EA%B0%90%EB%A7%88-%EB%B6%84%ED%8F%AC-plot"> </a>
+</h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> $\alpha$는 형태 모수(shape parameter), $\beta$는 척도 모수(scale parameter)</p>
+<p><code>-</code> 사건이 발생하고 다음 사건이 발생하기 까지의 평균 대기 시간이 $\beta$일 때 $\alpha$번의 사건이 발생하는데 걸리는 시간에 대한 확률 분포</p>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">gamma</span><span class="p">(</span><span class="n">shape</span><span class="p">,</span> <span class="n">scale</span><span class="p">,</span> <span class="n">size</span><span class="p">)</span>
+</pre></div>
+<p><code>-</code> shape는 $\alpha$, scale은$\beta$는 반복 횟수</p>
+<div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">gamma</span><span class="p">(</span><span class="n">shape</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">scale</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">)</span>
+</pre></div>
+<p><code>-</code> 우리 집 앞에서 1시간당 평균 0.5명이 넘어진다 --&gt; $\lambda = 0.5$이므로 $\beta = 2$</p>
+<p><code>-</code> 다시말하면 우리 집 앞에서 한 명이 넘어지고 다음 사람이 넘어지기 까지 2시간이 걸린다</p>
+<p><code>-</code> 이 때 2명의 사람이 넘어지기 까지 걸리는 시간에 대한 분포를 그려보자</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> <code>np.random.gamma(shape = 2, scale = 2, size = 1000)</code>를 히스토그램으로 나타내보면?</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">sample</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">gamma</span><span class="p">(</span><span class="n">shape</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">scale</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">sample</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">'np.random.gamma(shape = 2, scale = 2, size = 1000)'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,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%0A">
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> $\alpha = 1$일 때 정말로 지수 분포를 따르는지 확인해보자(지수 분포 추가 후 작성 예정)</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="$\alpha$와$\beta$에-따른-감마-분포-모양">
+<a class="anchor" href="#%24%5Calpha%24%EC%99%80%24%5Cbeta%24%EC%97%90-%EB%94%B0%EB%A5%B8-%EA%B0%90%EB%A7%88-%EB%B6%84%ED%8F%AC-%EB%AA%A8%EC%96%91" aria-hidden="true"><span class="octicon octicon-link"></span></a>$\alpha$와$\beta$에 따른 감마 분포 모양<a class="anchor-link" href="#%24%5Calpha%24%EC%99%80%24%5Cbeta%24%EC%97%90-%EB%94%B0%EB%A5%B8-%EA%B0%90%EB%A7%88-%EB%B6%84%ED%8F%AC-%EB%AA%A8%EC%96%91"> </a>
+</h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> $\alpha$는 형태 모수로 $\alpha$가 커질수록 그래프의 모양이 종모양에 가까워짐</p>
+<p><code>-</code> $\beta$는 척도 모수로 $\beta$가 커질수록 그래프가 퍼짐</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 그래프 추가 예정</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="지수-분포(작성-예정)">
+<a class="anchor" href="#%EC%A7%80%EC%88%98-%EB%B6%84%ED%8F%AC(%EC%9E%91%EC%84%B1-%EC%98%88%EC%A0%95)" aria-hidden="true"><span class="octicon octicon-link"></span></a>지수 분포(작성 예정)<a class="anchor-link" href="#%EC%A7%80%EC%88%98-%EB%B6%84%ED%8F%AC(%EC%9E%91%EC%84%B1-%EC%98%88%EC%A0%95)"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="t-분포(작성-예정)">
+<a class="anchor" href="#t-%EB%B6%84%ED%8F%AC(%EC%9E%91%EC%84%B1-%EC%98%88%EC%A0%95)" aria-hidden="true"><span class="octicon octicon-link"></span></a>t 분포(작성 예정)<a class="anchor-link" href="#t-%EB%B6%84%ED%8F%AC(%EC%9E%91%EC%84%B1-%EC%98%88%EC%A0%95)"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="F-분포(작성-예정)">
+<a class="anchor" href="#F-%EB%B6%84%ED%8F%AC(%EC%9E%91%EC%84%B1-%EC%98%88%EC%A0%95)" aria-hidden="true"><span class="octicon octicon-link"></span></a>F 분포(작성 예정)<a class="anchor-link" href="#F-%EB%B6%84%ED%8F%AC(%EC%9E%91%EC%84%B1-%EC%98%88%EC%A0%95)"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="베타-분포(작성-예정)">
+<a class="anchor" href="#%EB%B2%A0%ED%83%80-%EB%B6%84%ED%8F%AC(%EC%9E%91%EC%84%B1-%EC%98%88%EC%A0%95)" aria-hidden="true"><span class="octicon octicon-link"></span></a>베타 분포(작성 예정)<a class="anchor-link" href="#%EB%B2%A0%ED%83%80-%EB%B6%84%ED%8F%AC(%EC%9E%91%EC%84%B1-%EC%98%88%EC%A0%95)"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="이산-확률-분포">
 <a class="anchor" href="#%EC%9D%B4%EC%82%B0-%ED%99%95%EB%A5%A0-%EB%B6%84%ED%8F%AC" aria-hidden="true"><span class="octicon octicon-link"></span></a>이산 확률 분포<a class="anchor-link" href="#%EC%9D%B4%EC%82%B0-%ED%99%95%EB%A5%A0-%EB%B6%84%ED%8F%AC"> </a>
 </h2>
@@ -930,8 +1161,8 @@ $</p>
 <h4 id="이항분포의-기댓값과-분산">
 <a class="anchor" href="#%EC%9D%B4%ED%95%AD%EB%B6%84%ED%8F%AC%EC%9D%98-%EA%B8%B0%EB%8C%93%EA%B0%92%EA%B3%BC-%EB%B6%84%EC%82%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>이항분포의 기댓값과 분산<a class="anchor-link" href="#%EC%9D%B4%ED%95%AD%EB%B6%84%ED%8F%AC%EC%9D%98-%EA%B8%B0%EB%8C%93%EA%B0%92%EA%B3%BC-%EB%B6%84%EC%82%B0"> </a>
 </h4>
-<p><code>-</code> 기댓값 = $np$</p>
-<p><code>-</code> 분산 = $np(1-p)$</p>
+<p><code>-</code> $E(X) = np$</p>
+<p><code>-</code> $Var(X) = np(1-p)$</p>
 
 </div>
 </div>
@@ -1029,9 +1260,9 @@ $</p>
 <h4 id="포아송-분포-전제-조건">
 <a class="anchor" href="#%ED%8F%AC%EC%95%84%EC%86%A1-%EB%B6%84%ED%8F%AC-%EC%A0%84%EC%A0%9C-%EC%A1%B0%EA%B1%B4" aria-hidden="true"><span class="octicon octicon-link"></span></a>포아송 분포 전제 조건<a class="anchor-link" href="#%ED%8F%AC%EC%95%84%EC%86%A1-%EB%B6%84%ED%8F%AC-%EC%A0%84%EC%A0%9C-%EC%A1%B0%EA%B1%B4"> </a>
 </h4>
-<p><code>-</code> 독립성: 1시간 동안 우리 집앞에서 넘어진 사람 수와 친구 집앞에서 넘어진 사람 수는 독립이다</p>
+<p><code>-</code> 독립성: 1시간 동안 우리 집 앞에서 넘어진 사람 수와 친구 집앞에서 넘어진 사람 수는 독립이다</p>
 <p><code>-</code> 일정성: 1시간 동안 평균 3명이 넘어졌다면 2시간 동안에는 평균 6명이 넘어진다</p>
-<p><code>-</code> 비집락성: 우리 집앞에서 같은 시간에 두 명 이상이 넘어질 확률은 0이다</p>
+<p><code>-</code> 비집락성: 우리 집 앞에서 같은 시간에 두 명 이상이 넘어질 확률은 0이다</p>
 
 </div>
 </div>
@@ -1058,7 +1289,7 @@ $</p>
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> $x$는 단위 시간에서 사건의 발생 횟수, $\lambda$는 단위 시간에서 사건의 평균 발생 횟수</p>
 <p><code>-</code> $\lambda = 10$, $x = 7$ --&gt; 단위 시간에서 사건의 평균 10번 발생할 때 7번 발생할 확률은?</p>
-<p><code>-</code> 우리 집앞에서 1시간에 사람이 평균적으로 10명이 넘어진다고 한다. 이 때 1시간에 사람이 5명 넘어질 확률은?</p>
+<p><code>-</code> 우리 집 앞에서 1시간에 사람이 평균적으로 10명이 넘어진다고 한다. 이 때 1시간에 사람이 5명 넘어질 확률은?</p>
 <p><code>-</code> $\lambda = 10,\, x = 5 \longrightarrow f(5) = \frac{e^{-10}\,10^5}{5!} = 0.03783327480207071$</p>
 
 </div>
@@ -1070,8 +1301,8 @@ $</p>
 <h4 id="포아송-분포의-기댓값과-분산">
 <a class="anchor" href="#%ED%8F%AC%EC%95%84%EC%86%A1-%EB%B6%84%ED%8F%AC%EC%9D%98-%EA%B8%B0%EB%8C%93%EA%B0%92%EA%B3%BC-%EB%B6%84%EC%82%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>포아송 분포의 기댓값과 분산<a class="anchor-link" href="#%ED%8F%AC%EC%95%84%EC%86%A1-%EB%B6%84%ED%8F%AC%EC%9D%98-%EA%B8%B0%EB%8C%93%EA%B0%92%EA%B3%BC-%EB%B6%84%EC%82%B0"> </a>
 </h4>
-<p><code>-</code> 기댓값 = $\lambda$</p>
-<p><code>-</code> 분산 = $\lambda$</p>
+<p><code>-</code> $E(X) = \lambda$</p>
+<p><code>-</code> $Var(X) = \lambda$</p>
 
 </div>
 </div>
@@ -1096,7 +1327,7 @@ $</p>
 <div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">poisson</span><span class="p">(</span><span class="n">lam</span> <span class="o">=</span> <span class="mi">10</span> <span class="p">,</span><span class="n">size</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">)</span>
 </pre></div>
 <p><code>-</code> 단위 시간에서 사건이 평균 10번 발생할 때 (<code>lam = 10</code>) 단위 시간에서 사건이 몇 번 발생하는지를 <code>size = 1000</code>번 반복한다</p>
-<p><code>-</code> 우리 집앞에서 1시간당 평균 10명이 넘어질 때($\lambda=10$) 1시간당 몇 명 넘어지는지($x = 0,1,2,\dots,10,11,\dots$)를 $size = 1000$번 기록한다</p>
+<p><code>-</code> 우리 집 앞에서 1시간당 평균 10명이 넘어질 때($\lambda=10$) 1시간당 몇 명 넘어지는지($x = 0,1,2,\dots,10,11,\dots$)를 $size = 1000$번 기록한다</p>
 
 </div>
 </div>
@@ -1153,7 +1384,7 @@ $</p>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> $\lambda$를 바꿔볼까? --&gt; 우리 집앞에서 1시간당 평균 4명이 넘어진다면??</p>
+<p><code>-</code> $\lambda$를 바꿔볼까? --&gt; 우리 집 앞에서 1시간당 평균 4명이 넘어진다면??</p>
 
 </div>
 </div>
@@ -1196,6 +1427,33 @@ $</p>
 </div>
     
 
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="기하-분포(작성-예정)">
+<a class="anchor" href="#%EA%B8%B0%ED%95%98-%EB%B6%84%ED%8F%AC(%EC%9E%91%EC%84%B1-%EC%98%88%EC%A0%95)" aria-hidden="true"><span class="octicon octicon-link"></span></a>기하 분포(작성 예정)<a class="anchor-link" href="#%EA%B8%B0%ED%95%98-%EB%B6%84%ED%8F%AC(%EC%9E%91%EC%84%B1-%EC%98%88%EC%A0%95)"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="초기하-분포(작성-예정)">
+<a class="anchor" href="#%EC%B4%88%EA%B8%B0%ED%95%98-%EB%B6%84%ED%8F%AC(%EC%9E%91%EC%84%B1-%EC%98%88%EC%A0%95)" aria-hidden="true"><span class="octicon octicon-link"></span></a>초기하 분포(작성 예정)<a class="anchor-link" href="#%EC%B4%88%EA%B8%B0%ED%95%98-%EB%B6%84%ED%8F%AC(%EC%9E%91%EC%84%B1-%EC%98%88%EC%A0%95)"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="음이항-분포(작성-예정)">
+<a class="anchor" href="#%EC%9D%8C%EC%9D%B4%ED%95%AD-%EB%B6%84%ED%8F%AC(%EC%9E%91%EC%84%B1-%EC%98%88%EC%A0%95)" aria-hidden="true"><span class="octicon octicon-link"></span></a>음이항 분포(작성 예정)<a class="anchor-link" href="#%EC%9D%8C%EC%9D%B4%ED%95%AD-%EB%B6%84%ED%8F%AC(%EC%9E%91%EC%84%B1-%EC%98%88%EC%A0%95)"> </a>
+</h3>
+</div>
+</div>
+</div>
 </div>
 
 
