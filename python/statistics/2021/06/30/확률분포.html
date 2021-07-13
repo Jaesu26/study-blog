@@ -96,7 +96,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      8 min read
+      10 min read
     
 </span></p>
 
@@ -207,7 +207,14 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h4"><a href="#포아송-분포-plot">포아송 분포 plot </a></li>
 </ul>
 </li>
-<li class="toc-entry toc-h3"><a href="#기하-분포(작성-예정)">기하 분포(작성 예정) </a></li>
+<li class="toc-entry toc-h3"><a href="#기하-분포">기하 분포 </a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#기하-분포의-무기억성">기하 분포의 무기억성 </a></li>
+<li class="toc-entry toc-h4"><a href="#기하-분포의-확률-질량-함수">기하 분포의 확률 질량 함수 </a></li>
+<li class="toc-entry toc-h4"><a href="#기하-분포의-기댓값과-분산">기하 분포의 기댓값과 분산 </a></li>
+<li class="toc-entry toc-h4"><a href="#기하-분포-plot">기하 분포 plot </a></li>
+</ul>
+</li>
 <li class="toc-entry toc-h3"><a href="#초기하-분포(작성-예정)">초기하 분포(작성 예정) </a></li>
 <li class="toc-entry toc-h3"><a href="#음이항-분포(작성-예정)">음이항 분포(작성 예정) </a></li>
 </ul>
@@ -1430,12 +1437,150 @@ $</p>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="기하-분포(작성-예정)">
-<a class="anchor" href="#%EA%B8%B0%ED%95%98-%EB%B6%84%ED%8F%AC(%EC%9E%91%EC%84%B1-%EC%98%88%EC%A0%95)" aria-hidden="true"><span class="octicon octicon-link"></span></a>기하 분포(작성 예정)<a class="anchor-link" href="#%EA%B8%B0%ED%95%98-%EB%B6%84%ED%8F%AC(%EC%9E%91%EC%84%B1-%EC%98%88%EC%A0%95)"> </a>
+<h3 id="기하-분포">
+<a class="anchor" href="#%EA%B8%B0%ED%95%98-%EB%B6%84%ED%8F%AC" aria-hidden="true"><span class="octicon octicon-link"></span></a>기하 분포<a class="anchor-link" href="#%EA%B8%B0%ED%95%98-%EB%B6%84%ED%8F%AC"> </a>
 </h3>
 </div>
 </div>
 </div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 어떤 확률변수 X가 성공 확률이 p인 베르누이 시행에서 처음 성공까지 시도한 횟수라고 할 때 X는 성공 확률  p인 기하분포를 따른다</p>
+<p><code>-</code> <code>처음 성공할 때까지 걸린 시도 횟수</code> X가 확률 변수이다</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="기하-분포의-무기억성">
+<a class="anchor" href="#%EA%B8%B0%ED%95%98-%EB%B6%84%ED%8F%AC%EC%9D%98-%EB%AC%B4%EA%B8%B0%EC%96%B5%EC%84%B1" aria-hidden="true"><span class="octicon octicon-link"></span></a>기하 분포의 무기억성<a class="anchor-link" href="#%EA%B8%B0%ED%95%98-%EB%B6%84%ED%8F%AC%EC%9D%98-%EB%AC%B4%EA%B8%B0%EC%96%B5%EC%84%B1"> </a>
+</h4>
+<p><code>-</code> 성공 확률 p인 베르누이 시행을 현재 k번 시도 했다</p>
+<p><code>-</code> 하지만 아직 까지 성공하지 못했다</p>
+<p><code>-</code> 내가 여태까지 k번 실패했으니까 성공확률이 올라갈까?? --&gt; 답은 <code>No</code></p>
+<p><code>-</code> 내가 이제껏 시도한 횟수와 관계없이 성공할 확률은 p로 동일하다 --&gt; 무기억성</p>
+<p><code>-</code> 쉽게 말하자면 내가 순백의 주문서10%를 바르고 있는 중이다</p>
+<p><code>-</code> 여태까지 50장을 발랐는데도 성공하지 못했다</p>
+<p><code>-</code> 하지만 확률은 그대로 10%이고 기댓값도 10번으로 동일하다</p>
+<p><code>-</code> 즉, 처음에 순백의 주문서를 성공시키기 위한 기대되는 시도 횟수는 10번이다</p>
+<p><code>-</code> 50번을 실패했지만 여전히 순백의 주문서를 성공시키기 위한 기대되는 시도 횟수는 10번이다......</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="기하-분포의-확률-질량-함수">
+<a class="anchor" href="#%EA%B8%B0%ED%95%98-%EB%B6%84%ED%8F%AC%EC%9D%98-%ED%99%95%EB%A5%A0-%EC%A7%88%EB%9F%89-%ED%95%A8%EC%88%98" aria-hidden="true"><span class="octicon octicon-link"></span></a>기하 분포의 확률 질량 함수<a class="anchor-link" href="#%EA%B8%B0%ED%95%98-%EB%B6%84%ED%8F%AC%EC%9D%98-%ED%99%95%EB%A5%A0-%EC%A7%88%EB%9F%89-%ED%95%A8%EC%88%98"> </a>
+</h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>$f(x) = (1-p)^{x}p, \; x = 1, 2, \dots$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 성공 확률이 $p$일 때 $x-1$번 째 시도까지는 모두 실패하고 $x$번 째 시도에 성공할 확률 질량 함수</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="기하-분포의-기댓값과-분산">
+<a class="anchor" href="#%EA%B8%B0%ED%95%98-%EB%B6%84%ED%8F%AC%EC%9D%98-%EA%B8%B0%EB%8C%93%EA%B0%92%EA%B3%BC-%EB%B6%84%EC%82%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>기하 분포의 기댓값과 분산<a class="anchor-link" href="#%EA%B8%B0%ED%95%98-%EB%B6%84%ED%8F%AC%EC%9D%98-%EA%B8%B0%EB%8C%93%EA%B0%92%EA%B3%BC-%EB%B6%84%EC%82%B0"> </a>
+</h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> $E(X) = \frac{1}{p}$</p>
+<p><code>-</code> $Var(X) = \frac{1-p}{p^2}$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="기하-분포-plot">
+<a class="anchor" href="#%EA%B8%B0%ED%95%98-%EB%B6%84%ED%8F%AC-plot" aria-hidden="true"><span class="octicon octicon-link"></span></a>기하 분포 plot<a class="anchor-link" href="#%EA%B8%B0%ED%95%98-%EB%B6%84%ED%8F%AC-plot"> </a>
+</h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span>
+
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">geometric</span><span class="p">(</span><span class="n">p</span> <span class="p">,</span><span class="n">size</span><span class="p">)</span>
+</pre></div>
+<p><code>-</code> $p$는 베르누이 시행에서 성공 확률, size는 반복 횟수</p>
+<div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">geometric</span><span class="p">(</span><span class="n">p</span> <span class="o">=</span> <span class="mf">0.1</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">)</span>
+</pre></div>
+<p><code>-</code> 성공 확률이 <code>p = 0.1</code>인 <code>베르누이 시행</code>을 <code>성공할 때까지</code> 시도하는 것을 <code>size = 1000</code>번 반복한다</p>
+<p><code>-</code> 순백의 주문서($p=0.1$)를 성공할 때까지 시도하여 순백의 주문서가 적용될 때까지 걸린 시도 횟수($X=1,2,\dots$)를 $size = 1000$번 기록한다</p>
+<p><code>-</code> <code>np.random.geometric(p = 0.1, size = 1000)</code>을 히스토그램으로 나타내면?</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">sample</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">geometric</span><span class="p">(</span><span class="n">p</span> <span class="o">=</span> <span class="mf">0.1</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">sample</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">'np.random.geometric(p = 0.1, size = 1000)'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAXcAAAEICAYAAACktLTqAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90bGliIHZlcnNpb24zLjQuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8rg+JYAAAACXBIWXMAAAsTAAALEwEAmpwYAAAW/ElEQVR4nO3de9xlVX3f8c+XGW7h4nAZEWeAwYAaTAR9oWLVBCEmICq0VeIdDSnaaNVqGpHEimmSQl41XprWSMSCigLxBvHyUsqlaq2aQQEFpI4KMiMwg4CKeCn66x97PXh4fO6XeeZZft6v13nN3mvts/daz9nne9ZZZ58zqSokSX3ZbqkbIElaeIa7JHXIcJekDhnuktQhw12SOmS4S1KHDPcOJDk9yXuXuh3LSZInJblhhtuuTvK1JDsvdru2JUlOS/LOpW7HUkrypiT/dqnbMReGu7qTpJIcNNU2VfWZqnrYDHd5KnBOVf1o/q2buSTPTXJTkh8m+UiSPafY9qwkNyT5eZIXLcTxq+qvq+qPFmJf85XkxCSfS3JPkismqD8syZWt/sokh43UJcmZSb7bbmcmyUzuC/wX4LQkOyxi9xaF4b6VJVm51G34VTebxyDJjsBJwFZ9Z5TkEcA7gBcA+wD3AP99irtcDfwx8KXFb92SuAN4C3DG+IoWvBcxPEZ7AOcCF40E8inACcChwCOBpwMvmcl9q+oW4GvAMxanW4uoqrxNcANuBP4EuAb4HnABsFOrOxLYCJwG3N62fd40+3pt29dPgJUMo8FvAD8ArgP+5cj2LwI+yzBquBP4FnDsSP2BwP9q970E+DvgvSP1zwCuBe4CrgB+Y1xb/kNryw+BsxnC4xNtf/8T2GOSfqwA3tT6/C3g5UABK1v9A9r+bgE2AX8JrGh12wF/DtwEbAbeDTyg1a1r+3kxcHPr80uBx7R23gX83bi2/CFwfdv2k8ABrfzTbV8/BO4G/mDk8XotcCvwnrGykf3tB3wI2AJ8d+x4wG8DG8Yd+wrgPwNfBL7PEA57LvD599fA+0bWfx34KbDbNPf7LPCiWR7rte3x+gFwA3B0Kz997Lxq59jdI7d7gdNb3YOBD7a/3beAVyzi8/KPgCvGlf1ea39Gyr4NHNOWPwecMlJ3MvD5mdy3rf8Z8D8Wq0+LdXPkPrUTgWMYwvSRDKE75kHA3sAahpHdWUmmepv/HOA4YFVV3csQ7E9iCMQ3Au9Nsu/I9o9jeKLtDfwNcPbIW8n3AVe2uv/Ujg9AkocC7wdeBawGPg7807i3lf8aeArwUIZRzCcYXqhWM4TwKybpw78BjgUOAx7NMBoadQ7Dk/4g4FEMT5yxt/UvarcnAw8BdmUIjFGPAw5mCOS3MDypfhd4BHBikt9pfTy+tfdftTZ/pvWZqvrttq9Dq2rXqrqgrT8I2BM4gGEkd58kK4CPMrzwrGN4TM9v1b/F8DiM90KGF5h9W5/fNsE2JNk/yV1T3J470f1an68eW6mqbzCE+0Mn2X5O2jn7cuAxVbUb8PsMA4D7qaqXt7/nrsATGV5UL0qyHfBPra1rgKOBVyX5/UmOd+pUf485duMRwDXVkri5ppWP1V89Unf1uLqp7gvDIOLQObZt6Sz1q8u2emM4wZ8/sv43wN+35SMZntC7jNRfCLx+in394TTHuwo4vi2/iJHRIvBrDKPRBwH7T3Ds9/GLEdbrgQtH6rZjGJkcOdKW543UfxB4+8j6vwM+MkkbLwNeMrL+u61dKxlG/z8Bdh6pfw5weVu+FPjjkbqHAf+v3Xdd28+akfrvAn8wrp2vasufAE4e18d7+MXovYCDRuqPZAjGncaVbWzLj2cYda6coM9/Bpw/ruwK4IyR9UPa/lcs4Pl3KfDScWX3PY5T3G9WI3eGF+LN7bHcflzd6Yy8I2xlq9s59Oy2/jjg2+O2eR2LNNJl4pH76yd4jM7jF+8sfgY8fKTu4HaOZLr7tvWnAN9cjP4s5s2R+9RuHVm+h2G0OebOqvrhyPpNDG9PJ3Pz6EqSFya5amTE8psMI/FfOnZV3dMWd23HmOjYYx48ul5VP2/HXjOyzW0jyz+aYH20n6MePK4fo8sHANsDt4z06R3AAydqV1see1GYbbsOAN46cpw7GJ6oo30cb0tV/XiSuv2Am2p4RzXencBuE5SP9v0mhr7vPcF2c3U3sPu4st0Zpk4WTFVtYHiXdzqwOcn5SSY8j5NsD3yAYbpo7J3NAcCDx42+T+P+j+tim+5vNb5+d+DuGpJ7Jn/n3RimBpcVw33u9kiyy8j6/sB3ptj+vrd9SQ4A/oHh7fBeVbUK+CpDQE3nlkmOPeY7DE+4sWOFIbw2zWDfMzn22pH1/UaWb2YYue9dVavabfeqGnt7e7928Yt3IKMBPlM3M7yDWDVy27mqPjfFfab6+dObgf0n+aD1GiaeChnt+/4M70JuH79Rm5a5e4rb8yZp07WMTAUkeQiwI/B/p+jHnFTV+6rqiQyPTwFnTrLpf2X4jOHPR8puBr417rHYraqeOtEO2uWVk/495tiFa4FHjl4BwzCNeu1I/ei0yqHj6qa6L8BvcP9pnWXBcJ+fNybZIcmTgKcB/zjD++3C8CTaApDkxQwj92lV1U3A+pFjP5Fh3nzMhcBxSY5uI63XMITuVME3UxcCr0yyJskqhg/ixtp1C/Ap4E1Jdk+yXZJfH5snZ5gT//dJDkyyK8MHhhdMMlqezt8Dr2tXlJDkAUmeNVJ/G8O8/kx9keGF64wkuyTZKckTRupWJRn/ruD5SQ5J8mvAXwAfqKqfjd9xVX272lz1JLfzJmnTecDTM1yPv0s7xoeqasKRezsXdmIYIGzf+rBdqzsyyYQvbkkeluSodlXQjxneIf18gu1eAvwOw5TeaP0XgR8keW2SnZOsSPKbSR4z0fFquLxy0r/HJH8L2n53Yni3t13r3/at+gqGqZdXJNkxyctb+WXt33cDr27n7YMZnhPnzPC+tH5/YrK2basM97m7leEt+3cYnogvraqvwX2jk0lPhqq6juGqk//DEES/BfzvWRz7uQxznXcAb2A4ecf2fQPwfIZR1u0Mwf/0qvrpLPZ/nzaielJb/QeGAL8G+DLDh7X3Mjw5YPiQcQeGq3/uZHgLP/Yh8bsYrlL5NMMVFT9mmN+ftar6MMPo8vwk32d413PsyCanA+e2aYITZ7C/nzH8nQ5iuFJiI8OHurS/2zkMf9NR72nltwI7MfmH0HNSVdcyXDF0HsOc+G4MlzoCkOQTSU4bucunGIL5XwBnteWxD5f3Y/IX9x0ZLi+8naEvD2SYMx/vOQwvmN8ZGWmf1v52T2P4kP1bbT/vZLhQYCG9gKFPb2e4EOFHDOfj2GN0AsP5dxfDB90njJzz72D40PcrDOfKx1rZtPfNcJHDIcBHFrg/iy7tAwPNQpIjGT5oWjvNpl1LcizDh8wHTLvxMpZk7IqcR1XVjzJ8iea9VbUsvr2Z4Vum/1hVn1zqtiw3Sd4EfKOqpvqOwTbJL9RoxjJ8/f7JDKPEfRjeNXx4SRu1FVTVFuDhS92Ouapt5Fumy1FVvWap2zBXTstoNsJwTf6dDNMy1wP/cUlbJGlCTstIUoccuUtSh7aJOfe999671q1bt9TNkKRl5corr7y9qlZPVLdNhPu6detYv379UjdDkpaVJDdNVue0jCR1yHCXpA4Z7pLUIcNdkjpkuEtShwx3SeqQ4S5JHTLcJalDhrskdWib+IbqfKw79WNLduwbzzhuyY4tSVNx5C5JHTLcJalDhrskdchwl6QOGe6S1CHDXZI6ZLhLUocMd0nqkOEuSR0y3CWpQ4a7JHXIcJekDhnuktQhw12SOmS4S1KHDHdJ6pDhLkkdMtwlqUOGuyR1yHCXpA4Z7pLUIcNdkjpkuEtShwx3SerQjMM9yYokX07y0bZ+YJIvJNmQ5IIkO7TyHdv6hla/bpHaLkmaxGxG7q8Erh9ZPxN4c1UdBNwJnNzKTwbubOVvbttJkraiGYV7krXAccA723qAo4APtE3OBU5oy8e3dVr90W17SdJWMtOR+1uAPwV+3tb3Au6qqnvb+kZgTVteA9wM0Oq/17a/nySnJFmfZP2WLVvm1npJ0oSmDfckTwM2V9WVC3ngqjqrqg6vqsNXr169kLuWpF95K2ewzROAZyR5KrATsDvwVmBVkpVtdL4W2NS23wTsB2xMshJ4APDdBW+5JGlS047cq+p1VbW2qtYBzwYuq6rnAZcDz2ybnQRc1JYvbuu0+suqqha01ZKkKc3nOvfXAq9OsoFhTv3sVn42sFcrfzVw6vyaKEmarZlMy9ynqq4ArmjL3wQeO8E2PwaetQBtkyTNkd9QlaQOGe6S1CHDXZI6ZLhLUocMd0nqkOEuSR0y3CWpQ4a7JHXIcJekDhnuktQhw12SOmS4S1KHDHdJ6pDhLkkdMtwlqUOGuyR1yHCXpA4Z7pLUIcNdkjpkuEtShwx3SeqQ4S5JHTLcJalDhrskdchwl6QOGe6S1CHDXZI6ZLhLUocMd0nqkOEuSR0y3CWpQ4a7JHXIcJekDhnuktQhw12SOmS4S1KHpg33JDsl+WKSq5Ncm+SNrfzAJF9IsiHJBUl2aOU7tvUNrX7dIvdBkjTOTEbuPwGOqqpDgcOAY5IcAZwJvLmqDgLuBE5u258M3NnK39y2kyRtRdOGew3ubqvbt1sBRwEfaOXnAie05ePbOq3+6CRZqAZLkqY3ozn3JCuSXAVsBi4BvgHcVVX3tk02Amva8hrgZoBW/z1grwn2eUqS9UnWb9myZV6dkCTd34zCvap+VlWHAWuBxwIPn++Bq+qsqjq8qg5fvXr1fHcnSRoxq6tlquou4HLg8cCqJCtb1VpgU1veBOwH0OofAHx3IRorSZqZmVwtszrJqra8M/AU4HqGkH9m2+wk4KK2fHFbp9VfVlW1gG2WJE1j5fSbsC9wbpIVDC8GF1bVR5NcB5yf5C+BLwNnt+3PBt6TZANwB/DsRWi3JGkK04Z7VV0DPGqC8m8yzL+PL/8x8KwFaZ0kaU78hqokdchwl6QOGe6S1CHDXZI6ZLhLUocMd0nqkOEuSR0y3CWpQ4a7JHXIcJekDhnuktQhw12SOmS4S1KHDHdJ6tBMfs9dk1h36seW5Lg3nnHckhxX0vLhyF2SOmS4S1KHDHdJ6pDhLkkdMtwlqUOGuyR1yHCXpA4Z7pLUIcNdkjpkuEtShwx3SeqQ4S5JHTLcJalDhrskdchwl6QOGe6S1CHDXZI6ZLhLUocMd0nqkOEuSR2aNtyT7Jfk8iTXJbk2yStb+Z5JLkny9fbvHq08Sd6WZEOSa5I8erE7IUm6v5mM3O8FXlNVhwBHAC9LcghwKnBpVR0MXNrWAY4FDm63U4C3L3irJUlTmjbcq+qWqvpSW/4BcD2wBjgeOLdtdi5wQls+Hnh3DT4PrEqy70I3XJI0uVnNuSdZBzwK+AKwT1Xd0qpuBfZpy2uAm0futrGVSZK2khmHe5JdgQ8Cr6qq74/WVVUBNZsDJzklyfok67ds2TKbu0qSpjGjcE+yPUOwn1dVH2rFt41Nt7R/N7fyTcB+I3df28rup6rOqqrDq+rw1atXz7X9kqQJzORqmQBnA9dX1d+OVF0MnNSWTwIuGil/Ybtq5gjgeyPTN5KkrWDlDLZ5AvAC4CtJrmplpwFnABcmORm4CTix1X0ceCqwAbgHePFCNliSNL1pw72qPgtkkuqjJ9i+gJfNs12SpHnwG6qS1CHDXZI6ZLhLUocMd0nqkOEuSR0y3CWpQ4a7JHXIcJekDhnuktQhw12SOmS4S1KHDHdJ6pDhLkkdMtwlqUOGuyR1yHCXpA4Z7pLUIcNdkjpkuEtShwx3SeqQ4S5JHTLcJalDhrskdchwl6QOGe6S1CHDXZI6ZLhLUocMd0nqkOEuSR0y3CWpQ4a7JHXIcJekDq1c6gZo9tad+rElO/aNZxy3ZMeWNHOO3CWpQ4a7JHXIcJekDk0b7knelWRzkq+OlO2Z5JIkX2//7tHKk+RtSTYkuSbJoxez8ZKkic1k5H4OcMy4slOBS6vqYODStg5wLHBwu50CvH1hmilJmo1pw72qPg3cMa74eODctnwucMJI+btr8HlgVZJ9F6itkqQZmuuc+z5VdUtbvhXYpy2vAW4e2W5jK/slSU5Jsj7J+i1btsyxGZKkicz7A9WqKqDmcL+zqurwqjp89erV822GJGnEXMP9trHplvbv5la+CdhvZLu1rUyStBXNNdwvBk5qyycBF42Uv7BdNXME8L2R6RtJ0lYy7c8PJHk/cCSwd5KNwBuAM4ALk5wM3ASc2Db/OPBUYANwD/DiRWizJGka04Z7VT1nkqqjJ9i2gJfNt1GSpPnxG6qS1CHDXZI6ZLhLUof8PXfNylL9lry/Iy/NjiN3SeqQ4S5JHTLcJalDhrskdchwl6QOGe6S1CHDXZI6ZLhLUocMd0nqkOEuSR0y3CWpQ4a7JHXIcJekDhnuktQhw12SOmS4S1KHDHdJ6pDhLkkdMtwlqUOGuyR1yP8gW8uC/zG3NDuO3CWpQ4a7JHXIcJekDhnuktQhw12SOuTVMtIUluoqHfBKHc2PI3dJ6pAjd2kb5bX9mg9H7pLUIcNdkjrktIyk+/FD5D4sysg9yTFJbkiyIcmpi3EMSdLkFnzknmQF8N+ApwAbgX9OcnFVXbfQx5LUFz9EXjiLMS3zWGBDVX0TIMn5wPGA4S5pm9TjVNRihPsa4OaR9Y3A48ZvlOQU4JS2eneSG2aw772B2+fdwm1Pr/2Cfvtmv5afbbJvOXNedz9gsool+0C1qs4CzprNfZKsr6rDF6lJS6bXfkG/fbNfy0/PfZvIYnygugnYb2R9bSuTJG0lixHu/wwcnOTAJDsAzwYuXoTjSJImseDTMlV1b5KXA58EVgDvqqprF2j3s5rGWUZ67Rf02zf7tfz03Ldfkqpa6jZIkhaYPz8gSR0y3CWpQ8si3Hv6OYMk70qyOclXR8r2THJJkq+3f/dYyjbORZL9klye5Lok1yZ5ZStf1n1LslOSLya5uvXrja38wCRfaOfkBe3igWUnyYokX07y0bbeS79uTPKVJFclWd/KlvW5OFvbfLiP/JzBscAhwHOSHLK0rZqXc4BjxpWdClxaVQcDl7b15eZe4DVVdQhwBPCy9jgt9779BDiqqg4FDgOOSXIEcCbw5qo6CLgTOHnpmjgvrwSuH1nvpV8AT66qw0aubV/u5+KsbPPhzsjPGVTVT4GxnzNYlqrq08Ad44qPB85ty+cCJ2zNNi2Eqrqlqr7Uln/AEBhrWOZ9q8HdbXX7divgKOADrXzZ9QsgyVrgOOCdbT100K8pLOtzcbaWQ7hP9HMGa5aoLYtln6q6pS3fCuyzlI2ZryTrgEcBX6CDvrWpi6uAzcAlwDeAu6rq3rbJcj0n3wL8KfDztr4XffQLhhfgTyW5sv3UCXRwLs6Gv+e+jamqSrJsr09NsivwQeBVVfX9YTA4WK59q6qfAYclWQV8GHj40rZo/pI8DdhcVVcmOXKJm7MYnlhVm5I8ELgkyddGK5fruTgby2Hk/qvwcwa3JdkXoP27eYnbMydJtmcI9vOq6kOtuIu+AVTVXcDlwOOBVUnGBkfL8Zx8AvCMJDcyTHUeBbyV5d8vAKpqU/t3M8ML8mPp6FycieUQ7r8KP2dwMXBSWz4JuGgJ2zInbb72bOD6qvrbkapl3bckq9uInSQ7M/w/BdczhPwz22bLrl9V9bqqWltV6xieU5dV1fNY5v0CSLJLkt3GloHfA77KMj8XZ2tZfEM1yVMZ5gfHfs7gr5a2RXOX5P3AkQw/P3ob8AbgI8CFwP7ATcCJVTX+Q9dtWpInAp8BvsIv5nBPY5h3X7Z9S/JIhg/fVjAMhi6sqr9I8hCGEe+ewJeB51fVT5aupXPXpmX+pKqe1kO/Wh8+3FZXAu+rqr9KshfL+FycrWUR7pKk2VkO0zKSpFky3CWpQ4a7JHXIcJekDhnuktQhw12SOmS4S1KH/j/QZjbwzjrjKAAAAABJRU5ErkJggg==%0A">
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
