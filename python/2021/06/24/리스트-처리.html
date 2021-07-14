@@ -139,6 +139,7 @@ window.onload = wrap_img;
 <ul>
 <li class="toc-entry toc-h3"><a href="#list.sort()함수,-sorted()함수">list.sort()함수, sorted()함수 </a></li>
 <li class="toc-entry toc-h3"><a href="#reverse()함수">reverse()함수 </a></li>
+<li class="toc-entry toc-h3"><a href="#reversed()함수">reversed()함수 </a></li>
 </ul>
 </li>
 <li class="toc-entry toc-h2"><a href="#리스트-초기화">리스트 초기화 </a>
@@ -152,6 +153,7 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h3"><a href="#?.append()">?.append() </a></li>
 <li class="toc-entry toc-h3"><a href="#?.insert(i,-v)">?.insert(i, v) </a></li>
 <li class="toc-entry toc-h3"><a href="#?.extend()">?.extend() </a></li>
+<li class="toc-entry toc-h3"><a href="#?.pop()">?.pop() </a></li>
 </ul>
 </li>
 <li class="toc-entry toc-h2"><a href="#문자열-포함여부">문자열 포함여부 </a>
@@ -184,10 +186,10 @@ window.onload = wrap_img;
 <h3 id="list.sort()함수,-sorted()함수">
 <a class="anchor" href="#list.sort()%ED%95%A8%EC%88%98,-sorted()%ED%95%A8%EC%88%98" aria-hidden="true"><span class="octicon octicon-link"></span></a><code>list</code>.sort()함수, sorted()함수<a class="anchor-link" href="#list.sort()%ED%95%A8%EC%88%98,-sorted()%ED%95%A8%EC%88%98"> </a>
 </h3>
-<p><code>-</code> ?.sort()함수는 list형태인 <code>?</code> 의 요소를 오름차순으로 정렬한다.</p>
-<p><code>-</code> ?.sort(reverse = True)함수는 내림차순으로 정렬한다.</p>
-<p><code>-</code> ?.sort()함수와 sorted()함수는 거의 같다.</p>
-<p><code>-</code> ?.sort()함수는 ?의 속성을 바꾸지만 sorted()함수는 ?의 속성을 바꾸지 않는다. (a.append()와 + 연산의 차이)</p>
+<p><code>-</code> ?.sort()함수는 list형태인 <code>?</code> 의 요소를 오름차순으로 정렬한다</p>
+<p><code>-</code> ?.sort(reverse = True)함수는 내림차순으로 정렬한다</p>
+<p><code>-</code> ?.sort()함수와 sorted()함수는 거의 같다</p>
+<p><code>-</code> ?.sort()함수는 ?의 속성을 바꾸지만 sorted()함수는 ?의 속성을 바꾸지 않는다 (a.append()와 + 연산의 차이)</p>
 
 </div>
 </div>
@@ -297,7 +299,7 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> sort(), sorted()의 key 옵션에 지정된 함수의 결과에따라 정렬한다.</p>
+<p><code>-</code> sort(), sorted()의 key 옵션에 지정된 함수의 결과에따라 정렬한다</p>
 <p><code>-</code>  lambda함수(익명 함수) 사용 --&gt; <code>lambda</code> <code>매개변수</code>: <code>결과</code></p>
 
 </div>
@@ -311,7 +313,7 @@ window.onload = wrap_img;
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">b</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">8</span><span class="p">)]</span>
-<span class="n">c</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">key</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="o">-</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span> <span class="c1">## x[1]앞에 있는 '-'기호는 현재정렬순서와 반대로이다. </span>
+<span class="n">c</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">key</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="o">-</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span> <span class="c1">## x[1]앞에 있는 '-'기호는 현재정렬순서와 반대로이다</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>                                     <span class="c1">##첫 번째 원소는 오름차순, 두 번째 원소는 내림차순으로 정렬</span>
 </pre></div>
 
@@ -342,7 +344,7 @@ window.onload = wrap_img;
 <h3 id="reverse()함수">
 <a class="anchor" href="#reverse()%ED%95%A8%EC%88%98" aria-hidden="true"><span class="octicon octicon-link"></span></a>reverse()함수<a class="anchor-link" href="#reverse()%ED%95%A8%EC%88%98"> </a>
 </h3>
-<p><code>-</code> ?.reverse()함수는 list형태인 <code>?</code> 의 요소를 역순으로 정렬한다.</p>
+<p><code>-</code> ?.reverse()함수는 list형태인 <code>?</code> 의 요소를 역순으로 정렬한다</p>
 
 </div>
 </div>
@@ -372,6 +374,92 @@ window.onload = wrap_img;
 <pre>[4, 7, 3, 2, 5, 1]
 </pre>
 </div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="reversed()함수">
+<a class="anchor" href="#reversed()%ED%95%A8%EC%88%98" aria-hidden="true"><span class="octicon octicon-link"></span></a>reversed()함수<a class="anchor-link" href="#reversed()%ED%95%A8%EC%88%98"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> reversed()함수는 요소를 역순으로 정렬해 반환한다</p>
+<p><code>-</code> 반환값을 그대로 사용하지 않고 list()나 tuple()함수를 통해 사용한다</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span>
+<span class="nb">reversed</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;list_reverseiterator at 0x2185ce99e20&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span>
+<span class="nb">tuple</span><span class="p">(</span><span class="nb">reversed</span><span class="p">(</span><span class="n">d</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>(4, 7, 3, 2, 5, 1)</pre>
+</div>
+
 </div>
 
 </div>
@@ -608,7 +696,7 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> 사실 <code>_</code> 자리에 다른 것이 들어가도 된다. 이를 테면 <code>i</code></p>
+<p><code>-</code> 사실 <code>_</code> 자리에 다른 것이 들어가도 된다 이를 테면 <code>i</code></p>
 
 </div>
 </div>
@@ -650,7 +738,7 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> 위에 List에서 <code>_</code> 대신에 <code>i</code>를 넣는다고 생각하자.</p>
+<p><code>-</code> 위에 List에서 <code>_</code> 대신에 <code>i</code>를 넣는다고 생각하자</p>
 <div class="highlight"><pre><span></span><span class="n">List</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="mi">5</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
 </pre></div>
 
@@ -660,7 +748,7 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> 위에 리스트인 <code>x</code> 에서는 <code>i</code>가 리스트 안에 <code>0</code>을 <code>몇 개</code> 생성할 지 정하는 변수였다.</p>
+<p><code>-</code> 위에 리스트인 <code>x</code> 에서는 <code>i</code>가 리스트 안에 <code>0</code>을 <code>몇 개</code> 생성할 지 정하는 변수였다</p>
 <p><code>-</code> 위에 리스트인 <code>List</code> 에서는 <code>i</code>가 무슨 역할을 하지??</p>
 
 </div>
@@ -669,12 +757,12 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> 아무역할도 하지 않는다.</p>
-<p><code>-</code> 0을 5개 생성하고 이를 5번 반복한다.</p>
-<p><code>-</code> <code>List</code>를 정의할 때 부터 정해졌다.</p>
-<p><code>-</code> <code>i</code>는 그저 for문을 쓰기 위해 필요함 --&gt; range(5)의 값을 받아낼 변수가 필요하다.</p>
-<p><code>-</code> 그래서 <code>i</code> 자리에 오는 변수는 아무짝에도 쓸모가 없다.</p>
-<p><code>-</code> 아무 의미가 없어서 그냥 아무 의미 없어보이는 기호인 <code>_</code>를 쓴다.(내 생각)</p>
+<p><code>-</code> 아무역할도 하지 않는다</p>
+<p><code>-</code> 0을 5개 생성하고 이를 5번 반복한다</p>
+<p><code>-</code> <code>List</code>를 정의할 때 부터 정해졌다</p>
+<p><code>-</code> <code>i</code>는 그저 for문을 쓰기 위해 필요함 --&gt; range(5)의 값을 받아낼 변수가 필요하다</p>
+<p><code>-</code> 그래서 <code>i</code> 자리에 오는 변수는 아무짝에도 쓸모가 없다</p>
+<p><code>-</code> 아무 의미가 없어서 그냥 아무 의미 없어보이는 기호인 <code>_</code>를 쓴다(내 생각)</p>
 
 </div>
 </div>
@@ -819,6 +907,52 @@ window.onload = wrap_img;
 <pre>[1, 2, 3, 4, 5, 6, 7, 8]</pre>
 </div>
 
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="?.pop()">
+<a class="anchor" href="#?.pop()" aria-hidden="true"><span class="octicon octicon-link"></span></a><code>?.pop()</code><a class="anchor-link" href="#?.pop()"> </a>
+</h3>
+<p><code>-</code> pop(i)는 리스트의 i번째 요소를 돌려주고 그 요소는 삭제, pop( ) = pop(-1)</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span> <span class="p">,</span><span class="mi">5</span><span class="p">]</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>5
+[1, 2, 3, 4]
+</pre>
+</div>
 </div>
 
 </div>
