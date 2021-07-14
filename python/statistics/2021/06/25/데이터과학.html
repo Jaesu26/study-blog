@@ -143,6 +143,15 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h3"><a href="#회귀모형">회귀모형 </a></li>
 <li class="toc-entry toc-h3"><a href="#함수의-최소값">함수의 최소값 </a></li>
 <li class="toc-entry toc-h3"><a href="#회귀모형-계수-추정">회귀모형 계수 추정 </a></li>
+<li class="toc-entry toc-h3"><a href="#상관관계">상관관계 </a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#상관계수">상관계수 </a>
+<ul>
+<li class="toc-entry toc-h5"><a href="#상관계수-특징">상관계수 특징 </a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul><!--
@@ -171,7 +180,7 @@ window.onload = wrap_img;
 </h3>
 <p><code>-</code> $y_i=\beta_0+\beta_1 x_{1}+\epsilon_i$</p>
 <p><code>-</code> $y_i$는 관측값, $\beta_0$는 절편, $\beta_1$은 기울기, $\epsilon_i$는 오차항 { $\mathbb{N}\sim(0,\sigma^2$) }</p>
-<p><code>-</code> $\sum_{i=1}^{n}\epsilon_i^2 = \sum_{i=1}^{n} (y_i-\beta_0-\beta_1 x_{1})^2$ 을 최소화하는 $\beta_0,\beta_1$을 추정한다. --&gt; <code>최소제곱추정</code></p>
+<p><code>-</code> $\sum_{i=1}^{n}\epsilon_i^2 = \sum_{i=1}^{n} (y_i-\beta_0-\beta_1 x_{1})^2$ 을 최소화하는 $\beta_0,\beta_1$을 추정한다 --&gt; <code>최소제곱추정</code></p>
 
 </div>
 </div>
@@ -182,9 +191,9 @@ window.onload = wrap_img;
 <h3 id="함수의-최소값">
 <a class="anchor" href="#%ED%95%A8%EC%88%98%EC%9D%98-%EC%B5%9C%EC%86%8C%EA%B0%92" aria-hidden="true"><span class="octicon octicon-link"></span></a>함수의 최소값<a class="anchor-link" href="#%ED%95%A8%EC%88%98%EC%9D%98-%EC%B5%9C%EC%86%8C%EA%B0%92"> </a>
 </h3>
-<p><code>-</code> 함수 $f(x)$가 있다고 하자. 이 함수의 최소값을 알고 싶다. --&gt; <code>미분</code></p>
-<p><code>-</code> convex fuction (볼록 함수 --&gt; 아래로 볼록)는 임의의 두 점 $x_1,x_2$와 [0,1] 사이의 값 t에 대해 $f(tx_1+(1-t)x_2)\geq tf(x_1)+(1-t)f(x_2)$가 항상 성립하는 함수이다.</p>
-<p><code>-</code> $f''(x) &gt; 0$이면 $f(x)$는 아래로 볼록하다.</p>
+<p><code>-</code> 함수 $f(x)$가 있다고 하자. 이 함수의 최소값을 알고 싶다 --&gt; <code>미분</code></p>
+<p><code>-</code> convex fuction (볼록 함수 --&gt; 아래로 볼록)는 임의의 두 점 $x_1,x_2$와 [0,1] 사이의 값 t에 대해 $f(tx_1+(1-t)x_2)\geq tf(x_1)+(1-t)f(x_2)$가 항상 성립하는 함수이다</p>
+<p><code>-</code> $f''(x) &gt; 0$이면 $f(x)$는 아래로 볼록하다</p>
 
 </div>
 </div>
@@ -193,8 +202,8 @@ window.onload = wrap_img;
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <ol>
-<li>함수를 두 번 미분한다.</li>
-<li>$f''(x)&gt;0$이면 볼록함수이다. --&gt; $f'(x)=0$을 만족할 때 $f(x)$의 극소값(=최소값)이므로 $f(x)$가 최소이다. </li>
+<li>함수를 두 번 미분한다</li>
+<li>$f''(x)&gt;0$이면 볼록함수이다. --&gt; $f'(x)=0$을 만족할 때 $f(x)$의 극소값(=최소값)이므로 $f(x)$가 최소이다</li>
 </ol>
 
 </div>
@@ -228,6 +237,67 @@ window.onload = wrap_img;
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> 의문점: 만약$\big(\bf X^{\top}X\big)^{-1}$이 존재하지 않는다면?</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="상관관계">
+<a class="anchor" href="#%EC%83%81%EA%B4%80%EA%B4%80%EA%B3%84" aria-hidden="true"><span class="octicon octicon-link"></span></a>상관관계<a class="anchor-link" href="#%EC%83%81%EA%B4%80%EA%B4%80%EA%B3%84"> </a>
+</h3>
+<p><code>-</code>  두 개의 양적 변수의 연관강도나 방향을 요약하는 수치 통계량</p>
+<p><code>-</code> 상관관계는 두 변수 사이의 선형 관계에 대한 정보임</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="상관계수">
+<a class="anchor" href="#%EC%83%81%EA%B4%80%EA%B3%84%EC%88%98" aria-hidden="true"><span class="octicon octicon-link"></span></a>상관계수<a class="anchor-link" href="#%EC%83%81%EA%B4%80%EA%B3%84%EC%88%98"> </a>
+</h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 상관관계의 정도를 나타냄</p>
+<p><code>-</code> 모집단 상관계수: $\rho$</p>
+<p><code>-</code> 표본 상관계수: $r$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h5 id="상관계수-특징">
+<a class="anchor" href="#%EC%83%81%EA%B4%80%EA%B3%84%EC%88%98-%ED%8A%B9%EC%A7%95" aria-hidden="true"><span class="octicon octicon-link"></span></a>상관계수 특징<a class="anchor-link" href="#%EC%83%81%EA%B4%80%EA%B3%84%EC%88%98-%ED%8A%B9%EC%A7%95"> </a>
+</h5>
+<ol>
+<li>
+<p>상관계수는 항상 $-1\leq r \leq 1$</p>
+</li>
+<li>
+<p>$r$의 부호가 두 변수 관계의 방향(음수: 음의 관계, 양수: 양의 관계)</p>
+</li>
+<li>
+<p>$r$이 $-1$ or $+1$에 가까울수록 선형 관계가 강함, $0$에 가까우면 선형 관계가 없음</p>
+</li>
+<li>
+<p>$r$이 $0$이라고 두 변수사이의 관계가 없는 것이 아니라 <code>선형 관계</code>가 없다는 의미 --&gt; <code>곡선 관계</code>일 수 도 있음</p>
+</li>
+<li>
+<p>상관계수 $r$은 단위가 없음. 각 변수의 척도와도 무관</p>
+</li>
+<li>
+<p>상관계수는 대칭적 --&gt; $x$와$y$의 상관계수 $=$ $y$와$x$의 상관계수</p>
+</li>
+</ol>
 
 </div>
 </div>
