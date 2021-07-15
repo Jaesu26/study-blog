@@ -96,7 +96,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      6 min read
+      9 min read
     
 </span></p>
 
@@ -138,6 +138,8 @@ window.onload = wrap_img;
 
   <div class="post-content e-content" itemprop="articleBody">
     <ul class="section-nav">
+<li class="toc-entry toc-h1"><a href="#$O(N^2)$-정렬">$O(N^2)$ 정렬 </a>
+<ul>
 <li class="toc-entry toc-h2"><a href="#선택-정렬">선택 정렬 </a>
 <ul>
 <li class="toc-entry toc-h3"><a href="#선택-정렬-알고리즘">선택 정렬 알고리즘 </a></li>
@@ -156,10 +158,26 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h3"><a href="#삽입-정렬-알고리즘-코드-구현">삽입 정렬 알고리즘 코드 구현 </a></li>
 </ul>
 </li>
+</ul>
+</li>
+<li class="toc-entry toc-h1"><a href="#$O(NlogN)$-정렬">$O(NlogN)$ 정렬 </a>
+<ul>
 <li class="toc-entry toc-h2"><a href="#병합-정렬">병합 정렬 </a>
 <ul>
 <li class="toc-entry toc-h3"><a href="#병합-정렬-알고리즘">병합 정렬 알고리즘 </a></li>
 <li class="toc-entry toc-h3"><a href="#병합-정렬-알고리즘-코드-구현">병합 정렬 알고리즘 코드 구현 </a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-entry toc-h1"><a href="#$O(N)$-정렬">$O(N)$ 정렬 </a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#계수-정렬">계수 정렬 </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#계수-정렬-알고리즘">계수 정렬 알고리즘 </a></li>
+<li class="toc-entry toc-h3"><a href="#계수-정렬-알고리즘-코드-구현">계수 정렬 알고리즘 코드 구현 </a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul><!--
@@ -176,6 +194,15 @@ window.onload = wrap_img;
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> 데이터를 오름차순으로 정렬해보자!</p>
 
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="$O(N^2)$-정렬">
+<a class="anchor" href="#%24O(N%5E2)%24-%EC%A0%95%EB%A0%AC" aria-hidden="true"><span class="octicon octicon-link"></span></a>$O(N^2)$ 정렬<a class="anchor-link" href="#%24O(N%5E2)%24-%EC%A0%95%EB%A0%AC"> </a>
+</h1>
 </div>
 </div>
 </div>
@@ -491,6 +518,15 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="$O(NlogN)$-정렬">
+<a class="anchor" href="#%24O(NlogN)%24-%EC%A0%95%EB%A0%AC" aria-hidden="true"><span class="octicon octicon-link"></span></a>$O(NlogN)$ 정렬<a class="anchor-link" href="#%24O(NlogN)%24-%EC%A0%95%EB%A0%AC"> </a>
+</h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="병합-정렬">
 <a class="anchor" href="#%EB%B3%91%ED%95%A9-%EC%A0%95%EB%A0%AC" aria-hidden="true"><span class="octicon octicon-link"></span></a>병합 정렬<a class="anchor-link" href="#%EB%B3%91%ED%95%A9-%EC%A0%95%EB%A0%AC"> </a>
 </h2>
@@ -593,7 +629,19 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> 그래서 pop()함수를 사용하지 않음</p>
+<p><code>-</code> 그래서 pop(0)함수를 사용하지 않음</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 아래의 코드가 이해가 잘 안될 수 있다</p>
+<p><code>-</code> 그래서 어떻게 split하고 merge가 되는지 알아보기로 하자</p>
+<p><code>-</code> 밑의 출력을 보니 처음으로 merge()에 대입된 left와 right는 [5]와 [8]임을 알 수 있다</p>
+<p><code>-</code> 처음으로 넣은 값은  [5, 8, 7, 1, 2, 3, 9, 4]인데 신기하다</p>
+<p><code>-</code> 자세히 살펴보자</p>
 
 </div>
 </div>
@@ -606,6 +654,7 @@ window.onload = wrap_img;
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">List</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+<span class="n">k</span> <span class="o">=</span> <span class="mi">0</span>
 
 <span class="k">def</span> <span class="nf">mergeSort</span><span class="p">(</span><span class="n">x</span><span class="p">):</span> <span class="c1">## 나누기</span>
     <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
@@ -618,7 +667,10 @@ window.onload = wrap_img;
     
     <span class="n">next_left</span> <span class="o">=</span> <span class="n">mergeSort</span><span class="p">(</span><span class="n">left</span><span class="p">)</span> <span class="c1">## 재귀적으로 나누기</span>
     <span class="n">next_right</span> <span class="o">=</span> <span class="n">mergeSort</span><span class="p">(</span><span class="n">right</span><span class="p">)</span> <span class="c1">## 재귀적으로 나누기</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">next_left</span><span class="p">,</span> <span class="n">next_right</span><span class="p">)</span>
+    
+    <span class="k">global</span> <span class="n">k</span>
+    <span class="n">k</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">'return 횟수 </span><span class="si">%s</span><span class="s1">'</span> <span class="o">%</span><span class="k">k</span>)
     
     <span class="k">return</span> <span class="n">merge</span><span class="p">(</span><span class="n">next_left</span><span class="p">,</span> <span class="n">next_right</span><span class="p">)</span>
 
@@ -627,6 +679,9 @@ window.onload = wrap_img;
     <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span> 
     <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="n">sorted_list</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>  
+    
+    <span class="nb">print</span><span class="p">(</span><span class="n">left</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">right</span><span class="p">)</span>
     
     <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">left</span><span class="p">)</span> <span class="ow">and</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">right</span><span class="p">):</span> <span class="c1">## left와 right중 더 작은 값 넣기</span>
         <span class="k">if</span> <span class="n">left</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">right</span><span class="p">[</span><span class="n">j</span><span class="p">]:</span>
@@ -660,14 +715,230 @@ window.onload = wrap_img;
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>[5] [8]
-[7] [1]
-[5, 8] [1, 7]
-[2] [3]
-[9] [4]
-[2, 3] [4, 9]
-[1, 5, 7, 8] [2, 3, 4, 9]
+<pre>return 횟수 1
+[5]
+[8]
+return 횟수 2
+[7]
+[1]
+return 횟수 3
+[5, 8]
+[1, 7]
+return 횟수 4
+[2]
+[3]
+return 횟수 5
+[9]
+[4]
+return 횟수 6
+[2, 3]
+[4, 9]
+return 횟수 7
+[1, 5, 7, 8]
+[2, 3, 4, 9]
 [1, 2, 3, 4, 5, 7, 8, 9]
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 우선 mergeSort 함수에서 return은 총 7번 일어남을 알 수 있다</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 각 상황에서 어떤일이 일어나는지 알아보자</p>
+<ol>
+<li>
+<p>우리는 print(mergeSort(List))를 통해 mergeSort 함수에 List라는 input을 넣었다</p>
+</li>
+<li>
+<p>mergeSort에는 [5, 8, 7, 1, 2, 3, 9, 4]이 대입됐다</p>
+</li>
+<li>
+<p>left는 [5, 8, 7, 1], right는 [2, 3, 9, 4]이다</p>
+</li>
+<li>
+<p>next_left는 mergeSort([5, 8, 7, 1]), next_right는 mergeSort([2, 3, 9, 4])이다</p>
+</li>
+<li>
+<p>merge(next_left, next_right)값을 return한다</p>
+</li>
+<li>
+<p>근데 merge(next_left, next_right)를 return하려고 보니까 next_left, next_right 값을 알아야한다</p>
+</li>
+<li>
+<p>4번으로 돌아가서 보면 mergeSort([5, 8, 7, 1])와 mergeSort([2, 3, 9, 4])를 구해야 한다 --&gt; 그럼 구하면 되지</p>
+</li>
+<li>
+<p>mergeSort()에 [5, 8, 7, 1]이 대입된다</p>
+</li>
+<li>
+<p>그러면 mergeSort()는 merge(mergeSort([5, 8]), mergeSort([7, 1]))를 return한다</p>
+</li>
+<li>
+<p>근데 mergeSort([5, 8]), mergeSort([7, 1])값은 뭐지?? --&gt; 이것도 구해야 한다</p>
+</li>
+<li>
+<p>mergeSort([5, 8])을 구하면 next_left = [5], next_right = [8]이다</p>
+</li>
+<li>
+<p>merge(next_left, next_right)는 merge([5], [8])이 되고 드디어 merge()함수에 left와 right가 대입된다 --&gt; 그래서 처음 left와 right로 출력된 값이 [5]와 [8]이었던 것: return1</p>
+</li>
+<li>
+<p>merge([5], [8])은 [5,8]인 sorted_list를 return한다 --&gt; mergeSort([5, 8])은 [5,8]을 return한다 즉, mergeSort([5, 8])= [5, 8]</p>
+</li>
+<li>
+<p>이제  mergeSort([5, 8])를 구했으니 mergeSort([7, 1])값을 구할 차례이다</p>
+</li>
+<li>
+<p>mergeSort([7, 1])은 merge([7], [1])이고 [1, 7]을 return한다 --&gt; mergeSort([7, 1]) = [1, 7]: return2</p>
+</li>
+<li>
+<p>이제 8번을 보자. 8번은 merge([5, 8, 7, 1])이고 merge(mergeSort([5, 8]), mergeSort([7, 1]))를 return한다</p>
+</li>
+<li>
+<p>이때는 mergeSort([5, 8])와 mergeSort([7, 1])를 모르는 상태였지만 이제는 구해서 알고 있다</p>
+</li>
+<li>
+<p>merge([5, 8], [1, 7])을 구해보면 sorted_list로 [1, 5, 7, 8]을 return한다: return3</p>
+</li>
+<li>
+<p>이제 mergeSort([2, 3, 9, 4])을 구할 차례이다. 이는 위에서 한 방식대로 따라하면 된다</p>
+</li>
+<li>
+<p>결과적으로 print(mergeSort(List))는 [1, 2, 3, 4, 5, 7, 8, 9]을 출력하게 된다</p>
+</li>
+</ol>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 메모리 아끼는 병합 정렬 참고: <a href="https://www.daleseo.com/sort-merge/">https://www.daleseo.com/sort-merge/</a></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="$O(N)$-정렬">
+<a class="anchor" href="#%24O(N)%24-%EC%A0%95%EB%A0%AC" aria-hidden="true"><span class="octicon octicon-link"></span></a>$O(N)$ 정렬<a class="anchor-link" href="#%24O(N)%24-%EC%A0%95%EB%A0%AC"> </a>
+</h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="계수-정렬">
+<a class="anchor" href="#%EA%B3%84%EC%88%98-%EC%A0%95%EB%A0%AC" aria-hidden="true"><span class="octicon octicon-link"></span></a>계수 정렬<a class="anchor-link" href="#%EA%B3%84%EC%88%98-%EC%A0%95%EB%A0%AC"> </a>
+</h2>
+<p><code>-</code> 카운팅 정렬이라고도 한다</p>
+<p><code>-</code> 양수만 가능, 값의 범위가 크면 안됨(메모리 크기를 넘기면 안됨)</p>
+<p><code>-</code> 수의 범위가 작다면<code>(입력으로 주어지는 값들의 개수: 0 ~ 1이라고 수의 범위가 작은 것이 아님... 0 ~ 1사이의 수는 무한개이다)</code> 카운팅 정렬을 통해 빠르게 정렬할 수 있음</p>
+<p><code>-</code> 비교 정렬이 아님 --&gt; 위의 코드들은 다른 요소값과 비교하는데 카운팅 정렬은 비교없이 데이터를 정렬함</p>
+<p><code>-</code> 입력으로 주어지는 input의 개수는 큰데 주어지는 값의 개수가 적다면 메모리 관점에서 효율적이다</p>
+<p><code>-</code> 예로 input이 최대1억개인데 값이 1 ~ 10까지라면 위에서 다룬 정렬은 1억크기의 배열이 필요하지만 카운팅 정렬에 경우는 크기가 10인 배열을 만들면 된다</p>
+<p><code>-</code> 하지만, 최대 수를 기준으로 배열을 만든다(최대값이 100인 경우 크기가 100인 리스트 생성)</p>
+<p><code>-</code> 그렇기에 [0, 1, 1, 1, 100]인 리스트를 정렬한다고 보면 숫자는 3개 뿐이지만 최대값이 100이므로 크기가 100인 리스트를 만들어야 한다 --&gt; 심한 메모리 낭비</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="계수-정렬-알고리즘">
+<a class="anchor" href="#%EA%B3%84%EC%88%98-%EC%A0%95%EB%A0%AC-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98" aria-hidden="true"><span class="octicon octicon-link"></span></a>계수 정렬 알고리즘<a class="anchor-link" href="#%EA%B3%84%EC%88%98-%EC%A0%95%EB%A0%AC-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>1</code> 최대 값이 k인 크기가 $n$인 정렬되지 않은 리스트가 있다</p>
+<div class="highlight"><pre><span></span><span class="n">List</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">9</span><span class="p">]</span>
+</pre></div>
+<p><code>2</code> k = 10 이라고 가정하자. [0] * (k+1) 리스트를 만든다 --&gt; 파이썬에서 인덱스는 0부터 시작하기 때문</p>
+<div class="highlight"><pre><span></span><span class="n">count</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+</pre></div>
+<p><code>3</code> List 요소의 값을 x라 하면 count[x]의 값을 +1 해준다</p>
+<div class="highlight"><pre><span></span><span class="n">count</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+</pre></div>
+<p><code>4</code> count 리스트에서 자기(x) 앞에 몇개의 숫자가 있는지를 바탕으로 x의 위치를 결정하여 정렬한다. 예로 3의 경우 자기 앞에 숫자 2개가 있으므로 3번째이다</p>
+<div class="highlight"><pre><span></span><span class="n">List</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">]</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="계수-정렬-알고리즘-코드-구현">
+<a class="anchor" href="#%EA%B3%84%EC%88%98-%EC%A0%95%EB%A0%AC-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EC%BD%94%EB%93%9C-%EA%B5%AC%ED%98%84" aria-hidden="true"><span class="octicon octicon-link"></span></a>계수 정렬 알고리즘 코드 구현<a class="anchor-link" href="#%EA%B3%84%EC%88%98-%EC%A0%95%EB%A0%AC-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EC%BD%94%EB%93%9C-%EA%B5%AC%ED%98%84"> </a>
+</h3>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">List</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">9</span><span class="p">]</span> 
+
+<span class="k">def</span> <span class="nf">counting_sort</span><span class="p">(</span><span class="n">arr</span><span class="p">):</span>
+    <span class="n">count</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">sorted_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span> 
+    
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">arr</span><span class="p">:</span>
+        <span class="n">count</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="c1">## arr에 있는 수를 몇개인지 카운팅함</span>
+        
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">max</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="n">count</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">+=</span> <span class="n">count</span><span class="p">[</span><span class="n">j</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
+        <span class="c1">## count[j] 앞에 몇 개의 숫자가 있는지 저장</span>
+        <span class="c1">## count[5] = 10이라면 5가 x번 등장했다고 할 때 5앞에 10-x개의 숫자가 있다는 의미이므로 sorted_list[10-x : x]에 5가 위치한다. (x 번째 포함 no, x-1번째 까지)</span>
+        
+    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">arr</span><span class="p">)):</span>
+        <span class="n">sorted_list</span><span class="p">[</span><span class="n">count</span><span class="p">[</span><span class="n">arr</span><span class="p">[</span><span class="n">k</span><span class="p">]]</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">arr</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="c1">## 인덱스는 0부터 시작하므로 -1을 해줌</span>
+        <span class="n">count</span><span class="p">[</span><span class="n">arr</span><span class="p">[</span><span class="n">k</span><span class="p">]]</span> <span class="o">-=</span> <span class="mi">1</span>
+    
+    <span class="k">return</span> <span class="n">sorted_list</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">counting_sort</span><span class="p">(</span><span class="n">List</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[1, 1, 3, 5, 7, 8, 9]
 </pre>
 </div>
 </div>
