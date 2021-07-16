@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>파이썬 기본 연산 시간 복잡도(Big O) | Jaesu’s blog</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="파이썬 기본 연산 시간 복잡도(Big O)" />
+<meta name="author" content="한재수" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="작성 중" />
+<meta property="og:description" content="작성 중" />
+<link rel="canonical" href="https://gkswotn12345.github.io/green/python/algorithm/2021/07/15/%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EA%B8%B0%EB%B3%B8%EC%97%B0%EC%82%B0-%EC%8B%9C%EA%B0%84%EB%B3%B5%EC%9E%A1%EB%8F%84.html" />
+<meta property="og:url" content="https://gkswotn12345.github.io/green/python/algorithm/2021/07/15/%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EA%B8%B0%EB%B3%B8%EC%97%B0%EC%82%B0-%EC%8B%9C%EA%B0%84%EB%B3%B5%EC%9E%A1%EB%8F%84.html" />
+<meta property="og:site_name" content="Jaesu’s blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-07-15T00:00:00-05:00" />
+<script type="application/ld+json">
+{"description":"작성 중","url":"https://gkswotn12345.github.io/green/python/algorithm/2021/07/15/%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EA%B8%B0%EB%B3%B8%EC%97%B0%EC%82%B0-%EC%8B%9C%EA%B0%84%EB%B3%B5%EC%9E%A1%EB%8F%84.html","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://gkswotn12345.github.io/green/python/algorithm/2021/07/15/%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EA%B8%B0%EB%B3%B8%EC%97%B0%EC%82%B0-%EC%8B%9C%EA%B0%84%EB%B3%B5%EC%9E%A1%EB%8F%84.html"},"headline":"파이썬 기본 연산 시간 복잡도(Big O)","dateModified":"2021-07-15T00:00:00-05:00","datePublished":"2021-07-15T00:00:00-05:00","author":{"@type":"Person","name":"한재수"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/green/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://gkswotn12345.github.io/green/feed.xml" title="Jaesu's blog" /><link rel="shortcut icon" type="image/x-icon" href="/green/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.css" integrity="sha512-h7nl+xz8wgDlNM4NqKEM4F1NkIRS17M9+uJwIGwuo8vGqIl4BhuCKdxjWEINm+xyrUjNCnK5dCrhM0sj+wTIXw==" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.js" integrity="sha512-/CMIhXiDA3m2c9kzRyd97MTb3MC6OVnx4TElQ7fkkoRghwDf6gi41gaT1PwF270W6+J60uTmwgeRpNpJdRV6sg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/contrib/auto-render.min.js" integrity="sha512-Do7uJAaHZm5OLrIv/yN4w0iG1dbu01kzdMNnFfu/mAqgUk6Nniv2JYHcwH+cNwjqgLcqcuBBk+JRvprLVI8azg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha512-0doc9hKxR3PYwso42RD1p5ySZpzzuDiOwMrdCEh2WdJZCjcmFKc/wEnL+z8fBQrnHoiNWbo+3fiGkOYXBdQp4A==" crossorigin="anonymous"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement( document.body, {
+        delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "[%", right: "%]", display: true},
+            {left: "$", right: "$", display: false}
+        ]}
+        );
+    });
+    </script>
+
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/green/">Jaesu&#39;s blog</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/green/about/">Study with me</a><a class="page-link" href="/green/search/">Search</a><a class="page-link" href="/green/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">파이썬 기본 연산 시간 복잡도(Big O)</h1><p class="page-description">작성 중</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2021-07-15T00:00:00-05:00" itemprop="datePublished">
+        Jul 15, 2021
+      </time>• 
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">한재수</span></span>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      1 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/green/categories/#python">python</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/green/categories/#algorithm">algorithm</a>
+        
+      
+      </p>
+    
+
+    
+      
+        <div class="pb-5 d-flex flex-wrap flex-justify-end">
+          <div class="px-2">
+
+    <a href="https://github.com/gkswotn12345/green/tree/master/_notebooks/2021-07-15-파이썬-기본연산-시간복잡도.ipynb" role="button" target="_blank">
+<img class="notebook-badge-image" src="/green/assets/badges/github.svg" alt="View On GitHub">
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://mybinder.org/v2/gh/gkswotn12345/green/master?filepath=_notebooks%2F2021-07-15-%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EA%B8%B0%EB%B3%B8%EC%97%B0%EC%82%B0-%EC%8B%9C%EA%B0%84%EB%B3%B5%EC%9E%A1%EB%8F%84.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/green/assets/badges/binder.svg" alt="Open In Binder"/>
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://colab.research.google.com/github/gkswotn12345/green/blob/master/_notebooks/2021-07-15-파이썬-기본연산-시간복잡도.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/green/assets/badges/colab.svg" alt="Open In Colab"/>
+    </a>
+</div>
+        </div>
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul class="section-nav">
+<li class="toc-entry toc-h2"><a href="#시간-복잡도">시간 복잡도 </a></li>
+<li class="toc-entry toc-h2"><a href="#Big-O-표기법">Big O 표기법 </a></li>
+<li class="toc-entry toc-h2"><a href="#연산-시간-복잡도">연산 시간 복잡도 </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#리스트(list)">리스트(list) </a></li>
+</ul>
+</li>
+</ul><!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2021-07-15-파이썬-기본연산-시간복잡도.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="시간-복잡도">
+<a class="anchor" href="#%EC%8B%9C%EA%B0%84-%EB%B3%B5%EC%9E%A1%EB%8F%84" aria-hidden="true"><span class="octicon octicon-link"></span></a>시간 복잡도<a class="anchor-link" href="#%EC%8B%9C%EA%B0%84-%EB%B3%B5%EC%9E%A1%EB%8F%84"> </a>
+</h2>
+<p><code>-</code> 컴퓨터 프로그램의 입력값과 연산 수행 시간의 함수 관계</p>
+<p><code>-</code> 보통 Big O 표기법으로 나타냄</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Big-O-표기법">
+<a class="anchor" href="#Big-O-%ED%91%9C%EA%B8%B0%EB%B2%95" aria-hidden="true"><span class="octicon octicon-link"></span></a>Big O 표기법<a class="anchor-link" href="#Big-O-%ED%91%9C%EA%B8%B0%EB%B2%95"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 알고리즘의 시간 복잡도를 나타내는 척도</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="연산-시간-복잡도">
+<a class="anchor" href="#%EC%97%B0%EC%82%B0-%EC%8B%9C%EA%B0%84-%EB%B3%B5%EC%9E%A1%EB%8F%84" aria-hidden="true"><span class="octicon octicon-link"></span></a>연산 시간 복잡도<a class="anchor-link" href="#%EC%97%B0%EC%82%B0-%EC%8B%9C%EA%B0%84-%EB%B3%B5%EC%9E%A1%EB%8F%84"> </a>
+</h2>
+<p><code>-</code> 자료형별 연산의 시간 복잡도를 나타내자</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="리스트(list)">
+<a class="anchor" href="#%EB%A6%AC%EC%8A%A4%ED%8A%B8(list)" aria-hidden="true"><span class="octicon octicon-link"></span></a>리스트(list)<a class="anchor-link" href="#%EB%A6%AC%EC%8A%A4%ED%8A%B8(list)"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> l은 리스트(list)</p>
+<p><code>-</code> k는 상수</p>
+<p><code>-</code> 참고: <a href="https://www.ics.uci.edu/~pattis/ICS-33/lectures/complexitypython.txt">파이썬 자료형별 연산 시간 복잡도</a></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Operation</th>
+<th style="text-align:center">Example</th>
+<th style="text-align:center">Complexity Class</th>
+<th style="text-align:center">Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">index</td>
+<td style="text-align:center">l[i]</td>
+<td style="text-align:center">$O(1)$</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">store</td>
+<td style="text-align:center">l[i] = 0</td>
+<td style="text-align:center">$O(1)$</td>
+<td style="text-align:center">store는 변수 저장</td>
+</tr>
+<tr>
+<td style="text-align:center">length</td>
+<td style="text-align:center">len(l)</td>
+<td style="text-align:center">$O(1)$</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">append</td>
+<td style="text-align:center">l.append(5)</td>
+<td style="text-align:center">$O(1)$</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">pop</td>
+<td style="text-align:center">l.pop()</td>
+<td style="text-align:center">$O(1)$</td>
+<td style="text-align:center">same as l.pop(-1)</td>
+</tr>
+<tr>
+<td style="text-align:center">clear</td>
+<td style="text-align:center">l.clear()</td>
+<td style="text-align:center">$O(1)$</td>
+<td style="text-align:center">similar to l = []</td>
+</tr>
+<tr>
+<td style="text-align:center">slice</td>
+<td style="text-align:center">l[a:b]</td>
+<td style="text-align:center">$O(b-a)$</td>
+<td style="text-align:center">$l[1:5]\to O(l)$, $l[ : ]\to O(len(l)-0)=O(N)$</td>
+</tr>
+<tr>
+<td style="text-align:center">extend</td>
+<td style="text-align:center">l.extend(...)</td>
+<td style="text-align:center">$O(len(\dots))$</td>
+<td style="text-align:center">depends only on len of extension</td>
+</tr>
+<tr>
+<td style="text-align:center">construction</td>
+<td style="text-align:center">list(...)</td>
+<td style="text-align:center">$O(len(\dots))$</td>
+<td style="text-align:center">depends on length of ... iterable</td>
+</tr>
+<tr>
+<td style="text-align:center">check ==, !=</td>
+<td style="text-align:center">l1 == l2</td>
+<td style="text-align:center">$O(N)$</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">insert</td>
+<td style="text-align:center">l[a:b] = ...</td>
+<td style="text-align:center">$O(N)$</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">delete</td>
+<td style="text-align:center">del l[i]</td>
+<td style="text-align:center">$O(N)$</td>
+<td style="text-align:center">depends on i; O(N) in worst case</td>
+</tr>
+<tr>
+<td style="text-align:center">containment</td>
+<td style="text-align:center">x in/not in l</td>
+<td style="text-align:center">$O(N)$</td>
+<td style="text-align:center">linearly searches list</td>
+</tr>
+<tr>
+<td style="text-align:center">copy</td>
+<td style="text-align:center">l.copy()</td>
+<td style="text-align:center">$O(N)$</td>
+<td style="text-align:center">Same as l[:] which is O(N)</td>
+</tr>
+<tr>
+<td style="text-align:center">remove</td>
+<td style="text-align:center">l.remove(...)</td>
+<td style="text-align:center">$O(N)$</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">pop</td>
+<td style="text-align:center">l.pop(i)</td>
+<td style="text-align:center">$O(N)$</td>
+<td style="text-align:center">O(N-i): l.pop(0):O(N) (see above)</td>
+</tr>
+<tr>
+<td style="text-align:center">extreme value</td>
+<td style="text-align:center">min(l)/max(l)</td>
+<td style="text-align:center">$O(N)$</td>
+<td style="text-align:center">linearly searches list for value</td>
+</tr>
+<tr>
+<td style="text-align:center">reverse</td>
+<td style="text-align:center">l.reverse()</td>
+<td style="text-align:center">$O(N)$</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">iteration</td>
+<td style="text-align:center">for v in l:</td>
+<td style="text-align:center">$O(N)$</td>
+<td style="text-align:center">Worst: no return/break in loop</td>
+</tr>
+<tr>
+<td style="text-align:center">sort</td>
+<td style="text-align:center">l.sort()</td>
+<td style="text-align:center">$O(N Log N)$</td>
+<td style="text-align:center">key/reverse mostly does not change</td>
+</tr>
+<tr>
+<td style="text-align:center">multiply</td>
+<td style="text-align:center">k * l</td>
+<td style="text-align:center">$O(kN)$</td>
+<td style="text-align:center">$5*l$ is $O(N)$: $len(l)*l$ is $O(N^2)$</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+  </div><!-- from https://github.com/utterance/utterances -->
+<script src="https://utteranc.es/client.js"
+        repo="gkswotn12345/green"
+        issue-term="title"
+        label="blogpost-comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script><a class="u-url" href="/green/python/algorithm/2021/07/15/%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EA%B8%B0%EB%B3%B8%EC%97%B0%EC%82%B0-%EC%8B%9C%EA%B0%84%EB%B3%B5%EC%9E%A1%EB%8F%84.html" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/green/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/green/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/green/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>An easy to use blogging platform with support for Jupyter Notebooks.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/gkswotn12345" title="gkswotn12345"><svg class="svg-icon grey"><use xlink:href="/green/assets/minima-social-icons.svg#github"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

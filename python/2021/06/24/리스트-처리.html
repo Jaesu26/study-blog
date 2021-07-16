@@ -156,6 +156,11 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h3"><a href="#?.pop()">?.pop() </a></li>
 </ul>
 </li>
+<li class="toc-entry toc-h2"><a href="#리스트-삭제">리스트 삭제 </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#?.remove(x)">?.remove(x) </a></li>
+</ul>
+</li>
 <li class="toc-entry toc-h2"><a href="#문자열-포함여부">문자열 포함여부 </a>
 <ul>
 <li class="toc-entry toc-h3"><a href="#?.find("문자열")">?.find(&quot;문자열&quot;) </a></li>
@@ -952,6 +957,96 @@ window.onload = wrap_img;
 <pre>5
 [1, 2, 3, 4]
 </pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="리스트-삭제">
+<a class="anchor" href="#%EB%A6%AC%EC%8A%A4%ED%8A%B8-%EC%82%AD%EC%A0%9C" aria-hidden="true"><span class="octicon octicon-link"></span></a>리스트 삭제<a class="anchor-link" href="#%EB%A6%AC%EC%8A%A4%ED%8A%B8-%EC%82%AD%EC%A0%9C"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="?.remove(x)">
+<a class="anchor" href="#?.remove(x)" aria-hidden="true"><span class="octicon octicon-link"></span></a><code>?.remove(x)</code><a class="anchor-link" href="#?.remove(x)"> </a>
+</h3>
+<p><code>-</code> 리스트에서 x원소를 삭제</p>
+<p><code>-</code> 삭제할 원소가 없을 시 error</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">]</span>
+<span class="n">a</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[2, 3, 4, 5, 6]
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">a</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansi-red-intense-fg ansi-bold">---------------------------------------------------------------------------</span>
+<span class="ansi-red-intense-fg ansi-bold">ValueError</span>                                Traceback (most recent call last)
+<span class="ansi-green-intense-fg ansi-bold">&lt;ipython-input-2-72b3315abecc&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-intense-fg ansi-bold">----&gt; 1</span><span class="ansi-yellow-intense-fg ansi-bold"> </span>a<span class="ansi-yellow-intense-fg ansi-bold">.</span>remove<span class="ansi-yellow-intense-fg ansi-bold">(</span><span class="ansi-cyan-intense-fg ansi-bold">10</span><span class="ansi-yellow-intense-fg ansi-bold">)</span>
+
+<span class="ansi-red-intense-fg ansi-bold">ValueError</span>: list.remove(x): x not in list</pre>
 </div>
 </div>
 
