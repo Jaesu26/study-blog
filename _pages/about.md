@@ -1,8 +1,9 @@
 ---
 layout: page
-title: about me
+title: About Me
 permalink: /about/
 ---
+
 ### 수상
 
 `-` 1학년 2학기 때 장학금 10만원...
