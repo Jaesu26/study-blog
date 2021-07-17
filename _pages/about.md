@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Study with me
+title: about me
 permalink: /about/
 ---
 ### 수상
@@ -39,7 +39,6 @@ permalink: /about/
 
 `-` ..
 
-This website is powered by **[fastpages](https://github.com/fastai/fastpages)** [^1].
 
 
 
