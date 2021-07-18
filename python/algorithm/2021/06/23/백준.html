@@ -96,7 +96,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      50 min read
+      52 min read
     
 </span></p>
 
@@ -274,6 +274,11 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h3"><a href="#주유소">주유소 </a></li>
 <li class="toc-entry toc-h3"><a href="#주유소-문제-디버깅">주유소 문제 디버깅 </a></li>
 <li class="toc-entry toc-h3"><a href="#회의실-배정(언젠간-풀거임)">회의실 배정(언젠간 풀거임) </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#정수론-및-조합론">정수론 및 조합론 </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#이항-계수-2">이항 계수 2 </a></li>
 </ul>
 </li>
 </ul><!--
@@ -7999,6 +8004,267 @@ window.onload = wrap_img;
 </div>
 </div>
 </div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="정수론-및-조합론">
+<a class="anchor" href="#%EC%A0%95%EC%88%98%EB%A1%A0-%EB%B0%8F-%EC%A1%B0%ED%95%A9%EB%A1%A0" aria-hidden="true"><span class="octicon octicon-link"></span></a>정수론 및 조합론<a class="anchor-link" href="#%EC%A0%95%EC%88%98%EB%A1%A0-%EB%B0%8F-%EC%A1%B0%ED%95%A9%EB%A1%A0"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="이항-계수-2">
+<a class="anchor" href="#%EC%9D%B4%ED%95%AD-%EA%B3%84%EC%88%98-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>이항 계수 2<a class="anchor-link" href="#%EC%9D%B4%ED%95%AD-%EA%B3%84%EC%88%98-2"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>자연수 N과 정수 K가 주어졌을 때 이항 계수 $\binom{N}{K}$를 10,007로 나눈 나머지를 구하는 프로그램을 작성하시오.</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> $ _{n}\rm C_{k}\;=\; _{n-1}\rm C_{k-1}\;+\;_{n-1}\rm C_{k}$</p>
+<p><code>-</code> n명 중 k명을 선택하는 방법 = 일단 나를 k명에 포함하고 나머지 n-1명 중 k-1명을 선택하는 방법 + 나를 k명에서 제외하고 나머지 n-1명 중 k명을 선택하는 방법</p>
+<p><code>-</code> 메모이제이션 활용</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 아래 코드는 수를 곱하고 나누고 하는 과정에서 오차가 발생함(이유 알 것 같음)</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">N</span><span class="p">,</span> <span class="n">K</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+<span class="k">if</span> <span class="n">K</span> <span class="o">&gt;</span> <span class="n">N</span> <span class="o">-</span> <span class="n">K</span><span class="p">:</span>
+    <span class="n">K</span> <span class="o">=</span> <span class="n">N</span> <span class="o">-</span> <span class="n">K</span>
+
+<span class="k">def</span> <span class="nf">binom</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">k</span><span class="p">):</span>
+    <span class="n">frac</span> <span class="o">=</span> <span class="mi">1</span>    
+    <span class="k">if</span> <span class="n">k</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">frac</span>
+    
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">k</span><span class="p">):</span>
+        <span class="n">frac</span> <span class="o">*=</span> <span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="n">i</span><span class="p">)</span>
+        <span class="n">frac</span> <span class="o">/=</span> <span class="p">(</span><span class="n">k</span> <span class="o">-</span> <span class="n">i</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">frac</span>
+    
+<span class="nb">print</span><span class="p">(</span><span class="n">binom</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">K</span><span class="p">))</span>    
+    
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+</div>
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>270288240945436736896419468186285475891156693372573153808127299354545159392842888344379470775469423606583114895222426893312341135200171386904964166401328583914403638232447354301148995510201690344719626632436541851159067180652764129719441081806265387434048424366211327146525860903129335008845962936320
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 아래코드는 메모이제이션으로 구현했다</p>
+<p><code>-</code> 계산해보면 알겠지만 $_{1000}\rm C_{500}$은 매우$\times 100$ 큰 수이다. 300자리임</p>
+<p><code>-</code> 그래서 $_{1000}\rm C_{500}$를 계산할 때 위와같이 구하면 곱하고 나누는 과정에서 소수점 오차가 발생하고 이는 결과적으로 밑의 코드와 다른 값을 출력하게 된다</p>
+<p><code>-</code> 메모이제이션을 안 쓴 코드와 쓴 코드로 구한 $_{1000}\rm C_{500}$ 값을 비교하면 다른 것을 알 수 있다</p>
+<p><code>-</code> 아래 코드는 오류 발생(만약 위의 코드가 오차없이 답을 구한다면 똑같이 오류 발생) --&gt; 재귀 깊이에 관한 오류</p>
+<p><code>-</code> 백준에서 정한 파이썬 재귀 깊이는 1000이다. 즉, 같은 함수를 1000번 이상 호출하면 오류가 난다</p>
+<p><code>-</code> 그래서 오류가 나지 않으려면 재귀 깊이를 sys.setrecursionlimit()를 통해 바꾸던가 해야함</p>
+<p><code>-</code> 오류가 발생한 이유를 알았으니 아래 코드를 다시 수정함</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">setrecursionlimit</span><span class="p">(</span><span class="mi">10</span><span class="o">**</span><span class="mi">6</span><span class="p">)</span>
+
+<span class="n">N</span><span class="p">,</span> <span class="n">K</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+<span class="k">if</span> <span class="n">K</span> <span class="o">&gt;</span> <span class="n">N</span> <span class="o">-</span> <span class="n">K</span><span class="p">:</span>
+    <span class="n">K</span> <span class="o">=</span> <span class="n">N</span> <span class="o">-</span> <span class="n">K</span>
+
+<span class="n">binom_list</span> <span class="o">=</span> <span class="p">[[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="mi">501</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1001</span><span class="p">)]</span>
+
+<span class="k">def</span> <span class="nf">binom</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">k</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">binom_list</span><span class="p">[</span><span class="n">n</span><span class="p">][</span><span class="n">k</span><span class="p">]</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">binom_list</span><span class="p">[</span><span class="n">n</span><span class="p">][</span><span class="n">k</span><span class="p">]</span>
+    
+    <span class="k">elif</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="n">k</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">0</span>
+    
+    <span class="k">elif</span> <span class="n">k</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">1</span>
+    
+    <span class="k">elif</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">1</span>
+    
+    <span class="n">binom_list</span><span class="p">[</span><span class="n">n</span><span class="p">][</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">binom</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span> <span class="o">+</span> <span class="n">binom</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">binom_list</span><span class="p">[</span><span class="n">n</span><span class="p">][</span><span class="n">k</span><span class="p">]</span>
+    
+<span class="nb">print</span><span class="p">(</span><span class="n">binom</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">K</span><span class="p">))</span>    
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+</div>
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>270288240945436569515614693625975275496152008446548287007392875106625428705522193898612483924502370165362606085021546104802209750050679917549894219699518475423665484263751733356162464079737887344364574161119497604571044985756287880514600994219426752366915856603136862602484428109296905863799821216320
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 사실 재귀함수를 사용하지 않고 첫 번째 코드를 수정하는 것으로도 정답을 맞출 수 있다</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 문제는 <code>/(나누기)</code> 이다 <code>/</code> 대신 <code>//(몫 구하기)</code>를 사용하면 해결된다</p>
+<p><code>-</code> <code>/(나누기 연산자)</code>는 큰 값을 계산할 때 오차에 취약하다</p>
+<p><code>-</code> 그래서 // 를 쓰는 것이 좋다. 물론 /와 // 결과가 같을 때 ex) 10 / 2 = 10 // 2</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 밑의 코드 결과는 메모이제이션을 사용한 코드와 같은 것을 알 수 있다</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">N</span><span class="p">,</span> <span class="n">K</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+<span class="k">if</span> <span class="n">K</span> <span class="o">&gt;</span> <span class="n">N</span> <span class="o">-</span> <span class="n">K</span><span class="p">:</span>
+    <span class="n">K</span> <span class="o">=</span> <span class="n">N</span> <span class="o">-</span> <span class="n">K</span>
+
+<span class="k">def</span> <span class="nf">binom</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">k</span><span class="p">):</span>
+    <span class="n">frac</span> <span class="o">=</span> <span class="mi">1</span>    
+    
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">k</span><span class="p">):</span>
+        <span class="n">frac</span> <span class="o">*=</span> <span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="n">i</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">k</span><span class="p">):</span>
+        <span class="n">frac</span> <span class="o">//=</span> <span class="p">(</span><span class="n">k</span> <span class="o">-</span> <span class="n">i</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">frac</span>
+    
+<span class="nb">print</span><span class="p">(</span><span class="n">binom</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">K</span><span class="p">))</span>    
+    
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+</div>
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>270288240945436569515614693625975275496152008446548287007392875106625428705522193898612483924502370165362606085021546104802209750050679917549894219699518475423665484263751733356162464079737887344364574161119497604571044985756287880514600994219426752366915856603136862602484428109296905863799821216320
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
 </div>
 
 
