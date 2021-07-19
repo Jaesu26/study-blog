@@ -96,7 +96,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      52 min read
+      55 min read
     
 </span></p>
 
@@ -273,12 +273,17 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h3"><a href="#ATM">ATM </a></li>
 <li class="toc-entry toc-h3"><a href="#주유소">주유소 </a></li>
 <li class="toc-entry toc-h3"><a href="#주유소-문제-디버깅">주유소 문제 디버깅 </a></li>
-<li class="toc-entry toc-h3"><a href="#회의실-배정(언젠간-풀거임)">회의실 배정(언젠간 풀거임) </a></li>
+<li class="toc-entry toc-h3"><a href="#회의실-배정">회의실 배정 </a></li>
 </ul>
 </li>
 <li class="toc-entry toc-h2"><a href="#정수론-및-조합론">정수론 및 조합론 </a>
 <ul>
 <li class="toc-entry toc-h3"><a href="#이항-계수-2">이항 계수 2 </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#동적-계획법">동적 계획법 </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#피보나치-함수">피보나치 함수 </a></li>
 </ul>
 </li>
 </ul><!--
@@ -7983,8 +7988,8 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="회의실-배정(언젠간-풀거임)">
-<a class="anchor" href="#%ED%9A%8C%EC%9D%98%EC%8B%A4-%EB%B0%B0%EC%A0%95(%EC%96%B8%EC%A0%A0%EA%B0%84-%ED%92%80%EA%B1%B0%EC%9E%84)" aria-hidden="true"><span class="octicon octicon-link"></span></a>회의실 배정(언젠간 풀거임)<a class="anchor-link" href="#%ED%9A%8C%EC%9D%98%EC%8B%A4-%EB%B0%B0%EC%A0%95(%EC%96%B8%EC%A0%A0%EA%B0%84-%ED%92%80%EA%B1%B0%EC%9E%84)"> </a>
+<h3 id="회의실-배정">
+<a class="anchor" href="#%ED%9A%8C%EC%9D%98%EC%8B%A4-%EB%B0%B0%EC%A0%95" aria-hidden="true"><span class="octicon octicon-link"></span></a>회의실 배정<a class="anchor-link" href="#%ED%9A%8C%EC%9D%98%EC%8B%A4-%EB%B0%B0%EC%A0%95"> </a>
 </h3>
 <ul>
 <li>
@@ -8004,6 +8009,71 @@ window.onload = wrap_img;
 </div>
 </div>
 </div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 가장 빨리 끝나는 회의를 배정하는 것이 best임, 시작 시간과 종료 시간이 같은 것이 있을 수 있으므로 종료 시간이 같다면 먼저 시작하는 것을 앞에 배정함</p>
+<p><code>-</code> 그 회의를 마치고 다음 회의를 고를 때 마찬가지로 가장 빨리 끝나는 회의를 배정함</p>
+<p><code>-</code> 이를 반복하면 된다</p>
+<p><code>-</code> [1, 1]과 [0, 1]이 있다면 [0, 1]을 배정하고 [1, 1]을 해야한다. 순서를 바꾸면 1개가 최대임</p>
+<p><code>-</code> 처음에는 종료 시간만 고려해서 틀림 --&gt; 디버깅을 합시다</p>
+<p><code>-</code> 그래서 생각한 것이 "아!, 시작 시간과 종료 시간 간격이 짧은 것이 더 좋겠지([5, 8]보단 [6, 8]더 좋을 거야)"라고 했음</p>
+<p><code>-</code> 그래서 종료 시간 기준으로 오름차순 정렬한 후 시작 시간 기준으로 내림차순 정렬을 했다. 하지만 위에서 다룬 [1, 1]과 [0, 1]의 상황에 의해 틀림</p>
+<p><code>-</code> 종료 시간기준으로 오름차순 정렬한 후 이를 시작 시간 기준으로 오름차순 정렬해야 함 --&gt; 맞았습니다</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">meeting_time</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">N</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+    <span class="n">meeting_time</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">())))</span>
+    
+<span class="n">meeting_num</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">meeting_time</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">finish_time</span><span class="p">:</span> <span class="p">(</span><span class="n">finish_time</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">finish_time</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span> <span class="c1">## 종료 시간을 기준으로 오름차순 정렬한 것을 시작 시간을 기준으로 오름차순 정렬</span>
+<span class="n">fir_meeting</span> <span class="o">=</span> <span class="n">meeting_time</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">N</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">meeting_time</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">fir_meeting</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span>
+        <span class="n">meeting_num</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="n">fir_meeting</span> <span class="o">=</span> <span class="n">meeting_time</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">meeting_num</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+</div>
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>4
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -8255,6 +8325,181 @@ window.onload = wrap_img;
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>270288240945436569515614693625975275496152008446548287007392875106625428705522193898612483924502370165362606085021546104802209750050679917549894219699518475423665484263751733356162464079737887344364574161119497604571044985756287880514600994219426752366915856603136862602484428109296905863799821216320
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="동적-계획법">
+<a class="anchor" href="#%EB%8F%99%EC%A0%81-%EA%B3%84%ED%9A%8D%EB%B2%95" aria-hidden="true"><span class="octicon octicon-link"></span></a>동적 계획법<a class="anchor-link" href="#%EB%8F%99%EC%A0%81-%EA%B3%84%ED%9A%8D%EB%B2%95"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="피보나치-함수">
+<a class="anchor" href="#%ED%94%BC%EB%B3%B4%EB%82%98%EC%B9%98-%ED%95%A8%EC%88%98" aria-hidden="true"><span class="octicon octicon-link"></span></a>피보나치 함수<a class="anchor-link" href="#%ED%94%BC%EB%B3%B4%EB%82%98%EC%B9%98-%ED%95%A8%EC%88%98"> </a>
+</h3>
+<ul>
+<li>문제가 길어서 출처를 남김: <a href="https://www.acmicpc.net/problem/1003">백준 피보나치 함수 문제</a>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 직접 0과 1이 몇번 출력되는지 계산해도 된다</p>
+<p><code>-</code> 근데 규칙을 보면 출력되는 횟수의 합이 피보나치 수열을 따름</p>
+<p><code>-</code> 그리고 0이 출력되는 횟수가 1이 출력되는 횟수보다 1이 더 작다 (fibo(3) 이상 부터)</p>
+<p><code>-</code> fibo(1) = 5이므로 0은 5 // 2 번 1은 5 - 5 // 2번 출력됨</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div class="highlight"><pre><span></span><span class="n">T</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+
+<span class="k">def</span> <span class="nf">fibo</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">fir_fibo</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">sec_fibo</span> <span class="o">=</span> <span class="mi">1</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">next_fibo</span> <span class="o">=</span> <span class="n">fir_fibo</span> <span class="o">+</span> <span class="n">sec_fibo</span>
+        <span class="n">fir_fibo</span> <span class="o">=</span> <span class="n">sec_fibo</span>
+        <span class="n">sec_fibo</span> <span class="o">=</span> <span class="n">next_fibo</span>
+
+    <span class="k">return</span> <span class="n">next_fibo</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">T</span><span class="p">):</span>
+    <span class="n">N</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+
+    <span class="k">if</span> <span class="n">N</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+    <span class="k">elif</span> <span class="n">N</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+    <span class="k">elif</span> <span class="n">N</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">fibo_N</span> <span class="o">=</span> <span class="n">fibo</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">fibo_N</span> <span class="o">//</span> <span class="mi">2</span><span class="p">,</span> <span class="n">fibo_N</span> <span class="o">-</span> <span class="p">(</span><span class="n">fibo_N</span> <span class="o">//</span> <span class="mi">2</span><span class="p">))</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 위의 코드는 틀렸다</p>
+<p><code>-</code> 계산해보니 0출력 횟수와 1출력 횟수 차이는 1이 아니었음</p>
+<p><code>-</code> fibo(5)의 경우 0은 3번, 1은 5번 출력함</p>
+<p><code>-</code> fibo(n)일 떄 0은 fibo(n-1)번 1은 fibo(n)번 출력함 (n &gt; 1)</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">T</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+
+<span class="k">def</span> <span class="nf">fibo</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">n</span>
+    
+    <span class="n">fir_fibo</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">sec_fibo</span> <span class="o">=</span> <span class="mi">1</span>
+    
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+        <span class="n">next_fibo</span> <span class="o">=</span> <span class="n">fir_fibo</span> <span class="o">+</span> <span class="n">sec_fibo</span>
+        <span class="n">fir_fibo</span> <span class="o">=</span> <span class="n">sec_fibo</span>
+        <span class="n">sec_fibo</span> <span class="o">=</span> <span class="n">next_fibo</span>
+        
+    <span class="k">return</span> <span class="n">next_fibo</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">T</span><span class="p">):</span>
+    <span class="n">N</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+    
+    <span class="k">if</span> <span class="n">N</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    
+    <span class="k">elif</span> <span class="n">N</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+        
+    <span class="k">elif</span> <span class="n">N</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">fibo</span><span class="p">(</span><span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="n">fibo</span><span class="p">(</span><span class="n">N</span><span class="p">))</span>
+       
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+</div>
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>1 0
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+
+</div>
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>0 1
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+
+</div>
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>1 2
 </pre>
 </div>
 </div>
