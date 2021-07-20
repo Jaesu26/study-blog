@@ -96,7 +96,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      55 min read
+      58 min read
     
 </span></p>
 
@@ -284,6 +284,9 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h2"><a href="#동적-계획법">동적 계획법 </a>
 <ul>
 <li class="toc-entry toc-h3"><a href="#피보나치-함수">피보나치 함수 </a></li>
+<li class="toc-entry toc-h3"><a href="#신나는-함수-실행">신나는 함수 실행 </a></li>
+<li class="toc-entry toc-h3"><a href="#파도반-수열">파도반 수열 </a></li>
+<li class="toc-entry toc-h3"><a href="#01타일">01타일 </a></li>
 </ul>
 </li>
 </ul><!--
@@ -310,7 +313,12 @@ window.onload = wrap_img;
 <a class="anchor" href="#%EB%B0%B1%EC%A4%80-%ED%95%98%EB%A9%B4%EC%84%9C-%EC%95%8C%EC%95%84%EB%82%B8-%EC%A0%90" aria-hidden="true"><span class="octicon octicon-link"></span></a>백준 하면서 알아낸 점<a class="anchor-link" href="#%EB%B0%B1%EC%A4%80-%ED%95%98%EB%A9%B4%EC%84%9C-%EC%95%8C%EC%95%84%EB%82%B8-%EC%A0%90"> </a>
 </h2>
 <ol>
-<li>같은 언어, 같은 코드여도 시간이 다를 수 있음</li>
+<li>
+<p>같은 언어, 같은 코드여도 시간이 다를 수 있음</p>
+</li>
+<li>
+<p>메모리도 다를 수 있음</p>
+</li>
 </ol>
 
 </div>
@@ -8500,6 +8508,571 @@ window.onload = wrap_img;
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>1 2
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="신나는-함수-실행">
+<a class="anchor" href="#%EC%8B%A0%EB%82%98%EB%8A%94-%ED%95%A8%EC%88%98-%EC%8B%A4%ED%96%89" aria-hidden="true"><span class="octicon octicon-link"></span></a>신나는 함수 실행<a class="anchor-link" href="#%EC%8B%A0%EB%82%98%EB%8A%94-%ED%95%A8%EC%88%98-%EC%8B%A4%ED%96%89"> </a>
+</h3>
+<ul>
+<li>문제 출처: <a href="https://www.acmicpc.net/problem/9184">백준 9184번</a>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">w_dict</span> <span class="o">=</span> <span class="p">{(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">):</span><span class="mi">1</span><span class="p">}</span>
+
+<span class="k">def</span> <span class="nf">w</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span> <span class="ow">in</span> <span class="n">w_dict</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">w_dict</span><span class="p">[(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">)]</span>
+    
+    <span class="k">if</span> <span class="n">a</span> <span class="o">&lt;=</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">b</span> <span class="o">&lt;=</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">c</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">1</span>
+
+    <span class="k">elif</span> <span class="n">a</span> <span class="o">&gt;</span> <span class="mi">20</span> <span class="ow">or</span> <span class="n">b</span> <span class="o">&gt;</span> <span class="mi">20</span> <span class="ow">or</span> <span class="n">c</span> <span class="o">&gt;</span> <span class="mi">20</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">w</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+
+    <span class="k">elif</span> <span class="n">a</span> <span class="o">&lt;</span> <span class="n">b</span> <span class="ow">and</span> <span class="n">b</span> <span class="o">&lt;</span> <span class="n">c</span><span class="p">:</span>
+        <span class="n">w_dict</span><span class="p">[(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">)]</span> <span class="o">=</span> <span class="n">w</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">w</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">c</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="n">w</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span>
+
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">w_dict</span><span class="p">[(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">)]</span> <span class="o">=</span>  <span class="n">w</span><span class="p">(</span><span class="n">a</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span> <span class="o">+</span> <span class="n">w</span><span class="p">(</span><span class="n">a</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">b</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span> <span class="o">+</span> <span class="n">w</span><span class="p">(</span><span class="n">a</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="n">w</span><span class="p">(</span><span class="n">a</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">b</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">c</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">w_dict</span><span class="p">[(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">)]</span>
+
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+    
+    <span class="k">if</span> <span class="n">A</span> <span class="o">==</span> <span class="n">B</span> <span class="o">==</span> <span class="n">C</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+        <span class="k">break</span>
+    
+    <span class="nb">print</span><span class="p">(</span><span class="s1">'w(</span><span class="si">%s</span><span class="s1">, </span><span class="si">%s</span><span class="s1">, </span><span class="si">%s</span><span class="s1">) = </span><span class="si">%s</span><span class="s1">'</span> <span class="o">%</span> <span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">w</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">)))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+</div>
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>w(1, 1, 1) = 2
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+
+</div>
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>w(2, 2, 2) = 4
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+
+</div>
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>w(10, 4, 6) = 523
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+
+</div>
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>w(50, 50, 50) = 1048576
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+
+</div>
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>w(-1, 7, 18) = 1
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="파도반-수열">
+<a class="anchor" href="#%ED%8C%8C%EB%8F%84%EB%B0%98-%EC%88%98%EC%97%B4" aria-hidden="true"><span class="octicon octicon-link"></span></a>파도반 수열<a class="anchor-link" href="#%ED%8C%8C%EB%8F%84%EB%B0%98-%EC%88%98%EC%97%B4"> </a>
+</h3>
+<ul>
+<li>문제 출처: <a href="https://www.acmicpc.net/problem/9461">백준 9461번</a>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 점화식: $f(n) = f(n-2)+f(n-3)$</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">padoban_sequence_dict</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">:</span><span class="mi">1</span><span class="p">}</span>
+
+<span class="k">def</span> <span class="nf">padoban_sequence</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">padoban_sequence_dict</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">padoban_sequence_dict</span><span class="p">[</span><span class="n">n</span><span class="p">]</span>
+    
+    <span class="n">padoban_sequence_dict</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="n">padoban_sequence</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">3</span><span class="p">)</span> <span class="o">+</span> <span class="n">padoban_sequence</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>
+    
+    <span class="k">return</span>  <span class="n">padoban_sequence_dict</span><span class="p">[</span><span class="n">n</span><span class="p">]</span>
+
+<span class="n">T</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+<span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">T</span><span class="p">):</span>
+    <span class="n">N</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">padoban_sequence</span><span class="p">(</span><span class="n">N</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+</div>
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>3
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+
+</div>
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>16
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="01타일">
+<a class="anchor" href="#01%ED%83%80%EC%9D%BC" aria-hidden="true"><span class="octicon octicon-link"></span></a>01타일<a class="anchor-link" href="#01%ED%83%80%EC%9D%BC"> </a>
+</h3>
+<ul>
+<li>문제 출처: <a href="https://www.acmicpc.net/problem/1904">백준 1904번</a>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 점화식 노가다로 구했음 --&gt; 만약 노가다로 찾을 수 없는 문제를 해결해야 한다면...</p>
+<p><code>-</code> 피보나치 수열의 점화식가 동일함</p>
+<p><code>-</code> 점화식: $f(n) = f(n-1) + f(n-2)$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>이 코드는 재귀함수를 사용해 top-down으로 구현함</li>
+</ul>
+<p><code>-</code> RecursionError 발생 --&gt; 재귀 깊이 초과</p>
+<p><code>-</code> 그래서 재귀 깊이를 크게 하려고 했는데 조건을 보니 N이 최대 $10^6$ 이다</p>
+<p><code>-</code> 그래서 그냥 bottom-up방식으로 코드를 짜기로 함</p>
+<p><code>-</code> 재귀 깊이를 크게 했더니 --&gt; 시간 초과</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>top-down 코드</li>
+</ul>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">tile_dict</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span><span class="mi">2</span><span class="p">}</span>
+
+<span class="k">def</span> <span class="nf">tile</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">tile_dict</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">tile_dict</span><span class="p">[</span><span class="n">n</span><span class="p">]</span>
+    
+    <span class="n">tile_dict</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="n">tile</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">tile</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">tile_dict</span><span class="p">[</span><span class="n">n</span><span class="p">]</span>
+
+<span class="n">N</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">((</span><span class="n">tile</span><span class="p">(</span><span class="n">N</span><span class="p">)</span> <span class="o">%</span> <span class="mi">15746</span><span class="p">))</span>
+    
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+</div>
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>5
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>bottom-up 코드</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 메모리 초과 --&gt; 왜? 이유 모름</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+<span class="n">x</span> <span class="o">=</span> <span class="mi">10</span><span class="o">**</span><span class="mi">6</span>
+<span class="n">tile_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+    <span class="n">tile_list</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">tile_list</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">tile_list</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">((</span><span class="n">tile_list</span><span class="p">[</span><span class="n">N</span><span class="p">]</span> <span class="o">%</span> <span class="mi">15746</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+</div>
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>5
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 그래서 다른 방법으로 코드 구현했음</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 시간 초과(0.75초) --&gt; 왜?</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+
+<span class="k">if</span> <span class="n">N</span> <span class="o">&lt;=</span> <span class="mi">2</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+    
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">fir</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">sec</span> <span class="o">=</span> <span class="mi">2</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="o">-</span><span class="mi">2</span><span class="p">):</span>
+        <span class="n">next_</span> <span class="o">=</span> <span class="n">fir</span> <span class="o">+</span> <span class="n">sec</span>
+        <span class="n">fir</span> <span class="o">=</span> <span class="n">sec</span>
+        <span class="n">sec</span> <span class="o">=</span> <span class="n">next_</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">next_</span> <span class="o">%</span> <span class="mi">15746</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+</div>
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>5
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 참고: <a href="https://m.blog.naver.com/hankrah/221863365092">https://m.blog.naver.com/hankrah/221863365092</a></p>
+<p><code>-</code> map()함수 사용</p>
+<p><code>-</code> 메모리 초과 --&gt; append() 때문인 듯</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+
+<span class="k">def</span> <span class="nf">fibonacci</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">fibo</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+    <span class="p">[</span><span class="o">*</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">_</span><span class="p">:</span> <span class="n">fibo</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">fibo</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">:])),</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">n</span><span class="p">))]</span>  <span class="c1">## tuple unpacking</span>
+    <span class="k">return</span> <span class="n">fibo</span><span class="p">[</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">fibonacci</span><span class="p">(</span><span class="n">N</span><span class="p">)</span> <span class="o">%</span> <span class="mi">15746</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+</div>
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>5</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 아래 코드는 정답임</p>
+<p><code>-</code> 일단 재귀 함수로 구현한 top-down방식은 시간이 오래걸린다</p>
+<p><code>-</code> 그러므로 bottom-up 방식을 사용했다</p>
+<p><code>-</code> 근데 메모리초과가 발생했다 --&gt; 이유가 뭐지??</p>
+<p><code>-</code> 처음엔 몰랐는데 생각해보니 나는 숫자를 다 계산한 다음에 15746으로 나눈 나머지를 구했다</p>
+<p><code>-</code> N = 1000000 이라면 백만번째 피보나치 항의 값을 구하는 것인데 수가 얼마나 크나면 겁나 큼 --&gt; 수가 너무 커서 메모리 터짐</p>
+<p><code>-</code> 그래서 N 번째 피보나치 수열을 구한 뒤에 15746으로 나누지 않고 15746으로 나눈 값들을 더해나갔다 --&gt; 이게 왜 성립함??</p>
+<p><code>-</code> 편의를 위해 15746대신 7000을 쓰자</p>
+<p><code>-</code> 다음은 피보나치 수열의 점화식과 같은 형태임</p>
+<p><code>-</code> 10000 + 20000 = 30000, 20000 + 30000 = 50000</p>
+<p><code>-</code> 일단 최종 결과인 50000을 7000으로 나눈 나머지는 1000 이다</p>
+<p><code>-</code> 30000을 7000으로 나눈 나머지는 2000이다. 그러면 20000 + 30000 에서 30000 대신 2000을 써도 식이 성립할까?</p>
+<p><code>-</code> 20000 + 2000 = 22000, 22000을 7000으로 나눈 나머지는 1000 이다 --&gt; 식이 성립함</p>
+<p><code>-</code> 왜 성립하냐면 50000을 7000으로 나눌 것인데 50000을 20000과 30000으로 쪼갤 수 있음</p>
+<p><code>-</code> (20000 + 30000) % 7000은 20000을 7000으로 나눈 나머지와 30000을 7000으로 나눈 나머지를 더한 것임 --&gt; 근데 더한 값이 7000보다 클 수 도 있으니 더한 값을 7000으로 또 나눠준다</p>
+<p><code>-</code> 동그란 케잌으로 생각하자 한 번에 7000만큼의 케잌을 조각내어 퍼갈 수 있음(피자 8등분 하듯이 50000중에 7000만큼 조각 케잌 모양으로 퍼감)</p>
+<p><code>-</code> 케잌크기가 50000이라면 7번 퍼가면 1000이 남는다</p>
+<p><code>-</code> 근데 50000을 20000과 30000으로 나눈뒤에(50000만 크기의 동그란 케잌을 각각 20000, 30000크기인 반원형 케잌으로 cut) 20000에서 7000만큼 퍼가고 30000에서 7000만큼 퍼가도 된다</p>
+<p><code>-</code> 20000에서 퍼가고 남은 케잌 조각과 30000에서 퍼가고 남은 케잌 조각을 합쳐서 다시 케잌을 만들고 이 케잌에서 7000을 퍼가면 결과적으로 50000에서 7000을 퍼간것과 동일함</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+<span class="n">x</span> <span class="o">=</span> <span class="mi">10</span><span class="o">**</span><span class="mi">6</span>
+<span class="n">tile_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">tile_list</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">tile_list</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span>
+
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+    <span class="n">tile_list</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">tile_list</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">tile_list</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">2</span><span class="p">])</span> <span class="o">%</span> <span class="mi">15746</span>
+    
+<span class="nb">print</span><span class="p">(</span><span class="n">tile_list</span><span class="p">[</span><span class="n">N</span><span class="p">])</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+</div>
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>5
 </pre>
 </div>
 </div>
