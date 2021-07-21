@@ -96,7 +96,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      12 min read
+      13 min read
     
 </span></p>
 
@@ -187,7 +187,13 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h3"><a href="#$\alpha$와$\beta$에-따른-감마-분포-모양(추가-예정)">$\alpha$와$\beta$에 따른 감마 분포 모양(추가 예정) </a></li>
 </ul>
 </li>
-<li class="toc-entry toc-h2"><a href="#t-분포(작성-예정)">t 분포(작성 예정) </a></li>
+<li class="toc-entry toc-h2"><a href="#t-분포">t 분포 </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#t-분포의-확률-밀도-함수">t 분포의 확률 밀도 함수 </a></li>
+<li class="toc-entry toc-h3"><a href="#t-분포의-기댓값과-분산">t 분포의 기댓값과 분산 </a></li>
+<li class="toc-entry toc-h3"><a href="#t-분포-plot">t 분포 plot </a></li>
+</ul>
+</li>
 <li class="toc-entry toc-h2"><a href="#F-분포(작성-예정)">F 분포(작성 예정) </a></li>
 <li class="toc-entry toc-h2"><a href="#베타-분포(작성-예정)">베타 분포(작성 예정) </a></li>
 </ul>
@@ -358,7 +364,7 @@ window.onload = wrap_img;
 
 <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">loc</span><span class="p">,</span> <span class="n">scale</span><span class="p">,</span> <span class="n">size</span><span class="p">)</span>
 </pre></div>
-<p><code>-</code> loc는 평균, scale은 표준편차, size는 반복 횟수</p>
+<p><code>-</code> loc는 평균, scale은 표준편차, size는 표본의 수</p>
 <div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">loc</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">scale</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">)</span>
 </pre></div>
 
@@ -496,7 +502,7 @@ $</p>
 
 <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">low</span><span class="p">,</span> <span class="n">high</span><span class="p">,</span> <span class="n">size</span><span class="p">)</span>
 </pre></div>
-<p><code>-</code> low는 출력값의 최소 경계, high은 출력값의 최대 경계, size는 반복 횟수</p>
+<p><code>-</code> low는 출력값의 최소 경계, high은 출력값의 최대 경계, size는 표본의 수</p>
 <div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">low</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">high</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">)</span>
 </pre></div>
 
@@ -566,6 +572,7 @@ $</p>
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> $k$개의 <code>서로 독립</code>인 <code>표준 정규 확률변수</code>를 <code>각각 제곱</code>하여 합해 얻어진 분포</p>
 <p><code>-</code> 이때 $k$는 자유도이며 카이제곱 분포의 매개변수</p>
+<p><code>-</code> 분산의 퍼진 정도를 분포로 보여줌</p>
 <p><code>-</code> 모분산을 구하거나 적합도 검정, 독립성/동질성 검정 등의 모델에서 사용</p>
 <p><code>-</code> $k$개의 독립적이고 표준정규분포를 따르는 확률변수 $Z_1,\dots,Z_k$가 있을 때 자유도 $k$의 카이제곱 분포는</p>
 <p><code>-</code> 확률변수 $Q = \sum^{k}_{i=1}Z{_i}{^2}$의 분포임</p>
@@ -628,7 +635,7 @@ $</p>
 
 <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">chisquare</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">size</span><span class="p">)</span>
 </pre></div>
-<p><code>-</code> df는 자유도, size는 반복 횟수</p>
+<p><code>-</code> df는 자유도, size는 표본의 수</p>
 <div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">chisquare</span><span class="p">(</span><span class="n">df</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">)</span>
 </pre></div>
 
@@ -932,7 +939,7 @@ $</p>
 
 <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">exponential</span><span class="p">(</span><span class="n">scale</span><span class="p">,</span> <span class="n">size</span><span class="p">)</span>
 </pre></div>
-<p><code>-</code> scale은 $\beta$ = 대기 시간, size는 반복 횟수</p>
+<p><code>-</code> scale은 $\beta$ = 대기 시간, size는 표본의 수</p>
 <div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">exponential</span><span class="p">(</span><span class="n">scale</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">)</span>
 </pre></div>
 <p><code>-</code> 우리 집 앞에서 1시간당 평균 0.5명이 넘어진다 --&gt; $\lambda\text{(사건의 빈도)} = 0.5$이므로 대기 시간 $\beta\text{(대기 시간)} = 2$</p>
@@ -1111,11 +1118,11 @@ $</p>
 
 <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">gamma</span><span class="p">(</span><span class="n">shape</span><span class="p">,</span> <span class="n">scale</span><span class="p">,</span> <span class="n">size</span><span class="p">)</span>
 </pre></div>
-<p><code>-</code> shape는 $\alpha$, scale은$\beta$, size는 반복 횟수</p>
+<p><code>-</code> shape는 $\alpha$, scale은$\beta$, size는 표본의 수</p>
 <div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">gamma</span><span class="p">(</span><span class="n">shape</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">scale</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">)</span>
 </pre></div>
 <p><code>-</code> 우리 집 앞에서 1시간당 평균 0.5명이 넘어진다 --&gt; $\lambda = 0.5$이므로 $\beta = 2$</p>
-<p><code>-</code> 다시말하면 우리 집 앞에서 한 명이 넘어지고 다음 사람이 넘어지기 까지 2시간이 걸린다</p>
+<p><code>-</code> 다시말하면 우리 집 앞에서 한 명이 넘어지고 다음 사람이 넘어지기 까지 평균 2시간이 걸린다</p>
 <p><code>-</code> 이때 2명의 사람이 넘어지기 까지 걸리는 시간에 대한 분포를 그려보자</p>
 
 </div>
@@ -1261,9 +1268,127 @@ $</p>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="t-분포(작성-예정)">
-<a class="anchor" href="#t-%EB%B6%84%ED%8F%AC(%EC%9E%91%EC%84%B1-%EC%98%88%EC%A0%95)" aria-hidden="true"><span class="octicon octicon-link"></span></a>t 분포(작성 예정)<a class="anchor-link" href="#t-%EB%B6%84%ED%8F%AC(%EC%9E%91%EC%84%B1-%EC%98%88%EC%A0%95)"> </a>
+<h2 id="t-분포">
+<a class="anchor" href="#t-%EB%B6%84%ED%8F%AC" aria-hidden="true"><span class="octicon octicon-link"></span></a>t 분포<a class="anchor-link" href="#t-%EB%B6%84%ED%8F%AC"> </a>
 </h2>
+<p><code>-</code> 표본평균$\bar{X}$을 이용해 정규분포의 평균을 해석 --&gt; 모집단이 정규분포를 따를 때</p>
+<p><code>-</code> 표준화한 표본평균의 분포: 모표준편차를 알고 있음($\frac{x-\mu}{\sqrt{\frac{\sigma}{n}}}$) --&gt; 정규분포, 모표준편차를 모르고 표본표준편차를 알고 있음($\frac{x-\bar{x}}{\sqrt{\frac{s}{n}}}$) --&gt; t분포</p>
+<p><code>-</code> 다음의 확률 분포로 정의 --&gt; $\frac{Z}{\sqrt{\frac{V}{\nu}}}$</p>
+<p><code>-</code> $Z$는 표준정규분포, $V$는 자유도$\nu$인 카이제곱 분포</p>
+<p><code>-</code> <code>자유도</code>가 <code>커질수록</code> <code>표준정규분포</code>에 <code>가까워짐</code> (중심극한정리와 무관) --&gt; 보통 표본 크기 $n\geq30$이면 표준정규분포와 가깝다고 한다</p>
+<p><code>-</code> [$\star$]표본크기가 커지면 표준정규분포에 가까워짐[$\star$] --&gt; 표본 크기가 커진다는 것은 모집단에 가까워진다는 의미이므로 표본표준편차도 모표준편차에 가까워짐</p>
+<p><code>-</code> <a href="https://ko.wikipedia.org/wiki/%EC%8A%A4%ED%8A%9C%EB%8D%98%ED%8A%B8_t_%EB%B6%84%ED%8F%AC">t분포 참고</a></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="t-분포의-확률-밀도-함수">
+<a class="anchor" href="#t-%EB%B6%84%ED%8F%AC%EC%9D%98-%ED%99%95%EB%A5%A0-%EB%B0%80%EB%8F%84-%ED%95%A8%EC%88%98" aria-hidden="true"><span class="octicon octicon-link"></span></a>t 분포의 확률 밀도 함수<a class="anchor-link" href="#t-%EB%B6%84%ED%8F%AC%EC%9D%98-%ED%99%95%EB%A5%A0-%EB%B0%80%EB%8F%84-%ED%95%A8%EC%88%98"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>$f(x) = \frac{\Gamma(\frac{\nu + 1}{2})}{\sqrt{\nu\pi}\Gamma(\frac{\nu}{2})}(1+\frac{x^2}{\nu})^{-(\frac{\nu+1}{2})}$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="t-분포의-기댓값과-분산">
+<a class="anchor" href="#t-%EB%B6%84%ED%8F%AC%EC%9D%98-%EA%B8%B0%EB%8C%93%EA%B0%92%EA%B3%BC-%EB%B6%84%EC%82%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>t 분포의 기댓값과 분산<a class="anchor-link" href="#t-%EB%B6%84%ED%8F%AC%EC%9D%98-%EA%B8%B0%EB%8C%93%EA%B0%92%EA%B3%BC-%EB%B6%84%EC%82%B0"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> $E(X) = 0,\; \nu &gt; 1$</p>
+<p><code>-</code> $Var(X) = \frac{\nu}{\nu-2}\,(\nu&gt;2),\;\infty\,(1&lt;v\leq2)$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="t-분포-plot">
+<a class="anchor" href="#t-%EB%B6%84%ED%8F%AC-plot" aria-hidden="true"><span class="octicon octicon-link"></span></a>t 분포 plot<a class="anchor-link" href="#t-%EB%B6%84%ED%8F%AC-plot"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">standard_t</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">size</span><span class="p">)</span>
+</pre></div>
+<p><code>-</code> df는 자유도, size는 표본의 수</p>
+<div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">standard_t</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+</pre></div>
+<p><code>-</code> <code>np.random.standard_t(5, 1000)</code>를 히스토그램으로 나타내보면?</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">sample</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">standard_t</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">sample</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">'np.random.standard_t(5, 1000)'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,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%0A">
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> $x = 0$을 기준으로 대칭임</p>
+<p><code>-</code> 자유도가 5이므로 표본 크기는 6</p>
+<p><code>-</code> 모표준편차 대신 표본표준편차를 알고 표본 크기가 6일 때 표준화한 표본 평균($\frac{x-\bar{x}}{\sqrt{\frac{s}{n}}}$)에 대한 분포</p>
+<p><code>-</code> t분포는 표준정규분포보다 꼬리 부근에 밀도가 높음 --&gt; 모표준편차 대신 표본표준편차를 사용하기 때문 --&gt; 표본의 특성상 추출할 때마다 다르므로 변동성이 있음</p>
+
 </div>
 </div>
 </div>
@@ -1405,11 +1530,11 @@ $</p>
 
 <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">binomial</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">size</span><span class="p">)</span>
 </pre></div>
-<p><code>-</code> $n$은 표본 크기, $p$는 성공 확률, size는 반복 횟수</p>
+<p><code>-</code> $n$은 표본 크기, $p$는 성공 확률, size는 표본의 수</p>
 <div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">binomial</span><span class="p">(</span><span class="n">n</span> <span class="o">=</span> <span class="mi">50</span><span class="p">,</span> <span class="n">p</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">)</span>
 </pre></div>
-<p><code>-</code> 성공 확률이 <code>p = 0.5</code>인 베르누이 시행을 <code>n = 50</code>번 반복하는 것을 <code>size = 1000</code>번 반복한다</p>
-<p><code>-</code> 동전 던지기($p=0.5$)를 $n$ = $50$번 시행하여 앞면이 나온 횟수($X=0,1,2,\dots,49,50$)를 $size = 1000$번 기록한다</p>
+<p><code>-</code> 성공 확률이 <code>p = 0.5</code>인 베르누이 시행을 <code>n = 50</code>번 반복하는 것을 표본 하나로 두고 표본을 <code>size = 1000</code>번 추출한다</p>
+<p><code>-</code> 동전 던지기($p=0.5$)를 $n$ = $50$번 시행하여 앞면이 나온 횟수($X=0,1,2,\dots,49,50$)를 하나의 표본이라 할 때 표본을 $size = 1000$번 추출한다</p>
 
 </div>
 </div>
@@ -1545,10 +1670,10 @@ $</p>
 
 <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">poisson</span><span class="p">(</span><span class="n">lam</span> <span class="p">,</span><span class="n">size</span><span class="p">)</span>
 </pre></div>
-<p><code>-</code> $\lambda$는 모수, size는 반복 횟수</p>
+<p><code>-</code> $\lambda$는 모수, size는 표본의 수</p>
 <div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">poisson</span><span class="p">(</span><span class="n">lam</span> <span class="o">=</span> <span class="mi">10</span> <span class="p">,</span><span class="n">size</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">)</span>
 </pre></div>
-<p><code>-</code> 단위 시간에서 사건이 평균 10번 발생할 때 (<code>lam = 10</code>) 단위 시간에서 사건이 몇 번 발생하는지를 <code>size = 1000</code>번 반복한다</p>
+<p><code>-</code> 단위 시간에서 사건이 평균 10번 발생할 때 (<code>lam = 10</code>) 단위 시간에서 사건이 몇 번 발생하는지를 하나의 표본이라 할 때 <code>size = 1000</code>번 표본을 추출한다</p>
 <p><code>-</code> 우리 집 앞에서 1시간당 평균 10명이 넘어질 때($\lambda=10$) 1시간당 몇 명 넘어지는지($x = 0,1,2,\dots,10,11,\dots$)를 $size = 1000$번 기록한다</p>
 
 </div>
@@ -1746,7 +1871,7 @@ $</p>
 
 <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">geometric</span><span class="p">(</span><span class="n">p</span> <span class="p">,</span><span class="n">size</span><span class="p">)</span>
 </pre></div>
-<p><code>-</code> $p$는 베르누이 시행에서 성공 확률, size는 반복 횟수</p>
+<p><code>-</code> $p$는 베르누이 시행에서 성공 확률, size는 표본의 수</p>
 <div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">geometric</span><span class="p">(</span><span class="n">p</span> <span class="o">=</span> <span class="mf">0.1</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">)</span>
 </pre></div>
 <p><code>-</code> 성공 확률이 <code>p = 0.1</code>인 <code>베르누이 시행</code>을 <code>성공할 때까지</code> 시도하는 것을 <code>size = 1000</code>번 반복한다</p>
