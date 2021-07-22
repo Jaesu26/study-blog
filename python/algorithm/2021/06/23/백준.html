@@ -96,7 +96,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      58 min read
+      64 min read
     
 </span></p>
 
@@ -287,6 +287,10 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h3"><a href="#신나는-함수-실행">신나는 함수 실행 </a></li>
 <li class="toc-entry toc-h3"><a href="#파도반-수열">파도반 수열 </a></li>
 <li class="toc-entry toc-h3"><a href="#01타일">01타일 </a></li>
+<li class="toc-entry toc-h3"><a href="#RGB거리">RGB거리 </a></li>
+<li class="toc-entry toc-h3"><a href="#정수-삼각형">정수 삼각형 </a></li>
+<li class="toc-entry toc-h3"><a href="#계단-오르기">계단 오르기 </a></li>
+<li class="toc-entry toc-h3"><a href="#1로-만들기">1로 만들기 </a></li>
 </ul>
 </li>
 </ul><!--
@@ -9083,6 +9087,365 @@ window.onload = wrap_img;
 </div>
     
 
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="RGB거리">
+<a class="anchor" href="#RGB%EA%B1%B0%EB%A6%AC" aria-hidden="true"><span class="octicon octicon-link"></span></a>RGB거리<a class="anchor-link" href="#RGB%EA%B1%B0%EB%A6%AC"> </a>
+</h3>
+<ul>
+<li>문제 출처: <a href="https://www.acmicpc.net/problem/1149">백준 1149번</a>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> N = 10이라면 10개를 최소 비용으로 칠하는 방법은 9개까지 칠하는 방법이 여러개 있음(일단 $dp[9]$라고 하자) + 10번째 칠하는 방법은 3가지</p>
+<p><code>-</code> $dp[9]+P_{10}$의 최소값이 $dp[10]$이 된다</p>
+<p><code>-</code> 일반화하면 $min(dp[i-1]+P_i) = dp[i]$ --&gt; 아닌듯</p>
+<p><code>-</code> <code>위의 논리</code>는 <code>그리디 알고리즘</code>이다. 항상 최소가 되는 비용을 선택하면 전체적으로도 비용이 최소가 되기를 바라는 것이다 --&gt; 하지만 틀렸다</p>
+<p><code>-</code> $dp[10]$은 10개까지 색칠하는 여러 방법 =&gt; $min(dp[10]+P_{11}) \to dp[11]$</p>
+<p><code>-</code> $dp[11]$은 최소값 -&gt; 100원이라 하자, 다음으로 싼게 110원</p>
+<p><code>-</code> $dp[11]+P_{12} \to dp[12]$ 이미 $dp[11]$이 최소값 --&gt; 100원을 골라서 $dp[12]$는 200원임 다른건 뭐냐? 1원이 있고 1000원, 근데 1원은 이미 고른 색이어서 못 고름</p>
+<p><code>-</code> $dp[12]$는 200이 아니라 111원임 $dp[11]$이 최소지만 $dp[12]$는 최소가 아니었음</p>
+<p><code>-</code> 그럼 남음 방법 뭐임??</p>
+<p><code>-</code> $dp[11]$을 최소값으로 골랐지만 $dp[12]$가 최소가 아닌 이유는 중복되는 색깔을 선택하지 못하기 때문</p>
+<p><code>-</code> 그러면 $dp[11]$을 전체의 최소값으로 선택하지 말고 색깔마다 최소값을 고르자 --&gt; 11번째 색이 각각 (빨,초,파)인 경우에 최소값을 구하자 --&gt; 총 3가지가 존재함</p>
+<p><code>-</code> 이제 $dp[12]$는 어떻게 구하냐면 $dp[11]$과 $P_{12}$의 조합이 총 6가지 존재</p>
+<p><code>-</code> 6개 중에서 12번째 색이 빨, 파, 초가 존재하는데 각각 2개씩 있다 --&gt; 각각 2개 중에서 더 적은 비용을 고른다</p>
+<p><code>-</code> 그러면 이제 12번째 색이 빨, 파, 초 일때의 전체 비용의 최소값이 존재 --&gt; $dp[12]$는 색깔별로 존재하니까 총 3개</p>
+<p><code>-</code> 위와 같은 논리로 마지막 N번째까지 최소비용으로 선택하면 된다</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>처음 짠 코드 </li>
+</ul>
+<p><code>-</code> 이상한 값을 출력함</p>
+<p><code>-</code> $dp[i+1][0]$의 의미는 i번째 색깔로 0을 선택했다는 의미임 --&gt; 즉 house_prices[i][0] 이어야함</p>
+<p><code>-</code> 근데 house_prices가 0이 아니라 $dp[i]$의 값을 0으로 선택했음 --&gt; $dp[i][0]$ 이라면 $dp[i+1]$은 1 or 2이다. 0이 아님</p>
+<p><code>-</code> 틀렸습니다</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+
+<span class="n">house_prices</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+    <span class="n">house_prices</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">())))</span>
+    
+<span class="n">dp</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="mi">3</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1001</span><span class="p">)]</span>
+<span class="n">dp</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">house_prices</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">N</span><span class="p">):</span>
+    <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">house_prices</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span> <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">house_prices</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">2</span><span class="p">])</span>
+    <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">house_prices</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">house_prices</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">2</span><span class="p">])</span>
+    <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="n">house_prices</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="n">house_prices</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">dp</span><span class="p">[</span><span class="n">N</span><span class="p">]))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+</div>
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>102
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>디버깅한 코드</li>
+</ul>
+<p><code>-</code> 맞았습니다</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+
+<span class="n">house_prices</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+    <span class="n">house_prices</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">())))</span>
+    
+<span class="n">dp</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="mi">3</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1001</span><span class="p">)]</span>
+<span class="n">dp</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">house_prices</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">N</span><span class="p">):</span>
+    <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">house_prices</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="n">house_prices</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+    <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">house_prices</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span> <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="n">house_prices</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span>
+    <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">house_prices</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">2</span><span class="p">],</span> <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">house_prices</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">2</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">dp</span><span class="p">[</span><span class="n">N</span><span class="p">]))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+</div>
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>96
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="정수-삼각형">
+<a class="anchor" href="#%EC%A0%95%EC%88%98-%EC%82%BC%EA%B0%81%ED%98%95" aria-hidden="true"><span class="octicon octicon-link"></span></a>정수 삼각형<a class="anchor-link" href="#%EC%A0%95%EC%88%98-%EC%82%BC%EA%B0%81%ED%98%95"> </a>
+</h3>
+<ul>
+<li>문제 출처: <a href="https://www.acmicpc.net/problem/1932">백준 1932번</a>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 위의 RGB 문제와 같은 매커니즘이다</p>
+<p><code>-</code> 그리디 알고리즘으로 접근하면 주어진 조건하에 항상 최대값을 골라야 하지만 항상 최대값을 고른다고 전체가 최대가 되는 것이 아니다(선택에 제약이 있기 때문: 인접한 곳만 선택 가능)</p>
+<p><code>-</code> 현재 n층 i번째에 위치하고 있다면 n+1층으로 내려갈 때 n+1층의 i번째 or i+1번째만 선택 가능</p>
+<p><code>-</code> N = 4일 때 $dp[4]$는 무엇일까?</p>
+<p><code>-</code> 4층은 칸이 4개가 존재 --&gt; 이를 인덱스로 생각하면 0~3</p>
+<p><code>-</code> 그러면 4층의 0번째, 4층의 1번째, 4층의 2번째, 4층의 3번째까지 가는 방법이 각각 여러개가 있을 것이다(대각선상에 존재하는 경우는 1개)</p>
+<p><code>-</code> 그러면 각각 그 중에서 최대값을 선택함 --&gt; 4층의 0번째까지 가는 방법 중 최대값, 4층의 1번째까지 가는 방법 중 최대값 ... --&gt; 총 4개 존재함: 인덱스가 4개 이므로</p>
+<p><code>-</code> 그 4가지 방법 중 최대값이 4층까지 가는 방법 중 가장 큰 값이다</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+
+<span class="n">triangle</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+    <span class="n">triangle</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">())))</span>
+    
+<span class="n">dp</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">501</span><span class="p">)]</span>
+
+<span class="n">dp</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">triangle</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="c1">## 0층 꼭짓점</span>
+
+<span class="c1">## 1층은 왼쪽 대각선과 오른쪽 대각선만 존재하고 대각선 사이에는 데이터가 없어서 따로 처리했음</span>
+
+<span class="n">dp</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">triangle</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">dp</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="c1">## 왼쪽 대각선</span>
+<span class="n">dp</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">triangle</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">dp</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="c1">## 오른쪽 대각선</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+        <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">triangle</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>  <span class="c1">## 왼쪽 대각선</span>
+        <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">][</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="n">triangle</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">][</span><span class="n">k</span><span class="p">]</span> <span class="p">,</span> <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">k</span><span class="p">]</span><span class="o">+</span><span class="n">triangle</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">][</span><span class="n">k</span><span class="p">])</span> <span class="c1">## 대각선 사이</span>
+        <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">][</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">triangle</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">][</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="c1">## 오른쪽 대각선</span>
+        
+<span class="nb">print</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">dp</span><span class="p">[</span><span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">]))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+</div>
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>30
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="계단-오르기">
+<a class="anchor" href="#%EA%B3%84%EB%8B%A8-%EC%98%A4%EB%A5%B4%EA%B8%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>계단 오르기<a class="anchor-link" href="#%EA%B3%84%EB%8B%A8-%EC%98%A4%EB%A5%B4%EA%B8%B0"> </a>
+</h3>
+<ul>
+<li>문제 출처: <a href="https://www.acmicpc.net/problem/2579">백준 2579번</a>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 계단은 최대 300개, 칸 마다 점수는 10000이하의 자연수</p>
+<p><code>-</code> 도착 지점은 무조건 밟아야 한다</p>
+<p><code>-</code> 그래서 출발 지점부터 시작하지말고 도착 지점부터 시작한다고 생각했음</p>
+<p><code>-</code> $dp[i]$ --&gt; 마지막으로 밟은 지점이 step의 i번째 인덱스일 때 점수가 최대가 되도록 하는 경로</p>
+<p><code>-</code> $dp[i] = max(step[i] + dp[i-2] , step[i] + dp[i-1])$ --&gt; 아닌듯, 연속해서 3번 밟을 수 없음. $step[i] + dp[i-2]$는 상관없지만 $step[i] + dp[i-1]$는 상관있음</p>
+<p><code>-</code> $dp[i] = max(step[i] + step[i-1] + dp[i-3]) , max(step[i] + step[i-2] + dp[i-3])$</p>
+<p><code>-</code> i번째 계단을 밟는데 i-1번째 계단과 i-2번째 계단을 밟았는지 밟지않았는지가 중요하다</p>
+<p><code>-</code> 만약 i-1번째와 i-2번째 계단을 둘다 밟았다면 i번째 계단을 밟을 수 없다</p>
+<p><code>-</code> 만약 i-1번째나 i-2번째 계단 중 한 곳만 밟았다면 i번째 계단을 밟을 수 있다</p>
+<p><code>-</code> 만약 i-1번째나 i-2번째 계단을 둘다 밟지 않았으면 i번째 계단을 밟을 수 없다</p>
+<p><code>-</code> 하나하나씩 써보자</p>
+<p><code>-</code> $dp[0]$ = 도착 지점의 점수</p>
+<p><code>-</code> $dp[1] = step[1]$ (0번쨰 계단 안밟음) , $step[1] + dp[0]$ (0번째 계단 밟음)</p>
+<p><code>-</code> $dp[2] = step[2] + dp[0]$ (1번쨰 계단 안밟음, 0번째 계단 밟음), $step[2] + dp[1] (= step[1])$ (1번째 계단 밟음, 0번째 계단 안밟음)</p>
+<p><code>-</code> $dp[3] = step[3] + dp[2] (= step[2] + dp[0])$ (2번쨰 계단 밟음, 1번째 계단 안밟음), $step[3] + dp[1] (= step[3] + dp[1] = max(step[1], step[1] + dp[0])$ (2번쨰 계단 안밟음, 1번째 계단 밟음)</p>
+<p><code>-</code> 위에 틀린 부분이 있음, 규칙상 0번째 계단(도착 지점)은 무조건 밟아야 하는데 $dp[1](= step[1])$, $dp[2](= step[2] + step[1])$ 은 0번째 계단을 밟지 않았으므로 제외해야 함</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+
+<span class="n">step</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+    <span class="n">step</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">()))</span>
+
+<span class="n">step</span><span class="o">.</span><span class="n">reverse</span><span class="p">()</span> <span class="c1">## 도착부터 시작할거임 --&gt; 미로찾기할 때 출발부터 시작안하고 도착부터 시작하듯이</span>
+
+<span class="n">dp</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="mi">2</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">300</span><span class="p">)]</span> <span class="c1">## dp[i][0] =&gt; i-1번째를 밟고 i-2번째를 안밟음, dp[i][1] =&gt; i-1번째를 안밟고 i-2번째를 밟음</span>
+
+<span class="n">dp</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">step</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">dp</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">step</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="k">if</span> <span class="n">N</span> <span class="o">&gt;=</span> <span class="mi">2</span><span class="p">:</span>
+    <span class="n">dp</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">step</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">step</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">dp</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="p">(</span><span class="mi">3</span><span class="o">*</span><span class="mi">10</span><span class="o">**</span><span class="mi">6</span><span class="p">)</span> <span class="c1">## 0번째 계단은 무조건 밟아야 하는데 dp[1][1]은 0번째 계단을 안 밟음 --&gt; 그래서 의도적으로 dp[1][1]을 경유하면 절대로 최대값이 나오지 안도록 값을 조정함</span>
+
+<span class="k">if</span> <span class="n">N</span> <span class="o">&gt;=</span> <span class="mi">3</span><span class="p">:</span>
+    <span class="n">dp</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="p">(</span><span class="mi">3</span><span class="o">*</span><span class="mi">10</span><span class="o">**</span><span class="mi">6</span><span class="p">)</span> <span class="c1">## dp[1][1]과 마찬가지임</span>
+    <span class="n">dp</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">step</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="n">step</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">N</span><span class="p">):</span>
+    <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">step</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">step</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="nb">max</span><span class="p">(</span><span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">2</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">2</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span>
+    
+<span class="nb">print</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">dp</span><span class="p">[</span><span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">dp</span><span class="p">[</span><span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span> <span class="n">dp</span><span class="p">[</span><span class="n">N</span><span class="o">-</span><span class="mi">2</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">dp</span><span class="p">[</span><span class="n">N</span><span class="o">-</span><span class="mi">2</span><span class="p">][</span><span class="mi">1</span><span class="p">]))</span> <span class="c1">## 출발지점을 밟는 길과 밟지 않는 길 중에서 점수 획득이 가장 높은 것을 선택</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+</div>
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>75
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="1로-만들기">
+<a class="anchor" href="#1%EB%A1%9C-%EB%A7%8C%EB%93%A4%EA%B8%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>1로 만들기<a class="anchor-link" href="#1%EB%A1%9C-%EB%A7%8C%EB%93%A4%EA%B8%B0"> </a>
+</h3>
+<ul>
+<li>문제 출처: <a href="https://www.acmicpc.net/problem/1463">백준 1463번</a>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
 </div>
 
 
