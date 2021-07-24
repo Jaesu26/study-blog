@@ -96,7 +96,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      2 min read
+      5 min read
     
 </span></p>
 
@@ -148,6 +148,8 @@ window.onload = wrap_img;
 </li>
 <li class="toc-entry toc-h2"><a href="#균일-분포의-적률생성함수">균일 분포의 적률생성함수 </a></li>
 <li class="toc-entry toc-h2"><a href="#기하-분포의-적률생성함수">기하 분포의 적률생성함수 </a></li>
+<li class="toc-entry toc-h2"><a href="#이항-분포의-적률생성함수">이항 분포의 적률생성함수 </a></li>
+<li class="toc-entry toc-h2"><a href="#포아송-분포의-적률생성함수">포아송 분포의 적률생성함수 </a></li>
 </ul>
 </li>
 </ul><!--
@@ -311,7 +313,334 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> 기하 분포의 확률 질량 함수: $f(x) = (1-p)^{x}p, \; x = 1, 2, \dots$</p>
+<p><code>-</code> 기하 분포의 확률 질량 함수: $f(x) = q^{x-1}p, \; q=1-p,\; x = 1, 2, 3,\dots$</p>
+<p><code>-</code> 첫째항이 $a$, 공비가 $r$인 무한등비수열의 합: $\frac{a}{1-r}, \; |r|&lt;1$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 기하 분포의 적률생성함수</p>
+<ul>
+<li>$M_x(t) = E(e^{tx}) \\
+= \sum\limits_{x=1}^{\infty}e^{tx}q^{x-1}p \\
+= \frac{p}{q}\sum\limits_{x=1}^{\infty}(qe^{t})^{x}\\
+= \frac{pqe^t}{q(1-qe^t)} , \; 0 \leq qe^t &lt; 1 \\
+= \frac{pe^t}{1-qe^t}$</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 기하 분포의 기댓값</p>
+<p><code>-</code> 몫의 미분: $[\frac{f(x)}{g(x)}]' = \frac{f'(x)g(x)-f(x)g'(x)}{(g(x))^2}$</p>
+<ul>
+<li>$E(X) = \frac{dM_x(t)}{dt} \\
+= \frac{pe^{t}(1-qe^t)-pe^{t}(-qe^t)}{(1-qe^t)^2} \\
+= \frac{pe^t}{(1-qe^t)^2} ,\; \text{t=0 대입}\\
+= \frac{p}{(1-q)^2} \\
+= \frac{1}{p}$</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 기하 분포의 분산</p>
+<ul>
+<li>
+<p>$E(X^2) = \frac{d^2M_x^{t}}{dt^2}\\
+= \frac{pe^{t}(1-qe^t)^2- 2pe^{t}(1-qe^{t})(-qe^t)}{(1-qe^t)^4}\\
+= \frac{pe^{t}(1-qe^t)((1-qe^t)+2qe^t)}{(1-qe^t)^4}\\
+= \frac{pe^{t}(1+qe^t)}{(1-qe^t)^3},\; \text{t=0 대입} \\
+= \frac{p(1+q)}{(1-q)^3}\\
+= \frac{1+q}{p^2}$</p>
+</li>
+<li>
+<p>$Var(X) = E(X^2) - [E(X)]^2 \\
+= \frac{1+q}{p^2} - (\frac{1}{p})^2\\
+= \frac{q}{p^2}$</p>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="이항-분포의-적률생성함수">
+<a class="anchor" href="#%EC%9D%B4%ED%95%AD-%EB%B6%84%ED%8F%AC%EC%9D%98-%EC%A0%81%EB%A5%A0%EC%83%9D%EC%84%B1%ED%95%A8%EC%88%98" aria-hidden="true"><span class="octicon octicon-link"></span></a>이항 분포의 적률생성함수<a class="anchor-link" href="#%EC%9D%B4%ED%95%AD-%EB%B6%84%ED%8F%AC%EC%9D%98-%EC%A0%81%EB%A5%A0%EC%83%9D%EC%84%B1%ED%95%A8%EC%88%98"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 이항 분포의 확률 질량 함수: $f(x) \,=\, _{n}\rm C_{x}\,p^{x}\,(1-p)^{n-x}$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 이항 분포는 서로 독립이고 동일한 베르누이 분포를 따르는 확률변수들을 n개 합한 것임</p>
+<p><code>-</code> 베르누이 분포의 확률 질량 함수 $f(x) = p^{x}(1-p)^{1-x}, \; x = 0, 1$</p>
+<p><code>-</code> 베르누이 분포의 기댓값</p>
+<ul>
+<li>$E(X) = \sum\limits_{x=0}^{1}xp^{x}(1-p)^{1-x}\\
+= 0\cdot (1-p) + 1\cdot p \\
+= p$</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 베르누이 분포의 분산</p>
+<ul>
+<li>
+<p>$E(X^2) = \sum\limits_{x=0}^{1}x^2p^x(1-p)^{1-x}\\
+= 0\cdot (1-p) + 1\cdot p \\
+= p$</p>
+</li>
+<li>
+<p>$Var(X) = E(X^2)-[E(X)]^2\\
+= p - p^2\\
+= p(1-p)$</p>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 확률변수 $X, Y$에 대해 $E(X + Y)= E(X) + E(Y)$</p>
+<p><code>-</code> 확률변수 $X, Y$가 독립이면 $Var(X + Y) = Var(X) + Var(Y)$</p>
+<p><code>-</code> 참고: <a href="https://datascienceschool.net/02%20mathematics/07.03%20%EB%B6%84%EC%82%B0%EA%B3%BC%20%ED%91%9C%EC%A4%80%ED%8E%B8%EC%B0%A8.html">확률변수의 합 특징</a></p>
+<p><code>-</code> 이항 분포의 기댓값 --&gt; 이항 분포의 정의를 통해 구함: 베르누이 분포를 따르는 확률변수들의 합</p>
+<ul>
+<li>$E(X) = E(\sum\limits_{i=1}^{n}X_i) = \sum\limits_{i=1}^{n}E(X_i)\\
+= E(X_1) + E(X_2) + \dots+E(X_{n-1})+E(X_n)\\
+= \overbrace{p + \dots + p}^{n \rm\ times} = np$</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 이항 분포의 분산 --&gt; 기댓값과 마찬가지</p>
+<ul>
+<li>$Var(X) = Var(\sum\limits_{i=1}^{n}X_i) = \sum\limits_{i=1}^{n}Var(X_i)\\
+= Var(X_1)+Var(X_2)+\dots+Var(X_{n-1})+Var(X_n)\\
+= \overbrace{p(1-p)+\dots+p(1-p)}^{n \rm\ times} = np(1-p)$</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 이항 정리</p>
+<ul>
+<li>$(x+y)^n = \sum\limits_{k=0}^{n}\binom{n}{k}x^{n-k}y^{k}$</li>
+</ul>
+<p><code>-</code> 이항 분포의 적률생성함수</p>
+<ul>
+<li>$M_{x}(t) = E(e^{tx})\\
+= \sum\limits_{x=0}^{n}\binom{n}{x}e^{tx}p^{x}\,(1-p)^{n-x}\\
+= \sum\limits_{x=0}^{n}\binom{n}{x}(pe^{t})^{x}\,(1-p)^{n-x}\\
+= (1-p+pe^{t})^n$</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 이항 분포의 기댓값 --&gt; 적률생성함수 미분해서 구하기</p>
+<p><code>-</code> 합성함수의 미분</p>
+<ul>
+<li>$[f(g(x))]' = g'(x)f'(g(x))$</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>$E(X) = \frac{dM_x(t)}{dt} \\
+= npe^t(1-p+pe^t)^{n-1},\;\text{t=0 대입}\\
+= np$</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 곱의 미분</p>
+<ul>
+<li>$[f(x)g(x)]'=f'(x)g(x)+f(x)g'(x)$</li>
+</ul>
+<p><code>-</code> 이항 분포의 분산 --&gt; 적률생성함수 미분해서 구하기</p>
+<ul>
+<li>
+<p>$E(X^2) = \frac{d^2M_x^{t}}{dt^2}\\
+= npe^{t}\cdot(1-p+pe^t)^{n-1}+npe^{t}\cdot (n-1)pe^{t}(1-p+pe^{t})^{n-2},\; \text{t=0 대입}\\
+=np+np^{2}(n-1)\\
+= np-np^2+n^2p^2$</p>
+</li>
+<li>
+<p>$Var(X) = E(X^2)-[E(X)]^2\\
+= np-np^2+n^2p^2-(np)^2\\
+= np-np^2\\
+=np(1-p)$</p>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="포아송-분포의-적률생성함수">
+<a class="anchor" href="#%ED%8F%AC%EC%95%84%EC%86%A1-%EB%B6%84%ED%8F%AC%EC%9D%98-%EC%A0%81%EB%A5%A0%EC%83%9D%EC%84%B1%ED%95%A8%EC%88%98" aria-hidden="true"><span class="octicon octicon-link"></span></a>포아송 분포의 적률생성함수<a class="anchor-link" href="#%ED%8F%AC%EC%95%84%EC%86%A1-%EB%B6%84%ED%8F%AC%EC%9D%98-%EC%A0%81%EB%A5%A0%EC%83%9D%EC%84%B1%ED%95%A8%EC%88%98"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 테일러 급수 공부해라 구더기야 + 극좌표계도(희망) 하기 싫어...............................................</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 테일러 급수: 초월함수를 특정 값의 근방에서 멱함수로 근사시킴 --&gt; 개사기임</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> $a$에서 $f$의 <code>테일러 급수</code></p>
+<ul>
+<li>$f(x) = \sum\limits_{n=0}^{\infty}\frac{f^{(n)}(a)}{n!}(x-a)^{n}\\
+= f(a) + \frac{f'(a)}{1!}(x-a)+\frac{f''(a)}{2!}(x-a)^2+\frac{f'''(a)}{3!}(x-a)^3+\cdots$</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> $a=0$인 특별한 경우 <code>매클로린 급수</code>라고 함</p>
+<ul>
+<li>$f(x) = \sum\limits_{n=0}^{\infty}\frac{f^{(n)}(0)}{n!}x^n\\
+= f(0) + \frac{f'(0)}{1!}x+\frac{f''(0)}{2!}x^2+\frac{f'''(0)}{3!}x^3+\cdots$</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> $e^x$의 매클로린 급수</p>
+<ul>
+<li>$e^x = \sum\limits^{\infty}_{n=0}\frac{x^n}{n!}$</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 포아송 분포의 확률 질량 함수: $f(x) = \frac{e^{-\lambda}\lambda^{x}}{x!}$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 포아송 분포의 적률생성함수</p>
+<ul>
+<li>$M_x(t) = E(e^{tx})\\
+= \sum\limits_{x=0}^{\infty}e^{tx}\frac{e^{-\lambda}\lambda^{x}}{x!}\\
+=e^{-\lambda}\sum\limits_{x=0}^{\infty}\frac{(\lambda e^{t})^{x}}{x!} \;\;\; \text{$\therefore\lambda e^t \to x,\;x \to n 으로 바꾸면 e^x의 매클로린 급수이다 $}\\
+= e^{-\lambda}\cdot e^{\lambda e^{t}}\\
+= e^{\lambda(e^{t}-1)}
+$</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 포아송 분포의 기댓값</p>
+<p><code>-</code> $\text{$e^{-\lambda}\;는 변수가 아니므로 \;e^{\lambda e^{t}}에 대해서만 미분하면 된다$}$</p>
+<p><code>-</code> $y =e^{t}, \; \frac{d}{dy}(y) = e^{t}$</p>
+<ul>
+<li>$E(X) = \frac{dM_x(t)}{dt} \\
+=e^{-\lambda}\cdot(e^{\lambda y})' \\
+= e^{-\lambda}\cdot\lambda e^{\lambda y}\cdot \frac{d}{dy}(y) \\
+= e^{-\lambda}\cdot\lambda e^{\lambda e^{t}}\cdot e^{t},\; \text{t=0 대입}\\
+= \lambda \cdot e^{-\lambda}\cdot e^{\lambda}\\
+= \lambda$</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 포아송 분포의 분산</p>
+<ul>
+<li>
+<p>$E(X^2) = \frac{d^2M_x^{t}}{dt^2}\\
+= \lambda e^{-\lambda}\cdot([\lambda e^{\lambda e^{t}}\cdot e^{t}]\cdot [e^{t}] + [e^{\lambda e^{t}}]\cdot[e^{t}]), \; \text{t=0 대입}\\
+= \lambda e^{-\lambda}(\lambda e^{\lambda}+e^{\lambda})\\
+= \lambda^{2}+\lambda$</p>
+</li>
+<li>
+<p>$Var(X) = E(X^2)-[E(X)]^{2}\\
+= \lambda^{2}+\lambda - \lambda^{2}\\
+= \lambda$</p>
+</li>
+</ul>
 
 </div>
 </div>
