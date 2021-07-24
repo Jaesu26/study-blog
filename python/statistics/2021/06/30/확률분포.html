@@ -1469,6 +1469,7 @@ $</p>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 서로 독립이고 동일한 베르누이 분포를 따르는 확률변수$X_1,\dots,X_n$을 모두 합한 것 --&gt; $X = \sum\limits_{i=1}^{n}X_i$</p>
 <p><code>-</code> 성공 확률이 p인 베르누이 시행을 독립적으로 n번 반복했을 때 성공 횟수 X는 이항 분포를 따름</p>
 <p><code>-</code> 기호로는 $X \sim B(n,p)$</p>
 <p><code>-</code> 독립적 시행 --&gt; 각 시행은 서로 영향을 주지 않음</p>
@@ -1488,7 +1489,7 @@ $</p>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>$f(x) \,=\, _{n}\rm C_{x}\,p^{x}\,p^{n-x} \,=\, \binom{n}{x}\,p^{k}\,p^{n-x}$</p>
+<p>$f(x) \,=\, _{n}\rm C_{x}\,p^{x}\,(1-p)^{n-x} \,=\, \binom{n}{x}\,p^{k}\,(1-p)^{n-x}$</p>
 
 </div>
 </div>
@@ -1824,7 +1825,7 @@ $</p>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>$f(x) = (1-p)^{x}p, \; x = 1, 2, \dots$</p>
+<p>$f(x) = (1-p)^{x-1}p, \; x = 1, 2, 3,\dots$</p>
 
 </div>
 </div>
