@@ -96,7 +96,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      66 min read
+      68 min read
     
 </span></p>
 
@@ -216,7 +216,8 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h3"><a href="#블랙잭">블랙잭 </a></li>
 <li class="toc-entry toc-h3"><a href="#분해합">분해합 </a></li>
 <li class="toc-entry toc-h3"><a href="#임의의-숫자의-(각-자릿수-+-자기-자신)">임의의 숫자의 (각 자릿수 + 자기 자신) </a></li>
-<li class="toc-entry toc-h3"><a href="#IQ-Test(밑에-상황-때문에-반례-찾아-봤음)-+-맞는-것-같은데-계속-틀림...,-그래서-다른-사람-코드-봤는데-왜-틀렸는지-모르겠음.">IQ Test(밑에 상황 때문에 반례 찾아 봤음) + 맞는 것 같은데 계속 틀림..., 그래서 다른 사람 코드 봤는데 왜 틀렸는지 모르겠음. </a></li>
+<li class="toc-entry toc-h3"><a href="#반올림-오차(백준-문제-아님-+-무조건-읽으세요)">반올림 오차(백준 문제 아님 + 무조건 읽으세요) </a></li>
+<li class="toc-entry toc-h3"><a href="#IQ-Test(밑에-상황-때문에-반례-찾아-봤음)-+-맞는-것-같은데-계속-틀림...,-그래서-다른-사람-코드-봤는데-왜-틀렸는지-모르겠음-+-알아냈다">IQ Test(밑에 상황 때문에 반례 찾아 봤음) + 맞는 것 같은데 계속 틀림..., 그래서 다른 사람 코드 봤는데 왜 틀렸는지 모르겠음 + 알아냈다 </a></li>
 <li class="toc-entry toc-h3"><a href="#영화감독-숌">영화감독 숌 </a></li>
 <li class="toc-entry toc-h3"><a href="#체스판-다시-칠하기">체스판 다시 칠하기 </a></li>
 <li class="toc-entry toc-h3"><a href="#덩치(7568번)">덩치(7568번) </a></li>
@@ -3897,8 +3898,186 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="IQ-Test(밑에-상황-때문에-반례-찾아-봤음)-+-맞는-것-같은데-계속-틀림...,-그래서-다른-사람-코드-봤는데-왜-틀렸는지-모르겠음.">
-<a class="anchor" href="#IQ-Test(%EB%B0%91%EC%97%90-%EC%83%81%ED%99%A9-%EB%95%8C%EB%AC%B8%EC%97%90-%EB%B0%98%EB%A1%80-%EC%B0%BE%EC%95%84-%EB%B4%A4%EC%9D%8C)-+-%EB%A7%9E%EB%8A%94-%EA%B2%83-%EA%B0%99%EC%9D%80%EB%8D%B0-%EA%B3%84%EC%86%8D-%ED%8B%80%EB%A6%BC...,-%EA%B7%B8%EB%9E%98%EC%84%9C-%EB%8B%A4%EB%A5%B8-%EC%82%AC%EB%9E%8C-%EC%BD%94%EB%93%9C-%EB%B4%A4%EB%8A%94%EB%8D%B0-%EC%99%9C-%ED%8B%80%EB%A0%B8%EB%8A%94%EC%A7%80-%EB%AA%A8%EB%A5%B4%EA%B2%A0%EC%9D%8C." aria-hidden="true"><span class="octicon octicon-link"></span></a>IQ Test(밑에 상황 때문에 반례 찾아 봤음) + 맞는 것 같은데 계속 틀림..., 그래서 다른 사람 코드 봤는데 왜 틀렸는지 모르겠음.<a class="anchor-link" href="#IQ-Test(%EB%B0%91%EC%97%90-%EC%83%81%ED%99%A9-%EB%95%8C%EB%AC%B8%EC%97%90-%EB%B0%98%EB%A1%80-%EC%B0%BE%EC%95%84-%EB%B4%A4%EC%9D%8C)-+-%EB%A7%9E%EB%8A%94-%EA%B2%83-%EA%B0%99%EC%9D%80%EB%8D%B0-%EA%B3%84%EC%86%8D-%ED%8B%80%EB%A6%BC...,-%EA%B7%B8%EB%9E%98%EC%84%9C-%EB%8B%A4%EB%A5%B8-%EC%82%AC%EB%9E%8C-%EC%BD%94%EB%93%9C-%EB%B4%A4%EB%8A%94%EB%8D%B0-%EC%99%9C-%ED%8B%80%EB%A0%B8%EB%8A%94%EC%A7%80-%EB%AA%A8%EB%A5%B4%EA%B2%A0%EC%9D%8C."> </a>
+<h3 id="반올림-오차(백준-문제-아님-+-무조건-읽으세요)">
+<a class="anchor" href="#%EB%B0%98%EC%98%AC%EB%A6%BC-%EC%98%A4%EC%B0%A8(%EB%B0%B1%EC%A4%80-%EB%AC%B8%EC%A0%9C-%EC%95%84%EB%8B%98-+-%EB%AC%B4%EC%A1%B0%EA%B1%B4-%EC%9D%BD%EC%9C%BC%EC%84%B8%EC%9A%94)" aria-hidden="true"><span class="octicon octicon-link"></span></a>반올림 오차(백준 문제 아님 + 무조건 읽으세요)<a class="anchor-link" href="#%EB%B0%98%EC%98%AC%EB%A6%BC-%EC%98%A4%EC%B0%A8(%EB%B0%B1%EC%A4%80-%EB%AC%B8%EC%A0%9C-%EC%95%84%EB%8B%98-+-%EB%AC%B4%EC%A1%B0%EA%B1%B4-%EC%9D%BD%EC%9C%BC%EC%84%B8%EC%9A%94)"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 문제를 풀다보면 나누기 연산을 할 때가 있다</p>
+<p><code>-</code> 만약 나누기연산과 몫 연산의 결과가 같다면 무조건 몫 연산자를 쓰자 ---&gt; 10 / 5 = 10 // 5</p>
+<p><code>-</code> 왜????</p>
+<p><code>-</code> 0.1 + 0.2 = 0.3 일까? ---&gt; no</p>
+<p><code>-</code> ???? 정말로?</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="mf">0.1</span> <span class="o">+</span> <span class="mf">0.2</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>0.30000000000000004</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 정말로 0.1 + 0.2 = 0.3이 아님</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="mf">0.1</span> <span class="o">+</span> <span class="mf">0.2</span> <span class="o">==</span> <span class="mf">0.3</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>False</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 하나 더: 1.2 * 3 = 3.6 일까? ---&gt; no</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="mf">1.2</span> <span class="o">*</span> <span class="mi">3</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>3.5999999999999996</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="mf">1.2</span> <span class="o">*</span> <span class="mi">3</span> <span class="o">==</span> <span class="mf">3.6</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>False</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 밑에 문제인 IQ Test도 틀린 이유가 몫 연산자를 쓰지 않고 나누기 연산자를 사용한 것이다</p>
+<p><code>-</code> 위에서 확인한 봐와 같이 반올림 오차 때문에 float형은 불안정하므로 몫 연산자를 사용하는 것이 무조건 안전하다</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="IQ-Test(밑에-상황-때문에-반례-찾아-봤음)-+-맞는-것-같은데-계속-틀림...,-그래서-다른-사람-코드-봤는데-왜-틀렸는지-모르겠음-+-알아냈다">
+<a class="anchor" href="#IQ-Test(%EB%B0%91%EC%97%90-%EC%83%81%ED%99%A9-%EB%95%8C%EB%AC%B8%EC%97%90-%EB%B0%98%EB%A1%80-%EC%B0%BE%EC%95%84-%EB%B4%A4%EC%9D%8C)-+-%EB%A7%9E%EB%8A%94-%EA%B2%83-%EA%B0%99%EC%9D%80%EB%8D%B0-%EA%B3%84%EC%86%8D-%ED%8B%80%EB%A6%BC...,-%EA%B7%B8%EB%9E%98%EC%84%9C-%EB%8B%A4%EB%A5%B8-%EC%82%AC%EB%9E%8C-%EC%BD%94%EB%93%9C-%EB%B4%A4%EB%8A%94%EB%8D%B0-%EC%99%9C-%ED%8B%80%EB%A0%B8%EB%8A%94%EC%A7%80-%EB%AA%A8%EB%A5%B4%EA%B2%A0%EC%9D%8C-+-%EC%95%8C%EC%95%84%EB%83%88%EB%8B%A4" aria-hidden="true"><span class="octicon octicon-link"></span></a>IQ Test(밑에 상황 때문에 반례 찾아 봤음) + 맞는 것 같은데 계속 틀림..., 그래서 다른 사람 코드 봤는데 왜 틀렸는지 모르겠음 + 알아냈다<a class="anchor-link" href="#IQ-Test(%EB%B0%91%EC%97%90-%EC%83%81%ED%99%A9-%EB%95%8C%EB%AC%B8%EC%97%90-%EB%B0%98%EB%A1%80-%EC%B0%BE%EC%95%84-%EB%B4%A4%EC%9D%8C)-+-%EB%A7%9E%EB%8A%94-%EA%B2%83-%EA%B0%99%EC%9D%80%EB%8D%B0-%EA%B3%84%EC%86%8D-%ED%8B%80%EB%A6%BC...,-%EA%B7%B8%EB%9E%98%EC%84%9C-%EB%8B%A4%EB%A5%B8-%EC%82%AC%EB%9E%8C-%EC%BD%94%EB%93%9C-%EB%B4%A4%EB%8A%94%EB%8D%B0-%EC%99%9C-%ED%8B%80%EB%A0%B8%EB%8A%94%EC%A7%80-%EB%AA%A8%EB%A5%B4%EA%B2%A0%EC%9D%8C-+-%EC%95%8C%EC%95%84%EB%83%88%EB%8B%A4"> </a>
 </h3>
 <ul>
 <li>
@@ -3997,6 +4176,27 @@ window.onload = wrap_img;
 <p><code>-</code> 위에 있는 코드를 정리하자</p>
 <p><code>-</code> 틀렸습니다</p>
 <p><code>-</code> <code>exit(0)</code> --&gt; python 프로그램 종료</p>
+<p><code>-</code> <code>exit(0)</code>써서 코드 짤려했는데 복잡하고 틀렸다고 처리돼서 다른 방법을 찾아 떠났음</p>
+<p><code>-</code> 이 파일을 둘러보다가 예전에 왜 틀렸는지 모르겠던 기억에 맞은 사람 코드랑 비교해봄</p>
+<p><code>-</code>  내 코드: a = (x[1] - x[2]) / (x[0] - x[1])</p>
+<p><code>-</code> 맞은 사람 코드: a = (x[1] - x[2]) // (x[0] - x[1])</p>
+<p><code>-</code> 나누기 연산자 대신에 몫 연산자를 사용했음 ---&gt; 뭔 차이인데?</p>
+<p><code>-</code> 10/5 = 2.0이지만 10//5 = 2 ---&gt; 그래서 왜?? ---&gt; 출력을 보면 소수점이 없어야 함 ---&gt; 하지만 나는 소수점이 있으므로 틀림</p>
+<p><code>-</code> 근데 그 이유가 아니었다 ---&gt; return (int(a * x[-1] + b)) 이므로 int형이다 ---&gt; 소수점 없다는 의미 ---&gt; 그럼 왜 나누기 연산자 쓰면 틀리고 몫 연산자 쓰면 맞음?? ---&gt; 그러게?</p>
+<p><code>-</code> 아마 float형이 불안정해서 그럴 것이다 ---&gt; 그래서 안전하게 나누기 대신 몫 연산자를 쓰는 것이 좋음 ---&gt; 결과가 같을때 만: 10 / 5 = 10 // 5</p>
+<p><code>-</code> 밑에 있는 코드는 17%부근에서 틀렸습니다로 처리됨 + 내 제출들을 보면 런타임에러(NameError)가 많이 있음 ---&gt; 이유: if len(x) == 1: 에서 return할 때 'A'가 아닌 A라고 했음</p>
+<p><code>-</code> 'A'라고 해도 17%부근에서 틀렸음</p>
+<p><code>-</code> 하지만 나누기 연산자 대신에 몫 연산자를 쓰고 정답처리 됐음</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>틀린 코드</li>
+</ul>
 
 </div>
 </div>
@@ -4014,7 +4214,7 @@ window.onload = wrap_img;
 
 <span class="k">def</span> <span class="nf">sequence_rule2</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">A</span>
+        <span class="k">return</span> <span class="s1">'A'</span>
         
     <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span> <span class="ow">and</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span>
         <span class="k">return</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
@@ -4028,18 +4228,90 @@ window.onload = wrap_img;
     <span class="k">else</span><span class="p">:</span>
         <span class="n">a</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span> <span class="o">/</span> <span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
         
-    <span class="n">b</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">a</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">a</span> <span class="o">*</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
     
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">a</span> <span class="o">*</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">b</span> <span class="o">!=</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]:</span>
             <span class="k">return</span> <span class="s1">'B'</span>
          
-    <span class="k">return</span> <span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">a</span> <span class="o">*</span> <span class="n">x</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">b</span><span class="p">))</span>
+    <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">a</span> <span class="o">*</span> <span class="n">x</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span>
     
 <span class="nb">print</span><span class="p">(</span><span class="n">sequence_rule2</span><span class="p">(</span><span class="n">N_list</span><span class="p">))</span>
-         
-
         
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+</div>
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>13
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>맞은 코드</li>
+</ul>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+
+<span class="n">N_list</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">()))</span>
+
+<span class="k">def</span> <span class="nf">sequence_rule2</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s1">'A'</span>
+    
+    <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span> <span class="ow">and</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span>
+        <span class="k">return</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    
+    <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span> <span class="ow">and</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">!=</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span>
+        <span class="k">return</span> <span class="s1">'A'</span>
+    
+    <span class="k">elif</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span>  <span class="c1">## a=1, b=0 or a=0, b=x[0]</span>
+        <span class="n">a</span> <span class="o">=</span> <span class="mi">0</span>
+    
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">a</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">-</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">//</span> <span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        
+    <span class="n">b</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">a</span> <span class="o">*</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">a</span> <span class="o">*</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">b</span> <span class="o">!=</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]:</span>
+            <span class="k">return</span> <span class="s1">'B'</span>
+    
+    <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">a</span> <span class="o">*</span> <span class="n">x</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span>
+         
+<span class="nb">print</span><span class="p">(</span><span class="n">sequence_rule2</span><span class="p">(</span><span class="n">N_list</span><span class="p">))</span>
 </pre></div>
 
     </div>
@@ -4118,7 +4390,7 @@ window.onload = wrap_img;
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> 맞았습니다(3시간 걸림 힘들다)</p>
-<p><code>-</code> 위의 코드와 밑의 코드는 무슨 차이일까...</p>
+<p><code>-</code> 위에 있는 틀린 코드와 밑의 코드는 무슨 차이일까... ---&gt; 나누기 연산자와 몫 연산자의 차이</p>
 
 </div>
 </div>
