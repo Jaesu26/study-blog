@@ -160,43 +160,27 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<ol>
-<li>
-<p><a href="https://www.anaconda.com/products/individual">아나콘다</a>에 접속한 후 Anaconda Installers에서 64-Bit Graphical Installer(477MB)설치</p>
-</li>
-<li>
-<p>Anaconda Prompt (anaconda3) 실행</p>
-</li>
-<li>
-<p>아래와 같이 입력</p>
-</li>
-</ol>
+<p><code>1.</code> <a href="https://www.anaconda.com/products/individual">아나콘다</a>에 접속한 후 Anaconda Installers에서 64-Bit Graphical Installer(477MB)설치</p>
+<p><code>2.</code> Anaconda Prompt (anaconda3) 실행</p>
+<p><code>3.</code> 아래와 같이 입력</p>
 <p>(base) C:\Users\한재수&gt; conda create -n py38r40 python=3.8</p>
 <p>(base) C:\Users\한재수&gt; conda activate py38r40</p>
 <p>(py38r40) C:\Users\한재수&gt; conda install jupyter lab</p>
 <p>(py38r40) C:\Users\한재수&gt; pip install rpy2</p>
 <p>(py38r40) C:\Users\한재수&gt; R</p>
-<ol>
-<li>R에서 아래와 같이 입력</li>
-</ol>
+<p><code>4.</code> R에서 아래와 같이 입력</p>
 <p>&gt; install.packages("IRcernel")</p>
 <p>&gt; IRcernel::installspec()</p>
 <p>&gt; R.home() ## 나오는 경로 복사</p>
 <p>&gt; q() ## R 종료</p>
-<ol>
-<li>다시 프롬프트로 돌아와서 주피터랩 실행</li>
-</ol>
+<p><code>5.</code> 다시 프롬프트로 돌아와서 주피터랩 실행</p>
 <p>(py38r40) C:\Users\한재수&gt; jupyter lab</p>
-<ol>
-<li>R세팅은 끝났고 파이썬에서 R을 사용하려면 아래와 같이 입력(주피터랩 킬 때마다 한 번씩만 입력)</li>
-</ol>
+<p><code>6.</code> R세팅은 끝났고 파이썬에서 R을 사용하려면 아래와 같이 입력(주피터랩 킬 때마다 한 번씩만 입력)</p>
 <p>import os</p>
 <p>os.environ['R_HOME']='C:/anaconda3/envs/py38r40/lib/R' ## R.HOME 에서 복사한 경로</p>
 <p>import rpy2</p>
 <p>%load_ext rpy2.ipython</p>
-<ol>
-<li>R사용</li>
-</ol>
+<p><code>7.</code> R사용</p>
 <p>셀 마다 %%R 입력하여 사용</p>
 
 </div>
