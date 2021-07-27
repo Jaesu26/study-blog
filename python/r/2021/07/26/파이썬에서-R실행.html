@@ -188,13 +188,10 @@ window.onload = wrap_img;
 </ol>
 <p>(py38r40) C:\Users\한재수&gt; jupyter lab</p>
 <ol>
-<li>주피터랩에서 아래와 같이 입력</li>
+<li>R세팅은 끝났고 파이썬에서 R을 사용하려면 아래와 같이 입력(주피터랩 킬 때마다 한 번씩만 입력)</li>
 </ol>
 <p>import os</p>
 <p>os.environ['R_HOME']='C:/anaconda3/envs/py38r40/lib/R' ## R.HOME 에서 복사한 경로</p>
-<ol>
-<li>R세팅은 끝났고 파이썬에서 R을 사용하려면 아래와 같이 입력(주피터랩 킬 때마다 한 번씩만 입력)</li>
-</ol>
 <p>import rpy2</p>
 <p>%load_ext rpy2.ipython</p>
 <ol>
