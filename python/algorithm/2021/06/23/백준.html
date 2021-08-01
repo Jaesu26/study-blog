@@ -96,7 +96,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      68 min read
+      74 min read
     
 </span></p>
 
@@ -292,6 +292,8 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h3"><a href="#정수-삼각형">정수 삼각형 </a></li>
 <li class="toc-entry toc-h3"><a href="#계단-오르기">계단 오르기 </a></li>
 <li class="toc-entry toc-h3"><a href="#1로-만들기">1로 만들기 </a></li>
+<li class="toc-entry toc-h3"><a href="#쉬운-계단-수">쉬운 계단 수 </a></li>
+<li class="toc-entry toc-h3"><a href="#포도주-시식">포도주 시식 </a></li>
 </ul>
 </li>
 </ul><!--
@@ -9829,6 +9831,318 @@ window.onload = wrap_img;
 <p><code>-</code> 이를 1이 될 때까지 반복</p>
 <p><code>-</code> 음... 어떻게 함? 재귀로?</p>
 <p><code>-</code> 디버깅 중...</p>
+<p><code>-</code> 근데 위와 같이 하면 $N = 10^6$일 때 연산횟수가 커서 시간초과가 발생할 것 같음</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div class="highlight"><pre><span></span><span class="c1">## 시간초과 ##</span>
+<span class="n">N</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+<span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="mi">10</span><span class="o">**</span><span class="mi">6</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">divide3</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">numbers</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+    <span class="k">if</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">3</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">numbers</span><span class="p">[</span><span class="n">x</span> <span class="o">//</span> <span class="mi">3</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">numbers</span><span class="p">[</span><span class="n">x</span> <span class="o">//</span> <span class="mi">3</span><span class="p">]</span> <span class="o">+=</span> <span class="p">(</span><span class="n">numbers</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">numbers</span><span class="p">[</span><span class="n">x</span> <span class="o">//</span> <span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">numbers</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">numbers</span><span class="p">[</span><span class="n">x</span> <span class="o">//</span> <span class="mi">3</span><span class="p">])</span>
+
+        <span class="n">x</span> <span class="o">//=</span> <span class="mi">3</span> 
+        <span class="n">divide3</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">divide2</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+    <span class="n">sub1</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">divide2</span><span class="p">(</span><span class="n">y</span><span class="p">):</span> 
+    <span class="k">if</span> <span class="n">y</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">numbers</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+    <span class="k">if</span> <span class="n">y</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">numbers</span><span class="p">[</span><span class="n">y</span> <span class="o">//</span> <span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">numbers</span><span class="p">[</span><span class="n">y</span> <span class="o">//</span> <span class="mi">2</span><span class="p">]</span> <span class="o">+=</span> <span class="p">(</span><span class="n">numbers</span><span class="p">[</span><span class="n">y</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">numbers</span><span class="p">[</span><span class="n">y</span> <span class="o">//</span> <span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">numbers</span><span class="p">[</span><span class="n">y</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">numbers</span><span class="p">[</span><span class="n">y</span> <span class="o">//</span> <span class="mi">2</span><span class="p">])</span>
+
+        <span class="n">y</span> <span class="o">//=</span> <span class="mi">2</span> 
+        <span class="n">divide2</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">y</span> <span class="o">%</span> <span class="mi">3</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">divide3</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+
+    <span class="n">sub1</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">sub1</span><span class="p">(</span><span class="n">z</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">z</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">numbers</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+    <span class="k">if</span> <span class="n">z</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">numbers</span><span class="p">[</span><span class="n">z</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">numbers</span><span class="p">[</span><span class="n">z</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+=</span> <span class="p">(</span><span class="n">numbers</span><span class="p">[</span><span class="n">z</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">numbers</span><span class="p">[</span><span class="n">z</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">numbers</span><span class="p">[</span><span class="n">z</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">numbers</span><span class="p">[</span><span class="n">z</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+
+        <span class="n">z</span> <span class="o">-=</span> <span class="mi">1</span> 
+
+    <span class="k">if</span> <span class="n">z</span> <span class="o">%</span> <span class="mi">3</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">divide3</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">z</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">divide2</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
+
+    <span class="n">sub1</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
+
+<span class="n">divide3</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+<span class="n">divide2</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+<span class="n">sub1</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">numbers</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 굳이 1을 빼야할까?</p>
+<p><code>-</code> 2나 3으로 나눠지지 않을 때만 1을 빼는 것이 좋을 것 같음</p>
+<p><code>-</code> 하지만 10에 경우 위와 같이 하면 10 - 5 - 4 - 2 - 1</p>
+<p><code>-</code> 정답은 10 - 9 - 3 - 1</p>
+<p><code>-</code> 만약 1을 뺀 값이 $2^a\cdot 3^b$ 꼴이라면 1을 빼자</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>이것도 틀리면 질문검색 볼거임</li>
+</ul>
+<p><code>-</code> 5%에서 틀렸습니다....</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div class="highlight"><pre><span></span><span class="n">num</span> <span class="o">=</span> <span class="n">N</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+<span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="mi">10</span><span class="o">**</span><span class="mi">6</span><span class="p">)</span>
+
+<span class="n">mul_2_3</span> <span class="o">=</span> <span class="p">{}</span>
+
+<span class="n">power_of_2</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">i</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">j</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="o">**</span><span class="mi">6</span><span class="p">:</span>
+    <span class="n">power_of_2</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">j</span>
+    <span class="n">j</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="n">i</span> <span class="o">*=</span> <span class="mi">2</span>
+
+<span class="n">power_of_3</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">i</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">j</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="o">**</span><span class="mi">6</span><span class="p">:</span>
+    <span class="n">power_of_3</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">j</span>
+    <span class="n">j</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="n">i</span> <span class="o">*=</span> <span class="mi">3</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">13</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">20</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">list</span><span class="p">(</span><span class="n">power_of_3</span><span class="o">.</span><span class="n">keys</span><span class="p">())[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="nb">list</span><span class="p">(</span><span class="n">power_of_2</span><span class="o">.</span><span class="n">keys</span><span class="p">())[</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="o">**</span><span class="mi">6</span><span class="p">:</span>
+            <span class="n">mul_2_3</span><span class="p">[</span><span class="nb">list</span><span class="p">(</span><span class="n">power_of_3</span><span class="o">.</span><span class="n">keys</span><span class="p">())[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="nb">list</span><span class="p">(</span><span class="n">power_of_2</span><span class="o">.</span><span class="n">keys</span><span class="p">())[</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">]]</span> <span class="o">=</span> <span class="n">i</span><span class="o">+</span><span class="n">j</span> 
+
+<span class="n">mul_2_3</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">power_of_2</span><span class="p">)</span>
+<span class="n">mul_2_3</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">power_of_3</span><span class="p">)</span>
+
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">num</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="k">break</span>
+
+    <span class="k">if</span> <span class="n">num</span> <span class="ow">in</span> <span class="n">mul_2_3</span><span class="p">:</span>
+        <span class="n">numbers</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">numbers</span><span class="p">[</span><span class="n">num</span><span class="p">]</span> <span class="o">+</span> <span class="n">mul_2_3</span><span class="p">[</span><span class="n">num</span><span class="p">]</span>
+        <span class="k">break</span>
+
+    <span class="k">if</span> <span class="n">num</span> <span class="o">%</span> <span class="mi">3</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">now_num</span> <span class="o">=</span> <span class="n">num</span> <span class="o">//</span> <span class="mi">3</span>
+
+        <span class="k">if</span> <span class="n">numbers</span><span class="p">[</span><span class="n">now_num</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">numbers</span><span class="p">[</span><span class="n">now_num</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">numbers</span><span class="p">[</span><span class="n">num</span><span class="p">]</span>
+
+        <span class="k">elif</span> <span class="n">numbers</span><span class="p">[</span><span class="n">now_num</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">numbers</span><span class="p">[</span><span class="n">now_num</span><span class="p">]</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">numbers</span><span class="p">[</span><span class="n">num</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">numbers</span><span class="p">[</span><span class="n">now_num</span><span class="p">])</span>
+
+        <span class="n">num</span> <span class="o">=</span> <span class="n">now_num</span>
+        <span class="k">continue</span>
+
+    <span class="k">elif</span> <span class="p">(</span><span class="n">num</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="ow">in</span> <span class="n">mul_2_3</span><span class="p">:</span>
+        <span class="n">now_num</span> <span class="o">=</span> <span class="n">num</span> <span class="o">-</span> <span class="mi">1</span>
+
+        <span class="k">if</span> <span class="n">numbers</span><span class="p">[</span><span class="n">now_num</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">numbers</span><span class="p">[</span><span class="n">now_num</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">numbers</span><span class="p">[</span><span class="n">num</span><span class="p">]</span>
+
+        <span class="k">elif</span> <span class="n">numbers</span><span class="p">[</span><span class="n">now_num</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">numbers</span><span class="p">[</span><span class="n">now_num</span><span class="p">]</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">numbers</span><span class="p">[</span><span class="n">num</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">numbers</span><span class="p">[</span><span class="n">now_num</span><span class="p">])</span>
+
+        <span class="n">num</span> <span class="o">=</span> <span class="n">now_num</span>
+        <span class="k">continue</span>
+
+    <span class="k">elif</span> <span class="n">num</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">now_num</span> <span class="o">=</span> <span class="n">num</span> <span class="o">//</span> <span class="mi">2</span>
+
+        <span class="k">if</span> <span class="n">numbers</span><span class="p">[</span><span class="n">now_num</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">numbers</span><span class="p">[</span><span class="n">now_num</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">numbers</span><span class="p">[</span><span class="n">num</span><span class="p">]</span>
+
+        <span class="k">elif</span> <span class="n">numbers</span><span class="p">[</span><span class="n">now_num</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">numbers</span><span class="p">[</span><span class="n">now_num</span><span class="p">]</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">numbers</span><span class="p">[</span><span class="n">num</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">numbers</span><span class="p">[</span><span class="n">now_num</span><span class="p">])</span>
+
+        <span class="n">num</span> <span class="o">=</span> <span class="n">now_num</span>
+        <span class="k">continue</span>
+
+
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">now_num</span> <span class="o">=</span> <span class="n">num</span> <span class="o">-</span> <span class="mi">1</span>
+
+        <span class="k">if</span> <span class="n">numbers</span><span class="p">[</span><span class="n">now_num</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">numbers</span><span class="p">[</span><span class="n">now_num</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">numbers</span><span class="p">[</span><span class="n">num</span><span class="p">]</span>
+
+        <span class="k">elif</span> <span class="n">numbers</span><span class="p">[</span><span class="n">now_num</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">numbers</span><span class="p">[</span><span class="n">now_num</span><span class="p">]</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">numbers</span><span class="p">[</span><span class="n">num</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">numbers</span><span class="p">[</span><span class="n">now_num</span><span class="p">])</span>
+
+        <span class="n">num</span> <span class="o">=</span> <span class="n">now_num</span>
+
+    <span class="k">if</span> <span class="n">num</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="k">break</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">numbers</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 질문검색 보고 옴 ---&gt; 모든 경우를 탐색해 보자</p>
+<p><code>-</code> 맞았습니다!!!</p>
+<p><code>-</code> 위에서는 어렵게 생각했는지 모든 경우를 탐색하는 코드를 각각의 경우에 대해서 설계했는데 밑에서는 i의 값을 1씩 줄여나가면서 3가지 경우에 대해 탐색하도록 코드를 구성했음</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">i</span> <span class="o">=</span> <span class="n">N</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+<span class="n">dp</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="mi">10</span><span class="o">**</span><span class="mi">6</span><span class="p">)</span>
+
+<span class="k">while</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">3</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">dp</span><span class="p">[</span><span class="n">i</span> <span class="o">//</span> <span class="mi">3</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">dp</span><span class="p">[</span><span class="n">i</span> <span class="o">//</span> <span class="mi">3</span><span class="p">]</span> <span class="o">+=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+            
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">dp</span><span class="p">[</span><span class="n">i</span> <span class="o">//</span> <span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">dp</span><span class="p">[</span><span class="n">i</span> <span class="o">//</span> <span class="mi">3</span><span class="p">])</span>
+            
+    <span class="k">if</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">dp</span><span class="p">[</span><span class="n">i</span> <span class="o">//</span> <span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">dp</span><span class="p">[</span><span class="n">i</span> <span class="o">//</span> <span class="mi">2</span><span class="p">]</span> <span class="o">+=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+            
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">dp</span><span class="p">[</span><span class="n">i</span> <span class="o">//</span> <span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">dp</span><span class="p">[</span><span class="n">i</span> <span class="o">//</span> <span class="mi">2</span><span class="p">])</span>
+            
+ 
+    <span class="k">if</span> <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+            
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+    
+    <span class="n">i</span> <span class="o">-=</span> <span class="mi">1</span>
+    
+<span class="nb">print</span><span class="p">(</span><span class="n">dp</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+</div>
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>4
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="쉬운-계단-수">
+<a class="anchor" href="#%EC%89%AC%EC%9A%B4-%EA%B3%84%EB%8B%A8-%EC%88%98" aria-hidden="true"><span class="octicon octicon-link"></span></a>쉬운 계단 수<a class="anchor-link" href="#%EC%89%AC%EC%9A%B4-%EA%B3%84%EB%8B%A8-%EC%88%98"> </a>
+</h3>
+<ul>
+<li>문제 출처: <a href="https://www.acmicpc.net/problem/10844">백준10844번</a>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> N = 1일 때 9, N = 2일 때 17</p>
+<p><code>-</code> N = 3일 때 32이었음(내가 손수 구함)</p>
+<p><code>-</code> 다음과 같은 규칙이 바로 생각났음 ---&gt; $dp[i+1] = 2\times dp[i] - 2^{i-1}$</p>
+<p><code>-</code> 위 규칙에 따르면 N = 4일 때 60인데 손수 구할 용기가 안나서 검증없이 바로 코드로 구현함</p>
+<p><code>-</code> ^^ 틀렸습니다</p>
+<p><code>-</code> i가 어느 정도 커지면 음수가 된다</p>
+<p><code>-</code> 규칙을 바꿔봄 ---&gt; $dp[i+1] = 2\times dp[i] - i$</p>
+<p><code>-</code> 일단 위의 규칙은 음수가 될 일은 절대 없음</p>
+<p><code>-</code> 위 규칙에 따르면 N = 4일 때 61인데 손수 구할 용기가 안나서 검증없이 바로 코드로 구현함</p>
+<p><code>-</code> 틀렸습니다 ^^</p>
+<p><code>-</code> 이제  N = 4일 때 dp를 구해보자 ---&gt; 손수 구해보니 N = 4일 때 61임 !!!! ---&gt; 규칙이 틀렸나?</p>
+<p><code>-</code> 일단 직관적으로 생각하면 $dp[i] = 2^{i-1}*9$</p>
+<p><code>-</code> 왜냐하면 옆 자릿수와 차이가 1이여야 하므로 +1 or -1임 즉 2가지 경우이므로 2를 계속 곱하고 숫자가 1~9까지 9개이므로 9를 곱합</p>
+<p><code>-</code> 하지만 9에 경우 -1은 가능하지만 +1은 없음 또 0에 경우 +1은 가능하지만 -1은 존재하지 않는다 ---&gt; 차이만큼 빼줘야함</p>
+<p><code>-</code> 위에 기반하면 N = 1: 9 - 0, N = 2: 18 - 1, N = 3: 36 - 4, N = 4: 72 - 11 ---&gt; 규칙이 보이지 않음</p>
+<p><code>-</code> 그리고 또 2자리는 1자리에 기반하여 만들고 3자리는 2자리에 기반하여 만듦 ex) 23 --&gt; 232 or 234, 232 --&gt; 2321 or 2323</p>
+<p><code>-</code> N = 5일 때 118인지 확인할까?</p>
 
 </div>
 </div>
@@ -9837,52 +10151,170 @@ window.onload = wrap_img;
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <div class="highlight"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
-<span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="mi">10</span><span class="o">**</span><span class="mi">6</span><span class="p">)</span>
+<span class="n">dp</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="mi">101</span>
+<span class="n">dp</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">9</span>
 
-<span class="k">def</span> <span class="nf">divide</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-        <span class="k">return</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">):</span>
+    <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">i</span><span class="p">)</span> <span class="o">%</span> <span class="mi">1000000000</span>
 
-    <span class="k">if</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">3</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="k">if</span> <span class="n">numbers</span><span class="p">[</span><span class="n">x</span> <span class="o">//</span> <span class="mi">3</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="n">numbers</span><span class="p">[</span><span class="n">x</span> <span class="o">//</span> <span class="mi">3</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
-
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">numbers</span><span class="p">[</span><span class="n">x</span> <span class="o">//</span> <span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">numbers</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">numbers</span><span class="p">[</span><span class="n">x</span> <span class="o">//</span><span class="mi">3</span><span class="p">])</span>
-
-        <span class="n">x</span> <span class="o">//=</span> <span class="mi">3</span> 
-        <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">divide</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-
-    <span class="k">if</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="k">if</span> <span class="n">numbers</span><span class="p">[</span><span class="n">x</span> <span class="o">//</span> <span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="n">numbers</span><span class="p">[</span><span class="n">x</span> <span class="o">//</span> <span class="mi">2</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
-
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">numbers</span><span class="p">[</span><span class="n">x</span> <span class="o">//</span> <span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">numbers</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">numbers</span><span class="p">[</span><span class="n">x</span> <span class="o">//</span><span class="mi">2</span><span class="p">])</span>
-
-        <span class="n">x</span> <span class="o">//=</span> <span class="mi">2</span> 
-        <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">divide</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-
-    <span class="k">if</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
-        <span class="k">if</span> <span class="n">numbers</span><span class="p">[</span><span class="n">x</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="n">numbers</span><span class="p">[</span><span class="n">x</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
-
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">numbers</span><span class="p">[</span><span class="n">x</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">numbers</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">numbers</span><span class="p">[</span><span class="n">x</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
-
-        <span class="n">x</span> <span class="o">-=</span> <span class="mi">1</span> 
-        <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">divide</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-
-<span class="n">divide</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">numbers</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">dp</span><span class="p">[</span><span class="n">N</span><span class="p">])</span>
 </pre></div>
 
 </div>
 </div>
 </div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 질문검색 보고옴</p>
+<p><code>-</code> 코드 대충 봐보니 i-1번째에 기반하여 i번째를 만드는 것 같았음</p>
+<p><code>-</code> 끝자리가 0이나 9인 경우에는 다음 자리에 올 수 있는 숫자가 1개 뿐이므로 이를 고려하여 코드를 구성하자</p>
+<p><code>-</code> 아니면 끝자리가 0~9 까지 10개이므로 배열을 10칸으로 만들자</p>
+<p><code>-</code> $dp[i][j]$의 의미는 자릿수가 i인데 끝자리가 j인 경우임</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+<span class="n">dp</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="mi">10</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">101</span><span class="p">)]</span>
+
+<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">):</span>
+    <span class="n">dp</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+    
+    
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">j</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">%</span> <span class="mi">1000000000</span>
+            
+        <span class="k">elif</span> <span class="n">j</span> <span class="o">==</span> <span class="mi">9</span><span class="p">:</span>
+            <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">%</span> <span class="mi">1000000000</span>
+            
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="o">%</span> <span class="mi">1000000000</span>
+            
+<span class="nb">print</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">dp</span><span class="p">[</span><span class="n">N</span><span class="p">])</span> <span class="o">%</span> <span class="mi">1000000000</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+</div>
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>116
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 흐음 질문검색에서 아이디어를 가져온거라 정답을 맞춘게 맞춘게 아님</p>
+<p><code>-</code> 옛날이었으면 풀었을 듯... 요새 안하다보니 감이 떨어짐</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="포도주-시식">
+<a class="anchor" href="#%ED%8F%AC%EB%8F%84%EC%A3%BC-%EC%8B%9C%EC%8B%9D" aria-hidden="true"><span class="octicon octicon-link"></span></a>포도주 시식<a class="anchor-link" href="#%ED%8F%AC%EB%8F%84%EC%A3%BC-%EC%8B%9C%EC%8B%9D"> </a>
+</h3>
+<ul>
+<li>문제 출처: <a href="https://www.acmicpc.net/problem/2156">백준 2156번</a>
+</li>
+</ul>
+<p><code>-</code> 문제를 보자마자 전에 풀었던 <a href="https://www.acmicpc.net/problem/2579">계단오르기</a>와 유사하다고 생각이 들었음</p>
+<p><code>-</code> $dp[i]$는 두 종류가 있음 ---&gt; i-1번째 와인을 마신 경우와 i-1번째 와인을 마시지 않은 경우 ---&gt; 두 경우 중 최대값이 $dp[i]$임</p>
+<p><code>-</code> $dp[i][1] = wines[i] + dp[i-1][0]$</p>
+<p><code>-</code> $dp[i][0] = max(wines[i] + dp[i-2][0], wines[i] + dp[i-2][1], wines[i] + dp[i-3][1])$</p>
+<p><code>-</code> $dp[i][0]$은 i-1번째 와인을 마시지 않은 경우</p>
+<p><code>-</code> $dp[i][1]$는 i-1번째 와인을 마신 경우</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+<span class="n">dp</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="mi">2</span> <span class="k">for</span> <span class="n">__</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10001</span><span class="p">)]</span>
+<span class="n">wines</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+    <span class="n">wine</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+    <span class="n">wines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">wine</span><span class="p">)</span>
+    
+<span class="n">dp</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">wines</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">dp</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">wines</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">wines</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="k">if</span> <span class="n">N</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+    <span class="n">dp</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">wines</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> 
+    <span class="n">dp</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">wines</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="n">wines</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+    
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+    <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">wines</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">2</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">wines</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">2</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span> <span class="n">wines</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">3</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span>
+                   
+    <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">wines</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> 
+
+<span class="nb">print</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">dp</span><span class="p">[</span><span class="n">N</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">dp</span><span class="p">[</span><span class="n">N</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span> <span class="n">dp</span><span class="p">[</span><span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+</div>
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>33
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
 </div>
 
 
