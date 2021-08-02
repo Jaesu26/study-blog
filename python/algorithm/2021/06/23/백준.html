@@ -168,7 +168,7 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h3"><a href="#자연수-N이-주어졌을-때,-1부터-N까지-한-줄에-하나씩-출력하는-프로그램을-작성하시오.">자연수 N이 주어졌을 때, 1부터 N까지 한 줄에 하나씩 출력하는 프로그램을 작성하시오. </a></li>
 <li class="toc-entry toc-h3"><a href="#자연수-N이-주어졌을-때,-N부터-1까지-한-줄에-하나씩-출력하는-프로그램을-작성하시오.">자연수 N이 주어졌을 때, N부터 1까지 한 줄에 하나씩 출력하는 프로그램을 작성하시오. </a></li>
 <li class="toc-entry toc-h3"><a href="#두-정수-A와-B를-입력받은-다음,-A+B를-출력하는-프로그램을-작성하시오.">두 정수 A와 B를 입력받은 다음, A+B를 출력하는 프로그램을 작성하시오. </a></li>
-<li class="toc-entry toc-h3"><a href="#첫째-줄에는-별-1개,-둘째-줄에는-별-2개,-N번째-줄에는-별-N개를-찍는-문제">첫째 줄에는 별 1개, 둘째 줄에는 별 2개, N번째 줄에는 별 N개를 찍는 문제 </a></li>
+<li class="toc-entry toc-h3"><a href="#별-찍기---1">별 찍기 - 1 </a></li>
 </ul>
 </li>
 <li class="toc-entry toc-h2"><a href="#print함수-용법">print함수 용법 </a>
@@ -1885,16 +1885,63 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="첫째-줄에는-별-1개,-둘째-줄에는-별-2개,-N번째-줄에는-별-N개를-찍는-문제">
-<a class="anchor" href="#%EC%B2%AB%EC%A7%B8-%EC%A4%84%EC%97%90%EB%8A%94-%EB%B3%84-1%EA%B0%9C,-%EB%91%98%EC%A7%B8-%EC%A4%84%EC%97%90%EB%8A%94-%EB%B3%84-2%EA%B0%9C,-N%EB%B2%88%EC%A7%B8-%EC%A4%84%EC%97%90%EB%8A%94-%EB%B3%84-N%EA%B0%9C%EB%A5%BC-%EC%B0%8D%EB%8A%94-%EB%AC%B8%EC%A0%9C" aria-hidden="true"><span class="octicon octicon-link"></span></a>첫째 줄에는 별 1개, 둘째 줄에는 별 2개, N번째 줄에는 별 N개를 찍는 문제<a class="anchor-link" href="#%EC%B2%AB%EC%A7%B8-%EC%A4%84%EC%97%90%EB%8A%94-%EB%B3%84-1%EA%B0%9C,-%EB%91%98%EC%A7%B8-%EC%A4%84%EC%97%90%EB%8A%94-%EB%B3%84-2%EA%B0%9C,-N%EB%B2%88%EC%A7%B8-%EC%A4%84%EC%97%90%EB%8A%94-%EB%B3%84-N%EA%B0%9C%EB%A5%BC-%EC%B0%8D%EB%8A%94-%EB%AC%B8%EC%A0%9C"> </a>
+<h3 id="별-찍기---1">
+<a class="anchor" href="#%EB%B3%84-%EC%B0%8D%EA%B8%B0---1" aria-hidden="true"><span class="octicon octicon-link"></span></a>별 찍기 - 1<a class="anchor-link" href="#%EB%B3%84-%EC%B0%8D%EA%B8%B0---1"> </a>
 </h3>
 <ul>
-<li>하지만, 오른쪽을 기준으로 정렬한 별(예제 참고)을 출력하시오.</li>
+<li>문제 출처: <a href="https://www.acmicpc.net/problem/2438">백준 2438번</a>
+</li>
 </ul>
 
 </div>
 </div>
 </div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">'*'</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="s1">''</span><span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s1">'</span><span class="se">\n</span><span class="s1">'</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="s1">''</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+</div>
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>*
+**
+***
+****
+*****
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
