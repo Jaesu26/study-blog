@@ -96,7 +96,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      74 min read
+      75 min read
     
 </span></p>
 
@@ -294,6 +294,7 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h3"><a href="#1로-만들기">1로 만들기 </a></li>
 <li class="toc-entry toc-h3"><a href="#쉬운-계단-수">쉬운 계단 수 </a></li>
 <li class="toc-entry toc-h3"><a href="#포도주-시식">포도주 시식 </a></li>
+<li class="toc-entry toc-h3"><a href="#가장-긴-증가하는-부분-수열">가장 긴 증가하는 부분 수열 </a></li>
 </ul>
 </li>
 </ul><!--
@@ -10352,6 +10353,82 @@ window.onload = wrap_img;
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>33
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="가장-긴-증가하는-부분-수열">
+<a class="anchor" href="#%EA%B0%80%EC%9E%A5-%EA%B8%B4-%EC%A6%9D%EA%B0%80%ED%95%98%EB%8A%94-%EB%B6%80%EB%B6%84-%EC%88%98%EC%97%B4" aria-hidden="true"><span class="octicon octicon-link"></span></a>가장 긴 증가하는 부분 수열<a class="anchor-link" href="#%EA%B0%80%EC%9E%A5-%EA%B8%B4-%EC%A6%9D%EA%B0%80%ED%95%98%EB%8A%94-%EB%B6%80%EB%B6%84-%EC%88%98%EC%97%B4"> </a>
+</h3>
+<ul>
+<li>문제 출처: <a href="https://www.acmicpc.net/problem/11053">백준 11053번</a>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 모르겠다 공부 ㄱㄱ</p>
+<p><code>-</code> 공부하고 왔음</p>
+<p><code>-</code> 수열A: 10, 20, 30, 11, 12, 13, 14, 40, 15, 16 이런 수열이 있다고 해보자</p>
+<p><code>-</code> 위에서 다룬 수열을 A라고 해보자</p>
+<p><code>-</code> A[6] = 13, dp[6] = 4이다. dp[6] = 4라는 뜻은 A[6]이 마지막 원소이고 만약 수열A가 A[5]까지만 존재했다면 가장 긴 증가하는 부분 수열의 길이는 3이라는 의미이다</p>
+<p><code>-</code> A[6]을 추가하는데 되도록이면 증가하는 부분 수열의 길이가 크면 좋음 ---&gt; A[6]이 마지막 원소가 될 수 있는 여러개의 증가하는 부분 수열 중에서 길이가 가장 긴 것에 A[6]을 추가해야 함</p>
+<p><code>-</code> 즉 dp[1]에서 dp[5]중에서 가장 큰 값에다 A[6]을 추가하여 새로운 dp[6]을 만듦 ---&gt; <code>dp[i]는 i번째 인덱스 값을 수열의 마지막 원소로 가지는 증가하는 부분 수열 중 가장 길이가 긴 것</code></p>
+<p><code>-</code> 가장 긴 증가하는 부분 수열 점화식: $dp[n] = max(dp[i], dp[j], \dots, dp[k]) + 1, \;\;\; (A[n] &gt; A[i], A[j],\dots,A[k]])$</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+<span class="n">dp</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="mi">1001</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">()))</span>
+<span class="n">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">data</span>
+    
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">arr</span><span class="p">[</span><span class="n">j</span><span class="p">]:</span>
+            <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">dp</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">dp</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+</div>
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>4
 </pre>
 </div>
 </div>
