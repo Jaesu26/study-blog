@@ -9,15 +9,15 @@
 <meta property="og:title" content="파이썬 기본 연산 시간 복잡도(Big O)" />
 <meta name="author" content="한재수" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="작성 중" />
-<meta property="og:description" content="작성 중" />
+<meta name="description" content="작성 완료" />
+<meta property="og:description" content="작성 완료" />
 <link rel="canonical" href="https://gkswotn12345.github.io/green/python/algorithm/2021/07/15/%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EA%B8%B0%EB%B3%B8%EC%97%B0%EC%82%B0-%EC%8B%9C%EA%B0%84%EB%B3%B5%EC%9E%A1%EB%8F%84.html" />
 <meta property="og:url" content="https://gkswotn12345.github.io/green/python/algorithm/2021/07/15/%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EA%B8%B0%EB%B3%B8%EC%97%B0%EC%82%B0-%EC%8B%9C%EA%B0%84%EB%B3%B5%EC%9E%A1%EB%8F%84.html" />
 <meta property="og:site_name" content="Jaesu’s blog" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2021-07-15T00:00:00-05:00" />
 <script type="application/ld+json">
-{"description":"작성 중","url":"https://gkswotn12345.github.io/green/python/algorithm/2021/07/15/%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EA%B8%B0%EB%B3%B8%EC%97%B0%EC%82%B0-%EC%8B%9C%EA%B0%84%EB%B3%B5%EC%9E%A1%EB%8F%84.html","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://gkswotn12345.github.io/green/python/algorithm/2021/07/15/%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EA%B8%B0%EB%B3%B8%EC%97%B0%EC%82%B0-%EC%8B%9C%EA%B0%84%EB%B3%B5%EC%9E%A1%EB%8F%84.html"},"headline":"파이썬 기본 연산 시간 복잡도(Big O)","dateModified":"2021-07-15T00:00:00-05:00","datePublished":"2021-07-15T00:00:00-05:00","author":{"@type":"Person","name":"한재수"},"@context":"https://schema.org"}</script>
+{"description":"작성 완료","url":"https://gkswotn12345.github.io/green/python/algorithm/2021/07/15/%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EA%B8%B0%EB%B3%B8%EC%97%B0%EC%82%B0-%EC%8B%9C%EA%B0%84%EB%B3%B5%EC%9E%A1%EB%8F%84.html","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://gkswotn12345.github.io/green/python/algorithm/2021/07/15/%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EA%B8%B0%EB%B3%B8%EC%97%B0%EC%82%B0-%EC%8B%9C%EA%B0%84%EB%B3%B5%EC%9E%A1%EB%8F%84.html"},"headline":"파이썬 기본 연산 시간 복잡도(Big O)","dateModified":"2021-07-15T00:00:00-05:00","datePublished":"2021-07-15T00:00:00-05:00","author":{"@type":"Person","name":"한재수"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/green/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://gkswotn12345.github.io/green/feed.xml" title="Jaesu's blog" /><link rel="shortcut icon" type="image/x-icon" href="/green/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
@@ -88,7 +88,7 @@ window.onload = wrap_img;
         <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title p-name" itemprop="name headline">파이썬 기본 연산 시간 복잡도(Big O)</h1><p class="page-description">작성 중</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2021-07-15T00:00:00-05:00" itemprop="datePublished">
+    <h1 class="post-title p-name" itemprop="name headline">파이썬 기본 연산 시간 복잡도(Big O)</h1><p class="page-description">작성 완료</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2021-07-15T00:00:00-05:00" itemprop="datePublished">
         Jul 15, 2021
       </time>• 
           <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -96,7 +96,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      1 min read
+      2 min read
     
 </span></p>
 
@@ -143,6 +143,8 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h2"><a href="#연산-시간-복잡도">연산 시간 복잡도 </a>
 <ul>
 <li class="toc-entry toc-h3"><a href="#리스트(list)">리스트(list) </a></li>
+<li class="toc-entry toc-h3"><a href="#집합(set)">집합(set) </a></li>
+<li class="toc-entry toc-h3"><a href="#해시(dictionary)">해시(dictionary) </a></li>
 </ul>
 </li>
 </ul><!--
@@ -228,13 +230,13 @@ window.onload = wrap_img;
 <tbody>
 <tr>
 <td style="text-align:center">index</td>
-<td style="text-align:center">l[i]</td>
+<td style="text-align:center">l[n]</td>
 <td style="text-align:center">$O(1)$</td>
 <td style="text-align:center"></td>
 </tr>
 <tr>
 <td style="text-align:center">store</td>
-<td style="text-align:center">l[i] = 0</td>
+<td style="text-align:center">l[n] = 0</td>
 <td style="text-align:center">$O(1)$</td>
 <td style="text-align:center">store는 변수 저장</td>
 </tr>
@@ -266,7 +268,7 @@ window.onload = wrap_img;
 <td style="text-align:center">slice</td>
 <td style="text-align:center">l[a:b]</td>
 <td style="text-align:center">$O(b-a)$</td>
-<td style="text-align:center">$l[1:5]\to O(l)$, $l[ : ]\to O(len(l)-0)=O(N)$</td>
+<td style="text-align:center">$l[1:5]\to O(l)$, $l[\;\; :\;\; ]\to O(len(l)-0)=O(N)$</td>
 </tr>
 <tr>
 <td style="text-align:center">extend</td>
@@ -294,9 +296,9 @@ window.onload = wrap_img;
 </tr>
 <tr>
 <td style="text-align:center">delete</td>
-<td style="text-align:center">del l[i]</td>
+<td style="text-align:center">del l[n]</td>
 <td style="text-align:center">$O(N)$</td>
-<td style="text-align:center">depends on i; O(N) in worst case</td>
+<td style="text-align:center">depends on n; $O(N)$ in worst case</td>
 </tr>
 <tr>
 <td style="text-align:center">containment</td>
@@ -308,7 +310,7 @@ window.onload = wrap_img;
 <td style="text-align:center">copy</td>
 <td style="text-align:center">l.copy()</td>
 <td style="text-align:center">$O(N)$</td>
-<td style="text-align:center">Same as l[:] which is O(N)</td>
+<td style="text-align:center">Same as $l[\;\;:\;\;]$ which is $O(N)$</td>
 </tr>
 <tr>
 <td style="text-align:center">remove</td>
@@ -318,9 +320,9 @@ window.onload = wrap_img;
 </tr>
 <tr>
 <td style="text-align:center">pop</td>
-<td style="text-align:center">l.pop(i)</td>
+<td style="text-align:center">l.pop(n)</td>
 <td style="text-align:center">$O(N)$</td>
-<td style="text-align:center">O(N-i): l.pop(0):O(N) (see above)</td>
+<td style="text-align:center">$O(N-i)$: l.pop(0): $O(N)$ (see above)</td>
 </tr>
 <tr>
 <td style="text-align:center">extreme value</td>
@@ -348,9 +350,238 @@ window.onload = wrap_img;
 </tr>
 <tr>
 <td style="text-align:center">multiply</td>
-<td style="text-align:center">k * l</td>
+<td style="text-align:center">$k \times l$</td>
 <td style="text-align:center">$O(kN)$</td>
-<td style="text-align:center">$5*l$ is $O(N)$: $len(l)*l$ is $O(N^2)$</td>
+<td style="text-align:center">$5\times l$ is $O(N)$: $len(l)\times l$ is $O(N^2)$</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="집합(set)">
+<a class="anchor" href="#%EC%A7%91%ED%95%A9(set)" aria-hidden="true"><span class="octicon octicon-link"></span></a>집합(set)<a class="anchor-link" href="#%EC%A7%91%ED%95%A9(set)"> </a>
+</h3>
+<p><code>-</code> 리스트에 비해 시간 복잡도가 작음</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Operation</th>
+<th style="text-align:center">Example</th>
+<th style="text-align:center">Complexity Class</th>
+<th style="text-align:center">Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Length</td>
+<td style="text-align:center">len(s)</td>
+<td style="text-align:center">$O(1)$</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">Add</td>
+<td style="text-align:center">s.add(5)</td>
+<td style="text-align:center">$O(1)$</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">Containment</td>
+<td style="text-align:center">x in/not in s</td>
+<td style="text-align:center">$O(1)$</td>
+<td style="text-align:center">compare to list/tuple - $O(N)$</td>
+</tr>
+<tr>
+<td style="text-align:center">Remove</td>
+<td style="text-align:center">s.remove(..)</td>
+<td style="text-align:center">$O(1)$</td>
+<td style="text-align:center">compare to list/tuple - $O(N)$</td>
+</tr>
+<tr>
+<td style="text-align:center">Discard</td>
+<td style="text-align:center">s.discard(..)</td>
+<td style="text-align:center">$O(1)$</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">Pop</td>
+<td style="text-align:center">s.pop()</td>
+<td style="text-align:center">$O(1)$</td>
+<td style="text-align:center">popped value "randomly" selected</td>
+</tr>
+<tr>
+<td style="text-align:center">Clear</td>
+<td style="text-align:center">s.clear()</td>
+<td style="text-align:center">$O(1)$</td>
+<td style="text-align:center">similar to s = set()</td>
+</tr>
+<tr>
+<td style="text-align:center">Construction</td>
+<td style="text-align:center">set(...)</td>
+<td style="text-align:center">$O(len(...))$</td>
+<td style="text-align:center">depends on length of ... iterable</td>
+</tr>
+<tr>
+<td style="text-align:center">check ==, !=</td>
+<td style="text-align:center">s != t</td>
+<td style="text-align:center">$O(len(s))$</td>
+<td style="text-align:center">same as len(t); False in O(1) if the lengths are different</td>
+</tr>
+<tr>
+<td style="text-align:center">&lt;=/&lt;</td>
+<td style="text-align:center">s &lt;= t</td>
+<td style="text-align:center">$O(len(s))$</td>
+<td style="text-align:center">issubset</td>
+</tr>
+<tr>
+<td style="text-align:center">&gt;=/&gt;</td>
+<td style="text-align:center">s &gt;= t</td>
+<td style="text-align:center">$O(len(t))$</td>
+<td style="text-align:center">issuperset s &lt;= t == t &gt;= s</td>
+</tr>
+<tr>
+<td style="text-align:center">Union</td>
+<td style="text-align:center">s | t</td>
+<td style="text-align:center">$O(len(s)$+$len(t))$</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">Intersection</td>
+<td style="text-align:center">s &amp; t</td>
+<td style="text-align:center">$O(len(s)$+$len(t))$</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">Difference</td>
+<td style="text-align:center">s - t</td>
+<td style="text-align:center">$O(len(s)$+$len(t))$</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">Symmetric Diff</td>
+<td style="text-align:center">s ^ t</td>
+<td style="text-align:center">$O(len(s)$+$len(t))$</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">Iteration</td>
+<td style="text-align:center">for v in s:</td>
+<td style="text-align:center">$O(N)$</td>
+<td style="text-align:center">Worst: no return/break in loop</td>
+</tr>
+<tr>
+<td style="text-align:center">Copy</td>
+<td style="text-align:center">s.copy()</td>
+<td style="text-align:center">$O(N)$</td>
+<td style="text-align:center"></td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="해시(dictionary)">
+<a class="anchor" href="#%ED%95%B4%EC%8B%9C(dictionary)" aria-hidden="true"><span class="octicon octicon-link"></span></a>해시(dictionary)<a class="anchor-link" href="#%ED%95%B4%EC%8B%9C(dictionary)"> </a>
+</h3>
+<p><code>-</code> 시간 복잡도가 대부분 $O(1)$이다</p>
+<p><code>-</code> 같은 함수라면 리스트 대신 딕셔너리를 사용하는 것이 시간 복잡도 면에서 우월함</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Operation</th>
+<th style="text-align:center">Example</th>
+<th style="text-align:center">Complexity Class</th>
+<th style="text-align:center">Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Index</td>
+<td style="text-align:center">d[k]</td>
+<td style="text-align:center">$O(1)$</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">Store</td>
+<td style="text-align:center">d[k] = v</td>
+<td style="text-align:center">$O(1)$</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">Length</td>
+<td style="text-align:center">len(d)</td>
+<td style="text-align:center">$O(1)$</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">Delete</td>
+<td style="text-align:center">del d[k]</td>
+<td style="text-align:center">$O(1)$</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">get/setdefault</td>
+<td style="text-align:center">d.get(k)</td>
+<td style="text-align:center">$O(1)$</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">Pop</td>
+<td style="text-align:center">d.pop(k)</td>
+<td style="text-align:center">$O(1)$</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">Pop item</td>
+<td style="text-align:center">d.popitem()</td>
+<td style="text-align:center">$O(1)$</td>
+<td style="text-align:center">popped item "randomly" selected</td>
+</tr>
+<tr>
+<td style="text-align:center">Clear</td>
+<td style="text-align:center">d.clear()</td>
+<td style="text-align:center">$O(1)$</td>
+<td style="text-align:center">similar to s = {} or = dict()</td>
+</tr>
+<tr>
+<td style="text-align:center">View</td>
+<td style="text-align:center">d.keys()</td>
+<td style="text-align:center">$O(1)$</td>
+<td style="text-align:center">same for d.values()</td>
+</tr>
+<tr>
+<td style="text-align:center">Construction</td>
+<td style="text-align:center">dict(...)</td>
+<td style="text-align:center">$O(len(...))$</td>
+<td style="text-align:center">depends # (key,value) 2-tuples</td>
+</tr>
+<tr>
+<td style="text-align:center">Iteration</td>
+<td style="text-align:center">for k in d:</td>
+<td style="text-align:center">$O(N)$</td>
+<td style="text-align:center">all forms: keys, values, items, Worst: no return/break in loop</td>
 </tr>
 </tbody>
 </table>
