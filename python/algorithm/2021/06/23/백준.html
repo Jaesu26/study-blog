@@ -96,7 +96,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      77 min read
+      78 min read
     
 </span></p>
 
@@ -192,7 +192,7 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h2"><a href="#재귀함수(중요함-아마도-그리고-헷갈림)">재귀함수(중요함 아마도 그리고 헷갈림) </a>
 <ul>
 <li class="toc-entry toc-h3"><a href="#팩토리얼">팩토리얼 </a></li>
-<li class="toc-entry toc-h3"><a href="#피보나치-수열">피보나치 수열 </a></li>
+<li class="toc-entry toc-h3"><a href="#피보나치-수-5">피보나치 수 5 </a></li>
 <li class="toc-entry toc-h3"><a href="#피보나치-수열-메모이제이션">피보나치 수열 메모이제이션 </a></li>
 <li class="toc-entry toc-h3"><a href="#별-찍기(Pass)">별 찍기(Pass) </a></li>
 <li class="toc-entry toc-h3"><a href="#print('문자열')">print(&#39;문자열&#39;) </a></li>
@@ -297,6 +297,9 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h3"><a href="#가장-긴-증가하는-부분-수열">가장 긴 증가하는 부분 수열 </a></li>
 <li class="toc-entry toc-h3"><a href="#가장-긴-바이토닉-부분-수열">가장 긴 바이토닉 부분 수열 </a></li>
 <li class="toc-entry toc-h3"><a href="#전깃줄">전깃줄 </a></li>
+<li class="toc-entry toc-h3"><a href="#피보나치-수-2">피보나치 수 2 </a></li>
+<li class="toc-entry toc-h3"><a href="#피보나치-수-3">피보나치 수 3 </a></li>
+<li class="toc-entry toc-h3"><a href="#피보나치-수-4">피보나치 수 4 </a></li>
 <li class="toc-entry toc-h3"><a href="#LCS">LCS </a></li>
 <li class="toc-entry toc-h3"><a href="#연속합">연속합 </a></li>
 <li class="toc-entry toc-h3"><a href="#평범한-배낭">평범한 배낭 </a></li>
@@ -2578,8 +2581,8 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="피보나치-수열">
-<a class="anchor" href="#%ED%94%BC%EB%B3%B4%EB%82%98%EC%B9%98-%EC%88%98%EC%97%B4" aria-hidden="true"><span class="octicon octicon-link"></span></a>피보나치 수열<a class="anchor-link" href="#%ED%94%BC%EB%B3%B4%EB%82%98%EC%B9%98-%EC%88%98%EC%97%B4"> </a>
+<h3 id="피보나치-수-5">
+<a class="anchor" href="#%ED%94%BC%EB%B3%B4%EB%82%98%EC%B9%98-%EC%88%98-5" aria-hidden="true"><span class="octicon octicon-link"></span></a>피보나치 수 5<a class="anchor-link" href="#%ED%94%BC%EB%B3%B4%EB%82%98%EC%B9%98-%EC%88%98-5"> </a>
 </h3>
 <ul>
 <li>
@@ -2590,6 +2593,9 @@ window.onload = wrap_img;
 </li>
 <li>
 <p>그 다음 2번째 부터는 바로 앞 두 피보나치 수의 합이 된다.</p>
+</li>
+<li>
+<p>n은 20보다 작거나 같은 자연수</p>
 </li>
 </ul>
 
@@ -10690,6 +10696,262 @@ window.onload = wrap_img;
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>3
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="피보나치-수-2">
+<a class="anchor" href="#%ED%94%BC%EB%B3%B4%EB%82%98%EC%B9%98-%EC%88%98-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>피보나치 수 2<a class="anchor-link" href="#%ED%94%BC%EB%B3%B4%EB%82%98%EC%B9%98-%EC%88%98-2"> </a>
+</h3>
+<ul>
+<li>문제 출처: <a href="https://www.acmicpc.net/problem/2748">백준 2748번</a>
+</li>
+</ul>
+<p><code>-</code> n은 90보다 작거나 같은 자연수</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+
+<span class="n">first_fibo</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">second_fibo</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+    <span class="n">next_fibo</span> <span class="o">=</span> <span class="n">first_fibo</span> <span class="o">+</span> <span class="n">second_fibo</span>
+    <span class="n">first_fibo</span> <span class="o">=</span> <span class="n">second_fibo</span>  
+    <span class="n">second_fibo</span> <span class="o">=</span> <span class="n">next_fibo</span> 
+    
+<span class="nb">print</span><span class="p">(</span><span class="n">first_fibo</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+</div>
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>55
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="피보나치-수-3">
+<a class="anchor" href="#%ED%94%BC%EB%B3%B4%EB%82%98%EC%B9%98-%EC%88%98-3" aria-hidden="true"><span class="octicon octicon-link"></span></a>피보나치 수 3<a class="anchor-link" href="#%ED%94%BC%EB%B3%B4%EB%82%98%EC%B9%98-%EC%88%98-3"> </a>
+</h3>
+<ul>
+<li>문제 출처: <a href="https://www.acmicpc.net/problem/2749">백준 2749번</a>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> n은 1,000,000,000,000,000,000보다 작거나 같은 자연수</p>
+<p><code>-</code> 아래와 같은 bottom-up 방식은 시간초과임</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+
+<span class="n">first_fibo</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">second_fibo</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+    <span class="n">next_fibo</span> <span class="o">=</span> <span class="p">(</span><span class="n">first_fibo</span> <span class="o">+</span> <span class="n">second_fibo</span><span class="p">)</span> <span class="o">%</span> <span class="mi">1000000</span>
+    <span class="n">first_fibo</span> <span class="o">=</span> <span class="n">second_fibo</span> <span class="o">%</span> <span class="mi">1000000</span>
+    <span class="n">second_fibo</span> <span class="o">=</span> <span class="n">next_fibo</span> <span class="o">%</span> <span class="mi">1000000</span>
+    
+<span class="nb">print</span><span class="p">(</span><span class="n">first_fibo</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+</div>
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>228875
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 곰곰이 생각해보니 n이 최대 100경이라 for문 써도 컴퓨터 터지고 배열로 만들어도 컴퓨터 터짐</p>
+<p><code>-</code> 피보나치 수열의 일반항이 생각나서 검색해봄</p>
+<p><code>-</code> 근데 n이 너무 커서 overflow 때문에 불가능</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 위의 방법을 사용하지 않으면 어떻게 푸는지 모르겠어서 질문 검색을 보니 <code>피사노 주기</code> 를 이용하여 푼다고 한다</p>
+<p><code>-</code> 참고: <a href="https://www.acmicpc.net/blog/view/28">피보나치 수를 구하는 여러가지 방법</a></p>
+<p><code>-</code> 아무튼 그래서 피사노 주기를 통해서 문제를 해결함</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+
+<span class="n">m</span> <span class="o">=</span> <span class="mi">10</span><span class="o">**</span><span class="mi">6</span>
+<span class="n">P</span> <span class="o">=</span> <span class="mi">15</span> <span class="o">*</span> <span class="p">(</span><span class="mi">10</span><span class="o">**</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">M</span> <span class="o">=</span> <span class="n">N</span> <span class="o">%</span> <span class="n">P</span>
+
+<span class="n">fibo</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="mi">1</span><span class="p">}</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">M</span><span class="p">):</span>
+    <span class="n">fibo</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">fibo</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">%</span> <span class="n">m</span> <span class="o">+</span> <span class="n">fibo</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">%</span> <span class="n">m</span><span class="p">)</span> <span class="o">%</span> <span class="n">m</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">fibo</span><span class="p">[</span><span class="n">M</span><span class="p">])</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+</div>
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>228875
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="피보나치-수-4">
+<a class="anchor" href="#%ED%94%BC%EB%B3%B4%EB%82%98%EC%B9%98-%EC%88%98-4" aria-hidden="true"><span class="octicon octicon-link"></span></a>피보나치 수 4<a class="anchor-link" href="#%ED%94%BC%EB%B3%B4%EB%82%98%EC%B9%98-%EC%88%98-4"> </a>
+</h3>
+<ul>
+<li>문제 출처: <a href="https://www.acmicpc.net/problem/10826">백준 10826번</a>
+</li>
+</ul>
+<p><code>-</code> n은 10000보다 작거나 같은 자연수</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+
+<span class="n">dp</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="mi">10001</span>
+<span class="n">dp</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+    <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">dp</span><span class="p">[</span><span class="n">N</span><span class="p">])</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+</div>
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>55
 </pre>
 </div>
 </div>
