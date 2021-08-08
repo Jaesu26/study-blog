@@ -96,7 +96,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      3 min read
+      7 min read
     
 </span></p>
 
@@ -144,12 +144,18 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h2"><a href="#표본-평균에-대한-중심극한정리">표본 평균에 대한 중심극한정리 </a></li>
 <li class="toc-entry toc-h2"><a href="#표본의-표준편차를-사용할-때-표본-평균의-분포">표본의 표준편차를 사용할 때 표본 평균의 분포 </a></li>
 <li class="toc-entry toc-h2"><a href="#t-분포-사용-조건">t 분포 사용 조건 </a></li>
-<li class="toc-entry toc-h2"><a href="#단일-평균에-대한-t검정">단일 평균에 대한 t검정 </a>
+<li class="toc-entry toc-h2"><a href="#평균에-대한-t검정">평균에 대한 t검정 </a>
 <ul>
-<li class="toc-entry toc-h3"><a href="#단일-평균에-대한-t검정-예제">단일 평균에 대한 t검정 예제 </a></li>
+<li class="toc-entry toc-h3"><a href="#평균에-대한-t검정-예제">평균에 대한 t검정 예제 </a></li>
 </ul>
 </li>
-<li class="toc-entry toc-h2"><a href="#평균-차이에-대한-t검정">평균 차이에 대한 t검정 </a></li>
+<li class="toc-entry toc-h2"><a href="#평균-차이-분포">평균 차이 분포 </a></li>
+<li class="toc-entry toc-h2"><a href="#평균-차이에-대한-t검정">평균 차이에 대한 t검정 </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#평균-차이에-대한-t검정-예제">평균 차이에 대한 t검정 예제 </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#대응표본에-대한-평균-차이-t검정">대응표본에 대한 평균 차이 t검정 </a></li>
 </ul>
 </li>
 </ul><!--
@@ -383,7 +389,7 @@ window.onload = wrap_img;
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> 표본 크기 $n\geq30$이면 문제 없음</p>
 <p><code>-</code> 만약 표본 크기 $n$이 작다면? ---&gt; 모집단이 정규분포를 따라야 함</p>
-<p><code>-</code> 근데 모집단이 정규분포 따르는지 모른다 ---&gt; 대신에 표본이 정규분포를 따르는지 확인하자</p>
+<p><code>-</code> 근데 모집단이 정규분포 따르는지 모른다 ---&gt; 대신에 표본이 정규분포를 따르는지 확인하자 ---&gt; shapiro.test 실시</p>
 <p><code>-</code> 표본에 이상점이 있거나 비대칭이면 t 분포 사용$\times$</p>
 <p><code>-</code> 표본이 정규분포를 따르는 것 같다 ---&gt; $\bar{x}$의 분포는 정규분포를 따른다 ---&gt; t-test 실시해도 괜찮다</p>
 
@@ -393,8 +399,8 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="단일-평균에-대한-t검정">
-<a class="anchor" href="#%EB%8B%A8%EC%9D%BC-%ED%8F%89%EA%B7%A0%EC%97%90-%EB%8C%80%ED%95%9C-t%EA%B2%80%EC%A0%95" aria-hidden="true"><span class="octicon octicon-link"></span></a>단일 평균에 대한 t검정<a class="anchor-link" href="#%EB%8B%A8%EC%9D%BC-%ED%8F%89%EA%B7%A0%EC%97%90-%EB%8C%80%ED%95%9C-t%EA%B2%80%EC%A0%95"> </a>
+<h2 id="평균에-대한-t검정">
+<a class="anchor" href="#%ED%8F%89%EA%B7%A0%EC%97%90-%EB%8C%80%ED%95%9C-t%EA%B2%80%EC%A0%95" aria-hidden="true"><span class="octicon octicon-link"></span></a>평균에 대한 t검정<a class="anchor-link" href="#%ED%8F%89%EA%B7%A0%EC%97%90-%EB%8C%80%ED%95%9C-t%EA%B2%80%EC%A0%95"> </a>
 </h2>
 </div>
 </div>
@@ -414,8 +420,8 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="단일-평균에-대한-t검정-예제">
-<a class="anchor" href="#%EB%8B%A8%EC%9D%BC-%ED%8F%89%EA%B7%A0%EC%97%90-%EB%8C%80%ED%95%9C-t%EA%B2%80%EC%A0%95-%EC%98%88%EC%A0%9C" aria-hidden="true"><span class="octicon octicon-link"></span></a>단일 평균에 대한 t검정 예제<a class="anchor-link" href="#%EB%8B%A8%EC%9D%BC-%ED%8F%89%EA%B7%A0%EC%97%90-%EB%8C%80%ED%95%9C-t%EA%B2%80%EC%A0%95-%EC%98%88%EC%A0%9C"> </a>
+<h3 id="평균에-대한-t검정-예제">
+<a class="anchor" href="#%ED%8F%89%EA%B7%A0%EC%97%90-%EB%8C%80%ED%95%9C-t%EA%B2%80%EC%A0%95-%EC%98%88%EC%A0%9C" aria-hidden="true"><span class="octicon octicon-link"></span></a>평균에 대한 t검정 예제<a class="anchor-link" href="#%ED%8F%89%EA%B7%A0%EC%97%90-%EB%8C%80%ED%95%9C-t%EA%B2%80%EC%A0%95-%EC%98%88%EC%A0%9C"> </a>
 </h3>
 </div>
 </div>
@@ -434,8 +440,9 @@ window.onload = wrap_img;
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> 사람의 평균 체온이 $36.5^{°}\mathrm{C}$인지 검정하기 위해 건강한 사람 50명의 체온을 재었다</p>
-<p><code>-</code> $\bar{x} = 36.3,\;s=0.5$이다</p>
-<p><code>-</code> 위의 데이터는 사람의 평균이 체온이 $36.5^{°}\mathrm{C}$와는 다르다는 증거인지 유의수준 $\alpha=0.05$ 에서 검정하자</p>
+<p><code>-</code> 임의로 데이터를 설정하여 평균 체온 데이터는 평균이 36.3, 표준편차는 0.5인 정규분포에서 추출했음</p>
+<p><code>-</code> 임의로 뽑은 표본을 살펴보니 $\bar{x} = 36.35,\;s=0.5$이다</p>
+<p><code>-</code> 위의 데이터는 사람의 평균 체온이 $36.5^{°}\mathrm{C}$와는 다르다는 증거인지 유의수준 $\alpha=0.05$ 에서 검정하자</p>
 
 </div>
 </div>
@@ -454,13 +461,6 @@ window.onload = wrap_img;
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> $H_0:\mu=36.5,\;H_a:\mu\neq36.5$</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> 표본 크기가 충분하고 표본에 대한 히스토그램을 보면 정규분포를 따르는 것으로 보인다</p>
 
 </div>
@@ -549,13 +549,100 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> t통계량을 직접 구해도 됨 ---&gt; $t=\frac{\bar{x}-\mu_0}{\frac{s}{\sqrt{n}}} = \frac{36.3-36.5}{\frac{0.5}{\sqrt{50}}}=-2.83$</p>
+<p><code>-</code> 샤피로 윌크 검정을 통해 정규성을 정확히 확인하자</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="n">R</span>
+<span class="nf">shapiro.test</span><span class="p">(</span><span class="n">sample</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>
+	Shapiro-Wilk normality test
+
+data:  sample
+W = 0.98456, p-value = 0.7524
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> p-값이 크므로 영가설(표본은 정규분포를 따름)을 기각할 수 없으므로 표본의 정규성을 가정</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> t통계량을 직접 구해도 됨 ---&gt; $t=\frac{\bar{x}-\mu_0}{\frac{s}{\sqrt{n}}} = \frac{36.35-36.5}{\frac{0.5}{\sqrt{50}}}=-2.12$</p>
 <p><code>-</code> 하지만 매번 직접 구하기 귀찮으므로 R을 통해 구해보도록 하자 + p-값도 구해줌</p>
 <p><code>-</code> 사실 파이썬으로도 가능하지만 내가 모르는 관계로 R로 하고 나중에 따로 공부하자</p>
 
 </div>
 </div>
 </div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="n">R</span>
+<span class="nf">print</span><span class="p">(</span><span class="nf">mean</span><span class="p">(</span><span class="n">sample</span><span class="p">))</span> <span class="c1">## 평균</span>
+<span class="nf">print</span><span class="p">(</span><span class="nf">sd</span><span class="p">(</span><span class="n">sample</span><span class="p">))</span> <span class="c1">## 분산</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[1] 36.35498
+[1] 0.5006206
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
     
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -604,6 +691,26 @@ mean of x
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> p-값을 보면 0.04591로 유의수준인 0.05보다 작음 ---&gt; 영가설을 기각한다</p>
 <p><code>-</code> 따라서 표본에 따르면 사람의 평균 체온은 $36.5^{°}\mathrm{C}$와 다르다고 할 수 있다</p>
+<p><code>-</code> 임의로 만든 표본은 평균이 36.3인 정규분포에서 추출한 것이므로 올바르게 추론한 것을 알 수 있음</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="평균-차이-분포">
+<a class="anchor" href="#%ED%8F%89%EA%B7%A0-%EC%B0%A8%EC%9D%B4-%EB%B6%84%ED%8F%AC" aria-hidden="true"><span class="octicon octicon-link"></span></a>평균 차이 분포<a class="anchor-link" href="#%ED%8F%89%EA%B7%A0-%EC%B0%A8%EC%9D%B4-%EB%B6%84%ED%8F%AC"> </a>
+</h2>
+<p><code>-</code> 단일 평균에 대한 t검정과 차이점은 표본이 하나인가 둘인가이다</p>
+<p><code>-</code> 평균 차이에 대한 t검정에서 관심있는 모수는 $\mu_1 - \mu_2$이다</p>
+<p><code>-</code> 평균이 $\mu_1$과 $\mu_2$인 모집단에서 표본크기가 $n_1$과 $n_2$인 무작위 표본을 얻었을 때 표본 평균 차이 $\bar{x_1}-\bar{x_2}$의 분포는 중심이 모집단 평균 차이$\mu_1-\mu_2$이고 표준오차는  $\sqrt{\frac{{s_1}^{2}}{n_1}+\frac{{s_2}^2}{n_2}}$이다</p>
+<p><code>-</code> 표본 평균 차이를 표준화한 값은 t분포를 따르며 자유도는 근사적으로 $n_1+n_2-2$</p>
+<p><code>-</code> $n_1 &lt;30$ or $n_2&lt;30$인 경우 표본 크기가 작으며 이 경우에는 모집단이 정규분포를 따라야 함</p>
+<p><code>-</code> 평균 차이를 검정할 땐 두 집단이 서로 독립인지 아닌지가 중요함 ---&gt; 독립여부에 따라 검정 방법이 달라짐</p>
+<p><code>-</code> 여기서는 독립표본에 대해 얘기할 것 임</p>
+<p><code>-</code> 두 집단의 분산의 동질성이 중요함 ---&gt; 평균 차이 검정을 하기 전에 분산의 동질성 검정을 수행함</p>
+<p><code>-</code> 분산이 같은 경우 student's t-test를 사용하고 분산이 다른 경우 Welch's t test사용함</p>
 
 </div>
 </div>
@@ -613,6 +720,407 @@ mean of x
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="평균-차이에-대한-t검정">
 <a class="anchor" href="#%ED%8F%89%EA%B7%A0-%EC%B0%A8%EC%9D%B4%EC%97%90-%EB%8C%80%ED%95%9C-t%EA%B2%80%EC%A0%95" aria-hidden="true"><span class="octicon octicon-link"></span></a>평균 차이에 대한 t검정<a class="anchor-link" href="#%ED%8F%89%EA%B7%A0-%EC%B0%A8%EC%9D%B4%EC%97%90-%EB%8C%80%ED%95%9C-t%EA%B2%80%EC%A0%95"> </a>
+</h2>
+<p><code>-</code> 영가설 $H_0:\mu_1-\mu_2=0$를 검정하는 t-통계량은 다음과 같음</p>
+<p><code>-</code> $t=\frac{(\bar{x_1}-\bar{x_2})-0}{\sqrt{\frac{{s_1}^2}{n_1}+\frac{{s_2}^2}{n_2}}}$</p>
+<p><code>-</code> $\bar{x_1}$과 $\bar{x_2}$는 표본 평균, $s_1$과 $s_2$는 표본의 표준편차</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="평균-차이에-대한-t검정-예제">
+<a class="anchor" href="#%ED%8F%89%EA%B7%A0-%EC%B0%A8%EC%9D%B4%EC%97%90-%EB%8C%80%ED%95%9C-t%EA%B2%80%EC%A0%95-%EC%98%88%EC%A0%9C" aria-hidden="true"><span class="octicon octicon-link"></span></a>평균 차이에 대한 t검정 예제<a class="anchor-link" href="#%ED%8F%89%EA%B7%A0-%EC%B0%A8%EC%9D%B4%EC%97%90-%EB%8C%80%ED%95%9C-t%EA%B2%80%EC%A0%95-%EC%98%88%EC%A0%9C"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>문제</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 남자의 평균 체온$(\bar{x_1})$과 여자의 평균 체온$(\bar{x_2})$이 다른지 검정하기 위해 각각 건강한 사람 50명의 체온을 재었다</p>
+<p><code>-</code> 임의로 데이터를 설정하여 남자의 평균 체온 데이터는 평균이 36.5, 표준편차는 0.4인 정규분포에서 추출했음</p>
+<p><code>-</code> 임의로 데이터를 설정하여 여자의 평균 체온 데이터는 평균이 36.45, 표준편차는 0.5인 정규분포에서 추출했음</p>
+<p><code>-</code> 임의로 뽑은 표본을 보니 $\bar{x_1} = 36.54,\;\bar{x_2} = 36.5,\; s_1=0.4,\;s_2=0.53$이다</p>
+<p><code>-</code> 위의 데이터는 남자와 여자의 평균 체온이 서로 다르다는 증거인지 유의수준 $\alpha=0.05$ 에서 검정하자</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>해결 과정</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> $H_0:\mu_1-\mu_2,\;H_a:\mu_1\neq\mu_2$</p>
+<p><code>-</code> 표본 크기가 충분하고 표본에 대한 히스토그램을 보면 정규분포를 따르는 것으로 보인다</p>
+<p><code>-</code> 남자 모집단과 여자 모집단에서 표본을 추출했으므로 두 표본은 서로 독립이다</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">rpy2</span>
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">'R_HOME'</span><span class="p">]</span><span class="o">=</span><span class="s1">'C:/anaconda3/envs/py38r40/lib/R'</span> 
+<span class="o">%</span><span class="k">load_ext</span> rpy2.ipython
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>C:\anaconda3\envs\py38r40\lib\site-packages\rpy2\robjects\packages.py:366: UserWarning: The symbol 'quartz' is not in this R namespace/package.
+  warnings.warn(
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="c1">## 예시 샘플</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">2021</span><span class="p">)</span>
+<span class="n">man_heat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">loc</span> <span class="o">=</span> <span class="mf">36.5</span><span class="p">,</span> <span class="n">scale</span> <span class="o">=</span> <span class="mf">0.4</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="mi">50</span><span class="p">)</span>
+<span class="n">woman_heat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">loc</span> <span class="o">=</span> <span class="mf">36.45</span><span class="p">,</span> <span class="n">scale</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="mi">50</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">man_heat</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">woman_heat</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">'man body heat data'</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">'woman body heat data'</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="o">%</span><span class="k">R</span> -i man_heat,woman_heat
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAlAAAAEICAYAAACQ18pCAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90bGliIHZlcnNpb24zLjQuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8rg+JYAAAACXBIWXMAAAsTAAALEwEAmpwYAAAZ0klEQVR4nO3deZhldX3n8feHbgURZJGOI0vbuIfBdVrcJtGoUQRGSMZRdCQC5ulEJ3EZozZjRomjM52Jo+SZ5NFBxRZF3FFiaxRB3IIgIKgsbtDKTqMiIKJBf/PH+bVcyrpV9btLVR36/Xqe+/S5Z/2ee+t8+3PPOXUrpRQkSZK0cNstdQGSJEl9Y4CSJElqZICSJElqZICSJElqZICSJElqZICSJElqZIDahiRZk6QkWTmh9ZUkDxxhuY1J3jiJGsaV5MlJrlzqOiRNxqh9aci6Nid52gjLHZvkfZOoYVyT7vu6gwFKdxnTbhRJjkzy5WmsW5IWYpIBcZZ1+4GygQFKkiSpkQFqCdTTwq9K8o0kP0vyriT3SfLpJDcn+VyS3Qbm/3CSa5P8NMkXk/zbgWkbk/xjkk112bOTPGCeEo5OcnWSa5L81cC6tk9yXJ12dR3efmD6q+oyVyc5emD8Y5Jcl2TFwLg/TnLhHDXsNqzmJA9NclqSHyf5dpLnDEw7OMnXk9yU5Iokxw6s84v13xuT3JLk8TM3muQe9TX7SZKLgcfMmL4+yfdrXRcn+aM6/neBtwOPr+u+cQH1SL2S5Kgk/zTw/LtJPjzw/Iokj6zDT0jytdqXvpbkCQPznZnkjUn+pR4v/5Tk3klOqsfK15KsGZj/7+u6b0pyXpLfG5h2bJIPJTmxHpcXJVk7z64clOSyJDck+bsk29V1bZfkr5P8IMn1dZ27DGzriDrtR0leOzD+3yS5Ncm9B8Y9OsmWJHcbUsPdh9WcZM8kH63LX57kpQPTDkhyVpIba7/9hyR3r9O29rgL6+v63JkbTbIiyZvrvl8GHDxj+lFJLql1XZbkz+r4ewKfBvas676l1jm0nm1eKcXHIj+AzcBXgfsAewHXA+cDjwJ2AM4AXj8w/9HAzsD2wHHABQPTNgI/Ag4AVgInAR8Yst01QAFOBu4JPAzYAjytTn9Dret3gFXAvwD/o047ELgO2L8u+/66rgfW6RcDzxzY1inAK4fUMbTmuu4rgKPqtEcBNwD71elPrnVvBzy81nTYjP1bOcdrvwH4ErA7sA/wLeDKgen/Cdizrv+5wM+A+9ZpRwJfnrG+ofX48NG3B3B/4Mb687wn8IOtx0ed9pM6bfc6fEQ9Tp9Xn9+7znsm8D3gAcAutT98B3hanf9E4N0D230BcO867ZXAtcAOddqxwG3AQcAK4H8BX51jHwrw+Vrj6rrdP63Tjq513R/YCfgY8N46bT/gFuD36XrtW4DbuaM/fgp48cB23gr83yE1DK25vn7nAa8D7l5ruQx4Rp3+74DH1ddiDXAJ8PIZ+/fAOfb/z4FLa3/bvb4Wv+mLdIHqAUCAJwG3Ao+u057MQD9cSD3b8mPJC9gWH3QB6j8PPP8o8LaB538JfHzIsrvWg2GX+nwj8M6B6QcBlw5Zdk1d9qED4/438K46/H3goIFpzwA21+ETgA0D0x7MnQPUa4CT6vDu9aC875A6htZMF1q+NGP+/8dAoJwx7TjgrTP2b64AdRlw4MDzdTMbxoz5LwAOrcNHMiNAzVWPDx99fNB9gHk0cDhwPHAO8FC6DzWn1nmOAM6ZsdxZwJF1+EzgtQPT/g/w6YHn/4GBD4Kz1PAT4BF1+FjgcwPT9gN+PseyZcYx/hLg9Dp8OvCSgWkPAf6VLhy8joEPn3Qf5n7JHQHqucBX6vAKupB3wJAahtYMPBb44Yz5j2EgUM6Y9nLglBn7N1eAOgP484HnT5+rLwIfB15Wh588Vz+crZ5t+eFd+UvnuoHhn8/yfCfoTscCb6I7M7IK+HWdZw/gp3X42oFlb9267ByuGBj+Ad0ZFLjjE+fgtD0Hpp03Y9qg9wGX1NPAz6ELQdfMUcOwmu8HPHbrJbJqJfBegCSPpTuLtD/dp7ftgQ+zcHvy2/v/G0n+BPivdGGMWtcew1Y2gXqk5eYLdP+RPrAO30h3puLx9Tn8dq+gPt9r4PmCehxAulsJXlTXW4B7cefjbma/2CHJylLK7UP2YeYxPtjHZva4lXRXA+7UG0opP0vyo4F5PwG8Pcm+dMHrp6WUc4Zsf2jNdD1uzxk9bgXdmXGSPJju7NdaYMda32Dvnc98Pe6ZwOvpPgRvV7fxzWErm0A9d1neA7X8PR84lO7U9y7c8R97xljnPgPDq4Gr6/DVdAf3bNOumWW53yilXEX3CfSP6T6dvnfE2q4AvlBK2XXgsVMp5cV1+vuBU4F9Sim70N2XtPW1KAtY/9D9SHI/4B3AX9BditiV7hLfXOufqx6pj7YGqN+rw1+gC1BP4o4ANbNXQHcsXdW6sXq/06vpPnjtVo+7n7J4Pe52unB3p96QZEe6y4oAlFJuAz5Ed7lx3B53+Ywet3Mp5aA6/W10l+AeVEq5F/DfaHst5upx29Nd8XgzcJ/6Wn+KuXvcuPXcZRmglr+dgV/Q3TO0I/A/J7DO/55kx3Q3ox8FfLCOPxn46ySrkuxBd0p763eZfAg4Msl+tbG8fpb1nkjXCB9Gd2/BKD4JPLjezHm3+nhMupu4oXs9flxKuS3JAXQBc6stdGfo7j/H+j8EHJNktyR7010u3eqedA1kC3Q3W9KdWdrqOmDvGTdQzlWP1EdfAP4AuEcp5Uq6MyMH0oWJr9d5PkV3nD4/ycp6M/N+dMdvq53pQswWYGWS19GdgRrHq+oxvg/wMu7c416RZN8kO9H10w/WM1kfAQ5J8u/rMf4Gfvv/yBPpLuU/i9ED1DnAzUlek+6XWlYk2T/J1l9o2Rm4CbglyUOBF89Y/jrm73EvTbJ3ul9GWj8wbetZ8i3A7fVs1NNnrPvegzfWL6CebZYBavk7ke4U7FV0N2J+dQLr/ALdjZSnA28upXy2jn8jcC7wDbpTuufXcZRSPk13f88ZddkzZlnvKXSf7k4ppdw6SmGllJvpDujD6T4tXgv8Ld1BD939DG9IcjNdwPvQwLK30l3u/Er9jZHHzbKJv6F7PS8HPstAEyylXEx3r8ZZdI3kYcBXBpY9A7gIuDbJDfPVI/VRKeU7dDdTf6k+v4nu3sGvlFJ+Vcf9CDiE7obvH9F9cDqklHLDrCud22eAf6a72fsHdDdfXzHnEvP7BN1lpguATcC76vgT6I75L9L1gNuoH6JKKRcB/4XurPI1dPdh3ek7kUopX6H7kHZ+KWXmJcwFqa/hIcAjaw03AO+ku8IA8Fd0H8Rupjsj/sEZqzgWeE/tcc/ht72D7jW9kK6H/+bDbO2vL6XrUz+p2zl1YPqldCHzsrr+PRdQzzYr9aYwaSKSfB/4s1LK55a6FkmatCRnAO8vpbxzqWvR0vImck1Mkv9IdwlstrNTktRr9TLbo+nuS9U2zgCliUhyJt09EEeUUn49z+yS1CtJ3gMcRvcr/zcvcTlaBryEJ0mS1MibyCVJkhot6iW8PfbYo6xZs2YxNylpiZ133nk3lFJWLXUd47J/SdueufrXogaoNWvWcO655y7mJiUtsSQj/br3cmP/krY9c/UvL+FJkiQ1MkBJkiQ1MkBJkiQ1MkBJkiQ1MkBJkiQ1MkBJkiQ1mjdAJTkhyfVJvjUw7u+SXJrkG0lOSbLrVKuUpBHZwyRNw0LOQG0EDpwx7jRg/1LKw4HvAMdMuC5JmpSN2MMkTdi8AaqU8kXgxzPGfbaUcnt9+lVg7ynUJkljs4dJmoZJfBP50cAHh01Msg5YB7B69eoJbE59tGb9pqmte/OGg6e2bm0ThvYw+1d/2GO02Ma6iTzJa4HbgZOGzVNKOb6UsraUsnbVqt7/OSxJdyHz9TD7l6RhRj4DleRI4BDgqaWUMrGKJGkR2MMkjWOkAJXkQODVwJNKKbdOtiRJmi57mKRxLeRrDE4GzgIekuTKJC8C/gHYGTgtyQVJ3j7lOiVpJPYwSdMw7xmoUsrzZhn9rinUIkkTZw+TNA1+E7kkSVIjA5QkSVIjA5QkSVIjA5QkSVIjA5QkSVIjA5QkSVIjA5QkSVIjA5QkSVIjA5QkSVIjA5QkSVIjA5QkSVIjA5QkSVIjA5QkSVIjA5QkSVIjA5QkSVIjA5QkSVIjA5QkSVIjA5QkSVIjA5QkSVIjA5QkSVIjA5QkSVIjA5QkSVIjA5QkSVIjA5QkSVIjA5QkSVKjeQNUkhOSXJ/kWwPjdk9yWpLv1n93m26ZkjQae5ikaVjIGaiNwIEzxq0HTi+lPAg4vT6XpOVoI/YwSRM2b4AqpXwR+PGM0YcC76nD7wEOm2xZkjQZ9jBJ0zDqPVD3KaVcU4evBe4zbMYk65Kcm+TcLVu2jLg5SZqoBfUw+5ekYca+ibyUUoAyx/TjSylrSylrV61aNe7mJGmi5uph9i9Jw4waoK5Lcl+A+u/1kytJkqbOHiZpLKMGqFOBF9bhFwKfmEw5krQo7GGSxrKQrzE4GTgLeEiSK5O8CNgA/GGS7wJPq88ladmxh0mahpXzzVBKed6QSU+dcC2SNHH2MEnT4DeRS5IkNTJASZIkNTJASZIkNTJASZIkNTJASZIkNTJASZIkNTJASZIkNTJASZIkNTJASZIkNTJASZIkNTJASZIkNZr3b+FJy92a9Zumtu7NGw6e2rqlbc00j1VpsXkGSpIkqZEBSpIkqZEBSpIkqZEBSpIkqZEBSpIkqZEBSpIkqZEBSpIkqZEBSpIkqZEBSpIkqZEBSpIkqZEBSpIkqZEBSpIkqZEBSpIkqZEBSpIkqdFYASrJK5JclORbSU5OssOkCpOkabOHSRrVyAEqyV7AS4G1pZT9gRXA4ZMqTJKmyR4maRzjXsJbCdwjyUpgR+Dq8UuSpEVjD5M0kpWjLlhKuSrJm4EfAj8HPltK+ezM+ZKsA9YBrF69etTNaRGsWb9pqUuQFs1Cethy7V/TPFY3bzh4auuW7krGuYS3G3AosC+wJ3DPJC+YOV8p5fhSytpSytpVq1aNXqkkTdBCepj9S9Iw41zCexpweSllSynlX4GPAU+YTFmSNHX2MEkjGydA/RB4XJIdkwR4KnDJZMqSpKmzh0ka2cgBqpRyNvAR4Hzgm3Vdx0+oLkmaKnuYpHGMfBM5QCnl9cDrJ1SLJC0qe5ikUflN5JIkSY0MUJIkSY0MUJIkSY0MUJIkSY0MUJIkSY0MUJIkSY0MUJIkSY0MUJIkSY0MUJIkSY0MUJIkSY0MUJIkSY3G+lt4kqS7ljXrNy11CcvONF+TzRsOntq6NV2egZIkSWpkgJIkSWpkgJIkSWpkgJIkSWpkgJIkSWpkgJIkSWpkgJIkSWpkgJIkSWpkgJIkSWpkgJIkSWpkgJIkSWpkgJIkSWpkgJIkSWo0VoBKsmuSjyS5NMklSR4/qcIkadrsYZJGtXLM5f8e+OdSyrOT3B3YcQI1SdJisYdJGsnIASrJLsDvA0cClFJ+CfxyMmVJ0nTZwySNY5wzUPsCW4B3J3kEcB7wslLKzwZnSrIOWAewevXqMTYngDXrNy11CduUab7emzccPLV1a0Hm7WH2L0nDjHMP1Erg0cDbSimPAn4GrJ85Uynl+FLK2lLK2lWrVo2xOUmaqHl7mP1L0jDjBKgrgStLKWfX5x+ha0aS1Af2MEkjGzlAlVKuBa5I8pA66qnAxROpSpKmzB4maRzj/hbeXwIn1d9euQw4avySJGnR2MMkjWSsAFVKuQBYO5lSJGlx2cMkjcpvIpckSWpkgJIkSWpkgJIkSWpkgJIkSWpkgJIkSWpkgJIkSWpkgJIkSWpkgJIkSWpkgJIkSWpkgJIkSWpkgJIkSWpkgJIkSWpkgJIkSWpkgJIkSWpkgJIkSWpkgJIkSWpkgJIkSWpkgJIkSWpkgJIkSWpkgJIkSWpkgJIkSWpkgJIkSWpkgJIkSWpkgJIkSWpkgJIkSWpkgJIkSWo0doBKsiLJ15N8chIFSdJisodJGsUkzkC9DLhkAuuRpKVgD5PUbKwAlWRv4GDgnZMpR5IWjz1M0qhWjrn8ccCrgZ2HzZBkHbAOYPXq1WNuTpIm6jjm6GHj9K816zeNWZqk5WzkM1BJDgGuL6WcN9d8pZTjSylrSylrV61aNermJGmiFtLD7F+ShhnnEt4TgWcl2Qx8AHhKkvdNpCpJmj57mKSRjRygSinHlFL2LqWsAQ4HziilvGBilUnSFNnDJI3D74GSJElqNO5N5ACUUs4EzpzEuiRpsdnDJLXyDJQkSVIjA5QkSVIjA5QkSVIjA5QkSVIjA5QkSVIjA5QkSVIjA5QkSVIjA5QkSVIjA5QkSVIjA5QkSVIjA5QkSVKjifwtPN3ZmvWblroE9cA0f042bzh4auuWJHkGSpIkqZkBSpIkqZEBSpIkqZEBSpIkqZEBSpIkqZEBSpIkqZEBSpIkqZEBSpIkqZEBSpIkqZEBSpIkqZEBSpIkqZEBSpIkqZEBSpIkqdHIASrJPkk+n+TiJBcledkkC5OkabKHSRrHyjGWvR14ZSnl/CQ7A+clOa2UcvGEapOkabKHSRrZyGegSinXlFLOr8M3A5cAe02qMEmaJnuYpHFM5B6oJGuARwFnzzJtXZJzk5y7ZcuWSWxOkiZqWA+zf0kaZuwAlWQn4KPAy0spN82cXko5vpSytpSydtWqVeNuTpImaq4eZv+SNMxYASrJ3egaz0mllI9NpiRJWhz2MEmjGue38AK8C7iklPKWyZUkSdNnD5M0jnHOQD0ROAJ4SpIL6uOgCdUlSdNmD5M0spG/xqCU8mUgE6xFkhaNPUzSOPwmckmSpEYGKEmSpEYGKEmSpEYGKEmSpEYGKEmSpEYGKEmSpEYGKEmSpEYGKEmSpEYGKEmSpEYGKEmSpEYGKEmSpEYGKEmSpEYj/zHhaVuzftNSlyD11jSPn80bDp7auqVtTV//r5tmH+hL//IMlCRJUiMDlCRJUiMDlCRJUiMDlCRJUiMDlCRJUiMDlCRJUiMDlCRJUiMDlCRJUiMDlCRJUiMDlCRJUiMDlCRJUiMDlCRJUiMDlCRJUqOxAlSSA5N8O8n3kqyfVFGStBjsYZJGNXKASrIC+EfgmcB+wPOS7DepwiRpmuxhksYxzhmoA4DvlVIuK6X8EvgAcOhkypKkqbOHSRrZyjGW3Qu4YuD5lcBjZ86UZB2wrj69Jcm3x9jmfPYAbpji+peK+9Uvd+n9yt82L3e/yZcyEfP2sAX0rz6919Y6HdtkrSP0gRZTe00n2b/GCVALUko5Hjh+2tsBSHJuKWXtYmxrMblf/eJ+3XXM17/69JpY63RY6+T1pc5xLuFdBewz8HzvOk6S+sAeJmlk4wSorwEPSrJvkrsDhwOnTqYsSZo6e5ikkY18Ca+UcnuSvwA+A6wATiilXDSxykazKJcKl4D71S/uVw9MqIf16TWx1umw1snrRZ0ppSx1DZIkSb3iN5FLkiQ1MkBJkiQ16kWASrJDknOSXJjkoiR/U8dvTHJ5kgvq45FDlv/VwDzL5ibROfYrSd6U5DtJLkny0iHLvzDJd+vjhYtb/XAT2K++vV9fGqj36iQfH7J8396vhe7Xsny/xtGnntOnPtKX3tCnY71Px+8ctT41yfm1hi8neeCQ5Y9J92eXvp3kGdOsdUFKKcv+AQTYqQ7fDTgbeBywEXj2Apa/Zan3oXG/jgJOBLar035nlmV3By6r/+5Wh3db6n0ad7/6+H7NmOejwJ/cFd6vhezXcn6/pvGaLMee06c+0pfe0KdjvU/H7xzv/3eA363jXwJsnGXZ/YALge2BfYHvAysWq/bZHr04A1U6t9Snd6uP3t/9Psd+vRh4Qynl13W+62dZ/BnAaaWUH5dSfgKcBhy4CGXPa8z9Wrbm+zlMci/gKcDHZ1m8j+8XMO9+3SX1qef0qY/0pTf06Vjv0/E7R60FuFcdvwtw9SyLHwp8oJTyi1LK5cD36P4c05LpRYCC7g9/JrkAuJ7uh/PsOulNSb6R5K1Jth+y+A5Jzk3y1SSHLUa9CzVkvx4APLfW/OkkD5pl0dn+DMVeUy94gcbYL+jf+7XVYcDppZSbZlm0j+/XVocxfL9gGb9f4+hTz+lTH+lLb+jTsd6n43dIrX8KfCrJlcARwIZZFl12PbQ3AaqU8qtSyiPpvi34gCT7A8cADwUeQ3e69DVDFr9f6b4W/vnAcUkesAglL8iQ/doeuK3W/A7ghCUscSRj7lff3q+tngecvCSFjWnM/Vq279c4+tRz+tRH+tIb+nSs9+n4HVLrK4CDSil7A+8G3jLNGialNwFqq1LKjcDngQNLKdfUU4K/oHvRZz2dV0q5qv57GXAm8KjFqXbhBveLLll/rE46BXj4LIv04s9QjLBffXy/SLIH3c/fpiGL9PH9Wsh+9eL9Gkefek6f+khfekOfjvU+Hb8DtT4TeMTAWbMPAk+YZZFl10N7EaCSrEqyax2+B/CHwKVJ7lvHhe405bdmWXa3rafZ6w/TE4GLF6fyuQ3bL7pr1X9QZ3sS3Q12M30GeHrdv92Ap9dxS26c/erp+wXwbOCTpZTbhizex/cL5tmv5fx+jaNPPadPfaQvvaFPx3qfjt8htV4C7JLkwXW2reNmOhU4PMn2SfYFHgScM61aF6Qs4R3sC33QfRr5OvANuob1ujr+DOCbddz7uOPu/rXAO+vwE+o8F9Z/X7TU+7OA/dqV7hPDN4Gz6NL5nfarPj+a7ka67wFHLfX+TGK/+vh+1Wln0p2hGJy/1+/XQvZrOb9f03hNlmPP6VMf6Utv6NOx3qfjd473/48G6jgTuH8d/yy6Xy7Yuvxr6X777tvAM6dZ60Ie/ikXSZKkRr24hCdJkrScGKAkSZIaGaAkSZIaGaAkSZIaGaAkSZIaGaAkSZIaGaAkSZIa/X9GtVQJ68xP/gAAAABJRU5ErkJggg==%0A">
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 두 표본이 정규성을 따르는지 정확히 확인하자</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="n">R</span>
+<span class="nf">shapiro.test</span><span class="p">(</span><span class="n">man_heat</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>
+	Shapiro-Wilk normality test
+
+data:  man_heat
+W = 0.98456, p-value = 0.7524
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="n">R</span>
+<span class="nf">shapiro.test</span><span class="p">(</span><span class="n">woman_heat</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>
+	Shapiro-Wilk normality test
+
+data:  woman_heat
+W = 0.96223, p-value = 0.1102
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 둘다 p-값이 크므로 정규성을 가정하자</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 평균 차이 검정을 하기전에 우선 두 표본의 분산이 동일한지 검정하자</p>
+<p><code>-</code> var.test는 두 집단의 분산이 동일한지 비교함 ratio(두 집단 분산의 비율)이 1이 아니라면 두 집단의 분산이 다르다는 증거임</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="n">R</span>
+<span class="nf">print</span><span class="p">(</span><span class="nf">mean</span><span class="p">(</span><span class="n">man_heat</span><span class="p">))</span>
+<span class="nf">print</span><span class="p">(</span><span class="nf">sd</span><span class="p">(</span><span class="n">man_heat</span><span class="p">))</span>
+<span class="nf">print</span><span class="p">(</span><span class="nf">mean</span><span class="p">(</span><span class="n">woman_heat</span><span class="p">))</span>
+<span class="nf">print</span><span class="p">(</span><span class="nf">sd</span><span class="p">(</span><span class="n">woman_heat</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[1] 36.54399
+[1] 0.4004965
+[1] 36.52622
+[1] 0.5260057
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="n">R</span>
+<span class="nf">var.test</span><span class="p">(</span><span class="n">man_heat</span><span class="p">,</span> <span class="n">woman_heat</span><span class="p">,</span> <span class="n">ratio</span> <span class="o">=</span> <span class="m">1</span><span class="p">,</span> <span class="n">alternative</span> <span class="o">=</span> <span class="s">"two.sided"</span><span class="p">,</span> <span class="n">conf.level</span> <span class="o">=</span> <span class="m">0.95</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>
+	F test to compare two variances
+
+data:  man_heat and woman_heat
+F = 0.57972, num df = 49, denom df = 49, p-value = 0.05916
+alternative hypothesis: true ratio of variances is not equal to 1
+95 percent confidence interval:
+ 0.3289758 1.0215715
+sample estimates:
+ratio of variances 
+         0.5797175 
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 두 집단의 분산이 같은지 검정하니 p-값이 0.05보다 크기 때문에 다르다고 할만한 충분한 증거가 없으므로 동일하다 가정함</p>
+<p><code>-</code> 분산이 각각 0.4와 0.5인 집단에서 표본을 추출하여 원래는 분산이 다르지만 표본크기가 작기 때문에 0.1의 차이를 판단하지 못하였음</p>
+<p><code>-</code> 아무튼 var.test 결과는 분산이 동일하다 나왔으므로 두 집단의 분산이 동일하다 생각하고 평균 차이를 검정하자</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="n">R</span>
+<span class="nf">t.test</span><span class="p">(</span><span class="n">man_heat</span><span class="p">,</span> <span class="n">woman_heat</span><span class="p">,</span> <span class="n">alternative</span> <span class="o">=</span> <span class="s">'two.sided'</span><span class="p">,</span> <span class="n">var.equal</span> <span class="o">=</span> <span class="bp">T</span><span class="p">,</span> <span class="n">conf.level</span> <span class="o">=</span> <span class="m">0.95</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>
+	Two Sample t-test
+
+data:  man_heat and woman_heat
+t = 0.19001, df = 98, p-value = 0.8497
+alternative hypothesis: true difference in means is not equal to 0
+95 percent confidence interval:
+ -0.1677758  0.2033056
+sample estimates:
+mean of x mean of y 
+ 36.54399  36.52622 
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 검정결과를 보면 p-값이 0.05보다 크므로 영가설을 기각하지 못함 ---&gt; 남자와 여자의 평균체온을 다르다고 할 수 없음</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 실제 데이터는 평균이 36.5와 36.45로 다르지만 표본의 크기가 충분하지 않아 이를 잡아내지 못함</p>
+<p><code>-</code> 표본 크기가 50이 아니라 더욱 커진다면 위의 차이를 알아낼 수 있음</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="대응표본에-대한-평균-차이-t검정">
+<a class="anchor" href="#%EB%8C%80%EC%9D%91%ED%91%9C%EB%B3%B8%EC%97%90-%EB%8C%80%ED%95%9C-%ED%8F%89%EA%B7%A0-%EC%B0%A8%EC%9D%B4-t%EA%B2%80%EC%A0%95" aria-hidden="true"><span class="octicon octicon-link"></span></a>대응표본에 대한 평균 차이 t검정<a class="anchor-link" href="#%EB%8C%80%EC%9D%91%ED%91%9C%EB%B3%B8%EC%97%90-%EB%8C%80%ED%95%9C-%ED%8F%89%EA%B7%A0-%EC%B0%A8%EC%9D%B4-t%EA%B2%80%EC%A0%95"> </a>
 </h2>
 </div>
 </div>
