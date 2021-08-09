@@ -1713,7 +1713,7 @@ $</p>
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> 제한된 범위$[0, 1]$에서 확률적인 모델링에 적합함(ex: 비율)</p>
 <p><code>-</code> 두개의 매개변수 $\alpha, \beta$에 따라 그래프의 모양이 다양함</p>
-<p><code>-</code> 베타 분포는 확률에 대한 확률분포 --&gt;  베이즈안 통계학에서 이항 분포의 켤레 사전 분포로 사용됨</p>
+<p><code>-</code> 베타 분포는 확률에 대한 확률분포 --&gt; 베이즈안 통계학에서 이항 분포의 켤레 사전 분포로 사용됨</p>
 <p><code>-</code> 베이지안 방법 ---&gt; 모수를 확률변수로 생각하여 사전 정보를 활용해 모수를 추정함</p>
 <p><code>-</code> 이항 분포에서는 성공 확률 $p$가 고정이고 성공 횟수($n-x=$ 실패횟수)가 확률변수인데 베타 분포에서는 성공 횟수($\alpha-1$)와 실패 횟수($\beta-1$)이 고정이고 성공 확률이 확률변수임</p>
 <p><code>-</code> 베타 분포에서 $\alpha =1,\beta=1$이면 균일분포와 동일함 ---&gt; $\alpha=1,\beta=1$이면 성공 횟수와 실패 횟수 둘다$0$이므로 성공확률을 특정할 수 없어서 균일분포 모양을 띄움</p>
@@ -1784,7 +1784,7 @@ $</p>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> 베타 분포는 이항 분포의 켤레 사전 분포라고 했음</p>
+<p><code>-</code> 베타 분포는 확률에 대한 확률분포라고 했음</p>
 <p><code>-</code> 예시를 들어서 설명하자</p>
 <p><code>-</code> 게임을 하는 중임 ---&gt; 동전이 있는데 앞면이 나오면 이김 ---&gt; 그런데 앞면과 뒷면이 나올 확률을 알지 못함</p>
 <p><code>-</code> 연습으로 동전을 10번 던져봤더니 앞면이 3번 뒷면이 7번 나왔음 ---&gt; 앞면이 나와야 이기므로 앞면이 나올 확률이 뒷면이 나올 확률 보다 높으면 좋겠음</p>
@@ -1886,6 +1886,7 @@ $</p>
 <p><code>-</code> 베타 분포에서는 확률변수 $X$가 성공 확률인 반면 이항 분포에서는 확률변수 $X$가 성공 횟수임</p>
 <p><code>-</code> 베타 분포: $\frac{1}{B(\alpha, \beta)}x^{\alpha-1}(1-x)^{\beta-1},\;$ $x$는 성공 확률</p>
 <p><code>-</code> 이항 분포: $\binom{n}{x}\,p^{k}\,(1-p)^{n-x},\;$ $x$는 성공 횟수</p>
+<p><code>-</code> 이렇기에 이항 분포의 모수를 추정하는데 베타 분포가 사전 분포로 사용된다</p>
 
 </div>
 </div>
