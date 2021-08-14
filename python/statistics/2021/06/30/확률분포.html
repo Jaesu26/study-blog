@@ -145,11 +145,11 @@ window.onload = wrap_img;
 </li>
 <li class="toc-entry toc-h1"><a href="#연속-확률-분포">연속 확률 분포 </a>
 <ul>
-<li class="toc-entry toc-h2"><a href="#정규분포">정규분포 </a>
+<li class="toc-entry toc-h2"><a href="#정규-분포">정규 분포 </a>
 <ul>
 <li class="toc-entry toc-h3"><a href="#표준화">표준화 </a></li>
-<li class="toc-entry toc-h3"><a href="#정규분포의-확률-밀도-함수(PDF)">정규분포의 확률 밀도 함수(PDF) </a></li>
-<li class="toc-entry toc-h3"><a href="#정규분포-plot">정규분포 plot </a></li>
+<li class="toc-entry toc-h3"><a href="#정규-분포의-확률-밀도-함수(PDF)">정규 분포의 확률 밀도 함수(PDF) </a></li>
+<li class="toc-entry toc-h3"><a href="#정규-분포-plot">정규 분포 plot </a></li>
 </ul>
 </li>
 <li class="toc-entry toc-h2"><a href="#균일-분포">균일 분포 </a>
@@ -295,7 +295,7 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> 확률 분포(probability distribution)는 확률 변수가 특정한 값을 가질 확률을 나타내는 함수를 의미한다 ---&gt; 출처: <a href="https://ko.wikipedia.org/wiki/%ED%99%95%EB%A5%A0_%EB%B6%84%ED%8F%AC">확률 분포</a></p>
+<p><code>-</code> 확률 분포(probability distribution)는 확률 변수가 특정한 값을 가질 확률을 나타내는 함수를 의미한다 ---&gt; 참고: <a href="https://ko.wikipedia.org/wiki/%ED%99%95%EB%A5%A0_%EB%B6%84%ED%8F%AC">확률 분포</a></p>
 
 </div>
 </div>
@@ -336,8 +336,8 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="정규분포">
-<a class="anchor" href="#%EC%A0%95%EA%B7%9C%EB%B6%84%ED%8F%AC" aria-hidden="true"><span class="octicon octicon-link"></span></a>정규분포<a class="anchor-link" href="#%EC%A0%95%EA%B7%9C%EB%B6%84%ED%8F%AC"> </a>
+<h2 id="정규-분포">
+<a class="anchor" href="#%EC%A0%95%EA%B7%9C-%EB%B6%84%ED%8F%AC" aria-hidden="true"><span class="octicon octicon-link"></span></a>정규 분포<a class="anchor-link" href="#%EC%A0%95%EA%B7%9C-%EB%B6%84%ED%8F%AC"> </a>
 </h2>
 </div>
 </div>
@@ -349,9 +349,9 @@ window.onload = wrap_img;
 <p><code>-</code> 중심극한정리에 의하여 독립적인 확률변수들의 평균은 정규 분포에 가까워지는 성질이 있기 때문임</p>
 <p><code>-</code> 신뢰구간이나 가설검정 등의 모델에서 사용</p>
 <p><code>-</code> 기호로는 $N \sim (\mu, \sigma^{2})$</p>
-<p><code>-</code> 정규분포의 기댓값, 중앙값, 최빈값은 $\mu$, 분산은 $\sigma^{2}$</p>
+<p><code>-</code> 정규 분포의 기댓값, 중앙값, 최빈값은 $\mu$, 분산은 $\sigma^{2}$</p>
 <p><code>-</code> 표준정규분포는 평균이 0, 표준편차가 1인 경우임 ---&gt; $N \sim (0, 1)$</p>
-<p><code>-</code> 정규분포에서 $\mu\pm2\sigma$에 전체 데이터 중 $95\%$가 존재</p>
+<p><code>-</code> 정규 분포에서 $\mu\pm2\sigma$에 전체 데이터 중 $95\%$가 존재</p>
 
 </div>
 </div>
@@ -376,8 +376,8 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="정규분포의-확률-밀도-함수(PDF)">
-<a class="anchor" href="#%EC%A0%95%EA%B7%9C%EB%B6%84%ED%8F%AC%EC%9D%98-%ED%99%95%EB%A5%A0-%EB%B0%80%EB%8F%84-%ED%95%A8%EC%88%98(PDF)" aria-hidden="true"><span class="octicon octicon-link"></span></a>정규분포의 확률 밀도 함수(PDF)<a class="anchor-link" href="#%EC%A0%95%EA%B7%9C%EB%B6%84%ED%8F%AC%EC%9D%98-%ED%99%95%EB%A5%A0-%EB%B0%80%EB%8F%84-%ED%95%A8%EC%88%98(PDF)"> </a>
+<h3 id="정규-분포의-확률-밀도-함수(PDF)">
+<a class="anchor" href="#%EC%A0%95%EA%B7%9C-%EB%B6%84%ED%8F%AC%EC%9D%98-%ED%99%95%EB%A5%A0-%EB%B0%80%EB%8F%84-%ED%95%A8%EC%88%98(PDF)" aria-hidden="true"><span class="octicon octicon-link"></span></a>정규 분포의 확률 밀도 함수(PDF)<a class="anchor-link" href="#%EC%A0%95%EA%B7%9C-%EB%B6%84%ED%8F%AC%EC%9D%98-%ED%99%95%EB%A5%A0-%EB%B0%80%EB%8F%84-%ED%95%A8%EC%88%98(PDF)"> </a>
 </h3>
 </div>
 </div>
@@ -393,8 +393,8 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="정규분포-plot">
-<a class="anchor" href="#%EC%A0%95%EA%B7%9C%EB%B6%84%ED%8F%AC-plot" aria-hidden="true"><span class="octicon octicon-link"></span></a>정규분포 plot<a class="anchor-link" href="#%EC%A0%95%EA%B7%9C%EB%B6%84%ED%8F%AC-plot"> </a>
+<h3 id="정규-분포-plot">
+<a class="anchor" href="#%EC%A0%95%EA%B7%9C-%EB%B6%84%ED%8F%AC-plot" aria-hidden="true"><span class="octicon octicon-link"></span></a>정규 분포 plot<a class="anchor-link" href="#%EC%A0%95%EA%B7%9C-%EB%B6%84%ED%8F%AC-plot"> </a>
 </h3>
 </div>
 </div>
