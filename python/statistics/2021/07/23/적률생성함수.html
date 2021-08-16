@@ -96,7 +96,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      8 min read
+      9 min read
     
 </span></p>
 
@@ -154,6 +154,7 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h2"><a href="#베타-분포의-적률생성함수">베타 분포의 적률생성함수 </a></li>
 <li class="toc-entry toc-h2"><a href="#감마-분포의-적률생성함수">감마 분포의 적률생성함수 </a></li>
 <li class="toc-entry toc-h2"><a href="#카이제곱-분포의-적률생성함수">카이제곱 분포의 적률생성함수 </a></li>
+<li class="toc-entry toc-h2"><a href="#정규-분포의-적률생성함수">정규 분포의 적률생성함수 </a></li>
 </ul>
 </li>
 </ul><!--
@@ -181,6 +182,8 @@ window.onload = wrap_img;
 <p><code>-</code> 확률변수 $X$의 $k$차 중심적률(central moment)을 $\mu_{k}$라 하면 $\mu_{k} = E[(X-\mu)^{k}]$</p>
 <p><code>-</code> $\mu_{1} = E(X) - \mu = 0$ ---&gt; 확률변수 $X$의 $1$차 중심적률은 $0$</p>
 <p><code>-</code> $\mu_{2} = E[(X-\mu)^{2}]$ ---&gt; 확률변수 $X$의 $2$차 중심적률은 분산</p>
+<p><code>-</code> $\mu_{3} = E[(X-\mu)^{3}]$ ---&gt; 확률변수 $X$의 $3$차 중심적률은 왜도</p>
+<p><code>-</code> $\mu_{4} = E[(X-\mu)^{4}]$ ---&gt; 확률변수 $X$의 $4$차 중심적률은 첨도</p>
 <p><code>-</code> 일반적인 확률 변수 $X$의 적률(moment)은 비중심(non-central)적률을 나타냄 $\longrightarrow$ $\mu'_{k} = E[X^k]$</p>
 <p><code>-</code> $\mu'_{k} = E[X^k] = \begin{cases}\text{이산확률변수 : }\sum\limits_{x}x^{k}f(x) \\ \text{연속확률변수 : }\int_{-\infty}^{\infty}x^{k}f(x)dx\end{cases}$</p>
 <p><code>-</code> $\mu'_{1} = \mu$</p>
@@ -944,6 +947,88 @@ $
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> 이렇게 적고보니 너무 양심이 없는 것 같아 나중에 감마분포를 통해 구하지 않는 방법 추가 예정</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="정규-분포의-적률생성함수">
+<a class="anchor" href="#%EC%A0%95%EA%B7%9C-%EB%B6%84%ED%8F%AC%EC%9D%98-%EC%A0%81%EB%A5%A0%EC%83%9D%EC%84%B1%ED%95%A8%EC%88%98" aria-hidden="true"><span class="octicon octicon-link"></span></a>정규 분포의 적률생성함수<a class="anchor-link" href="#%EC%A0%95%EA%B7%9C-%EB%B6%84%ED%8F%AC%EC%9D%98-%EC%A0%81%EB%A5%A0%EC%83%9D%EC%84%B1%ED%95%A8%EC%88%98"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>
+<code>-</code> 정규 분포의 확률 밀도 함수: $f(x) = \frac{1}{\sqrt{2\pi\sigma^{2}}}e^{-\frac{(x-\mu)^{2}}{2\sigma^{2}}}$
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 완전제곱식 생성: $x^2-ax=(x-\frac{a}{2})^2-\frac{a^2}{4}$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 정규 분포의 적률생성함수
+</p>
+<ul>
+<li>$M_X(t) = E(e^{tX})\\ 
+= \int_{-\infty}^{\infty}e^{tx}\frac{1}{\sqrt{2\pi\sigma^{2}}}e^{-\frac{(x-\mu)^{2}}{2\sigma^{2}}}\;dx\\
+=\int_{-\infty}^{\infty}\frac{1}{\sqrt{2\pi\sigma^{2}}}e^{-\frac{x^2-2(\mu+\sigma^{2}t)x+\mu^2}{2\sigma^{2}}}\;dx\\
+=\int_{-\infty}^{\infty}\frac{1}{\sqrt{2\pi\sigma^{2}}}e^{-\frac{(x-\mu-\sigma^{2}t)^2-(\mu+\sigma^2t)^2+\mu^2}{2\sigma^{2}}}\;dx\\
+=e^{\mu t+\frac{\sigma^2 t^2}{2}}\int_{-\infty}^{\infty}\frac{1}{\sqrt{2\pi\sigma^{2}}}e^{-\frac{(x-\mu-\sigma^{2}t)^2}{2\sigma^2}}\;dx\qquad\text{$\therefore$ 평균이 $\mu+\sigma^{2}t$이고 표준편차가 $\sigma$인 정규분포이므로 적분값은 $1$}\\
+=e^{\mu t+\frac{\sigma^2 t^2}{2}}$
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 정규 분포의 기댓값
+</p>
+<ul>
+<li>$E(X) = \frac{dM_X(t)}{dt} \\
+= (\mu + \sigma^2 t)e^{\mu t+\frac{\sigma^2 t^2}{2}}, \; \text{$t=0$ 대입}\\
+=\mu$
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 정규 분포의 분산
+</p>
+<ul>
+<li>
+<p>$E(X^2) = \frac{d^2M_X(t)}{dt^2}\\
+=\sigma^{2}e^{\mu t+\frac{\sigma^2 t^2}{2}}+(\mu+\sigma^2 t)^2e^{\mu t+\frac{\sigma^2 t^2}{2}}, \;\text{$t=0$ 대입}\\
+=\sigma^2+\mu^2$</p>
+</li>
+<li>
+<p>$Var(X)=E(X^2)-[E(X)]^2\\
+=\sigma^2+\mu^2-(\mu)^2\\
+=\sigma^2$
+</p>
+</li>
+</ul>
 
 </div>
 </div>
