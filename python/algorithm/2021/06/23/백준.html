@@ -96,7 +96,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      78 min read
+      80 min read
     
 </span></p>
 
@@ -304,6 +304,11 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h3"><a href="#LCS">LCS </a></li>
 <li class="toc-entry toc-h3"><a href="#연속합">연속합 </a></li>
 <li class="toc-entry toc-h3"><a href="#평범한-배낭">평범한 배낭 </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#구현">구현 </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#빗물">빗물 </a></li>
 </ul>
 </li>
 </ul><!--
@@ -11055,6 +11060,135 @@ window.onload = wrap_img;
 </div>
 </div>
 </div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="구현">
+<a class="anchor" href="#%EA%B5%AC%ED%98%84" aria-hidden="true"><span class="octicon octicon-link"></span></a>구현<a class="anchor-link" href="#%EA%B5%AC%ED%98%84"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="빗물">
+<a class="anchor" href="#%EB%B9%97%EB%AC%BC" aria-hidden="true"><span class="octicon octicon-link"></span></a>빗물<a class="anchor-link" href="#%EB%B9%97%EB%AC%BC"> </a>
+</h3>
+<ul>
+<li>문제 출처: <a href="https://www.acmicpc.net/problem/14719">백준 14719번</a>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> $n$번째 블록의 높이를 $x$라 해보자</p>
+<p><code>-</code> 만약 $x$이상인 높이 $y$가 $n+α$번째에 있다면 그 사이에 빗물을 $x$높이 까지 담을 수 있음</p>
+<p><code>-</code> 만약 $x$이상인 높이가 없다면?? ---&gt; 탐색하는 방향을 거꾸로 하면 된다(처음 $\to$ 끝 대신 끝 $\to$ 처음)</p>
+<p><code>-</code> 그렇게 되면 처음에 탐색했을 때와 반대로 되므로 똑같이 크거나 같은 블록을 찾아 나가면 된다</p>
+<p><code>-</code> 처음 $\to$ 끝 탐색과 끝 $\to$ 처음 탐색을 할 때 서로 겹치는 부분이 없을 것 같지만 높이가 같은 경우에는 겹치게 되므로 이에 대해서는 한번만 고려하자</p>
+<p><code>-</code> 위에 설명만 들으면 어려울 것 같으니 예를 들어보자</p>
+<p><code>-</code> 시작 ---&gt; 끝</p>
+<p><code>-</code> 블록의 높이가 3 1 2 3 3 1 1 2 라 하면 처음부터 탐색하므로 시작 블록 높이는 3이다</p>
+<p><code>-</code> 3보다 크거나 같은 블록을 찾아 헤매다니니 4번째에 3이 존재함 ---&gt; 빗물을 3만큼 담을 수 있음</p>
+<p><code>-</code> 이제 블록의 기준이 바뀜 (3 ---&gt; 3)</p>
+<p><code>-</code> 이제 또 다시 3보다 크거나 같은 블록을 헤매다니자 ---&gt; 3이 존재함 ---&gt; 빗물을 0만큼 담음</p>
+<p><code>-</code> 3보다 큰 블록이 없음 ---&gt; 하지만 그렇다고 빗물을 못담는것이 아니다 3과 2사이에 빗물을 2만큼 담을 수 있다 ---&gt; 이런 경우를 고려하기 위해 이제 탐색 방향을 바꾸자</p>
+<p><code>-</code> 끝 ---&gt; 시작</p>
+<p><code>-</code> 시작 블록 높이는 2이다</p>
+<p><code>-</code> 2보다 크거나 같은 블록은 3가 있음 ---&gt; 빗물을 2만큼 담음</p>
+<p><code>-</code> 이제 블록의 높이 기준이 3으로 바뀜</p>
+<p><code>-</code> 3보다 크거나 같은 블록이 바로 앞에 있음 ---&gt; 빗물을 0만큼 담음</p>
+<p><code>-</code> 이제 다시 3보다 크거나 같은 블록을 찾자 ---&gt; 마지막 블록의 높이가 3이다 ---&gt; 빗물을 3만큼 담음</p>
+<p><code>-</code> 결과를 보자</p>
+<p><code>-</code> 두가지 경우를 더하면 결과로 8이 나오지만 사실 정답은 5인데 왜냐하면 3 1 2 3 부분이 두 가지 모두에서 고려되어 빗물이 추가로 더해졌기 때문이다</p>
+<p><code>-</code> 이렇기에 시작 ---&gt; 끝 탐색에서 크거나 같은 경우를 고려했다면 끝 ---&gt; 시작 탐색에서는 큰 경우만 고려해야 함</p>
+<p><code>-</code> 만약 끝 ---&gt; 시작 탐색에서 크거나 같은 경우를 고려했다면 시작 ---&gt; 끝 탐색에서는 큰 경우만 고려</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">h</span><span class="p">,</span> <span class="n">w</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+<span class="n">blocks</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">()))</span>
+
+<span class="c1">## 시작 ---&gt; 끝 탐색</span>
+<span class="n">start1</span> <span class="o">=</span> <span class="n">blocks</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">idx1</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">water1</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">w</span><span class="p">):</span>
+    
+    <span class="k">if</span> <span class="n">blocks</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">start1</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">idx1</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">i</span><span class="p">):</span>
+            <span class="n">water1</span> <span class="o">+=</span> <span class="n">start1</span> <span class="o">-</span> <span class="n">blocks</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> 
+            
+        <span class="n">idx1</span> <span class="o">=</span> <span class="n">i</span>
+        <span class="n">start1</span> <span class="o">=</span> <span class="n">blocks</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+
+        
+<span class="c1">## 끝 ---&gt; 시작 탐색</span>
+<span class="n">blocks1</span> <span class="o">=</span> <span class="n">blocks</span><span class="o">.</span><span class="n">reverse</span><span class="p">()</span>
+<span class="n">start2</span> <span class="o">=</span> <span class="n">blocks</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">idx2</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">water2</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">w</span><span class="p">):</span>
+    
+    <span class="k">if</span> <span class="n">blocks</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">start2</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">idx2</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">i</span><span class="p">):</span>
+            <span class="n">water2</span> <span class="o">+=</span> <span class="n">start2</span> <span class="o">-</span> <span class="n">blocks</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> 
+            
+        <span class="n">idx2</span> <span class="o">=</span> <span class="n">i</span>
+        <span class="n">start2</span> <span class="o">=</span> <span class="n">blocks</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        
+<span class="nb">print</span><span class="p">(</span><span class="n">water1</span> <span class="o">+</span> <span class="n">water2</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+</div>
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>5
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
 </div>
 
 
