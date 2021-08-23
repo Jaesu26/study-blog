@@ -266,6 +266,7 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h3"><a href="#수-정렬하기-2">수 정렬하기 2 </a></li>
 <li class="toc-entry toc-h3"><a href="#수-정렬하기-3">수 정렬하기 3 </a></li>
 <li class="toc-entry toc-h3"><a href="#통계학">통계학 </a></li>
+<li class="toc-entry toc-h3"><a href="#나이순-정렬">나이순 정렬 </a></li>
 </ul>
 </li>
 <li class="toc-entry toc-h2"><a href="#그리디-알고리즘">그리디 알고리즘 </a>
@@ -276,7 +277,6 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h3"><a href="#주유소">주유소 </a></li>
 <li class="toc-entry toc-h3"><a href="#주유소-문제-디버깅">주유소 문제 디버깅 </a></li>
 <li class="toc-entry toc-h3"><a href="#회의실-배정">회의실 배정 </a></li>
-<li class="toc-entry toc-h3"><a href="#나이순-정렬">나이순 정렬 </a></li>
 </ul>
 </li>
 <li class="toc-entry toc-h2"><a href="#정수론-및-조합론">정수론 및 조합론 </a>
@@ -7937,6 +7937,69 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="나이순-정렬">
+<a class="anchor" href="#%EB%82%98%EC%9D%B4%EC%88%9C-%EC%A0%95%EB%A0%AC" aria-hidden="true"><span class="octicon octicon-link"></span></a>나이순 정렬<a class="anchor-link" href="#%EB%82%98%EC%9D%B4%EC%88%9C-%EC%A0%95%EB%A0%AC"> </a>
+</h3>
+<ul>
+<li>문제 출처: <a href="https://www.acmicpc.net/problem/10814">백준 10814번</a>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+<span class="n">data</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+    <span class="n">member</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">())</span> <span class="o">+</span> <span class="p">[</span><span class="n">i</span><span class="p">]</span>
+    <span class="n">member</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">member</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="n">data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">member</span><span class="p">)</span>
+    
+<span class="n">data</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">]))</span>
+
+<span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">j</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="n">j</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+</div>
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>20 Sunyoung
+21 Junkyu
+21 Dohyun
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <hr>
 
 </div>
@@ -8474,69 +8537,6 @@ window.onload = wrap_img;
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>4
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-    
-
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="나이순-정렬">
-<a class="anchor" href="#%EB%82%98%EC%9D%B4%EC%88%9C-%EC%A0%95%EB%A0%AC" aria-hidden="true"><span class="octicon octicon-link"></span></a>나이순 정렬<a class="anchor-link" href="#%EB%82%98%EC%9D%B4%EC%88%9C-%EC%A0%95%EB%A0%AC"> </a>
-</h3>
-<ul>
-<li>문제 출처: <a href="https://www.acmicpc.net/problem/10814">백준 10814번</a>
-</li>
-</ul>
-
-</div>
-</div>
-</div>
-    
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
-<span class="n">data</span> <span class="o">=</span> <span class="p">[]</span>
-
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
-    <span class="n">member</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">())</span> <span class="o">+</span> <span class="p">[</span><span class="n">i</span><span class="p">]</span>
-    <span class="n">member</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">member</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-    <span class="n">data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">member</span><span class="p">)</span>
-    
-<span class="n">data</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">]))</span>
-
-<span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">j</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="n">j</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-
-</div>
-
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>20 Sunyoung
-21 Junkyu
-21 Dohyun
 </pre>
 </div>
 </div>
