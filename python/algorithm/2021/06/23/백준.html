@@ -96,7 +96,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      85 min read
+      87 min read
     
 </span></p>
 
@@ -317,14 +317,18 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h3"><a href="#빗물">빗물 </a></li>
 </ul>
 </li>
-<li class="toc-entry toc-h2"><a href="#이분-탐색">이분 탐색 </a>
-<ul>
-<li class="toc-entry toc-h3"><a href="#나무-자르기">나무 자르기 </a></li>
-</ul>
-</li>
 <li class="toc-entry toc-h2"><a href="#스택(stack)">스택(stack) </a>
 <ul>
 <li class="toc-entry toc-h3"><a href="#스택">스택 </a></li>
+<li class="toc-entry toc-h3"><a href="#제로">제로 </a></li>
+<li class="toc-entry toc-h3"><a href="#괄호">괄호 </a></li>
+<li class="toc-entry toc-h3"><a href="#균형잡힌-세상">균형잡힌 세상 </a></li>
+<li class="toc-entry toc-h3"><a href="#스택-수열">스택 수열 </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#이분-탐색">이분 탐색 </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#나무-자르기">나무 자르기 </a></li>
 </ul>
 </li>
 </ul><!--
@@ -11681,121 +11685,6 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="이분-탐색">
-<a class="anchor" href="#%EC%9D%B4%EB%B6%84-%ED%83%90%EC%83%89" aria-hidden="true"><span class="octicon octicon-link"></span></a>이분 탐색<a class="anchor-link" href="#%EC%9D%B4%EB%B6%84-%ED%83%90%EC%83%89"> </a>
-</h2>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="나무-자르기">
-<a class="anchor" href="#%EB%82%98%EB%AC%B4-%EC%9E%90%EB%A5%B4%EA%B8%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>나무 자르기<a class="anchor-link" href="#%EB%82%98%EB%AC%B4-%EC%9E%90%EB%A5%B4%EA%B8%B0"> </a>
-</h3>
-<ul>
-<li>문제 출처: <a href="https://www.acmicpc.net/problem/2805">백준 2805번</a>
-</li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> 이진탐색으로 해결가능할 듯 하다 ---&gt; 처음 푸는 유형이었음</p>
-<p><code>-</code> 나무를 높이 순서로 오름차순 정렬한 후 0과 최대 나무 높이를 중간으로 나눠서 기준치를 넘는지 안넘는지를 판단함---&gt; 1~100사이 랜덤 숫자 맞추듯이</p>
-<p><code>-</code> 목표는 나무를 x미터 까지 잘랐을 땐 기준치 미달인데 x+1미터를 자르니 기준치를 넘기는 x+1을 찾는 것</p>
-<p><code>-</code> 여러번 틀려서 디버깅 해보니 나무를 반으로 나누는데 최대값은 나무의 최대 높이로 하고 최소값은 나무의 최소 높이로 설정했었다</p>
-<p><code>-</code> 위에 처럼하면 잘못됐는데 왜냐하면 이 문제의 해가 나무의 최소 높이보다 더 낮은 높이를 절단해야 하면 답이 나오지 않기 때문이다</p>
-<p><code>-</code> ex) 나무가 3개 있고 높이가 각각 10 20 30이라 하고 필요한 나무는 10미터이라 하자</p>
-<p><code>-</code> 이 경우는 잘못된 코드로 풀어도 가능함 ---&gt; 왜냐면 정답이 20미터인데 20은 10과 30 사이 숫자이므로</p>
-<p><code>-</code> 하지만 필요한 나무가 60미터라면 정답은 0미터여야 하지만 틀린 코드는 최소값 10과 최대값 30 사이를 이분탐색하므로 0이 나올 수 가 없음</p>
-
-</div>
-</div>
-</div>
-    
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">N</span><span class="p">,</span> <span class="n">M</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
-<span class="n">x</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">()))</span>
-<span class="n">x</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
-
-<span class="k">def</span> <span class="nf">trees_sum</span><span class="p">(</span><span class="n">h</span><span class="p">):</span> <span class="c1">## 잘라서 나온 나무 높이의 합 구하기</span>
-    <span class="n">_sum</span><span class="o">=</span> <span class="mi">0</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
-        <span class="k">if</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">h</span><span class="p">:</span>
-            <span class="n">_sum</span> <span class="o">+=</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">h</span>
-    <span class="k">return</span> <span class="n">_sum</span>
-
-<span class="k">def</span> <span class="nf">cut</span><span class="p">(</span><span class="n">trees</span><span class="p">):</span>
-    <span class="n">left</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1">## 잘못된 코드는 left = trees[0] 나머지는 동일함</span>
-    <span class="n">right</span> <span class="o">=</span> <span class="n">trees</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-    <span class="n">mid</span> <span class="o">=</span> <span class="p">(</span><span class="n">left</span> <span class="o">+</span> <span class="n">right</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span>
-    <span class="n">sum_</span> <span class="o">=</span> <span class="n">trees_sum</span><span class="p">(</span><span class="n">mid</span><span class="p">)</span>
-            
-    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-        <span class="k">if</span> <span class="n">right</span> <span class="o">-</span> <span class="n">left</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
-                <span class="k">break</span>
-                
-        <span class="k">if</span> <span class="n">sum_</span> <span class="o">&gt;=</span> <span class="n">M</span><span class="p">:</span>    
-            <span class="n">left</span> <span class="o">=</span> <span class="n">mid</span>
-            <span class="n">mid</span> <span class="o">=</span> <span class="p">(</span><span class="n">left</span> <span class="o">+</span> <span class="n">right</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span>
-            <span class="n">sum_</span> <span class="o">=</span> <span class="n">trees_sum</span><span class="p">(</span><span class="n">mid</span><span class="p">)</span>  
-                
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">right</span> <span class="o">=</span> <span class="n">mid</span>
-            <span class="n">mid</span> <span class="o">=</span> <span class="p">(</span><span class="n">left</span> <span class="o">+</span> <span class="n">right</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span>
-            <span class="n">sum_</span> <span class="o">=</span> <span class="n">trees_sum</span><span class="p">(</span><span class="n">mid</span><span class="p">)</span>
-            
-    <span class="k">return</span> <span class="n">mid</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">cut</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-
-</div>
-
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>15
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-    
-
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<hr>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="스택(stack)">
 <a class="anchor" href="#%EC%8A%A4%ED%83%9D(stack)" aria-hidden="true"><span class="octicon octicon-link"></span></a>스택(stack)<a class="anchor-link" href="#%EC%8A%A4%ED%83%9D(stack)"> </a>
 </h2>
@@ -11903,6 +11792,550 @@ window.onload = wrap_img;
 -1
 0
 3
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="제로">
+<a class="anchor" href="#%EC%A0%9C%EB%A1%9C" aria-hidden="true"><span class="octicon octicon-link"></span></a>제로<a class="anchor-link" href="#%EC%A0%9C%EB%A1%9C"> </a>
+</h3>
+<ul>
+<li>문제 출처: <a href="https://www.acmicpc.net/problem/10773">백준 10773번</a>
+</li>
+</ul>
+<p><code>-</code> 스택 구조를 통해 해결하면 된다</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">K</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+<span class="n">stack</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">K</span><span class="p">):</span>
+    <span class="n">num</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+    <span class="k">if</span> <span class="n">num</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">stack</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+        
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">stack</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
+        
+<span class="nb">print</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">stack</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+</div>
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>0
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="괄호">
+<a class="anchor" href="#%EA%B4%84%ED%98%B8" aria-hidden="true"><span class="octicon octicon-link"></span></a>괄호<a class="anchor-link" href="#%EA%B4%84%ED%98%B8"> </a>
+</h3>
+<ul>
+<li>문제 출처: <a href="https://www.acmicpc.net/problem/9012">백준 9012번</a>
+</li>
+</ul>
+<p><code>-</code> '('가 입력되면 스택에 추가하고 ')'가 입력되면 제거하는 방식으로 오류가 발생하면 잘못된 문자열임을 판단하자</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">T</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+
+<span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">T</span><span class="p">):</span>
+    <span class="n">string</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span>
+    <span class="n">stack</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">cnt</span> <span class="o">=</span> <span class="mi">0</span>
+    
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">string</span><span class="p">)):</span>
+        <span class="k">if</span> <span class="n">string</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="s1">'('</span><span class="p">:</span>
+            <span class="n">stack</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">'('</span><span class="p">)</span>
+            
+        <span class="k">elif</span> <span class="n">string</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="s1">')'</span><span class="p">:</span>  <span class="c1">## else:로 하면 틀림 ---&gt; 이유 모름</span>
+            <span class="k">if</span> <span class="n">stack</span><span class="p">:</span>
+                <span class="n">stack</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+                
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">cnt</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+                <span class="k">break</span>
+        
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">stack</span> <span class="ow">and</span> <span class="n">cnt</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"YES"</span><span class="p">)</span>
+        
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"NO"</span><span class="p">)</span>
+        
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+</div>
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>YES
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="균형잡힌-세상">
+<a class="anchor" href="#%EA%B7%A0%ED%98%95%EC%9E%A1%ED%9E%8C-%EC%84%B8%EC%83%81" aria-hidden="true"><span class="octicon octicon-link"></span></a>균형잡힌 세상<a class="anchor-link" href="#%EA%B7%A0%ED%98%95%EC%9E%A1%ED%9E%8C-%EC%84%B8%EC%83%81"> </a>
+</h3>
+<ul>
+<li>문제출처: <a href="https://www.acmicpc.net/problem/4949">백준 4949번</a>
+</li>
+</ul>
+<p><code>-</code> 괄호 문제에서 대괄호가 추가된 경우임</p>
+<p><code>-</code> stack에 '('와 '['를 추가하고 ')'과 ']'이 입력되었을 때 stack.pop()을 하는데 서로 짝이 맞지 않으면 잘못된 문자열</p>
+<p><code>-</code> '(', ')'와 '[', ']' 각각의 쌍이 맞지 않아도 잘못된 문자열</p>
+<p><code>-</code> '('다음에 ')"이 와야하고 '['다음에 ']'이 와야함 ---&gt; 이를 지키지 않아도 잘못된 문자열</p>
+<p><code>-</code> input 대신에 sys.stdin.readline을 사용하면 틀림 ---&gt; 이유 모름</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>    
+    <span class="n">string</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span>
+    <span class="n">stack</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">cnt</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">num1</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">num2</span> <span class="o">=</span> <span class="mi">0</span>
+    
+    <span class="k">if</span> <span class="n">string</span> <span class="o">==</span> <span class="s1">'.'</span><span class="p">:</span>
+        <span class="k">break</span>
+    
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">string</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="s1">'('</span><span class="p">:</span>
+                <span class="n">stack</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">'('</span><span class="p">)</span>
+                <span class="n">num1</span> <span class="o">+=</span> <span class="mi">1</span>
+            
+            <span class="k">elif</span> <span class="n">i</span> <span class="o">==</span> <span class="s1">')'</span><span class="p">:</span>
+                <span class="n">num1</span> <span class="o">-=</span> <span class="mi">1</span>
+                <span class="k">if</span> <span class="n">num1</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="n">cnt</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+                    
+                <span class="k">if</span> <span class="n">stack</span><span class="p">:</span>
+                    <span class="n">tmp</span> <span class="o">=</span> <span class="n">stack</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+                
+                    <span class="k">if</span> <span class="n">tmp</span> <span class="o">!=</span> <span class="s1">'('</span><span class="p">:</span>
+                        <span class="n">cnt</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+                        <span class="k">break</span>
+        
+            <span class="k">elif</span> <span class="n">i</span> <span class="o">==</span> <span class="s1">'['</span><span class="p">:</span>
+                <span class="n">stack</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">'['</span><span class="p">)</span>
+                <span class="n">num2</span> <span class="o">+=</span> <span class="mi">1</span>
+            
+            <span class="k">elif</span> <span class="n">i</span> <span class="o">==</span> <span class="s1">']'</span><span class="p">:</span>
+                <span class="n">num2</span> <span class="o">-=</span> <span class="mi">1</span>
+                <span class="k">if</span> <span class="n">num2</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="n">cnt</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+                    
+                <span class="k">if</span> <span class="n">stack</span><span class="p">:</span>
+                    <span class="n">tmp</span> <span class="o">=</span> <span class="n">stack</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+                
+                    <span class="k">if</span> <span class="n">tmp</span> <span class="o">!=</span> <span class="s1">'['</span><span class="p">:</span>
+                        <span class="n">cnt</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+                        <span class="k">break</span>               
+            
+        <span class="k">if</span> <span class="n">num1</span> <span class="o">==</span> <span class="mi">0</span>  <span class="ow">and</span> <span class="n">num2</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">cnt</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"yes"</span><span class="p">)</span>
+        
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"no"</span><span class="p">)</span>
+            
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+</div>
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>yes
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+
+</div>
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>yes
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+
+</div>
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>no
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+
+</div>
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>no
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+
+</div>
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>no
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+
+</div>
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>yes
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+
+</div>
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>yes
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="스택-수열">
+<a class="anchor" href="#%EC%8A%A4%ED%83%9D-%EC%88%98%EC%97%B4" aria-hidden="true"><span class="octicon octicon-link"></span></a>스택 수열<a class="anchor-link" href="#%EC%8A%A4%ED%83%9D-%EC%88%98%EC%97%B4"> </a>
+</h3>
+<ul>
+<li>문제 출처: <a href="https://www.acmicpc.net/problem/1874">백준 1874번</a>
+</li>
+</ul>
+<p><code>-</code> stack에 숫자를 1부터 n까지 push함</p>
+<p><code>-</code> 그러다가 input으로 받은 nums 리스트의 마지막 원소와 stack의 마지막 원소가 동일하면 pop함</p>
+<p><code>-</code> pop한 숫자의 배열과 기존의 input으로 받은 nums 리스트의 배열과 동일하면 성공적임</p>
+<p><code>-</code> 만약 그렇지 않다면 동일한 배열로 만드는 것이 불가능하므로 'NO'를 출력 ---&gt; 불가능한 경우는 다음과 같음</p>
+<p><code>-</code> push와 pop의 개수가 다름 ---&gt; push는 n번 하지만 동일한 패턴의 배열로 만드는게 불가능하여 pop을 실행 못함 ---&gt; pop의 개수가 적음</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+<span class="n">nums</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">stack</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">print_</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">nums</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">()))</span>
+    
+<span class="n">nums</span><span class="o">.</span><span class="n">reverse</span><span class="p">()</span>
+<span class="n">i</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">cnt</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="k">while</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="p">:</span>
+    <span class="n">stack</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+    <span class="n">print_</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">'+'</span><span class="p">)</span>
+    <span class="n">cnt</span> <span class="o">+=</span> <span class="mi">1</span>
+    
+    <span class="k">if</span> <span class="n">stack</span> <span class="ow">and</span> <span class="n">nums</span><span class="p">:</span>
+        <span class="k">while</span> <span class="n">stack</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="n">nums</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]:</span>
+            <span class="k">if</span> <span class="n">stack</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="n">nums</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]:</span>
+                <span class="n">stack</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+                <span class="n">nums</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+                <span class="n">print_</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">'-'</span><span class="p">)</span>
+                <span class="n">cnt</span> <span class="o">-=</span> <span class="mi">1</span>
+            
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">stack</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">nums</span><span class="p">:</span>
+                <span class="k">break</span>
+        
+    <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+        
+<span class="k">if</span> <span class="n">cnt</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">print_</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">j</span><span class="p">)</span>
+        
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">'NO'</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+</div>
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>+
++
++
++
+-
+-
++
++
+-
++
++
+-
+-
+-
+-
+-
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="이분-탐색">
+<a class="anchor" href="#%EC%9D%B4%EB%B6%84-%ED%83%90%EC%83%89" aria-hidden="true"><span class="octicon octicon-link"></span></a>이분 탐색<a class="anchor-link" href="#%EC%9D%B4%EB%B6%84-%ED%83%90%EC%83%89"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="나무-자르기">
+<a class="anchor" href="#%EB%82%98%EB%AC%B4-%EC%9E%90%EB%A5%B4%EA%B8%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>나무 자르기<a class="anchor-link" href="#%EB%82%98%EB%AC%B4-%EC%9E%90%EB%A5%B4%EA%B8%B0"> </a>
+</h3>
+<ul>
+<li>문제 출처: <a href="https://www.acmicpc.net/problem/2805">백준 2805번</a>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 이진탐색으로 해결가능할 듯 하다 ---&gt; 처음 푸는 유형이었음</p>
+<p><code>-</code> 나무를 높이 순서로 오름차순 정렬한 후 0과 최대 나무 높이를 중간으로 나눠서 기준치를 넘는지 안넘는지를 판단함---&gt; 1~100사이 랜덤 숫자 맞추듯이</p>
+<p><code>-</code> 목표는 나무를 x미터 까지 잘랐을 땐 기준치 미달인데 x+1미터를 자르니 기준치를 넘기는 x+1을 찾는 것</p>
+<p><code>-</code> 여러번 틀려서 디버깅 해보니 나무를 반으로 나누는데 최대값은 나무의 최대 높이로 하고 최소값은 나무의 최소 높이로 설정했었다</p>
+<p><code>-</code> 위에 처럼하면 잘못됐는데 왜냐하면 이 문제의 해가 나무의 최소 높이보다 더 낮은 높이를 절단해야 하면 답이 나오지 않기 때문이다</p>
+<p><code>-</code> ex) 나무가 3개 있고 높이가 각각 10 20 30이라 하고 필요한 나무는 10미터이라 하자</p>
+<p><code>-</code> 이 경우는 잘못된 코드로 풀어도 가능함 ---&gt; 왜냐면 정답이 20미터인데 20은 10과 30 사이 숫자이므로</p>
+<p><code>-</code> 하지만 필요한 나무가 60미터라면 정답은 0미터여야 하지만 틀린 코드는 최소값 10과 최대값 30 사이를 이분탐색하므로 0이 나올 수 가 없음</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">N</span><span class="p">,</span> <span class="n">M</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+<span class="n">x</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">()))</span>
+<span class="n">x</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">trees_sum</span><span class="p">(</span><span class="n">h</span><span class="p">):</span> <span class="c1">## 잘라서 나온 나무 높이의 합 구하기</span>
+    <span class="n">_sum</span><span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">h</span><span class="p">:</span>
+            <span class="n">_sum</span> <span class="o">+=</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">h</span>
+    <span class="k">return</span> <span class="n">_sum</span>
+
+<span class="k">def</span> <span class="nf">cut</span><span class="p">(</span><span class="n">trees</span><span class="p">):</span>
+    <span class="n">left</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1">## 잘못된 코드는 left = trees[0] 나머지는 동일함</span>
+    <span class="n">right</span> <span class="o">=</span> <span class="n">trees</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">mid</span> <span class="o">=</span> <span class="p">(</span><span class="n">left</span> <span class="o">+</span> <span class="n">right</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span>
+    <span class="n">sum_</span> <span class="o">=</span> <span class="n">trees_sum</span><span class="p">(</span><span class="n">mid</span><span class="p">)</span>
+            
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">right</span> <span class="o">-</span> <span class="n">left</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+                <span class="k">break</span>
+                
+        <span class="k">if</span> <span class="n">sum_</span> <span class="o">&gt;=</span> <span class="n">M</span><span class="p">:</span>    
+            <span class="n">left</span> <span class="o">=</span> <span class="n">mid</span>
+            <span class="n">mid</span> <span class="o">=</span> <span class="p">(</span><span class="n">left</span> <span class="o">+</span> <span class="n">right</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span>
+            <span class="n">sum_</span> <span class="o">=</span> <span class="n">trees_sum</span><span class="p">(</span><span class="n">mid</span><span class="p">)</span>  
+                
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">right</span> <span class="o">=</span> <span class="n">mid</span>
+            <span class="n">mid</span> <span class="o">=</span> <span class="p">(</span><span class="n">left</span> <span class="o">+</span> <span class="n">right</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span>
+            <span class="n">sum_</span> <span class="o">=</span> <span class="n">trees_sum</span><span class="p">(</span><span class="n">mid</span><span class="p">)</span>
+            
+    <span class="k">return</span> <span class="n">mid</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">cut</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+</div>
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>15
 </pre>
 </div>
 </div>
