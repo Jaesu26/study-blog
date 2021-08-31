@@ -96,7 +96,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      87 min read
+      89 min read
     
 </span></p>
 
@@ -255,6 +255,7 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h3"><a href="#수학은-비대면강의입니다(19532번)">수학은 비대면강의입니다(19532번) </a></li>
 <li class="toc-entry toc-h3"><a href="#부녀회장이-될테야">부녀회장이 될테야 </a></li>
 <li class="toc-entry toc-h3"><a href="#분산처리">분산처리 </a></li>
+<li class="toc-entry toc-h3"><a href="#3의-배수">3의 배수 </a></li>
 </ul>
 </li>
 <li class="toc-entry toc-h2"><a href="#기본-수학-2----기하">기본 수학 2 -- 기하 </a>
@@ -324,6 +325,7 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h3"><a href="#괄호">괄호 </a></li>
 <li class="toc-entry toc-h3"><a href="#균형잡힌-세상">균형잡힌 세상 </a></li>
 <li class="toc-entry toc-h3"><a href="#스택-수열">스택 수열 </a></li>
+<li class="toc-entry toc-h3"><a href="#오큰수">오큰수 </a></li>
 </ul>
 </li>
 <li class="toc-entry toc-h2"><a href="#이분-탐색">이분 탐색 </a>
@@ -7244,6 +7246,73 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="3의-배수">
+<a class="anchor" href="#3%EC%9D%98-%EB%B0%B0%EC%88%98" aria-hidden="true"><span class="octicon octicon-link"></span></a>3의 배수<a class="anchor-link" href="#3%EC%9D%98-%EB%B0%B0%EC%88%98"> </a>
+</h3>
+<ul>
+<li>문제 출처: <a href="https://www.acmicpc.net/problem/1769">백준 1769번</a>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span>
+<span class="n">cnt</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="nb">sum</span><span class="p">([</span><span class="nb">int</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">x</span><span class="p">]))</span>
+    <span class="n">cnt</span> <span class="o">+=</span> <span class="mi">1</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">cnt</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">%</span> <span class="mi">3</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">'YES'</span><span class="p">)</span>
+    
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">'NO'</span><span class="p">)</span>
+    
+<span class="c1">## input</span>
+<span class="c1">## 1234567</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+</div>
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>3
+NO
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <hr>
 
 </div>
@@ -12234,6 +12303,100 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="오큰수">
+<a class="anchor" href="#%EC%98%A4%ED%81%B0%EC%88%98" aria-hidden="true"><span class="octicon octicon-link"></span></a>오큰수<a class="anchor-link" href="#%EC%98%A4%ED%81%B0%EC%88%98"> </a>
+</h3>
+<ul>
+<li>문제 출처: <a href="https://www.acmicpc.net/problem/17298">백준 17298번</a>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 마지막 인덱스부터 처음 인덱스 순서로 진행할 거임 i(N-1 $\to$ 0)</p>
+<p><code>-</code> 일단 num.pop()한 값을 tmp에 저장 ---&gt; tmp는 num의 마지막 원소임</p>
+<p><code>-</code> 그리고 tmp를 stack에 append한다</p>
+<p><code>-</code> stack은 num[i]의 오큰수를 찾는 역할임 ---&gt; stack에는 num의 마지막 원소부터 처음 원소까지 append된다</p>
+<p><code>-</code> 스택 구조 특징(후입선출)상 stack[-1]은 num[i]의 바로 오른쪽이며 stack[0]은 num[i]와 오른쪽으로 가장 멀리 떨어진 원소임</p>
+<p><code>-</code> 그래서 stack으로 어떻게 오큰수 찾음? ---&gt; 일단 tmp &gt; num[i]이면 num[i]의 오큰수는 tmp임</p>
+<p><code>-</code> 만약 tmp &lt;= num[i]라면 stack.pop()과 비교함</p>
+<p><code>-</code> 만약 stack.pop() &gt; num[i]라면 num[i]의 오큰수는 stack.pop()임</p>
+<p><code>-</code> 만약 stack.pop() &lt;= num[i]라면 기존의 stack.pop()을 버리고 다시 stack.pop()한 값과 비교 ---&gt; stack의 모든 원소와 비교해도 오큰수가 없으면 -1</p>
+<p><code>-</code> 질문검색 참고해서 풀었음</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+<span class="n">num</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">()))</span>
+<span class="n">arr</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">N</span>
+<span class="n">stack</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+    <span class="n">tmp</span> <span class="o">=</span> <span class="n">num</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span> <span class="c1">## num[i]와 num[i+1](=tmp)을 비교하기 위한 수단 ## for문을 반복할 때 마다 num의 마지막 원소가 pop되어짐 ---&gt; 총 (N-2-0)+1개 pop</span>
+    <span class="n">stack</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tmp</span><span class="p">)</span> <span class="c1">## num의 마지막원소부터 계속하여 추가함</span>
+
+    <span class="k">while</span> <span class="n">stack</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">num</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">tmp</span><span class="p">:</span>
+            <span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">tmp</span>
+            <span class="k">break</span>
+            
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">val</span> <span class="o">=</span> <span class="n">stack</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+            
+            <span class="k">if</span> <span class="n">num</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">val</span><span class="p">:</span>
+                <span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">val</span>
+                <span class="n">stack</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">val</span><span class="p">)</span> <span class="c1">## num[i]와 비교를 위해 val를 pop했는데 num[i] &lt; val이어서 아직 val은 쓸모 있음 ---&gt; 그러므로 다시 val을 append  </span>
+                <span class="k">break</span>
+            
+            <span class="k">else</span><span class="p">:</span>  <span class="c1">## num[i] &gt;= stack.pop() ---&gt; num[i]의 오른쪽 숫자중에서 가장 왼쪽에 있는 수 부터 살펴봄 ---&gt;</span>
+                <span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span> <span class="c1">## 그런데 num[i]보다 더 작으므로 앞으로 쓸모가 없음(val을 다시 append하지 않음) ---&gt; 왜냐면 앞으로 탐색할 것은 num[i]의 왼쪽에 있는 수 인데 예로 num[x]라 하자</span>
+                            <span class="c1">## stack.pop()이 num[x]의 오큰수하 하자 ---&gt; 그런데 stack.pop() &gt;= num[i]이므로 num[x]의 오큰수는 num[i]가 됨 ---&gt; 그러므로 stack.pop()은 이제 무쓸모 </span>
+<span class="nb">print</span><span class="p">(</span><span class="o">*</span><span class="n">arr</span><span class="p">)</span>
+
+<span class="c1">## input ---&gt; N = 4, num = 9 5 4 8 </span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+</div>
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>-1 8 8 -1
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <hr>
 
 </div>
@@ -12318,6 +12481,10 @@ window.onload = wrap_img;
     <span class="k">return</span> <span class="n">mid</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">cut</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+
+<span class="c1">## input</span>
+<span class="c1">## 4 7</span>
+<span class="c1">## 20 15 10 17</span>
 </pre></div>
 
     </div>
