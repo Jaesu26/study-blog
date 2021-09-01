@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>회귀 분석 | Jaesu’s blog</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="회귀 분석" />
+<meta name="author" content="한재수" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="작성 중" />
+<meta property="og:description" content="작성 중" />
+<link rel="canonical" href="https://gkswotn12345.github.io/green/python/r/statistics/2021/09/01/%ED%9A%8C%EA%B7%80%EB%B6%84%EC%84%9D.html" />
+<meta property="og:url" content="https://gkswotn12345.github.io/green/python/r/statistics/2021/09/01/%ED%9A%8C%EA%B7%80%EB%B6%84%EC%84%9D.html" />
+<meta property="og:site_name" content="Jaesu’s blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-09-01T00:00:00-05:00" />
+<script type="application/ld+json">
+{"description":"작성 중","url":"https://gkswotn12345.github.io/green/python/r/statistics/2021/09/01/%ED%9A%8C%EA%B7%80%EB%B6%84%EC%84%9D.html","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://gkswotn12345.github.io/green/python/r/statistics/2021/09/01/%ED%9A%8C%EA%B7%80%EB%B6%84%EC%84%9D.html"},"headline":"회귀 분석","dateModified":"2021-09-01T00:00:00-05:00","datePublished":"2021-09-01T00:00:00-05:00","author":{"@type":"Person","name":"한재수"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/green/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://gkswotn12345.github.io/green/feed.xml" title="Jaesu's blog" /><link rel="shortcut icon" type="image/x-icon" href="/green/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.css" integrity="sha512-h7nl+xz8wgDlNM4NqKEM4F1NkIRS17M9+uJwIGwuo8vGqIl4BhuCKdxjWEINm+xyrUjNCnK5dCrhM0sj+wTIXw==" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.js" integrity="sha512-/CMIhXiDA3m2c9kzRyd97MTb3MC6OVnx4TElQ7fkkoRghwDf6gi41gaT1PwF270W6+J60uTmwgeRpNpJdRV6sg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/contrib/auto-render.min.js" integrity="sha512-Do7uJAaHZm5OLrIv/yN4w0iG1dbu01kzdMNnFfu/mAqgUk6Nniv2JYHcwH+cNwjqgLcqcuBBk+JRvprLVI8azg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha512-0doc9hKxR3PYwso42RD1p5ySZpzzuDiOwMrdCEh2WdJZCjcmFKc/wEnL+z8fBQrnHoiNWbo+3fiGkOYXBdQp4A==" crossorigin="anonymous"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement( document.body, {
+        delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "[%", right: "%]", display: true},
+            {left: "$", right: "$", display: false}
+        ]}
+        );
+    });
+    </script>
+
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/green/">Jaesu&#39;s blog</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/green/about/">About Me</a><a class="page-link" href="/green/search/">Search</a><a class="page-link" href="/green/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">회귀 분석</h1><p class="page-description">작성 중</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2021-09-01T00:00:00-05:00" itemprop="datePublished">
+        Sep 1, 2021
+      </time>• 
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">한재수</span></span>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      1 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/green/categories/#python">python</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/green/categories/#R">R</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/green/categories/#statistics">statistics</a>
+        
+      
+      </p>
+    
+
+    
+      
+        <div class="pb-5 d-flex flex-wrap flex-justify-end">
+          <div class="px-2">
+
+    <a href="https://github.com/gkswotn12345/green/tree/master/_notebooks/2021-09-01-회귀분석.ipynb" role="button" target="_blank">
+<img class="notebook-badge-image" src="/green/assets/badges/github.svg" alt="View On GitHub">
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://mybinder.org/v2/gh/gkswotn12345/green/master?filepath=_notebooks%2F2021-09-01-%ED%9A%8C%EA%B7%80%EB%B6%84%EC%84%9D.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/green/assets/badges/binder.svg" alt="Open In Binder"/>
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://colab.research.google.com/github/gkswotn12345/green/blob/master/_notebooks/2021-09-01-회귀분석.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/green/assets/badges/colab.svg" alt="Open In Colab"/>
+    </a>
+</div>
+        </div>
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul class="section-nav">
+<li class="toc-entry toc-h1"><a href="#1장---회귀-분석의-개념">1장 - 회귀 분석의 개념 </a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#상관-분석(correlation-analysis)">상관 분석(correlation analysis) </a></li>
+<li class="toc-entry toc-h2"><a href="#회귀-분석(regression-analysis)">회귀 분석(regression analysis) </a></li>
+<li class="toc-entry toc-h2"><a href="#변수-형태">변수 형태 </a></li>
+<li class="toc-entry toc-h2"><a href="#통계적-모형의-종류">통계적 모형의 종류 </a></li>
+<li class="toc-entry toc-h2"><a href="#회귀-분석의-절차">회귀 분석의 절차 </a></li>
+</ul>
+</li>
+</ul><!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2021-09-01-회귀분석.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 2학기 수업에서 배우는 회귀 분석 내용에 대해 간단히 정리할 거임</p>
+<p><code>-</code> SAS 와 R을 활용한 선형 회귀분석 참고</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="1장---회귀-분석의-개념">
+<a class="anchor" href="#1%EC%9E%A5---%ED%9A%8C%EA%B7%80-%EB%B6%84%EC%84%9D%EC%9D%98-%EA%B0%9C%EB%85%90" aria-hidden="true"><span class="octicon octicon-link"></span></a>1장 - 회귀 분석의 개념<a class="anchor-link" href="#1%EC%9E%A5---%ED%9A%8C%EA%B7%80-%EB%B6%84%EC%84%9D%EC%9D%98-%EA%B0%9C%EB%85%90"> </a>
+</h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="상관-분석(correlation-analysis)">
+<a class="anchor" href="#%EC%83%81%EA%B4%80-%EB%B6%84%EC%84%9D(correlation-analysis)" aria-hidden="true"><span class="octicon octicon-link"></span></a>상관 분석(correlation analysis)<a class="anchor-link" href="#%EC%83%81%EA%B4%80-%EB%B6%84%EC%84%9D(correlation-analysis)"> </a>
+</h2>
+<p><code>-</code> 변수들이 얼마만큼의 선형적인 관계가 있는지 분석</p>
+<p><code>-</code> 종속변수와 독립변수 고려 X</p>
+<p><code>-</code> 측정은 상관계수</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="회귀-분석(regression-analysis)">
+<a class="anchor" href="#%ED%9A%8C%EA%B7%80-%EB%B6%84%EC%84%9D(regression-analysis)" aria-hidden="true"><span class="octicon octicon-link"></span></a>회귀 분석(regression analysis)<a class="anchor-link" href="#%ED%9A%8C%EA%B7%80-%EB%B6%84%EC%84%9D(regression-analysis)"> </a>
+</h2>
+<p><code>-</code> 서로 <code>인과관계</code>가 있는 두 변수들 간의 관계식을 분석</p>
+<p><code>-</code> 독립변수와 종속변수 고려 O</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="변수-형태">
+<a class="anchor" href="#%EB%B3%80%EC%88%98-%ED%98%95%ED%83%9C" aria-hidden="true"><span class="octicon octicon-link"></span></a>변수 형태<a class="anchor-link" href="#%EB%B3%80%EC%88%98-%ED%98%95%ED%83%9C"> </a>
+</h2>
+<p><code>1.</code> 연속형(continuous)변수 ---&gt; 키, 몸무게, 수입 등</p>
+<p><code>2.</code> 이산형(discrete)변수 ---&gt; 사고 횟수 등</p>
+<p><code>3.</code> 범주형(classified)변수 ---&gt; 성별, 교육 수준 등</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="통계적-모형의-종류">
+<a class="anchor" href="#%ED%86%B5%EA%B3%84%EC%A0%81-%EB%AA%A8%ED%98%95%EC%9D%98-%EC%A2%85%EB%A5%98" aria-hidden="true"><span class="octicon octicon-link"></span></a>통계적 모형의 종류<a class="anchor-link" href="#%ED%86%B5%EA%B3%84%EC%A0%81-%EB%AA%A8%ED%98%95%EC%9D%98-%EC%A2%85%EB%A5%98"> </a>
+</h2>
+<p><code>1.</code> 단순 선형회귀 $y=a+bx+\epsilon$</p>
+<p><code>2.</code> 다중 선형회귀 $y=a+b_1x_1+b_2x_2+\cdots+b_kx_k+\epsilon$</p>
+<p><code>3.</code> 다항 회귀 $y=a+b_1x+b_2x^2+\cdots+b_nx^k+\epsilon$</p>
+<p><code>4.</code> 비선형 회귀 $y=\frac{c}{a-b}(e^{-ax_1}+e^{-bx_2}-e^{-cx_3})+\epsilon$</p>
+<p><code>5.</code> 일반화 선형모형 ---&gt; 로지스틱 y: 이항변수, 포아송 회귀 y: 계수변수</p>
+<p><code>-</code> 참고 $y=e^{a+bx}$ : 비선형 $\to$ $ln(y) = a+bx$ : 선형</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="회귀-분석의-절차">
+<a class="anchor" href="#%ED%9A%8C%EA%B7%80-%EB%B6%84%EC%84%9D%EC%9D%98-%EC%A0%88%EC%B0%A8" aria-hidden="true"><span class="octicon octicon-link"></span></a>회귀 분석의 절차<a class="anchor-link" href="#%ED%9A%8C%EA%B7%80-%EB%B6%84%EC%84%9D%EC%9D%98-%EC%A0%88%EC%B0%A8"> </a>
+</h2>
+<p><code>1.</code> 연구목적 ---&gt; 설명변수 선택</p>
+<p><code>2.</code> 산점도 ---&gt; 다중공선성, 이상점, 영향점 파악</p>
+<p><code>3.</code> 회귀모형 추정 ---&gt; 회귀계수 추정</p>
+<p><code>-</code> 이분산 ---&gt; 가중회귀, 다중공선성 ---&gt; Ridge Regression</p>
+<p><code>4.</code> 유의한 변수 선택 ---&gt; 회귀 계수 t검정, 변수 선택방법 이용, 수정 결정계수</p>
+<p><code>5.</code> 다중공선성 진단 ---&gt; 산점도, VIF, 문제 변수 제거, 주성분 회귀 이용</p>
+<p><code>6.</code> 영향점 진단 ---&gt; RSTUDENT, LEVERAGE, DFFITS, COVARTIO, 이상점 제거, 다중회귀에선 영향점도 제거</p>
+<p><code>7.</code> 잔차 분석 ---&gt; <code>잔차와 예측치</code>의 산점도, 잔차의 정규성 검정</p>
+<p><code>-</code> 정규성 가정 이탈: 종속변수를 변환, 등분산 가정 이탈: 가중회귀 방법</p>
+<p><code>8.</code> 최종 회귀모형 ---&gt; 추정된 모형 해석, 표준화 회귀계수에 의해 각 설명변수의 영향력 비교</p>
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+  </div><!-- from https://github.com/utterance/utterances -->
+<script src="https://utteranc.es/client.js"
+        repo="gkswotn12345/green"
+        issue-term="title"
+        label="blogpost-comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script><a class="u-url" href="/green/python/r/statistics/2021/09/01/%ED%9A%8C%EA%B7%80%EB%B6%84%EC%84%9D.html" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/green/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/green/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/green/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>An easy to use blogging platform with support for Jupyter Notebooks.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/gkswotn12345" title="gkswotn12345"><svg class="svg-icon grey"><use xlink:href="/green/assets/minima-social-icons.svg#github"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
