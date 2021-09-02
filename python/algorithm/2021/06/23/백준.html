@@ -96,7 +96,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      89 min read
+      91 min read
     
 </span></p>
 
@@ -287,6 +287,8 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h2"><a href="#정수론-및-조합론">정수론 및 조합론 </a>
 <ul>
 <li class="toc-entry toc-h3"><a href="#이항-계수-2">이항 계수 2 </a></li>
+<li class="toc-entry toc-h3"><a href="#팩토리얼-0의-개수">팩토리얼 0의 개수 </a></li>
+<li class="toc-entry toc-h3"><a href="#조합-0의-개수">조합 0의 개수 </a></li>
 </ul>
 </li>
 <li class="toc-entry toc-h2"><a href="#동적-계획법">동적 계획법 </a>
@@ -9242,6 +9244,226 @@ NO
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>270288240945436569515614693625975275496152008446548287007392875106625428705522193898612483924502370165362606085021546104802209750050679917549894219699518475423665484263751733356162464079737887344364574161119497604571044985756287880514600994219426752366915856603136862602484428109296905863799821216320
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="팩토리얼-0의-개수">
+<a class="anchor" href="#%ED%8C%A9%ED%86%A0%EB%A6%AC%EC%96%BC-0%EC%9D%98-%EA%B0%9C%EC%88%98" aria-hidden="true"><span class="octicon octicon-link"></span></a>팩토리얼 0의 개수<a class="anchor-link" href="#%ED%8C%A9%ED%86%A0%EB%A6%AC%EC%96%BC-0%EC%9D%98-%EA%B0%9C%EC%88%98"> </a>
+</h3>
+<ul>
+<li>문제 출처: <a href="https://www.acmicpc.net/problem/1676">백준 1676번</a>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 끝이 0인 수는 어떤 수를 곱하든지 간에 0으로 끝남</p>
+<p><code>-</code> 2와 5가 곱해지면 10이 됨 ---&gt; 10이 한 번 곱해질 때마다 0의 개수가 1개 증가함</p>
+<p><code>-</code> 2의 개수가 5의 개수보다 훨씬 많으므로 사실상 5의 개수는 0의 개수와 동일함</p>
+<p><code>-</code> 25와 같이 5가 여러번 곱해진 수를 잘 고려해야 함</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+<span class="n">cnt</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+    <span class="n">val</span> <span class="o">=</span> <span class="n">i</span>
+    
+    <span class="k">while</span> <span class="n">val</span> <span class="o">%</span> <span class="mi">5</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">val</span> <span class="o">%</span> <span class="mi">5</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">val</span> <span class="o">//=</span> <span class="mi">5</span>
+            <span class="n">cnt</span> <span class="o">+=</span> <span class="mi">1</span>
+        
+<span class="nb">print</span><span class="p">(</span><span class="n">cnt</span><span class="p">)</span>    
+<span class="c1">## input ---&gt; 25</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+</div>
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>6
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 간결한 코드 숏코딩에서 찾음</p>
+<p><code>-</code> N의 범위는 최대 500으로 이를 넘지않는 5의 거듭제곱수는 $5^3$임</p>
+<p><code>-</code> 즉 N을 5로 나눈 몫을 통해 5의 배수의 개수를 찾음</p>
+<p><code>-</code> 25의 배수(&lt;125)는 소인수 5의 개수가 2개이므로 N을 25로 나눔으로써 25의 배수를 찾고 마찬가지로 125로 나눠 125 배수의 개수를 찾음</p>
+<p><code>-</code> 이를 모두 더하면 소인수 5의 총 개수임</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">N</span><span class="o">//</span><span class="mi">5</span> <span class="o">+</span> <span class="n">N</span><span class="o">//</span><span class="mi">25</span> <span class="o">+</span> <span class="n">N</span><span class="o">//</span><span class="mi">125</span><span class="p">)</span>
+<span class="c1">## input ---&gt; 6</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+</div>
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>6
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="조합-0의-개수">
+<a class="anchor" href="#%EC%A1%B0%ED%95%A9-0%EC%9D%98-%EA%B0%9C%EC%88%98" aria-hidden="true"><span class="octicon octicon-link"></span></a>조합 0의 개수<a class="anchor-link" href="#%EC%A1%B0%ED%95%A9-0%EC%9D%98-%EA%B0%9C%EC%88%98"> </a>
+</h3>
+<ul>
+<li>문제 출처: <a href="https://www.acmicpc.net/problem/2004">백준 2004번</a>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 팩토리얼 0의 개수를 푼 것과 같이 풀면 된다</p>
+<p><code>-</code> 2와 5의 개수를 세서 2와 5중 더 적은 숫자만큼 끝자리에 0이 생김</p>
+<p><code>-</code> 바로 for문 사용하면 N, M의 범위 때문에 시간초과임</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">N</span><span class="p">,</span> <span class="n">M</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+
+<span class="k">if</span> <span class="n">N</span> <span class="o">-</span> <span class="n">M</span> <span class="o">&lt;</span> <span class="n">M</span><span class="p">:</span>
+    <span class="n">M</span> <span class="o">=</span> <span class="n">N</span> <span class="o">-</span> <span class="n">M</span>
+
+<span class="n">k</span> <span class="o">=</span> <span class="n">j</span> <span class="o">=</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">i2</span> <span class="o">=</span> <span class="n">j2</span> <span class="o">=</span> <span class="n">k2</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">cnt2</span> <span class="o">=</span> <span class="n">cnt</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="c1">## n C m = n! / (n-m)! / m!</span>
+<span class="k">while</span> <span class="mi">5</span><span class="o">**</span><span class="n">i</span> <span class="o">&lt;</span> <span class="mi">2000000001</span><span class="p">:</span> <span class="c1">## n!의 소인수 5의 개수를 더해줌</span>
+    <span class="n">cnt</span> <span class="o">+=</span> <span class="n">N</span> <span class="o">//</span> <span class="p">(</span><span class="mi">5</span><span class="o">**</span><span class="n">i</span><span class="p">)</span>
+    <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+    
+<span class="k">while</span> <span class="mi">5</span><span class="o">**</span><span class="n">j</span> <span class="o">&lt;</span> <span class="mi">1000000001</span><span class="p">:</span> <span class="c1">## m!의 소인수 5의 개수를 빼줌</span>
+    <span class="n">cnt</span> <span class="o">-=</span> <span class="n">M</span> <span class="o">//</span> <span class="p">(</span><span class="mi">5</span><span class="o">**</span><span class="n">j</span><span class="p">)</span>
+    <span class="n">j</span> <span class="o">+=</span> <span class="mi">1</span>
+
+<span class="k">while</span> <span class="mi">5</span><span class="o">**</span><span class="n">k</span> <span class="o">&lt;</span> <span class="mi">2000000001</span><span class="p">:</span> <span class="c1">## (n-m)!의 소인수 5의 개수를 빼줌</span>
+    <span class="n">cnt</span> <span class="o">-=</span> <span class="p">(</span><span class="n">N</span> <span class="o">-</span> <span class="n">M</span><span class="p">)</span> <span class="o">//</span> <span class="p">(</span><span class="mi">5</span><span class="o">**</span><span class="n">k</span><span class="p">)</span>
+    <span class="n">k</span> <span class="o">+=</span> <span class="mi">1</span>
+
+<span class="k">while</span> <span class="mi">2</span><span class="o">**</span><span class="n">i2</span> <span class="o">&lt;</span> <span class="mi">2000000001</span><span class="p">:</span> <span class="c1">## n!의 소인수 2의 개수를 더해줌</span>
+    <span class="n">cnt2</span> <span class="o">+=</span> <span class="n">N</span> <span class="o">//</span> <span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="n">i2</span><span class="p">)</span>
+    <span class="n">i2</span> <span class="o">+=</span> <span class="mi">1</span>
+    
+<span class="k">while</span> <span class="mi">2</span><span class="o">**</span><span class="n">j2</span> <span class="o">&lt;</span> <span class="mi">1000000001</span><span class="p">:</span> <span class="c1">## m!의 소인수 2의 개수를 뺴줌</span>
+    <span class="n">cnt2</span> <span class="o">-=</span> <span class="n">M</span> <span class="o">//</span> <span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="n">j2</span><span class="p">)</span>
+    <span class="n">j2</span> <span class="o">+=</span> <span class="mi">1</span>
+
+<span class="k">while</span> <span class="mi">2</span><span class="o">**</span><span class="n">k2</span> <span class="o">&lt;</span> <span class="mi">2000000001</span><span class="p">:</span> <span class="c1">## (n-m)!의 소인수 2의 개수를 빼줌</span>
+    <span class="n">cnt2</span> <span class="o">-=</span> <span class="p">(</span><span class="n">N</span> <span class="o">-</span> <span class="n">M</span><span class="p">)</span> <span class="o">//</span> <span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="n">k2</span><span class="p">)</span>
+    <span class="n">k2</span> <span class="o">+=</span> <span class="mi">1</span>
+    
+<span class="nb">print</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">cnt</span><span class="p">,</span> <span class="n">cnt2</span><span class="p">))</span> <span class="c1">## 소인수 2와 5의 개수 중 최소값이 끝자리 0의 개수 </span>
+<span class="c1">## input</span>
+<span class="c1">## 25 12</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+</div>
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>2
 </pre>
 </div>
 </div>
