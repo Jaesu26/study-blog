@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>수리통계학 | Jaesu’s blog</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="수리통계학" />
+<meta name="author" content="한재수" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="작성 중" />
+<meta property="og:description" content="작성 중" />
+<link rel="canonical" href="https://gkswotn12345.github.io/green/statistics/2021/09/03/%EC%88%98%EB%A6%AC%ED%86%B5%EA%B3%84%ED%95%99.html" />
+<meta property="og:url" content="https://gkswotn12345.github.io/green/statistics/2021/09/03/%EC%88%98%EB%A6%AC%ED%86%B5%EA%B3%84%ED%95%99.html" />
+<meta property="og:site_name" content="Jaesu’s blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-09-03T00:00:00-05:00" />
+<script type="application/ld+json">
+{"description":"작성 중","url":"https://gkswotn12345.github.io/green/statistics/2021/09/03/%EC%88%98%EB%A6%AC%ED%86%B5%EA%B3%84%ED%95%99.html","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://gkswotn12345.github.io/green/statistics/2021/09/03/%EC%88%98%EB%A6%AC%ED%86%B5%EA%B3%84%ED%95%99.html"},"headline":"수리통계학","dateModified":"2021-09-03T00:00:00-05:00","datePublished":"2021-09-03T00:00:00-05:00","author":{"@type":"Person","name":"한재수"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/green/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://gkswotn12345.github.io/green/feed.xml" title="Jaesu's blog" /><link rel="shortcut icon" type="image/x-icon" href="/green/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.css" integrity="sha512-h7nl+xz8wgDlNM4NqKEM4F1NkIRS17M9+uJwIGwuo8vGqIl4BhuCKdxjWEINm+xyrUjNCnK5dCrhM0sj+wTIXw==" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.js" integrity="sha512-/CMIhXiDA3m2c9kzRyd97MTb3MC6OVnx4TElQ7fkkoRghwDf6gi41gaT1PwF270W6+J60uTmwgeRpNpJdRV6sg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/contrib/auto-render.min.js" integrity="sha512-Do7uJAaHZm5OLrIv/yN4w0iG1dbu01kzdMNnFfu/mAqgUk6Nniv2JYHcwH+cNwjqgLcqcuBBk+JRvprLVI8azg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha512-0doc9hKxR3PYwso42RD1p5ySZpzzuDiOwMrdCEh2WdJZCjcmFKc/wEnL+z8fBQrnHoiNWbo+3fiGkOYXBdQp4A==" crossorigin="anonymous"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement( document.body, {
+        delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "[%", right: "%]", display: true},
+            {left: "$", right: "$", display: false}
+        ]}
+        );
+    });
+    </script>
+
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/green/">Jaesu&#39;s blog</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/green/about/">About Me</a><a class="page-link" href="/green/search/">Search</a><a class="page-link" href="/green/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">수리통계학</h1><p class="page-description">작성 중</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2021-09-03T00:00:00-05:00" itemprop="datePublished">
+        Sep 3, 2021
+      </time>• 
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">한재수</span></span>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      2 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/green/categories/#statistics">statistics</a>
+        
+      
+      </p>
+    
+
+    
+      
+        <div class="pb-5 d-flex flex-wrap flex-justify-end">
+          <div class="px-2">
+
+    <a href="https://github.com/gkswotn12345/green/tree/master/_notebooks/2021-09-03-수리통계학.ipynb" role="button" target="_blank">
+<img class="notebook-badge-image" src="/green/assets/badges/github.svg" alt="View On GitHub">
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://mybinder.org/v2/gh/gkswotn12345/green/master?filepath=_notebooks%2F2021-09-03-%EC%88%98%EB%A6%AC%ED%86%B5%EA%B3%84%ED%95%99.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/green/assets/badges/binder.svg" alt="Open In Binder"/>
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://colab.research.google.com/github/gkswotn12345/green/blob/master/_notebooks/2021-09-03-수리통계학.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/green/assets/badges/colab.svg" alt="Open In Colab"/>
+    </a>
+</div>
+        </div>
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul class="section-nav">
+<li class="toc-entry toc-h1"><a href="#1장---확률이론">1장 - 확률이론 </a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#표본공간과-사건">표본공간과 사건 </a></li>
+<li class="toc-entry toc-h2"><a href="#확률의-정의">확률의 정의 </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#확률공리">확률공리 </a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul><!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2021-09-03-수리통계학.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 2학기 수업에서 배우는 수리통계학에 대해 정리할 것임</p>
+<p><code>-</code> 중요한 내용은 따로 정리하여 다른 주피터 노트북 파일로 만들 수 도 있음</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="1장---확률이론">
+<a class="anchor" href="#1%EC%9E%A5---%ED%99%95%EB%A5%A0%EC%9D%B4%EB%A1%A0" aria-hidden="true"><span class="octicon octicon-link"></span></a>1장 - 확률이론<a class="anchor-link" href="#1%EC%9E%A5---%ED%99%95%EB%A5%A0%EC%9D%B4%EB%A1%A0"> </a>
+</h1>
+<p><code>-</code> 확률모형 ---&gt; 동전 던지기와 같이 가능성(chance)에 의존</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="표본공간과-사건">
+<a class="anchor" href="#%ED%91%9C%EB%B3%B8%EA%B3%B5%EA%B0%84%EA%B3%BC-%EC%82%AC%EA%B1%B4" aria-hidden="true"><span class="octicon octicon-link"></span></a>표본공간과 사건<a class="anchor-link" href="#%ED%91%9C%EB%B3%B8%EA%B3%B5%EA%B0%84%EA%B3%BC-%EC%82%AC%EA%B1%B4"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> <code>표본공간(sample space)</code> : <code>모든 관찰 가능한 결과</code>들의 집합 ---&gt; $S$ 또는 $\Omega$</p>
+<p><code>-</code> <code>사건(event)</code> : <code>표본공간의 일부분</code>(부분집합) ---&gt; $A, B$ 등 영어 알파벳 대문자</p>
+<p><code>-</code> <code>실험(experiment)</code> 또는 <code>시행 (trial)</code> : 어떤 현상의 관찰결과를 얻기위한 <code>과정</code></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>예시</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 동전의 앞면을 H, 뒷면을 T라 할 때 동전을 2회 던지는 실험을 시행하자</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 표본공간 $S = \{HH, HT, TH, TT\}$</p>
+<p><code>-</code> 1회 앞면이 나오는 사건 $A = \{HT, TH\}$</p>
+<p><code>-</code> 2회 뒷면이 나오는 사건 $B = \{TT\}$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>정의</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 사건 $A$와 $B$가 동시에 속하는 사건 ---&gt; $A$와 $B$의 <code>공통부분(intersection)</code> ---&gt; $A \cap B$</p>
+<p><code>-</code> 사건 $A$ 또는 $B$에 속하는 사건 ---&gt; $A$와 $B$의 <code>합(union)</code> ---&gt; $A \cup B$</p>
+<p><code>-</code> $A \cap B$ = $\phi$ ---&gt; 두 사건 $A$와 $B$는 <code>상호배반(mutually exclusive)</code></p>
+<p><code>-</code> 사건 $A$에 포함되지 않은 모든 $S$의 원소의 집합 ---&gt; $A$의 <code>여사건(complement)</code> ---&gt; $A^c$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>사건에 대한 분배법칙과 드 모르간 법칙</li>
+</ul>
+<p><code>-</code> $(A \cup B)^c = A^c \cap B^c$ ---&gt; 드 모르간(De Morgan) 법칙</p>
+<p><code>-</code> $(A \cap B)^c = A^c \cup B^c$ ---&gt; 드 모르간 법칙</p>
+<p><code>-</code> $A \cup (B \cap C) = (A \cup B) \cap (A \cup C)$ ---&gt; 분배법칙</p>
+<p><code>-</code> $A \cap (B \cup C) = (A \cap B) \cup (A \cap C)$ ---&gt; 분배법칙</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="확률의-정의">
+<a class="anchor" href="#%ED%99%95%EB%A5%A0%EC%9D%98-%EC%A0%95%EC%9D%98" aria-hidden="true"><span class="octicon octicon-link"></span></a>확률의 정의<a class="anchor-link" href="#%ED%99%95%EB%A5%A0%EC%9D%98-%EC%A0%95%EC%9D%98"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>고전적 정의 </li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 표본공간이 <code>유한 개</code>($N$)의 결과로 구성되고 모든 가능한 실험결과들이 일어날 가능성이 <code>동일한</code>경우 $M$개의 실험결과로 이루어진 사건 $A$의 확률 $P(A) = \frac{M}{N}$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>상대도수의 극한</li>
+</ul>
+<p><code>-</code> 실험을 독립적으로 n회 반복했을 때 사건 $A$의 발생횟수를 m이라 하면 실험이 무한히 반복되면 $P(A) = \frac{m}{n}$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="확률공리">
+<a class="anchor" href="#%ED%99%95%EB%A5%A0%EA%B3%B5%EB%A6%AC" aria-hidden="true"><span class="octicon octicon-link"></span></a>확률공리<a class="anchor-link" href="#%ED%99%95%EB%A5%A0%EA%B3%B5%EB%A6%AC"> </a>
+</h3>
+<p><code>1.</code> 임의의 사건 $A$에 대해 $P(A) \geq 0$</p>
+<p><code>2.</code> $P(S)=1$</p>
+<p><code>3.</code> 표본공간 $S$에 정의된 사건열 $A_1, A_2, \cdots$가 있다고 할 때 모든 $i\neq j$에 대하여 $A_i \cap A_j = \phi$이면 $P(\bigcup\limits_{i=1}^{\infty} A_i) 
+= P(A_1 \cup A_2 \cup A_3 \cup \cdots) = \sum\limits_{i=1}^{\infty} P(A_i)$</p>
+<p><code>-</code> 3번째 공리는 쉽게 말하자면 서로소인 두 사건 $A$와 $B$에 대해 $P(A) + P(B) = p(A\cup B)$이다 + 집합열 이해 안되면 통계수학 책 참고하셈</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> <code>확률</code> ---&gt; 표본공간의 부분집합의 모임(특별한 성질 만족)을 정의역으로 하면서 확률공리를 만족하는 함수</p>
+<p><code>-</code> 아니 특별한 성질이 뭐임??? ---&gt; 교수님 - (노트) 확률, 확률변수, 시계열, 정상성 파일에 나와있긴 한데......</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>정리</li>
+</ul>
+<p><code>-</code> 증명은 교재 참고</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>1.</code> $P(A^c) = 1- P(A)$</p>
+<p><code>2.</code> $P(\phi) = 0$</p>
+<p><code>3.</code> $A\subset B$이면 $P(A) \leq P(B)$</p>
+<p><code>4.</code> $P(A\cup B)=P(A)+P(B)-P(A\cap B)$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 정리 4번 사건 3개 버전</p>
+<p><code>-</code> $P(A \cup B \cup C) = P(A) + P(B) + P(C) - P(A\cap B) - P(B \cap C) - P(C \cap A) + P(A \cap B \cap C)$ ---&gt; 벤 다이어그램을 그려보면 간단히 알 수 있음</p>
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+  </div><!-- from https://github.com/utterance/utterances -->
+<script src="https://utteranc.es/client.js"
+        repo="gkswotn12345/green"
+        issue-term="title"
+        label="blogpost-comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script><a class="u-url" href="/green/statistics/2021/09/03/%EC%88%98%EB%A6%AC%ED%86%B5%EA%B3%84%ED%95%99.html" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/green/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/green/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/green/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>An easy to use blogging platform with support for Jupyter Notebooks.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/gkswotn12345" title="gkswotn12345"><svg class="svg-icon grey"><use xlink:href="/green/assets/minima-social-icons.svg#github"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
