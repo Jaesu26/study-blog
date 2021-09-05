@@ -96,7 +96,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      95 min read
+      96 min read
     
 </span></p>
 
@@ -335,6 +335,11 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h3"><a href="#카드-2">카드 2 </a></li>
 <li class="toc-entry toc-h3"><a href="#요세푸스-문제-0">요세푸스 문제 0 </a></li>
 <li class="toc-entry toc-h3"><a href="#프린터-큐">프린터 큐 </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#덱(deque)">덱(deque) </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#덱">덱 </a></li>
 </ul>
 </li>
 <li class="toc-entry toc-h2"><a href="#이분-탐색">이분 탐색 </a>
@@ -12679,7 +12684,7 @@ NO
 <p><code>-</code> 양쪽이 뚫린 원기둥에서 한쪽 입구에 push하면 반대쪽 입구에서 pop된다</p>
 <p><code>-</code> collections의 deque를 import하여 사용한다</p>
 <p><code>-</code> 코드를 보면 input<em> == 'pop'이 아니라 input</em>[:2] == 'po'라고 한것을 볼 수 있음 ---&gt; 왜 그럼? 그냥 input_ == 'pop'하지..</p>
-<p><code>-</code> input이 정확히 'pop'이 아니라 개행문자가 포함되어 'pop '이면 실행이 안됨 ---&gt; 그래서 input_[:2] == 'po'라고 함</p>
+<p><code>-</code> input이 정확히 'pop'이 아니라 개행문자가 포함되어 'pop '이면 실행이 안됨(아님 말고) ---&gt; 그래서 input_[:2] == 'po'라고 함</p>
 
 </div>
 </div>
@@ -13292,6 +13297,296 @@ NO
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>5
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="덱(deque)">
+<a class="anchor" href="#%EB%8D%B1(deque)" aria-hidden="true"><span class="octicon octicon-link"></span></a>덱(deque)<a class="anchor-link" href="#%EB%8D%B1(deque)"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="덱">
+<a class="anchor" href="#%EB%8D%B1" aria-hidden="true"><span class="octicon octicon-link"></span></a>덱<a class="anchor-link" href="#%EB%8D%B1"> </a>
+</h3>
+<ul>
+<li>문제 출처: <a href="https://www.acmicpc.net/problem/10866">백준 10866번</a>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 덱은 스택과 큐를 합친 구조 ---&gt; 양쪽으로 넣고(append) 빼기(pop) 가능함</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">deque</span>
+
+<span class="n">N</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+<span class="n">deque</span> <span class="o">=</span> <span class="n">deque</span><span class="p">()</span>
+        
+<span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+    <span class="n">input_</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span>
+    
+    <span class="k">if</span> <span class="n">input_</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="s1">'pu'</span><span class="p">:</span>
+        <span class="n">num</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">input_</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">1</span><span class="p">])</span>
+        
+        <span class="k">if</span> <span class="n">input_</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="o">==</span> <span class="s1">'f'</span><span class="p">:</span> <span class="c1">## push_front와 push_back구별</span>
+            <span class="n">deque</span><span class="o">.</span><span class="n">appendleft</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
+        
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">deque</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
+            
+    <span class="k">elif</span> <span class="n">input_</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="s1">'po'</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">input_</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">==</span> <span class="s1">'f'</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">deque</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="n">deque</span><span class="o">.</span><span class="n">popleft</span><span class="p">())</span>
+                
+            <span class="k">else</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+                
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">deque</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="n">deque</span><span class="o">.</span><span class="n">pop</span><span class="p">())</span>
+                
+            <span class="k">else</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+                
+    <span class="k">elif</span> <span class="n">input_</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="s1">'si'</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">deque</span><span class="p">))</span>
+        
+    <span class="k">elif</span> <span class="n">input_</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="s1">'em'</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">deque</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+            
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+            
+    <span class="k">elif</span> <span class="n">input_</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="s1">'fr'</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">deque</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">deque</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+            
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+            
+    <span class="k">elif</span> <span class="n">input_</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="s1">'ba'</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">deque</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">deque</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+            
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+            
+<span class="c1">## input</span>
+<span class="c1">## 15</span>
+<span class="c1">## push_back 1</span>
+<span class="c1">## push_front 2</span>
+<span class="c1">## front</span>
+<span class="c1">## back</span>
+<span class="c1">## size</span>
+<span class="c1">## empty</span>
+<span class="c1">## pop_front</span>
+<span class="c1">## pop_back</span>
+<span class="c1">## pop_front</span>
+<span class="c1">## size</span>
+<span class="c1">## empty</span>
+<span class="c1">## pop_back</span>
+<span class="c1">## push_front 3</span>
+<span class="c1">## empty</span>
+<span class="c1">## front</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+</div>
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>2
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+
+</div>
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>1
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+
+</div>
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>2
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+
+</div>
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>0
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+
+</div>
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>2
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+
+</div>
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>1
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+
+</div>
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>-1
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+
+</div>
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>0
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+
+</div>
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>1
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+
+</div>
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>-1
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+
+</div>
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>0
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+
+</div>
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>3
 </pre>
 </div>
 </div>
