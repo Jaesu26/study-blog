@@ -248,9 +248,9 @@ window.onload = wrap_img;
 
 <div class="output_area">
 
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>C:\anaconda3\envs\py38r40\lib\site-packages\rpy2\robjects\packages.py:366: UserWarning: The symbol 'quartz' is not in this R namespace/package.
-  warnings.warn(
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>The rpy2.ipython extension is already loaded. To reload it, use:
+  %reload_ext rpy2.ipython
 </pre>
 </div>
 </div>
@@ -3940,7 +3940,6 @@ z  3.181818  4.142857  1.857143
 <p><code>-</code> what 은 읽어 들일 데이터 값 형식 numeric, logical, character</p>
 <p><code>-</code> 책 따라 하는데 scan함수가 제대로 작동되지 않아 찾아보니 quote = "" 로 하지 않아서라고 함 ---&gt; 참고: <a href="https://pythonq.com/so/r/29317">https://pythonq.com/so/r/29317</a></p>
 <p><code>-</code> quote = "" 옵션을 적용하지 않으면 Read 1 item을 반환 ---&gt; 빈칸을 기준으로 문자열을 쪼개지 않았다는 뜻 ---&gt; 그런데 sep = "\n" 으로 하면 Read 20 item임</p>
-<p><code>-</code> 원인을 알았는데 내가 yesterday노래 가사 텍스트 파일을 만들 때 맨 앞에 " 기호를 실수로 추가했었음 ---&gt; " 기호를 없애니 잘 동작함</p>
 
 </div>
 </div>
@@ -3953,7 +3952,72 @@ z  3.181818  4.142857  1.857143
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="n">R</span>
-<span class="n">lyrics</span> <span class="o">&lt;-</span> <span class="nf">scan</span><span class="p">(</span><span class="s">"yesterday.txt"</span><span class="p">,</span> <span class="n">what</span> <span class="o">=</span> <span class="s">"character"</span><span class="p">)</span> <span class="c1">## quote = "" 옵션을 적용 안해도 잘 동작함</span>
+<span class="n">tmp</span> <span class="o">&lt;-</span> <span class="nf">scan</span><span class="p">(</span><span class="s">"yesterday.txt"</span><span class="p">,</span> <span class="n">what</span> <span class="o">=</span> <span class="s">"character"</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>R[write to console]: Read 1 item
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="n">R</span>
+<span class="nf">str</span><span class="p">(</span><span class="n">tmp</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre> chr "Yesterday, all my troubles seemed so far away.\nNow it looks as though they're here to stay.\noh, I believe in "| __truncated__
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="n">R</span>
+<span class="n">lyrics</span> <span class="o">&lt;-</span> <span class="nf">scan</span><span class="p">(</span><span class="s">"yesterday.txt"</span><span class="p">,</span> <span class="n">what</span> <span class="o">=</span> <span class="s">"character"</span><span class="p">,</span> <span class="n">quote</span> <span class="o">=</span> <span class="s">""</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -3999,7 +4063,7 @@ z  3.181818  4.142857  1.857143
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre> chr [1:126] "Yesterday," "all" "my" "troubles" "seemed" "so" "far" "away." ...
+<pre> chr [1:126] "\"Yesterday," "all" "my" "troubles" "seemed" "so" "far" ...
 </pre>
 </div>
 </div>
@@ -4031,8 +4095,8 @@ z  3.181818  4.142857  1.857143
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre> [1] "Yesterday," "all"        "my"         "troubles"   "seemed"    
- [6] "so"         "far"        "away."      "Now"        "it"        
+<pre> [1] "\"Yesterday," "all"          "my"           "troubles"     "seemed"      
+ [6] "so"           "far"          "away."        "Now"          "it"          
 </pre>
 </div>
 </div>
@@ -4105,7 +4169,7 @@ z  3.181818  4.142857  1.857143
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre> chr [1:20] "Yesterday, all my troubles seemed so far away." ...
+<pre> chr [1:20] "\"Yesterday, all my troubles seemed so far away." ...
 </pre>
 </div>
 </div>
@@ -4137,11 +4201,11 @@ z  3.181818  4.142857  1.857143
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>[1] "Yesterday, all my troubles seemed so far away."
-[2] "Now it looks as though they're here to stay."  
-[3] "oh, I believe in yesterday."                   
-[4] "Suddenly, I'm not half the man I used to be."  
-[5] "There's a shadow hanging over me."             
+<pre>[1] "\"Yesterday, all my troubles seemed so far away."
+[2] "Now it looks as though they're here to stay."    
+[3] "oh, I believe in yesterday."                     
+[4] "Suddenly, I'm not half the man I used to be."    
+[5] "There's a shadow hanging over me."               
 </pre>
 </div>
 </div>
@@ -4499,7 +4563,7 @@ z  3.181818  4.142857  1.857143
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>  [1] 10  3  2  8  6  2  3  5  3  2  5  2  6  7  4  2  5  3  1  7  2 10  9  3  3
+<pre>  [1] 11  3  2  8  6  2  3  5  3  2  5  2  6  7  4  2  5  3  1  7  2 10  9  3  3
  [26]  4  3  3  1  4  2  3  7  1  6  7  4  3  3  9  4  9  3  3  3  2  3  1  5  5
  [51]  3  8  4  1  4  9  6  3  1  4  3 10  9  4  3  4  2  4  4  2  5  3  1  4  1
  [76]  5  2  4  5  3  1  7  2 10  3  3  3  2  3  1  5  5  3  8  4  1  4  9  6  3
