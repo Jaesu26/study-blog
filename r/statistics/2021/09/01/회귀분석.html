@@ -96,7 +96,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      1 min read
+      3 min read
     
 </span></p>
 
@@ -138,13 +138,34 @@ window.onload = wrap_img;
 
   <div class="post-content e-content" itemprop="articleBody">
     <ul class="section-nav">
-<li class="toc-entry toc-h1"><a href="#1장---회귀-분석의-개념">1장 - 회귀 분석의 개념 </a>
+<li class="toc-entry toc-h1"><a href="#회귀-분석의-개념">회귀 분석의 개념 </a>
 <ul>
 <li class="toc-entry toc-h2"><a href="#상관-분석(correlation-analysis)">상관 분석(correlation analysis) </a></li>
 <li class="toc-entry toc-h2"><a href="#회귀-분석(regression-analysis)">회귀 분석(regression analysis) </a></li>
 <li class="toc-entry toc-h2"><a href="#변수-형태">변수 형태 </a></li>
 <li class="toc-entry toc-h2"><a href="#통계적-모형의-종류">통계적 모형의 종류 </a></li>
 <li class="toc-entry toc-h2"><a href="#회귀-분석의-절차">회귀 분석의 절차 </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h1"><a href="#단순회귀분석">단순회귀분석 </a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#상관관계">상관관계 </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#상관계수">상관계수 </a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#상관계수-특징">상관계수 특징 </a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#단순회귀모형">단순회귀모형 </a></li>
+<li class="toc-entry toc-h2"><a href="#회귀선의-추정">회귀선의 추정 </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#최소제곱법">최소제곱법 </a></li>
+<li class="toc-entry toc-h3"><a href="#R-예제">R 예제 </a></li>
+<li class="toc-entry toc-h3"><a href="#최우추정법">최우추정법 </a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul><!--
@@ -168,8 +189,8 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="1장---회귀-분석의-개념">
-<a class="anchor" href="#1%EC%9E%A5---%ED%9A%8C%EA%B7%80-%EB%B6%84%EC%84%9D%EC%9D%98-%EA%B0%9C%EB%85%90" aria-hidden="true"><span class="octicon octicon-link"></span></a>1장 - 회귀 분석의 개념<a class="anchor-link" href="#1%EC%9E%A5---%ED%9A%8C%EA%B7%80-%EB%B6%84%EC%84%9D%EC%9D%98-%EA%B0%9C%EB%85%90"> </a>
+<h1 id="회귀-분석의-개념">
+<a class="anchor" href="#%ED%9A%8C%EA%B7%80-%EB%B6%84%EC%84%9D%EC%9D%98-%EA%B0%9C%EB%85%90" aria-hidden="true"><span class="octicon octicon-link"></span></a>회귀 분석의 개념<a class="anchor-link" href="#%ED%9A%8C%EA%B7%80-%EB%B6%84%EC%84%9D%EC%9D%98-%EA%B0%9C%EB%85%90"> </a>
 </h1>
 </div>
 </div>
@@ -245,6 +266,411 @@ window.onload = wrap_img;
 <p><code>-</code> 정규성 가정 이탈: 종속변수를 변환, 등분산 가정 이탈: 가중회귀 방법</p>
 <p><code>8.</code> 최종 회귀모형 ---&gt; 추정된 모형 해석, 표준화 회귀계수에 의해 각 설명변수의 영향력 비교</p>
 
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="단순회귀분석">
+<a class="anchor" href="#%EB%8B%A8%EC%88%9C%ED%9A%8C%EA%B7%80%EB%B6%84%EC%84%9D" aria-hidden="true"><span class="octicon octicon-link"></span></a>단순회귀분석<a class="anchor-link" href="#%EB%8B%A8%EC%88%9C%ED%9A%8C%EA%B7%80%EB%B6%84%EC%84%9D"> </a>
+</h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 회귀분석에 대해 알아보기전 상관분석부터 간단히 살펴보자</p>
+<p><code>-</code> 상관분석은 선형관계의 강도임 + 상관분석과 산점도는 인과관계를 가지지 않음</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="상관관계">
+<a class="anchor" href="#%EC%83%81%EA%B4%80%EA%B4%80%EA%B3%84" aria-hidden="true"><span class="octicon octicon-link"></span></a>상관관계<a class="anchor-link" href="#%EC%83%81%EA%B4%80%EA%B4%80%EA%B3%84"> </a>
+</h2>
+<p><code>-</code>  두 개의 양적 변수의 연관강도나 방향을 요약하는 수치 통계량</p>
+<p><code>-</code> 상관관계는 두 변수 사이의 선형 관계에 대한 정보임</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="상관계수">
+<a class="anchor" href="#%EC%83%81%EA%B4%80%EA%B3%84%EC%88%98" aria-hidden="true"><span class="octicon octicon-link"></span></a>상관계수<a class="anchor-link" href="#%EC%83%81%EA%B4%80%EA%B3%84%EC%88%98"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 상관관계의 정도를 나타냄</p>
+<p><code>-</code> 모집단 상관계수: $\rho$ ---&gt; 우리가 알고자 하는 모수
+</p>
+<p><code>-</code> 표본 상관계수: $r_{xy} = \frac{\frac{1}{n}\sum\limits_{i=1}^{n}(x_i-\bar{x})(y_i-\bar{y})}{\sqrt{\frac{1}{n}\sum\limits_{i=1}^{n}(x_i-\bar{x})^{2}\frac{1}{n}\sum\limits_{i=1}^{n}(y_i-\bar{y})^{2}}} = \frac{S_{xy}}{S_x S_y}$
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="상관계수-특징">
+<a class="anchor" href="#%EC%83%81%EA%B4%80%EA%B3%84%EC%88%98-%ED%8A%B9%EC%A7%95" aria-hidden="true"><span class="octicon octicon-link"></span></a>상관계수 특징<a class="anchor-link" href="#%EC%83%81%EA%B4%80%EA%B3%84%EC%88%98-%ED%8A%B9%EC%A7%95"> </a>
+</h4>
+<ol>
+<li>
+<p>상관계수는 항상 $-1\leq r \leq 1$</p>
+</li>
+<li>
+<p>$r$의 부호가 두 변수 관계의 방향(음수: 음의 관계, 양수: 양의 관계)</p>
+</li>
+<li>
+<p>$r$이 $-1$ or $+1$에 가까울수록 선형 관계가 강함, $0$에 가까우면 선형 관계가 없음</p>
+</li>
+<li>
+<p>$r$이 $0$이라고 두 변수사이의 관계가 없는 것이 아니라 <code>선형 관계</code>가 없다는 의미 --&gt; <code>곡선 관계</code>일 수 도 있음</p>
+</li>
+<li>
+<p>상관계수 $r$은 단위가 없음. 각 변수의 척도와도 무관</p>
+</li>
+<li>
+<p>상관계수는 대칭적 --&gt; $x$와$y$의 상관계수 $=$ $y$와$x$의 상관계수</p>
+</li>
+</ol>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="단순회귀모형">
+<a class="anchor" href="#%EB%8B%A8%EC%88%9C%ED%9A%8C%EA%B7%80%EB%AA%A8%ED%98%95" aria-hidden="true"><span class="octicon octicon-link"></span></a>단순회귀모형<a class="anchor-link" href="#%EB%8B%A8%EC%88%9C%ED%9A%8C%EA%B7%80%EB%AA%A8%ED%98%95"> </a>
+</h2>
+<p><code>-</code> 독립변수 $x$와 종속변수 $y$ 사이의 관계를 식으로 나타낸 것 ---&gt; 회귀모형</p>
+<p><code>-</code> 종속변수 $y$는 주어진 $x$에서 항상 일정하게 측정되지 않음 ---&gt; 측정오차</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 단순회귀모형</p>
+<ul>
+<li>
+<p>$y_i = \beta_0+\beta_1 x_i+\epsilon_i,\quad i=1,2,\cdots,n \\ \qquad 단, \,\epsilon_i \sim i.i.d \quad N(0 ,\sigma^2)$</p>
+</li>
+<li>
+<p>$y_i$: $i$번째 측정된 $y$ 값</p>
+</li>
+<li>
+<p>$x_i$: $i$번째 주어진 고정된 값(= 상수항)</p>
+</li>
+<li>
+<p>$\beta_0 ,\beta_1$: 모집단회귀계수이며 $\beta_0$은 절편이고 $\beta_1$은 기울기</p>
+</li>
+<li>
+<p>$\epsilon_i$: $i$번째 측정된 $y_i$의 오차항</p>
+</li>
+<li>
+<p>$E(y)=\beta_0+\beta_1 x, \;Var(y) = \sigma^2$ ---&gt; 당연한 소리(모르겠으면 책보기)</p>
+</li>
+</ul>
+<p><code>-</code> $\epsilon \sim N(0, \sigma^2)$이면 $y \sim N(\beta_0+\beta_1 x, \sigma^2)$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> $x$가 확률변수인 경우 사용하면 좋은 대체모형</p>
+<ul>
+<li>$y = \beta_0+\beta_1 x +\epsilon \\
+= (\beta_0 + \beta_1 \bar{x})+(\beta_1 x-\beta_1 \bar{x})+\epsilon \\
+= \beta'_{0} + \beta_1 x' + \epsilon \;(x'=x-\bar{x})$</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="회귀선의-추정">
+<a class="anchor" href="#%ED%9A%8C%EA%B7%80%EC%84%A0%EC%9D%98-%EC%B6%94%EC%A0%95" aria-hidden="true"><span class="octicon octicon-link"></span></a>회귀선의 추정<a class="anchor-link" href="#%ED%9A%8C%EA%B7%80%EC%84%A0%EC%9D%98-%EC%B6%94%EC%A0%95"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 표본회귀식 $\hat{y} = b_0 +b_1 x$</p>
+<p><code>-</code> 잔차 $e_i = y_i - \hat{y_i}$ ---&gt; 잔차는 $e$이고 오차는 $\epsilon$이다</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="최소제곱법">
+<a class="anchor" href="#%EC%B5%9C%EC%86%8C%EC%A0%9C%EA%B3%B1%EB%B2%95" aria-hidden="true"><span class="octicon octicon-link"></span></a>최소제곱법<a class="anchor-link" href="#%EC%B5%9C%EC%86%8C%EC%A0%9C%EA%B3%B1%EB%B2%95"> </a>
+</h3>
+<p><code>-</code> 오차제곱합을 최소로하는 $\beta_0$와 $\beta_1$의 값을 추정값으로 택하는 방법 ---&gt; 편미분을 통해 구함 ---&gt; 세세한 과정은 직접해보고 책보기</p>
+<ul>
+<li>
+<p>$L=\sum\limits_{i=1}^{n}\epsilon^{2}_{i} = \sum\limits_{i=1}^{n}(y_i-\beta_0-\beta_1 x_i)^{2}$</p>
+</li>
+<li>
+<p>$\frac{\partial L}{\partial \beta_0} = -2\sum\limits^{n}_{i=1}(y_i-\beta_0-\beta_1 x_i)$</p>
+</li>
+<li>
+<p>$\frac{\partial L}{\partial \beta_1} = -2\sum\limits^{n}_{i=1}x_i(y_i-\beta_0-\beta_1 x_i)$</p>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 정규방정식 ---&gt; 방정식의 해를 구하면 추정값을 구할 수 있음
+</p>
+<ul>
+<li>
+<p>$b_0 n +b_1\sum\limits^{n}_{i=1}x_i=\sum\limits^{n}_{i=1}y_i$</p>
+</li>
+<li>
+<p>$b_0\sum\limits^{n}_{i=1}x_i + b_1\sum\limits^{n}_{i=1}x_i^{2} =\sum\limits^{n}_{i=1}x_i y_i$</p>
+</li>
+<li>
+<p>$b_1 = \frac{\sum\limits^{n}_{i=1}(x_i - \bar{x})(y_i - \bar{y})}{\sum\limits^{n}_{i=1}(x_i-\bar{x})^2} = \frac{S_{xy}}{S_{xx}}$</p>
+</li>
+<li>
+<p>$b_0 = \bar{y} - b_1 \bar{x}$</p>
+</li>
+</ul>
+<p></p>
+<p><code>-</code> 대체모형의 회귀직선도 동일함 ---&gt; 과제</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="R-예제">
+<a class="anchor" href="#R-%EC%98%88%EC%A0%9C" aria-hidden="true"><span class="octicon octicon-link"></span></a>R 예제<a class="anchor-link" href="#R-%EC%98%88%EC%A0%9C"> </a>
+</h3>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="n">deposit</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="m">87</span> <span class="p">,</span><span class="m">108</span> <span class="p">,</span><span class="m">69</span><span class="p">,</span> <span class="m">135</span><span class="p">,</span> <span class="m">148</span><span class="p">,</span> <span class="m">132</span><span class="p">,</span> <span class="m">73</span><span class="p">,</span> <span class="m">128</span><span class="p">,</span> <span class="m">50</span><span class="p">,</span> <span class="m">170</span><span class="p">)</span>
+<span class="n">expense</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="m">40</span><span class="p">,</span> <span class="m">50</span><span class="p">,</span> <span class="m">30</span><span class="p">,</span> <span class="m">60</span><span class="p">,</span> <span class="m">70</span><span class="p">,</span> <span class="m">60</span><span class="p">,</span> <span class="m">30</span><span class="p">,</span> <span class="m">60</span><span class="p">,</span> <span class="m">20</span><span class="p">,</span> <span class="m">80</span><span class="p">)</span>
+
+<span class="nf">plot</span><span class="p">(</span><span class="n">expense</span><span class="p">,</span> <span class="n">deposit</span><span class="p">,</span> <span class="n">type</span> <span class="o">=</span> <span class="s">'p'</span><span class="p">,</span> <span class="n">cex</span> <span class="o">=</span> <span class="m">1</span><span class="p">,</span> <span class="n">pch</span> <span class="o">=</span> <span class="m">1</span><span class="p">)</span> <span class="c1">## 산점도</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,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%0ArkJggg==" width="420" height="420">
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 거의 직선관계로 보임</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="nf">cor</span><span class="p">(</span><span class="n">deposit</span><span class="p">,</span> <span class="n">expense</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea ">
+0.997801389791568
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 상관계수는 0.99임</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 이제 회귀식을 구해보자</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="n">ex3_2_lm</span> <span class="o">&lt;-</span> <span class="nf">lm</span><span class="p">(</span><span class="n">deposit</span> <span class="o">~</span> <span class="n">expense</span><span class="p">)</span>
+<span class="nf">summary</span><span class="p">(</span><span class="n">ex3_2_lm</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea ">
+<pre>
+Call:
+lm(formula = deposit ~ expense)
+
+Residuals:
+   Min     1Q Median     3Q    Max 
+  -3.0   -2.0   -0.5    1.5    5.0 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept) 10.00000    2.50294   3.995  0.00398 ** 
+expense      2.00000    0.04697  42.583 1.02e-10 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 2.739 on 8 degrees of freedom
+Multiple R-squared:  0.9956,	Adjusted R-squared:  0.9951 
+F-statistic:  1813 on 1 and 8 DF,  p-value: 1.02e-10
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 추정된 회귀모형 ---&gt; $\hat{y}=10.0+2.0x$</p>
+<p><code>-</code> p-값이 매우 작으므로 위 모형은 유의함</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="nf">plot</span><span class="p">(</span><span class="n">expense</span><span class="p">,</span> <span class="n">deposit</span><span class="p">)</span>
+<span class="nf">abline</span><span class="p">(</span><span class="n">ex3_2_lm</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,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%0ARU5ErkJggg==" width="420" height="420">
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="최우추정법">
+<a class="anchor" href="#%EC%B5%9C%EC%9A%B0%EC%B6%94%EC%A0%95%EB%B2%95" aria-hidden="true"><span class="octicon octicon-link"></span></a>최우추정법<a class="anchor-link" href="#%EC%B5%9C%EC%9A%B0%EC%B6%94%EC%A0%95%EB%B2%95"> </a>
+</h3>
 </div>
 </div>
 </div>
