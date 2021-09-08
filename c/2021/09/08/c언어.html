@@ -96,7 +96,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      6 min read
+      11 min read
     
 </span></p>
 
@@ -144,15 +144,28 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h1"><a href="#배열">배열 </a>
 <ul>
 <li class="toc-entry toc-h2"><a href="#배열의-선언">배열의 선언 </a></li>
-</ul>
-</li>
-<li class="toc-entry toc-h1"><a href="#define-SIZE-5">define SIZE 5 </a>
-<ul>
 <li class="toc-entry toc-h2"><a href="#배열의-초기화">배열의 초기화 </a></li>
 <li class="toc-entry toc-h2"><a href="#배열-요소의-개수-세기">배열 요소의 개수 세기 </a></li>
 <li class="toc-entry toc-h2"><a href="#배열의-복사">배열의 복사 </a></li>
 <li class="toc-entry toc-h2"><a href="#배열의-비교">배열의 비교 </a></li>
 <li class="toc-entry toc-h2"><a href="#배열과-함수">배열과 함수 </a></li>
+<li class="toc-entry toc-h2"><a href="#배열-입력-받기">배열 입력 받기 </a></li>
+<li class="toc-entry toc-h2"><a href="#원본-배열의-변경">원본 배열의 변경 </a></li>
+<li class="toc-entry toc-h2"><a href="#2차원-배열">2차원 배열 </a></li>
+<li class="toc-entry toc-h2"><a href="#2차원-배열의-초기화">2차원 배열의 초기화 </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h1"><a href="#포인터">포인터 </a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#간접-참조-연산자-*">간접 참조 연산자 * </a></li>
+<li class="toc-entry toc-h2"><a href="#포인터와-배열">포인터와 배열 </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h1"><a href="#문자와-문자열">문자와 문자열 </a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#문자와-문자열">문자와 문자열 </a></li>
+<li class="toc-entry toc-h2"><a href="#문자-배열의-초기화">문자 배열의 초기화 </a></li>
+<li class="toc-entry toc-h2"><a href="#문자열의-출력">문자열의 출력 </a></li>
 </ul>
 </li>
 </ul><!--
@@ -229,7 +242,7 @@ window.onload = wrap_img;
 <p><code>-</code> <code>문장끝</code>에 <code>세미콜론(;)</code> 찍기</p>
 <p><code>-</code> <code>변수 초기화</code> 하기 ---&gt; 안하면 쓰레기값 생김 ---&gt; 전역변수 같은 것은 0으로 저절로 초기화됨</p>
 <p><code>-</code> 하나의 문자는 'a'와 같이 문자열은 "abc"와 같이 사용하기</p>
-<p><code>-</code> <code>변수는 사용전에 선언하기</code> ----&gt; ex) int num = 21;</p>
+<p><code>-</code> <code>변수는 사용전에 선언하기</code> ----&gt; ex) int num; num = 12;</p>
 <p><code>-</code> <code>scanf("%형식", &amp;변수명);</code> ---&gt; scanf 함수는 <code>공백</code>을 기준으로 <code>입력을 끊음</code> ---&gt; %d(정수), %f(float), %lf(double), %c(문자), %s(문자열) + %c의 경우 공백도 문자로 취급하여 입력받음</p>
 <p><code>-</code> <code>printf("%형식", 변수명);</code> ---&gt; %d(정수), %f(float), %c(문자), %s(문자열)</p>
 <p><code>-</code> <code>sizeof()</code> ---&gt; <code>자료형의 크기</code></p>
@@ -244,7 +257,11 @@ window.onload = wrap_img;
 <p><code>-</code> 센티널( = 보초값) ---&gt; 데이터의 입력 끝을 알리는데 사용되는 값</p>
 <p><code>-</code> scanf("%c", &amp;a)로 했는데 뭔가 이상하면 scanf(" %c", &amp;a)로 해보자 ---&gt; 공백문자를 제외해줌</p>
 <p><code>-</code> <code>수학 함수</code>는 <code>math.h</code> ---&gt; <code>#include &lt;math.h&gt;</code></p>
-<p><code>-</code> c언어에서 <code>배열의 이름</code>은 <code>배열의 시작</code>을 가리킴(메모리 주소 같음)</p>
+<p><code>-</code> c언어에서 <code>배열의 이름</code>은 <code>배열의 시작</code>을 가리킴(메모리 주소 같음) + 배열의 이름은 주소임</p>
+<p><code>-</code> 배열을 선언할 때 { 0, }으로 하면 배열의 요소를 모두 0으로 초기화할 수 있음</p>
+<p><code>-</code> 2차원 배열을 초기화할 때 행의 개수는 지정하지 않아도 되지만 열의 개수는 반드시 지정해야 함</p>
+<p><code>-</code> 배열의 크기보다 초기값이 적게 주어지면 나머지 요소들은 전부 0이 됨 ---&gt; 단 초기값이 전혀 지정되지 않으면 모우 쓰레기 값이 됨</p>
+<p><code>-</code> 보통 배열의 크기는 #define 으로 기호 상수로 만듦</p>
 
 </div>
 </div>
@@ -530,17 +547,16 @@ window.onload = wrap_img;
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> 배열을 선언하고 요소 값들을 지정해보자</p>
-<p>```c
-...</p>
-<h1 id="define-SIZE-5">
-<a class="anchor" href="#define-SIZE-5" aria-hidden="true"><span class="octicon octicon-link"></span></a>define SIZE 5<a class="anchor-link" href="#define-SIZE-5"> </a>
-</h1>
-<p>...
-int scores[5]; // 크기가 5인 int형 배열 scores를 선언</p>
-<p>int i;
-for(int i = 0; i &lt; SIZE; i++){
-    scores[i] = 0; // 반복문을 활용하여 배열의 요소를 전부 0으로 초기화 함
-}</p>
+<div class="highlight"><pre><span></span><span class="p">...</span>
+<span class="cp">#define SIZE 5</span>
+<span class="p">...</span>
+<span class="kt">int</span> <span class="n">scores</span><span class="p">[</span><span class="mi">5</span><span class="p">];</span> <span class="c1">// 크기가 5인 int형 배열 scores를 선언</span>
+
+<span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
+<span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">SIZE</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
+    <span class="n">scores</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">// 반복문을 활용하여 배열의 요소를 전부 0으로 초기화 함</span>
+<span class="p">}</span>
+</pre></div>
 
 </div>
 </div>
@@ -721,6 +737,7 @@ for(int i = 0; i &lt; SIZE; i++){
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> 배열도 함수의 매개 변수로 전달할 수 있음 ---&gt; 배열이 인수인 경우에는 배열의 원본이 매개 변수를 통하여 전달됨(포인터 개념 필요)</p>
+<p><code>-</code> 2차원 배열도 가능 ---&gt; 열의 개수는 반드시 적어야 함</p>
 
 </div>
 </div>
@@ -754,6 +771,481 @@ for(int i = 0; i &lt; SIZE; i++){
 <span class="p">}</span>
 </pre></div>
 
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="배열-입력-받기">
+<a class="anchor" href="#%EB%B0%B0%EC%97%B4-%EC%9E%85%EB%A0%A5-%EB%B0%9B%EA%B8%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>배열 입력 받기<a class="anchor-link" href="#%EB%B0%B0%EC%97%B4-%EC%9E%85%EB%A0%A5-%EB%B0%9B%EA%B8%B0"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 배열 요소 이름에 주소연산자(&amp;)를 붙이기</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div class="highlight"><pre><span></span><span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">arr</span><span class="p">[</span><span class="mi">5</span><span class="p">];</span>
+<span class="k">for</span><span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
+    <span class="n">scanf</span><span class="p">(</span><span class="s">"%d"</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+<span class="p">}</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 배열 이름에 + 하면서 입력받기</p>
+<p><code>-</code> arr + 0 ---&gt; arr의 첫번째 원소</p>
+<p><code>-</code> arr + i ---&gt; arr의 i+1번째 원소</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div class="highlight"><pre><span></span><span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">arr</span><span class="p">[</span><span class="mi">5</span><span class="p">];</span>
+<span class="k">for</span><span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
+    <span class="n">scanf</span><span class="p">(</span><span class="s">"%d"</span><span class="p">,</span> <span class="n">arr</span> <span class="o">+</span> <span class="n">i</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="원본-배열의-변경">
+<a class="anchor" href="#%EC%9B%90%EB%B3%B8-%EB%B0%B0%EC%97%B4%EC%9D%98-%EB%B3%80%EA%B2%BD" aria-hidden="true"><span class="octicon octicon-link"></span></a>원본 배열의 변경<a class="anchor-link" href="#%EC%9B%90%EB%B3%B8-%EB%B0%B0%EC%97%B4%EC%9D%98-%EB%B3%80%EA%B2%BD"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 배열은 매개 변수를 통하여 원본을 <code>참조</code>하는 것이기 때문에 주의해야 함</p>
+<p><code>-</code> 만약 함수 안에서 매개 변수를 통하여 배열의 요소를 변경한다면 원본 배열을 변경시키는 결과를 가져옴 ---&gt; 파이썬도 똑같음</p>
+<p><code>-</code> <code>배열</code>은 복사본이 아닌 <code>원본</code>이 전달되는 점을 잊지 말기 + <code>배열의 요소</code>는 <code>복사본</code>이 전달됨</p>
+<p><code>-</code> <code>const</code> 지정자를 배열 매개 변수 앞에 붙이면 그 배열 요소는 변경이 불가능해짐</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">dp</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="mi">10</span>
+
+<span class="k">def</span> <span class="nf">change_arr</span><span class="p">(</span><span class="n">arr</span><span class="p">):</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
+    
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span><span class="o">**</span><span class="mi">2</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">dp</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[0, 0, 0, 0, 0, 0, 0, 0, 0, 0]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">change_arr</span><span class="p">(</span><span class="n">dp</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">dp</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[0, 1, 4, 9, 16, 25, 36, 49, 64, 81]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="2차원-배열">
+<a class="anchor" href="#2%EC%B0%A8%EC%9B%90-%EB%B0%B0%EC%97%B4" aria-hidden="true"><span class="octicon octicon-link"></span></a>2차원 배열<a class="anchor-link" href="#2%EC%B0%A8%EC%9B%90-%EB%B0%B0%EC%97%B4"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 이미지 같은 경우는 2차원임 ---&gt; 2차원 배열이 필요함</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div class="highlight"><pre><span></span><span class="kt">int</span> <span class="n">s</span><span class="p">[</span><span class="mi">3</span><span class="p">][</span><span class="mi">5</span><span class="p">];</span> <span class="c1">// 앞에 3은 행의 개수이며 뒤에 5는 열의 개수임</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> c언어에서 배열의 인덱스는 0부터 시작함 ---&gt; 2차원 배열의 첫번째 요소는 s[0][0]과 같이 참조 ---&gt; 파이썬이랑 똑같음</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div class="highlight"><pre><span></span><span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">s</span><span class="p">[</span><span class="mi">3</span><span class="p">][</span><span class="mi">5</span><span class="p">];</span>
+
+<span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">){</span>
+        <span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span> <span class="o">*</span> <span class="n">j</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 위와 같이 하면 3$\times$5배열의 요소의 값을 정해줄 수 있음</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="2차원-배열의-초기화">
+<a class="anchor" href="#2%EC%B0%A8%EC%9B%90-%EB%B0%B0%EC%97%B4%EC%9D%98-%EC%B4%88%EA%B8%B0%ED%99%94" aria-hidden="true"><span class="octicon octicon-link"></span></a>2차원 배열의 초기화<a class="anchor-link" href="#2%EC%B0%A8%EC%9B%90-%EB%B0%B0%EC%97%B4%EC%9D%98-%EC%B4%88%EA%B8%B0%ED%99%94"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 2차원 배열도 1차원 배열과 동일하게 선언과 동시에 초기화 가능</p>
+<p><code>-</code> 같은 행에 속하는 초기값들을 중괄호 { } 로 따로 묶어주면 됨 ---&gt; { } 만 [ ]로 바꾸면 파이썬의 리스트랑 똑같음</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div class="highlight"><pre><span></span><span class="kt">int</span> <span class="n">s</span><span class="p">[</span><span class="mi">3</span><span class="p">][</span><span class="mi">5</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="p">{</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">},</span>
+    <span class="p">{</span><span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">14</span><span class="p">},</span>
+    <span class="p">{</span><span class="mi">20</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">24</span><span class="p">}</span>
+<span class="p">};</span> <span class="c1">// 세미콜론(;) 잊지마</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 아래와 같이 행의 크기를 비워두고 초기화도 가능 ---&gt; <code>열의 개수는 반드시 지정</code></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div class="highlight"><pre><span></span><span class="kt">int</span> <span class="n">s</span><span class="p">[][</span><span class="mi">5</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="p">{</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">},</span>
+    <span class="p">{</span><span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">14</span><span class="p">},</span>
+    <span class="p">{</span><span class="mi">20</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">24</span><span class="p">}</span>
+<span class="p">};</span> <span class="c1">// 세미콜론(;) 잊지마</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 안쪽의 중괄호는 생량해도 됨</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div class="highlight"><pre><span></span><span class="kt">int</span> <span class="n">s</span><span class="p">[][</span><span class="mi">5</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">24</span><span class="p">};</span> <span class="c1">// 세미콜론(;) 잊지마</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="포인터">
+<a class="anchor" href="#%ED%8F%AC%EC%9D%B8%ED%84%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>포인터<a class="anchor-link" href="#%ED%8F%AC%EC%9D%B8%ED%84%B0"> </a>
+</h1>
+<p><code>-</code> 포인터도 변수임</p>
+<p><code>-</code> 포인터는 메모리의 주소를 저장함</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div class="highlight"><pre><span></span><span class="kt">int</span> <span class="o">*</span><span class="n">p</span><span class="p">;</span> <span class="c1">// 선언만 하고 초기화는 아직 안했음</span>
+
+<span class="kt">char</span> <span class="o">*</span><span class="n">p1</span><span class="p">,</span> <span class="o">*</span><span class="n">p2</span><span class="p">,</span> <span class="o">*</span><span class="n">p3</span><span class="p">;</span> <span class="c1">// 한줄에 여러개 포인터 선언하기</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> p는 정수 데이터를 가리키는 포인터 ---&gt; 아직 초기화를 안해서 아무 의미 없는 값을 가지고 있음</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div class="highlight"><pre><span></span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+<span class="kt">int</span> <span class="o">*</span><span class="n">p</span><span class="p">;</span>
+<span class="n">p</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">i</span><span class="p">;</span> <span class="c1">// 변수 i의 주소가 p에 대입됨 + &amp;는 주소연산자</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="간접-참조-연산자-*">
+<a class="anchor" href="#%EA%B0%84%EC%A0%91-%EC%B0%B8%EC%A1%B0-%EC%97%B0%EC%82%B0%EC%9E%90-*" aria-hidden="true"><span class="octicon octicon-link"></span></a>간접 참조 연산자 *<a class="anchor-link" href="#%EA%B0%84%EC%A0%91-%EC%B0%B8%EC%A1%B0-%EC%97%B0%EC%82%B0%EC%9E%90-*"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div class="highlight"><pre><span></span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span> <span class="c1">// i의 주소는 2121이라고 하자 // 정수 변수 i가 선언되고 10으로 초기화 됨</span>
+<span class="kt">int</span> <span class="o">*</span><span class="n">p</span><span class="p">;</span> <span class="c1">// 정수를 가리키는 포인터 p가 선언</span>
+<span class="n">p</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">i</span><span class="p">;</span> <span class="c1">// 포인터 p에 변수 i의 주소(2021)를 저장함</span>
+<span class="n">printf</span><span class="p">(</span><span class="s">"%d"</span><span class="p">,</span> <span class="o">*</span><span class="n">p</span><span class="p">);</span> <span class="c1">// 10이 출력됨</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 포인터 p가 가리키는 주소에 저장되어 있는 내용을 읽으려면 p앞에 <em>기호를 붙여서 </em>p하면 됨</p>
+<p><code>-</code> 이것을 포인터를 통하여 메모리를 간접 참조한다고 함 ---&gt; 직접 printf("%d", i); 를 하지 않고 printf("%d", *p);를 하여 p(포인터)를 통해 i값을 출력했으므로 간접 참조임</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 포인터는 변수이므로 저장된 주소를 다른 값으로 얼마든지 바꿀 수 있음</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div class="highlight"><pre><span></span><span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mf">10.</span>  <span class="n">y</span> <span class="o">=</span><span class="mi">20</span><span class="p">;</span>
+<span class="kt">int</span> <span class="o">*</span><span class="n">p</span><span class="p">;</span>
+
+<span class="n">p</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">x</span><span class="p">;</span>
+<span class="n">printf</span><span class="p">(</span><span class="s">"%d"</span><span class="p">,</span> <span class="o">*</span><span class="n">p</span><span class="p">);</span> <span class="c1">// x의 값인 10이 출력됨</span>
+
+<span class="n">p</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">y</span><span class="p">;</span> <span class="c1">// p가 가리키는 주소를 x의 주소에서 y의 주소로 변경함</span>
+<span class="n">printf</span><span class="p">(</span><span class="s">"%d"</span><span class="p">,</span> <span class="o">*</span><span class="n">p</span><span class="p">);</span> <span class="c1">// y의 값인 20이 출력됨</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="포인터와-배열">
+<a class="anchor" href="#%ED%8F%AC%EC%9D%B8%ED%84%B0%EC%99%80-%EB%B0%B0%EC%97%B4" aria-hidden="true"><span class="octicon octicon-link"></span></a>포인터와 배열<a class="anchor-link" href="#%ED%8F%AC%EC%9D%B8%ED%84%B0%EC%99%80-%EB%B0%B0%EC%97%B4"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="문자와-문자열">
+<a class="anchor" href="#%EB%AC%B8%EC%9E%90%EC%99%80-%EB%AC%B8%EC%9E%90%EC%97%B4" aria-hidden="true"><span class="octicon octicon-link"></span></a>문자와 문자열<a class="anchor-link" href="#%EB%AC%B8%EC%9E%90%EC%99%80-%EB%AC%B8%EC%9E%90%EC%97%B4"> </a>
+</h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="문자와-문자열">
+<a class="anchor" href="#%EB%AC%B8%EC%9E%90%EC%99%80-%EB%AC%B8%EC%9E%90%EC%97%B4" aria-hidden="true"><span class="octicon octicon-link"></span></a>문자와 문자열<a class="anchor-link" href="#%EB%AC%B8%EC%9E%90%EC%99%80-%EB%AC%B8%EC%9E%90%EC%97%B4"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 문자열은 큰따옴표를 이용하여 "ABC"와 같이 표기</p>
+<p><code>-</code> 문자열의 끝은 항상 '\0'(NULL 문자)가 저장되어 있음</p>
+<p><code>-</code> 따라서 <code>문자 배열</code>은 저장하고자 하는 <code>문자열의 크기보다 항상 하나 더 커야 함</code></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="문자-배열의-초기화">
+<a class="anchor" href="#%EB%AC%B8%EC%9E%90-%EB%B0%B0%EC%97%B4%EC%9D%98-%EC%B4%88%EA%B8%B0%ED%99%94" aria-hidden="true"><span class="octicon octicon-link"></span></a>문자 배열의 초기화<a class="anchor-link" href="#%EB%AC%B8%EC%9E%90-%EB%B0%B0%EC%97%B4%EC%9D%98-%EC%B4%88%EA%B8%B0%ED%99%94"> </a>
+</h2>
+<p><code>-</code> 문자 배열의 크기는 초기화 문자열의 길이보다 커도 됨 ---&gt; char str[6] = "abc";</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div class="highlight"><pre><span></span><span class="kt">char</span> <span class="n">str</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="sc">'a'</span><span class="p">,</span> <span class="sc">'b'</span><span class="p">,</span> <span class="sc">'c'</span><span class="p">,</span> <span class="sc">'\0'</span><span class="p">};</span> <span class="c1">// 딱 봐도 구데기 </span>
+
+<span class="kt">char</span> <span class="n">str</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">=</span> <span class="s">"abc"</span><span class="p">;</span> <span class="c1">// 이게 훨씬 낫다</span>
+
+<span class="kt">char</span> <span class="n">str</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span> <span class="o">=</span> <span class="s">"abc"</span><span class="p">;</span> <span class="c1">// 초기값이 없는 공간은 0으로 초기화</span>
+
+<span class="kt">char</span> <span class="n">str</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">=</span> <span class="s">""</span><span class="p">;</span> <span class="c1">// NULL 문자열로 초기ㅘ</span>
+
+<span class="kt">char</span> <span class="n">str</span><span class="p">[]</span> <span class="o">=</span> <span class="s">"abc"</span><span class="p">;</span> <span class="c1">// 컴파일러가 자동으로 배열의 크기를 초기화 문자열에 맞추어 설정함 ---&gt; 문자열을 이루는 문자의 개수를 안세도 돼서 편함</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="문자열의-출력">
+<a class="anchor" href="#%EB%AC%B8%EC%9E%90%EC%97%B4%EC%9D%98-%EC%B6%9C%EB%A0%A5" aria-hidden="true"><span class="octicon octicon-link"></span></a>문자열의 출력<a class="anchor-link" href="#%EB%AC%B8%EC%9E%90%EC%97%B4%EC%9D%98-%EC%B6%9C%EB%A0%A5"> </a>
+</h2>
 </div>
 </div>
 </div>
