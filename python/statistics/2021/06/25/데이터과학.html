@@ -138,20 +138,21 @@ window.onload = wrap_img;
 
   <div class="post-content e-content" itemprop="articleBody">
     <ul class="section-nav">
-<li class="toc-entry toc-h2"><a href="#선형회귀">선형회귀 </a>
+<li class="toc-entry toc-h1"><a href="#선형회귀">선형회귀 </a>
 <ul>
-<li class="toc-entry toc-h3"><a href="#회귀모형">회귀모형 </a></li>
-<li class="toc-entry toc-h3"><a href="#함수의-최소값">함수의 최소값 </a></li>
-<li class="toc-entry toc-h3"><a href="#회귀모형-계수-추정">회귀모형 계수 추정 </a></li>
-<li class="toc-entry toc-h3"><a href="#상관관계">상관관계 </a>
+<li class="toc-entry toc-h2"><a href="#회귀모형">회귀모형 </a></li>
+<li class="toc-entry toc-h2"><a href="#함수의-최소값">함수의 최소값 </a></li>
+<li class="toc-entry toc-h2"><a href="#회귀모형-계수-추정">회귀모형 계수 추정 </a></li>
+<li class="toc-entry toc-h2"><a href="#상관관계">상관관계 </a>
 <ul>
-<li class="toc-entry toc-h4"><a href="#상관계수">상관계수 </a>
+<li class="toc-entry toc-h3"><a href="#상관계수">상관계수 </a>
 <ul>
-<li class="toc-entry toc-h5"><a href="#상관계수-특징">상관계수 특징 </a></li>
+<li class="toc-entry toc-h4"><a href="#상관계수-특징">상관계수 특징 </a></li>
 </ul>
 </li>
 </ul>
 </li>
+<li class="toc-entry toc-h2"><a href="#다중공선성(Multicollinearity)">다중공선성(Multicollinearity) </a></li>
 </ul>
 </li>
 </ul><!--
@@ -166,18 +167,18 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="선형회귀">
+<h1 id="선형회귀">
 <a class="anchor" href="#%EC%84%A0%ED%98%95%ED%9A%8C%EA%B7%80" aria-hidden="true"><span class="octicon octicon-link"></span></a>선형회귀<a class="anchor-link" href="#%EC%84%A0%ED%98%95%ED%9A%8C%EA%B7%80"> </a>
-</h2>
+</h1>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="회귀모형">
+<h2 id="회귀모형">
 <a class="anchor" href="#%ED%9A%8C%EA%B7%80%EB%AA%A8%ED%98%95" aria-hidden="true"><span class="octicon octicon-link"></span></a>회귀모형<a class="anchor-link" href="#%ED%9A%8C%EA%B7%80%EB%AA%A8%ED%98%95"> </a>
-</h3>
+</h2>
 <p><code>-</code> $y_i=\beta_0+\beta_1 x_{1}+\epsilon_i$</p>
 <p><code>-</code> $y_i$는 관측값, $\beta_0$는 절편, $\beta_1$은 기울기, $\epsilon_i$는 오차항 { $\mathbb{N}\sim(0,\sigma^2$) }</p>
 <p><code>-</code> $\sum_{i=1}^{n}\epsilon_i^2 = \sum_{i=1}^{n} (y_i-\beta_0-\beta_1 x_{1})^2$ 을 최소화하는 $\beta_0,\beta_1$을 추정한다 --&gt; <code>최소제곱추정</code></p>
@@ -188,9 +189,9 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="함수의-최소값">
+<h2 id="함수의-최소값">
 <a class="anchor" href="#%ED%95%A8%EC%88%98%EC%9D%98-%EC%B5%9C%EC%86%8C%EA%B0%92" aria-hidden="true"><span class="octicon octicon-link"></span></a>함수의 최소값<a class="anchor-link" href="#%ED%95%A8%EC%88%98%EC%9D%98-%EC%B5%9C%EC%86%8C%EA%B0%92"> </a>
-</h3>
+</h2>
 <p><code>-</code> 함수 $f(x)$가 있다고 하자. 이 함수의 최소값을 알고 싶다 --&gt; <code>미분</code></p>
 <p><code>-</code> convex fuction (볼록 함수 --&gt; 아래로 볼록)는 임의의 두 점 $x_1,x_2$와 [0,1] 사이의 값 t에 대해 $f(tx_1+(1-t)x_2)\geq tf(x_1)+(1-t)f(x_2)$가 항상 성립하는 함수이다</p>
 <p><code>-</code> $f''(x) &gt; 0$이면 $f(x)$는 아래로 볼록하다</p>
@@ -212,9 +213,9 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="회귀모형-계수-추정">
+<h2 id="회귀모형-계수-추정">
 <a class="anchor" href="#%ED%9A%8C%EA%B7%80%EB%AA%A8%ED%98%95-%EA%B3%84%EC%88%98-%EC%B6%94%EC%A0%95" aria-hidden="true"><span class="octicon octicon-link"></span></a>회귀모형 계수 추정<a class="anchor-link" href="#%ED%9A%8C%EA%B7%80%EB%AA%A8%ED%98%95-%EA%B3%84%EC%88%98-%EC%B6%94%EC%A0%95"> </a>
-</h3>
+</h2>
 </div>
 </div>
 </div>
@@ -222,9 +223,13 @@ window.onload = wrap_img;
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <ol>
-<li>$\bf L = \sum_{i=1}^{n}\boldsymbol{\epsilon_i}^2 = \boldsymbol{\epsilon}^{\top}\boldsymbol{\epsilon} = (y - X\boldsymbol{\beta})^\top(Y - X\boldsymbol{\beta})\\
-\,\,\,\, = (y^{\top} - \boldsymbol{\beta}^{\top}X^{\top})(y - \boldsymbol{\beta}X) = y^{\top}y - y^{\top}X\boldsymbol{\beta} - \boldsymbol{\beta}^{\top}X^{\top}y + \boldsymbol\beta^{\top}X^{\top}X\boldsymbol{\beta}$</li>
-<li>$\frac{\partial \bf L}{\partial \boldsymbol\beta} = \bf 0 - 2\bf X^{\top}y + 2X^{\top}X\boldsymbol{\beta} = 0$</li>
+<li>
+<p>$\bf L = \sum_{i=1}^{n}\boldsymbol{\epsilon_i}^2 = \boldsymbol{\epsilon}^{\top}\boldsymbol{\epsilon} = (y - X\boldsymbol{\beta})^\top(Y - X\boldsymbol{\beta})\\
+\,\,\,\, = (y^{\top} - \boldsymbol{\beta}^{\top}X^{\top})(y - \boldsymbol{\beta}X) = y^{\top}y - y^{\top}X\boldsymbol{\beta} - \boldsymbol{\beta}^{\top}X^{\top}y + \boldsymbol\beta^{\top}X^{\top}X\boldsymbol{\beta}$</p>
+</li>
+<li>
+<p>$\frac{\partial \bf L}{\partial \boldsymbol\beta} = \bf 0 - 2\bf X^{\top}y + 2X^{\top}X\boldsymbol{\beta} = 0$</p>
+</li>
 </ol>
 <ol>
 <li>$\bf X^{\top}y = X^{\top}X\boldsymbol{\beta} \Leftrightarrow \boldsymbol{\hat\beta} = \big(\bf X^{\top}X\big)^{-1}X^{\top}y $</li>
@@ -236,7 +241,7 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> 의문점: 만약$\big(\bf X^{\top}X\big)^{-1}$이 존재하지 않는다면?</p>
+<p><code>-</code> 의문점: 만약$\big(\bf X^{\top}X\big)^{-1}$이 존재하지 않는다면? ---&gt; note2_0317 참고 + 공부</p>
 
 </div>
 </div>
@@ -244,9 +249,9 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="상관관계">
+<h2 id="상관관계">
 <a class="anchor" href="#%EC%83%81%EA%B4%80%EA%B4%80%EA%B3%84" aria-hidden="true"><span class="octicon octicon-link"></span></a>상관관계<a class="anchor-link" href="#%EC%83%81%EA%B4%80%EA%B4%80%EA%B3%84"> </a>
-</h3>
+</h2>
 <p><code>-</code>  두 개의 양적 변수의 연관강도나 방향을 요약하는 수치 통계량</p>
 <p><code>-</code> 상관관계는 두 변수 사이의 선형 관계에 대한 정보임</p>
 
@@ -256,9 +261,9 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="상관계수">
+<h3 id="상관계수">
 <a class="anchor" href="#%EC%83%81%EA%B4%80%EA%B3%84%EC%88%98" aria-hidden="true"><span class="octicon octicon-link"></span></a>상관계수<a class="anchor-link" href="#%EC%83%81%EA%B4%80%EA%B3%84%EC%88%98"> </a>
-</h4>
+</h3>
 </div>
 </div>
 </div>
@@ -275,9 +280,9 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h5 id="상관계수-특징">
+<h4 id="상관계수-특징">
 <a class="anchor" href="#%EC%83%81%EA%B4%80%EA%B3%84%EC%88%98-%ED%8A%B9%EC%A7%95" aria-hidden="true"><span class="octicon octicon-link"></span></a>상관계수 특징<a class="anchor-link" href="#%EC%83%81%EA%B4%80%EA%B3%84%EC%88%98-%ED%8A%B9%EC%A7%95"> </a>
-</h5>
+</h4>
 <ol>
 <li>
 <p>상관계수는 항상 $-1\leq r \leq 1$</p>
@@ -298,6 +303,17 @@ window.onload = wrap_img;
 <p>상관계수는 대칭적 --&gt; $x$와$y$의 상관계수 $=$ $y$와$x$의 상관계수</p>
 </li>
 </ol>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="다중공선성(Multicollinearity)">
+<a class="anchor" href="#%EB%8B%A4%EC%A4%91%EA%B3%B5%EC%84%A0%EC%84%B1(Multicollinearity)" aria-hidden="true"><span class="octicon octicon-link"></span></a>다중공선성(Multicollinearity)<a class="anchor-link" href="#%EB%8B%A4%EC%A4%91%EA%B3%B5%EC%84%A0%EC%84%B1(Multicollinearity)"> </a>
+</h2>
+<p><code>-</code> 회귀분석에서 독립변수들 간에 강한 상관관계가 나타나는 문제</p>
 
 </div>
 </div>
