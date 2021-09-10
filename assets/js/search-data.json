@@ -408,14 +408,10 @@
   
 
   
-
   
 
   
-  
-
-  
-      ,"page12": {
+      ,"page10": {
           "title": "",
           "content": "Sitemap: {{ “sitemap.xml” | absolute_url }} | .",
           "url": "https://gkswotn12345.github.io/green/robots.txt",
