@@ -368,7 +368,7 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> 정규 분포 밀도 함수에서 $Z =$ <big>$\frac{X - \mu}{\sigma}$</big> 를 통해 $X$(원점수)를 $Z$($z$점수) 표준화하여 표준정규분포(z-분포)를 얻을 수 있다</p>
+<p><code>-</code> 정규 분포 밀도 함수에서 $Z = \cfrac{X - \mu}{\sigma}$ 를 통해 $X$(원점수)를 $Z$($z$점수) 표준화하여 표준정규분포(z-분포)를 얻을 수 있다</p>
 
 </div>
 </div>
@@ -636,7 +636,7 @@ $</p>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>$f(x; k) = \frac{1}{2^\frac{k}{2}\Gamma(\frac{k}{2})}x^{\frac{k}{2}-1}e^{-\frac{x}{2}}$</p>
+<p>$f(x; k) = \frac{1}{2^\frac{k}{2}\Gamma\big(\frac{k}{2}\big)}x^{\frac{k}{2}-1}e^{-\frac{x}{2}}$</p>
 
 </div>
 </div>
@@ -644,7 +644,7 @@ $</p>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> $\Gamma(\frac{k}{2})$는 감마함수이다</p>
+<p><code>-</code> $\Gamma\big(\frac{k}{2}\big)$는 감마함수이다</p>
 
 </div>
 </div>
@@ -785,7 +785,7 @@ $</p>
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> <code>df = 1</code></p>
 <p><code>-</code> 표준정규분포의 제곱은 자유도가 1인 카이제곱 분포를 따름</p>
-<p><code>-</code> $V = (\frac{X-\mu}{\sigma})^{2} \sim X^{2}(1)$</p>
+<p><code>-</code> $V = \big(\frac{X-\mu}{\sigma}\big)^{2} \sim X^{2}(1)$</p>
 <p><code>-</code> 표본을 10000개 뽑아 둘을 비교해보자!</p>
 
 </div>
@@ -897,8 +897,8 @@ $</p>
 <a class="anchor" href="#%EC%A7%80%EC%88%98-%EB%B6%84%ED%8F%AC%EC%9D%98-%EB%AC%B4%EA%B8%B0%EC%96%B5%EC%84%B1" aria-hidden="true"><span class="octicon octicon-link"></span></a>지수 분포의 무기억성<a class="anchor-link" href="#%EC%A7%80%EC%88%98-%EB%B6%84%ED%8F%AC%EC%9D%98-%EB%AC%B4%EA%B8%B0%EC%96%B5%EC%84%B1"> </a>
 </h3>
 <p><code>-</code> 기하 분포의 무기억성과 같은 내용임</p>
-<p><code>-</code> $P(A|B)$ ---&gt; 사건 B가 발생한 상황에서 사건 A가 발생할 확률</p>
-<p><code>-</code> $P(X&gt;s+t|X&gt;t) = P(X&gt;s)$</p>
+<p><code>-</code> $P(A\mid B)$ ---&gt; 사건 B가 발생한 상황에서 사건 A가 발생할 확률</p>
+<p><code>-</code> $P(X&gt;s+t\mid X&gt;t) = P(X&gt;s)$</p>
 <p><code>-</code> 핸드폰의 고장률이 지수 분포를 따른다면 내가 핸드폰을 처음 구매하고 1년안에 고장날 확률 = 핸드폰을 5년 사용한 시점에서 1년 안에 고장날 확률</p>
 <p><code>-</code> 물론 현실은 핸드폰을 5년 사용한 후에 고장날 확률이 더 크다</p>
 <p><code>-</code> 지수 분포는 무기억 성질을 갖는 유일한 연속 확률 분포</p>
@@ -1050,7 +1050,7 @@ $</p>
 <p><code>-</code> 이에 따라 베이즈 확률론에서 사전 확률 분포로 사용</p>
 <p><code>-</code> $\alpha$개의 사건이 일어날 때까지 걸리는 대기 시간에 대한 분포</p>
 <p><code>-</code> 지수 분포를 한 번의 사건이 아닌 여러 개의 사건으로 확장</p>
-<p><code>-</code> 지수 분포의 모수가$\beta$ ---&gt; $\beta$ = 사건 사이의 평균 시간</p>
+<p><code>-</code> 지수 분포의 모수가 $\beta$ ---&gt; $\beta$ = 사건 사이의 평균 시간</p>
 <p><code>-</code> 모수가 $\beta$인 지수 분포를 따르는 확률 변수 X가 $\alpha$개가 있고 각 확률 변수 X는 i.i.d를 따름 ---&gt; 이 확률 변수의 합은 모수가 $\alpha, \beta$인 감마 분포를 따름</p>
 <p><code>-</code> 참고: <a href="https://ko.wikipedia.org/wiki/%EA%B0%90%EB%A7%88_%EB%B6%84%ED%8F%AC">감마 분포</a></p>
 
@@ -1090,7 +1090,7 @@ $</p>
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> $\Gamma(\alpha+1) = \alpha\Gamma(\alpha)$</p>
 <p><code>-</code> $\Gamma(n) = (n-1)!,\, n \in \mathbb{N}$</p>
-<p><code>-</code> $\Gamma(\frac{1}{2}) = \sqrt{\pi}$</p>
+<p><code>-</code> $\Gamma\big(\frac{1}{2}\big) = \sqrt{\pi}$</p>
 
 </div>
 </div>
@@ -1119,7 +1119,7 @@ $</p>
 <p><code>-</code> 발생하기 까지의 평균$\beta = \frac{1}{\lambda}$의 시간이 소요되는 어떤 사건이 $\alpha$번 발생하는데 걸리는 시간 $X$에 대한 확률 분포</p>
 <p><code>-</code> $\lambda$는 포아송 분포의 모수로 단위 시간당 사건의 평균 발생 횟수</p>
 <p><code>-</code> $\alpha = 1$일 때 $\lambda = \frac{1}{\beta}$인 지수 분포를 따름</p>
-<p><code>-</code> $X\sim Gamma(1,\beta) \Leftrightarrow exp(\frac{1}{\beta})$</p>
+<p><code>-</code> $X\sim Gamma(1,\beta) \Leftrightarrow exp\big(\frac{1}{\beta}\big)$</p>
 
 </div>
 </div>
@@ -1437,7 +1437,7 @@ $</p>
 <a class="anchor" href="#t-%EB%B6%84%ED%8F%AC" aria-hidden="true"><span class="octicon octicon-link"></span></a>t 분포<a class="anchor-link" href="#t-%EB%B6%84%ED%8F%AC"> </a>
 </h2>
 <p><code>-</code> 표본평균$\bar{X}$을 이용해 정규분포의 평균을 해석 ---&gt; 모집단이 정규분포를 따를 때</p>
-<p><code>-</code> 표준화한 표본평균의 분포: 모표준편차를 알고 있음($\frac{x-\mu}{\sqrt{\frac{\sigma}{n}}}$) --&gt; 정규분포, 모표준편차를 모르고 표본표준편차를 알고 있음($\frac{x-\bar{x}}{\sqrt{\frac{s}{n}}}$) ---&gt; t분포</p>
+<p><code>-</code> 표준화한 표본평균의 분포: 모표준편차를 알고 있음$\bigg(\frac{x-\mu}{\sqrt{\frac{\sigma}{n}}}\bigg)$ --&gt; 정규분포, 모표준편차를 모르고 표본표준편차를 알고 있음$\bigg(\frac{x-\bar{x}}{\sqrt{\frac{s}{n}}}\bigg)$ ---&gt; t분포</p>
 <p><code>-</code> 다음의 확률 분포로 정의 ---&gt; $\frac{Z}{\sqrt{\frac{V}{\nu}}}$</p>
 <p><code>-</code> $Z$는 표준정규분포, $V$는 자유도$\nu$인 카이제곱 분포</p>
 <p><code>-</code> <code>자유도</code>가 <code>커질수록</code> <code>표준정규분포</code>에 <code>가까워짐</code> (중심극한정리와 무관) ---&gt; 보통 표본 크기 $n\geq30$이면 표준정규분포와 가깝다고 한다</p>
@@ -1460,7 +1460,7 @@ $</p>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>$f(x) = \frac{\Gamma(\frac{\nu + 1}{2})}{\sqrt{\nu\pi}\Gamma(\frac{\nu}{2})}(1+\frac{x^2}{\nu})^{-(\frac{\nu+1}{2})}$</p>
+<p>$f(x) = \frac{\Gamma\big(\frac{\nu + 1}{2}\big)}{\sqrt{\nu\pi}\Gamma\big(\frac{\nu}{2}\big)}\big(1+\frac{x^2}{\nu}\big)^{-\big(\frac{\nu+1}{2}\big)}$</p>
 
 </div>
 </div>
@@ -1605,7 +1605,7 @@ $</p>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>$f(x) = \frac{\Gamma(\frac{\nu_1+\nu_2}{2})(\frac{\nu_1}{\nu_2})^{\frac{\nu_1}{2}}x^{\frac{\nu_1}{2}-1}}{\Gamma(\frac{\nu_1}{2})\Gamma(\frac{\nu_2}{2})(1+\frac{\nu_1}{\nu_2}x)^{\frac{\nu_1+\nu_2}{2}}}$</p>
+<p>$f(x) = \frac{\Gamma\big(\frac{\nu_1+\nu_2}{2}\big)\big(\frac{\nu_1}{\nu_2}\big)^{\frac{\nu_1}{2}}x^{\frac{\nu_1}{2}-1}}{\Gamma\big(\frac{\nu_1}{2}\big)\Gamma\big(\frac{\nu_2}{2}\big)\big(1+\frac{\nu_1}{\nu_2}x\big)^{\frac{\nu_1+\nu_2}{2}}}$</p>
 
 </div>
 </div>
@@ -2358,7 +2358,7 @@ $</p>
 <h3 id="기하-분포의-무기억성">
 <a class="anchor" href="#%EA%B8%B0%ED%95%98-%EB%B6%84%ED%8F%AC%EC%9D%98-%EB%AC%B4%EA%B8%B0%EC%96%B5%EC%84%B1" aria-hidden="true"><span class="octicon octicon-link"></span></a>기하 분포의 무기억성<a class="anchor-link" href="#%EA%B8%B0%ED%95%98-%EB%B6%84%ED%8F%AC%EC%9D%98-%EB%AC%B4%EA%B8%B0%EC%96%B5%EC%84%B1"> </a>
 </h3>
-<p><code>-</code> $P(X=x+k|X&gt;k)=P(X=x)$</p>
+<p><code>-</code> $P(X=x+k\mid X&gt;k)=P(X=x)$</p>
 <p><code>-</code> 성공 확률 p인 베르누이 시행을 현재 k번 시도 했다</p>
 <p><code>-</code> 하지만 아직 까지 성공하지 못했다</p>
 <p><code>-</code> 내가 여태까지 k번 실패했으니까 성공확률이 올라갈까?? ---&gt; 답은 <code>No</code></p>
