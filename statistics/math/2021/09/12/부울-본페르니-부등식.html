@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Boole’s inequality and Bonferroni inequalities | Jaesu’s blog</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="Boole’s inequality and Bonferroni inequalities" />
+<meta name="author" content="한재수" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="작성 중" />
+<meta property="og:description" content="작성 중" />
+<link rel="canonical" href="https://gkswotn12345.github.io/green/statistics/math/2021/09/12/%EB%B6%80%EC%9A%B8-%EB%B3%B8%ED%8E%98%EB%A5%B4%EB%8B%88-%EB%B6%80%EB%93%B1%EC%8B%9D.html" />
+<meta property="og:url" content="https://gkswotn12345.github.io/green/statistics/math/2021/09/12/%EB%B6%80%EC%9A%B8-%EB%B3%B8%ED%8E%98%EB%A5%B4%EB%8B%88-%EB%B6%80%EB%93%B1%EC%8B%9D.html" />
+<meta property="og:site_name" content="Jaesu’s blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-09-12T00:00:00-05:00" />
+<script type="application/ld+json">
+{"description":"작성 중","url":"https://gkswotn12345.github.io/green/statistics/math/2021/09/12/%EB%B6%80%EC%9A%B8-%EB%B3%B8%ED%8E%98%EB%A5%B4%EB%8B%88-%EB%B6%80%EB%93%B1%EC%8B%9D.html","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://gkswotn12345.github.io/green/statistics/math/2021/09/12/%EB%B6%80%EC%9A%B8-%EB%B3%B8%ED%8E%98%EB%A5%B4%EB%8B%88-%EB%B6%80%EB%93%B1%EC%8B%9D.html"},"headline":"Boole’s inequality and Bonferroni inequalities","dateModified":"2021-09-12T00:00:00-05:00","datePublished":"2021-09-12T00:00:00-05:00","author":{"@type":"Person","name":"한재수"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/green/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://gkswotn12345.github.io/green/feed.xml" title="Jaesu's blog" /><link rel="shortcut icon" type="image/x-icon" href="/green/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.css" integrity="sha512-h7nl+xz8wgDlNM4NqKEM4F1NkIRS17M9+uJwIGwuo8vGqIl4BhuCKdxjWEINm+xyrUjNCnK5dCrhM0sj+wTIXw==" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.js" integrity="sha512-/CMIhXiDA3m2c9kzRyd97MTb3MC6OVnx4TElQ7fkkoRghwDf6gi41gaT1PwF270W6+J60uTmwgeRpNpJdRV6sg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/contrib/auto-render.min.js" integrity="sha512-Do7uJAaHZm5OLrIv/yN4w0iG1dbu01kzdMNnFfu/mAqgUk6Nniv2JYHcwH+cNwjqgLcqcuBBk+JRvprLVI8azg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha512-0doc9hKxR3PYwso42RD1p5ySZpzzuDiOwMrdCEh2WdJZCjcmFKc/wEnL+z8fBQrnHoiNWbo+3fiGkOYXBdQp4A==" crossorigin="anonymous"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement( document.body, {
+        delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "[%", right: "%]", display: true},
+            {left: "$", right: "$", display: false}
+        ]}
+        );
+    });
+    </script>
+
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/green/">Jaesu&#39;s blog</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/green/about/">About Me</a><a class="page-link" href="/green/search/">Search</a><a class="page-link" href="/green/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Boole&#39;s inequality and Bonferroni inequalities</h1><p class="page-description">작성 중</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2021-09-12T00:00:00-05:00" itemprop="datePublished">
+        Sep 12, 2021
+      </time>• 
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">한재수</span></span>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      1 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/green/categories/#statistics">statistics</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/green/categories/#math">math</a>
+        
+      
+      </p>
+    
+
+    
+      
+        <div class="pb-5 d-flex flex-wrap flex-justify-end">
+          <div class="px-2">
+
+    <a href="https://github.com/gkswotn12345/green/tree/master/_notebooks/2021-09-12-부울-본페르니-부등식.ipynb" role="button" target="_blank">
+<img class="notebook-badge-image" src="/green/assets/badges/github.svg" alt="View On GitHub">
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://mybinder.org/v2/gh/gkswotn12345/green/master?filepath=_notebooks%2F2021-09-12-%EB%B6%80%EC%9A%B8-%EB%B3%B8%ED%8E%98%EB%A5%B4%EB%8B%88-%EB%B6%80%EB%93%B1%EC%8B%9D.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/green/assets/badges/binder.svg" alt="Open In Binder"/>
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://colab.research.google.com/github/gkswotn12345/green/blob/master/_notebooks/2021-09-12-부울-본페르니-부등식.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/green/assets/badges/colab.svg" alt="Open In Colab"/>
+    </a>
+</div>
+        </div>
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul class="section-nav">
+<li class="toc-entry toc-h1"><a href="#Boole's-inequality">Boole&#39;s inequality </a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#Boole의-부등식-증명">Boole의 부등식 증명 </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h1"><a href="#Bonferroni-inequalities">Bonferroni inequalities </a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#Bonferroni의-부등식-증명">Bonferroni의 부등식 증명 </a></li>
+</ul>
+</li>
+</ul><!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2021-09-12-부울-본페르니-부등식.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Boole's-inequality">
+<a class="anchor" href="#Boole's-inequality" aria-hidden="true"><span class="octicon octicon-link"></span></a>Boole's inequality<a class="anchor-link" href="#Boole's-inequality"> </a>
+</h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> Boole의 부등식: $P\bigg(\bigcup\limits_{i=1}^{\infty} A_i\bigg) \leq \sum\limits_{i=1}^{\infty}P(A_i)$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Boole의-부등식-증명">
+<a class="anchor" href="#Boole%EC%9D%98-%EB%B6%80%EB%93%B1%EC%8B%9D-%EC%A6%9D%EB%AA%85" aria-hidden="true"><span class="octicon octicon-link"></span></a>Boole의 부등식 증명<a class="anchor-link" href="#Boole%EC%9D%98-%EB%B6%80%EB%93%B1%EC%8B%9D-%EC%A6%9D%EB%AA%85"> </a>
+</h2>
+<p><code>-</code> $B_1=A_1,\,B_2=A_2\cap A^c_1,\, \cdots,\,B_i = A_i\cap\bigg(\bigcap\limits_{j=1}^{i-1}A_j\bigg)^c$</p>
+<p><code>-</code> 사건 $B_i$는 사건 $A_i$에는 속하지만 $1\leq j&lt;i$인 $j$에 대해서 사건 $A_j$에는 속하지 않는다</p>
+<p><code>-</code> 그렇기에 $B_i$와 $B_j(i\neq j)$는 서로 배반 사건임 ---&gt; 배반 사건이므로 $P(\cup B_i) = \sum P(B_i)$</p>
+<p><code>-</code> 그리고 $\cup A_i=\cup B_i$ 임을 알 수 있음</p>
+<p><code>-</code> 또 $B_i \subset A_i$ 이므로 $P(\cup A_i)= P(\cup B_i)= \sum P(B_i) \leq \sum P(A_i)$ 가 성립한다</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Bonferroni-inequalities">
+<a class="anchor" href="#Bonferroni-inequalities" aria-hidden="true"><span class="octicon octicon-link"></span></a>Bonferroni inequalities<a class="anchor-link" href="#Bonferroni-inequalities"> </a>
+</h1>
+<p><code>-</code> Bonferroni의 부등식: $P\bigg(\bigcap\limits^{k}_{i=1}A_i\bigg)\geq 1 - \sum\limits_{i=1}^{k}P(A_i^c)$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Bonferroni의-부등식-증명">
+<a class="anchor" href="#Bonferroni%EC%9D%98-%EB%B6%80%EB%93%B1%EC%8B%9D-%EC%A6%9D%EB%AA%85" aria-hidden="true"><span class="octicon octicon-link"></span></a>Bonferroni의 부등식 증명<a class="anchor-link" href="#Bonferroni%EC%9D%98-%EB%B6%80%EB%93%B1%EC%8B%9D-%EC%A6%9D%EB%AA%85"> </a>
+</h2>
+<p><code>-</code> 드 모르간의 법칙: $\bigg(\bigcap\limits_{i=1}^{k}A_i\bigg)^c = \bigcup\limits_{i=1}^{k}A^c_i\longrightarrow \bigcap\limits_{i=1}^{k}A_i= \bigg(\bigcup\limits_{i=1}^{k}A^c_i\bigg)^c$</p>
+<ul>
+<li>
+<p>$P\bigg(\bigcap\limits^{k}_{i=1}A_i\bigg)\geq 1 - \sum\limits_{i=1}^{k}P(A_i^c)\qquad\therefore\bigcap\limits_{i=1}^{k}A_i= \bigg(\bigcup\limits_{i=1}^{k}A^c_i\bigg)^c$</p>
+</li>
+<li>
+<p>$P\bigg(\bigg(\bigcup\limits_{i=1}^{k}A^c_i\bigg)^c\bigg)\geq 1 - \sum\limits_{i=1}^{k}P(A_i^c)\qquad\therefore P(A^c)=1-P(A)$</p>
+</li>
+<li>
+<p>$1-P\bigg(\bigcup\limits_{i=1}^{k}A^c_i\bigg)\geq 1 - \sum\limits_{i=1}^{k}P(A_i^c)$</p>
+</li>
+<li>
+<p>$P\bigg(\bigcup\limits_{i=1}^{k}A^c_i\bigg)\leq \sum\limits_{i=1}^{k}P(A_i^c)\qquad\therefore$ 항등식이므로 $A^c_i$ 대신 $A_i$ 사용</p>
+</li>
+<li>
+<p>$P\bigg(\bigcup\limits_{i=1}^{k}A_i\bigg)\leq \sum\limits_{i=1}^{k}P(A_i)\longrightarrow $ 이 식이 성립하는지 수학적 귀납법을 사용하여 증명하자</p>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> $k=1$일 때 $P(A_1) \leq P(A_1)$이므로 성립한다</p>
+<p><code>-</code> $k=n$일 때 성립한다 가정하고 $k=n+1$일 때도 성립하는지 확인하자</p>
+<ul>
+<li>
+<p>$P\bigg(\bigcup\limits_{i=1}^{n+1}A_i\bigg)= P\bigg(\bigg(\bigcup\limits_{i=1}^{n}A_i\bigg)\cup A_{n+1}\bigg) = P\bigg(\bigcup\limits_{i=1}^{n}A_i\bigg)+P(A_{n+1})-P\bigg(\bigg(\bigcup\limits_{i=1}^{n}A_i\bigg)\cap A_{n+1}\bigg)$</p>
+</li>
+<li>
+<p>$P\bigg(\bigcup\limits_{i=1}^{n+1}A_i\bigg) \leq P\bigg(\bigcup\limits_{i=1}^{n}A_i\bigg) + P(A_{n+1})\qquad\therefore P\bigg(\bigg(\bigcup\limits_{i=1}^{n}A_i\bigg)\cap A_{n+1}\bigg)\geq 0$</p>
+</li>
+<li>
+<p>$P\bigg(\bigcup\limits_{i=1}^{n+1}A_i\bigg) \leq P\bigg(\bigcup\limits_{i=1}^{n}A_i\bigg) + P(A_{n+1})\leq\sum\limits_{i=1}^{n}P(A_i)+P(A_{n+1})=\sum\limits_{i=1}^{n+1}P(A_i)$</p>
+</li>
+</ul>
+<p><code>-</code> 따라서 $k=n+1$일 때도 성립한다</p>
+<p><code>-</code> 수학적 귀납법에 의해 모든 유한개의 사건 $k$에 대해 $P\bigg(\bigcap\limits^{k}_{i=1}A_i\bigg)\geq 1 - \sum\limits_{i=1}^{k}P(A_i^c)$ 가 성립한다</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> ref: <a href="https://dawoum.ddns.net/wiki/Boole%27s_inequality">https://dawoum.ddns.net/wiki/Boole%27s_inequality</a></p>
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+  </div><!-- from https://github.com/utterance/utterances -->
+<script src="https://utteranc.es/client.js"
+        repo="gkswotn12345/green"
+        issue-term="title"
+        label="blogpost-comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script><a class="u-url" href="/green/statistics/math/2021/09/12/%EB%B6%80%EC%9A%B8-%EB%B3%B8%ED%8E%98%EB%A5%B4%EB%8B%88-%EB%B6%80%EB%93%B1%EC%8B%9D.html" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/green/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/green/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/green/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>An easy to use blogging platform with support for Jupyter Notebooks.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/gkswotn12345" title="gkswotn12345"><svg class="svg-icon grey"><use xlink:href="/green/assets/minima-social-icons.svg#github"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
