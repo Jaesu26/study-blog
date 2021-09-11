@@ -958,7 +958,7 @@ $</p>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> 기댓값은 어찌보면 당연한데 단위 시간 동안 사건이 $\lambda$번 발생한다면 대기 시간은 $\frac{1}{\lambda}$여야 $\lambda \times \frac{1}{\lambda} = 1\text{(단위 시간)}$이 성립한다</p>
+<p><code>-</code> 기댓값은 어찌보면 당연한데 단위 시간 동안 사건이 $\lambda$번 발생한다면 대기 시간은 $\frac{1}{\lambda}$여야 $\lambda \times \frac{1}{\lambda} = 1$(단위 시간)이 성립한다</p>
 
 </div>
 </div>
@@ -984,7 +984,7 @@ $</p>
 <p><code>-</code> scale은 $\beta$ = 대기 시간, size는 표본의 수</p>
 <div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">exponential</span><span class="p">(</span><span class="n">scale</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">)</span>
 </pre></div>
-<p><code>-</code> 우리 집 앞에서 1시간당 평균 0.5명이 넘어진다 ---&gt; $\lambda\text{(사건의 빈도)} = 0.5$이므로 대기 시간 $\beta\text{(대기 시간)} = 2$</p>
+<p><code>-</code> 우리 집 앞에서 1시간당 평균 0.5명이 넘어진다 ---&gt; $\lambda$(사건의 빈도) $= 0.5$ 이므로 대기 시간 $\beta$(대기 시간) $= 2$</p>
 <p><code>-</code> 다시말하면 우리 집 앞에서 한 명이 넘어지고 다음 사람이 넘어지기 까지 2시간이 걸린다</p>
 <p><code>-</code> 이때 한 사람이 넘어지고 다음 사람이 넘어지기 까지 걸리는 대기 시간에 대한 분포를 그려보자</p>
 
@@ -1440,7 +1440,7 @@ $</p>
 <p><code>-</code> 표준화한 표본평균의 분포: 모표준편차를 알고 있음$\bigg(\frac{x-\mu}{\sqrt{\frac{\sigma}{n}}}\bigg)$ --&gt; 정규분포, 모표준편차를 모르고 표본표준편차를 알고 있음$\bigg(\frac{x-\bar{x}}{\sqrt{\frac{s}{n}}}\bigg)$ ---&gt; t분포</p>
 <p><code>-</code> 다음의 확률 분포로 정의 ---&gt; $\frac{Z}{\sqrt{\frac{V}{\nu}}}$</p>
 <p><code>-</code> $Z$는 표준정규분포, $V$는 자유도$\nu$인 카이제곱 분포</p>
-<p><code>-</code> <code>자유도</code>가 <code>커질수록</code> <code>표준정규분포</code>에 <code>가까워짐</code> (중심극한정리와 무관) ---&gt; 보통 표본 크기 $n\geq30$이면 표준정규분포와 가깝다고 한다</p>
+<p><code>-</code> <code>자유도</code>가 <code>커질수록</code> t분포는 <code>표준정규분포</code>에 <code>가까워짐</code> (중심극한정리와 무관) ---&gt; 보통 표본 크기 $n\geq30$이면 표준정규분포와 가깝다고 한다</p>
 <p><code>-</code> [$\star$]표본크기가 커지면 표준정규분포에 가까워짐[$\star$] ---&gt; 표본 크기가 커진다는 것은 모집단에 가까워진다는 의미이므로 표본표준편차도 모표준편차에 가까워짐</p>
 <p><code>-</code> t 분포의 적률생성함수는 정의되지 않음</p>
 <p><code>-</code> 참고: <a href="https://ko.wikipedia.org/wiki/%EC%8A%A4%ED%8A%9C%EB%8D%98%ED%8A%B8_t_%EB%B6%84%ED%8F%AC">t분포</a></p>
@@ -1552,7 +1552,7 @@ $</p>
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> $x = 0$을 기준으로 대칭임</p>
 <p><code>-</code> 자유도가 5이므로 표본 크기는 6</p>
-<p><code>-</code> 모표준편차 대신 표본표준편차를 알고 표본 크기가 6일 때 표준화한 표본 평균($\frac{x-\bar{x}}{\sqrt{\frac{s}{n}}}$)에 대한 분포</p>
+<p><code>-</code> 모표준편차 대신 표본표준편차를 알고 표본 크기가 6일 때 표준화한 표본 평균$\Big(\frac{x-\bar{x}}{\sqrt{\frac{s}{n}}}\Big)$에 대한 분포</p>
 <p><code>-</code> t분포는 표준정규분포보다 꼬리 부근에 밀도가 높음 ---&gt; 모표준편차 대신 표본표준편차를 사용하기 때문 ---&gt; 표본의 특성상 추출할 때마다 다르므로 변동성이 있음</p>
 
 </div>
