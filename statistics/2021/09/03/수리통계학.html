@@ -150,7 +150,15 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h3"><a href="#사건의-독립">사건의 독립 </a></li>
 </ul>
 </li>
-<li class="toc-entry toc-h2"><a href="#경우의-수">경우의 수 </a></li>
+<li class="toc-entry toc-h2"><a href="#경우의-수">경우의 수 </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#순열(permutation)">순열(permutation) </a></li>
+<li class="toc-entry toc-h3"><a href="#조합">조합 </a></li>
+<li class="toc-entry toc-h3"><a href="#이항정리">이항정리 </a></li>
+<li class="toc-entry toc-h3"><a href="#같은-것이-있는-순열">같은 것이 있는 순열 </a></li>
+<li class="toc-entry toc-h3"><a href="#다항정리">다항정리 </a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul><!--
@@ -422,6 +430,79 @@ window.onload = wrap_img;
 <h2 id="경우의-수">
 <a class="anchor" href="#%EA%B2%BD%EC%9A%B0%EC%9D%98-%EC%88%98" aria-hidden="true"><span class="octicon octicon-link"></span></a>경우의 수<a class="anchor-link" href="#%EA%B2%BD%EC%9A%B0%EC%9D%98-%EC%88%98"> </a>
 </h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="순열(permutation)">
+<a class="anchor" href="#%EC%88%9C%EC%97%B4(permutation)" aria-hidden="true"><span class="octicon octicon-link"></span></a>순열(permutation)<a class="anchor-link" href="#%EC%88%9C%EC%97%B4(permutation)"> </a>
+</h3>
+<p><code>-</code> 서로 다른 n개의 원소 중에서 r개를 선택하여 <code>순서 있게</code> 놓는 것(${_n\rm P_r}$)</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="조합">
+<a class="anchor" href="#%EC%A1%B0%ED%95%A9" aria-hidden="true"><span class="octicon octicon-link"></span></a>조합<a class="anchor-link" href="#%EC%A1%B0%ED%95%A9"> </a>
+</h3>
+<p><code>-</code> 서로 다른 n개의 원소 중에서 <code>순서에 관계없이</code> r개를 선택하는 것($_n\rm C_r$)</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="이항정리">
+<a class="anchor" href="#%EC%9D%B4%ED%95%AD%EC%A0%95%EB%A6%AC" aria-hidden="true"><span class="octicon octicon-link"></span></a>이항정리<a class="anchor-link" href="#%EC%9D%B4%ED%95%AD%EC%A0%95%EB%A6%AC"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> $(a+b)^n = \sum\limits_{k=0}^{n}\dbinom{n}{k}a^{k} b^{n-k}$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="같은-것이-있는-순열">
+<a class="anchor" href="#%EA%B0%99%EC%9D%80-%EA%B2%83%EC%9D%B4-%EC%9E%88%EB%8A%94-%EC%88%9C%EC%97%B4" aria-hidden="true"><span class="octicon octicon-link"></span></a>같은 것이 있는 순열<a class="anchor-link" href="#%EA%B0%99%EC%9D%80-%EA%B2%83%EC%9D%B4-%EC%9E%88%EB%8A%94-%EC%88%9C%EC%97%B4"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> $\dbinom{n}{\;r_1\; r_2\;\cdots\;r_k\;} = \cfrac{n!}{r_1!\; r_2!\; \cdots\; r_k!}$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="다항정리">
+<a class="anchor" href="#%EB%8B%A4%ED%95%AD%EC%A0%95%EB%A6%AC" aria-hidden="true"><span class="octicon octicon-link"></span></a>다항정리<a class="anchor-link" href="#%EB%8B%A4%ED%95%AD%EC%A0%95%EB%A6%AC"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> $(a_1+a_2+\cdots+a_k)^n=\sum\limits_{r_1,\cdots,r_k\in\mathbb N}^{r_1+\cdots+r_k=n}\dbinom{n}{\;r_1\; r_2\;\cdots\;r_k\;}\,a_1^{r_1}\,a_2^{r_2}\cdots a_k^{r_k}$</p>
+
 </div>
 </div>
 </div>
