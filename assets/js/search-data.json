@@ -101,8 +101,8 @@
   
     
         ,"post9": {
-            "title": "자료구조 스택(Stack)",
-            "content": "&#49828;&#53469;(Stack) . - 스택(stack)은 기본적인 자료 구조 . - 스택은 자료를 넣고(push) 자료를 빼는(pop) 입구가 같은 선형 구조(LIFO - Last In First Out)으로 되어 있음 . - 참고: 자료구조 스택 . &#49828;&#53469;(Stack) &#49324;&#50857; . - 파이썬에서 stack은 list를 통해 구현할 수 있다 . - stack.append(x)를 통해 스택에 x를 push한다 . - stack.pop()을 통해 스택의 마지막 원소를 pop한다 . &#50696;&#51228; - &#51228;&#47196; . 문제 출처: 백준 10773번 | . - 스택(stack)의 기본적인 push와 pop을 이요하면 된다 . - 0이 입력되면 pop하고 그 외에 수가 입력되면 push한다 . K = int(input()) stack = list() ## stack = []와 동일 for _ in range(K): num = int(input()) if num == 0: stack.pop() else: stack.append(num) print(sum(stack)) . 0 .",
+            "title": "자료구조 스택(stack)",
+            "content": "&#49828;&#53469;(stack) . - 스택(stack)은 기본적인 자료 구조 . - 스택은 자료를 넣고(push) 자료를 빼는(pop) 입구가 같은 선형 구조(LIFO - Last In First Out)으로 되어 있음 . - 참고: 자료구조 스택 . &#49828;&#53469;(stack) &#49324;&#50857; . - 파이썬에서 stack은 list를 통해 구현할 수 있다 . - stack.append(x)를 통해 스택에 x를 push한다 . - stack.pop()을 통해 스택의 마지막 원소를 pop한다 . &#50696;&#51228; - &#51228;&#47196; . 문제 출처: 백준 10773번 | . - 스택(stack)의 기본적인 push와 pop을 이요하면 된다 . - 0이 입력되면 pop하고 그 외에 수가 입력되면 push한다 . K = int(input()) stack = list() ## stack = []와 동일 for _ in range(K): num = int(input()) if num == 0: stack.pop() else: stack.append(num) print(sum(stack)) . 0 .",
             "url": "https://gkswotn12345.github.io/green/python/data%20structure/2021/08/30/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0-%EC%8A%A4%ED%83%9D.html",
             "relUrl": "/python/data%20structure/2021/08/30/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0-%EC%8A%A4%ED%83%9D.html",
             "date": " • Aug 30, 2021"
