@@ -218,7 +218,7 @@ window.onload = wrap_img;
 <p>$1-P\bigg(\bigcup\limits_{i=1}^{k}A^c_i\bigg)\geq 1 - \sum\limits_{i=1}^{k}P(A_i^c)$</p>
 </li>
 <li>
-<p>$P\bigg(\bigcup\limits_{i=1}^{k}A^c_i\bigg)\leq \sum\limits_{i=1}^{k}P(A_i^c)\qquad\therefore$ 식이 참이라면 절대부등식이므로 $A^c_i$ 대신 $A_i$ 사용해도 된다</p>
+<p>$P\bigg(\bigcup\limits_{i=1}^{k}A^c_i\bigg)\leq \sum\limits_{i=1}^{k}P(A_i^c)\qquad\therefore$ 식이 참이라면 절대부등식이므로 $A^c_i$ 대신 $A_i$ 사용해도 됨</p>
 </li>
 <li>
 <p>$P\bigg(\bigcup\limits_{i=1}^{k}A_i\bigg)\leq \sum\limits_{i=1}^{k}P(A_i)\longrightarrow $ 이 식이 성립하는지 수학적 귀납법을 사용하여 증명하자</p>
@@ -235,7 +235,7 @@ window.onload = wrap_img;
 <p><code>-</code> $k=n$일 때 성립한다 가정하고 $k=n+1$일 때도 성립하는지 확인하자</p>
 <ul>
 <li>
-<p>$P\bigg(\bigcup\limits_{i=1}^{n+1}A_i\bigg)= P\bigg(\bigg(\bigcup\limits_{i=1}^{n}A_i\bigg)\cup A_{n+1}\bigg) = P\bigg(\bigcup\limits_{i=1}^{n}A_i\bigg)+P(A_{n+1})-P\bigg(\bigg(\bigcup\limits_{i=1}^{n}A_i\bigg)\cap A_{n+1}\bigg)$</p>
+<p>$P\bigg(\bigcup\limits_{i=1}^{n+1}A_i\bigg)= P\bigg(\bigg(\bigcup\limits_{i=1}^{n}A_i\bigg)\cup A_{n+1}\bigg) \\= P\bigg(\bigcup\limits_{i=1}^{n}A_i\bigg)+P(A_{n+1})-P\bigg(\bigg(\bigcup\limits_{i=1}^{n}A_i\bigg)\cap A_{n+1}\bigg)$</p>
 </li>
 <li>
 <p>$P\bigg(\bigcup\limits_{i=1}^{n+1}A_i\bigg) \leq P\bigg(\bigcup\limits_{i=1}^{n}A_i\bigg) + P(A_{n+1})\qquad\therefore P\bigg(\bigg(\bigcup\limits_{i=1}^{n}A_i\bigg)\cap A_{n+1}\bigg)\geq 0$</p>
