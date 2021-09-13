@@ -314,7 +314,8 @@ window.onload = wrap_img;
 <p><code>-</code> 상관관계의 정도를 나타냄</p>
 <p><code>-</code> 모집단 상관계수: $\rho$ ---&gt; 우리가 알고자 하는 모수
 </p>
-<p><code>-</code> 표본 상관계수: $r_{xy} = \frac{\frac{1}{n}\sum\limits_{i=1}^{n}(x_i-\bar{x})(y_i-\bar{y})}{\sqrt{\frac{1}{n}\sum\limits_{i=1}^{n}(x_i-\bar{x})^{2}\frac{1}{n}\sum\limits_{i=1}^{n}(y_i-\bar{y})^{2}}} = \frac{S_{xy}}{S_x S_y}$
+<p><code>-</code> 표본 상관계수: $r_{xy} = \cfrac{\cfrac{1}{n-1}\sum\limits_{i=1}^{n}(x_i-\bar{x})(y_i-\bar{y})}{\sqrt{\cfrac{1}{n-1}\sum\limits_{i=1}^{n}(x_i-\bar{x})^{2}\cfrac{1}{n-1}\sum\limits_{i=1}^{n}(y_i-\bar{y})^{2}}} = \cfrac{S_{xy}}{S_x S_y}$</p>
+<p><code>-</code> 표본 상관계수(z점수 사용): $r_{xy} = \cfrac{1}{n-1}\sum\limits_{i=1}^{n}\bigg(\cfrac{x_i-\bar{x}}{\sigma_x}\bigg)\bigg(\cfrac{y_i-\bar{y}}{\sigma_y}\bigg)$
 </p>
 
 </div>
