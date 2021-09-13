@@ -180,8 +180,8 @@ window.onload = wrap_img;
 <h2 id="Boole의-부등식-증명">
 <a class="anchor" href="#Boole%EC%9D%98-%EB%B6%80%EB%93%B1%EC%8B%9D-%EC%A6%9D%EB%AA%85" aria-hidden="true"><span class="octicon octicon-link"></span></a>Boole의 부등식 증명<a class="anchor-link" href="#Boole%EC%9D%98-%EB%B6%80%EB%93%B1%EC%8B%9D-%EC%A6%9D%EB%AA%85"> </a>
 </h2>
-<p><code>-</code> $B_1=A_1,\,B_2=A_2\cap A^c_1,\, \cdots,\,B_i = A_i\cap\bigg(\bigcap\limits_{j=1}^{i-1}A_j\bigg)^c$</p>
-<p><code>-</code> 사건 $B_i$는 사건 $A_i$에는 속하면서 $A_1, A_2, \cdots, A_{i-1}$에 동시에 속하는 사건에는 속하지 않는다</p>
+<p><code>-</code> $B_1=A_1,\,B_2=A_2\cap A^c_1,\, \cdots,\,B_i = A_i\cap\bigg(\bigcup\limits_{j=1}^{i-1}A_j\bigg)^c$</p>
+<p><code>-</code> 사건 $B_i$는 사건 $A_i$에는 속하면서 사건 $A_j\,(1 \leq j &lt;i$)에는 속하지 않는다</p>
 <p><code>-</code> 그렇기에 $B_i$와 $B_j(i\neq j)$는 서로 배반 사건임 ---&gt; 배반 사건이므로 $P(\cup B_i) = \sum P(B_i)$</p>
 <p><code>-</code> 그리고 $\cup A_i=\cup B_i$ 임을 알 수 있음</p>
 <p><code>-</code> 또 $B_i \subset A_i$ 이므로 $P(\cup A_i)= P(\cup B_i)= \sum P(B_i) \leq \sum P(A_i)$ 가 성립한다</p>
