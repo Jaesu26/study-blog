@@ -191,7 +191,7 @@ window.onload = wrap_img;
 <p><code>-</code> 행렬의 원소는 볼드체 사용 안함 ---&gt; 행렬의 원소가 벡터 또는 행렬이면 볼드체 사용</p>
 <p><code>-</code> 행렬의 기본인 벡터를 알고가자</p>
 <p><code>-</code> 열벡터($\boldsymbol{a}$) : $m\times 1$ 행렬 ---&gt; 보통 벡터라고 하면 열벡터임</p>
-<p><code>-</code> 행벡터($\boldsymbol{a\,'}$) : $1\times n$ 행렬</p>
+<p><code>-</code> 행벡터($\boldsymbol{a'}$) : $1\times n$ 행렬</p>
 <p><code>-</code> 스칼라 : 원소가 하나인 행렬</p>
 <p><code>-</code> ${\bf 0}$ : 모든 원소가 $0$인 벡터</p>
 <p><code>-</code> ${\bf 1}$ : 모든 원소가 $1$인 벡터</p>
@@ -228,10 +228,10 @@ a_{m1} &amp; a_{m2} &amp; \cdots &amp; a_{mn}
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> 정사각행렬(square matrix) : $m=n$ 인 행렬</p>
 <p><code>-</code> 대각행렬(diagonal matrix, $\boldsymbol{D}$) : 정사각행렬 중에 대각원소를 제외한 모든 원소가 $0$인 행렬</p>
-<p><code>-</code> 단위행렬(identity matrix, $\boldsymbol{I}$) : 대각행렬 중에서 대각의 원소가 모두 $1$인 행렬 ---&gt; 차수를 밝힐 땐 $\boldsymbol{I_m}$</p>
+<p><code>-</code> 단위행렬(identity matrix, $\boldsymbol{I}$) : 대각행렬 중에 대각의 원소가 모두 $1$인 행렬 ---&gt; 차수를 밝힐 땐 $\boldsymbol{I_m}$</p>
 <p><code>-</code> 위삼각행렬(upper triangular matrix) : 대각원소와 그 오른쪽 위의 원소를 제외한 나머지 원소는 모두 $0$인 행렬</p>
 <p><code>-</code> 아래삼각행렬(lower triangular matrix) : 대각원소와 그 왼쪽 아래의 원소를 제외한 나머지 원소는 모두 $0$인 행렬</p>
-<p><code>-</code> 전치행렬(transpose matrix) : 행과 열이 바뀐 행렬 ---&gt; $m \times n$ 행렬의 전치행렬은 $n \times m$ 이 되고 $\boldsymbol{{A\,'} \; or\; A^T}$ 로 표현)</p>
+<p><code>-</code> 전치행렬(transpose matrix) : 행과 열이 바뀐 행렬 ---&gt; $m \times n$ 행렬의 전치행렬은 $n \times m$ 이 되고 $\boldsymbol{A'}$ 또는 $A^T$ 로 표현</p>
 <p><code>-</code> 대칭행렬(symmetric matrix) : $\boldsymbol{A = A^T}$</p>
 
 </div>
@@ -277,15 +277,15 @@ a_{m1} &amp; a_{m2} &amp; \cdots &amp; a_{mn}
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>
 $$\boldsymbol{AB}=\begin{pmatrix} 
-{\boldsymbol{a}_{1\,\cdot}}\,'\\ 
-{\boldsymbol{a}_{2\,\cdot}}\,'\\ 
+{\boldsymbol{a_{1\,\cdot}}}\,'\\ 
+{\boldsymbol{a_{2\,\cdot}}}\,'\\ 
 \vdots\\
-{\boldsymbol{a}_{m\,\cdot}}\,'
-\end{pmatrix}  \big(\boldsymbol{b}_{\,\cdot \,1},\, \boldsymbol{b}_{\,\cdot \,2},\, \cdots,\, \boldsymbol{b}_{\,\cdot\, n}\big) = \begin{pmatrix}
-{\boldsymbol{a}_{1\,\cdot}}\,'\boldsymbol{b}_{\,\cdot \,1} &amp; {\boldsymbol{a}_{1\,\cdot}}\,'\boldsymbol{b}_{\,\cdot \,2} &amp; \cdots &amp; {\boldsymbol{a}_{1\,\cdot}}\,'\boldsymbol{b}_{\,\cdot \,n}\\
-{\boldsymbol{a}_{2\,\cdot}}\,'\boldsymbol{b}_{\,\cdot \,1} &amp; {\boldsymbol{a}_{2\,\cdot}}\,'\boldsymbol{b}_{\,\cdot \,2} &amp; \cdots &amp; {\boldsymbol{a}_{2\,\cdot}}\,'\boldsymbol{b}_{\,\cdot \,n}\\
+{\boldsymbol{a_{m\,\cdot}}}\,'
+\end{pmatrix}  \big(\boldsymbol{b_{\,\cdot \,1}},\, \boldsymbol{b_{\,\cdot \,2}},\, \cdots,\, \boldsymbol{b_{\,\cdot\, n}}\big) = \begin{pmatrix}
+{\boldsymbol{a_{1\,\cdot}}}\,'\boldsymbol{b_{\,\cdot \,1}} &amp; {\boldsymbol{a_{1\,\cdot}}}\,'\boldsymbol{b_{\,\cdot \,2}} &amp; \cdots &amp; {\boldsymbol{a_{1\,\cdot}}}\,'\boldsymbol{b_{\,\cdot \,n}}\\
+{\boldsymbol{a_{2\,\cdot}}}\,'\boldsymbol{b_{\,\cdot \,1}} &amp; {\boldsymbol{a_{2\,\cdot}}}\,'\boldsymbol{b_{\,\cdot \,2}} &amp; \cdots &amp; {\boldsymbol{a_{2\,\cdot}}}\,'\boldsymbol{b_{\,\cdot \,n}}\\
 \vdots &amp; \vdots &amp; \ddots &amp; \vdots\\
-{\boldsymbol{a}_{m\,\cdot}}\,'\boldsymbol{b}_{\,\cdot \,1} &amp; {\boldsymbol{a}_{m\,\cdot}}\,'\boldsymbol{b}_{\,\cdot \,2} &amp; \cdots &amp; {\boldsymbol{a}_{m\,\cdot}}\,'\boldsymbol{b}_{\,\cdot \,n}
+{\boldsymbol{a_{m\,\cdot}}}\,'\boldsymbol{b_{\,\cdot \,1}} &amp; {\boldsymbol{a_{m\,\cdot}}}\,'\boldsymbol{b_{\,\cdot \,2}} &amp; \cdots &amp; {\boldsymbol{a_{m\,\cdot}}}\,'\boldsymbol{b_{\,\cdot \,n}}
 \end{pmatrix}$$ 
 </p>
 
@@ -295,7 +295,9 @@ $$\boldsymbol{AB}=\begin{pmatrix}
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> ${\boldsymbol{a}_{1\,\cdot}}\,'\boldsymbol{b}_{\,\cdot \,1}$ 부터 ${\boldsymbol{a}_{m\,\cdot}}\,'\boldsymbol{b}_{\,\cdot \,n}$ 까지 각각은 스칼리임</p>
+<p></p>
+<p><code>-</code> ${\boldsymbol{a_{1\,\cdot}}}\,'\boldsymbol{b_{\,\cdot \,1}}$ 부터 ${\boldsymbol{a_{m\,\cdot}}}\,'\boldsymbol{b_{\,\cdot \,n}}$ 까지 각각은 스칼리임
+</p>
 
 </div>
 </div>
@@ -313,12 +315,12 @@ $$\boldsymbol{AB}=\begin{pmatrix}
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>
-$$\boldsymbol{AB}=\big(\boldsymbol{a}_{\,\cdot \,1},\, \boldsymbol{a}_{\,\cdot \,2},\, \cdots,\, \boldsymbol{a}_{\,\cdot\, p}\big) \begin{pmatrix} 
-{\boldsymbol{b}_{1\,\cdot}}\,'\\ 
-{\boldsymbol{b}_{2\,\cdot}}\,'\\ 
+$$\boldsymbol{AB}=\big(\boldsymbol{a_{\,\cdot \,1}},\, \boldsymbol{a_{\,\cdot \,2}},\, \cdots,\, \boldsymbol{a_{\,\cdot\, p}}\big) \begin{pmatrix} 
+{\boldsymbol{b_{1\,\cdot}}}\,'\\ 
+{\boldsymbol{b_{2\,\cdot}}}\,'\\ 
 \vdots\\
-{\boldsymbol{b}_{p\,\cdot}}\,'
-\end{pmatrix} = \boldsymbol{a}_{\,\cdot \,1}{\boldsymbol{b}_{1\,\cdot}}\,' + \cdots + \boldsymbol{a}_{\,\cdot \,p}{\boldsymbol{b}_{p\,\cdot}}\,'$$ 
+{\boldsymbol{b_{p\,\cdot}}}\,'
+\end{pmatrix} = \boldsymbol{a_{\,\cdot \,1}}{\boldsymbol{b_{1\,\cdot}}}\,' + \cdots + \boldsymbol{a_{\,\cdot \,p}}{\boldsymbol{b_{p\,\cdot}}}\,'$$ 
 </p>
 
 </div>
@@ -327,7 +329,9 @@ $$\boldsymbol{AB}=\big(\boldsymbol{a}_{\,\cdot \,1},\, \boldsymbol{a}_{\,\cdot \
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> $\boldsymbol{a}_{\,\cdot \,1}{\boldsymbol{b}_{1\,\cdot}}\,'$ 부터 $\boldsymbol{a}_{\,\cdot \,p}{\boldsymbol{b}_{p\,\cdot}}\,'$ 까지 각각은 $p \times p$ 행렬임</p>
+<p></p>
+<p><code>-</code> $\boldsymbol{a_{\,\cdot \,1}}{\boldsymbol{b_{1\,\cdot}}}\,'$ 부터 $\boldsymbol{a_{\,\cdot \,p}}{\boldsymbol{b_{p\,\cdot}}}\,'$ 까지 각각은 $p \times p$ 행렬임
+</p>
 
 </div>
 </div>
@@ -358,7 +362,7 @@ $$\boldsymbol{AB}=\big(\boldsymbol{a}_{\,\cdot \,1},\, \boldsymbol{a}_{\,\cdot \
 <h4 id="대각합의-성질">
 <a class="anchor" href="#%EB%8C%80%EA%B0%81%ED%95%A9%EC%9D%98-%EC%84%B1%EC%A7%88" aria-hidden="true"><span class="octicon octicon-link"></span></a>대각합의 성질<a class="anchor-link" href="#%EB%8C%80%EA%B0%81%ED%95%A9%EC%9D%98-%EC%84%B1%EC%A7%88"> </a>
 </h4>
-<p><code>-</code> $tr(\boldsymbol{A}) = tr(\boldsymbol{A\,'})$</p>
+<p><code>-</code> $tr(\boldsymbol{A}) = tr(\boldsymbol{A'})$</p>
 <p><code>-</code> $tr(\boldsymbol{AB}) = tr(\boldsymbol{BA})$</p>
 <p><code>-</code> 나머지는 간단하니 교재 참고</p>
 
@@ -377,12 +381,12 @@ $$\boldsymbol{AB}=\big(\boldsymbol{a}_{\,\cdot \,1},\, \boldsymbol{a}_{\,\cdot \
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<p></p>
 <p><code>-</code> 행렬식(determinant) : $\begin{vmatrix}\boldsymbol{A}\end{vmatrix}$ or $det(\boldsymbol{A})$</p>
+<p><code>-</code> 행렬 $\begin{vmatrix}\boldsymbol{A}\end{vmatrix}$ 가 $m\times m$ 일 때 $|\boldsymbol{A}|=\sum\limits_{i=1}^{m}(-1)^{i+1}a_{1i}\begin{vmatrix}\boldsymbol{M_{1i}}\end{vmatrix}$</p>
+<p><code>-</code> $\boldsymbol{M_{ij}}$ 는 행렬 $\boldsymbol{A}$ 에서 $i$ 번째 행과 $j$ 번째 열을 제외한 $(m-1)\times(m-1)$ 부분행렬</p>
+<p><code>-</code> $\boldsymbol{A_{ij}} = (-1)^{i+j}\boldsymbol{M_{ij}} \longrightarrow \boldsymbol{A_{ij}}$ 를 원소 $a_{ij}$ 의 <code>여인수</code>라고 함</p>
 <p></p>
-<p><code>-</code> 행렬 $\begin{vmatrix}\boldsymbol{A}\end{vmatrix}$ 가 $m\times m$ 일 때 $|\boldsymbol{A}|=\sum\limits_{i=1}^{m}(-1)^{i+1}a_{1i}\begin{vmatrix}\boldsymbol{M}_{1i}\end{vmatrix}$</p>
-<p></p>
-<p><code>-</code> $\boldsymbol{M}_{ij}$ 는 행렬 $\boldsymbol{A}$ 에서 $i$ 번째 행과 $j$ 번째 열을 제외한 $(m-1)\times(m-1)$ 부분행렬</p>
-<p><code>-</code> $\boldsymbol{A}_{ij} = (-1)^{i+j}\boldsymbol{M}_{ij} ---&gt; \boldsymbol{A}_{ij}$ 를 원소 $a_{ij}$ 의 <code>여인수</code>라고 함</p>
 
 </div>
 </div>
@@ -403,7 +407,7 @@ $$\boldsymbol{AB}=\big(\boldsymbol{a}_{\,\cdot \,1},\, \boldsymbol{a}_{\,\cdot \
 </p>
 <ol>
 <li>
-<p>$det(\boldsymbol{A}) = det(\boldsymbol{A\,'})$</p>
+<p>$det(\boldsymbol{A}) = det(\boldsymbol{A'})$</p>
 </li>
 <li>
 <p>$det(\alpha\boldsymbol{A}) = \alpha^{m}(det(\boldsymbol{A}))$</p>
@@ -416,7 +420,7 @@ $$\boldsymbol{AB}=\big(\boldsymbol{a}_{\,\cdot \,1},\, \boldsymbol{a}_{\,\cdot \
 </li>
 <li>
 <p>정사각행렬 $\boldsymbol{P, \,Q}$ 에 대하여 $\begin{vmatrix}\begin{pmatrix}
-\boldsymbol{P} &amp; 0 \\
+\boldsymbol{P} &amp; \boldsymbol{0} \\
 \boldsymbol{X} &amp; \boldsymbol{Q}
 \end{pmatrix}\end{vmatrix} = \begin{vmatrix}\boldsymbol{P}\end{vmatrix}\cdot\begin{vmatrix}\boldsymbol{Q}\end{vmatrix}$</p>
 </li>
@@ -430,6 +434,14 @@ $$\boldsymbol{AB}=\big(\boldsymbol{a}_{\,\cdot \,1},\, \boldsymbol{a}_{\,\cdot \
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> 특이 행렬, 정칙 행렬</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>$\bf\cdot \cdot$</p>
 
 </div>
 </div>
