@@ -4,9 +4,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.6.1 -->
-<title>빅데이터 개론 | Jaesu’s blog</title>
+<title>데이터 과학 | Jaesu’s blog</title>
 <meta name="generator" content="Jekyll v4.1.1" />
-<meta property="og:title" content="빅데이터 개론" />
+<meta property="og:title" content="데이터 과학" />
 <meta name="author" content="한재수" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="작성 중" />
@@ -17,7 +17,7 @@
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2021-09-08T00:00:00-05:00" />
 <script type="application/ld+json">
-{"description":"작성 중","url":"https://gkswotn12345.github.io/green/python/statistics/2021/09/08/%EB%B9%85%EB%8D%B0%EC%9D%B4%ED%84%B0%EA%B0%9C%EB%A1%A0.html","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://gkswotn12345.github.io/green/python/statistics/2021/09/08/%EB%B9%85%EB%8D%B0%EC%9D%B4%ED%84%B0%EA%B0%9C%EB%A1%A0.html"},"headline":"빅데이터 개론","dateModified":"2021-09-08T00:00:00-05:00","datePublished":"2021-09-08T00:00:00-05:00","author":{"@type":"Person","name":"한재수"},"@context":"https://schema.org"}</script>
+{"description":"작성 중","url":"https://gkswotn12345.github.io/green/python/statistics/2021/09/08/%EB%B9%85%EB%8D%B0%EC%9D%B4%ED%84%B0%EA%B0%9C%EB%A1%A0.html","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://gkswotn12345.github.io/green/python/statistics/2021/09/08/%EB%B9%85%EB%8D%B0%EC%9D%B4%ED%84%B0%EA%B0%9C%EB%A1%A0.html"},"headline":"데이터 과학","dateModified":"2021-09-08T00:00:00-05:00","datePublished":"2021-09-08T00:00:00-05:00","author":{"@type":"Person","name":"한재수"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/green/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://gkswotn12345.github.io/green/feed.xml" title="Jaesu's blog" /><link rel="shortcut icon" type="image/x-icon" href="/green/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
@@ -88,7 +88,7 @@ window.onload = wrap_img;
         <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title p-name" itemprop="name headline">빅데이터 개론</h1><p class="page-description">작성 중</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2021-09-08T00:00:00-05:00" itemprop="datePublished">
+    <h1 class="post-title p-name" itemprop="name headline">데이터 과학</h1><p class="page-description">작성 중</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2021-09-08T00:00:00-05:00" itemprop="datePublished">
         Sep 8, 2021
       </time>• 
           <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -96,7 +96,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      5 min read
+      19 min read
     
 </span></p>
 
@@ -165,6 +165,7 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h2"><a href="#범주형-자료의-요약">범주형 자료의 요약 </a>
 <ul>
 <li class="toc-entry toc-h3"><a href="#도수분포표">도수분포표 </a></li>
+<li class="toc-entry toc-h3"><a href="#분할표">분할표 </a></li>
 </ul>
 </li>
 </ul>
@@ -1128,7 +1129,7 @@ memory usage: 6.0+ KB
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">nanmedian</span><span class="p">(</span><span class="n">county</span><span class="p">[</span><span class="s1">'per_capita_income'</span><span class="p">])</span> <span class="c1"># 중앙값</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">nanmedian</span><span class="p">(</span><span class="n">county</span><span class="p">[</span><span class="s1">'per_capita_income'</span><span class="p">])</span> <span class="c1"># 결측치를 제외한 중앙값</span>
 </pre></div>
 
     </div>
@@ -1224,7 +1225,7 @@ memory usage: 6.0+ KB
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">county</span><span class="p">[</span><span class="s1">'poverty'</span><span class="p">],</span> <span class="n">histtype</span> <span class="o">=</span> <span class="s1">'bar'</span><span class="p">,</span> <span class="n">rwidth</span> <span class="o">=</span> <span class="mf">0.9</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">county</span><span class="p">[</span><span class="s1">'poverty'</span><span class="p">],</span> <span class="n">histtype</span> <span class="o">=</span> <span class="s1">'bar'</span><span class="p">,</span> <span class="n">bins</span> <span class="o">=</span> <span class="mi">20</span><span class="p">)</span> <span class="c1"># rwidth = 0.9는 히스토그램 막대기 사이 간격을 의미함</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 
@@ -1240,7 +1241,7 @@ memory usage: 6.0+ KB
 
 
 <div class="output_png output_subarea ">
-<img src="data:image/png;base64,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%0A">
+<img src="data:image/png;base64,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%0A">
 </div>
 
 </div>
@@ -1705,6 +1706,1971 @@ Name: per_capita_income, dtype: float64</pre>
 </div>
 </div>
 </div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 범주형 자료의 경우에 각 관측값은 몇 개의 범주 중의 하나의 값을 갖게 됨</p>
+<p><code>-</code> 이 때 각 범주에 속하는 관측값의 개수 ---&gt; 도수(frequency)</p>
+<p><code>-</code> 이 도수를 자료의 전체 개수로 나눈 비율 ---&gt; 상대도수(relative frequency)</p>
+<p><code>-</code> 이를 표로 요약한 것 ---&gt; 도수분포표(frequency table)</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">county</span><span class="p">[</span><span class="s1">'state'</span><span class="p">],</span> <span class="n">return_counts</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span> <span class="c1"># return_counts = True로 하면 아래와 같은 array(도수)가 출력됨</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>(array(['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California',
+        'Colorado', 'Connecticut', 'Delaware', 'District of Columbia',
+        'Florida', 'Georgia', 'Hawaii', 'Idaho', 'Illinois', 'Indiana',
+        'Iowa', 'Kansas', 'Kentucky', 'Louisiana', 'Maine', 'Maryland',
+        'Massachusetts', 'Michigan', 'Minnesota', 'Mississippi',
+        'Missouri', 'Montana', 'Nebraska', 'Nevada', 'New Hampshire',
+        'New Jersey', 'New Mexico', 'New York', 'North Carolina',
+        'North Dakota', 'Ohio', 'Oklahoma', 'Oregon', 'Pennsylvania',
+        'Rhode Island', 'South Carolina', 'South Dakota', 'Tennessee',
+        'Texas', 'Utah', 'Vermont', 'Virginia', 'Washington',
+        'West Virginia', 'Wisconsin', 'Wyoming'], dtype=object),
+ array([ 67,  29,  15,  75,  58,  64,   8,   3,   1,  67, 159,   5,  44,
+        102,  92,  99, 105, 120,  64,  16,  24,  14,  83,  87,  82, 115,
+         56,  93,  17,  10,  21,  33,  62, 100,  53,  88,  77,  36,  67,
+          5,  46,  66,  95, 254,  29,  14, 133,  39,  55,  72,  23],
+       dtype=int64))</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ft</span> <span class="o">=</span> <span class="n">county</span><span class="p">[</span><span class="s1">'state'</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span> <span class="c1"># 유일한 값별 개수를 세준다 # sort = True, ascending = True 옵션을 통해 내립차순 또는 오름차순으로 정렬 가능함</span>
+<span class="n">rft</span> <span class="o">=</span> <span class="n">county</span><span class="p">[</span><span class="s1">'state'</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">county</span><span class="p">[</span><span class="s1">'state'</span><span class="p">])</span> <span class="c1"># relative frequency</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">'Freq'</span><span class="p">:</span> <span class="n">ft</span><span class="p">,</span> <span class="s1">'Relative freq'</span><span class="p">:</span> <span class="n">rft</span><span class="p">})</span> <span class="c1"># 딕셔너리를 통해 dataframe 생성</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Freq</th>
+      <th>Relative freq</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Texas</th>
+      <td>254</td>
+      <td>0.080840</td>
+    </tr>
+    <tr>
+      <th>Georgia</th>
+      <td>159</td>
+      <td>0.050605</td>
+    </tr>
+    <tr>
+      <th>Virginia</th>
+      <td>133</td>
+      <td>0.042330</td>
+    </tr>
+    <tr>
+      <th>Kentucky</th>
+      <td>120</td>
+      <td>0.038192</td>
+    </tr>
+    <tr>
+      <th>Missouri</th>
+      <td>115</td>
+      <td>0.036601</td>
+    </tr>
+    <tr>
+      <th>Kansas</th>
+      <td>105</td>
+      <td>0.033418</td>
+    </tr>
+    <tr>
+      <th>Illinois</th>
+      <td>102</td>
+      <td>0.032463</td>
+    </tr>
+    <tr>
+      <th>North Carolina</th>
+      <td>100</td>
+      <td>0.031827</td>
+    </tr>
+    <tr>
+      <th>Iowa</th>
+      <td>99</td>
+      <td>0.031509</td>
+    </tr>
+    <tr>
+      <th>Tennessee</th>
+      <td>95</td>
+      <td>0.030236</td>
+    </tr>
+    <tr>
+      <th>Nebraska</th>
+      <td>93</td>
+      <td>0.029599</td>
+    </tr>
+    <tr>
+      <th>Indiana</th>
+      <td>92</td>
+      <td>0.029281</td>
+    </tr>
+    <tr>
+      <th>Ohio</th>
+      <td>88</td>
+      <td>0.028008</td>
+    </tr>
+    <tr>
+      <th>Minnesota</th>
+      <td>87</td>
+      <td>0.027689</td>
+    </tr>
+    <tr>
+      <th>Michigan</th>
+      <td>83</td>
+      <td>0.026416</td>
+    </tr>
+    <tr>
+      <th>Mississippi</th>
+      <td>82</td>
+      <td>0.026098</td>
+    </tr>
+    <tr>
+      <th>Oklahoma</th>
+      <td>77</td>
+      <td>0.024507</td>
+    </tr>
+    <tr>
+      <th>Arkansas</th>
+      <td>75</td>
+      <td>0.023870</td>
+    </tr>
+    <tr>
+      <th>Wisconsin</th>
+      <td>72</td>
+      <td>0.022915</td>
+    </tr>
+    <tr>
+      <th>Pennsylvania</th>
+      <td>67</td>
+      <td>0.021324</td>
+    </tr>
+    <tr>
+      <th>Florida</th>
+      <td>67</td>
+      <td>0.021324</td>
+    </tr>
+    <tr>
+      <th>Alabama</th>
+      <td>67</td>
+      <td>0.021324</td>
+    </tr>
+    <tr>
+      <th>South Dakota</th>
+      <td>66</td>
+      <td>0.021006</td>
+    </tr>
+    <tr>
+      <th>Colorado</th>
+      <td>64</td>
+      <td>0.020369</td>
+    </tr>
+    <tr>
+      <th>Louisiana</th>
+      <td>64</td>
+      <td>0.020369</td>
+    </tr>
+    <tr>
+      <th>New York</th>
+      <td>62</td>
+      <td>0.019733</td>
+    </tr>
+    <tr>
+      <th>California</th>
+      <td>58</td>
+      <td>0.018460</td>
+    </tr>
+    <tr>
+      <th>Montana</th>
+      <td>56</td>
+      <td>0.017823</td>
+    </tr>
+    <tr>
+      <th>West Virginia</th>
+      <td>55</td>
+      <td>0.017505</td>
+    </tr>
+    <tr>
+      <th>North Dakota</th>
+      <td>53</td>
+      <td>0.016868</td>
+    </tr>
+    <tr>
+      <th>South Carolina</th>
+      <td>46</td>
+      <td>0.014640</td>
+    </tr>
+    <tr>
+      <th>Idaho</th>
+      <td>44</td>
+      <td>0.014004</td>
+    </tr>
+    <tr>
+      <th>Washington</th>
+      <td>39</td>
+      <td>0.012412</td>
+    </tr>
+    <tr>
+      <th>Oregon</th>
+      <td>36</td>
+      <td>0.011458</td>
+    </tr>
+    <tr>
+      <th>New Mexico</th>
+      <td>33</td>
+      <td>0.010503</td>
+    </tr>
+    <tr>
+      <th>Alaska</th>
+      <td>29</td>
+      <td>0.009230</td>
+    </tr>
+    <tr>
+      <th>Utah</th>
+      <td>29</td>
+      <td>0.009230</td>
+    </tr>
+    <tr>
+      <th>Maryland</th>
+      <td>24</td>
+      <td>0.007638</td>
+    </tr>
+    <tr>
+      <th>Wyoming</th>
+      <td>23</td>
+      <td>0.007320</td>
+    </tr>
+    <tr>
+      <th>New Jersey</th>
+      <td>21</td>
+      <td>0.006684</td>
+    </tr>
+    <tr>
+      <th>Nevada</th>
+      <td>17</td>
+      <td>0.005411</td>
+    </tr>
+    <tr>
+      <th>Maine</th>
+      <td>16</td>
+      <td>0.005092</td>
+    </tr>
+    <tr>
+      <th>Arizona</th>
+      <td>15</td>
+      <td>0.004774</td>
+    </tr>
+    <tr>
+      <th>Vermont</th>
+      <td>14</td>
+      <td>0.004456</td>
+    </tr>
+    <tr>
+      <th>Massachusetts</th>
+      <td>14</td>
+      <td>0.004456</td>
+    </tr>
+    <tr>
+      <th>New Hampshire</th>
+      <td>10</td>
+      <td>0.003183</td>
+    </tr>
+    <tr>
+      <th>Connecticut</th>
+      <td>8</td>
+      <td>0.002546</td>
+    </tr>
+    <tr>
+      <th>Hawaii</th>
+      <td>5</td>
+      <td>0.001591</td>
+    </tr>
+    <tr>
+      <th>Rhode Island</th>
+      <td>5</td>
+      <td>0.001591</td>
+    </tr>
+    <tr>
+      <th>Delaware</th>
+      <td>3</td>
+      <td>0.000955</td>
+    </tr>
+    <tr>
+      <th>District of Columbia</th>
+      <td>1</td>
+      <td>0.000318</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="분할표">
+<a class="anchor" href="#%EB%B6%84%ED%95%A0%ED%91%9C" aria-hidden="true"><span class="octicon octicon-link"></span></a>분할표<a class="anchor-link" href="#%EB%B6%84%ED%95%A0%ED%91%9C"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 두 변수가 모두 범주형이면 도수분포표를 2차원을 확장 ---&gt; 분할표(contingency table)</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">mlb</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">"C:/Users/한재수/big-data_introduction/mlb.csv"</span><span class="p">,</span> <span class="n">header</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="c1"># 2010년도 828명의 메이저 리그 선수들에 대한 연봉데이터</span>
+<span class="n">mlb</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>player</th>
+      <th>team</th>
+      <th>position</th>
+      <th>salary</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Brandon Webb</td>
+      <td>Arizona Diamondbacks</td>
+      <td>Pitcher</td>
+      <td>8500.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Danny Haren</td>
+      <td>Arizona Diamondbacks</td>
+      <td>Pitcher</td>
+      <td>8250.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Chris Snyder</td>
+      <td>Arizona Diamondbacks</td>
+      <td>Catcher</td>
+      <td>5250.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Edwin Jackson</td>
+      <td>Arizona Diamondbacks</td>
+      <td>Pitcher</td>
+      <td>4600.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Adam LaRoche</td>
+      <td>Arizona Diamondbacks</td>
+      <td>First Baseman</td>
+      <td>4500.0</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Chad Qualls</td>
+      <td>Arizona Diamondbacks</td>
+      <td>Pitcher</td>
+      <td>4185.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">mlbtb</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">crosstab</span><span class="p">(</span><span class="n">mlb</span><span class="p">[</span><span class="s1">'team'</span><span class="p">],</span> <span class="n">mlb</span><span class="p">[</span><span class="s1">'position'</span><span class="p">])</span>
+<span class="n">mlbtb</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>position</th>
+      <th>Catcher</th>
+      <th>Designated Hitter</th>
+      <th>First Baseman</th>
+      <th>Infielder</th>
+      <th>Outfielder</th>
+      <th>Pitcher</th>
+      <th>Second Baseman</th>
+      <th>Shortstop</th>
+      <th>Third Baseman</th>
+    </tr>
+    <tr>
+      <th>team</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Arizona Diamondbacks</th>
+      <td>2</td>
+      <td>0</td>
+      <td>2</td>
+      <td>0</td>
+      <td>3</td>
+      <td>13</td>
+      <td>1</td>
+      <td>3</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>Atlanta Braves</th>
+      <td>2</td>
+      <td>0</td>
+      <td>2</td>
+      <td>0</td>
+      <td>5</td>
+      <td>12</td>
+      <td>2</td>
+      <td>3</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>Baltimore Orioles</th>
+      <td>2</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>5</td>
+      <td>13</td>
+      <td>1</td>
+      <td>2</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>Boston Red Sox</th>
+      <td>2</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>4</td>
+      <td>15</td>
+      <td>1</td>
+      <td>2</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>Chicago Cubs</th>
+      <td>2</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>5</td>
+      <td>14</td>
+      <td>2</td>
+      <td>1</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>Chicago White Sox</th>
+      <td>3</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>5</td>
+      <td>12</td>
+      <td>3</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Cincinnati Reds</th>
+      <td>2</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>6</td>
+      <td>11</td>
+      <td>2</td>
+      <td>2</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>Cleveland Indians</th>
+      <td>2</td>
+      <td>1</td>
+      <td>2</td>
+      <td>1</td>
+      <td>5</td>
+      <td>15</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>Colorado Rockies</th>
+      <td>2</td>
+      <td>0</td>
+      <td>2</td>
+      <td>0</td>
+      <td>5</td>
+      <td>15</td>
+      <td>1</td>
+      <td>1</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>Detroit Tigers</th>
+      <td>2</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>6</td>
+      <td>14</td>
+      <td>1</td>
+      <td>2</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>Florida Marlins</th>
+      <td>2</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>4</td>
+      <td>13</td>
+      <td>2</td>
+      <td>1</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>Houston Astros</th>
+      <td>2</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>5</td>
+      <td>14</td>
+      <td>2</td>
+      <td>2</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>Kansas City Royals</th>
+      <td>2</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>4</td>
+      <td>13</td>
+      <td>3</td>
+      <td>2</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>Los Angeles Angeles</th>
+      <td>4</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>7</td>
+      <td>13</td>
+      <td>1</td>
+      <td>3</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Los Angeles Dodgers</th>
+      <td>2</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>5</td>
+      <td>14</td>
+      <td>2</td>
+      <td>1</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>Milwaukee Brewers</th>
+      <td>2</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>5</td>
+      <td>15</td>
+      <td>2</td>
+      <td>1</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>Minnesota Twins</th>
+      <td>3</td>
+      <td>2</td>
+      <td>1</td>
+      <td>0</td>
+      <td>3</td>
+      <td>14</td>
+      <td>2</td>
+      <td>3</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>New York Mets</th>
+      <td>2</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>8</td>
+      <td>12</td>
+      <td>1</td>
+      <td>2</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>New York Yankees</th>
+      <td>2</td>
+      <td>0</td>
+      <td>2</td>
+      <td>1</td>
+      <td>5</td>
+      <td>12</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>Oakland Athletics</th>
+      <td>2</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>5</td>
+      <td>17</td>
+      <td>2</td>
+      <td>1</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>Philadelphia Phillies</th>
+      <td>2</td>
+      <td>0</td>
+      <td>2</td>
+      <td>0</td>
+      <td>4</td>
+      <td>15</td>
+      <td>1</td>
+      <td>2</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>Pittsburgh Pirates</th>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>6</td>
+      <td>14</td>
+      <td>2</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>San Diego Padres</th>
+      <td>2</td>
+      <td>0</td>
+      <td>2</td>
+      <td>0</td>
+      <td>6</td>
+      <td>13</td>
+      <td>1</td>
+      <td>2</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>San Francisco Giants</th>
+      <td>2</td>
+      <td>0</td>
+      <td>2</td>
+      <td>0</td>
+      <td>6</td>
+      <td>12</td>
+      <td>3</td>
+      <td>2</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>Seattle Mariners</th>
+      <td>2</td>
+      <td>0</td>
+      <td>2</td>
+      <td>0</td>
+      <td>7</td>
+      <td>12</td>
+      <td>2</td>
+      <td>2</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>St. Louis Cardinals</th>
+      <td>2</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>4</td>
+      <td>13</td>
+      <td>1</td>
+      <td>2</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>Tampa Bay Rays</th>
+      <td>2</td>
+      <td>0</td>
+      <td>2</td>
+      <td>1</td>
+      <td>5</td>
+      <td>13</td>
+      <td>1</td>
+      <td>2</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>Texas Rangers</th>
+      <td>2</td>
+      <td>1</td>
+      <td>2</td>
+      <td>0</td>
+      <td>4</td>
+      <td>15</td>
+      <td>1</td>
+      <td>3</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>Toronto Blue Jays</th>
+      <td>2</td>
+      <td>1</td>
+      <td>2</td>
+      <td>0</td>
+      <td>2</td>
+      <td>17</td>
+      <td>2</td>
+      <td>2</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>Washington Nationals</th>
+      <td>4</td>
+      <td>0</td>
+      <td>2</td>
+      <td>0</td>
+      <td>4</td>
+      <td>15</td>
+      <td>1</td>
+      <td>3</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">mlbtb</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>   <span class="c1"># 행의 합</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>team
+Arizona Diamondbacks     26
+Atlanta Braves           27
+Baltimore Orioles        26
+Boston Red Sox           29
+Chicago Cubs             27
+Chicago White Sox        26
+Cincinnati Reds          26
+Cleveland Indians        29
+Colorado Rockies         28
+Detroit Tigers           27
+Florida Marlins          27
+Houston Astros           28
+Kansas City Royals       27
+Los Angeles Angeles      29
+Los Angeles Dodgers      27
+Milwaukee Brewers        29
+Minnesota Twins          28
+New York Mets            28
+New York Yankees         25
+Oakland Athletics        31
+Philadelphia Phillies    28
+Pittsburgh Pirates       27
+San Diego Padres         26
+San Francisco Giants     28
+Seattle Mariners         28
+St. Louis Cardinals      25
+Tampa Bay Rays           27
+Texas Rangers            29
+Toronto Blue Jays        30
+Washington Nationals     30
+dtype: int64</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">mlbtb</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="c1"># 열의 합</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>position
+Catcher               67
+Designated Hitter      7
+First Baseman         42
+Infielder              4
+Outfielder           148
+Pitcher              410
+Second Baseman        48
+Shortstop             56
+Third Baseman         46
+dtype: int64</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span>mlbtb.sum<span class="o">?</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+<details class="description">
+      <summary class="btn btn-sm" data-open="Hide Output" data-close="Show Output"></summary>
+        <p>
+</p>
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea ">
+<pre><span class="ansi-red-intense-fg ansi-bold">Signature:</span>
+mlbtb<span class="ansi-yellow-intense-fg ansi-bold">.</span>sum<span class="ansi-yellow-intense-fg ansi-bold">(</span><span class="ansi-yellow-intense-fg ansi-bold">
+</span>    axis<span class="ansi-yellow-intense-fg ansi-bold">=</span><span class="ansi-green-intense-fg ansi-bold">None</span><span class="ansi-yellow-intense-fg ansi-bold">,</span><span class="ansi-yellow-intense-fg ansi-bold">
+</span>    skipna<span class="ansi-yellow-intense-fg ansi-bold">=</span><span class="ansi-green-intense-fg ansi-bold">None</span><span class="ansi-yellow-intense-fg ansi-bold">,</span><span class="ansi-yellow-intense-fg ansi-bold">
+</span>    level<span class="ansi-yellow-intense-fg ansi-bold">=</span><span class="ansi-green-intense-fg ansi-bold">None</span><span class="ansi-yellow-intense-fg ansi-bold">,</span><span class="ansi-yellow-intense-fg ansi-bold">
+</span>    numeric_only<span class="ansi-yellow-intense-fg ansi-bold">=</span><span class="ansi-green-intense-fg ansi-bold">None</span><span class="ansi-yellow-intense-fg ansi-bold">,</span><span class="ansi-yellow-intense-fg ansi-bold">
+</span>    min_count<span class="ansi-yellow-intense-fg ansi-bold">=</span><span class="ansi-cyan-intense-fg ansi-bold">0</span><span class="ansi-yellow-intense-fg ansi-bold">,</span><span class="ansi-yellow-intense-fg ansi-bold">
+</span>    <span class="ansi-yellow-intense-fg ansi-bold">**</span>kwargs<span class="ansi-yellow-intense-fg ansi-bold">,</span><span class="ansi-yellow-intense-fg ansi-bold">
+</span><span class="ansi-yellow-intense-fg ansi-bold">)</span>
+<span class="ansi-red-intense-fg ansi-bold">Docstring:</span>
+Return the sum of the values over the requested axis.
+
+This is equivalent to the method ``numpy.sum``.
+
+Parameters
+----------
+axis : {index (0), columns (1)}
+    Axis for the function to be applied on.
+skipna : bool, default True
+    Exclude NA/null values when computing the result.
+level : int or level name, default None
+    If the axis is a MultiIndex (hierarchical), count along a
+    particular level, collapsing into a Series.
+numeric_only : bool, default None
+    Include only float, int, boolean columns. If None, will attempt to use
+    everything, then use only numeric data. Not implemented for Series.
+min_count : int, default 0
+    The required number of valid values to perform the operation. If fewer than
+    ``min_count`` non-NA values are present the result will be NA.
+**kwargs
+    Additional keyword arguments to be passed to the function.
+
+Returns
+-------
+Series or DataFrame (if level specified)
+
+See Also
+--------
+Series.sum : Return the sum.
+Series.min : Return the minimum.
+Series.max : Return the maximum.
+Series.idxmin : Return the index of the minimum.
+Series.idxmax : Return the index of the maximum.
+DataFrame.sum : Return the sum over the requested axis.
+DataFrame.min : Return the minimum over the requested axis.
+DataFrame.max : Return the maximum over the requested axis.
+DataFrame.idxmin : Return the index of the minimum over the requested axis.
+DataFrame.idxmax : Return the index of the maximum over the requested axis.
+
+Examples
+--------
+&gt;&gt;&gt; idx = pd.MultiIndex.from_arrays([
+...     ['warm', 'warm', 'cold', 'cold'],
+...     ['dog', 'falcon', 'fish', 'spider']],
+...     names=['blooded', 'animal'])
+&gt;&gt;&gt; s = pd.Series([4, 2, 0, 8], name='legs', index=idx)
+&gt;&gt;&gt; s
+blooded  animal
+warm     dog       4
+         falcon    2
+cold     fish      0
+         spider    8
+Name: legs, dtype: int64
+
+&gt;&gt;&gt; s.sum()
+14
+
+Sum using level names, as well as indices.
+
+&gt;&gt;&gt; s.sum(level='blooded')
+blooded
+warm    6
+cold    8
+Name: legs, dtype: int64
+
+&gt;&gt;&gt; s.sum(level=0)
+blooded
+warm    6
+cold    8
+Name: legs, dtype: int64
+
+By default, the sum of an empty or all-NA Series is ``0``.
+
+&gt;&gt;&gt; pd.Series([]).sum()  # min_count=0 is the default
+0.0
+
+This can be controlled with the ``min_count`` parameter. For example, if
+you'd like the sum of an empty series to be NaN, pass ``min_count=1``.
+
+&gt;&gt;&gt; pd.Series([]).sum(min_count=1)
+nan
+
+Thanks to the ``skipna`` parameter, ``min_count`` handles all-NA and
+empty series identically.
+
+&gt;&gt;&gt; pd.Series([np.nan]).sum()
+0.0
+
+&gt;&gt;&gt; pd.Series([np.nan]).sum(min_count=1)
+nan
+<span class="ansi-red-intense-fg ansi-bold">File:</span>      c:\anaconda3\envs\py38r40\lib\site-packages\pandas\core\generic.py
+<span class="ansi-red-intense-fg ansi-bold">Type:</span>      method
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+    </details>
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 분할표에 margin(행과 열의 합)을 붙여 출력하는 것도 가능</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">mlbtb_m</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">crosstab</span><span class="p">(</span><span class="n">mlb</span><span class="p">[</span><span class="s1">'team'</span><span class="p">],</span> <span class="n">mlb</span><span class="p">[</span><span class="s1">'position'</span><span class="p">],</span> <span class="n">margins</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+<span class="n">mlbtb_m</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>position</th>
+      <th>Catcher</th>
+      <th>Designated Hitter</th>
+      <th>First Baseman</th>
+      <th>Infielder</th>
+      <th>Outfielder</th>
+      <th>Pitcher</th>
+      <th>Second Baseman</th>
+      <th>Shortstop</th>
+      <th>Third Baseman</th>
+      <th>All</th>
+    </tr>
+    <tr>
+      <th>team</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Arizona Diamondbacks</th>
+      <td>2</td>
+      <td>0</td>
+      <td>2</td>
+      <td>0</td>
+      <td>3</td>
+      <td>13</td>
+      <td>1</td>
+      <td>3</td>
+      <td>2</td>
+      <td>26</td>
+    </tr>
+    <tr>
+      <th>Atlanta Braves</th>
+      <td>2</td>
+      <td>0</td>
+      <td>2</td>
+      <td>0</td>
+      <td>5</td>
+      <td>12</td>
+      <td>2</td>
+      <td>3</td>
+      <td>1</td>
+      <td>27</td>
+    </tr>
+    <tr>
+      <th>Baltimore Orioles</th>
+      <td>2</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>5</td>
+      <td>13</td>
+      <td>1</td>
+      <td>2</td>
+      <td>2</td>
+      <td>26</td>
+    </tr>
+    <tr>
+      <th>Boston Red Sox</th>
+      <td>2</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>4</td>
+      <td>15</td>
+      <td>1</td>
+      <td>2</td>
+      <td>3</td>
+      <td>29</td>
+    </tr>
+    <tr>
+      <th>Chicago Cubs</th>
+      <td>2</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>5</td>
+      <td>14</td>
+      <td>2</td>
+      <td>1</td>
+      <td>2</td>
+      <td>27</td>
+    </tr>
+    <tr>
+      <th>Chicago White Sox</th>
+      <td>3</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>5</td>
+      <td>12</td>
+      <td>3</td>
+      <td>1</td>
+      <td>0</td>
+      <td>26</td>
+    </tr>
+    <tr>
+      <th>Cincinnati Reds</th>
+      <td>2</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>6</td>
+      <td>11</td>
+      <td>2</td>
+      <td>2</td>
+      <td>2</td>
+      <td>26</td>
+    </tr>
+    <tr>
+      <th>Cleveland Indians</th>
+      <td>2</td>
+      <td>1</td>
+      <td>2</td>
+      <td>1</td>
+      <td>5</td>
+      <td>15</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>29</td>
+    </tr>
+    <tr>
+      <th>Colorado Rockies</th>
+      <td>2</td>
+      <td>0</td>
+      <td>2</td>
+      <td>0</td>
+      <td>5</td>
+      <td>15</td>
+      <td>1</td>
+      <td>1</td>
+      <td>2</td>
+      <td>28</td>
+    </tr>
+    <tr>
+      <th>Detroit Tigers</th>
+      <td>2</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>6</td>
+      <td>14</td>
+      <td>1</td>
+      <td>2</td>
+      <td>1</td>
+      <td>27</td>
+    </tr>
+    <tr>
+      <th>Florida Marlins</th>
+      <td>2</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>4</td>
+      <td>13</td>
+      <td>2</td>
+      <td>1</td>
+      <td>4</td>
+      <td>27</td>
+    </tr>
+    <tr>
+      <th>Houston Astros</th>
+      <td>2</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>5</td>
+      <td>14</td>
+      <td>2</td>
+      <td>2</td>
+      <td>2</td>
+      <td>28</td>
+    </tr>
+    <tr>
+      <th>Kansas City Royals</th>
+      <td>2</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>4</td>
+      <td>13</td>
+      <td>3</td>
+      <td>2</td>
+      <td>2</td>
+      <td>27</td>
+    </tr>
+    <tr>
+      <th>Los Angeles Angeles</th>
+      <td>4</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>7</td>
+      <td>13</td>
+      <td>1</td>
+      <td>3</td>
+      <td>0</td>
+      <td>29</td>
+    </tr>
+    <tr>
+      <th>Los Angeles Dodgers</th>
+      <td>2</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>5</td>
+      <td>14</td>
+      <td>2</td>
+      <td>1</td>
+      <td>2</td>
+      <td>27</td>
+    </tr>
+    <tr>
+      <th>Milwaukee Brewers</th>
+      <td>2</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>5</td>
+      <td>15</td>
+      <td>2</td>
+      <td>1</td>
+      <td>3</td>
+      <td>29</td>
+    </tr>
+    <tr>
+      <th>Minnesota Twins</th>
+      <td>3</td>
+      <td>2</td>
+      <td>1</td>
+      <td>0</td>
+      <td>3</td>
+      <td>14</td>
+      <td>2</td>
+      <td>3</td>
+      <td>0</td>
+      <td>28</td>
+    </tr>
+    <tr>
+      <th>New York Mets</th>
+      <td>2</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>8</td>
+      <td>12</td>
+      <td>1</td>
+      <td>2</td>
+      <td>1</td>
+      <td>28</td>
+    </tr>
+    <tr>
+      <th>New York Yankees</th>
+      <td>2</td>
+      <td>0</td>
+      <td>2</td>
+      <td>1</td>
+      <td>5</td>
+      <td>12</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>25</td>
+    </tr>
+    <tr>
+      <th>Oakland Athletics</th>
+      <td>2</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>5</td>
+      <td>17</td>
+      <td>2</td>
+      <td>1</td>
+      <td>3</td>
+      <td>31</td>
+    </tr>
+    <tr>
+      <th>Philadelphia Phillies</th>
+      <td>2</td>
+      <td>0</td>
+      <td>2</td>
+      <td>0</td>
+      <td>4</td>
+      <td>15</td>
+      <td>1</td>
+      <td>2</td>
+      <td>2</td>
+      <td>28</td>
+    </tr>
+    <tr>
+      <th>Pittsburgh Pirates</th>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>6</td>
+      <td>14</td>
+      <td>2</td>
+      <td>1</td>
+      <td>1</td>
+      <td>27</td>
+    </tr>
+    <tr>
+      <th>San Diego Padres</th>
+      <td>2</td>
+      <td>0</td>
+      <td>2</td>
+      <td>0</td>
+      <td>6</td>
+      <td>13</td>
+      <td>1</td>
+      <td>2</td>
+      <td>0</td>
+      <td>26</td>
+    </tr>
+    <tr>
+      <th>San Francisco Giants</th>
+      <td>2</td>
+      <td>0</td>
+      <td>2</td>
+      <td>0</td>
+      <td>6</td>
+      <td>12</td>
+      <td>3</td>
+      <td>2</td>
+      <td>1</td>
+      <td>28</td>
+    </tr>
+    <tr>
+      <th>Seattle Mariners</th>
+      <td>2</td>
+      <td>0</td>
+      <td>2</td>
+      <td>0</td>
+      <td>7</td>
+      <td>12</td>
+      <td>2</td>
+      <td>2</td>
+      <td>1</td>
+      <td>28</td>
+    </tr>
+    <tr>
+      <th>St. Louis Cardinals</th>
+      <td>2</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>4</td>
+      <td>13</td>
+      <td>1</td>
+      <td>2</td>
+      <td>2</td>
+      <td>25</td>
+    </tr>
+    <tr>
+      <th>Tampa Bay Rays</th>
+      <td>2</td>
+      <td>0</td>
+      <td>2</td>
+      <td>1</td>
+      <td>5</td>
+      <td>13</td>
+      <td>1</td>
+      <td>2</td>
+      <td>1</td>
+      <td>27</td>
+    </tr>
+    <tr>
+      <th>Texas Rangers</th>
+      <td>2</td>
+      <td>1</td>
+      <td>2</td>
+      <td>0</td>
+      <td>4</td>
+      <td>15</td>
+      <td>1</td>
+      <td>3</td>
+      <td>1</td>
+      <td>29</td>
+    </tr>
+    <tr>
+      <th>Toronto Blue Jays</th>
+      <td>2</td>
+      <td>1</td>
+      <td>2</td>
+      <td>0</td>
+      <td>2</td>
+      <td>17</td>
+      <td>2</td>
+      <td>2</td>
+      <td>2</td>
+      <td>30</td>
+    </tr>
+    <tr>
+      <th>Washington Nationals</th>
+      <td>4</td>
+      <td>0</td>
+      <td>2</td>
+      <td>0</td>
+      <td>4</td>
+      <td>15</td>
+      <td>1</td>
+      <td>3</td>
+      <td>1</td>
+      <td>30</td>
+    </tr>
+    <tr>
+      <th>All</th>
+      <td>67</td>
+      <td>7</td>
+      <td>42</td>
+      <td>4</td>
+      <td>148</td>
+      <td>410</td>
+      <td>48</td>
+      <td>56</td>
+      <td>46</td>
+      <td>828</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span>pd.crosstab<span class="o">?</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+<details class="description">
+      <summary class="btn btn-sm" data-open="Hide Output" data-close="Show Output"></summary>
+        <p>
+</p>
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea ">
+<pre><span class="ansi-red-intense-fg ansi-bold">Signature:</span>
+pd<span class="ansi-yellow-intense-fg ansi-bold">.</span>crosstab<span class="ansi-yellow-intense-fg ansi-bold">(</span><span class="ansi-yellow-intense-fg ansi-bold">
+</span>    index<span class="ansi-yellow-intense-fg ansi-bold">,</span><span class="ansi-yellow-intense-fg ansi-bold">
+</span>    columns<span class="ansi-yellow-intense-fg ansi-bold">,</span><span class="ansi-yellow-intense-fg ansi-bold">
+</span>    values<span class="ansi-yellow-intense-fg ansi-bold">=</span><span class="ansi-green-intense-fg ansi-bold">None</span><span class="ansi-yellow-intense-fg ansi-bold">,</span><span class="ansi-yellow-intense-fg ansi-bold">
+</span>    rownames<span class="ansi-yellow-intense-fg ansi-bold">=</span><span class="ansi-green-intense-fg ansi-bold">None</span><span class="ansi-yellow-intense-fg ansi-bold">,</span><span class="ansi-yellow-intense-fg ansi-bold">
+</span>    colnames<span class="ansi-yellow-intense-fg ansi-bold">=</span><span class="ansi-green-intense-fg ansi-bold">None</span><span class="ansi-yellow-intense-fg ansi-bold">,</span><span class="ansi-yellow-intense-fg ansi-bold">
+</span>    aggfunc<span class="ansi-yellow-intense-fg ansi-bold">=</span><span class="ansi-green-intense-fg ansi-bold">None</span><span class="ansi-yellow-intense-fg ansi-bold">,</span><span class="ansi-yellow-intense-fg ansi-bold">
+</span>    margins<span class="ansi-yellow-intense-fg ansi-bold">=</span><span class="ansi-green-intense-fg ansi-bold">False</span><span class="ansi-yellow-intense-fg ansi-bold">,</span><span class="ansi-yellow-intense-fg ansi-bold">
+</span>    margins_name<span class="ansi-yellow-intense-fg ansi-bold">:</span> str <span class="ansi-yellow-intense-fg ansi-bold">=</span> <span class="ansi-blue-intense-fg ansi-bold">'All'</span><span class="ansi-yellow-intense-fg ansi-bold">,</span><span class="ansi-yellow-intense-fg ansi-bold">
+</span>    dropna<span class="ansi-yellow-intense-fg ansi-bold">:</span> bool <span class="ansi-yellow-intense-fg ansi-bold">=</span> <span class="ansi-green-intense-fg ansi-bold">True</span><span class="ansi-yellow-intense-fg ansi-bold">,</span><span class="ansi-yellow-intense-fg ansi-bold">
+</span>    normalize<span class="ansi-yellow-intense-fg ansi-bold">=</span><span class="ansi-green-intense-fg ansi-bold">False</span><span class="ansi-yellow-intense-fg ansi-bold">,</span><span class="ansi-yellow-intense-fg ansi-bold">
+</span><span class="ansi-yellow-intense-fg ansi-bold">)</span> <span class="ansi-yellow-intense-fg ansi-bold">-&gt;</span> <span class="ansi-blue-intense-fg ansi-bold">'DataFrame'</span>
+<span class="ansi-red-intense-fg ansi-bold">Docstring:</span>
+Compute a simple cross tabulation of two (or more) factors. By default
+computes a frequency table of the factors unless an array of values and an
+aggregation function are passed.
+
+Parameters
+----------
+index : array-like, Series, or list of arrays/Series
+    Values to group by in the rows.
+columns : array-like, Series, or list of arrays/Series
+    Values to group by in the columns.
+values : array-like, optional
+    Array of values to aggregate according to the factors.
+    Requires `aggfunc` be specified.
+rownames : sequence, default None
+    If passed, must match number of row arrays passed.
+colnames : sequence, default None
+    If passed, must match number of column arrays passed.
+aggfunc : function, optional
+    If specified, requires `values` be specified as well.
+margins : bool, default False
+    Add row/column margins (subtotals).
+margins_name : str, default 'All'
+    Name of the row/column that will contain the totals
+    when margins is True.
+dropna : bool, default True
+    Do not include columns whose entries are all NaN.
+normalize : bool, {'all', 'index', 'columns'}, or {0,1}, default False
+    Normalize by dividing all values by the sum of values.
+
+    - If passed 'all' or `True`, will normalize over all values.
+    - If passed 'index' will normalize over each row.
+    - If passed 'columns' will normalize over each column.
+    - If margins is `True`, will also normalize margin values.
+
+Returns
+-------
+DataFrame
+    Cross tabulation of the data.
+
+See Also
+--------
+DataFrame.pivot : Reshape data based on column values.
+pivot_table : Create a pivot table as a DataFrame.
+
+Notes
+-----
+Any Series passed will have their name attributes used unless row or column
+names for the cross-tabulation are specified.
+
+Any input passed containing Categorical data will have **all** of its
+categories included in the cross-tabulation, even if the actual data does
+not contain any instances of a particular category.
+
+In the event that there aren't overlapping indexes an empty DataFrame will
+be returned.
+
+Examples
+--------
+&gt;&gt;&gt; a = np.array(["foo", "foo", "foo", "foo", "bar", "bar",
+...               "bar", "bar", "foo", "foo", "foo"], dtype=object)
+&gt;&gt;&gt; b = np.array(["one", "one", "one", "two", "one", "one",
+...               "one", "two", "two", "two", "one"], dtype=object)
+&gt;&gt;&gt; c = np.array(["dull", "dull", "shiny", "dull", "dull", "shiny",
+...               "shiny", "dull", "shiny", "shiny", "shiny"],
+...              dtype=object)
+&gt;&gt;&gt; pd.crosstab(a, [b, c], rownames=['a'], colnames=['b', 'c'])
+b   one        two
+c   dull shiny dull shiny
+a
+bar    1     2    1     0
+foo    2     2    1     2
+
+Here 'c' and 'f' are not represented in the data and will not be
+shown in the output because dropna is True by default. Set
+dropna=False to preserve categories with no data.
+
+&gt;&gt;&gt; foo = pd.Categorical(['a', 'b'], categories=['a', 'b', 'c'])
+&gt;&gt;&gt; bar = pd.Categorical(['d', 'e'], categories=['d', 'e', 'f'])
+&gt;&gt;&gt; pd.crosstab(foo, bar)
+col_0  d  e
+row_0
+a      1  0
+b      0  1
+&gt;&gt;&gt; pd.crosstab(foo, bar, dropna=False)
+col_0  d  e  f
+row_0
+a      1  0  0
+b      0  1  0
+c      0  0  0
+<span class="ansi-red-intense-fg ansi-bold">File:</span>      c:\anaconda3\envs\py38r40\lib\site-packages\pandas\core\reshape\pivot.py
+<span class="ansi-red-intense-fg ansi-bold">Type:</span>      function
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+    </details>
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">mlbtb_m</span><span class="o">.</span><span class="n">shape</span> <span class="c1"># 분할표의 차원</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>(31, 10)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">mlbtb_m</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">mlbtb_m</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">mlbtb_m</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>  <span class="c1"># 위와 같은 결과(행의 합)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>team
+Arizona Diamondbacks     26
+Atlanta Braves           27
+Baltimore Orioles        26
+Boston Red Sox           29
+Chicago Cubs             27
+Chicago White Sox        26
+Cincinnati Reds          26
+Cleveland Indians        29
+Colorado Rockies         28
+Detroit Tigers           27
+Florida Marlins          27
+Houston Astros           28
+Kansas City Royals       27
+Los Angeles Angeles      29
+Los Angeles Dodgers      27
+Milwaukee Brewers        29
+Minnesota Twins          28
+New York Mets            28
+New York Yankees         25
+Oakland Athletics        31
+Philadelphia Phillies    28
+Pittsburgh Pirates       27
+San Diego Padres         26
+San Francisco Giants     28
+Seattle Mariners         28
+St. Louis Cardinals      25
+Tampa Bay Rays           27
+Texas Rangers            29
+Toronto Blue Jays        30
+Washington Nationals     30
+Name: All, dtype: int64</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">mlbtb_m</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">mlbtb_m</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="n">mlbtb_m</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>  <span class="c1"># 위와 같은 결과(열의 합)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>position
+Catcher               67
+Designated Hitter      7
+First Baseman         42
+Infielder              4
+Outfielder           148
+Pitcher              410
+Second Baseman        48
+Shortstop             56
+Third Baseman         46
+Name: All, dtype: int64</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
 </div>
 
 
