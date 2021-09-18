@@ -4,20 +4,20 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.6.1 -->
-<title>자료구조 큐(queue) | Jaesu’s blog</title>
+<title>자료구조 덱(deque) | Jaesu’s blog</title>
 <meta name="generator" content="Jekyll v4.1.1" />
-<meta property="og:title" content="자료구조 큐(queue)" />
+<meta property="og:title" content="자료구조 덱(deque)" />
 <meta name="author" content="한재수" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="작성 완료" />
 <meta property="og:description" content="작성 완료" />
-<link rel="canonical" href="https://gkswotn12345.github.io/green/python/data%20structure/2021/09/05/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0-%ED%81%90.html" />
-<meta property="og:url" content="https://gkswotn12345.github.io/green/python/data%20structure/2021/09/05/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0-%ED%81%90.html" />
+<link rel="canonical" href="https://gkswotn12345.github.io/green/python/data%20structure/2021/09/19/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0-%EB%8D%B1.html" />
+<meta property="og:url" content="https://gkswotn12345.github.io/green/python/data%20structure/2021/09/19/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0-%EB%8D%B1.html" />
 <meta property="og:site_name" content="Jaesu’s blog" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2021-09-05T00:00:00-05:00" />
+<meta property="article:published_time" content="2021-09-19T00:00:00-05:00" />
 <script type="application/ld+json">
-{"description":"작성 완료","url":"https://gkswotn12345.github.io/green/python/data%20structure/2021/09/05/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0-%ED%81%90.html","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://gkswotn12345.github.io/green/python/data%20structure/2021/09/05/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0-%ED%81%90.html"},"headline":"자료구조 큐(queue)","dateModified":"2021-09-05T00:00:00-05:00","datePublished":"2021-09-05T00:00:00-05:00","author":{"@type":"Person","name":"한재수"},"@context":"https://schema.org"}</script>
+{"description":"작성 완료","url":"https://gkswotn12345.github.io/green/python/data%20structure/2021/09/19/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0-%EB%8D%B1.html","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://gkswotn12345.github.io/green/python/data%20structure/2021/09/19/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0-%EB%8D%B1.html"},"headline":"자료구조 덱(deque)","dateModified":"2021-09-19T00:00:00-05:00","datePublished":"2021-09-19T00:00:00-05:00","author":{"@type":"Person","name":"한재수"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/green/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://gkswotn12345.github.io/green/feed.xml" title="Jaesu's blog" /><link rel="shortcut icon" type="image/x-icon" href="/green/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
@@ -88,8 +88,8 @@ window.onload = wrap_img;
         <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title p-name" itemprop="name headline">자료구조 큐(queue)</h1><p class="page-description">작성 완료</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2021-09-05T00:00:00-05:00" itemprop="datePublished">
-        Sep 5, 2021
+    <h1 class="post-title p-name" itemprop="name headline">자료구조 덱(deque)</h1><p class="page-description">작성 완료</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2021-09-19T00:00:00-05:00" itemprop="datePublished">
+        Sep 19, 2021
       </time>• 
           <span itemprop="author" itemscope itemtype="http://schema.org/Person">
             <span class="p-author h-card" itemprop="name">한재수</span></span>
@@ -117,19 +117,19 @@ window.onload = wrap_img;
         <div class="pb-5 d-flex flex-wrap flex-justify-end">
           <div class="px-2">
 
-    <a href="https://github.com/gkswotn12345/green/tree/master/_notebooks/2021-09-05-자료구조-큐.ipynb" role="button" target="_blank">
+    <a href="https://github.com/gkswotn12345/green/tree/master/_notebooks/2021-09-19-자료구조-덱.ipynb" role="button" target="_blank">
 <img class="notebook-badge-image" src="/green/assets/badges/github.svg" alt="View On GitHub">
     </a>
 </div>
 
           <div class="px-2">
-    <a href="https://mybinder.org/v2/gh/gkswotn12345/green/master?filepath=_notebooks%2F2021-09-05-%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0-%ED%81%90.ipynb" target="_blank">
+    <a href="https://mybinder.org/v2/gh/gkswotn12345/green/master?filepath=_notebooks%2F2021-09-19-%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0-%EB%8D%B1.ipynb" target="_blank">
         <img class="notebook-badge-image" src="/green/assets/badges/binder.svg" alt="Open In Binder"/>
     </a>
 </div>
 
           <div class="px-2">
-    <a href="https://colab.research.google.com/github/gkswotn12345/green/blob/master/_notebooks/2021-09-05-자료구조-큐.ipynb" target="_blank">
+    <a href="https://colab.research.google.com/github/gkswotn12345/green/blob/master/_notebooks/2021-09-19-자료구조-덱.ipynb" target="_blank">
         <img class="notebook-badge-image" src="/green/assets/badges/colab.svg" alt="Open In Colab"/>
     </a>
 </div>
@@ -138,9 +138,9 @@ window.onload = wrap_img;
 
   <div class="post-content e-content" itemprop="articleBody">
     <ul class="section-nav">
-<li class="toc-entry toc-h1"><a href="#큐(queue)">큐(queue) </a>
+<li class="toc-entry toc-h1"><a href="#덱(deque)">덱(deque) </a>
 <ul>
-<li class="toc-entry toc-h2"><a href="#큐(queue)-사용">큐(queue) 사용 </a>
+<li class="toc-entry toc-h2"><a href="#덱(deque)-사용">덱(deque) 사용 </a>
 <ul>
 <li class="toc-entry toc-h3"><a href="#예제">예제 </a></li>
 </ul>
@@ -151,7 +151,7 @@ window.onload = wrap_img;
 #################################################
 ### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
 #################################################
-# file to edit: _notebooks/2021-09-05-자료구조-큐.ipynb
+# file to edit: _notebooks/2021-09-19-자료구조-덱.ipynb
 -->
 
 <div class="container" id="notebook-container">
@@ -159,8 +159,8 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="큐(queue)">
-<a class="anchor" href="#%ED%81%90(queue)" aria-hidden="true"><span class="octicon octicon-link"></span></a>큐(queue)<a class="anchor-link" href="#%ED%81%90(queue)"> </a>
+<h1 id="덱(deque)">
+<a class="anchor" href="#%EB%8D%B1(deque)" aria-hidden="true"><span class="octicon octicon-link"></span></a>덱(deque)<a class="anchor-link" href="#%EB%8D%B1(deque)"> </a>
 </h1>
 </div>
 </div>
@@ -168,9 +168,9 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> 큐(queue)는 기본적인 자료 구조 + 스택(stack)과 반대되는 개념</p>
-<p><code>-</code> 큐는 먼저 집어 넣은(push) 데이터가 먼저 나오는(pop) FIFO(First In First Out)구조로 되어 있음 ---&gt; 식당에서 줄 기다리기 ---&gt; 먼저 줄을 선 사람이 먼저 줄에서 나감( =식당으로 들어감)</p>
-<p><code>-</code> 참고: <a href="https://ko.wikipedia.org/wiki/%ED%81%90_(%EC%9E%90%EB%A3%8C_%EA%B5%AC%EC%A1%B0)">자료구조 큐</a></p>
+<p><code>-</code> 양쪽 끝에서 삽입과 삭제가 모두 가능한 자료 구조의 한 형태</p>
+<p><code>-</code> 두 개의 포인터를 사용하여 양쪽에서 삭제와 삽입을 발생 시킬 수 있음 ---&gt; 큐와 스택을 합친 형태</p>
+<p><code>-</code> 참고: <a href="https://ko.wikipedia.org/wiki/%EB%8D%B1_(%EC%9E%90%EB%A3%8C_%EA%B5%AC%EC%A1%B0)">자료구조 덱</a></p>
 
 </div>
 </div>
@@ -178,8 +178,8 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="큐(queue)-사용">
-<a class="anchor" href="#%ED%81%90(queue)-%EC%82%AC%EC%9A%A9" aria-hidden="true"><span class="octicon octicon-link"></span></a>큐(queue) 사용<a class="anchor-link" href="#%ED%81%90(queue)-%EC%82%AC%EC%9A%A9"> </a>
+<h2 id="덱(deque)-사용">
+<a class="anchor" href="#%EB%8D%B1(deque)-%EC%82%AC%EC%9A%A9" aria-hidden="true"><span class="octicon octicon-link"></span></a>덱(deque) 사용<a class="anchor-link" href="#%EB%8D%B1(deque)-%EC%82%AC%EC%9A%A9"> </a>
 </h2>
 </div>
 </div>
@@ -187,10 +187,12 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> 파이썬에서 queue은 from collections import deque를 실행한 후 <code>deque()</code>통해 구현할 수 있다</p>
-<p><code>-</code> <code>queue.append(x)</code>를 통해 큐에 x를 오른쪽(뒤)에 push한다</p>
-<p><code>-</code> <code>queue.popleft()</code>를 통해 큐에서 앞의 원소(왼쪽)를 pop한다</p>
-<p><code>-</code> 참고: <a href="https://www.geeksforgeeks.org/queue-in-python/">queue in python</a></p>
+<p><code>-</code> 파이썬에서 deque는 from collections import deque를 실행한 후 <code>deque()</code>통해 구현할 수 있다</p>
+<p><code>-</code> <code>deque.append(x)</code>를 통해 덱에 x를 오른쪽(뒤)에 push한다</p>
+<p><code>-</code> <code>deque.appendleft(x)</code>를 통해 덱에 x를 왼쪽(앞)에 push한다</p>
+<p><code>-</code> <code>deque.pop()</code>를 통해 덱에서 뒤의 원소를 pop한다</p>
+<p><code>-</code> <code>deque.popleft()</code>를 통해 덱에서 앞의 원소를 pop한다</p>
+<p><code>-</code> 참고: <a href="https://www.geeksforgeeks.org/deque-in-python/">deque in python</a></p>
 
 </div>
 </div>
@@ -211,13 +213,14 @@ window.onload = wrap_img;
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">deque</span> <span class="c1">## 큐(queue)를 사용하기 위해 deque라이브러리 import</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">deque</span> <span class="c1">## 덱(deque)를 사용하기 위해 deque라이브러리 import</span>
 
-<span class="n">queue</span> <span class="o">=</span> <span class="n">deque</span><span class="p">()</span> <span class="c1">## 큐(queue) 자료구조 생성 ---&gt; deque([])</span>
-<span class="n">queue</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="c1">## 큐에 1 추가 ---&gt; deque([1]) </span>
-<span class="n">queue</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="c1">## 큐에 2 추가 ---&gt; deque([1, 2]) </span>
-<span class="n">queue</span><span class="o">.</span><span class="n">popleft</span><span class="p">()</span> <span class="c1">## 큐에서 앞의 원소를 추출함 ---&gt; 선입선출 구조 ---&gt; deque([2]) </span>
-<span class="n">queue</span>
+<span class="n">deque</span> <span class="o">=</span> <span class="n">deque</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span> <span class="c1">## 큐(queue) 자료구조 생성 ---&gt; deque([1, 2, 3, 4, 5])</span>
+<span class="n">deque</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="c1">## 덱의 뒤에 1 추가 ---&gt; deque([1, 2, 3, 4, 5, 1]) </span>
+<span class="n">deque</span><span class="o">.</span><span class="n">appendleft</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="c1">## 덱의 앞에 2 추가 ---&gt; deque([2, 1, 2, 3, 4, 5, 1]) </span>
+<span class="n">deque</span><span class="o">.</span><span class="n">popleft</span><span class="p">()</span> <span class="c1">## 덱에서 앞의 원소를 추출함 ---&gt;  deque([1, 2, 3, 4, 5, 1])</span>
+<span class="n">deque</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span> <span class="c1">## 덱에서 뒤의 원소를 추출함 ---&gt; deque([1, 2, 3, 4, 5])</span>
+<span class="n">deque</span>
 </pre></div>
 
     </div>
@@ -232,7 +235,7 @@ window.onload = wrap_img;
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>deque([2])</pre>
+<pre>deque([1, 2, 3, 4, 5])</pre>
 </div>
 
 </div>
@@ -255,7 +258,7 @@ window.onload = wrap_img;
         theme="github-light"
         crossorigin="anonymous"
         async>
-</script><a class="u-url" href="/green/python/data%20structure/2021/09/05/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0-%ED%81%90.html" hidden></a>
+</script><a class="u-url" href="/green/python/data%20structure/2021/09/19/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0-%EB%8D%B1.html" hidden></a>
 </article>
       </div>
     </main><footer class="site-footer h-card">
