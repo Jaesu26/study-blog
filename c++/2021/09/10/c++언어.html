@@ -96,7 +96,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      11 min read
+      13 min read
     
 </span></p>
 
@@ -177,10 +177,43 @@ window.onload = wrap_img;
 </ul>
 </li>
 <li class="toc-entry toc-h2"><a href="#함수의-매개변수(parameter-or-argument)">함수의 매개변수(parameter or argument) </a></li>
-<li class="toc-entry toc-h2"><a href="#매개변수에-의한-함수-호출-방식">매개변수에 의한 함수 호출 방식 </a></li>
+<li class="toc-entry toc-h2"><a href="#매개변수에-의한-함수-호출-방식">매개변수에 의한 함수 호출 방식 </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#Call-by-value-(값에-의한-함수-호출)">Call by value (값에 의한 함수 호출) </a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#Call-by-value-예제">Call by value 예제 </a></li>
 </ul>
 </li>
-<li class="toc-entry toc-h1"><a href="#동적-메모리-할당-&-해제">동적 메모리 할당 &amp; 해제 </a></li>
+<li class="toc-entry toc-h3"><a href="#Call-by-reference-(참조에-의한-함수-호출)">Call by reference (참조에 의한 함수 호출) </a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#Call-By-Reference-(Using-Pointer)">Call By Reference (Using Pointer) </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h3"><a href="#Call-By-Reference-(C++)">Call By Reference (C++) </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#Const-Reference">Const Reference </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#const-의미">const 의미 </a></li>
+<li class="toc-entry toc-h3"><a href="#const-reference">const reference </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#반환형이-참조형인-경우">반환형이 참조형인 경우 </a></li>
+<li class="toc-entry toc-h2"><a href="#잘못된-참조의-반환">잘못된 참조의 반환 </a></li>
+<li class="toc-entry toc-h2"><a href="#참조자의-특징">참조자의 특징 </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#상수화된-변수-(const)의-참조자가-필요한-경우">상수화된 변수 (const)의 참조자가 필요한 경우 </a></li>
+<li class="toc-entry toc-h3"><a href="#const-참조자에-상수도-대입-가능">const 참조자에 상수도 대입 가능 </a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-entry toc-h1"><a href="#동적-메모리-할당-&-해제">동적 메모리 할당 &amp; 해제 </a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#메모리-동적할당이란?">메모리 동적할당이란? </a></li>
+<li class="toc-entry toc-h2"><a href="#C++-메모리-동적할당/해제-용법">C++ 메모리 동적할당/해제 용법 </a></li>
+</ul>
+</li>
 <li class="toc-entry toc-h1"><a href="#C++에서-C언어-표준-함수-호출">C++에서 C언어 표준 함수 호출 </a></li>
 </ul><!--
 #################################################
@@ -209,8 +242,8 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> c++ 필기용</p>
-<p><code>-</code> 이게 편해서 이걸로 c++언어 배운 내용 정리할 거임</p>
+<p><code>-</code> c++ 저장용</p>
+<p><code>-</code> 이게 편해서 이걸로 c++언어 배운 내용 공부</p>
 <p><code>-</code> 참고: 윤성우의 열혈 C++ 프로그래밍</p>
 
 </div>
@@ -1187,22 +1220,17 @@ window.onload = wrap_img;
 <h2 id="매개변수에-의한-함수-호출-방식">
 <a class="anchor" href="#%EB%A7%A4%EA%B0%9C%EB%B3%80%EC%88%98%EC%97%90-%EC%9D%98%ED%95%9C-%ED%95%A8%EC%88%98-%ED%98%B8%EC%B6%9C-%EB%B0%A9%EC%8B%9D" aria-hidden="true"><span class="octicon octicon-link"></span></a>매개변수에 의한 함수 호출 방식<a class="anchor-link" href="#%EB%A7%A4%EA%B0%9C%EB%B3%80%EC%88%98%EC%97%90-%EC%9D%98%ED%95%9C-%ED%95%A8%EC%88%98-%ED%98%B8%EC%B6%9C-%EB%B0%A9%EC%8B%9D"> </a>
 </h2>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>qCall by value v.s. Call by reference
-§ Call by value (값에 의한 [함수] 호출)
-◦ 함수 호출 시 actual parameters의 값을 “복사”해서 formal parameters로 전달
-◦ 함수 내에서 formal parameter를 변경해도 actual parameter에는 변화 없음!
-◦ 복사에 따른 비용 발생 (copy cost)
-§ Call by reference (참조에 의한 [함수] 호출)
-◦ 함수 호출 시 actual parameters 자체를 formal parameters로 전달
-◦ formal parameters를 변경하면 actual parameters도 변경됨!
-◦ C에서는 참조자와 같은 개념이 없어서 포인터를 이용해 call by reference를 수행
-◦ C++에서는 포인터와 참조자 두 가지 방식으로 call by reference 수행 가능</p>
+<div class="highlight"><pre><span></span><span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+<span class="kt">int</span> <span class="o">*</span><span class="n">p</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">a</span><span class="p">;</span>
+<span class="kt">int</span> <span class="o">&amp;</span><span class="n">b</span> <span class="o">=</span> <span class="n">a</span><span class="p">;</span>
+</pre></div>
+<p><code>-</code> a의 주소를 1000이라 해보자 ---&gt; &amp;a = 1000</p>
+<p><code>-</code> &amp;a = &amp;b = p 이고 포인터 자체도 변수이므로 메모리 주소가 있음 ---&gt; &amp;p = 1004라고 해보자</p>
+<p><code>-</code> 포인터 변수에는 a의 주소가 저장됨 ---&gt; 간접참조연산자(*)를 통해 a의 원본에 접근</p>
+<p><code>-</code> 참조자 변수의 메모리 주소는 원본의 메모리 주소와 같음 ---&gt; 포인터와의 차이점</p>
+<p><code>-</code> 메모리 주소가 같으므로 원본이라 생각하고 사용하면 됨</p>
+<p><code>-</code> 즉 포인터는 자신의 메모리 주소가 따로 있고 포인터 변수에 원본의 <code>주소</code>가 저장되어 있어 <code>*</code>를 통해 원본에 접근</p>
+<p><code>-</code> 하지만 참조자는 자신의 메모리 주소가 원본의 메모리 주소와 같으므로 그럴필요 없이 원본이라 생각하고 사용하면 됨</p>
 
 </div>
 </div>
@@ -1210,15 +1238,12 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-
-<pre><code>포인터 자체도 변수니까 메모리 주소가 따로 있고 그 메모리 주소 뒤져보니까 포인터가 가리키는 변수의 주소값이 저장되어 있고 *간접참조연산자
-사용하면 포인터 변수가 가리키는 주소에 저장되어 있는 값을 ㅂ알 수 있고
-
-참조자는 int b = 10;int &amp;a = b; 라고 하고 이 경우에는 a자체의 메모리 주소가 b라는 메모리 주소랑 똑같고 그니까 당연히 거기에 저장되어 있는 값도 똑같고
-하고 싶은 말은 포인터는 포인터도 변수니까 자체 메모리 주소가 있고 a도 변수니까 자체 메모리 주소가 있는데 a는 b랑 똑같은 거고 포인터p는 다른 거고 그런데
-p에 b에 주소가 저장되어 있으니까 *를 사용해서 b의 값을 알 수 있고 당연히 변경도 10가능이고 ~ 이게 나의 뇌피셜로 새ㅐㅇ각한 차이점이다 이말이야~
-포인터 p는 자체 메모리 주소가 따로 있고 그 메모리 주소에 저장된 값이 다른 변수의 메모리 주소니까 *를 사용해서 거기 메모리에 저장된 값을 알아내는 반면
-참조자는 자체 메모리 주소가 이쓴ㄴ데 이게 내가 궁금해 하는 변수의 주소랑 똑같으니까 * 쓰고 말고 할 거 없이 참조자를 조지면 내가 궁금해하는 변수도 조져진다는 말씀</code></pre>
+<h3 id="Call-by-value-(값에-의한-함수-호출)">
+<a class="anchor" href="#Call-by-value-(%EA%B0%92%EC%97%90-%EC%9D%98%ED%95%9C-%ED%95%A8%EC%88%98-%ED%98%B8%EC%B6%9C)" aria-hidden="true"><span class="octicon octicon-link"></span></a>Call by value (값에 의한 함수 호출)<a class="anchor-link" href="#Call-by-value-(%EA%B0%92%EC%97%90-%EC%9D%98%ED%95%9C-%ED%95%A8%EC%88%98-%ED%98%B8%EC%B6%9C)"> </a>
+</h3>
+<p><code>-</code> 함수 호출 시 actual parameters의 값을 “복사”해서 formal parameters로 전달</p>
+<p><code>-</code> 함수 내에서 formal parameter를 변경해도 actual parameter에는 변화 없음!</p>
+<p><code>-</code> 복사에 따른 비용 발생 (copy cost)</p>
 
 </div>
 </div>
@@ -1226,7 +1251,220 @@ p에 b에 주소가 저장되어 있으니까 *를 사용해서 b의 값을 알 
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>c는 num1 = 1이면 num1에다가 1을 넣는 느낌이면 파이썬에서는 1에다가 num1이라는 이름을 붙이는 느낌</p>
+<h4 id="Call-by-value-예제">
+<a class="anchor" href="#Call-by-value-%EC%98%88%EC%A0%9C" aria-hidden="true"><span class="octicon octicon-link"></span></a>Call by value 예제<a class="anchor-link" href="#Call-by-value-%EC%98%88%EC%A0%9C"> </a>
+</h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div class="highlight"><pre><span></span><span class="kt">int</span> <span class="nf">func</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="n">y</span><span class="p">){</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+    <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">ret</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">);</span>   <span class="c1">// call-by-value!</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">x</span> <span class="o">&lt;&lt;</span> <span class="s">" "</span> <span class="o">&lt;&lt;</span> <span class="n">y</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+<p><code>-</code> Actual parameter와 formal parameter는 다른 메모리 공간에 할당됨!</p>
+<p><code>-</code> 따라서 formal parameter의 값을 바꿔도 actual parameter에는 변화 없음</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Call-by-reference-(참조에-의한-함수-호출)">
+<a class="anchor" href="#Call-by-reference-(%EC%B0%B8%EC%A1%B0%EC%97%90-%EC%9D%98%ED%95%9C-%ED%95%A8%EC%88%98-%ED%98%B8%EC%B6%9C)" aria-hidden="true"><span class="octicon octicon-link"></span></a>Call by reference (참조에 의한 함수 호출)<a class="anchor-link" href="#Call-by-reference-(%EC%B0%B8%EC%A1%B0%EC%97%90-%EC%9D%98%ED%95%9C-%ED%95%A8%EC%88%98-%ED%98%B8%EC%B6%9C)"> </a>
+</h3>
+<p><code>-</code> 함수 호출 시 actual parameters 자체를 formal parameters로 전달</p>
+<p><code>-</code> formal parameters를 변경하면 actual parameters도 변경됨!</p>
+<p><code>-</code> C에서는 참조자와 같은 개념이 없어서 포인터를 이용해 call by reference를 수행</p>
+<p><code>-</code> C++에서는 포인터와 참조자 두 가지 방식으로 call by reference 수행 가능</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Call-By-Reference-(Using-Pointer)">
+<a class="anchor" href="#Call-By-Reference-(Using-Pointer)" aria-hidden="true"><span class="octicon octicon-link"></span></a>Call By Reference (Using Pointer)<a class="anchor-link" href="#Call-By-Reference-(Using-Pointer)"> </a>
+</h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div class="highlight"><pre><span></span><span class="kt">int</span> <span class="nf">func</span><span class="p">(</span><span class="kt">int</span> <span class="o">*</span><span class="n">ptr1</span><span class="p">,</span> <span class="kt">int</span> <span class="o">*</span><span class="n">ptr2</span><span class="p">){</span>
+    <span class="o">*</span><span class="n">ptr1</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>  <span class="c1">// 주소가 넘어감</span>
+    <span class="o">*</span><span class="n">ptr2</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+    <span class="k">return</span> <span class="o">*</span><span class="n">ptr1</span> <span class="o">+</span> <span class="o">*</span><span class="n">ptr2</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+    <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">ret</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="o">&amp;</span><span class="n">x</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">y</span><span class="p">);</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">x</span> <span class="o">&lt;&lt;</span> <span class="s">" "</span> <span class="o">&lt;&lt;</span> <span class="n">y</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+<p><code>-</code> Actual parameter와 formal parameter가 같은 곳을 가리키고 있음!</p>
+<p><code>-</code> 따라서 formal parameter가 actual parameter를 바꿀 수 있음!</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Call-By-Reference-(C++)">
+<a class="anchor" href="#Call-By-Reference-(C++)" aria-hidden="true"><span class="octicon octicon-link"></span></a>Call By Reference (C++)<a class="anchor-link" href="#Call-By-Reference-(C++)"> </a>
+</h3>
+<p><code>-</code> 함수 선언시 formal parameters를 참조자 (reference)로 선언</p>
+<p><code>-</code> Formal parameter는 함수가 호출될 때 선언이 됨</p>
+<p><code>-</code> 함수 호출의 과정에서 선언과 동시에 actual parameter가 전달되어 초기화 됨</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div class="highlight"><pre><span></span><span class="kt">int</span> <span class="nf">func</span><span class="p">(</span><span class="kt">int</span> <span class="o">&amp;</span><span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="o">&amp;</span><span class="n">b</span><span class="p">){</span>     <span class="c1">// Formal parameters가 참조자</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+    <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">ret</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">);</span>  <span class="c1">// call-by-reference</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">x</span> <span class="o">&lt;&lt;</span> <span class="s">" "</span> <span class="o">&lt;&lt;</span> <span class="n">y</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Const-Reference">
+<a class="anchor" href="#Const-Reference" aria-hidden="true"><span class="octicon octicon-link"></span></a>Const Reference<a class="anchor-link" href="#Const-Reference"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="const-의미">
+<a class="anchor" href="#const-%EC%9D%98%EB%AF%B8" aria-hidden="true"><span class="octicon octicon-link"></span></a>const 의미<a class="anchor-link" href="#const-%EC%9D%98%EB%AF%B8"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> const가 어떤 변수에 붙으면 그 변수를 상수로 만듦</p>
+<p><code>-</code> 초기화 이후에는 변경을 허용하지 않는 것을 의미</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="const-reference">
+<a class="anchor" href="#const-reference" aria-hidden="true"><span class="octicon octicon-link"></span></a>const reference<a class="anchor-link" href="#const-reference"> </a>
+</h3>
+<p><code>-</code> 함수의 매개변수 참조자에 const를 붙인 것</p>
+<p><code>-</code> 전달 받은 매개변수를 함수에 의해 변경되지 않도록 하기 위해 사용</p>
+<p><code>-</code> 함수의 원형 선언만 봐도 값의 변경이 일어나지 않는다고 판단 할 수 있음!</p>
+<p><code>-</code> 참조자를 사용하는 건 원본에 접근해 변경하려는 것인데 const를 붙일 거면 그냥 참조자를 쓰지 말지??</p>
+<p><code>-</code> Copy cost를 피하고 값 변경 없이 함수 내부에서 사용만 하고 싶을 때 const reference 사용</p>
+<p><code>-</code> 배열을 담은 구조체를 call by value로 전달하면 copy cost가 발생</p>
+<p><code>-</code> 이를 피하기 위해 별칭을 넘겨주되 변경은 허용하지 않는 것</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="반환형이-참조형인-경우">
+<a class="anchor" href="#%EB%B0%98%ED%99%98%ED%98%95%EC%9D%B4-%EC%B0%B8%EC%A1%B0%ED%98%95%EC%9D%B8-%EA%B2%BD%EC%9A%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>반환형이 참조형인 경우<a class="anchor-link" href="#%EB%B0%98%ED%99%98%ED%98%95%EC%9D%B4-%EC%B0%B8%EC%A1%B0%ED%98%95%EC%9D%B8-%EA%B2%BD%EC%9A%B0"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 함수의 반환형에도 참조형 (reference type)이 될 수 있음</p>
+<p><code>-</code> 반환 받는 변수형이 참조형이면 같은 변수를 가리킴</p>
+<p><code>-</code> 반환 받는 변수형이 참조형이 아니면 다른 메모리 주소에 값이 저장됨</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="잘못된-참조의-반환">
+<a class="anchor" href="#%EC%9E%98%EB%AA%BB%EB%90%9C-%EC%B0%B8%EC%A1%B0%EC%9D%98-%EB%B0%98%ED%99%98" aria-hidden="true"><span class="octicon octicon-link"></span></a>잘못된 참조의 반환<a class="anchor-link" href="#%EC%9E%98%EB%AA%BB%EB%90%9C-%EC%B0%B8%EC%A1%B0%EC%9D%98-%EB%B0%98%ED%99%98"> </a>
+</h2>
+<p><code>-</code> 지역변수를 참조의 형태로 반환하고 참조로 받는 경우</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="참조자의-특징">
+<a class="anchor" href="#%EC%B0%B8%EC%A1%B0%EC%9E%90%EC%9D%98-%ED%8A%B9%EC%A7%95" aria-hidden="true"><span class="octicon octicon-link"></span></a>참조자의 특징<a class="anchor-link" href="#%EC%B0%B8%EC%A1%B0%EC%9E%90%EC%9D%98-%ED%8A%B9%EC%A7%95"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="상수화된-변수-(const)의-참조자가-필요한-경우">
+<a class="anchor" href="#%EC%83%81%EC%88%98%ED%99%94%EB%90%9C-%EB%B3%80%EC%88%98-(const)%EC%9D%98-%EC%B0%B8%EC%A1%B0%EC%9E%90%EA%B0%80-%ED%95%84%EC%9A%94%ED%95%9C-%EA%B2%BD%EC%9A%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>상수화된 변수 (const)의 참조자가 필요한 경우<a class="anchor-link" href="#%EC%83%81%EC%88%98%ED%99%94%EB%90%9C-%EB%B3%80%EC%88%98-(const)%EC%9D%98-%EC%B0%B8%EC%A1%B0%EC%9E%90%EA%B0%80-%ED%95%84%EC%9A%94%ED%95%9C-%EA%B2%BD%EC%9A%B0"> </a>
+</h3>
+<div class="highlight"><pre><span></span><span class="k">const</span> <span class="kt">int</span> <span class="n">num</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
+<span class="kt">int</span> <span class="o">&amp;</span><span class="n">ref</span> <span class="o">=</span> <span class="n">num</span><span class="p">;</span> <span class="c1">// error</span>
+<span class="k">const</span> <span class="kt">int</span> <span class="o">&amp;</span><span class="n">ref</span> <span class="o">=</span> <span class="n">num</span><span class="p">;</span> <span class="c1">// ok</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="const-참조자에-상수도-대입-가능">
+<a class="anchor" href="#const-%EC%B0%B8%EC%A1%B0%EC%9E%90%EC%97%90-%EC%83%81%EC%88%98%EB%8F%84-%EB%8C%80%EC%9E%85-%EA%B0%80%EB%8A%A5" aria-hidden="true"><span class="octicon octicon-link"></span></a>const 참조자에 상수도 대입 가능<a class="anchor-link" href="#const-%EC%B0%B8%EC%A1%B0%EC%9E%90%EC%97%90-%EC%83%81%EC%88%98%EB%8F%84-%EB%8C%80%EC%9E%85-%EA%B0%80%EB%8A%A5"> </a>
+</h3>
+<div class="highlight"><pre><span></span><span class="k">const</span> <span class="kt">int</span> <span class="o">&amp;</span><span class="n">ref</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span> <span class="c1">// ok</span>
+</pre></div>
 
 </div>
 </div>
@@ -1243,9 +1481,47 @@ p에 b에 주소가 저장되어 있으니까 *를 사용해서 b의 값을 알 
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="메모리-동적할당이란?">
+<a class="anchor" href="#%EB%A9%94%EB%AA%A8%EB%A6%AC-%EB%8F%99%EC%A0%81%ED%95%A0%EB%8B%B9%EC%9D%B4%EB%9E%80?" aria-hidden="true"><span class="octicon octicon-link"></span></a>메모리 동적할당이란?<a class="anchor-link" href="#%EB%A9%94%EB%AA%A8%EB%A6%AC-%EB%8F%99%EC%A0%81%ED%95%A0%EB%8B%B9%EC%9D%B4%EB%9E%80?"> </a>
+</h2>
+<p><code>-</code> 프로그램 실행 중에 사용할 메모리 공간을 필요한 만큼 할당하는 것</p>
+<p><code>-</code> 사용 후에는 반드시 반환을 해야함 (동적해제)</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="C++-메모리-동적할당/해제-용법">
+<a class="anchor" href="#C++-%EB%A9%94%EB%AA%A8%EB%A6%AC-%EB%8F%99%EC%A0%81%ED%95%A0%EB%8B%B9/%ED%95%B4%EC%A0%9C-%EC%9A%A9%EB%B2%95" aria-hidden="true"><span class="octicon octicon-link"></span></a>C++ 메모리 동적할당/해제 용법<a class="anchor-link" href="#C++-%EB%A9%94%EB%AA%A8%EB%A6%AC-%EB%8F%99%EC%A0%81%ED%95%A0%EB%8B%B9/%ED%95%B4%EC%A0%9C-%EC%9A%A9%EB%B2%95"> </a>
+</h2>
+<p><code>-</code> new 연산자: 동적할당 ---&gt; 클래스 변수 동적할당도 가능 (malloc은 안됨)</p>
+<p><code>-</code> delete 연산자: 동적해제</p>
+<div class="highlight"><pre><span></span><span class="kt">int</span><span class="o">*</span> <span class="n">ptr1</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="p">;</span> <span class="c1">// int형 변수 할당</span>
+<span class="k">delete</span> <span class="n">ptr1</span><span class="p">;</span>  <span class="c1">// int형 변수 해제</span>
+
+<span class="kt">int</span><span class="o">*</span> <span class="n">arr1</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="p">[</span><span class="mi">3</span><span class="p">];</span> <span class="c1">// 길이가 3인 int형 배열 항당</span>
+<span class="k">delete</span> <span class="p">[]</span><span class="n">arr1</span><span class="p">;</span>  <span class="c1">// int형 배열 해제 // 다른 자료형과 달리 해제할 때 앞에 []를 붙여줘야 함</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="C++에서-C언어-표준-함수-호출">
 <a class="anchor" href="#C++%EC%97%90%EC%84%9C-C%EC%96%B8%EC%96%B4-%ED%91%9C%EC%A4%80-%ED%95%A8%EC%88%98-%ED%98%B8%EC%B6%9C" aria-hidden="true"><span class="octicon octicon-link"></span></a>C++에서 C언어 표준 함수 호출<a class="anchor-link" href="#C++%EC%97%90%EC%84%9C-C%EC%96%B8%EC%96%B4-%ED%91%9C%EC%A4%80-%ED%95%A8%EC%88%98-%ED%98%B8%EC%B6%9C"> </a>
 </h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 헤더파일을 include할 때 c를 더하고 .h를 빼기</p>
+
 </div>
 </div>
 </div>
