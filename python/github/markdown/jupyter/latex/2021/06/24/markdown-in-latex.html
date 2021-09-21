@@ -96,7 +96,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      3 min read
+      4 min read
     
 </span></p>
 
@@ -169,6 +169,8 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h3"><a href="#괄호-크게-만들기">괄호 크게 만들기 </a></li>
 <li class="toc-entry toc-h3"><a href="#글씨-크기-조절">글씨 크기 조절 </a></li>
 <li class="toc-entry toc-h3"><a href="#개행-간격-조절">개행 간격 조절 </a></li>
+<li class="toc-entry toc-h3"><a href="#문자-위에-문자-표시">문자 위에 문자 표시 </a></li>
+<li class="toc-entry toc-h3"><a href="#수식의-시작-위치를-동일하게-하고-싶다면?">수식의 시작 위치를 동일하게 하고 싶다면? </a></li>
 </ul>
 </li>
 <li class="toc-entry toc-h2"><a href="#유용한-latex">유용한 latex </a>
@@ -569,7 +571,7 @@ window.onload = wrap_img;
 <h3 id="글씨-크기-조절">
 <a class="anchor" href="#%EA%B8%80%EC%94%A8-%ED%81%AC%EA%B8%B0-%EC%A1%B0%EC%A0%88" aria-hidden="true"><span class="octicon octicon-link"></span></a>글씨 크기 조절<a class="anchor-link" href="#%EA%B8%80%EC%94%A8-%ED%81%AC%EA%B8%B0-%EC%A1%B0%EC%A0%88"> </a>
 </h3>
-<p><code>-</code> link: <a href="https://ko.overleaf.com/learn/latex/Font_sizes,_families,_and_styles">https://ko.overleaf.com/learn/latex/Font_sizes,_families,_and_styles</a></p>
+<p><code>-</code> link : <a href="https://ko.overleaf.com/learn/latex/Font_sizes,_families,_and_styles">https://ko.overleaf.com/learn/latex/Font_sizes,_families,_and_styles</a></p>
 
 </div>
 </div>
@@ -580,7 +582,35 @@ window.onload = wrap_img;
 <h3 id="개행-간격-조절">
 <a class="anchor" href="#%EA%B0%9C%ED%96%89-%EA%B0%84%EA%B2%A9-%EC%A1%B0%EC%A0%88" aria-hidden="true"><span class="octicon octicon-link"></span></a>개행 간격 조절<a class="anchor-link" href="#%EA%B0%9C%ED%96%89-%EA%B0%84%EA%B2%A9-%EC%A1%B0%EC%A0%88"> </a>
 </h3>
-<p><code>-</code> link: <a href="https://tex.stackexchange.com/questions/494582/spacing-of-newline-and">https://tex.stackexchange.com/questions/494582/spacing-of-newline-and</a></p>
+<p><code>-</code> link : <a href="https://tex.stackexchange.com/questions/494582/spacing-of-newline-and">https://tex.stackexchange.com/questions/494582/spacing-of-newline-and</a></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="문자-위에-문자-표시">
+<a class="anchor" href="#%EB%AC%B8%EC%9E%90-%EC%9C%84%EC%97%90-%EB%AC%B8%EC%9E%90-%ED%91%9C%EC%8B%9C" aria-hidden="true"><span class="octicon octicon-link"></span></a>문자 위에 문자 표시<a class="anchor-link" href="#%EB%AC%B8%EC%9E%90-%EC%9C%84%EC%97%90-%EB%AC%B8%EC%9E%90-%ED%91%9C%EC%8B%9C"> </a>
+</h3>
+<p><code>-</code> ${H_0}^{\sim}$ ---&gt; {H_0}^{\sim}</p>
+<p><code>-</code> $\overset{\sim}{H_0}$ ---&gt; \overset{\sim}{H_0}</p>
+<p><code>-</code> ref : <a href="https://tex.stackexchange.com/questions/43335/how-to-write-is-distributed-as-under-a-certain-hypothesis">https://tex.stackexchange.com/questions/43335/how-to-write-is-distributed-as-under-a-certain-hypothesis</a></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="수식의-시작-위치를-동일하게-하고-싶다면?">
+<a class="anchor" href="#%EC%88%98%EC%8B%9D%EC%9D%98-%EC%8B%9C%EC%9E%91-%EC%9C%84%EC%B9%98%EB%A5%BC-%EB%8F%99%EC%9D%BC%ED%95%98%EA%B2%8C-%ED%95%98%EA%B3%A0-%EC%8B%B6%EB%8B%A4%EB%A9%B4?" aria-hidden="true"><span class="octicon octicon-link"></span></a>수식의 시작 위치를 동일하게 하고 싶다면?<a class="anchor-link" href="#%EC%88%98%EC%8B%9D%EC%9D%98-%EC%8B%9C%EC%9E%91-%EC%9C%84%EC%B9%98%EB%A5%BC-%EB%8F%99%EC%9D%BC%ED%95%98%EA%B2%8C-%ED%95%98%EA%B3%A0-%EC%8B%B6%EB%8B%A4%EB%A9%B4?"> </a>
+</h3>$$\frac{\partial \boldsymbol L}{\partial \beta_0}  = -\frac{1}{\sigma^2}\sum\limits^{n}_{i=1}(y_i-\beta_0-\beta_1 x_i)=0\\
+\frac{\partial \boldsymbol L}{\partial \beta_1}  = \frac{1}{\sigma^2}\sum\limits^{n}_{i=1}x_i(y_i-\beta_0-\beta_1 x_i)=0\\
+\frac{\partial \boldsymbol L}{\partial \beta_1}  = -\frac{n}{2\sigma^2}+\frac{1}{2\sigma^4}\sum\limits^{n}_{i=1}x_i(y_i-\beta_0-\beta_1 x_i)=0$$<p><code>-</code> <code>\begin{align} 와 \end{align}</code>를 사용하면 된다</p>
+$$\begin{align}\frac{\partial \boldsymbol L}{\partial \beta_0} &amp; = -\frac{1}{\sigma^2}\sum\limits^{n}_{i=1}(y_i-\beta_0-\beta_1 x_i)=0\\
+\frac{\partial \boldsymbol L}{\partial \beta_1} &amp; = \frac{1}{\sigma^2}\sum\limits^{n}_{i=1}x_i(y_i-\beta_0-\beta_1 x_i)=0\\
+\frac{\partial \boldsymbol L}{\partial \beta_1} &amp; = -\frac{n}{2\sigma^2}+\frac{1}{2\sigma^4}\sum\limits^{n}_{i=1}x_i(y_i-\beta_0-\beta_1 x_i)=0\end{align}$$<p><code>-</code> ref: <a href="https://stackoverflow.com/questions/28353127/how-to-change-alignment-of-displayed-equations-in-ipython-notebook">https://stackoverflow.com/questions/28353127/how-to-change-alignment-of-displayed-equations-in-ipython-notebook</a></p>
 
 </div>
 </div>

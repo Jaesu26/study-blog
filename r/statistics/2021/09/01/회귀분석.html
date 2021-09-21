@@ -96,7 +96,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      3 min read
+      6 min read
     
 </span></p>
 
@@ -161,9 +161,16 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h2"><a href="#단순회귀모형">단순회귀모형 </a></li>
 <li class="toc-entry toc-h2"><a href="#회귀선의-추정">회귀선의 추정 </a>
 <ul>
+<li class="toc-entry toc-h3"><a href="#함수의-최소값">함수의 최소값 </a></li>
 <li class="toc-entry toc-h3"><a href="#최소제곱법">최소제곱법 </a></li>
 <li class="toc-entry toc-h3"><a href="#R-예제">R 예제 </a></li>
 <li class="toc-entry toc-h3"><a href="#최우추정법">최우추정법 </a></li>
+<li class="toc-entry toc-h3"><a href="#회귀선의-특징">회귀선의 특징 </a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#$b_0,\,b_1$의-선형성">$b_0,\,b_1$의 선형성 </a></li>
+<li class="toc-entry toc-h4"><a href="#$b_0,\,b_1$의-불편성">$b_0,\,b_1$의 불편성 </a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -243,7 +250,7 @@ window.onload = wrap_img;
 <p><code>2.</code> 다중 선형회귀 $y=a+b_1x_1+b_2x_2+\cdots+b_kx_k+\epsilon$</p>
 <p><code>3.</code> 다항 회귀 $y=a+b_1x+b_2x^2+\cdots+b_nx^k+\epsilon$</p>
 <p><code>4.</code> 비선형 회귀 $y=\frac{c}{a-b}(e^{-ax_1}+e^{-bx_2}-e^{-cx_3})+\epsilon$</p>
-<p><code>5.</code> 일반화 선형모형 ---&gt; 로지스틱 y: 이항변수, 포아송 회귀 y: 계수변수</p>
+<p><code>5.</code> 일반화 선형모형 ---&gt; 로지스틱 $y$ : 이항변수, 포아송 회귀 $y$ : 계수변수</p>
 <p><code>-</code> 참고 $y=e^{a+bx}$ : 비선형 $\to$ $ln(y) = a+bx$ : 선형</p>
 
 </div>
@@ -312,11 +319,11 @@ window.onload = wrap_img;
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> 상관관계의 정도를 나타냄</p>
-<p><code>-</code> 모집단 상관계수: $\rho$ ---&gt; 우리가 알고자 하는 모수
+<p><code>-</code> 모집단 상관계수 : $\rho$ ---&gt; 우리가 알고자 하는 모수
 </p>
-<p><code>-</code> 표본 상관계수: $r_{xy} = \cfrac{\cfrac{1}{n-1}\sum\limits_{i=1}^{n}(x_i-\bar{x})(y_i-\bar{y})}{\sqrt{\cfrac{1}{n-1}\sum\limits_{i=1}^{n}(x_i-\bar{x})^{2}\cfrac{1}{n-1}\sum\limits_{i=1}^{n}(y_i-\bar{y})^{2}}} = \cfrac{S_{xy}}{S_x S_y}$</p>
-<p><code>-</code> 표본 상관계수(z점수 사용): $r_{xy} = \cfrac{1}{n-1}\sum\limits_{i=1}^{n}\bigg(\cfrac{x_i-\bar{x}}{\sigma_x}\bigg)\bigg(\cfrac{y_i-\bar{y}}{\sigma_y}\bigg)$
-</p>
+<p><code>-</code> 표본 상관계수 : $r_{xy} = \cfrac{\cfrac{1}{n-1}\sum\limits_{i=1}^{n}(x_i-\bar{x})(y_i-\bar{y})}{\sqrt{\cfrac{1}{n-1}\sum\limits_{i=1}^{n}(x_i-\bar{x})^{2}\cfrac{1}{n-1}\sum\limits_{i=1}^{n}(y_i-\bar{y})^{2}}} = \cfrac{S_{xy}}{S_x S_y}$</p>
+<p><code>-</code> 표본 상관계수(z점수 사용) : $r_{xy} = \cfrac{1}{n-1}\sum\limits_{i=1}^{n}\bigg(\cfrac{x_i-\bar{x}}{\sigma_x}\bigg)\bigg(\cfrac{y_i-\bar{y}}{\sigma_y}\bigg)$</p>
+<p></p>
 
 </div>
 </div>
@@ -372,16 +379,16 @@ window.onload = wrap_img;
 <p>$y_i = \beta_0+\beta_1 x_i+\epsilon_i,\quad i=1,2,\cdots,n \\ \qquad 단, \,\epsilon_i \sim i.i.d \quad N(0 ,\sigma^2)$</p>
 </li>
 <li>
-<p>$y_i$: $i$번째 측정된 $y$ 값</p>
+<p>$y_i$ : $i$번째 측정된 $y$ 값</p>
 </li>
 <li>
-<p>$x_i$: $i$번째 주어진 고정된 값(= 상수항)</p>
+<p>$x_i$ : $i$번째 주어진 고정된 값(= 상수항)</p>
 </li>
 <li>
-<p>$\beta_0 ,\beta_1$: 모집단회귀계수이며 $\beta_0$은 절편이고 $\beta_1$은 기울기</p>
+<p>$\beta_0 ,\beta_1$ : 모집단회귀계수이며 $\beta_0$은 절편이고 $\beta_1$은 기울기</p>
 </li>
 <li>
-<p>$\epsilon_i$: $i$번째 측정된 $y_i$의 오차항</p>
+<p>$\epsilon_i$ : $i$번째 측정된 $y_i$의 오차항</p>
 </li>
 <li>
 <p>$E(y)=\beta_0+\beta_1 x, \;Var(y) = \sigma^2$ ---&gt; 당연한 소리(모르겠으면 책보기)</p>
@@ -396,12 +403,9 @@ window.onload = wrap_img;
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> $x$가 확률변수인 경우 사용하면 좋은 대체모형</p>
-<ul>
-<li>$y = \beta_0+\beta_1 x +\epsilon \\
-= (\beta_0 + \beta_1 \bar{x})+(\beta_1 x-\beta_1 \bar{x})+\epsilon \\
-= \beta'_{0} + \beta_1 x' + \epsilon \;(x'=x-\bar{x})$</li>
-</ul>
-
+$$\begin{align}y &amp; = \beta_0+\beta_1 x +\epsilon \\
+&amp; = (\beta_0 + \beta_1 \bar{x})+(\beta_1 x-\beta_1 \bar{x})+\epsilon \\
+&amp; = \beta'_{0} + \beta_1 x' + \epsilon \;(x'=x-\bar{x})\end{align}$$
 </div>
 </div>
 </div>
@@ -426,19 +430,45 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="함수의-최소값">
+<a class="anchor" href="#%ED%95%A8%EC%88%98%EC%9D%98-%EC%B5%9C%EC%86%8C%EA%B0%92" aria-hidden="true"><span class="octicon octicon-link"></span></a>함수의 최소값<a class="anchor-link" href="#%ED%95%A8%EC%88%98%EC%9D%98-%EC%B5%9C%EC%86%8C%EA%B0%92"> </a>
+</h3>
+<p><code>-</code> 회귀계수를 추정하기 전에 함수의 최소값을 구하는 방법을 알아 보자</p>
+<p><code>-</code> 함수 $f(x)$가 있다고 하자. 이 함수의 최소값을 알고 싶다 ---&gt; <code>미분</code></p>
+<p><code>-</code> convex fuction (볼록 함수 ---&gt; 아래로 볼록)는 임의의 두 점 $x_1,x_2$와 [0,1] 사이의 값 t에 대해 $f(tx_1+(1-t)x_2)\geq tf(x_1)+(1-t)f(x_2)$가 항상 성립하는 함수</p>
+<p><code>-</code> $f''(x) &gt; 0$이면 $f(x)$는 아래로 볼록하다 ---&gt; ex) $y=x^2$</p>
+<ol>
+<li>
+<p>함수를 두 번 미분한다</p>
+</li>
+<li>
+<p>$f''(x)&gt;0$이면 볼록함수이다. ---&gt; $f'(x)=0$을 만족할 때 $f(x)$의 극소값(=최소값)이므로 $f(x)$가 최소이다</p>
+</li>
+</ol>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="최소제곱법">
 <a class="anchor" href="#%EC%B5%9C%EC%86%8C%EC%A0%9C%EA%B3%B1%EB%B2%95" aria-hidden="true"><span class="octicon octicon-link"></span></a>최소제곱법<a class="anchor-link" href="#%EC%B5%9C%EC%86%8C%EC%A0%9C%EA%B3%B1%EB%B2%95"> </a>
 </h3>
-<p><code>-</code> 오차제곱합을 최소로하는 $\beta_0$와 $\beta_1$의 값을 추정값으로 택하는 방법 ---&gt; 편미분을 통해 구함 ---&gt; 세세한 과정은 직접해보고 책보기</p>
+<p><code>-</code> ref : <a href="https://bskyvision.com/205">https://bskyvision.com/205</a> ---&gt; 좋은 자료임 여기에 설명 다 있으니까 이해 안되면 보면서 공부하기</p>
+<p><code>-</code> 오차제곱합을 최소로하는 $\beta_0$와 $\beta_1$의 값을 추정값으로 택하는 방법 ---&gt; 편미분을 통해 구함</p>
+<p><code>-</code> 편미분 행렬이 양정치이면 $f'(x_i)=0$ 을 만족시키는 점 $x_i$에서 함수는 최소가 됨</p>
+<p><code>-</code> 그러면 편미분 행렬이 양정치인지 어떻게 앎? ---&gt; 행렬의 모든 서브행렬들의 행렬식이 $0$보다 크면 양정치</p>
+<p><code>-</code> 계산해보면 오차 제곱합 $\sum\limits_{i=1}^{n}\boldsymbol\epsilon^{2}_{i}$ 는 볼록함수임</p>
 <ul>
 <li>
-<p>$L=\sum\limits_{i=1}^{n}\epsilon^{2}_{i} = \sum\limits_{i=1}^{n}(y_i-\beta_0-\beta_1 x_i)^{2}$</p>
+<p>$\boldsymbol{L}  =\sum\limits_{i=1}^{n}\boldsymbol\epsilon^{2}_{i} = \sum\limits_{i=1}^{n}(y_i-\beta_0-\beta_1 x_i)^{2}$</p>
 </li>
 <li>
-<p>$\frac{\partial L}{\partial \beta_0} = -2\sum\limits^{n}_{i=1}(y_i-\beta_0-\beta_1 x_i)$</p>
+<p>$\frac{\partial \boldsymbol L}{\partial \beta_0} = -2\sum\limits^{n}_{i=1}(y_i-\beta_0-\beta_1 x_i)$</p>
 </li>
 <li>
-<p>$\frac{\partial L}{\partial \beta_1} = -2\sum\limits^{n}_{i=1}x_i(y_i-\beta_0-\beta_1 x_i)$</p>
+<p>$\frac{\partial \boldsymbol L}{\partial \beta_1} = -2\sum\limits^{n}_{i=1}x_i(y_i-\beta_0-\beta_1 x_i)$</p>
 </li>
 </ul>
 
@@ -458,7 +488,7 @@ window.onload = wrap_img;
 <p>$b_0\sum\limits^{n}_{i=1}x_i + b_1\sum\limits^{n}_{i=1}x_i^{2} =\sum\limits^{n}_{i=1}x_i y_i$</p>
 </li>
 <li>
-<p>$b_1 = \frac{\sum\limits^{n}_{i=1}(x_i - \bar{x})(y_i - \bar{y})}{\sum\limits^{n}_{i=1}(x_i-\bar{x})^2} = \frac{S_{xy}}{S_{xx}}$</p>
+<p>$b_1 = \cfrac{\sum\limits^{n}_{i=1}(x_i - \bar{x})(y_i - \bar{y})}{\sum\limits^{n}_{i=1}(x_i-\bar{x})^2} = \cfrac{S_{xy}}{S_{xx}}$</p>
 </li>
 <li>
 <p>$b_0 = \bar{y} - b_1 \bar{x}$</p>
@@ -672,6 +702,153 @@ F-statistic:  1813 on 1 and 8 DF,  p-value: 1.02e-10
 <h3 id="최우추정법">
 <a class="anchor" href="#%EC%B5%9C%EC%9A%B0%EC%B6%94%EC%A0%95%EB%B2%95" aria-hidden="true"><span class="octicon octicon-link"></span></a>최우추정법<a class="anchor-link" href="#%EC%B5%9C%EC%9A%B0%EC%B6%94%EC%A0%95%EB%B2%95"> </a>
 </h3>
+<p><code>-</code> 최우추정법(method of maximum likelihood estimation) : 가능도함수를 최대로 하는 모수를 추정</p>
+<p><code>-</code> 가능도함수는 설명 잘된 자료가 많으니 헷갈리면 찾아보기</p>
+<p><code>-</code> 간단히 설명해보자 ---&gt; 동전을 $10$번 던져서 앞면이 $7$번 뒷면이 $3$번 나왔다고 하자</p>
+<p><code>-</code> 위 경우의 확률은 $_{10\,}\rm C_{\,7} \times 0.5^7 \times 0.5^3$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 조건 : $\epsilon \overset{i.i.d}{\sim} N(0, \sigma^2)$</p>
+<p><code>-</code> 최우추정법은 $n$개의 관찰점 $\epsilon_1,\,\epsilon_2,\,\cdots,\,\epsilon_n$의 결합확률분포를 이용</p>
+<p>
+$$ f(\epsilon_i)=\cfrac{1}{\sqrt{2\pi\sigma^2}}exp\bigg(-\cfrac{\epsilon_i^2}{2\sigma^2}\bigg) = \cfrac{1}{\sqrt{2\pi\sigma^2}}exp\bigg(-\cfrac{(y_i-\beta_0-\beta_1x_i)^2}{2\sigma^2}\bigg)$$
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> $\epsilon_1,\,\epsilon_2,\,\cdots,\,\epsilon_n$은 서로 독립이므로 결합확률밀도함수(joint probability density)는 다음과 같음</p>
+<p><code>-</code> ref : <a href="https://ko.wikipedia.org/wiki/%EA%B2%B0%ED%95%A9%EB%B6%84%ED%8F%AC">https://ko.wikipedia.org/wiki/%EA%B2%B0%ED%95%A9%EB%B6%84%ED%8F%AC</a></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>
+$$ f(\epsilon_1,\,\epsilon_2,\,\cdots,\,\epsilon_n) = \prod\limits_{i=1}^{n}f(\epsilon_i)=\bigg(\cfrac{1}{\sqrt{2\pi\sigma^2}}\bigg)^{n}exp\bigg(-\cfrac{(y_i-\beta_0-\beta_1x_i)^2}{2\sigma^2}\bigg)$$
+</p>
+<p><code>-</code> $\epsilon_1,\,\epsilon_2,\,\cdots,\,\epsilon_n$이 주어졌을 때 $f(\epsilon_1,\,\epsilon_2,\,\cdots,\,\epsilon_n)$를 모수 $\beta_0,\,\beta_1,\,\sigma^2$의 함수로 생각 가능 ---&gt; 가능도함수($\boldsymbol{L}$)</p>
+<p>
+$$\boldsymbol{L}=\boldsymbol{L}(\beta_0,\,\beta_1,\,\sigma^2;\epsilon_1,\,\epsilon_2,\,\cdots,\,\epsilon_n)=\bigg(\cfrac{1}{\sqrt{2\pi\sigma^2}}\bigg)^{n}exp\bigg(-\cfrac{(y_i-\beta_0-\beta_1x_i)^2}{2\sigma^2}\bigg)$$
+</p>
+<p><code>-</code> 최우추정량(maximum likelihood estimator) : 가능도함수를 최대로 하는 $\beta_0,\,\beta_1,\,\sigma\,(\sigma$를 모르는 경우)</p>
+<p><code>-</code> 계산을 편리하게 하기 위해 로그를 씌우자</p>
+<p>
+$$ln\,\boldsymbol{L}=-\frac{n}{2}ln\,2\pi\sigma^2 - \frac{1}{2\sigma^2}\sum\limits_{i=1}^{n}(y_i-\beta_0-\beta_1 x_i)^{2}$$
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 로그함수는 단조증가함수이기 때문에 가능도함수 값이 커지면 로그가능도함수 값도 항상 커짐</p>
+<p><code>-</code> 즉 가능도함수와 극값과 로그가능도함수의 극값이 동일함</p>
+<p><code>-</code> 이제 $\beta_0,\,\beta_1,\,\sigma^2$으로 각각 편미분한 식이 $0$ 되도록 해주는 $\beta_0,\,\beta_1,\,\sigma^2$를 구하자</p>
+$$\begin{align}\frac{\partial \boldsymbol L}{\partial \beta_0} &amp; = -\frac{1}{\sigma^2}\sum\limits^{n}_{i=1}(y_i-\beta_0-\beta_1 x_i)=0\\
+\frac{\partial \boldsymbol L}{\partial \beta_1} &amp; = \frac{1}{\sigma^2}\sum\limits^{n}_{i=1}x_i(y_i-\beta_0-\beta_1 x_i)=0\\
+\frac{\partial \boldsymbol L}{\partial \beta_1} &amp; = -\frac{n}{2\sigma^2}+\frac{1}{2\sigma^4}\sum\limits^{n}_{i=1}x_i(y_i-\beta_0-\beta_1 x_i)=0\end{align}$$<p><code>-</code> 계산해보면 최우추정량과 최소제곱추정량이 동일함을 알 수 있음</p>
+<p>
+$$b_1 = \cfrac{\sum\limits^{n}_{i=1}(x_i - \bar{x})(y_i - \bar{y})}{\sum\limits^{n}_{i=1}(x_i-\bar{x})^2} = \cfrac{S_{xy}}{S_{xx}}$$
+</p>
+<p>
+$$b_0 = \bar{y} - b_1 \bar{x}$$
+</p>
+<p>
+$$\sigma^2=\frac{1}{n}\sum\limits_{i=1}^{n}e^2_i$$
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 주의할 점은 최우추정량은 오차항의 정규성 가정하에 얻어진 추정량임</p>
+<p><code>-</code> 최소제곱추정량은 오차항의 가정에 관계없이 얻어진 추정량</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="회귀선의-특징">
+<a class="anchor" href="#%ED%9A%8C%EA%B7%80%EC%84%A0%EC%9D%98-%ED%8A%B9%EC%A7%95" aria-hidden="true"><span class="octicon octicon-link"></span></a>회귀선의 특징<a class="anchor-link" href="#%ED%9A%8C%EA%B7%80%EC%84%A0%EC%9D%98-%ED%8A%B9%EC%A7%95"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 회귀계수 $\beta_0, \,\beta_1$의 최소제곱추정량 $b_0,\,b_1$은 최량선형불편추정량(best linear unbiased estimator : BLUE)임을 고려하자</p>
+<p><code>-</code> <code>최량선형불편추정량(BLUE)</code> : 모든 추정량 중에서 관측값들의 <code>선형결합</code>으로 이루어진 추정량이고 <code>불편성</code>을 만족하며 <code>최소분산</code>을 갖는 추정량</p>
+<p><code>-</code> 선형결합은 통계수학 교재 참고하자</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="$b_0,\,b_1$의-선형성">
+<a class="anchor" href="#%24b_0,%5C,b_1%24%EC%9D%98-%EC%84%A0%ED%98%95%EC%84%B1" aria-hidden="true"><span class="octicon octicon-link"></span></a>$b_0,\,b_1$의 선형성<a class="anchor-link" href="#%24b_0,%5C,b_1%24%EC%9D%98-%EC%84%A0%ED%98%95%EC%84%B1"> </a>
+</h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> $b_0,\,b_1$이 $y_i$의 선형함수가 됨을 확인하자</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+$$b_1 = \cfrac{\sum\limits^{n}_{i=1}(x_i - \bar{x})(y_i - \bar{y})}{\sum\limits^{n}_{i=1}(x_i-\bar{x})^2}
+= \cfrac{\sum\limits^{n}_{i=1}(x_i - \bar{x})y_i}{\sum\limits^{n}_{i=1}(x_i-\bar{x})^2}-\cfrac{\sum\limits^{n}_{i=1}(x_i - \bar{x})\bar{y}}{\sum\limits^{n}_{i=1}(x_i-\bar{x})^2}$$<p><code>-</code> 그런데 독립변수 $x_i$의 값은 <code>샘플링</code>을 하고 나면 고정된 값이므로 하나의 상수임</p>
+<p><code>-</code> 따라서 $\sum\limits^{n}_{i=1}(x_i-\bar{x})=0$</p>
+<p>
+$$w_i=\cfrac{(x_i-\bar{x})}{\sum\limits^{n}_{i=1}(x_i-\bar{x})^2}$$라고 하면 다음과 같은 식이 주어짐 $$b_1=\sum\limits^{n}_{i=1}w_iy_i$$
+</p>
+<p><code>-</code> $w_i$는 주어진 표본 $x_i$와 $\bar{x}$에 대한 식이므로 고정된 상수임</p>
+<p><code>-</code> 그러므로 $b_1$은 $y_i$의 선형함수가 됨</p>
+<p><code>-</code> 같은 방법으로 $b_0$에 대해서 계산하자</p>
+$$\begin{align}b_0 &amp; =\bar{y}-b_1\bar{x}\\[10pt]
+&amp; =\frac{1}{n}\sum\limits^{n}_{i=1}y_i-\bigg(\sum\limits^{n}_{i=1}w_iy_i\bigg)\bar{x}\\
+&amp; =\sum\limits^{n}_{i=1}\bigg(\frac{1}{n}-w_i\bar{x}\bigg)y_i\end{align}$$
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="$b_0,\,b_1$의-불편성">
+<a class="anchor" href="#%24b_0,%5C,b_1%24%EC%9D%98-%EB%B6%88%ED%8E%B8%EC%84%B1" aria-hidden="true"><span class="octicon octicon-link"></span></a>$b_0,\,b_1$의 불편성<a class="anchor-link" href="#%24b_0,%5C,b_1%24%EC%9D%98-%EB%B6%88%ED%8E%B8%EC%84%B1"> </a>
+</h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> $E(b_0)=\beta_0,\,E(b_1)=\beta_1$이 성립하면 $b_0,\,b_1$은 $\beta_0,\,\beta_1$의 불편추정량임</p>
+
 </div>
 </div>
 </div>
