@@ -365,7 +365,8 @@ window.onload = wrap_img;
 <a class="anchor" href="#%EB%8B%A8%EC%88%9C%ED%9A%8C%EA%B7%80%EB%AA%A8%ED%98%95" aria-hidden="true"><span class="octicon octicon-link"></span></a>단순회귀모형<a class="anchor-link" href="#%EB%8B%A8%EC%88%9C%ED%9A%8C%EA%B7%80%EB%AA%A8%ED%98%95"> </a>
 </h2>
 <p><code>-</code> 독립변수 $x$와 종속변수 $y$ 사이의 관계를 식으로 나타낸 것 ---&gt; 회귀모형</p>
-<p><code>-</code> 종속변수 $y$는 주어진 $x$에서 항상 일정하게 측정되지 않음 ---&gt; 측정오차</p>
+<p><code>-</code> 독립변수 $x$의 값은 <code>샘플링</code>을 하고 나면 고정된 값이므로 하나의 상수임</p>
+<p><code>-</code> 하지만 종속변수 $y$는 주어진 $x$에서 항상 일정하게 측정되지 않음 ---&gt; 측정오차</p>
 
 </div>
 </div>
@@ -821,8 +822,7 @@ $$\sigma^2=\frac{1}{n}\sum\limits_{i=1}^{n}e^2_i$$
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 $$b_1 = \cfrac{\sum\limits^{n}_{i=1}(x_i - \bar{x})(y_i - \bar{y})}{\sum\limits^{n}_{i=1}(x_i-\bar{x})^2}
-= \cfrac{\sum\limits^{n}_{i=1}(x_i - \bar{x})y_i}{\sum\limits^{n}_{i=1}(x_i-\bar{x})^2}-\cfrac{\sum\limits^{n}_{i=1}(x_i - \bar{x})\bar{y}}{\sum\limits^{n}_{i=1}(x_i-\bar{x})^2}$$<p><code>-</code> 그런데 독립변수 $x_i$의 값은 <code>샘플링</code>을 하고 나면 고정된 값이므로 하나의 상수임</p>
-<p><code>-</code> 따라서 $\sum\limits^{n}_{i=1}(x_i-\bar{x})=0$</p>
+= \cfrac{\sum\limits^{n}_{i=1}(x_i - \bar{x})y_i}{\sum\limits^{n}_{i=1}(x_i-\bar{x})^2}-\cfrac{\sum\limits^{n}_{i=1}(x_i - \bar{x})\bar{y}}{\sum\limits^{n}_{i=1}(x_i-\bar{x})^2}$$<p><code>-</code> $\sum\limits^{n}_{i=1}(x_i-\bar{x})=0$</p>
 <p>
 $$w_i=\cfrac{(x_i-\bar{x})}{\sum\limits^{n}_{i=1}(x_i-\bar{x})^2}$$라고 하면 다음과 같은 식이 주어짐 $$b_1=\sum\limits^{n}_{i=1}w_iy_i$$
 </p>
@@ -848,6 +848,14 @@ $$\begin{aligned}b_0 &amp; =\bar{y}-b_1\bar{x}\\[10pt]
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> $E(b_0)=\beta_0,\,E(b_1)=\beta_1$이 성립하면 $b_0,\,b_1$은 $\beta_0,\,\beta_1$의 불편추정량임</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>$\beta_0'$</p>
 
 </div>
 </div>
