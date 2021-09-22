@@ -96,7 +96,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      3 min read
+      4 min read
     
 </span></p>
 
@@ -151,8 +151,23 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h2"><a href="#역행렬">역행렬 </a>
 <ul>
 <li class="toc-entry toc-h3"><a href="#행렬식의-성질">행렬식의 성질 </a></li>
+<li class="toc-entry toc-h3"><a href="#$n$-차-연립방정식의-해">$n$ 차 연립방정식의 해 </a></li>
+<li class="toc-entry toc-h3"><a href="#역행렬의-성질">역행렬의 성질 </a></li>
 </ul>
 </li>
+<li class="toc-entry toc-h2"><a href="#직교행렬">직교행렬 </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#직교행렬의-조건">직교행렬의 조건 </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#멱등행렬">멱등행렬 </a></li>
+<li class="toc-entry toc-h2"><a href="#2차형식">2차형식 </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#(준)정부호행렬">(준)정부호행렬 </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#행렬의-계수">행렬의 계수 </a></li>
+<li class="toc-entry toc-h2"><a href="#고유값과-고유벡터">고유값과 고유벡터 </a></li>
 </ul>
 </li>
 </ul><!--
@@ -206,7 +221,7 @@ window.onload = wrap_img;
 <h2 id="행렬의-종류">
 <a class="anchor" href="#%ED%96%89%EB%A0%AC%EC%9D%98-%EC%A2%85%EB%A5%98" aria-hidden="true"><span class="octicon octicon-link"></span></a>행렬의 종류<a class="anchor-link" href="#%ED%96%89%EB%A0%AC%EC%9D%98-%EC%A2%85%EB%A5%98"> </a>
 </h2>
-<p><code>-</code> 행렬(matrix)는 다음과 같이 $m$ 개의 <code>행(row)</code> 과 $n$ 개의 <code>열(column)</code> 을 $mn$ 개의 숫자로 채운 모양</p>
+<p><code>-</code> 행렬(matrix)은 다음과 같이 $m$ 개의 <code>행(row)</code> 과 $n$ 개의 <code>열(column)</code> 을 $mn$ 개의 숫자로 채운 모양</p>
 
 </div>
 </div>
@@ -228,7 +243,7 @@ a_{m1} &amp; a_{m2} &amp; \cdots &amp; a_{mn}
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> 정사각행렬(square matrix) : $m=n$ 인 행렬</p>
 <p><code>-</code> 대각행렬(diagonal matrix, $\boldsymbol{D}$) : 정사각행렬 중에 대각원소를 제외한 모든 원소가 $0$인 행렬</p>
-<p><code>-</code> 단위행렬(identity matrix, $\boldsymbol{I}$) : 대각행렬 중에 대각의 원소가 모두 $1$인 행렬 ---&gt; 차수를 밝힐 땐 $\boldsymbol{I_m}$</p>
+<p><code>-</code> 단위행렬(identity matrix, $\boldsymbol{I}$) : 대각행렬 중에 대각의 원소가 모두 $1$인 행렬 ---&gt; $\boldsymbol{I_m}$(차수가 $m$)</p>
 <p><code>-</code> 위삼각행렬(upper triangular matrix) : 대각원소와 그 오른쪽 위의 원소를 제외한 나머지 원소는 모두 $0$인 행렬</p>
 <p><code>-</code> 아래삼각행렬(lower triangular matrix) : 대각원소와 그 왼쪽 아래의 원소를 제외한 나머지 원소는 모두 $0$인 행렬</p>
 <p><code>-</code> 전치행렬(transpose matrix) : 행과 열이 바뀐 행렬 ---&gt; $m \times n$ 행렬의 전치행렬은 $n \times m$ 이 되고 $\boldsymbol{A'}$ 또는 $A^T$ 로 표현</p>
@@ -386,6 +401,10 @@ $$\boldsymbol{AB}=\big(\boldsymbol{a_{\,\cdot \,1}},\, \boldsymbol{a_{\,\cdot \,
 <p><code>-</code> 행렬 $\begin{vmatrix}\boldsymbol{A}\end{vmatrix}$ 가 $m\times m$ 일 때 $|\boldsymbol{A}|=\sum\limits_{i=1}^{m}(-1)^{i+1}a_{1i}\begin{vmatrix}\boldsymbol{M_{1i}}\end{vmatrix}$</p>
 <p><code>-</code> $\boldsymbol{M_{ij}}$ 는 행렬 $\boldsymbol{A}$ 에서 $i$ 번째 행과 $j$ 번째 열을 제외한 $(m-1)\times(m-1)$ 부분행렬</p>
 <p><code>-</code> $\boldsymbol{A_{ij}} = (-1)^{i+j}\boldsymbol{M_{ij}} \longrightarrow \boldsymbol{A_{ij}}$ 를 원소 $a_{ij}$ 의 <code>여인수</code>라고 함</p>
+<p><code>-</code> 행렬 $\boldsymbol{A}$ 의 역행렬의 $(i,j)$ 번째 원소 $\boldsymbol{{(A^{-1})}_{ij}} = \cfrac{1}{\begin{vmatrix}\boldsymbol{A}\end{vmatrix}}(-1)^{i+j}\begin{vmatrix}\boldsymbol{M_{ij}}\end{vmatrix}$</p>
+<p><code>-</code> 대각행렬, 위삼각행렬, 아래삼각행렬의 행렬식은 대각선 원소들의 곱</p>
+<p><code>-</code> 특이행렬(singular matrix) : 행렬식이 $0$인 행렬</p>
+<p><code>-</code> 정칙행렬(nonsingular matrix) : 행렬식이 $0$이 아닌 행렬</p>
 <p></p>
 
 </div>
@@ -433,7 +452,23 @@ $$\boldsymbol{AB}=\big(\boldsymbol{a_{\,\cdot \,1}},\, \boldsymbol{a_{\,\cdot \,
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> 특이 행렬, 정칙 행렬</p>
+<h3 id="$n$-차-연립방정식의-해">
+<a class="anchor" href="#%24n%24-%EC%B0%A8-%EC%97%B0%EB%A6%BD%EB%B0%A9%EC%A0%95%EC%8B%9D%EC%9D%98-%ED%95%B4" aria-hidden="true"><span class="octicon octicon-link"></span></a>$n$ 차 연립방정식의 해<a class="anchor-link" href="#%24n%24-%EC%B0%A8-%EC%97%B0%EB%A6%BD%EB%B0%A9%EC%A0%95%EC%8B%9D%EC%9D%98-%ED%95%B4"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>
+<code>-</code> $n$ 개의 미지수 $(x_1,x_2,\cdots,_n)'=x$에 대하여 $n$ 차 연립방정식을 생각해보자</p>
+$$a_{11}x_1 + a_{12}x_2+\cdots+a_{1n}x_n=d_1\\
+a_{21}x_1 + a_{22}x_2+\cdots+a_{2n}x_n=d_2\\
+\quad\vdots\\
+a_{n1}x_1 + a_{n2}x_2+\cdots+a_{nn}x_n=d_n$$<p><code>-</code> 위의 $n$ 차 연립방정식은 다음과 같이 표현이 가능 $\to \boldsymbol{Ax} = \boldsymbol{d}$</p>
+<p><code>-</code> 만약 $\boldsymbol{A^-1}$이 존재하면 $\boldsymbol{A^{-1}Ax} = \boldsymbol{A^{-1}d}\Longrightarrow\boldsymbol{x} = \boldsymbol{A^{-1}d}$
+</p>
 
 </div>
 </div>
@@ -441,8 +476,151 @@ $$\boldsymbol{AB}=\big(\boldsymbol{a_{\,\cdot \,1}},\, \boldsymbol{a_{\,\cdot \,
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>$\bf\cdot \cdot$</p>
+<h3 id="역행렬의-성질">
+<a class="anchor" href="#%EC%97%AD%ED%96%89%EB%A0%AC%EC%9D%98-%EC%84%B1%EC%A7%88" aria-hidden="true"><span class="octicon octicon-link"></span></a>역행렬의 성질<a class="anchor-link" href="#%EC%97%AD%ED%96%89%EB%A0%AC%EC%9D%98-%EC%84%B1%EC%A7%88"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 스칼라 $\alpha$ 와 $m\times m$ 정칙행렬 $\boldsymbol{A,B}$ 에 대하여 다음을 만족
+</p>
+<ol>
+<li>
+<p>$(\alpha\boldsymbol{A})^{\boldsymbol{-1}}=\alpha^{-1}\boldsymbol{A^{-1}}$</p>
+</li>
+<li>
+<p>$(\boldsymbol{A'})^{\boldsymbol{-1}}=(\boldsymbol{A^{-1}})'$</p>
+</li>
+<li>
+<p>$\begin{vmatrix}\boldsymbol{A^{-1}}\end{vmatrix}=\begin{vmatrix}\boldsymbol{A}\end{vmatrix}^{-1}$</p>
+</li>
+<li>
+<p>$\boldsymbol{A} = diag(a_{11},a_{22},\cdots,a_{mm}) \Longrightarrow \boldsymbol{A^{-1}} = diag(a_{11}^{\,-1},a_{22}^{\,-1},\cdots,a_{mm}^{\,-1})$</p>
+</li>
+<li>
+<p>$(\boldsymbol{AB})^{\boldsymbol{-1}}=\boldsymbol{B^{-1}}\boldsymbol{A^{-1}}$</p>
+</li>
+<li>
+<p>정칙행렬 $\boldsymbol{P},\boldsymbol{Q}$ 에 대하여 $\begin{pmatrix}\boldsymbol{P} &amp; 0\\ 0 &amp; \boldsymbol{Q}\end{pmatrix}^{\boldsymbol{-1}} = \begin{pmatrix} \boldsymbol{P^{-1}} &amp; 0\\
+0 &amp; \boldsymbol{Q^{-1}}\end{pmatrix}$</p>
+</li>
+</ol>
+<p>{$ endraw %}</p>
 
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="직교행렬">
+<a class="anchor" href="#%EC%A7%81%EA%B5%90%ED%96%89%EB%A0%AC" aria-hidden="true"><span class="octicon octicon-link"></span></a>직교행렬<a class="anchor-link" href="#%EC%A7%81%EA%B5%90%ED%96%89%EB%A0%AC"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>{% raw %}</p>
+<p><code>-</code> 직교행렬(orthogonal matrix)  : 정사각행렬 중에 전치행렬이 역행렬인 행렬 $\longrightarrow \boldsymbol{A'} = \boldsymbol{A^{-1}}$</p>
+<p></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="직교행렬의-조건">
+<a class="anchor" href="#%EC%A7%81%EA%B5%90%ED%96%89%EB%A0%AC%EC%9D%98-%EC%A1%B0%EA%B1%B4" aria-hidden="true"><span class="octicon octicon-link"></span></a>직교행렬의 조건<a class="anchor-link" href="#%EC%A7%81%EA%B5%90%ED%96%89%EB%A0%AC%EC%9D%98-%EC%A1%B0%EA%B1%B4"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>
+$${a_j}'a_j = \begin{cases} 1 &amp; \text{for $i=j$}\\
+0 &amp; \text{for $i \neq j$}\end{cases}$$
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 각 열벡터는 길이가 $1$이고 다른 열벡터와 직교한다 ---&gt; 정규직교벡터</p>
+<p><code>-</code> $\boldsymbol{P}$ 가 직교행렬이면 $\begin{vmatrix}\boldsymbol{PP'}\end{vmatrix} = {\begin{vmatrix}\boldsymbol{P}\end{vmatrix}}^{2} = 1$ 이므로 직교행렬의 행렬식은 $\pm 1$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="멱등행렬">
+<a class="anchor" href="#%EB%A9%B1%EB%93%B1%ED%96%89%EB%A0%AC" aria-hidden="true"><span class="octicon octicon-link"></span></a>멱등행렬<a class="anchor-link" href="#%EB%A9%B1%EB%93%B1%ED%96%89%EB%A0%AC"> </a>
+</h2>
+<p>
+<code>-</code> 멱등행렬(idempotent matrix) : $\boldsymbol{A}^2=\boldsymbol{AA}=\boldsymbol{A}$ 를 만족하는 행렬</p>
+<p><code>-</code> 멱등행렬의 대표적인 예(회귀분석) ---&gt; $\boldsymbol{H} = \boldsymbol{X{(X{\,'}X)}^{-1}X{\,'}}$</p>
+<p><code>-</code> 다양한 예는 교재 참고
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="2차형식">
+<a class="anchor" href="#2%EC%B0%A8%ED%98%95%EC%8B%9D" aria-hidden="true"><span class="octicon octicon-link"></span></a>2차형식<a class="anchor-link" href="#2%EC%B0%A8%ED%98%95%EC%8B%9D"> </a>
+</h2>
+<p><code>-</code> 2차형식(quadratic form) : 대칭행렬을 사이에 두고 양옆에 같은 벡터가 곱해지는 형태($\boldsymbol{x'Ax}$)</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="(준)정부호행렬">
+<a class="anchor" href="#(%EC%A4%80)%EC%A0%95%EB%B6%80%ED%98%B8%ED%96%89%EB%A0%AC" aria-hidden="true"><span class="octicon octicon-link"></span></a>(준)정부호행렬<a class="anchor-link" href="#(%EC%A4%80)%EC%A0%95%EB%B6%80%ED%98%B8%ED%96%89%EB%A0%AC"> </a>
+</h3>
+<p><code>-</code> 모든 벡터 $\boldsymbol{x}\neq 0$ 에 대하여 각 조건을 만족시키는 대칭행렬 $\boldsymbol{A}$ 는 다음과 같이 정의함</p>
+<ol>
+<li>
+<p>$\boldsymbol{x'Ax} &gt; 0$ 이면 $\boldsymbol{A}$ : 양의 정부호행렬(positive definite matrix) ---&gt; 양정치</p>
+</li>
+<li>
+<p>$\boldsymbol{x'Ax} \geq 0$ 이면 $\boldsymbol{A}$ : 양의 준정부호행렬(positive semi-definite matrix) ---&gt; 양반정치</p>
+</li>
+</ol>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="행렬의-계수">
+<a class="anchor" href="#%ED%96%89%EB%A0%AC%EC%9D%98-%EA%B3%84%EC%88%98" aria-hidden="true"><span class="octicon octicon-link"></span></a>행렬의 계수<a class="anchor-link" href="#%ED%96%89%EB%A0%AC%EC%9D%98-%EA%B3%84%EC%88%98"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="고유값과-고유벡터">
+<a class="anchor" href="#%EA%B3%A0%EC%9C%A0%EA%B0%92%EA%B3%BC-%EA%B3%A0%EC%9C%A0%EB%B2%A1%ED%84%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>고유값과 고유벡터<a class="anchor-link" href="#%EA%B3%A0%EC%9C%A0%EA%B0%92%EA%B3%BC-%EA%B3%A0%EC%9C%A0%EB%B2%A1%ED%84%B0"> </a>
+</h2>
 </div>
 </div>
 </div>
