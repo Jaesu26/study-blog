@@ -1419,6 +1419,7 @@ window.onload = wrap_img;
 <p><code>-</code> 함수의 반환형에도 참조형 (reference type)이 될 수 있음</p>
 <p><code>-</code> 반환 받는 변수형이 참조형이면 같은 변수를 가리킴</p>
 <p><code>-</code> 반환 받는 변수형이 참조형이 아니면 다른 메모리 주소에 값이 저장됨</p>
+<p><code>-</code> 참조자를 반환하건 변수에 저장된 값을 반환하건 반환형이 참조형이 아니면 무의미</p>
 
 </div>
 </div>
@@ -1496,12 +1497,13 @@ window.onload = wrap_img;
 <h2 id="C++-메모리-동적할당/해제-용법">
 <a class="anchor" href="#C++-%EB%A9%94%EB%AA%A8%EB%A6%AC-%EB%8F%99%EC%A0%81%ED%95%A0%EB%8B%B9/%ED%95%B4%EC%A0%9C-%EC%9A%A9%EB%B2%95" aria-hidden="true"><span class="octicon octicon-link"></span></a>C++ 메모리 동적할당/해제 용법<a class="anchor-link" href="#C++-%EB%A9%94%EB%AA%A8%EB%A6%AC-%EB%8F%99%EC%A0%81%ED%95%A0%EB%8B%B9/%ED%95%B4%EC%A0%9C-%EC%9A%A9%EB%B2%95"> </a>
 </h2>
+<p><code>-</code> 포인터(*)를 사용하여 수행함</p>
 <p><code>-</code> new 연산자: 동적할당 ---&gt; 클래스 변수 동적할당도 가능 (malloc은 안됨)</p>
 <p><code>-</code> delete 연산자: 동적해제</p>
-<div class="highlight"><pre><span></span><span class="kt">int</span><span class="o">*</span> <span class="n">ptr1</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="p">;</span> <span class="c1">// int형 변수 할당</span>
+<div class="highlight"><pre><span></span><span class="kt">int</span> <span class="o">*</span><span class="n">ptr1</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="p">;</span> <span class="c1">// int형 변수 할당</span>
 <span class="k">delete</span> <span class="n">ptr1</span><span class="p">;</span>  <span class="c1">// int형 변수 해제</span>
 
-<span class="kt">int</span><span class="o">*</span> <span class="n">arr1</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="p">[</span><span class="mi">3</span><span class="p">];</span> <span class="c1">// 길이가 3인 int형 배열 항당</span>
+<span class="kt">int</span> <span class="o">*</span><span class="n">arr1</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="p">[</span><span class="mi">3</span><span class="p">];</span> <span class="c1">// 길이가 3인 int형 배열 항당</span>
 <span class="k">delete</span> <span class="p">[]</span><span class="n">arr1</span><span class="p">;</span>  <span class="c1">// int형 배열 해제 // 다른 자료형과 달리 해제할 때 앞에 []를 붙여줘야 함</span>
 </pre></div>
 
