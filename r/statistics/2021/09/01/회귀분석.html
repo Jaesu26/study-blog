@@ -406,7 +406,8 @@ window.onload = wrap_img;
 <p><code>-</code> $x$가 확률변수인 경우 사용하면 좋은 대체모형</p>
 $$\begin{aligned}y &amp; = \beta_0+\beta_1 x +\epsilon \\
 &amp; = (\beta_0 + \beta_1 \bar{x})+(\beta_1 x-\beta_1 \bar{x})+\epsilon \\
-&amp; = \beta'_{0} + \beta_1 x' + \epsilon \;(x'=x-\bar{x})\end{aligned}$$
+&amp; = \beta_{0}\,' + \beta_1(x-\bar{x})+ \epsilon\\
+&amp; = \beta_{0}\,' + \beta_1 x' + \epsilon \;(x'=x-\bar{x})\end{aligned}$$
 </div>
 </div>
 </div>
@@ -852,6 +853,8 @@ $$\begin{aligned}b_0 &amp; =\bar{y}-b_1\bar{x}\\[10pt]
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> $E(b_0)=\beta_0,\,E(b_1)=\beta_1$이 성립하면 $b_0,\,b_1$은 $\beta_0,\,\beta_1$의 불편추정량임</p>
+<p><code>-</code> 대체모형으로 회귀직선을 나타냄</p>
+<p><code>-</code> $\sum$ 밖(왼쪽)으로 관련 변수가 나가는 것 만 아니면 변수의 위치는 어디든 상관없음</p>
 
 </div>
 </div>
@@ -859,7 +862,32 @@ $$\begin{aligned}b_0 &amp; =\bar{y}-b_1\bar{x}\\[10pt]
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>$\beta_0'$</p>
+$$\begin{aligned}E(b_1) &amp; =E(\sum\limits_{i=1}^{n}w_i y_y)\\
+&amp; = \sum\limits_{i=1}^{n}w_i E(y_i)  = \sum\limits_{i=1}^{n}w_i E[\beta_0\,'+\beta_1(x_i-\bar{x}+\epsilon_i]\\
+&amp; = \beta_{0}\,'\sum\limits_{i=1}^{n}w_i + \beta_1\sum\limits_{i=1}^{n}w_i(x_i-\bar{x})\end{aligned}$$
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p></p>
+<div class="flash">
+    <svg class="octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8 1.5a6.5 6.5 0 100 13 6.5 6.5 0 000-13zM0 8a8 8 0 1116 0A8 8 0 010 8zm6.5-.25A.75.75 0 017.25 7h1a.75.75 0 01.75.75v2.75h.25a.75.75 0 010 1.5h-2a.75.75 0 010-1.5h.25v-2h-.25a.75.75 0 01-.75-.75zM8 6a1 1 0 100-2 1 1 0 000 2z"></path></svg>
+    <strong>Note: </strong>$\sum\limits_{i=1}^{n} w_i = \sum\limits_{i=1}^{n}\left(\cfrac{(x_i-\bar{x})}{\sum\limits^{n}_{i=1}(x_i-\bar{x})^2}\right)
+</div>=\sum\limits_{i=1}^{n}\left(\cfrac{(x_i-\bar{x})}{k}\right)=\cfrac{1}{k}\sum\limits_{i=1}^{n}\left(x_i-\bar{x}\right)=0$
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p></p>
+<div class="flash">
+    <svg class="octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8 1.5a6.5 6.5 0 100 13 6.5 6.5 0 000-13zM0 8a8 8 0 1116 0A8 8 0 010 8zm6.5-.25A.75.75 0 017.25 7h1a.75.75 0 01.75.75v2.75h.25a.75.75 0 010 1.5h-2a.75.75 0 010-1.5h.25v-2h-.25a.75.75 0 01-.75-.75zM8 6a1 1 0 100-2 1 1 0 000 2z"></path></svg>
+    <strong>Note: </strong>$\sum\limits_{i=1}^{n}w_i(x_i -\bar{x})= \sum\limits_{i=1}^{n}\left(\cfrac{(x_i-\bar{x})^2}{\sum\limits^{n}_{i=1}(x_i-\bar{x})^2}\right)
+</div>=\sum\limits_{i=1}^{n}\left(\cfrac{(x_i-\bar{x})^2}{k}\right)=\cfrac{1}{k}\cdot k = 1$
 
 </div>
 </div>
