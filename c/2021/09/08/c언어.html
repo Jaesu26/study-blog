@@ -1875,6 +1875,29 @@ window.onload = wrap_img;
 <a class="anchor" href="#%EA%B5%AC%EC%A1%B0%EC%B2%B4%EC%9D%98-%EC%B4%88%EA%B8%B0%ED%99%94" aria-hidden="true"><span class="octicon octicon-link"></span></a>구조체의 초기화<a class="anchor-link" href="#%EA%B5%AC%EC%A1%B0%EC%B2%B4%EC%9D%98-%EC%B4%88%EA%B8%B0%ED%99%94"> </a>
 </h2>
 <p><code>-</code> 구조체의 선언과 구조체 변수의 선언이 분리된 경우에는 구조체 변수 선언 뒤에서 초기화함</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div class="highlight"><pre><span></span><span class="k">struct</span> <span class="nc">student</span><span class="p">{</span>
+    <span class="kt">int</span> <span class="n">number</span><span class="p">;</span>
+    <span class="kt">char</span> <span class="n">name</span><span class="p">[</span><span class="mi">10</span><span class="p">];</span>
+    <span class="kt">double</span> <span class="n">grede</span><span class="p">;</span>
+<span class="p">};</span>  <span class="c1">// 구조체 선언   </span>
+
+<span class="k">struct</span> <span class="nc">student</span> <span class="n">s1</span> <span class="o">=</span> <span class="p">{</span><span class="mi">24</span><span class="p">,</span> <span class="s">"Kim"</span><span class="p">,</span> <span class="mf">4.3</span><span class="p">}</span>  <span class="c1">// 구조체 변수 선언 + 초기화</span>
+<span class="k">struct</span> <span class="nc">student</span> <span class="n">s2</span> <span class="o">=</span> <span class="p">{</span><span class="mi">21</span><span class="p">,</span> <span class="s">"Han"</span><span class="p">,</span> <span class="mf">4.43</span><span class="p">}</span>  <span class="c1">// 구조체 변수 선언 + 초기화</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> 분리되지 않은 경우의 초기화는??</p>
 
 </div>
@@ -1887,9 +1910,30 @@ window.onload = wrap_img;
     <span class="kt">int</span> <span class="n">number</span><span class="p">;</span>
     <span class="kt">char</span> <span class="n">name</span><span class="p">[</span><span class="mi">10</span><span class="p">];</span>
     <span class="kt">double</span> <span class="n">grede</span><span class="p">;</span>
-<span class="p">};</span>  <span class="c1">// 구조체 선언             </span>
-<span class="k">struct</span> <span class="nc">student</span> <span class="n">s1</span> <span class="o">=</span> <span class="p">{</span><span class="mi">24</span><span class="p">,</span> <span class="s">"Kim"</span><span class="p">,</span> <span class="mf">4.3</span><span class="p">}</span>  <span class="c1">// 구조체 변수 선언 + 초기화</span>
-<span class="k">struct</span> <span class="nc">student</span> <span class="n">s2</span> <span class="o">=</span> <span class="p">{</span><span class="mi">21</span><span class="p">,</span> <span class="s">"Han"</span><span class="p">,</span> <span class="mf">4.43</span><span class="p">}</span>  <span class="c1">// 구조체 변수 선언 + 초기화</span>
+<span class="p">}</span><span class="n">s1</span><span class="p">,</span> <span class="n">s2</span><span class="p">;</span>  <span class="c1">// 구조체 정의와 변수 선언    </span>
+
+<span class="n">s1</span> <span class="o">=</span> <span class="p">{</span><span class="mi">24</span><span class="p">,</span> <span class="s">"Kim"</span><span class="p">,</span> <span class="mf">4.3</span><span class="p">}</span>  <span class="c1">// 구조체 초기화</span>
+<span class="n">s2</span> <span class="o">=</span> <span class="p">{</span><span class="mi">21</span><span class="p">,</span> <span class="s">"Han"</span><span class="p">,</span> <span class="mf">4.43</span><span class="p">}</span>  <span class="c1">// 구조체 초기화</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 다른 자료형이랑 struct의 유무만 빼면 동일함</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div class="highlight"><pre><span></span><span class="kt">int</span> <span class="n">x</span><span class="p">;</span> <span class="c1">// int형 변수 x 선언             </span>
+<span class="n">x</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span> <span class="c1">// x를 10으로 초기화</span>
+
+<span class="kt">int</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span> <span class="c1">// int형 변수 y를 선언함과 동시에 20으로 초기화</span>
 </pre></div>
 
 </div>
