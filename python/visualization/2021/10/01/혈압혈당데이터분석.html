@@ -170,6 +170,14 @@ window.onload = wrap_img;
 </div>
 </div>
 </div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 한글 깨짐 참고 : <a href="https://mirae-kim.tistory.com/14">https://mirae-kim.tistory.com/14</a></p>
+
+</div>
+</div>
+</div>
     
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -183,9 +191,9 @@ window.onload = wrap_img;
 <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
 <span class="kn">import</span> <span class="nn">matplotlib</span>
 
-<span class="n">sns</span><span class="o">.</span><span class="n">set_theme</span><span class="p">()</span>
-<span class="n">matplotlib</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">'font.family'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'Malgun Gothic'</span>
-<span class="n">matplotlib</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">'axes.unicode_minus'</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set_theme</span><span class="p">()</span> <span class="c1"># 테마 설정</span>
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">'font.family'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'Malgun Gothic'</span> <span class="c1"># 한글이 깨재지 않도록 설정</span>
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">'axes.unicode_minus'</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>    <span class="c1"># 한글이 깨재지 않도록 설정</span>
 
 <span class="c1"># import plotly.express as px </span>
 <span class="c1"># from plotnine import *</span>
@@ -2007,7 +2015,10 @@ Name: 수축기혈압, dtype: float64</pre>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> 결과적으로 보면 당뇨 진료내역 여부는 혈압에 영향을 별로 끼치지 못한다</p>
-<p><code>-</code> 고혈압은 혈압에 영향을 끼친다 ---&gt; 당연한 소리</p>
+<p><code>-</code> 고혈압은 혈압을 높이도록 영향을 끼친다 ---&gt; 당연한 소리</p>
+<p><code>-</code> 여기서 확인하는 고혈압 진료내역의 의미</p>
+<p><code>-</code> 현재 고혈압에 앓고있을 수 도 있고 아니면 과거에 고혈압에 걸렸었던 것일 수 도 있다</p>
+<p><code>-</code> 즉 현재 고혈압인 경우와 과거에 고혈압이었던 경우로 나뉨 ---&gt; 당뇨도 마찬가지</p>
 
 </div>
 </div>
