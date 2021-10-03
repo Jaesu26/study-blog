@@ -96,7 +96,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      7 min read
+      8 min read
     
 </span></p>
 
@@ -172,7 +172,11 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h4"><a href="#$b_0,\,b_1$의-최소분산성">$b_0,\,b_1$의 최소분산성 </a></li>
 </ul>
 </li>
-<li class="toc-entry toc-h3"><a href="#분산-$\sigma^2$의-추정">분산 $\sigma^2$의 추정 </a></li>
+<li class="toc-entry toc-h3"><a href="#분산-$\sigma^2$의-추정">분산 $\sigma^2$의 추정 </a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#분산-$\sigma^2$의-신뢰구간">분산 $\sigma^2$의 신뢰구간 </a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -182,8 +186,19 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h2"><a href="#구간추정">구간추정 </a>
 <ul>
 <li class="toc-entry toc-h3"><a href="#$\beta_1$의-신뢰구간">$\beta_1$의 신뢰구간 </a></li>
+<li class="toc-entry toc-h3"><a href="#$\beta_0$의-신뢰구간">$\beta_0$의 신뢰구간 </a></li>
+<li class="toc-entry toc-h3"><a href="#$E(y\mid-x_0)$의-신뢰구간">$E(y\mid x_0)$의 신뢰구간 </a></li>
+<li class="toc-entry toc-h3"><a href="#$y_0$의-예측구간">$y_0$의 예측구간 </a></li>
 </ul>
 </li>
+<li class="toc-entry toc-h2"><a href="#회귀계수-유의성-검정">회귀계수 유의성 검정 </a></li>
+<li class="toc-entry toc-h2"><a href="#회귀모형-분산분석">회귀모형 분산분석 </a></li>
+<li class="toc-entry toc-h2"><a href="#결정계수">결정계수 </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h1"><a href="#모형의-진단">모형의 진단 </a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#잔차분석">잔차분석 </a></li>
 </ul>
 </li>
 </ul><!--
@@ -970,7 +985,15 @@ $$\begin{aligned}E(b_0) &amp; = E(\bar{y})-E(b_1\bar{x})\\
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> 교재를 참고하자</p>
+$$\begin{aligned}Var(b_1)&amp;=\cfrac{\sigma^2}{\sum\limits_{i=1}^{n}(x_i-\bar{x})^2}\\
+Var(b_0)&amp;=\sigma^2\left(\cfrac{1}{n}+\cfrac{(\bar{x})^2}{\sum\limits_{i=1}^{n}(x_i-\bar{x})^2}\right)\end{aligned}$$
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 자세한건 교재를 참고하자</p>
 
 </div>
 </div>
@@ -1067,6 +1090,73 @@ $$\hat{\sigma}=\sqrt{MSE}$$
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="분산-$\sigma^2$의-신뢰구간">
+<a class="anchor" href="#%EB%B6%84%EC%82%B0-%24%5Csigma%5E2%24%EC%9D%98-%EC%8B%A0%EB%A2%B0%EA%B5%AC%EA%B0%84" aria-hidden="true"><span class="octicon octicon-link"></span></a>분산 $\sigma^2$의 신뢰구간<a class="anchor-link" href="#%EB%B6%84%EC%82%B0-%24%5Csigma%5E2%24%EC%9D%98-%EC%8B%A0%EB%A2%B0%EA%B5%AC%EA%B0%84"> </a>
+</h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> $\sigma$의 점추정치는 $\sqrt{MSE}$이다</p>
+<p><code>-</code> $MSE = \cfrac{SSE}{n-2}$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>$\cfrac{SSE}{\sigma^2}=\cfrac{(n-2)\Big(\sqrt{MSE}\Big)^2}{\sigma^2} \sim \chi^2_{n-2}$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 카이제곱분포의 95% 신뢰구간은 다음과 같다</p>
+<p><code>-</code> 여기서 $\chi^2_\alpha$은 분포의 오른쪽 확률이 $\alpha$임을 나타낸다</p>
+<p>
+$$\chi^2_{0.975}\leq \chi^2\leq \chi^2_{0.025}$$
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 그런데 $\cfrac{(n-2)\Big(\sqrt{MSE}\Big)^2}{\sigma^2} \sim \chi^2_{n-2}$이므로 아래와 같이 적을 수 있다</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>
+$$\chi^2_{0.975}\leq \cfrac{(n-2)\Big(\sqrt{MSE}\Big)^2}{\sigma^2}\leq \chi^2_{0.025}$$
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 위식을 정리하면 분산 $\sigma^2$의 95%신뢰구간은 다음과 같다</p>
+<p>
+$$\cfrac{(n-2)MSE}{\chi^2_{0.025}}\leq \sigma^2\leq \cfrac{(n-2)MSE}{\chi^2_{0.975}}$$
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="단순회귀모형에-관한-추론">
 <a class="anchor" href="#%EB%8B%A8%EC%88%9C%ED%9A%8C%EA%B7%80%EB%AA%A8%ED%98%95%EC%97%90-%EA%B4%80%ED%95%9C-%EC%B6%94%EB%A1%A0" aria-hidden="true"><span class="octicon octicon-link"></span></a>단순회귀모형에 관한 추론<a class="anchor-link" href="#%EB%8B%A8%EC%88%9C%ED%9A%8C%EA%B7%80%EB%AA%A8%ED%98%95%EC%97%90-%EA%B4%80%ED%95%9C-%EC%B6%94%EB%A1%A0"> </a>
 </h1>
@@ -1088,6 +1178,109 @@ $$\hat{\sigma}=\sqrt{MSE}$$
 <h3 id="$\beta_1$의-신뢰구간">
 <a class="anchor" href="#%24%5Cbeta_1%24%EC%9D%98-%EC%8B%A0%EB%A2%B0%EA%B5%AC%EA%B0%84" aria-hidden="true"><span class="octicon octicon-link"></span></a>$\beta_1$의 신뢰구간<a class="anchor-link" href="#%24%5Cbeta_1%24%EC%9D%98-%EC%8B%A0%EB%A2%B0%EA%B5%AC%EA%B0%84"> </a>
 </h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 회귀모형은 $n$개의 $x,y$표본을 뽑아서 구한 것 임 ---&gt; 변동성이 존재</p>
+<p><code>-</code> 그렇기에 회귀직선의 기울기 $\beta_1$을 점추정하는 것보단 구간 추정이 낫다</p>
+<p><code>-</code> 일반적인 경우 오차항의 분산인 $\sigma^2$을 모르므로 $\beta_1$의 신뢰구간은 아래와 같음(자세한건 교재 참고)</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>
+$$b_1-t_{\frac{\alpha}{2}(n-2)}\sqrt{\frac{MSE}{\sum\limits_{i=1}^{n}(x_i-\bar{x})^2}}\leq \beta_1 \leq b_1+t_{\frac{\alpha}{2}(n-2)}\sqrt{\frac{MSE}{\sum\limits_{i=1}^{n}(x_i-\bar{x})^2}}$$
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="$\beta_0$의-신뢰구간">
+<a class="anchor" href="#%24%5Cbeta_0%24%EC%9D%98-%EC%8B%A0%EB%A2%B0%EA%B5%AC%EA%B0%84" aria-hidden="true"><span class="octicon octicon-link"></span></a>$\beta_0$의 신뢰구간<a class="anchor-link" href="#%24%5Cbeta_0%24%EC%9D%98-%EC%8B%A0%EB%A2%B0%EA%B5%AC%EA%B0%84"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> $\beta_0$의 경우도 $\beta_1$과 마찬가지임</p>
+<p>
+$$b_0-t_{\frac{\alpha}{2}(n-2)}\sqrt{MSE\left(\cfrac{1}{n}+\frac{(\bar{x})^2}{\sum\limits_{i=1}^{n}(x_i-\bar{x})^2}\right)}\leq \beta_0 \leq b_0+t_{\frac{\alpha}{2}(n-2)}\sqrt{MSE\left(\cfrac{1}{n}+\frac{(\bar{x})^2}{\sum\limits_{i=1}^{n}(x_i-\bar{x})^2}\right)}$$
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="$E(y\mid-x_0)$의-신뢰구간">
+<a class="anchor" href="#%24E(y%5Cmid-x_0)%24%EC%9D%98-%EC%8B%A0%EB%A2%B0%EA%B5%AC%EA%B0%84" aria-hidden="true"><span class="octicon octicon-link"></span></a>$E(y\mid x_0)$의 신뢰구간<a class="anchor-link" href="#%24E(y%5Cmid-x_0)%24%EC%9D%98-%EC%8B%A0%EB%A2%B0%EA%B5%AC%EA%B0%84"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="$y_0$의-예측구간">
+<a class="anchor" href="#%24y_0%24%EC%9D%98-%EC%98%88%EC%B8%A1%EA%B5%AC%EA%B0%84" aria-hidden="true"><span class="octicon octicon-link"></span></a>$y_0$의 예측구간<a class="anchor-link" href="#%24y_0%24%EC%9D%98-%EC%98%88%EC%B8%A1%EA%B5%AC%EA%B0%84"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="회귀계수-유의성-검정">
+<a class="anchor" href="#%ED%9A%8C%EA%B7%80%EA%B3%84%EC%88%98-%EC%9C%A0%EC%9D%98%EC%84%B1-%EA%B2%80%EC%A0%95" aria-hidden="true"><span class="octicon octicon-link"></span></a>회귀계수 유의성 검정<a class="anchor-link" href="#%ED%9A%8C%EA%B7%80%EA%B3%84%EC%88%98-%EC%9C%A0%EC%9D%98%EC%84%B1-%EA%B2%80%EC%A0%95"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="회귀모형-분산분석">
+<a class="anchor" href="#%ED%9A%8C%EA%B7%80%EB%AA%A8%ED%98%95-%EB%B6%84%EC%82%B0%EB%B6%84%EC%84%9D" aria-hidden="true"><span class="octicon octicon-link"></span></a>회귀모형 분산분석<a class="anchor-link" href="#%ED%9A%8C%EA%B7%80%EB%AA%A8%ED%98%95-%EB%B6%84%EC%82%B0%EB%B6%84%EC%84%9D"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="결정계수">
+<a class="anchor" href="#%EA%B2%B0%EC%A0%95%EA%B3%84%EC%88%98" aria-hidden="true"><span class="octicon octicon-link"></span></a>결정계수<a class="anchor-link" href="#%EA%B2%B0%EC%A0%95%EA%B3%84%EC%88%98"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="모형의-진단">
+<a class="anchor" href="#%EB%AA%A8%ED%98%95%EC%9D%98-%EC%A7%84%EB%8B%A8" aria-hidden="true"><span class="octicon octicon-link"></span></a>모형의 진단<a class="anchor-link" href="#%EB%AA%A8%ED%98%95%EC%9D%98-%EC%A7%84%EB%8B%A8"> </a>
+</h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="잔차분석">
+<a class="anchor" href="#%EC%9E%94%EC%B0%A8%EB%B6%84%EC%84%9D" aria-hidden="true"><span class="octicon octicon-link"></span></a>잔차분석<a class="anchor-link" href="#%EC%9E%94%EC%B0%A8%EB%B6%84%EC%84%9D"> </a>
+</h2>
 </div>
 </div>
 </div>
