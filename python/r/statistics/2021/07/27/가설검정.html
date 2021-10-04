@@ -230,14 +230,14 @@ window.onload = wrap_img;
 <h2 id="표본-평균에-대한-중심극한정리">
 <a class="anchor" href="#%ED%91%9C%EB%B3%B8-%ED%8F%89%EA%B7%A0%EC%97%90-%EB%8C%80%ED%95%9C-%EC%A4%91%EC%8B%AC%EA%B7%B9%ED%95%9C%EC%A0%95%EB%A6%AC" aria-hidden="true"><span class="octicon octicon-link"></span></a>표본 평균에 대한 중심극한정리<a class="anchor-link" href="#%ED%91%9C%EB%B3%B8-%ED%8F%89%EA%B7%A0%EC%97%90-%EB%8C%80%ED%95%9C-%EC%A4%91%EC%8B%AC%EA%B7%B9%ED%95%9C%EC%A0%95%EB%A6%AC"> </a>
 </h2>
-<p><code>-</code> 평균이 $\mu$이고 표준편차가 $\alpha$인 모집단에서 표본 크기 $n$이 충분히 클 때 표본 평균의 분포는 근사적으로 평균이 $\mu$이고 표준편차는 $\frac{\alpha}{\sqrt{n}}$인 정규분포를 따름</p>
+<p><code>-</code> 평균이 $\mu$이고 표준편차가 $\alpha$인 모집단에서 표본 크기 $n$이 충분히 클 때 표본 평균의 분포는 근사적으로 평균이 $\mu$이고 표준편차는 $\cfrac{\alpha}{\sqrt{n}}$인 정규분포를 따름</p>
 <p><code>-</code> 하지만 위의 내용을 그대로 사용할 수 없음</p>
 <ol>
 <li>
 <p>모집단의 표준편차 $\alpha$를 모른다 ---&gt; 표본의 표준편차 $s$를 $\alpha$대신 사용</p>
 </li>
 <li>
-<p>추정된 표준오차 $\frac{s}{\sqrt{n}}$에 기반하여 표준화한 통계량의 분포는 표준정규분포를 따르지 않음 ---&gt; t 분포를 따름(<a href="https://ko.wikipedia.org/wiki/%EC%8A%A4%ED%8A%9C%EB%8D%98%ED%8A%B8_t_%EB%B6%84%ED%8F%AC">t 분포 참고</a>)</p>
+<p>추정된 표준오차 $\cfrac{s}{\sqrt{n}}$에 기반하여 표준화한 통계량의 분포는 표준정규분포를 따르지 않음 ---&gt; t 분포를 따름(<a href="https://ko.wikipedia.org/wiki/%EC%8A%A4%ED%8A%9C%EB%8D%98%ED%8A%B8_t_%EB%B6%84%ED%8F%AC">t 분포 참고</a>)</p>
 </li>
 </ol>
 
@@ -250,7 +250,7 @@ window.onload = wrap_img;
 <h2 id="표본의-표준편차를-사용할-때-표본-평균의-분포">
 <a class="anchor" href="#%ED%91%9C%EB%B3%B8%EC%9D%98-%ED%91%9C%EC%A4%80%ED%8E%B8%EC%B0%A8%EB%A5%BC-%EC%82%AC%EC%9A%A9%ED%95%A0-%EB%95%8C-%ED%91%9C%EB%B3%B8-%ED%8F%89%EA%B7%A0%EC%9D%98-%EB%B6%84%ED%8F%AC" aria-hidden="true"><span class="octicon octicon-link"></span></a>표본의 표준편차를 사용할 때 표본 평균의 분포<a class="anchor-link" href="#%ED%91%9C%EB%B3%B8%EC%9D%98-%ED%91%9C%EC%A4%80%ED%8E%B8%EC%B0%A8%EB%A5%BC-%EC%82%AC%EC%9A%A9%ED%95%A0-%EB%95%8C-%ED%91%9C%EB%B3%B8-%ED%8F%89%EA%B7%A0%EC%9D%98-%EB%B6%84%ED%8F%AC"> </a>
 </h2>
-<p><code>-</code> 평균이 $\mu$인 모집단에서 표본 크기 $n$인 무작위 표본을 뽑을 때 표본 평균의 분포는 중심이 $\mu$이고 표준오차는 $\frac{s}{\sqrt{n}}$으로 추정</p>
+<p><code>-</code> 평균이 $\mu$인 모집단에서 표본 크기 $n$인 무작위 표본을 뽑을 때 표본 평균의 분포는 중심이 $\mu$이고 표준오차는 $\cfrac{s}{\sqrt{n}}$으로 추정</p>
 <p><code>-</code> 표본 평균을 표준화하면 자유도 $n-1$인 t 분포를 근사적으로 따름</p>
 <p><code>-</code> 표본 크기 $n$이 커질수록 t분포는 표준정규분포와 가까워짐</p>
 
@@ -378,7 +378,7 @@ window.onload = wrap_img;
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> 영가설 $H_0:\mu=\mu_0$를 검정하는 t-통계량은 다음과 같음</p>
-<p><code>-</code> $t=\frac{\bar{x}-\mu_0}{\frac{s}{\sqrt{n}}}$</p>
+<p><code>-</code> $t=\cfrac{\bar{x}-\mu_0}{\frac{s}{\sqrt{n}}}$</p>
 <p><code>-</code> $\bar{x}$는 표본 평균, $s$는 표본에서 계산한 표준편차</p>
 <p><code>-</code> p-값을 통해 영가설을 기각할지 기각하지 못하는지를 결정 ---&gt; 가설검정 용어(영가설, p-값 등등)에 대해 나중에 정리 예정</p>
 <p><code>-</code> 검증의 p-값은 자유도가 $n-1$인 t분포에서 대안가설에 적절한 꼬리쪽의 비율을 계산</p>
@@ -571,7 +571,7 @@ W = 0.98456, p-value = 0.7524
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> t통계량을 직접 구해도 됨 ---&gt; $t=\frac{\bar{x}-\mu_0}{\frac{s}{\sqrt{n}}} = \frac{36.35-36.5}{\frac{0.5}{\sqrt{50}}}=-2.12$</p>
+<p><code>-</code> t통계량을 직접 구해도 됨 ---&gt; $t=\cfrac{\bar{x}-\mu_0}{\frac{s}{\sqrt{n}}} = \cfrac{36.35-36.5}{\frac{0.5}{\sqrt{50}}}=-2.12$</p>
 <p><code>-</code> 하지만 매번 직접 구하기 귀찮으므로 R을 통해 구해보도록 하자 + p-값도 구해줌</p>
 <p><code>-</code> 사실 파이썬으로도 가능하지만 내가 모르는 관계로 R로 하고 나중에 따로 공부하자</p>
 
@@ -691,7 +691,7 @@ mean of x
 <a class="anchor" href="#%ED%8F%89%EA%B7%A0-%EC%B0%A8%EC%9D%B4%EC%97%90-%EB%8C%80%ED%95%9C-t%EA%B2%80%EC%A0%95" aria-hidden="true"><span class="octicon octicon-link"></span></a>평균 차이에 대한 t검정<a class="anchor-link" href="#%ED%8F%89%EA%B7%A0-%EC%B0%A8%EC%9D%B4%EC%97%90-%EB%8C%80%ED%95%9C-t%EA%B2%80%EC%A0%95"> </a>
 </h2>
 <p><code>-</code> 영가설 $H_0:\mu_1-\mu_2=0$를 검정하는 t-통계량은 다음과 같음</p>
-<p><code>-</code> $t=\frac{(\bar{x_1}-\bar{x_2})-0}{\sqrt{\frac{{s_1}^2}{n_1}+\frac{{s_2}^2}{n_2}}}$</p>
+<p><code>-</code> $t=\cfrac{(\bar{x_1}-\bar{x_2})-0}{\sqrt{\frac{{s_1}^2}{n_1}+\frac{{s_2}^2}{n_2}}}$</p>
 <p><code>-</code> $\bar{x_1}$과 $\bar{x_2}$는 표본 평균, $s_1$과 $s_2$는 표본의 표준편차</p>
 
 </div>
@@ -1102,7 +1102,7 @@ mean of x mean of y
 <p><code>-</code> 짝 자료 ---&gt; 동일한 피실험체를 두 가지 다른 조건에서 측정한 데이터 ex) 개별 사람의 왼손과 오른손 악력, 약을 복용하기 전과 후의 혈압</p>
 <p><code>-</code> 조건이 동일하다면 동일한 피실험체가 아니어도 가능함 ---&gt; ex) 일란성 쌍둥이의 IQ</p>
 <p><code>-</code> 짝 자료에 대한 평균 차이 검정은 우선 각 짝 자료의 차이를 계산한 후 차이에 대한 평균 $\bar{x_d}$, 표준편차 $s_d$, 표본 크기 $n_d$를 계산</p>
-<p><code>-</code> $t =\frac{\bar{x_d} - 0}{\frac{s_d}{\sqrt{n_d}}}$를 자유도가  $n_d-1$인 t분포에서 검정함</p>
+<p><code>-</code> $t =\cfrac{\bar{x_d} - 0}{\frac{s_d}{\sqrt{n_d}}}$를 자유도가  $n_d-1$인 t분포에서 검정함</p>
 
 </div>
 </div>
@@ -1426,14 +1426,14 @@ mean of the differences
 <p><code>-</code> 모평균이 알려져 있지 않은 상황에서는 $\mu$ 대신 $\bar{X}$를 사용함</p>
 $$\begin{aligned}\sum Z_{i}^{2}&amp;=\left(\cfrac{X_1-\bar{X_n}}{\sigma}\right)^2 + \left(\cfrac{X_2-\bar{X_n}}{\sigma}\right)^2+\cdots+\left(\cfrac{X_n-\bar{X_n}}{\sigma}\right)^2\\
 &amp;=\cfrac{1}{\sigma^2}\sum(X_i-\bar{X_n})^2\\[10pt]
-&amp;=X^2_{n-1}\end{aligned}$$
+&amp;=\chi^2_{n-1}\end{aligned}$$
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> 그런데 $s^2=\cfrac{1}{n-1}\sum(X_i-\bar{X_n})^2$ 이므로 $X^2_{n-1}=\cfrac{(n-1)s^2}{\sigma^2}$ 이다</p>
+<p><code>-</code> 그런데 $s^2=\cfrac{1}{n-1}\sum(X_i-\bar{X_n})^2$ 이므로 $\chi^2_{n-1}=\cfrac{(n-1)s^2}{\sigma^2}$ 이다</p>
 
 </div>
 </div>
@@ -1441,7 +1441,7 @@ $$\begin{aligned}\sum Z_{i}^{2}&amp;=\left(\cfrac{X_1-\bar{X_n}}{\sigma}\right)^
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> 따라서 $\cfrac{(n-1)s^2}{\sigma^2}$의 표본분포는 자유도가 $n-1$인 $X^2_{n-1}$분포를 하고 있다</p>
+<p><code>-</code> 따라서 $\cfrac{(n-1)s^2}{\sigma^2}$의 표본분포는 자유도가 $n-1$인 $\chi^2_{n-1}$분포를 하고 있다</p>
 
 </div>
 </div>
@@ -1548,16 +1548,16 @@ $$\begin{aligned}\sum Z_{i}^{2}&amp;=\left(\cfrac{X_1-\bar{X_n}}{\sigma}\right)^
 $$\chi^2_{n-1}=\cfrac{(n-1)s^2}{\sigma^2}$$
 </p>
 <p><code>-</code> 가설 $H_0 : \sigma^2 = \sigma_0^2$ 에 대한 검정은 대안가설 부호에 따라 다름</p>
-$$\begin{aligned}H_a &amp;: \sigma^2&gt;\sigma_0^2\longrightarrow X^2&lt;X^{2}_{\alpha}\\
-H_a &amp;: \sigma^2&lt;\sigma_0^2\longrightarrow X^2&gt;X^2_{1-\alpha}\\
-H_a &amp;: \sigma^2\neq\sigma_0^2\longrightarrow X^2&lt;X^2_{1-\frac{\alpha}{2}}\; or\; X^2&gt;X^2_{\frac{\alpha}{2}}\end{aligned}$$
+$$\begin{aligned}H_a &amp;: \sigma^2&gt;\sigma_0^2\longrightarrow \chi^2&lt;\chi^{2}_{\alpha}\\
+H_a &amp;: \sigma^2&lt;\sigma_0^2\longrightarrow \chi^2&gt;\chi^2_{1-\alpha}\\
+H_a &amp;: \sigma^2\neq\sigma_0^2\longrightarrow \chi^2&lt;\chi^2_{1-\frac{\alpha}{2}}\; or\; \chi^2&gt;\chi^2_{\frac{\alpha}{2}}\end{aligned}$$
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> 이때 $X^2_{\alpha}$은 분포의 오른쪽 확률이 $\alpha$임을 나타낸다</p>
+<p><code>-</code> 이때 $\chi^2_{\alpha}$은 분포의 오른쪽 확률이 $\alpha$임을 나타낸다</p>
 
 </div>
 </div>
@@ -1675,7 +1675,7 @@ H_a : \sigma^2 &gt; 3$$<p></p>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> 검정통계량(chi2)이 $X^2_{0.05}$ 보다 크면 영가설을 기각할 수 있다</p>
+<p><code>-</code> 검정통계량(chi2)이 $\chi^2_{0.05}$ 보다 크면 영가설을 기각할 수 있다</p>
 
 </div>
 </div>
