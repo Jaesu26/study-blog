@@ -386,7 +386,7 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>$f(x) = \cfrac{1}{\sqrt{2\pi\sigma^{2}}}\Large{e}^{-\frac{(x-\mu)^{2}}{2\sigma^{2}}}$</p>
+<p>$f(x) = \cfrac{1}{\sqrt{2\pi\sigma^{2}}}e^{-\frac{(x-\mu)^{2}}{2\sigma^{2}}}$</p>
 
 </div>
 </div>
@@ -1880,8 +1880,8 @@ $</p>
 <p><code>-</code> 연습으로 동전을 10번 던져봤더니 앞면이 3번 뒷면이 7번 나왔음 ---&gt; 앞면이 나와야 이기므로 앞면이 나올 확률이 뒷면이 나올 확률 보다 높으면 좋겠음</p>
 <p><code>-</code> 위에 상황에서 앞면이 나올 확률이 0.5보다 클 확률은 얼마일까? ---&gt; 확률에 대한 확률분포</p>
 $$\begin{aligned}P(X&gt;0.5) &amp;= 1-P(X&lt;0.5)\\[10pt]
-&amp;=1-\int_{0}^{0.5}\cfrac{\Gamma(12)}{\Gamma(4)\Gamma(8)}x^{4-1}(1-x)^{8-1}dx\\
-&amp;=1-\int_{0}^{0.5}\binom{12}{4}x^{4-1}(1-x)^{8-1}dx \\[10pt]
+&amp;=1-\int_{0}^{0.5}\cfrac{\Gamma(12)}{\Gamma(4)\Gamma(8)}x^{4-1}(1-x)^{8-1}dx\\[10pt]
+&amp;=1-\int_{0}^{0.5}\binom{12}{4}x^{4-1}(1-x)^{8-1}dx\\[10pt]
 &amp;=\,???\end{aligned}$$
 </div>
 </div>
