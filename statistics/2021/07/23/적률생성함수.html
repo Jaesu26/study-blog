@@ -208,8 +208,11 @@ window.onload = wrap_img;
 <p><code>-</code> 적률을 계산하려면 연속확률변수의 경우 적분을 하게 되는데 어렵거나 불가능한 경우도 있음 ---&gt; 적률생성함수를 통해 계산 가능</p>
 <p><code>-</code> 임의의 확률변수 $X$의 기댓값이 존재한다면 $X$의 적률생성함수 $M_{X}(t) = E(e^{tX}),\; t \in \mathbb{R}$</p>
 <p><code>-</code> $M_{X}(t) = E(e^{tX}) = \begin{cases}\text{이산확률변수 : }\sum\limits_{x}e^{tx}f(x) \\ \text{연속확률변수 : }\int_{-\infty}^{\infty}e^{tx}f(x)dx\end{cases}$</p>
-<p><code>-</code> 만약 확률변수 $X$의 기댓값을 구하는데 $X$가 아니라 $x$가 사용되네??라고 생각하면 구글창에 확률변수의 기댓값 검색해서 공부하세요</p>
+<p><code>-</code> 확률변수 $X$의 기댓값을 구하는데 $X$가 아니라 $x$가 사용되네??</p>
+<p><code>-</code> $X$의 기댓값은 $X$가 가질 수 있는 값인 $x$들을 통해 구한다</p>
 <p><code>-</code> 사실 $x$말고 $k$라고 하든지 $a$라고 하든지 다른 변수를 사용해도 됨 ---&gt; 마치 적분할 때 $\int x \,dx = \int t\, dt = \int a \,da$ 인 것 처럼</p>
+<p><code>-</code> 중요한건 확률변수가 가질 수 있는 값들을 가지고 기댓값을 구한다는 것 ---&gt; 당연한 소리</p>
+<p><code>-</code> 확률변수 $X$가 가질 수 있는 모든값들을 구하고 이것들의 평균을 구하면 그게 확률변수의 기댓값(당연함)</p>
 <p><code>-</code> 참고: $X$는 확률변수, $x$는 확률변수 $X$가 가지는 값 ---&gt; 이산확률변수는 $P(X=x)$, 연속확률변수는 $P(A\leq X\leq B)$</p>
 <p><code>-</code> 적률생성함수는 항상 존재하는 것이 아님 ---&gt; 1. $e^{tX}$가 $t=0$근방에서 적분이 가능해야 함 $\;\;$ 2. $\forall\, t \in \mathbb{R},\;\;E(e^{tX}) &lt; \infty $</p>
 
@@ -241,20 +244,20 @@ window.onload = wrap_img;
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> $M_{X}(t) = E(e^{tX})$</p>
-<p><code>-</code> $\frac{d^{k}M_{X}(0)}{dt^{k}} = E(X^{k})$</p>
+<p><code>-</code> $\cfrac{d^{k}M_{X}(0)}{dt^{k}} = E(X^{k})$</p>
 <p><code>-</code> 매클로린 급수를 사용하자</p>
-<p><code>-</code> $e^{tX} = \sum\limits_{k = 0}^{\infty}\frac{X^k}{k!}(e^{tX})^{(k)}(0) = \frac{t^{0}}{0!}X^{0}+\frac{t^1}{1!}X^1+\frac{t^2}{2!}X^2+\frac{t^3}{3!}X^3+\dots$</p>
+<p><code>-</code> $e^{tX} = \sum\limits_{k = 0}^{\infty}\cfrac{X^k}{k!}(e^{tX})^{(k)}(0) = \cfrac{t^{0}}{0!}X^{0}+\cfrac{t^1}{1!}X^1+\cfrac{t^2}{2!}X^2+\cfrac{t^3}{3!}X^3+\dots$</p>
 <p><code>-</code> 양변에 기댓값을 취하면...</p>
-<p><code>-</code> $M_X(t)=E(e^{tX}) = 1 + tE(X) + \frac{t^2}{2!}E(X^2) + \frac{t^3}{3!}E(X^3)+\dots$</p>
+<p><code>-</code> $M_X(t)=E(e^{tX}) = 1 + tE(X) + \cfrac{t^2}{2!}E(X^2) + \cfrac{t^3}{3!}E(X^3)+\dots$</p>
 <p><code>-</code> 이제 양변을 t에 대해 미분하자</p>
-<p><code>-</code> $\frac{dM_X(t)}{dt} = 0 + E(X) + tE(X^2) + \frac{t^2}{2}E(X^3)+\dots$</p>
+<p><code>-</code> $\cfrac{dM_X(t)}{dt} = 0 + E(X) + tE(X^2) + \cfrac{t^2}{2}E(X^3)+\dots$</p>
 <p><code>-</code> 이제 $t=0$을 대입하면...</p>
-<p><code>-</code> $\frac{dM_X(0)}{dt} = E(X)$ --&gt; 1번 미분하니 1차 적률이 구해짐</p>
+<p><code>-</code> $\cfrac{dM_X(0)}{dt} = E(X)$ --&gt; 1번 미분하니 1차 적률이 구해짐</p>
 <p><code>-</code> 그럼 한 번 더 미분하면 2차 적률? --&gt; ㅇㅇ</p>
-<p><code>-</code> $\frac{d^2M_X(t)}{dt^2} = 0 + 0 + E(X^2) + tE(X^3)+\dots$</p>
+<p><code>-</code> $\cfrac{d^2M_X(t)}{dt^2} = 0 + 0 + E(X^2) + tE(X^3)+\dots$</p>
 <p><code>-</code> 참고: $E(X)$는 $t$에 대하여 상수임</p>
 <p><code>-</code> 이제 $t=0$을 대입하면</p>
-<p><code>-</code> $\frac{d^2M_X(0)}{dt^2} = E(X^2)$</p>
+<p><code>-</code> $\cfrac{d^2M_X(0)}{dt^2} = E(X^2)$</p>
 <p><code>-</code> 정말로 2번 미분하니 2차 적률이 구해졌다..</p>
 
 </div>
@@ -287,24 +290,47 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> 균일 분포의 확률 밀도 함수: $f(x) = \frac{1}{b-a}$</p>
+<p><code>-</code> 균일 분포의 확률 밀도 함수: $f(x) = \cfrac{1}{b-a}$</p>
 <p><code>-</code> 균일 분포의 적률생성함수</p>
-<ul>
-<li>$M_X(t) = E(e^{tX}) \\= \int_{a}^{b}e^{tx}\frac{1}{b-a}dx \longrightarrow \text{확률변수$X$가 $a$부터 $b$까지의 값을 가진다는 뜻} \\ = \frac{1}{b-a}\left[\frac{1}{t}e^{tx}\right]_{a}^{b} \\= \frac{e^{t}(e^{b}-e^{a})}{t(b-a)}$</li>
-</ul>
+<p>$\begin{aligned}M_X(t) &amp;= E(e^{tX})\\[16pt]
+&amp;= \int_{a}^{b}e^{tx}\frac{1}{b-a}dx \longrightarrow \text{확률변수$X$가 $a$부터 $b$까지의 값을 가진다는 뜻}\\[10pt]
+&amp;= \frac{1}{b-a}\left[\frac{1}{t}e^{tx}\right]_{a}^{b}\\[10pt]
+&amp;= \frac{e^{t}(e^{b}-e^{a})}{t(b-a)}\end{aligned}$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> 균일 분포의 기댓값 ---&gt; 적률생성함수를 통해 구하는 것보다 1차 적률의 정의를 통해 구하는 것이 더 쉬움</p>
-<ul>
-<li>$E(X) = \int_{a}^{b}\frac{1}{b-a}x \;dx \\ = \frac{1}{b-a}\left[\frac{x^2}{2}\right]_{a}^{b} \\= \frac{b^{2}-a^{2}}{2(b-a)} \\= \frac{a+b}{2}$</li>
-</ul>
+<p>$\begin{aligned}E(X) &amp;= \int_{a}^{b}\frac{1}{b-a}x \;dx\\[9pt]
+&amp;= \frac{1}{b-a}\left[\frac{x^2}{2}\right]_{a}^{b}\\[10pt]
+&amp;= \frac{b^{2}-a^{2}}{2(b-a)}\\[10pt]
+&amp;= \frac{a+b}{2}\end{aligned}$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> 균일 분포의 분산 ---&gt; 적률의 정의를 통해 구하자 ---&gt; 우선 2차 비중심 적률을 구하자</p>
-<ul>
-<li>
-<p>$E(X^2) = \int_{a}^{b}\frac{1}{b-a}x^2 \;dx \\ = \frac{1}{b-a}\left[\frac{x^3}{3}\right]_{a}^{b} \\= \frac{b^{3}-a^{3}}{3(b-a)} \\= \frac{a^2+ab+b^2}{3}$</p>
-</li>
-<li>
-<p>$Var(X) = E(X^2) - [E(X)]^2 \\= \frac{a^2+ab+b^2}{3} - \big(\frac{a+b}{2}\big)^2 \\= \frac{4(a^2+ab+b^2) \,- 3(a^2+2ab+b^2)}{12} \\= \frac{(b-a)^2}{12}$</p>
-</li>
-</ul>
+<p>$\begin{aligned}E(X^2) &amp;= \int_{a}^{b}\cfrac{1}{b-a}x^2 \;dx \\
+&amp;= \cfrac{1}{b-a}\left[\cfrac{x^3}{3}\right]_{a}^{b} \\
+&amp;= \cfrac{b^{3}-a^{3}}{3(b-a)} \\
+&amp;= \cfrac{a^2+ab+b^2}{3}\end{aligned}$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>$\begin{aligned}Var(X) &amp;= E(X^2) - [E(X)]^2 \\[16pt]
+&amp;= \cfrac{a^2+ab+b^2}{3} - \bigg(\cfrac{a+b}{2}\bigg)^2 \\[8pt]
+&amp;= \cfrac{4(a^2+ab+b^2) \,- 3(a^2+2ab+b^2)}{12} \\[8pt]
+&amp;= \frac{(b-a)^2}{12}\end{aligned}$</p>
 
 </div>
 </div>
@@ -675,15 +701,12 @@ $</li>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> 지수 분포의 적률생성함수</p>
-<ul>
-<li>$M_{X}(t) = E(e^{tX})\\
-= \int_{0}^{\infty}e^{tx}\cdot\lambda e^{-\lambda x}\,dx\\
-= \lambda\int_{0}^{\infty}e^{tx}\cdot e^{-\lambda x}\,dx\\
-= \lambda\int_{0}^{\infty}e^{(t-\lambda)x}\,dx\\
-= \frac{\lambda}{t-\lambda}\cdot\left[e^{(t-\lambda) x}\right]_{0}^{\infty}, \;\;\;(t&lt;\lambda)\\
-= \frac{\lambda}{\lambda - t}
-$</li>
-</ul>
+<p>$\begin{aligned}M_{X}(t) &amp;= E(e^{tX})\\[16pt]
+&amp;= \int_{0}^{\infty}e^{tx}\cdot\lambda e^{-\lambda x}\,dx\\[10pt]
+&amp;= \lambda\int_{0}^{\infty}e^{tx}\cdot e^{-\lambda x}\,dx\\[10pt]
+&amp;= \lambda\int_{0}^{\infty}e^{(t-\lambda)x}\,dx\\[10pt]
+&amp;= \frac{\lambda}{t-\lambda}\cdot\left[e^{(t-\lambda) x}\right]_{0}^{\infty}, \;\;\;(t&lt;\lambda)\\[10pt]
+&amp;= \frac{\lambda}{\lambda - t}\end{aligned}$</p>
 
 </div>
 </div>
@@ -692,11 +715,9 @@ $</li>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> 지수 분포의 기댓값</p>
-<ul>
-<li>$E(X) = \frac{dM_X(t)}{dt} \\
-= \frac{\lambda}{(\lambda - t)^2}, \; \text{$t=0$ 대입}\\
-= \frac{1}{\lambda}$</li>
-</ul>
+<p>$\begin{aligned}E(X) &amp;= \frac{dM_X(t)}{dt} \\[10pt]
+&amp;= \frac{\lambda}{(\lambda - t)^2}, \; \text{$t=0$ 대입}\\[10pt]
+&amp;= \frac{1}{\lambda}\end{aligned}$</p>
 
 </div>
 </div>
@@ -712,19 +733,13 @@ $</li>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li>
-<p>$E(X^2) = \frac{d^2M_X(t)}{dt^2}\\
-= -\frac{-2\lambda(\lambda-t) }{(\lambda-t)^4}\\
-= \frac{2\lambda}{(\lambda - t)^3}, \;\text{$t=0$ 대입}\\
-= \frac{2}{\lambda^2}$</p>
-</li>
-<li>
-<p>$Var(X) = E(X^2) - [E(X)]^2\\
-= \frac{2}{\lambda^2} - \big(\frac{1}{\lambda}\big)^2\\
-= \frac{1}{\lambda^2}$</p>
-</li>
-</ul>
+<p>$\begin{aligned}E(X^2) &amp;= \frac{d^2M_X(t)}{dt^2}\\[12pt]
+&amp;= -\frac{-2\lambda(\lambda-t) }{(\lambda-t)^4}\\[10pt]
+&amp;= \frac{2\lambda}{(\lambda - t)^3}, \;\text{$t=0$ 대입}\\[10pt]
+&amp;= \frac{2}{\lambda^2}\end{aligned}$</p>
+<p>$\begin{aligned}Var(X) &amp;= E(X^2) - [E(X)]^2\\[13pt]
+&amp;= \frac{2}{\lambda^2} - \bigg(\frac{1}{\lambda}\bigg)^2\\[10pt]
+&amp;= \frac{1}{\lambda^2}\end{aligned}$</p>
 
 </div>
 </div>
