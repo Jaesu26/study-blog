@@ -292,7 +292,7 @@ window.onload = wrap_img;
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> 균일 분포의 확률 밀도 함수: $f(x) = \cfrac{1}{b-a}$</p>
 <p><code>-</code> 균일 분포의 적률생성함수</p>
-<p>$\begin{aligned}M_X(t) &amp;= E(e^{tX})\\[16pt]
+<p>$\begin{aligned}M_X(t) &amp;= E(e^{tX})\\[10pt]
 &amp;= \int_{a}^{b}e^{tx}\frac{1}{b-a}dx \longrightarrow \text{확률변수$X$가 $a$부터 $b$까지의 값을 가진다는 뜻}\\[10pt]
 &amp;= \frac{1}{b-a}\left[\frac{1}{t}e^{tx}\right]_{a}^{b}\\[10pt]
 &amp;= \frac{e^{t}(e^{b}-e^{a})}{t(b-a)}\end{aligned}$</p>
@@ -304,7 +304,7 @@ window.onload = wrap_img;
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> 균일 분포의 기댓값 ---&gt; 적률생성함수를 통해 구하는 것보다 1차 적률의 정의를 통해 구하는 것이 더 쉬움</p>
-<p>$\begin{aligned}E(X) &amp;= \int_{a}^{b}\frac{1}{b-a}x \;dx\\[9pt]
+<p>$\begin{aligned}E(X) &amp;= \int_{a}^{b}\frac{1}{b-a}x \;dx\\[10pt]
 &amp;= \frac{1}{b-a}\left[\frac{x^2}{2}\right]_{a}^{b}\\[10pt]
 &amp;= \frac{b^{2}-a^{2}}{2(b-a)}\\[10pt]
 &amp;= \frac{a+b}{2}\end{aligned}$</p>
@@ -327,9 +327,9 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>$\begin{aligned}Var(X) &amp;= E(X^2) - [E(X)]^2 \\[16pt]
-&amp;= \cfrac{a^2+ab+b^2}{3} - \bigg(\cfrac{a+b}{2}\bigg)^2 \\[8pt]
-&amp;= \cfrac{4(a^2+ab+b^2) \,- 3(a^2+2ab+b^2)}{12} \\[8pt]
+<p>$\begin{aligned}Var(X) &amp;= E(X^2) - [E(X)]^2\\[10pt]
+&amp;= \cfrac{a^2+ab+b^2}{3} - \bigg(\cfrac{a+b}{2}\bigg)^2\\[10pt]
+&amp;= \cfrac{4(a^2+ab+b^2) \,- 3(a^2+2ab+b^2)}{12}\\[10pt]
 &amp;= \frac{(b-a)^2}{12}\end{aligned}$</p>
 
 </div>
@@ -701,7 +701,7 @@ $</li>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> 지수 분포의 적률생성함수</p>
-<p>$\begin{aligned}M_{X}(t) &amp;= E(e^{tX})\\[16pt]
+<p>$\begin{aligned}M_{X}(t) &amp;= E(e^{tX})\\[10pt]
 &amp;= \int_{0}^{\infty}e^{tx}\cdot\lambda e^{-\lambda x}\,dx\\[10pt]
 &amp;= \lambda\int_{0}^{\infty}e^{tx}\cdot e^{-\lambda x}\,dx\\[10pt]
 &amp;= \lambda\int_{0}^{\infty}e^{(t-\lambda)x}\,dx\\[10pt]
@@ -715,7 +715,7 @@ $</li>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> 지수 분포의 기댓값</p>
-<p>$\begin{aligned}E(X) &amp;= \frac{dM_X(t)}{dt} \\[10pt]
+<p>$\begin{aligned}E(X) &amp;= \frac{dM_X(t)}{dt}\\[10pt]
 &amp;= \frac{\lambda}{(\lambda - t)^2}, \; \text{$t=0$ 대입}\\[10pt]
 &amp;= \frac{1}{\lambda}\end{aligned}$</p>
 
@@ -733,11 +733,11 @@ $</li>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>$\begin{aligned}E(X^2) &amp;= \frac{d^2M_X(t)}{dt^2}\\[12pt]
+<p>$\begin{aligned}E(X^2) &amp;= \frac{d^2M_X(t)}{dt^2}\\[10pt]
 &amp;= -\frac{-2\lambda(\lambda-t) }{(\lambda-t)^4}\\[10pt]
 &amp;= \frac{2\lambda}{(\lambda - t)^3}, \;\text{$t=0$ 대입}\\[10pt]
 &amp;= \frac{2}{\lambda^2}\end{aligned}$</p>
-<p>$\begin{aligned}Var(X) &amp;= E(X^2) - [E(X)]^2\\[13pt]
+<p>$\begin{aligned}Var(X) &amp;= E(X^2) - [E(X)]^2\\[10pt]
 &amp;= \frac{2}{\lambda^2} - \bigg(\frac{1}{\lambda}\bigg)^2\\[10pt]
 &amp;= \frac{1}{\lambda^2}\end{aligned}$</p>
 
