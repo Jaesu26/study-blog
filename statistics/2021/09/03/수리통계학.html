@@ -96,7 +96,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      6 min read
+      7 min read
     
 </span></p>
 
@@ -191,7 +191,12 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h2"><a href="#기댓값">기댓값 </a>
 <ul>
 <li class="toc-entry toc-h3"><a href="#기댓값의-성질">기댓값의 성질 </a></li>
-<li class="toc-entry toc-h3"><a href="#분산과-공분산">분산과 공분산 </a></li>
+<li class="toc-entry toc-h3"><a href="#분산과-공분산">분산과 공분산 </a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#분산의-성질">분산의 성질 </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h3"><a href="#조건부-기댓값">조건부 기댓값 </a></li>
 </ul>
 </li>
 </ul>
@@ -873,18 +878,20 @@ $$f_{X,Y}(x,y)=f_X(x)\cdot f_Y(y)$$
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 두 확률변수 $X$와 $Y$의 독립여부 파악하는 방법!</p>
+<p><code>1.</code> 결합 확률밀도함수를 통해 $X$와 $Y$의 주변 확률밀도함수를 구한다</p>
+<p><code>2.</code> 그리고 $f_{X,Y}(x,y)=f_X(x)\cdot f_Y(y)$가 성립하는지 확인한다</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <p></p>
 <div class="flash flash-success">
     <svg class="octicon octicon-checklist octicon octicon-checklist" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M2.5 1.75a.25.25 0 01.25-.25h8.5a.25.25 0 01.25.25v7.736a.75.75 0 101.5 0V1.75A1.75 1.75 0 0011.25 0h-8.5A1.75 1.75 0 001 1.75v11.5c0 .966.784 1.75 1.75 1.75h3.17a.75.75 0 000-1.5H2.75a.25.25 0 01-.25-.25V1.75zM4.75 4a.75.75 0 000 1.5h4.5a.75.75 0 000-1.5h-4.5zM4 7.75A.75.75 0 014.75 7h2a.75.75 0 010 1.5h-2A.75.75 0 014 7.75zm11.774 3.537a.75.75 0 00-1.048-1.074L10.7 14.145 9.281 12.72a.75.75 0 00-1.062 1.058l1.943 1.95a.75.75 0 001.055.008l4.557-4.45z"></path></svg>
-    <strong>Tip: </strong>두 확률변수 $X$와 $Y$의 독립여부 파악하는 방법! 
-</div>
-<div class="flash flash-success">
-    <svg class="octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M2.5 1.75a.25.25 0 01.25-.25h8.5a.25.25 0 01.25.25v7.736a.75.75 0 101.5 0V1.75A1.75 1.75 0 0011.25 0h-8.5A1.75 1.75 0 001 1.75v11.5c0 .966.784 1.75 1.75 1.75h3.17a.75.75 0 000-1.5H2.75a.25.25 0 01-.25-.25V1.75zM4.75 4a.75.75 0 000 1.5h4.5a.75.75 0 000-1.5h-4.5zM4 7.75A.75.75 0 014.75 7h2a.75.75 0 010 1.5h-2A.75.75 0 014 7.75zm11.774 3.537a.75.75 0 00-1.048-1.074L10.7 14.145 9.281 12.72a.75.75 0 00-1.062 1.058l1.943 1.95a.75.75 0 001.055.008l4.557-4.45z"></path></svg>
-    <strong>Tip: </strong>1. 결합 확률밀도함수를 통해 $X$와 $Y$의 주변 확률밀도함수를 구한다
-</div>
-<div class="flash flash-success">
-    <svg class="octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M2.5 1.75a.25.25 0 01.25-.25h8.5a.25.25 0 01.25.25v7.736a.75.75 0 101.5 0V1.75A1.75 1.75 0 0011.25 0h-8.5A1.75 1.75 0 001 1.75v11.5c0 .966.784 1.75 1.75 1.75h3.17a.75.75 0 000-1.5H2.75a.25.25 0 01-.25-.25V1.75zM4.75 4a.75.75 0 000 1.5h4.5a.75.75 0 000-1.5h-4.5zM4 7.75A.75.75 0 014.75 7h2a.75.75 0 010 1.5h-2A.75.75 0 014 7.75zm11.774 3.537a.75.75 0 00-1.048-1.074L10.7 14.145 9.281 12.72a.75.75 0 00-1.062 1.058l1.943 1.95a.75.75 0 001.055.008l4.557-4.45z"></path></svg>
-    <strong>Tip: </strong>2. 그리고 $f_{X,Y}(x,y)=f_X(x)\cdot f_Y(y)$가 성립하는지 확인한다
+    <strong>Tip: </strong>쉬운방법은 $f_{X,Y}(x,y)$가 $X$만의 함수와 $Y$만의 함수로 인수분해 되는지 파악하는 것
 </div>
 
 </div>
@@ -997,6 +1004,79 @@ $$E_X[g(X)]=E_Y(Y)=\begin{cases}\sum\limits_{\text{모든 }x_i}g(x_{i})f_{X}(x_i
 <h3 id="분산과-공분산">
 <a class="anchor" href="#%EB%B6%84%EC%82%B0%EA%B3%BC-%EA%B3%B5%EB%B6%84%EC%82%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>분산과 공분산<a class="anchor-link" href="#%EB%B6%84%EC%82%B0%EA%B3%BC-%EA%B3%B5%EB%B6%84%EC%82%B0"> </a>
 </h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+$$Var(X)=E[X-E(X)]^2=E(X^2)-[E(X)]^2\\
+\sigma_{X}=\sqrt{Var(X)}$$
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 두 확률변수 $X,Y$의 공분산은 다음과 같다</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+$$\begin{aligned}Cov(X,Y)&amp;=E[(X-EX)(Y-EY)]\\
+&amp;=E(XY)-E(X)E(Y)\end{aligned}$$
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="분산의-성질">
+<a class="anchor" href="#%EB%B6%84%EC%82%B0%EC%9D%98-%EC%84%B1%EC%A7%88" aria-hidden="true"><span class="octicon octicon-link"></span></a>분산의 성질<a class="anchor-link" href="#%EB%B6%84%EC%82%B0%EC%9D%98-%EC%84%B1%EC%A7%88"> </a>
+</h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>1.</code> $Var(aX+b)=a^2Var(X)$</p>
+<p><code>2.</code> 확률변수들이 서로 독립이면 $Var\bigg(\sum\limits^{n}_{i=1}X_{i}\bigg)=\sum\limits^{n}_{i=1}Var(X_i)$</p>
+<p><code>3.</code> $Cov(X,X)=Var(X)$</p>
+<p><code>4.</code> 두 확률변수가 서로 독립이면 $Cov(X,Y)=0$</p>
+<p><code>5.</code> $Cov(aX+b,cY+d)=acCov(X,Y)$</p>
+<p><code>6.</code> $Var\bigg(\sum\limits^{n}_{i=1}X_{i}\bigg)=\sum\limits^{n}_{i=1}Var(X_{i})+2\mathop{\sum\sum}\limits_{j&lt;k}Cov(X_j,X_k)$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="조건부-기댓값">
+<a class="anchor" href="#%EC%A1%B0%EA%B1%B4%EB%B6%80-%EA%B8%B0%EB%8C%93%EA%B0%92" aria-hidden="true"><span class="octicon octicon-link"></span></a>조건부 기댓값<a class="anchor-link" href="#%EC%A1%B0%EA%B1%B4%EB%B6%80-%EA%B8%B0%EB%8C%93%EA%B0%92"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>
+$$E(Y\mid X=x)=E_Y(Y)=\begin{cases}\sum\limits_{\text{모든 }y_i}y_{i}f_{Y\mid x}(y_i\mid x)\quad X,Y\text{가 이산형인 경우} \\ \int_{-\infty}^{\infty}yf_{Y\mid x}(y\mid x)\,dy\quad X,Y\text{가 연속형인 경우}\end{cases}$$
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> (이중 기댓값 정리) 두 확률변수 $X,Y$에 대하여 $E[E(Y\mid X)]=E(Y)$ 가 성립함</p>
+
 </div>
 </div>
 </div>
