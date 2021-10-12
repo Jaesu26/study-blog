@@ -197,6 +197,7 @@ window.onload = wrap_img;
 </ul>
 </li>
 <li class="toc-entry toc-h3"><a href="#조건부-기댓값">조건부 기댓값 </a></li>
+<li class="toc-entry toc-h3"><a href="#확률부등식">확률부등식 </a></li>
 </ul>
 </li>
 </ul>
@@ -1076,6 +1077,49 @@ $$E(Y\mid X=x)=E_Y(Y)=\begin{cases}\sum\limits_{\text{모든 }y_i}y_{i}f_{Y\mid 
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> (이중 기댓값 정리) 두 확률변수 $X,Y$에 대하여 $E[E(Y\mid X)]=E(Y)$ 가 성립함</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 확률변수 $X$와 $Y$가 독립이면 $E(Y\mid x)=E(Y),\;E(X\mid y)=E(X) \to$ 사건의 독립 확률변수 버전</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 조건부 분산 : $Var(Y\mid x)=E[\{Y-E(Y\mid x)\}^2\mid x] = E(Y^2\mid x)-[E(Y\mid x)]^2$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 분산 분해 : $Var(Y) =  E[Var(Y\mid X)]+Var[E(Y\mid X)]$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="확률부등식">
+<a class="anchor" href="#%ED%99%95%EB%A5%A0%EB%B6%80%EB%93%B1%EC%8B%9D" aria-hidden="true"><span class="octicon octicon-link"></span></a>확률부등식<a class="anchor-link" href="#%ED%99%95%EB%A5%A0%EB%B6%80%EB%93%B1%EC%8B%9D"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 마코프 확률부등식 : 실함수 $u(X) &gt; 0$라고 할 때 $P[u(X)\geq c] \leq \cfrac{E[u(X)]}{c}$</p>
+<p><code>-</code> 체비셰프 부등식 : $P(|X-\mu| &lt; k\sigma)\geq 1-\cfrac{1}{k^2}$</p>
+<p><code>-</code> 코시-슈바르츠 부등식 : $[E(XY)]^2 \leq E(X^2)\cdot E(Y^2)$</p>
 
 </div>
 </div>
