@@ -1389,6 +1389,102 @@ $$T_0=\cfrac{b_0-0}{\sqrt{\widehat{Var}(b_0)}}$$
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 다중회귀분석에서 많이 사용하는 방법</p>
+<p><code>-</code> 여러개의 기울기 $\beta_i$에 대하여 기울기가 유의한지 동시에 검정함</p>
+<p><code>-</code> 총 변동(SST) = 회귀선에 의해 설명되지 않는 변동(SSE) + 회귀선에 의해 설명되는 변동(SSR)</p>
+<p><code>-</code> $\sum\limits^{n}_{i=1}(y_i-\bar{y})^2=\sum\limits^{n}_{i=1}(y_i-\hat{y}_i)^2+\sum\limits^{n}_{i=1}(\hat{y}_{i}-\bar{y})^2$</p>
+<p><code>-</code> SST의 자유도는 $n-1$, SSE의 자유도는 $n-2$, SSR의 자유도는 $1$</p>
+<p><code>-</code> $MSR = \cfrac{SSR}{1}$, $MSE = \cfrac{SSE}{n-2}$, 검정통계량 $F_0 = \cfrac{MSR}{MSE}$</p>
+<p><code>-</code> R에서 m이라는 회귀모형을 만들고 <code>anova(m)</code> 함수를 통해 회귀모형 분산분석을 할 수 있음</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="n">x</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="m">4</span><span class="p">,</span> <span class="m">8</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="m">2</span><span class="p">,</span> <span class="m">4</span><span class="p">,</span> <span class="m">5</span><span class="p">,</span> <span class="m">7</span><span class="p">,</span> <span class="m">11</span><span class="p">)</span>
+<span class="n">m</span> <span class="o">&lt;-</span> <span class="nf">lm</span><span class="p">(</span><span class="n">y</span><span class="o">~</span><span class="n">x</span><span class="p">)</span>
+<span class="nf">anova</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea ">
+<table class="dataframe">
+<caption>A anova: 2 × 5</caption>
+<thead>
+	<tr>
+<th></th>
+<th scope="col">Df</th>
+<th scope="col">Sum Sq</th>
+<th scope="col">Mean Sq</th>
+<th scope="col">F value</th>
+<th scope="col">Pr(&gt;F)</th>
+</tr>
+	<tr>
+<th></th>
+<th scope="col">&lt;int&gt;</th>
+<th scope="col">&lt;dbl&gt;</th>
+<th scope="col">&lt;dbl&gt;</th>
+<th scope="col">&lt;dbl&gt;</th>
+<th scope="col">&lt;dbl&gt;</th>
+</tr>
+</thead>
+<tbody>
+	<tr>
+<th scope="row">x</th>
+<td>1</td>
+<td>45.8753425</td>
+<td>45.8753425</td>
+<td>148.84</td>
+<td>0.001185729</td>
+</tr>
+	<tr>
+<th scope="row">Residuals</th>
+<td>3</td>
+<td> 0.9246575</td>
+<td> 0.3082192</td>
+<td>    NA</td>
+<td>         NA</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 분산분석표를 보면 F검정을 실시했는데 p-값이 0.0011로 0.05보다 작으므로 모형은 유의하다</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="결정계수">
 <a class="anchor" href="#%EA%B2%B0%EC%A0%95%EA%B3%84%EC%88%98" aria-hidden="true"><span class="octicon octicon-link"></span></a>결정계수<a class="anchor-link" href="#%EA%B2%B0%EC%A0%95%EA%B3%84%EC%88%98"> </a>
 </h2>
@@ -1398,9 +1494,27 @@ $$T_0=\cfrac{b_0-0}{\sqrt{\widehat{Var}(b_0)}}$$
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 결정계수 : 독립변수에 의해 설명되는 종속변수 변동의 비율</p>
+<p><code>-</code> $R^2=\cfrac{SSR}{SST}=1-\cfrac{SSE}{SST}$</p>
+<p><code>-</code> 상관계수 $r$의 제곱은 결정계수이다</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="모형의-진단">
 <a class="anchor" href="#%EB%AA%A8%ED%98%95%EC%9D%98-%EC%A7%84%EB%8B%A8" aria-hidden="true"><span class="octicon octicon-link"></span></a>모형의 진단<a class="anchor-link" href="#%EB%AA%A8%ED%98%95%EC%9D%98-%EC%A7%84%EB%8B%A8"> </a>
 </h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 회귀분석을 할 때 가정ㅡ하는 조건들이 성립하는지 확인해보자</p>
+
 </div>
 </div>
 </div>
