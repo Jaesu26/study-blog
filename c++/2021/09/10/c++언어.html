@@ -96,7 +96,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      25 min read
+      26 min read
     
 </span></p>
 
@@ -287,6 +287,17 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h2"><a href="#객체-포인터-배열">객체 포인터 배열 </a></li>
 <li class="toc-entry toc-h2"><a href="#this-포인터">this 포인터 </a></li>
 <li class="toc-entry toc-h2"><a href="#this-포인터와-이니셜라이저">this 포인터와 이니셜라이저 </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h1"><a href="#복사-생성자">복사 생성자 </a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#객체-생성-초기화">객체 생성 초기화 </a></li>
+<li class="toc-entry toc-h2"><a href="#디폴트-복사-생성자">디폴트 복사 생성자 </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h1"><a href="#얕은-복사와-깊은-복사">얕은 복사와 깊은 복사 </a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#얕은-복사">얕은 복사 </a></li>
 </ul>
 </li>
 </ul><!--
@@ -1561,6 +1572,7 @@ window.onload = wrap_img;
 </h2>
 <p><code>-</code> 프로그램 실행 중에 사용할 메모리 공간을 필요한 만큼 할당하는 것</p>
 <p><code>-</code> 사용 후에는 반드시 반환을 해야함 (동적해제)</p>
+<p><code>-</code> 할당한 공간을 해제</p>
 
 </div>
 </div>
@@ -2556,7 +2568,7 @@ window.onload = wrap_img;
     <span class="n">SimpleClass</span><span class="p">(</span><span class="kt">int</span><span class="o">&amp;</span> <span class="n">ref</span><span class="p">,</span> <span class="k">const</span> <span class="kt">int</span> <span class="n">n</span><span class="p">);</span>
 <span class="p">};</span>
 
-<span class="n">SimpleClass</span><span class="o">::</span><span class="n">SimpleClass</span><span class="p">(</span><span class="kt">int</span> <span class="o">&amp;</span><span class="n">r</span><span class="p">,</span> <span class="k">const</span> <span class="kt">int</span> <span class="n">n</span><span class="p">)</span> <span class="o">:</span> <span class="c1">// 멤버 이니셜라이저 쓸 때 : 적는거 잊징않기</span>
+<span class="n">SimpleClass</span><span class="o">::</span><span class="n">SimpleClass</span><span class="p">(</span><span class="kt">int</span> <span class="o">&amp;</span><span class="n">r</span><span class="p">,</span> <span class="k">const</span> <span class="kt">int</span> <span class="n">n</span><span class="p">)</span> <span class="o">:</span> <span class="c1">// 멤버 이니셜라이저 쓸 때 : 적는거 잊지않기</span>
     <span class="n">ref</span><span class="p">(</span><span class="n">r</span><span class="p">),</span>    <span class="c1">// 멤버 이니셜라이저는 옆으로 쓰지않고 enter와 ,를 통해 사용할 수 도 있다 </span>
     <span class="n">CONSTANT</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
 <span class="p">{</span>
@@ -2798,6 +2810,145 @@ window.onload = wrap_img;
 </h2>
 <p><code>-</code> 이니셜라이저에서는 this 포인터를 쓸 수 없음</p>
 <p><code>-</code> 대신 이름이 같아도 컴파일러가 규칙을 통해 알아서 구분함</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 같은 type이면 접근 가능! ---&gt; 같은 클래스 내부에 묶여있음</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="복사-생성자">
+<a class="anchor" href="#%EB%B3%B5%EC%82%AC-%EC%83%9D%EC%84%B1%EC%9E%90" aria-hidden="true"><span class="octicon octicon-link"></span></a>복사 생성자<a class="anchor-link" href="#%EB%B3%B5%EC%82%AC-%EC%83%9D%EC%84%B1%EC%9E%90"> </a>
+</h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="객체-생성-초기화">
+<a class="anchor" href="#%EA%B0%9D%EC%B2%B4-%EC%83%9D%EC%84%B1-%EC%B4%88%EA%B8%B0%ED%99%94" aria-hidden="true"><span class="octicon octicon-link"></span></a>객체 생성 초기화<a class="anchor-link" href="#%EA%B0%9D%EC%B2%B4-%EC%83%9D%EC%84%B1-%EC%B4%88%EA%B8%B0%ED%99%94"> </a>
+</h2>
+<p><code>-</code> sc1의 멤버변수를 sc2로 복사한다</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div class="highlight"><pre><span></span><span class="n">SimpleClass</span> <span class="nf">sc1</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">20</span><span class="p">);</span>
+<span class="n">SimpleClass</span> <span class="n">sc2</span> <span class="o">=</span> <span class="n">sc1</span><span class="p">;</span>   <span class="c1">// 방법1</span>
+<span class="n">SimpleClass</span> <span class="nf">sc2</span><span class="p">(</span><span class="n">sc1</span><span class="p">);</span>    <span class="c1">// 방법2</span>
+<span class="c1">// 컴파얼리에 의해 자동적(묵시적)으로 방법1은 방법2로 바뀐다</span>
+<span class="c1">// 묵시적 변환을 방지하고 싶을 때는 복사 생성자 앞에 explicit이라는 keyword를 붙여주면 됨</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 방법2는 생성자호출방식으로 sc1을 복사하는데 SimpleClass(SimpleClass&amp; copy)의 생성자가 없음</p>
+<p><code>-</code> 어떻게 하는걸까?</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="디폴트-복사-생성자">
+<a class="anchor" href="#%EB%94%94%ED%8F%B4%ED%8A%B8-%EB%B3%B5%EC%82%AC-%EC%83%9D%EC%84%B1%EC%9E%90" aria-hidden="true"><span class="octicon octicon-link"></span></a>디폴트 복사 생성자<a class="anchor-link" href="#%EB%94%94%ED%8F%B4%ED%8A%B8-%EB%B3%B5%EC%82%AC-%EC%83%9D%EC%84%B1%EC%9E%90"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div class="highlight"><pre><span></span><span class="n">SimpleClass</span><span class="p">(</span><span class="k">const</span> <span class="n">SimpleClass</span><span class="o">&amp;</span> <span class="n">copy</span><span class="p">)</span> <span class="o">:</span>    <span class="c1">// 꼭 참조자(&amp;)로 매개변수를 받아아함</span>
+    <span class="n">num1</span><span class="p">(</span><span class="n">copy</span><span class="p">.</span><span class="n">num1</span><span class="p">),</span>
+    <span class="n">num2</span><span class="p">(</span><span class="n">copy</span><span class="p">.</span><span class="n">num2</span><span class="p">)</span>
+<span class="p">{</span> <span class="p">}</span>
+<span class="c1">// 복사 생성자를 정의하지 않으면 멤버 대 멤버의 복사를 진행하는 디폴트 복사 생성자가 자동 삽입됨!</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 동적할당을 통해 깊은복사를 수행함</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="얕은-복사와-깊은-복사">
+<a class="anchor" href="#%EC%96%95%EC%9D%80-%EB%B3%B5%EC%82%AC%EC%99%80-%EA%B9%8A%EC%9D%80-%EB%B3%B5%EC%82%AC" aria-hidden="true"><span class="octicon octicon-link"></span></a>얕은 복사와 깊은 복사<a class="anchor-link" href="#%EC%96%95%EC%9D%80-%EB%B3%B5%EC%82%AC%EC%99%80-%EA%B9%8A%EC%9D%80-%EB%B3%B5%EC%82%AC"> </a>
+</h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="얕은-복사">
+<a class="anchor" href="#%EC%96%95%EC%9D%80-%EB%B3%B5%EC%82%AC" aria-hidden="true"><span class="octicon octicon-link"></span></a>얕은 복사<a class="anchor-link" href="#%EC%96%95%EC%9D%80-%EB%B3%B5%EC%82%AC"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 멤버변수가 생성자에서 동적할당되고 소멸자에서 해제된다면?</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Person</span><span class="p">{</span>
+<span class="k">private</span><span class="o">:</span>
+    <span class="kt">char</span><span class="o">*</span> <span class="n">name</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">age</span><span class="p">;</span>
+
+<span class="k">public</span><span class="o">:</span>
+    <span class="n">Person</span><span class="p">(</span><span class="kt">char</span><span class="o">*</span> <span class="n">myname</span><span class="p">,</span> <span class="kt">int</span> <span class="n">myage</span><span class="p">){</span>
+        <span class="kt">int</span> <span class="n">len</span> <span class="o">=</span> <span class="n">strlen</span><span class="p">(</span><span class="n">myname</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">char</span><span class="p">[</span><span class="n">len</span><span class="p">];</span>
+        <span class="n">strcpy</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">myname</span><span class="p">);</span>
+        <span class="n">age</span> <span class="o">=</span> <span class="n">myage</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="o">~</span><span class="n">Person</span><span class="p">(){</span>
+        <span class="k">delete</span><span class="p">[]</span> <span class="n">name</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+    <span class="n">Person</span> <span class="n">man1</span><span class="p">(</span><span class="s">"Jane"</span><span class="p">,</span> <span class="mi">25</span><span class="p">);</span>
+    <span class="n">Person</span> <span class="n">man2</span> <span class="o">=</span> <span class="n">man1</span><span class="p">;</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// 포인터가 가리키는 실제 값이 복사된 것이 아니라서 위와 같은 복사를 얕은 복사라 함</span>
+</pre></div>
 
 </div>
 </div>
