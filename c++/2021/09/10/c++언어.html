@@ -96,7 +96,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      26 min read
+      30 min read
     
 </span></p>
 
@@ -298,6 +298,27 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h1"><a href="#얕은-복사와-깊은-복사">얕은 복사와 깊은 복사 </a>
 <ul>
 <li class="toc-entry toc-h2"><a href="#얕은-복사">얕은 복사 </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h1"><a href="#상속">상속 </a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#상속이란?">상속이란? </a></li>
+<li class="toc-entry toc-h2"><a href="#상속의-개념">상속의 개념 </a></li>
+<li class="toc-entry toc-h2"><a href="#상속받은-클래스의-생성자-정의">상속받은 클래스의 생성자 정의 </a></li>
+<li class="toc-entry toc-h2"><a href="#클래스의-객체-생성-과정">클래스의 객체 생성 과정 </a></li>
+<li class="toc-entry toc-h2"><a href="#클래스의-객체-소멸-과정">클래스의 객체 소멸 과정 </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h1"><a href="#Protected-키워드">Protected 키워드 </a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#Protected-접근-지시자">Protected 접근 지시자 </a></li>
+<li class="toc-entry toc-h2"><a href="#세-가지-형태의-상속">세 가지 형태의 상속 </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h1"><a href="#IS-A-관계와-HAS-A-관계">IS-A 관계와 HAS-A 관계 </a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#상속을-위한-기본-조건-:-IS-A-관계">상속을 위한 기본 조건 : IS-A 관계 </a></li>
+<li class="toc-entry toc-h2"><a href="#HAS-A-관계">HAS-A 관계 </a></li>
 </ul>
 </li>
 </ul><!--
@@ -2948,6 +2969,402 @@ window.onload = wrap_img;
 <span class="p">}</span>
 
 <span class="c1">// 포인터가 가리키는 실제 값이 복사된 것이 아니라서 위와 같은 복사를 얕은 복사라 함</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="상속">
+<a class="anchor" href="#%EC%83%81%EC%86%8D" aria-hidden="true"><span class="octicon octicon-link"></span></a>상속<a class="anchor-link" href="#%EC%83%81%EC%86%8D"> </a>
+</h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="상속이란?">
+<a class="anchor" href="#%EC%83%81%EC%86%8D%EC%9D%B4%EB%9E%80?" aria-hidden="true"><span class="octicon octicon-link"></span></a>상속이란?<a class="anchor-link" href="#%EC%83%81%EC%86%8D%EC%9D%B4%EB%9E%80?"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 공통된 속성이나 메소드를 상위 클래스로 묶는 기법</p>
+<p><code>-</code> 코드 재사용성을 높이고 중복되는 코드를 줄일 수 있음</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="상속의-개념">
+<a class="anchor" href="#%EC%83%81%EC%86%8D%EC%9D%98-%EA%B0%9C%EB%85%90" aria-hidden="true"><span class="octicon octicon-link"></span></a>상속의 개념<a class="anchor-link" href="#%EC%83%81%EC%86%8D%EC%9D%98-%EA%B0%9C%EB%85%90"> </a>
+</h2>
+<p><code>-</code> UnivStudent 클래스가 Person 클래스를 <code>상속</code></p>
+<p><code>-</code> UnivStudent 객체(인스턴스)는 Person과 UnivStduent의 멤버를 모두 가짐</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Person</span> <span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+    <span class="k">static</span> <span class="k">const</span> <span class="kt">int</span> <span class="n">NAME_SIZE</span> <span class="o">=</span> <span class="mi">50</span><span class="p">;</span>
+
+<span class="k">private</span><span class="o">:</span>
+    <span class="kt">int</span> <span class="n">age</span><span class="p">;</span>
+    <span class="kt">char</span> <span class="n">name</span><span class="p">[</span><span class="n">NAME_SIZE</span><span class="p">];</span>
+
+<span class="k">public</span><span class="o">:</span>
+    <span class="n">Person</span><span class="p">(</span><span class="kt">int</span> <span class="n">myage</span><span class="p">,</span> <span class="kt">char</span><span class="o">*</span> <span class="n">myname</span><span class="p">)</span> <span class="o">:</span> <span class="n">age</span><span class="p">(</span><span class="n">myage</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">strcpy</span><span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">name</span><span class="p">,</span> <span class="n">myname</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="kt">void</span> <span class="n">showName</span><span class="p">(){</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"name: "</span> <span class="o">&lt;&lt;</span> <span class="n">name</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kt">void</span> <span class="n">showAge</span><span class="p">(){</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"age: "</span> <span class="o">&lt;&lt;</span> <span class="n">age</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="c1">// 상속을 위해서 클래스 이름 뒤에 상속받고자 하는 클래스 이름을 아래와 같이 선언</span>
+<span class="c1">// 멤버 이니셜라이저와 비슷하게 생겼다</span>
+
+<span class="k">class</span> <span class="nc">UnivStudent</span> <span class="o">:</span> <span class="k">public</span> <span class="n">Person</span> <span class="p">{</span>    <span class="c1">// ---&gt; Person 클래스를 상속받는 방법</span>
+<span class="k">private</span><span class="o">:</span>
+    <span class="kt">char</span> <span class="n">major</span><span class="p">[</span><span class="n">MAX_SIZE</span><span class="p">];</span>
+
+<span class="k">public</span><span class="o">:</span>
+    <span class="n">UnivStudent</span><span class="p">(</span><span class="kt">int</span> <span class="n">myage</span><span class="p">,</span> <span class="kt">char</span><span class="o">*</span> <span class="n">myname</span><span class="p">,</span> <span class="kt">char</span><span class="o">*</span> <span class="n">mymajor</span><span class="p">)</span>
+        <span class="o">:</span> <span class="n">Person</span><span class="p">(</span><span class="n">myage</span><span class="p">,</span> <span class="n">myname</span><span class="p">)</span> <span class="p">{</span>     <span class="c1">// Person클래스의 생성자</span>
+        <span class="n">strcpy</span><span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">major</span><span class="p">,</span> <span class="n">mymajor</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="kt">void</span> <span class="n">showInfo</span><span class="p">(){</span>
+        <span class="k">this</span><span class="o">-&gt;</span><span class="n">showName</span><span class="p">();</span>  <span class="c1">// Person 클래스의 멤버함수</span>
+        <span class="k">this</span><span class="o">-&gt;</span><span class="n">showAge</span><span class="p">();</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"major: "</span> <span class="o">&lt;&lt;</span> <span class="n">major</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="상속받은-클래스의-생성자-정의">
+<a class="anchor" href="#%EC%83%81%EC%86%8D%EB%B0%9B%EC%9D%80-%ED%81%B4%EB%9E%98%EC%8A%A4%EC%9D%98-%EC%83%9D%EC%84%B1%EC%9E%90-%EC%A0%95%EC%9D%98" aria-hidden="true"><span class="octicon octicon-link"></span></a>상속받은 클래스의 생성자 정의<a class="anchor-link" href="#%EC%83%81%EC%86%8D%EB%B0%9B%EC%9D%80-%ED%81%B4%EB%9E%98%EC%8A%A4%EC%9D%98-%EC%83%9D%EC%84%B1%EC%9E%90-%EC%A0%95%EC%9D%98"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>UnivStudent 클래스의 생성자</li>
+</ul>
+<p><code>-</code> UnivStudent의 생성자는 Person (부모)의 멤버까지 초기화 해야함</p>
+<p><code>-</code> UnivStudent는 부모의 멤버까지 가지게 되기 때문</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 이때 Person의 생성자 호출을 통해서 부모의 멤버를 초기화 하는 것이 가장 자연스러움</p>
+<p><code>-</code>  이니셜라이저를 통해서 Person 생성자를 호출해야함!</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>만일 UnivStudent 생성자에서 부모의 멤버 변수에 직접 접근해서 초기화 하려고 한다면?</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 접근제한의 기준은 객체 단위가 아닌 클래스 단위!</p>
+<p><code>-</code> 상속을 받더라도 UnivStduent에서 Person의 private 멤버 변수에는 직접접근 제한</p>
+<p><code>-</code> public은 가능!</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div class="highlight"><pre><span></span><span class="n">UnivStudent</span><span class="p">(</span><span class="kt">int</span> <span class="n">myage</span><span class="p">,</span> <span class="kt">char</span><span class="o">*</span> <span class="n">myname</span><span class="p">,</span> <span class="kt">char</span><span class="o">*</span> <span class="n">mymajor</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="o">-&gt;</span><span class="n">age</span> <span class="o">=</span> <span class="n">myage</span><span class="p">;</span>           <span class="c1">// error</span>
+    <span class="n">strcpy</span><span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">name</span><span class="p">,</span> <span class="n">myname</span><span class="p">);</span>  <span class="c1">// error</span>
+    <span class="n">strcpy</span><span class="p">(</span><span class="n">major</span><span class="p">,</span> <span class="n">mymajor</span><span class="p">);</span>      <span class="c1">// ok(UnivStudent class)</span>
+<span class="p">}</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="클래스의-객체-생성-과정">
+<a class="anchor" href="#%ED%81%B4%EB%9E%98%EC%8A%A4%EC%9D%98-%EA%B0%9D%EC%B2%B4-%EC%83%9D%EC%84%B1-%EA%B3%BC%EC%A0%95" aria-hidden="true"><span class="octicon octicon-link"></span></a>클래스의 객체 생성 과정<a class="anchor-link" href="#%ED%81%B4%EB%9E%98%EC%8A%A4%EC%9D%98-%EA%B0%9D%EC%B2%B4-%EC%83%9D%EC%84%B1-%EA%B3%BC%EC%A0%95"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 보통 하위클래스의 생성자에서 상위클래스의 생성자 호출을 통해 초기화한다</p>
+<p><code>-</code> 상위 클래스 생성자 호출은 이니셜라이저를 사용하여 수행한다</p>
+<p><code>-</code> 그런데 이니셜라이저에서 상위클래스의 생성자를 명시적으로 적어주지 않는다면?</p>
+<p><code>-</code> 자동적으로 상위클래스의 <code>void 생성자</code>를 호출한다</p>
+<p><code>-</code> void 생성자 : 매개변수가 없는 생성자</p>
+<p><code>-</code> 이를 간단히 해보자</p>
+<ol>
+<li>
+<p>하위 클래스의 생성자 호출(아직 생성자의 body는 실행 안됨)</p>
+</li>
+<li>
+<p>이니셜라이저를 통해 상위 클래스의 생성자가 호출됨</p>
+</li>
+<li>
+<p>상위 클래스의 생성자가 호출되어 body까지 실행한 뒤 하위 클래스 생성자의 body가 실행됨</p>
+</li>
+</ol>
+<p><code>-</code> 만약 상위 클래스 생성자 호출이 명시적으로 정의되지 않으면 void 생성자 호출 및 body 실행</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="클래스의-객체-소멸-과정">
+<a class="anchor" href="#%ED%81%B4%EB%9E%98%EC%8A%A4%EC%9D%98-%EA%B0%9D%EC%B2%B4-%EC%86%8C%EB%A9%B8-%EA%B3%BC%EC%A0%95" aria-hidden="true"><span class="octicon octicon-link"></span></a>클래스의 객체 소멸 과정<a class="anchor-link" href="#%ED%81%B4%EB%9E%98%EC%8A%A4%EC%9D%98-%EA%B0%9D%EC%B2%B4-%EC%86%8C%EB%A9%B8-%EA%B3%BC%EC%A0%95"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 생성된 객체의 소멸순서는 생성순서와 반대</p>
+<p><code>-</code> 하위 클래스의 소멸자가 먼저 호출되고 그 다음에 상위 클래스의 소멸자가 호출됨</p>
+<p><code>-</code> 동적할당/해제는 해당 클래스의 생성자와 소멸자에서 수행함</p>
+<p><code>-</code> 상위 클래스에서 동적할당하고 하위 클래스에서 소멸시키는 것은 관습에서 벗어남!</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Protected-키워드">
+<a class="anchor" href="#Protected-%ED%82%A4%EC%9B%8C%EB%93%9C" aria-hidden="true"><span class="octicon octicon-link"></span></a>Protected 키워드<a class="anchor-link" href="#Protected-%ED%82%A4%EC%9B%8C%EB%93%9C"> </a>
+</h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Protected-접근-지시자">
+<a class="anchor" href="#Protected-%EC%A0%91%EA%B7%BC-%EC%A7%80%EC%8B%9C%EC%9E%90" aria-hidden="true"><span class="octicon octicon-link"></span></a>Protected 접근 지시자<a class="anchor-link" href="#Protected-%EC%A0%91%EA%B7%BC-%EC%A7%80%EC%8B%9C%EC%9E%90"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 멤버 접근 지시자에는 public, protected, private이 있음</p>
+<p><code>-</code> protected는 외부에서는 접근이 제한됨</p>
+<p><code>-</code> 하지만 자식 클래스가 부모 클래스의 멤버 직접 접근을 할 수 있게 해줌</p>
+<p><code>-</code> 제한적으로 사용되며 가능하면 기초/유도 클래스 사이에도 정보은닉이 권장됨</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">BaseClass</span><span class="p">{</span>
+<span class="k">private</span><span class="o">:</span>
+    <span class="kt">int</span> <span class="n">num1</span><span class="p">;</span>
+
+<span class="k">protected</span><span class="o">:</span>
+    <span class="kt">int</span> <span class="n">num2</span><span class="p">;</span>
+
+<span class="k">public</span><span class="o">:</span>
+    <span class="kt">int</span> <span class="n">num3</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="k">class</span> <span class="nc">DerivedClass</span> <span class="o">:</span> <span class="k">public</span> <span class="n">BaseClass</span> <span class="p">{</span> <span class="c1">// 상속</span>
+<span class="k">public</span><span class="o">:</span>
+    <span class="kt">void</span> <span class="n">show</span><span class="p">(){</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">num1</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span> <span class="c1">// error</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">num2</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span> <span class="c1">// ok</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">num3</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span> <span class="c1">// ok</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+    <span class="n">BaseClass</span> <span class="n">bc</span><span class="p">;</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">bc</span><span class="p">.</span><span class="n">num1</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span> <span class="c1">// error</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">bc</span><span class="p">.</span><span class="n">num2</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span> <span class="c1">// error</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">bc</span><span class="p">.</span><span class="n">num3</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span> <span class="c1">// ok</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="세-가지-형태의-상속">
+<a class="anchor" href="#%EC%84%B8-%EA%B0%80%EC%A7%80-%ED%98%95%ED%83%9C%EC%9D%98-%EC%83%81%EC%86%8D" aria-hidden="true"><span class="octicon octicon-link"></span></a>세 가지 형태의 상속<a class="anchor-link" href="#%EC%84%B8-%EA%B0%80%EC%A7%80-%ED%98%95%ED%83%9C%EC%9D%98-%EC%83%81%EC%86%8D"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>1.</code> Public 상속</p>
+<p><code>-</code> 접근 제어 권한을 그대로 상속(단, private은 접근 불가로 상속)</p>
+<p><code>2.</code> Protected 상속</p>
+<p><code>-</code> Protected 보다 접근 범위가 넓은 멤버는 protected 로 상속(단, private은 접근 불가로 상속)</p>
+<p><code>3.</code> Private 상속</p>
+<p><code>-</code> Private 보다 접근 범위가 넓은 멤버는 private 로 상속(단, private은 접근 불가로 상속)</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 아니 접근불가랑 private이랑 똑같은거 아님??</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> private은 클래스 내부에서는 접근 가능</p>
+<p><code>-</code> 접근불가능 클래스 내부에서도 접근 불가능</p>
+<p><code>-</code> 내생각^^</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="IS-A-관계와-HAS-A-관계">
+<a class="anchor" href="#IS-A-%EA%B4%80%EA%B3%84%EC%99%80-HAS-A-%EA%B4%80%EA%B3%84" aria-hidden="true"><span class="octicon octicon-link"></span></a>IS-A 관계와 HAS-A 관계<a class="anchor-link" href="#IS-A-%EA%B4%80%EA%B3%84%EC%99%80-HAS-A-%EA%B4%80%EA%B3%84"> </a>
+</h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="상속을-위한-기본-조건-:-IS-A-관계">
+<a class="anchor" href="#%EC%83%81%EC%86%8D%EC%9D%84-%EC%9C%84%ED%95%9C-%EA%B8%B0%EB%B3%B8-%EC%A1%B0%EA%B1%B4-:-IS-A-%EA%B4%80%EA%B3%84" aria-hidden="true"><span class="octicon octicon-link"></span></a>상속을 위한 기본 조건 : IS-A 관계<a class="anchor-link" href="#%EC%83%81%EC%86%8D%EC%9D%84-%EC%9C%84%ED%95%9C-%EA%B8%B0%EB%B3%B8-%EC%A1%B0%EA%B1%B4-:-IS-A-%EA%B4%80%EA%B3%84"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 상속 관계를 따지기 위한 최소한의 조건!</p>
+<p><code>-</code> 예시 : 무선전화기 (하위클래스) ---&gt; 전화기 (상위클래스)</p>
+<p><code>-</code> 무선 전화기는 일종의 전화기입니다 ---&gt; 무선 전화기 is a 전화기</p>
+<p><code>-</code> 무선 전화기는 전화기의 기본 기능에 새로운 특성 추가</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="HAS-A-관계">
+<a class="anchor" href="#HAS-A-%EA%B4%80%EA%B3%84" aria-hidden="true"><span class="octicon octicon-link"></span></a>HAS-A 관계<a class="anchor-link" href="#HAS-A-%EA%B4%80%EA%B3%84"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 예시 : 경찰은 총을 소유한다 ---&gt; 경찰 has a 총</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> HAS-A 관계는 보통 포함으로 표현함!</p>
+<p><code>-</code> HAS-A 관계도 상속으로 표현가능하지만...</p>
+<p><code>-</code> 이 경우 Police와 Gun은 강한 연관성을 가지게됨 (실제 의미는 그렇지 않지만(IS-A관계가 아니니까))</p>
+<p><code>-</code> 이 경우 총을 소유하지 않은 경찰이나 다른 무기를 소유한 경찰 표현이 어려워짐</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Gun</span> <span class="p">{</span>
+<span class="k">private</span><span class="o">:</span>
+    <span class="kt">int</span> <span class="n">bullet</span><span class="p">;</span>
+
+<span class="k">public</span><span class="o">:</span>
+    <span class="n">Gun</span><span class="p">(</span><span class="kt">int</span> <span class="n">bnum</span><span class="p">)</span> <span class="o">:</span> <span class="n">bullet</span><span class="p">(</span><span class="n">bnum</span><span class="p">)</span> <span class="p">{</span> <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="k">class</span> <span class="nc">Police</span> <span class="p">{</span>
+<span class="k">private</span><span class="o">:</span>
+    <span class="n">Gun</span><span class="o">*</span> <span class="n">pistol</span><span class="p">;</span>    <span class="c1">// 포함관계! police는 Gun을 가지고 있다!</span>
+
+<span class="k">public</span><span class="o">:</span>
+    <span class="n">Police</span><span class="p">(</span><span class="kt">int</span> <span class="n">bnum</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">bnum</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="n">pistol</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Gun</span><span class="p">(</span><span class="n">bnum</span><span class="p">);</span>
+        <span class="k">else</span> <span class="n">pistol</span> <span class="o">=</span> <span class="k">nullptr</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="o">~</span><span class="n">Police</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">delete</span> <span class="n">pistol</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">};</span>
 </pre></div>
 
 </div>
