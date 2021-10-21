@@ -96,7 +96,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      30 min read
+      32 min read
     
 </span></p>
 
@@ -298,6 +298,18 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h1"><a href="#얕은-복사와-깊은-복사">얕은 복사와 깊은 복사 </a>
 <ul>
 <li class="toc-entry toc-h2"><a href="#얕은-복사">얕은 복사 </a></li>
+<li class="toc-entry toc-h2"><a href="#깊은-복사">깊은 복사 </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h1"><a href="#특별한-키워드">특별한 키워드 </a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#Const-Keyword">Const Keyword </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#Const-함수">Const 함수 </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#Friend-Keyword">Friend Keyword </a></li>
+<li class="toc-entry toc-h2"><a href="#Static-Keyword">Static Keyword </a></li>
 </ul>
 </li>
 <li class="toc-entry toc-h1"><a href="#상속">상속 </a>
@@ -2937,6 +2949,8 @@ window.onload = wrap_img;
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> 멤버변수가 생성자에서 동적할당되고 소멸자에서 해제된다면?</p>
+<p><code>-</code> 얕은 복사는 객체가 소멸하게 되면 예기치 못한 오류가 발생할 수 있음</p>
+<p><code>-</code> 예로 man2 객체가 소멸되었다면 소멸자 호출로 인해 동적할당된 공간이 delete 되면서 원래 man1의 name이 가리키는 공간을 무의미하게 만듦</p>
 
 </div>
 </div>
@@ -2971,6 +2985,139 @@ window.onload = wrap_img;
 <span class="c1">// 포인터가 가리키는 실제 값이 복사된 것이 아니라서 위와 같은 복사를 얕은 복사라 함</span>
 </pre></div>
 
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="깊은-복사">
+<a class="anchor" href="#%EA%B9%8A%EC%9D%80-%EB%B3%B5%EC%82%AC" aria-hidden="true"><span class="octicon octicon-link"></span></a>깊은 복사<a class="anchor-link" href="#%EA%B9%8A%EC%9D%80-%EB%B3%B5%EC%82%AC"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 포인터가 가리키는 공간에 대해 새로운 공간을 할당해서 값 복사</p>
+<p><code>-</code> 복사 생성자를 따로 정의해주어서 깊은 복사가 되게 해줌</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div class="highlight"><pre><span></span><span class="n">Person</span><span class="p">(</span><span class="k">const</span> <span class="n">Person</span><span class="o">&amp;</span> <span class="n">copy</span><span class="p">)</span>
+    <span class="o">:</span> <span class="n">age</span><span class="p">(</span><span class="n">copy</span><span class="p">.</span><span class="n">age</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">len</span> <span class="o">=</span> <span class="n">strlen</span><span class="p">(</span><span class="n">myname</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">char</span><span class="p">[</span><span class="n">len</span><span class="p">];</span>
+    <span class="n">strcpy</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">copy</span><span class="p">.</span><span class="n">name</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="n">Person</span> <span class="n">man2</span> <span class="o">=</span> <span class="n">man1</span><span class="p">;</span>  <span class="c1">// 위의 깊은 복사를 수행하는 복사 생성자가 호출됨</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="특별한-키워드">
+<a class="anchor" href="#%ED%8A%B9%EB%B3%84%ED%95%9C-%ED%82%A4%EC%9B%8C%EB%93%9C" aria-hidden="true"><span class="octicon octicon-link"></span></a>특별한 키워드<a class="anchor-link" href="#%ED%8A%B9%EB%B3%84%ED%95%9C-%ED%82%A4%EC%9B%8C%EB%93%9C"> </a>
+</h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Const-Keyword">
+<a class="anchor" href="#Const-Keyword" aria-hidden="true"><span class="octicon octicon-link"></span></a>Const Keyword<a class="anchor-link" href="#Const-Keyword"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> const: 변수/객체 데이터의 변경을 허용하지 않겠다는 의미</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div class="highlight"><pre><span></span><span class="k">const</span> <span class="kt">int</span> <span class="n">num</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+<span class="c1">// 변수 num에 10의 값을 할당하고 이후에 변경을 허용하지 않음 (상수화)</span>
+
+<span class="k">const</span> <span class="n">SimpleClass</span> <span class="n">sc</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+<span class="c1">// 객체 sc의 상수화로 const 멤버함수만 호출 가능해짐</span>
+
+<span class="k">const</span> <span class="n">SimpleClass</span><span class="o">&amp;</span> <span class="n">ref</span> <span class="o">=</span> <span class="n">sc</span><span class="p">;</span>
+<span class="c1">// 참조자의 상수화로 역시 const 멤버함수만 호출 가능함</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Const-함수">
+<a class="anchor" href="#Const-%ED%95%A8%EC%88%98" aria-hidden="true"><span class="octicon octicon-link"></span></a>Const 함수<a class="anchor-link" href="#Const-%ED%95%A8%EC%88%98"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> const로 지정된 함수로 동일 클래스에 선언된 멤버변수의 값 변경을 할 수 없는 함수</p>
+<p><code>-</code> 함수 이름 뒤에 const keyword를 붙임</p>
+<p><code>-</code> Const 객체는 const 함수만 호출 가능</p>
+<p><code>-</code> Const 참조자도 const 멤버 함수만 호출 가능</p>
+<p><code>-</code> Const 선언 유무도 함수 오버로딩의 조건에 해당함</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Friend-Keyword">
+<a class="anchor" href="#Friend-Keyword" aria-hidden="true"><span class="octicon octicon-link"></span></a>Friend Keyword<a class="anchor-link" href="#Friend-Keyword"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 클래스의 friend 선언</p>
+<div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Boy</span><span class="p">{</span>
+    <span class="k">friend</span> <span class="k">class</span> <span class="nc">Girl</span><span class="p">;</span> <span class="c1">//어느 곳에 위치 하든 상관 없음 // Boy 클래스가 Girl 클래스를 친구라고 선언!</span>
+ <span class="c1">//...</span>
+<span class="p">};</span>
+</pre></div>
+<p><code>-</code> 친구가 된 클래스는 private 멤버 접근을 허용하는 선언</p>
+<p><code>-</code> 정보은닉에 반하기 때문에 제한적으로 사용해야함 (연산자 오버로딩에서 쓰임)</p>
+<p><code>-</code> A라는 클래스가 B라는 클래스를 친구 선언하면 B 클래스에서는 A의 private 멤버 변수 직접 접근이 가능</p>
+<p><code>-</code> 그러나 A 클래스에서는 B 클래스의 멤버 변수 직접 접근 안됨 (필요하면 서로 친구 선언 해줘야 함)</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Static-Keyword">
+<a class="anchor" href="#Static-Keyword" aria-hidden="true"><span class="octicon octicon-link"></span></a>Static Keyword<a class="anchor-link" href="#Static-Keyword"> </a>
+</h2>
 </div>
 </div>
 </div>
