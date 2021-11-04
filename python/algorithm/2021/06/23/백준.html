@@ -96,7 +96,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      96 min read
+      97 min read
     
 </span></p>
 
@@ -340,6 +340,8 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h2"><a href="#덱(deque)">덱(deque) </a>
 <ul>
 <li class="toc-entry toc-h3"><a href="#덱">덱 </a></li>
+<li class="toc-entry toc-h3"><a href="#회전하는-큐">회전하는 큐 </a></li>
+<li class="toc-entry toc-h3"><a href="#AC">AC </a></li>
 </ul>
 </li>
 <li class="toc-entry toc-h2"><a href="#이분-탐색">이분 탐색 </a>
@@ -11399,7 +11401,7 @@ NO
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">]</span>
 <span class="n">b</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span> <span class="p">,</span><span class="mi">2</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">x</span><span class="o">+</span><span class="n">y</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)))</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
@@ -13597,6 +13599,107 @@ NO
 </div>
     
 
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="회전하는-큐">
+<a class="anchor" href="#%ED%9A%8C%EC%A0%84%ED%95%98%EB%8A%94-%ED%81%90" aria-hidden="true"><span class="octicon octicon-link"></span></a>회전하는 큐<a class="anchor-link" href="#%ED%9A%8C%EC%A0%84%ED%95%98%EB%8A%94-%ED%81%90"> </a>
+</h3>
+<ul>
+<li>문제 출처: <a href="https://www.acmicpc.net/problem/1021">백준 1021번</a>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 오랜만에 풀어서 머리가 굳었음</p>
+<p><code>-</code> 일단 내 생각은 x[0]의 원소가 deque의 왼쪽 입구와 가까운지 오른쪽 입구와 가까운지 판단하는 것</p>
+<p><code>-</code> 가까운쪽으로 x[0]을 보내고 deque[0]을 pop하면 된다</p>
+<p><code>-</code> 참고로 오른쪽 입구 끝으로 간 다음에 한번더 오른쪽으로 한칸씩 이동시켜야 첫번째에 도달한다(오른쪽끝까지 가는 거리 + 1)</p>
+<p><code>-</code> x[0]의 원소를 pop하면 새로운 x[0]를 위와같이 pop하자</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">deque</span>
+
+<span class="n">N</span><span class="p">,</span> <span class="n">M</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">deque</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">())))</span>
+<span class="n">deque</span> <span class="o">=</span> <span class="n">deque</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">)))</span>
+<span class="n">min_</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="k">while</span> <span class="n">x</span><span class="p">:</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">deque</span><span class="p">)</span>
+    <span class="n">mid</span> <span class="o">=</span> <span class="n">n</span> <span class="o">//</span> <span class="mi">2</span>
+    <span class="n">loc</span> <span class="o">=</span> <span class="n">deque</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+    <span class="k">if</span> <span class="n">loc</span> <span class="o">&gt;</span> <span class="n">mid</span><span class="p">:</span>
+        <span class="k">while</span> <span class="n">deque</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">!=</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
+            <span class="n">deque</span><span class="o">.</span><span class="n">appendleft</span><span class="p">(</span><span class="n">deque</span><span class="o">.</span><span class="n">pop</span><span class="p">())</span>
+            <span class="n">min_</span> <span class="o">+=</span> <span class="mi">1</span>
+    
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">while</span> <span class="n">deque</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">!=</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
+            <span class="n">deque</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">deque</span><span class="o">.</span><span class="n">popleft</span><span class="p">())</span>
+            <span class="n">min_</span> <span class="o">+=</span> <span class="mi">1</span>
+        
+    <span class="n">deque</span><span class="o">.</span><span class="n">popleft</span><span class="p">()</span>
+    <span class="n">x</span><span class="o">.</span><span class="n">popleft</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">min_</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+</div>
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>14
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="AC">
+<a class="anchor" href="#AC" aria-hidden="true"><span class="octicon octicon-link"></span></a>AC<a class="anchor-link" href="#AC"> </a>
+</h3>
+<ul>
+<li>문제 출처: <a href="https://www.acmicpc.net/problem/5430">백준 5430번</a>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
