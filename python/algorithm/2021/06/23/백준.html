@@ -96,7 +96,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      99 min read
+      101 min read
     
 </span></p>
 
@@ -349,6 +349,7 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h3"><a href="#최대-힙">최대 힙 </a></li>
 <li class="toc-entry toc-h3"><a href="#최소-힙">최소 힙 </a></li>
 <li class="toc-entry toc-h3"><a href="#절댓값-힙">절댓값 힙 </a></li>
+<li class="toc-entry toc-h3"><a href="#가운데를-말해요">가운데를 말해요 </a></li>
 </ul>
 </li>
 <li class="toc-entry toc-h2"><a href="#이분-탐색">이분 탐색 </a>
@@ -14263,6 +14264,225 @@ NO
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="가운데를-말해요">
+<a class="anchor" href="#%EA%B0%80%EC%9A%B4%EB%8D%B0%EB%A5%BC-%EB%A7%90%ED%95%B4%EC%9A%94" aria-hidden="true"><span class="octicon octicon-link"></span></a>가운데를 말해요<a class="anchor-link" href="#%EA%B0%80%EC%9A%B4%EB%8D%B0%EB%A5%BC-%EB%A7%90%ED%95%B4%EC%9A%94"> </a>
+</h3>
+<ul>
+<li>문제 출처: <a href="https://www.acmicpc.net/problem/1655">백준 1655번</a>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 어떻게 풀지 감이 안잡혀서 질문검색 보고옴</p>
+<p><code>-</code> 중앙값을 기준으로 두개의 힙을 관리하면 된다고 한다</p>
+<p><code>-</code> 중앙값보다 큰쪽은 최소힙으로 작은쪽은 최대힙으로 만든다</p>
+<p><code>-</code> 만약 큰쪽heap과 작은쪽heap 원소 개수가 동일하다고 해보자</p>
+<p><code>-</code> input이 큰쪽heap에서 최소값보다 작으면 input을 작은쪽heap에 push하고 작은쪽heap에서 최대값이 중앙값이다</p>
+<p><code>-</code> 크거나 같으면 input을 큰쪽heap에 push하고 큰쪽heap에서 최소값이 중앙값이다</p>
+<p><code>-</code> 이번에는 큰쪽heap이 작은쪽heap원소 개수보다 1개가 더 많다고 해보자</p>
+<p><code>-</code> input이 큰쪽heap에서 최소값보다 작으면 input을 작은쪽heap에 push하고 작은쪽heap에서 최대값이 중앙값이다</p>
+<p><code>-</code> 크거나 같으면 input을 큰쪽heap에 push하고 큰쪽heap에서 pop한 원소를 작은쪽heap에 push하고 작은쪽heap에서 최대값이 중앙값이다</p>
+<p><code>-</code> 이번에는 작은쪽heap이 큰쪽heap원소 개수보다 1개가 더 많다고 해보자</p>
+<p><code>-</code> input이 큰쪽heap에서 최소값보다 크면 input을 큰쪽heap에 push하고 작은쪽heap에서 최대값이 중앙값이다</p>
+<p><code>-</code> 작거나 같으면 input을 작은쪽heap에 push하고 작은쪽heap에서 pop한 원소를 큰쪽heap에 push하고 작은쪽heap에서 최대값이 중앙값이다</p>
+<p><code>-</code> 틀린내용이 있을수도 있으니 정확한건 코드 확인하자</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">heapq</span>
+
+<span class="n">N</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+<span class="n">heap_down</span> <span class="o">=</span> <span class="p">[]</span>   <span class="c1"># 최대힙</span>
+<span class="n">heap_up</span> <span class="o">=</span> <span class="p">[]</span>   <span class="c1"># 최소힙</span>
+<span class="n">heapq</span><span class="o">.</span><span class="n">heappush</span><span class="p">(</span><span class="n">heap_up</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">()))</span>
+<span class="n">cnt</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">heap_up</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+<span class="k">if</span> <span class="n">N</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+    
+    <span class="k">if</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="n">heap_up</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">heap_up</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">heapq</span><span class="o">.</span><span class="n">heappop</span><span class="p">(</span><span class="n">heap_up</span><span class="p">)</span>
+        <span class="n">heapq</span><span class="o">.</span><span class="n">heappush</span><span class="p">(</span><span class="n">heap_down</span><span class="p">,</span> <span class="p">(</span><span class="o">-</span><span class="n">y</span><span class="p">,</span> <span class="n">y</span><span class="p">))</span>
+        <span class="n">heapq</span><span class="o">.</span><span class="n">heappush</span><span class="p">(</span><span class="n">heap_up</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+    
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">heapq</span><span class="o">.</span><span class="n">heappush</span><span class="p">(</span><span class="n">heap_down</span><span class="p">,</span> <span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="p">))</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="o">-</span><span class="mi">2</span><span class="p">):</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+    
+    <span class="k">if</span> <span class="n">cnt</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span> <span class="c1"># 개수 동일</span>
+        <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="n">heap_up</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
+            <span class="n">heapq</span><span class="o">.</span><span class="n">heappush</span><span class="p">(</span><span class="n">heap_down</span><span class="p">,</span> <span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="p">))</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">heap_down</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span>
+            <span class="n">cnt</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+            
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">heapq</span><span class="o">.</span><span class="n">heappush</span><span class="p">(</span><span class="n">heap_up</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">heap_up</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+            <span class="n">cnt</span> <span class="o">=</span> <span class="mi">1</span>
+            
+    <span class="k">elif</span> <span class="n">cnt</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span> <span class="c1"># 큰쪽이 1개 더 많음</span>
+        <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="n">heap_up</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
+            <span class="n">heapq</span><span class="o">.</span><span class="n">heappush</span><span class="p">(</span><span class="n">heap_down</span><span class="p">,</span> <span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="p">))</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">heap_down</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span>
+            
+            
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">y</span> <span class="o">=</span> <span class="n">heapq</span><span class="o">.</span><span class="n">heappop</span><span class="p">(</span><span class="n">heap_up</span><span class="p">)</span>
+            <span class="n">heapq</span><span class="o">.</span><span class="n">heappush</span><span class="p">(</span><span class="n">heap_down</span><span class="p">,</span> <span class="p">(</span><span class="o">-</span><span class="n">y</span><span class="p">,</span> <span class="n">y</span><span class="p">))</span>
+            <span class="n">heapq</span><span class="o">.</span><span class="n">heappush</span><span class="p">(</span><span class="n">heap_up</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+            
+        <span class="n">cnt</span> <span class="o">=</span> <span class="mi">0</span>
+            
+    <span class="k">else</span><span class="p">:</span> <span class="c1"># 작은쪽이 1개 더 많음(cnt == -1)</span>
+        <span class="k">if</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="n">heap_up</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
+            <span class="n">heapq</span><span class="o">.</span><span class="n">heappush</span><span class="p">(</span><span class="n">heap_up</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">heap_down</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span>
+            
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">heapq</span><span class="o">.</span><span class="n">heappush</span><span class="p">(</span><span class="n">heap_down</span><span class="p">,</span> <span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="p">))</span>
+            <span class="n">y</span> <span class="o">=</span> <span class="n">heapq</span><span class="o">.</span><span class="n">heappop</span><span class="p">(</span><span class="n">heap_down</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+            <span class="n">heapq</span><span class="o">.</span><span class="n">heappush</span><span class="p">(</span><span class="n">heap_up</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">heap_down</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span> <span class="c1"># y가 아님</span>
+            
+        <span class="n">cnt</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="c1"># input</span>
+<span class="c1"># 7</span>
+<span class="c1"># 1</span>
+<span class="c1"># 5</span>
+<span class="c1"># 2</span>
+<span class="c1"># 10</span>
+<span class="c1"># -99</span>
+<span class="c1"># 7</span>
+<span class="c1"># 5</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+</div>
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>1
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+
+</div>
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>1
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+
+</div>
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>2
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+
+</div>
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>2
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+
+</div>
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>2
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+
+</div>
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>2
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+
+</div>
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>5
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <hr>
 
 </div>
@@ -14332,7 +14552,7 @@ NO
             
     <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">right</span> <span class="o">-</span> <span class="n">left</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
-                <span class="k">break</span>
+            <span class="k">break</span>
                 
         <span class="k">if</span> <span class="n">sum_</span> <span class="o">&gt;=</span> <span class="n">M</span><span class="p">:</span>    
             <span class="n">left</span> <span class="o">=</span> <span class="n">mid</span>
