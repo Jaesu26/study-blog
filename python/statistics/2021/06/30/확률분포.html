@@ -96,7 +96,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      23 min read
+      25 min read
     
 </span></p>
 
@@ -157,6 +157,7 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h3"><a href="#균일-분포의-확률-밀도-함수">균일 분포의 확률 밀도 함수 </a></li>
 <li class="toc-entry toc-h3"><a href="#균일-분포의-기댓값과-분산">균일 분포의 기댓값과 분산 </a></li>
 <li class="toc-entry toc-h3"><a href="#균일-분포-plot">균일 분포 plot </a></li>
+<li class="toc-entry toc-h3"><a href="#연속형-확률변수의-cdf는-$U(0,-1)$을-따른다">연속형 확률변수의 cdf는 $U(0, 1)$을 따른다 </a></li>
 </ul>
 </li>
 <li class="toc-entry toc-h2"><a href="#카이제곱-분포($\chi^2$분포)">카이제곱 분포($\chi^2$분포) </a>
@@ -607,6 +608,137 @@ $</p>
 </div>
     
 
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="연속형-확률변수의-cdf는-$U(0,-1)$을-따른다">
+<a class="anchor" href="#%EC%97%B0%EC%86%8D%ED%98%95-%ED%99%95%EB%A5%A0%EB%B3%80%EC%88%98%EC%9D%98-cdf%EB%8A%94-%24U(0,-1)%24%EC%9D%84-%EB%94%B0%EB%A5%B8%EB%8B%A4" aria-hidden="true"><span class="octicon octicon-link"></span></a>연속형 확률변수의 cdf는 $U(0, 1)$을 따른다<a class="anchor-link" href="#%EC%97%B0%EC%86%8D%ED%98%95-%ED%99%95%EB%A5%A0%EB%B3%80%EC%88%98%EC%9D%98-cdf%EB%8A%94-%24U(0,-1)%24%EC%9D%84-%EB%94%B0%EB%A5%B8%EB%8B%A4"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 증명</p>
+<p>$\boldsymbol{U}=F(x)=P(\boldsymbol{X}\leq x)\\
+F_\boldsymbol{U}(u)=P(\boldsymbol{U}\leq u)=P(F(\boldsymbol{X}\leq u)=P(\boldsymbol{X}\leq F^{-1}(u))=F(F^{-1}(u))=u$</p>
+<p><code>-</code> 역함수가 없는 경우는... 몰라</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 정규분포를 예로 들자</p>
+<p><code>-</code> 정규분포에서 샘플을 뽑고 샘플을 누적분포함수에 input하자</p>
+<p><code>-</code> 그러면 output이 나오고 이를 가지고 확률밀도함수를 그리면 균일분포(0, 1)이 된다</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 일단 연속형 확률변수의 cdf 값은 $0$과 $1$ 사이에 있다</p>
+<p><code>-</code> 정규분포에서 $x$를 뽑았는데 $0$이 나왔다고 하자</p>
+<p><code>-</code> 이에 대한 누적분포함수값은 $0.5$이다</p>
+<p><code>-</code> 이를 반복하면 누적분포함수값이 많이 나올것이다</p>
+<p><code>-</code> 이를 가지고 확률밀도함수를 그리면 $uniform(0, 1)$이라는 것이다</p>
+<p><code>-</code> 즉 누적분포함수값이 $0$과 $1$사이인데 나올 가능성이 모두 같다는 것이다(?)</p>
+<p><code>-</code> 근데 하나의 누적분포함수값에는 하나의 $x$가 대응되는것 아닌가?</p>
+<p><code>-</code> 누적분포함수값이 $0.5$라면 그에 대한 $x$값은 $0$이다</p>
+<p><code>-</code> $0$과 $1$ 사이의 값을 가지는 누적분포함수값이 나올 가능성이 모두 같다면 $x$도 뽑힐 가능성이 같다(?)</p>
+<p><code>-</code> 히스토그램을 그려보면 $x$값이 $0$근처에 몰려있고 $3$이 넘어가면 거의 없는데 뭐가 같지???</p>
+<p><code>-</code> 하지만 이는 잘못됐는데 일단 실수는 무한히 많기에 정규분포에서 특정값이 나올 확률은 $0$이다</p>
+<p><code>-</code> 그러니 특정값에 대한 확률은 같다</p>
+<p><code>-</code> 그렇기에 범위로 비교하는것이 올바르다</p>
+<p><code>-</code> 그러면 $x$값이 $0$과 $1$사이에서 나올 확률이랑 $1$과 $2$사이에서 나올 확률이 같음?</p>
+<p><code>-</code> no 다름</p>
+<p><code>-</code> ??? 위에서 누적분포함수값이 나올 가능성이 모두 같다면 $x$도 뽑힐 가능성이 같다고 했잖음...</p>
+<p><code>-</code> 동일한 누적분포함수값의 범위에 대해서는 같다</p>
+<p><code>-</code> 일단 하나의 실수를 뽑았다고 치자 ---&gt; $x$는 $0$이 나왔고 이에 대한 cdf값은 $0.5$임</p>
+<p><code>-</code> cdf값은 $0$부터 $1$사이에 존재하고 $0$부터 $1$사이의 실수는 무한개이기에 cdf값이 $0.5$일 확률은 $0$이다</p>
+<p><code>-</code> 또한 $x$가 $3$ 이 나왔다고 치고 이에대한 cdf값은 대충 $0.99$라 치자 ---&gt; 이역시 확률은 $0$이다</p>
+<p><code>-</code> 그럼 범위로 따지면?</p>
+<p><code>-</code> 누적분포함수값이 $0$부터 $0.5$사이일 확률과 $0.5$부터 $1$사이일 확률은 서로 동일하다</p>
+<p><code>-</code> 바꿔말하자면 확률밀도함수 아래의 면적으로 따졌을 때 $-\infty$부터 $0$사이 면적과 $0$부터 $\infty$사이 면적은 동일하다</p>
+<p><code>-</code> 즉 정규분포에서 표본을 뽑았을 때 $x$값이 $-\infty$부터 $0$사이일 확률과 $0$부터 $\infty$사이일 확률은 같다</p>
+<p><code>-</code> 확률밀도함수에 확률은 $y$값이 아니라 면적이다</p>
+<p><code>-</code> $x$값이 $0$과 $1$사이에서 나올 확률이랑 $1$과 $2$사이에서 나올 확률은 다른데 그래프 아래의 면적이 다르다</p>
+<p><code>-</code> 그렇기에 당연히 누적분포함수값의 범위도 다르다</p>
+<p><code>-</code> 정규분포에서 cdf값이 $0.1$과 $0.3$사이일 확률과 $0.5$와 $0.7$사이일 확률은 같음</p>
+<p><code>-</code> 이는 정규분포에서 $x$값을 뽑았을 때 $-1.28\sim -0.52$일 확률과 $0\sim 0.52$일 확률이 같다는 의미</p>
+<p><code>-</code> 직접 구현하여 맞는지 확인해보자</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">norm</span> <span class="c1">## 연속형 확률변수는 정규분포로 하자</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">2021</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">loc</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">scale</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="mi">10000</span><span class="p">)</span>
+<span class="n">F_x</span> <span class="o">=</span> <span class="n">norm</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">F_x</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,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%0A">
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 정말 $U(0, 1)$를 따른다</p>
+
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
