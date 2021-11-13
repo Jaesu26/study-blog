@@ -260,8 +260,8 @@ window.onload = wrap_img;
 <p><code>-</code> 이제 양변을 t에 대해 미분하자</p>
 <p><code>-</code> $\cfrac{dM_X(t)}{dt} = 0 + E(X) + tE(X^2) + \cfrac{t^2}{2}E(X^3)+\dots$</p>
 <p><code>-</code> 이제 $t=0$을 대입하면...</p>
-<p><code>-</code> $\cfrac{dM_X(0)}{dt} = E(X)$ --&gt; 1번 미분하니 1차 적률이 구해짐</p>
-<p><code>-</code> 그럼 한 번 더 미분하면 2차 적률? --&gt; ㅇㅇ</p>
+<p><code>-</code> $\cfrac{dM_X(0)}{dt} = E(X)$ ---&gt; 1번 미분하니 1차 적률이 구해짐</p>
+<p><code>-</code> 그럼 한 번 더 미분하면 2차 적률? ---&gt; ㅇㅇ</p>
 <p><code>-</code> $\cfrac{d^2M_X(t)}{dt^2} = 0 + 0 + E(X^2) + tE(X^3)+\dots$</p>
 <p><code>-</code> 참고: $E(X)$는 $t$에 대하여 상수임</p>
 <p><code>-</code> 이제 $t=0$을 대입하면</p>
@@ -324,10 +324,10 @@ window.onload = wrap_img;
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> 균일 분포의 분산 ---&gt; 적률의 정의를 통해 구하자 ---&gt; 우선 2차 비중심 적률을 구하자</p>
-<p>$\begin{aligned}E(X^2) &amp;= \int_{a}^{b}\cfrac{1}{b-a}x^2 \;dx \\
-&amp;= \cfrac{1}{b-a}\left[\cfrac{x^3}{3}\right]_{a}^{b} \\
-&amp;= \cfrac{b^{3}-a^{3}}{3(b-a)} \\
-&amp;= \cfrac{a^2+ab+b^2}{3}\end{aligned}$</p>
+<p>$\begin{aligned}E(X^2) &amp;= \int_{a}^{b}\frac{1}{b-a}x^2 \;dx \\[10pt]
+&amp;= \frac{1}{b-a}\left[\frac{x^3}{3}\right]_{a}^{b} \\[10pt]
+&amp;= \frac{b^{3}-a^{3}}{3(b-a)} \\[10pt]
+&amp;= \frac{a^2+ab+b^2}{3}\end{aligned}$</p>
 
 </div>
 </div>
@@ -365,13 +365,11 @@ window.onload = wrap_img;
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> 기하 분포의 적률생성함수</p>
-<ul>
-<li>$M_X(t) = E(e^{tX}) \\
-= \sum\limits_{x=1}^{\infty}e^{tx}q^{x-1}p \\
-= \frac{p}{q}\sum\limits_{x=1}^{\infty}(qe^{t})^{x}\\
-= \frac{pqe^t}{q(1-qe^t)} , \; 0 \leq qe^t &lt; 1 \\
-= \frac{pe^t}{1-qe^t}$</li>
-</ul>
+<p>$\begin{aligned}M_X(t) &amp;= E(e^{tX}) \\[10pt]
+&amp;= \sum\limits_{x=1}^{\infty}e^{tx}q^{x-1}p \\[10pt]
+&amp;= \frac{p}{q}\sum\limits_{x=1}^{\infty}(qe^{t})^{x}\\[10pt]
+&amp;= \frac{pqe^t}{q(1-qe^t)} , \quad 0 \leq qe^t &lt; 1 \\[10pt]
+&amp;= \frac{pe^t}{1-qe^t}\end{aligned}$</p>
 
 </div>
 </div>
@@ -380,14 +378,12 @@ window.onload = wrap_img;
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> 기하 분포의 기댓값</p>
-<p><code>-</code> 몫의 미분: $\big\{\frac{f(x)}{g(x)}\big\}' = \frac{f'(x)g(x)-f(x)g'(x)}{(g(x))^2}$</p>
-<ul>
-<li>$E(X) = \frac{dM_X(t)}{dt} \\
-= \frac{pe^{t}(1-qe^t)-pe^{t}(-qe^t)}{(1-qe^t)^2} \\
-= \frac{pe^t}{(1-qe^t)^2} ,\; \text{$t=0$ 대입}\\
-= \frac{p}{(1-q)^2} \\
-= \frac{1}{p}$</li>
-</ul>
+<p><code>-</code> 몫의 미분: $\bigg\{\cfrac{f(x)}{g(x)}\bigg\}' = \cfrac{f'(x)g(x)-f(x)g'(x)}{(g(x))^2}$</p>
+<p>$\begin{aligned}E(X) &amp;= \frac{dM_X(t)}{dt} \\[10pt]
+&amp;= \frac{pe^{t}(1-qe^t)-pe^{t}(-qe^t)}{(1-qe^t)^2} \\[10pt]
+&amp;= \frac{pe^t}{(1-qe^t)^2} ,\quad \text{$t=0$ 대입}\\[10pt]
+&amp;= \frac{p}{(1-q)^2} \\[10pt]
+&amp;= \frac{1}{p}\end{aligned}$</p>
 
 </div>
 </div>
@@ -396,21 +392,22 @@ window.onload = wrap_img;
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> 기하 분포의 분산</p>
-<ul>
-<li>
-<p>$E(X^2) = \frac{d^2M_X(t)}{dt^2}\\
-= \frac{pe^{t}(1-qe^t)^2- 2pe^{t}(1-qe^{t})(-qe^t)}{(1-qe^t)^4}\\
-= \frac{pe^{t}(1-qe^t)((1-qe^t)+2qe^t)}{(1-qe^t)^4}\\
-= \frac{pe^{t}(1+qe^t)}{(1-qe^t)^3},\; \text{$t=0$ 대입} \\
-= \frac{p(1+q)}{(1-q)^3}\\
-= \frac{1+q}{p^2}$</p>
-</li>
-<li>
-<p>$Var(X) = E(X^2) - [E(X)]^2 \\
-= \frac{1+q}{p^2} - \big(\frac{1}{p}\big)^2\\
-= \frac{q}{p^2}$</p>
-</li>
-</ul>
+<p>$\begin{aligned}E(X^2) &amp;= \frac{d^2M_X(t)}{dt^2}\\[10pt]
+&amp;= \frac{pe^{t}(1-qe^t)^2- 2pe^{t}(1-qe^{t})(-qe^t)}{(1-qe^t)^4}\\[10pt]
+&amp;= \frac{pe^{t}(1-qe^t)((1-qe^t)+2qe^t)}{(1-qe^t)^4}\\[10pt]
+&amp;= \frac{pe^{t}(1+qe^t)}{(1-qe^t)^3},\quad \text{$t=0$ 대입} \\[10pt]
+&amp;= \frac{p(1+q)}{(1-q)^3}\\[10pt]
+&amp;= \frac{1+q}{p^2}\end{aligned}$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>$\begin{aligned}Var(X) &amp;= E(X^2) - [E(X)]^2 \\[10pt]
+&amp;= \frac{1+q}{p^2} - \big(\frac{1}{p}\big)^2\\[10pt]
+&amp;= \frac{q}{p^2}\end{aligned}$</p>
 
 </div>
 </div>
@@ -438,11 +435,9 @@ window.onload = wrap_img;
 <p><code>-</code> 이항 분포는 서로 독립이고 동일한 베르누이 분포를 따르는 확률변수들을 n개 합한 것임</p>
 <p><code>-</code> 베르누이 분포의 확률 질량 함수 $f(x) = p^{x}(1-p)^{1-x}, \; x = 0, 1$</p>
 <p><code>-</code> 베르누이 분포의 기댓값</p>
-<ul>
-<li>$E(X) = \sum\limits_{x=0}^{1}xp^{x}(1-p)^{1-x}\\
-= 0\cdot (1-p) + 1\cdot p \\
-= p$</li>
-</ul>
+<p>$\begin{aligned}E(X) &amp;= \sum\limits_{x=0}^{1}xp^{x}(1-p)^{1-x}\\[10pt]
+&amp;= 0\cdot (1-p) + 1\cdot p \\[10pt]
+&amp;= p\end{aligned}$</p>
 
 </div>
 </div>
@@ -451,18 +446,19 @@ window.onload = wrap_img;
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> 베르누이 분포의 분산</p>
-<ul>
-<li>
-<p>$E(X^2) = \sum\limits_{x=0}^{1}x^2p^x(1-p)^{1-x}\\
-= 0\cdot (1-p) + 1\cdot p \\
-= p$</p>
-</li>
-<li>
-<p>$Var(X) = E(X^2)-[E(X)]^2\\
-= p - p^2\\
-= p(1-p)$</p>
-</li>
-</ul>
+<p>$\begin{aligned}E(X^2) &amp;= \sum\limits_{x=0}^{1}x^2p^x(1-p)^{1-x}\\[10pt]
+&amp;= 0\cdot (1-p) + 1\cdot p \\[10pt]
+&amp;= p\end{aligned}$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>$\begin{aligned}Var(X) &amp;= E(X^2)-[E(X)]^2\\[10pt]
+&amp;= p - p^2\\[10pt]
+&amp;= p(1-p)\end{aligned}$</p>
 
 </div>
 </div>
@@ -474,11 +470,9 @@ window.onload = wrap_img;
 <p><code>-</code> 확률변수 $X, Y$가 독립이면 $Var(X + Y) = Var(X) + Var(Y)$</p>
 <p><code>-</code> 참고: <a href="https://datascienceschool.net/02%20mathematics/07.03%20%EB%B6%84%EC%82%B0%EA%B3%BC%20%ED%91%9C%EC%A4%80%ED%8E%B8%EC%B0%A8.html">확률변수의 합 특징</a></p>
 <p><code>-</code> 이항 분포의 기댓값 ---&gt; 이항 분포의 정의를 통해 구함: 베르누이 분포를 따르는 확률변수들의 합</p>
-<ul>
-<li>$E(X) = E\bigg(\sum\limits_{i=1}^{n}X_i\bigg) = \sum\limits_{i=1}^{n}E(X_i)\\
-= E(X_1) + E(X_2) + \dots+E(X_{n-1})+E(X_n)\\
-= \overbrace{p + \dots + p}^{n \rm\ times} = np$</li>
-</ul>
+<p>$\begin{aligned}E(X) &amp;= E\bigg(\sum\limits_{i=1}^{n}X_i\bigg) = \sum\limits_{i=1}^{n}E(X_i)\\[10pt]
+&amp;= E(X_1) + E(X_2) + \dots+E(X_{n-1})+E(X_n)\\[10pt]
+&amp;= \overbrace{p + \dots + p}^{n \rm\ times} = np\end{aligned}$</p>
 
 </div>
 </div>
@@ -487,11 +481,9 @@ window.onload = wrap_img;
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> 이항 분포의 분산 --&gt; 기댓값과 마찬가지</p>
-<ul>
-<li>$Var(X) = Var\bigg(\sum\limits_{i=1}^{n}X_i\bigg) = \sum\limits_{i=1}^{n}Var(X_i)\\
-= Var(X_1)+Var(X_2)+\dots+Var(X_{n-1})+Var(X_n)\\
-= \overbrace{p(1-p)+\dots+p(1-p)}^{n \rm\ times} = np(1-p)$</li>
-</ul>
+<p>$\begin{aligned}Var(X) &amp;= Var\bigg(\sum\limits_{i=1}^{n}X_i\bigg) = \sum\limits_{i=1}^{n}Var(X_i)\\[10pt]
+&amp;= Var(X_1)+Var(X_2)+\dots+Var(X_{n-1})+Var(X_n)\\[10pt]
+&amp;= \overbrace{p(1-p)+\dots+p(1-p)}^{n \rm\ times} = np(1-p)\end{aligned}$</p>
 
 </div>
 </div>
@@ -500,16 +492,12 @@ window.onload = wrap_img;
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> 이항 정리</p>
-<ul>
-<li>$(x+y)^n = \sum\limits_{k=0}^{n}\binom{n}{k}x^{n-k}y^{k}$</li>
-</ul>
+<p><code>-</code> $(x+y)^n = \sum\limits_{k=0}^{n}\binom{n}{k}x^{n-k}y^{k}$</p>
 <p><code>-</code> 이항 분포의 적률생성함수</p>
-<ul>
-<li>$M_{X}(t) = E(e^{tX})\\
-= \sum\limits_{x=0}^{n}\binom{n}{x}e^{tx}p^{x}\,(1-p)^{n-x}\\
-= \sum\limits_{x=0}^{n}\binom{n}{x}(pe^{t})^{x}\,(1-p)^{n-x}\\
-= (1-p+pe^{t})^n$</li>
-</ul>
+<p>$\begin{aligned}M_{X}(t) &amp;= E(e^{tX})\\[10pt]
+&amp;= \sum\limits_{x=0}^{n}\binom{n}{x}e^{tx}p^{x}\,(1-p)^{n-x}\\[10pt]
+&amp;= \sum\limits_{x=0}^{n}\binom{n}{x}(pe^{t})^{x}\,(1-p)^{n-x}\\[10pt]
+&amp;= (1-p+pe^{t})^n\end{aligned}$</p>
 
 </div>
 </div>
@@ -519,9 +507,7 @@ window.onload = wrap_img;
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> 이항 분포의 기댓값 ---&gt; 적률생성함수 미분해서 구하기</p>
 <p><code>-</code> 합성함수의 미분</p>
-<ul>
-<li>$\big\{f(g(x))\big\}' = g'(x)f'(g(x))$</li>
-</ul>
+<p><code>-</code> $\big\{f(g(x))\big\}' = g'(x)f'(g(x))$</p>
 
 </div>
 </div>
@@ -529,11 +515,9 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li>$E(X) = \frac{dM_X(t)}{dt} \\
-= npe^t(1-p+pe^t)^{n-1},\;\text{$t=0$ 대입}\\
-= np$</li>
-</ul>
+<p>$\begin{aligned}E(X) &amp;= \frac{dM_X(t)}{dt} \\[10pt]
+&amp;= npe^t(1-p+pe^t)^{n-1},\quad\text{$t=0$ 대입}\\[10pt]
+&amp;= np\end{aligned}$</p>
 
 </div>
 </div>
@@ -542,24 +526,23 @@ window.onload = wrap_img;
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> 곱의 미분</p>
-<ul>
-<li>$\big\{f(x)g(x)\big\}'=f'(x)g(x)+f(x)g'(x)$</li>
-</ul>
+<p><code>-</code> $\big\{f(x)g(x)\big\}'=f'(x)g(x)+f(x)g'(x)$</p>
 <p><code>-</code> 이항 분포의 분산 ---&gt; 적률생성함수 미분해서 구하기</p>
-<ul>
-<li>
-<p>$E(X^2) = \frac{d^2M_X(t)}{dt^2}\\
-= npe^{t}\cdot(1-p+pe^t)^{n-1}+npe^{t}\cdot (n-1)pe^{t}(1-p+pe^{t})^{n-2},\; \text{$t=0$ 대입}\\
-=np+np^{2}(n-1)\\
-= np-np^2+n^2p^2$</p>
-</li>
-<li>
-<p>$Var(X) = E(X^2)-[E(X)]^2\\
-= np-np^2+n^2p^2-(np)^2\\
-= np-np^2\\
-=np(1-p)$</p>
-</li>
-</ul>
+<p>$\begin{aligned}E(X^2) &amp;= \frac{d^2M_X(t)}{dt^2}\\[10pt]
+&amp;= npe^{t}\cdot(1-p+pe^t)^{n-1}+npe^{t}\cdot (n-1)pe^{t}(1-p+pe^{t})^{n-2},\quad \text{$t=0$ 대입}\\[10pt]
+&amp;=np+np^{2}(n-1)\\[10pt]
+&amp;= np-np^2+n^2p^2\end{aligned}$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>$\begin{aligned}Var(X) &amp;= E(X^2)-[E(X)]^2\\[10pt]
+&amp;= np-np^2+n^2p^2-(np)^2\\[10pt]
+&amp;= np-np^2\\[10pt]
+&amp;=np(1-p)\end{aligned}$</p>
 
 </div>
 </div>
@@ -593,10 +576,8 @@ window.onload = wrap_img;
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> $a$에서 $f$의 <code>테일러 급수</code></p>
-<ul>
-<li>$f(x) = \sum\limits_{n=0}^{\infty}\frac{f^{(n)}(a)}{n!}(x-a)^{n}\\
-= f(a) + \frac{f'(a)}{1!}(x-a)+\frac{f''(a)}{2!}(x-a)^2+\frac{f'''(a)}{3!}(x-a)^3+\cdots$</li>
-</ul>
+<p>$\begin{aligned}f(x) &amp;= \sum\limits_{n=0}^{\infty}\frac{f^{(n)}(a)}{n!}(x-a)^{n}\\[10pt]
+&amp;= f(a) + \frac{f'(a)}{1!}(x-a)+\frac{f''(a)}{2!}(x-a)^2+\frac{f'''(a)}{3!}(x-a)^3+\cdots\end{aligned}$</p>
 
 </div>
 </div>
@@ -605,10 +586,8 @@ window.onload = wrap_img;
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> $a=0$인 특별한 경우 <code>매클로린 급수</code>라고 함</p>
-<ul>
-<li>$f(x) = \sum\limits_{n=0}^{\infty}\frac{f^{(n)}(0)}{n!}x^n\\
-= f(0) + \frac{f'(0)}{1!}x+\frac{f''(0)}{2!}x^2+\frac{f'''(0)}{3!}x^3+\cdots$</li>
-</ul>
+<p>$\begin{aligned}f(x) &amp;= \sum\limits_{n=0}^{\infty}\frac{f^{(n)}(0)}{n!}x^n\\[10pt]
+&amp;= f(0) + \frac{f'(0)}{1!}x+\frac{f''(0)}{2!}x^2+\frac{f'''(0)}{3!}x^3+\cdots\end{aligned}$</p>
 
 </div>
 </div>
@@ -617,9 +596,7 @@ window.onload = wrap_img;
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> $e^x$의 매클로린 급수</p>
-<ul>
-<li>$e^x = \sum\limits^{\infty}_{n=0}\frac{x^n}{n!}$</li>
-</ul>
+<p><code>-</code> $e^x = \sum\limits^{\infty}_{n=0}\cfrac{x^n}{n!}$</p>
 
 </div>
 </div>
@@ -627,7 +604,7 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> 포아송 분포의 확률 질량 함수: $f(x) = \frac{e^{-\lambda}\lambda^{x}}{x!}$</p>
+<p><code>-</code> 포아송 분포의 확률 질량 함수: $f(x) = \cfrac{e^{-\lambda}\lambda^{x}}{x!}$</p>
 
 </div>
 </div>
@@ -636,14 +613,11 @@ window.onload = wrap_img;
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> 포아송 분포의 적률생성함수</p>
-<ul>
-<li>$M_X(t) = E(e^{tX})\\
-= \sum\limits_{x=0}^{\infty}e^{tx}\frac{e^{-\lambda}\lambda^{x}}{x!}\\
-=e^{-\lambda}\sum\limits_{x=0}^{\infty}\frac{(\lambda e^{t})^{x}}{x!} \quad \text{$\therefore\lambda e^t \to x,\;x \to n$ 으로 바꾸면 $e^x$의 매클로린 급수이다}\\
-= e^{-\lambda}\cdot e^{\lambda e^{t}}\\
-= e^{\lambda(e^{t}-1)}
-$</li>
-</ul>
+<p>$\begin{aligned}M_X(t) &amp;= E(e^{tX})\\[10pt]
+&amp;= \sum\limits_{x=0}^{\infty}e^{tx}\frac{e^{-\lambda}\lambda^{x}}{x!}\\[10pt]
+&amp;=e^{-\lambda}\sum\limits_{x=0}^{\infty}\frac{(\lambda e^{t})^{x}}{x!} \quad \text{$\therefore\lambda e^t \to x,\quad x \to n$ 으로 바꾸면 $e^x$의 매클로린 급수이다}\\[10pt]
+&amp;= e^{-\lambda}\cdot e^{\lambda e^{t}}\\[10pt]
+&amp;= e^{\lambda(e^{t}-1)}\end{aligned}$</p>
 
 </div>
 </div>
@@ -654,14 +628,12 @@ $</li>
 <p><code>-</code> 포아송 분포의 기댓값</p>
 <p><code>-</code> $e^{-\lambda}$ 는 변수가 아니므로 $e^{\lambda e^{t}}$ 에 대해서만 미분하면 된다</p>
 <p><code>-</code> $y =e^{t}, \; \frac{d}{dy}(y) = e^{t}$</p>
-<ul>
-<li>$E(X) = \frac{dM_X(t)}{dt} \\
-=e^{-\lambda}\cdot(e^{\lambda y})' \\
-= e^{-\lambda}\cdot\lambda e^{\lambda y}\cdot \frac{d}{dy}(y) \\
-= e^{-\lambda}\cdot\lambda e^{\lambda e^{t}}\cdot e^{t},\; \text{$t=0$ 대입}\\
-= \lambda \cdot e^{-\lambda}\cdot e^{\lambda}\\
-= \lambda$</li>
-</ul>
+<p>$\begin{aligned}E(X) &amp;= \frac{dM_X(t)}{dt} \\[10pt]
+&amp;=e^{-\lambda}\cdot(e^{\lambda y})' \\[10pt]
+&amp;= e^{-\lambda}\cdot\lambda e^{\lambda y}\cdot \frac{d}{dy}(y) \\[10pt]
+&amp;= e^{-\lambda}\cdot\lambda e^{\lambda e^{t}}\cdot e^{t},\quad \text{$t=0$ 대입}\\[10pt]
+&amp;= \lambda \cdot e^{-\lambda}\cdot e^{\lambda}\\[10pt]
+&amp;= \lambda\end{aligned}$</p>
 
 </div>
 </div>
@@ -670,19 +642,20 @@ $</li>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> 포아송 분포의 분산</p>
-<ul>
-<li>
-<p>$E(X^2) = \frac{d^2M_X(t)}{dt^2}\\
-= \lambda e^{-\lambda}\cdot\big([\lambda e^{\lambda e^{t}}\cdot e^{t}]\cdot [e^{t}] + [e^{\lambda e^{t}}]\cdot[e^{t}]\big), \; \text{$t=0$ 대입}\\
-= \lambda e^{-\lambda}(\lambda e^{\lambda}+e^{\lambda})\\
-= \lambda^{2}+\lambda$</p>
-</li>
-<li>
-<p>$Var(X) = E(X^2)-[E(X)]^{2}\\
-= \lambda^{2}+\lambda - \lambda^{2}\\
-= \lambda$</p>
-</li>
-</ul>
+<p>$\begin{aligned}E(X^2) &amp;= \frac{d^2M_X(t)}{dt^2}\\[10pt]
+&amp;= \lambda e^{-\lambda}\cdot\big([\lambda e^{\lambda e^{t}}\cdot e^{t}]\cdot [e^{t}] + [e^{\lambda e^{t}}]\cdot[e^{t}]\big), \quad \text{$t=0$ 대입}\\[10pt]
+&amp;= \lambda e^{-\lambda}(\lambda e^{\lambda}+e^{\lambda})\\[10pt]
+&amp;= \lambda^{2}+\lambda\end{aligned}$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>$\begin{aligned}Var(X) &amp;= E(X^2)-[E(X)]^{2}\\[10pt]
+&amp;= \lambda^{2}+\lambda - \lambda^{2}\\[10pt]
+&amp;= \lambda\end{aligned}$</p>
 
 </div>
 </div>
@@ -724,7 +697,7 @@ $</li>
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> 지수 분포의 기댓값</p>
 <p>$\begin{aligned}E(X) &amp;= \frac{dM_X(t)}{dt}\\[10pt]
-&amp;= \frac{\lambda}{(\lambda - t)^2}, \; \text{$t=0$ 대입}\\[10pt]
+&amp;= \frac{\lambda}{(\lambda - t)^2}, \quad \text{$t=0$ 대입}\\[10pt]
 &amp;= \frac{1}{\lambda}\end{aligned}$</p>
 
 </div>
@@ -743,7 +716,7 @@ $</li>
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>$\begin{aligned}E(X^2) &amp;= \frac{d^2M_X(t)}{dt^2}\\[10pt]
 &amp;= -\frac{-2\lambda(\lambda-t) }{(\lambda-t)^4}\\[10pt]
-&amp;= \frac{2\lambda}{(\lambda - t)^3}, \;\text{$t=0$ 대입}\\[10pt]
+&amp;= \frac{2\lambda}{(\lambda - t)^3}, \quad\text{$t=0$ 대입}\\[10pt]
 &amp;= \frac{2}{\lambda^2}\end{aligned}$</p>
 <p>$\begin{aligned}Var(X) &amp;= E(X^2) - [E(X)]^2\\[10pt]
 &amp;= \frac{2}{\lambda^2} - \bigg(\frac{1}{\lambda}\bigg)^2\\[10pt]
@@ -764,7 +737,7 @@ $</li>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> 베타 분포의 확률 밀도 함수: $f(x)=\frac{1}{B(\alpha, \beta)}x^{\alpha-1}(1-x)^{\beta-1}, \quad 0\leq x \leq1, \;(\alpha , \beta&gt;0)$</p>
+<p><code>-</code> 베타 분포의 확률 밀도 함수: $f(x)=\cfrac{1}{B(\alpha, \beta)}x^{\alpha-1}(1-x)^{\beta-1}, \quad 0\leq x \leq1, \;(\alpha , \beta&gt;0)$</p>
 
 </div>
 </div>
@@ -789,15 +762,20 @@ $</li>
 <p><code>-</code> 원래는 성공횟수가 ${\alpha-1}$, 실패횟수가${\beta-1}$인 베타분포인데 성공횟수가 ${\alpha}$, 실패횟수가${\beta-1}$로 바뀌었음</p>
 <p><code>-</code> 그런데 어자피 베타분포는 확률 밀도 함수이므로 정의역구간을 적분하면 $1$이므로 상관없다 ---&gt; 하지만 바뀐 베타분포의 상수(베타 함수)가 아닌 기존 베타분포의 상수가 곱해져있는데???</p>
 <p><code>-</code> 어자피 상수는 적분에 영향을 주지 못하니까 상수항은 임의로 맞춰주면 된다</p>
-<ul>
-<li>$E(X) = \int_{0}^{1}x\frac{1}{B(\alpha, \beta)}x^{\alpha-1}(1-x)^{\beta-1}\;dx\\
-=\frac{1}{B(\alpha, \beta)}\int_{0}^{1}x^{\alpha}(1-x)^{\beta-1}\;dx \quad \text{$\therefore\frac{1}{B(\alpha+1, \beta)}$을 곱해주어 베타 분포를 만들자}\\
-=\frac{B(\alpha+1, \beta)}{B(\alpha, \beta)}\int_{0}^{1}\frac{1}{B(\alpha+1, \beta)}x^{\alpha}(1-x)^{\beta-1}\;dx \\
-=\frac{B(\alpha+1, \beta)}{B(\alpha, \beta)}\cdot 1\\
-=\frac{\Gamma(\alpha + \beta)}{\Gamma(\alpha)\Gamma(\beta)}\cdot\frac{\Gamma(\alpha+1)\Gamma(\beta)}{\Gamma(\alpha + \beta+1)}\quad \text{$\therefore$ 감마함수의 성질: $\Gamma(\alpha+1) = \alpha\Gamma(\alpha)$}\\
-=\frac{\Gamma(\alpha + \beta)}{\Gamma(\alpha)\Gamma(\beta)}\cdot\frac{\alpha\Gamma(\alpha)\Gamma(\beta)}{(\alpha+\beta)\Gamma(\alpha + \beta)}\\
-=\frac{\alpha}{\alpha+\beta}$</li>
-</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>$\begin{aligned}E(X) &amp;= \int_{0}^{1}x\frac{1}{B(\alpha, \beta)}x^{\alpha-1}(1-x)^{\beta-1}\;dx\\[10pt]
+&amp;=\frac{1}{B(\alpha, \beta)}\int_{0}^{1}x^{\alpha}(1-x)^{\beta-1}\;dx \quad \text{$\therefore\frac{1}{B(\alpha+1, \beta)}$을 곱해주어 베타 분포를 만들자}\\[10pt]
+&amp;=\frac{B(\alpha+1, \beta)}{B(\alpha, \beta)}\int_{0}^{1}\frac{1}{B(\alpha+1, \beta)}x^{\alpha}(1-x)^{\beta-1}\;dx \\[10pt]
+&amp;=\frac{B(\alpha+1, \beta)}{B(\alpha, \beta)}\cdot 1\\
+&amp;=\frac{\Gamma(\alpha + \beta)}{\Gamma(\alpha)\Gamma(\beta)}\cdot\frac{\Gamma(\alpha+1)\Gamma(\beta)}{\Gamma(\alpha + \beta+1)}\quad \text{$\therefore$ 감마함수의 성질: $\Gamma(\alpha+1) = \alpha\Gamma(\alpha)$}\\[10pt]
+&amp;=\frac{\Gamma(\alpha + \beta)}{\Gamma(\alpha)\Gamma(\beta)}\cdot\frac{\alpha\Gamma(\alpha)\Gamma(\beta)}{(\alpha+\beta)\Gamma(\alpha + \beta)}\\[10pt]
+&amp;=\frac{\alpha}{\alpha+\beta}\end{aligned}$</p>
 
 </div>
 </div>
@@ -807,25 +785,27 @@ $</li>
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> 베타 분포의 분산 ---&gt; 적률의 정의를 통해 구하자 ---&gt; 우선 2차 비중심 적률을 구하자</p>
 <p><code>-</code> 베타 분포의 기댓값을 구할 때와 같은 방법을 사용하자</p>
-<ul>
-<li>
-<p>$E(X^2) = \int_{0}^{1}x^{2}\frac{1}{B(\alpha, \beta)}x^{\alpha-1}(1-x)^{\beta-1}\;dx\\
-=\frac{1}{B(\alpha, \beta)}\int_{0}^{1}x^{\alpha+1}(1-x)^{\beta-1}\;dx \quad \text{$\therefore\frac{1}{B(\alpha+2, \beta)}$을 곱해주어 베타 분포를 만들자}\\
-=\frac{B(\alpha+2, \beta)}{B(\alpha, \beta)}\int_{0}^{1}\frac{1}{B(\alpha+2, \beta)}x^{\alpha+1}(1-x)^{\beta-1}\;dx \\
-=\frac{B(\alpha+2, \beta)}{B(\alpha, \beta)}\cdot 1\\
-=\frac{\Gamma(\alpha + \beta)}{\Gamma(\alpha)\Gamma(\beta)}\cdot\frac{\Gamma(\alpha+2)\Gamma(\beta)}{\Gamma(\alpha + \beta+2)}\quad \text{$\therefore\Gamma(\alpha+1) = \alpha\Gamma(\alpha)$}\\
-=\frac{\Gamma(\alpha + \beta)}{\Gamma(\alpha)\Gamma(\beta)}\cdot\frac{\alpha(\alpha+1)\Gamma(\alpha)\Gamma(\beta)}{(\alpha+\beta+1)(\alpha+\beta)\Gamma(\alpha + \beta)}\\
-=\frac{\alpha(\alpha+1)}{(\alpha+\beta)(\alpha+\beta+1)}$</p>
-</li>
-<li>
-<p>$Var(X) = E(X^2) - [E(X)]^2\\
-=\frac{\alpha(\alpha+1)}{(\alpha+\beta)(\alpha+\beta+1)} - \big(\frac{\alpha}{\alpha+\beta}\big)^{2}\\
-= \frac{\alpha}{\alpha+\beta}\big(\frac{\alpha+1}{\alpha+\beta+1}-\frac{\alpha}{\alpha+\beta}\big)\\
-=\frac{\alpha}{\alpha+\beta}\big(\frac{(\alpha+1)(\alpha+\beta)}{(\alpha+\beta)(\alpha+\beta+1)}-\frac{\alpha(\alpha+\beta+1)}{(\alpha+\beta)(\alpha+\beta+1)}\big)\\
-=\frac{\alpha}{\alpha+\beta}\cdot\frac{\beta}{(\alpha+\beta)(\alpha+\beta+1)}\\
-=\frac{\alpha\beta}{(\alpha+\beta)^{2}(\alpha+\beta+1)}$</p>
-</li>
-</ul>
+<p>$\begin{aligned}E(X^2) &amp;= \int_{0}^{1}x^{2}\frac{1}{B(\alpha, \beta)}x^{\alpha-1}(1-x)^{\beta-1}\;dx\\[10pt]
+&amp;=\frac{1}{B(\alpha, \beta)}\int_{0}^{1}x^{\alpha+1}(1-x)^{\beta-1}\;dx \quad \text{$\therefore\frac{1}{B(\alpha+2, \beta)}$을 곱해주어 베타 분포를 만들자}\\[10pt]
+&amp;=\frac{B(\alpha+2, \beta)}{B(\alpha, \beta)}\int_{0}^{1}\frac{1}{B(\alpha+2, \beta)}x^{\alpha+1}(1-x)^{\beta-1}\;dx \\[10pt]
+&amp;=\frac{B(\alpha+2, \beta)}{B(\alpha, \beta)}\cdot 1\\[10pt]
+&amp;=\frac{\Gamma(\alpha + \beta)}{\Gamma(\alpha)\Gamma(\beta)}\cdot\frac{\Gamma(\alpha+2)\Gamma(\beta)}{\Gamma(\alpha + \beta+2)}
+\quad \text{$\therefore\Gamma(\alpha+1) = \alpha\Gamma(\alpha)$}\\[10pt]
+&amp;=\frac{\Gamma(\alpha + \beta)}{\Gamma(\alpha)\Gamma(\beta)}\cdot\frac{\alpha(\alpha+1)\Gamma(\alpha)\Gamma(\beta)}{(\alpha+\beta+1)(\alpha+\beta)\Gamma(\alpha + \beta)}\\[10pt]
+&amp;=\frac{\alpha(\alpha+1)}{(\alpha+\beta)(\alpha+\beta+1)}\end{aligned}$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>$\begin{aligned}Var(X) &amp;= E(X^2) - [E(X)]^2\\[10pt]
+&amp;=\frac{\alpha(\alpha+1)}{(\alpha+\beta)(\alpha+\beta+1)} - \bigg(\frac{\alpha}{\alpha+\beta}\bigg)^{2}\\[10pt]
+&amp;= \frac{\alpha}{\alpha+\beta}\bigg(\frac{\alpha+1}{\alpha+\beta+1}-\frac{\alpha}{\alpha+\beta}\bigg)\\[10pt]
+&amp;=\frac{\alpha}{\alpha+\beta}\bigg(\frac{(\alpha+1)(\alpha+\beta)}{(\alpha+\beta)(\alpha+\beta+1)}-\frac{\alpha(\alpha+\beta+1)}{(\alpha+\beta)(\alpha+\beta+1)}\bigg)\\[10pt]
+&amp;=\frac{\alpha}{\alpha+\beta}\cdot\frac{\beta}{(\alpha+\beta)(\alpha+\beta+1)}\\[10pt]
+&amp;=\frac{\alpha\beta}{(\alpha+\beta)^{2}(\alpha+\beta+1)}\end{aligned}$</p>
 
 </div>
 </div>
@@ -842,9 +822,9 @@ $</li>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> 감마 분포의 확률 밀도 함수: $f(x) = \frac{1}{\beta^{\alpha}\Gamma(\alpha)}x^{\alpha - 1}e^{-\frac{x}{\beta}},(x,\alpha, \beta \geq 0)$</p>
+<p><code>-</code> 감마 분포의 확률 밀도 함수: $f(x) = \cfrac{1}{\beta^{\alpha}\Gamma(\alpha)}x^{\alpha - 1}e^{-\frac{x}{\beta}},(x,\alpha, \beta \geq 0)$</p>
 <p><code>-</code> 감마 함수: $\Gamma(\alpha) = \int_{0}^{\infty}x^{\alpha-1}e^{-x}dx,\,\alpha \geq 0$</p>
-<p><code>-</code> 감마 함수를 살짝 변형하면 $\int_{0}^{\infty}\frac{1}{\Gamma(\alpha)}x^{\alpha-1}e^{-x}dx = 1$</p>
+<p><code>-</code> 감마 함수를 살짝 변형하면 $\int_{0}^{\infty}\cfrac{1}{\Gamma(\alpha)}x^{\alpha-1}e^{-x}dx = 1$</p>
 <p><code>-</code> 위의 식을 감마 분포의 적률생성함수를 구하는데 사용할 것임</p>
 
 </div>
@@ -854,15 +834,15 @@ $</li>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> 감마 분포의 적률생성함수 ---&gt; $t=0$ 근방임을 잊지말자</p>
-<ul>
-<li>$M_X(t) = E(e^{tX})\\ 
-= \int_{0}^{\infty}\frac{1}{\beta^{\alpha}\Gamma(\alpha)}x^{\alpha - 1}e^{-\frac{x}{\beta}}e^{tx}\;dx\quad \text{$\therefore$ 감마함수의 적분을 이용하기 위해 치환}\\
-= \frac{1}{\beta^\alpha}\int_{0}^{\infty}\frac{1}{\Gamma(\alpha)}x^{\alpha - 1}e^{\big(t-\frac{1}{\beta}\big)x}\;dx \quad \text{$\therefore\big(t-\frac{1}{\beta}\big)x=-y,\; dx=\frac{\beta}{1-\beta t}dy$}\\
-= \frac{1}{\beta^\alpha}\int_{0}^{\infty}\frac{1}{\Gamma(\alpha)}\big(\frac{\beta}{1-\beta t}y\big)^{\alpha - 1}e^{-y}\frac{\beta}{1-\beta t}\;dy \quad \text{$\therefore x=\frac{\beta}{1-\beta t}y,\;x=0\to y=0,\;x=\infty\to y=\infty,\;\big(t&lt;\frac{1}{\beta}\big)$}\\
-= \frac{1}{\beta^\alpha}\big(\frac{\beta}{1-\beta t}\big)^{\alpha}\int_{0}^{\infty}\frac{1}{\Gamma(\alpha)}y^{\alpha - 1}e^{-y}\;dy\quad\text{$\therefore \int_{0}^{\infty}\frac{1}{\Gamma(\alpha)}y^{\alpha-1}e^{-y}dy = 1$, 위에 참고}\\
-=\big(\frac{1}{1-\beta t}\big)^{\alpha}, \quad t&lt;\frac{1}{\beta}
-$</li>
-</ul>
+<p>$\begin{aligned}M_X(t) &amp;= E(e^{tX})\\[10pt] 
+&amp;= \int_{0}^{\infty}\frac{1}{\beta^{\alpha}\Gamma(\alpha)}x^{\alpha - 1}e^{-\frac{x}{\beta}}e^{tx}\;dx\quad \text{$\therefore$ 감마함수의 적분을 이용하기 위해 치환}\\[10pt]
+&amp;= \frac{1}{\beta^\alpha}\int_{0}^{\infty}\frac{1}{\Gamma(\alpha)}x^{\alpha - 1}e^{\Big(t-\frac{1}{\beta}\Big)x}\;dx
+\quad \text{$\therefore\bigg(t-\frac{1}{\beta}\bigg)x=-y,\quad dx=\frac{\beta}{1-\beta t}dy$}\\[10pt]
+&amp;= \frac{1}{\beta^\alpha}\int_{0}^{\infty}\frac{1}{\Gamma(\alpha)}\bigg(\frac{\beta}{1-\beta t}y\bigg)^{\alpha - 1}e^{-y}\frac{\beta}{1-\beta t}\;dy
+\quad \text{$\therefore x=\frac{\beta}{1-\beta t}y,\;x=0\to y=0,\;x=\infty\to y=\infty,\;\bigg(t&lt;\frac{1}{\beta}\bigg)$}\\[10pt]
+&amp;= \frac{1}{\beta^\alpha}\bigg(\frac{\beta}{1-\beta t}\bigg)^{\alpha}\int_{0}^{\infty}\frac{1}{\Gamma(\alpha)}y^{\alpha - 1}e^{-y}\;dy
+\quad\text{$\therefore \int_{0}^{\infty}\frac{1}{\Gamma(\alpha)}y^{\alpha-1}e^{-y}dy = 1$, 위에 참고}\\[10pt]
+&amp;=\bigg(\frac{1}{1-\beta t}\bigg)^{\alpha}, \quad t&lt;\frac{1}{\beta}\end{aligned}$</p>
 
 </div>
 </div>
@@ -870,17 +850,13 @@ $</li>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> 감마 분포의 기댓값
-</p>
-<ul>
-<li>$E(X) = \frac{dM_X(t)}{dt} \\
-=\alpha\big(\frac{1}{1-\beta t}\big)^{\alpha-1}\cdot\frac{d}{dt}\big(\frac{1}{1-\beta t}\big)\\
-=\alpha\big(\frac{1}{1-\beta t}\big)^{\alpha-1}\cdot\frac{\beta}{(1-\beta t)^2}\\
-=\frac{\alpha\beta}{(1-\beta t)^{\alpha+1}},\; \text{$t=0$ 대입}\\
-=\alpha\beta
-$
-</li>
-</ul>
+<p><code>-</code> 감마 분포의 기댓값</p>
+<p>$\begin{aligned}E(X) =&amp; \frac{dM_X(t)}{dt} \\[10pt]
+&amp;=\alpha\bigg(\frac{1}{1-\beta t}\bigg)^{\alpha-1}\cdot\frac{d}{dt}\bigg(\frac{1}{1-\beta t}\bigg)\\[10pt]
+&amp;=\alpha\bigg(\frac{1}{1-\beta t}\bigg)^{\alpha-1}\cdot\frac{\beta}{(1-\beta t)^2}\\[10pt]
+&amp;=\frac{\alpha\beta}{(1-\beta t)^{\alpha+1}},\quad \text{$t=0$ 대입}\\[10pt]
+&amp;=\alpha\beta\end{aligned}$</p>
+<p></p>
 
 </div>
 </div>
@@ -888,23 +864,16 @@ $
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> 감마 분포의 분산
-</p>
-<ul>
-<li>
-<p>$E(X^2) = \frac{d^2M_X(t)}{dt^2}\\
-= \alpha\beta\frac{\beta(\alpha+1)(1-\beta t)^{\alpha}}{(1-\beta t)^{2\alpha+2}}\\
-= \frac{\alpha\beta^{2}(\alpha+1)}{(1-\beta t)^{\alpha+2}}, \;\text{$t=0$ 대입}\\
-= \alpha\beta^{2}(\alpha+1)$</p>
-</li>
-<li>
-<p>$Var(X) = E(X^2) - [E(X)]^2\\
-= \alpha\beta^{2}(\alpha+1) - (\alpha\beta)^{2}\\
-= \alpha\beta^{2}(\alpha+1)-\alpha^2\beta^2\\
-= \alpha\beta^2$
-</p>
-</li>
-</ul>
+<p><code>-</code> 감마 분포의 분산</p>
+<p>$\begin{aligned}E(X^2) &amp;= \frac{d^2M_X(t)}{dt^2}\\[10pt]
+&amp;= \alpha\beta\frac{\beta(\alpha+1)(1-\beta t)^{\alpha}}{(1-\beta t)^{2\alpha+2}}\\[10pt]
+&amp;= \frac{\alpha\beta^{2}(\alpha+1)}{(1-\beta t)^{\alpha+2}}, \quad\text{$t=0$ 대입}\\[10pt]
+&amp;= \alpha\beta^{2}(\alpha+1)\end{aligned}$</p>
+<p>$\begin{aligned}Var(X) &amp;= E(X^2) - [E(X)]^2\\[10pt]
+&amp;= \alpha\beta^{2}(\alpha+1) - (\alpha\beta)^{2}\\[10pt]
+&amp;= \alpha\beta^{2}(\alpha+1)-\alpha^2\beta^2\\[10pt]
+&amp;= \alpha\beta^2\end{aligned}$</p>
+<p></p>
 
 </div>
 </div>
@@ -921,7 +890,7 @@ $
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> 카이제곱 분포의 확률 밀도 함수: $f(x) = \frac{1}{2^\frac{k}{2}\Gamma\big(\frac{k}{2}\big)}x^{\frac{k}{2}-1}e^{-\frac{x}{2}}$</p>
+<p><code>-</code> 카이제곱 분포의 확률 밀도 함수: $f(x) = \cfrac{1}{2^\frac{k}{2}\Gamma\big(\frac{k}{2}\big)}x^{\frac{k}{2}-1}e^{-\frac{x}{2}}$</p>
 <p><code>-</code> $k$는 자유도</p>
 <p><code>-</code> 감마 분포에서 $\alpha=\frac{k}{2}, \beta = 2$인 경우 카이제곱 분포라고 했음</p>
 <p><code>-</code> 그렇기에 감마분포의 평균, 분산, 적률생성함수에 $\alpha=\frac{k}{2}, \beta = 2$를 대입하여 카이제곱 분포의 평균, 분산, 적률생섬함수를 구할 수 있음(내 생각)</p>
@@ -933,10 +902,8 @@ $
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> 카이제곱 분포의 적률생성함수</p>
-<ul>
-<li>$M_X(t) = \big(\frac{1}{1-\beta t}\big)^{\alpha}, \quad t&lt;\frac{1}{\beta},\quad \text{$\alpha=\frac{k}{2}, \beta = 2$ 대입}\\
-=\big(\frac{1}{1-2t}\big)^\frac{k}{2}$</li>
-</ul>
+<p>$\begin{aligned}M_X(t) &amp;= \bigg(\frac{1}{1-\beta t}\bigg)^{\alpha}, \quad t&lt;\frac{1}{\beta},\quad \text{$\alpha=\frac{k}{2},\; \beta = 2$ 대입}\\[10pt]
+&amp;=\bigg(\frac{1}{1-2t}\bigg)^\frac{k}{2}\end{aligned}$</p>
 
 </div>
 </div>
@@ -945,9 +912,7 @@ $
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> 카이제곱 분포의 기댓값</p>
-<ul>
-<li>$E(X) = \alpha\beta= k,\quad\text{$\alpha=\frac{k}{2}, \beta = 2$ 대입} $</li>
-</ul>
+<p><code>-</code> $E(X) = \alpha\beta= k,\quad\text{$\alpha=\frac{k}{2},\; \beta = 2$ 대입}$</p>
 
 </div>
 </div>
@@ -956,9 +921,7 @@ $
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> 카이제곱 분포의 분산</p>
-<ul>
-<li>$Var(X) = \alpha\beta^2=2k,\quad\text{$\alpha=\frac{k}{2}, \beta = 2$ 대입} $</li>
-</ul>
+<p><code>-</code> $Var(X) = \alpha\beta^2=2k,\quad\text{$\alpha=\frac{k}{2},\; \beta = 2$ 대입}$</p>
 
 </div>
 </div>
@@ -984,7 +947,7 @@ $
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>
-<code>-</code> 정규 분포의 확률 밀도 함수: $f(x) = \frac{1}{\sqrt{2\pi\sigma^{2}}}e^{-\frac{(x-\mu)^{2}}{2\sigma^{2}}}$
+<code>-</code> 정규 분포의 확률 밀도 함수: $f(x) = \cfrac{1}{\sqrt{2\pi\sigma^{2}}}e^{-\dfrac{(x-\mu)^{2}}{2\sigma^{2}}}$
 </p>
 
 </div>
@@ -1001,17 +964,14 @@ $
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> 정규 분포의 적률생성함수
-</p>
-<ul>
-<li>$M_X(t) = E(e^{tX})\\ 
-= \int_{-\infty}^{\infty}e^{tx}\frac{1}{\sqrt{2\pi\sigma^{2}}}e^{-\frac{(x-\mu)^{2}}{2\sigma^{2}}}\;dx\\
-=\int_{-\infty}^{\infty}\frac{1}{\sqrt{2\pi\sigma^{2}}}e^{-\frac{x^2-2(\mu+\sigma^{2}t)x+\mu^2}{2\sigma^{2}}}\;dx\\
-=\int_{-\infty}^{\infty}\frac{1}{\sqrt{2\pi\sigma^{2}}}e^{-\frac{(x-\mu-\sigma^{2}t)^2-(\mu+\sigma^2t)^2+\mu^2}{2\sigma^{2}}}\;dx\\
-=e^{\mu t+\frac{\sigma^2 t^2}{2}}\cdot\int_{-\infty}^{\infty}\frac{1}{\sqrt{2\pi\sigma^{2}}}e^{-\frac{(x-\mu-\sigma^{2}t)^2}{2\sigma^2}}\;dx\\
-=e^{\mu t+\frac{\sigma^2 t^2}{2}}\quad\text{$\therefore$ 평균이 $\mu+\sigma^{2}t$이고 표준편차가 $\sigma$인 정규분포이므로 적분값은 $1$}$
-</li>
-</ul>
+<p><code>-</code> 정규 분포의 적률생성함수</p>
+<p>$\begin{aligned}M_X(t) &amp;= E(e^{tX})\\[10pt] 
+&amp;= \int_{-\infty}^{\infty}e^{tx}\frac{1}{\sqrt{2\pi\sigma^{2}}}e^{-\dfrac{(x-\mu)^{2}}{2\sigma^{2}}}\;dx\\[10pt]
+&amp;=\int_{-\infty}^{\infty}\frac{1}{\sqrt{2\pi\sigma^{2}}}e^{-\dfrac{x^2-2(\mu+\sigma^{2}t)x+\mu^2}{2\sigma^{2}}}\;dx\\[10pt]
+&amp;=\int_{-\infty}^{\infty}\frac{1}{\sqrt{2\pi\sigma^{2}}}e^{-\dfrac{(x-\mu-\sigma^{2}t)^2-(\mu+\sigma^2t)^2+\mu^2}{2\sigma^{2}}}\;dx\\[10pt]
+&amp;=e^{\mu t+\frac{\sigma^2 t^2}{2}}\cdot\int_{-\infty}^{\infty}\frac{1}{\sqrt{2\pi\sigma^{2}}}e^{-\dfrac{(x-\mu-\sigma^{2}t)^2}{2\sigma^2}}\;dx\\[10pt]
+&amp;=e^{\mu t+\frac{\sigma^2 t^2}{2}}\quad\text{$\therefore$ 평균이 $\mu+\sigma^{2}t$이고 표준편차가 $\sigma$인 정규분포이므로 적분값은 $1$}\end{aligned}$</p>
+<p></p>
 
 </div>
 </div>
@@ -1019,14 +979,11 @@ $
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> 정규 분포의 기댓값
-</p>
-<ul>
-<li>$E(X) = \frac{dM_X(t)}{dt} \\
-= (\mu + \sigma^2 t)e^{\mu t+\frac{\sigma^2 t^2}{2}}, \; \text{$t=0$ 대입}\\
-=\mu$
-</li>
-</ul>
+<p><code>-</code> 정규 분포의 기댓값</p>
+<p>$\begin{aligned}E(X) &amp;= \frac{dM_X(t)}{dt} \\[10pt]
+&amp;= (\mu + \sigma^2 t)e^{\mu t+\frac{\sigma^2 t^2}{2}}, \quad \text{$t=0$ 대입}\\[10pt]
+&amp;=\mu\end{aligned}$</p>
+<p></p>
 
 </div>
 </div>
@@ -1034,21 +991,14 @@ $
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> 정규 분포의 분산
-</p>
-<ul>
-<li>
-<p>$E(X^2) = \frac{d^2M_X(t)}{dt^2}\\
-=\sigma^{2}e^{\mu t+\frac{\sigma^2 t^2}{2}}+(\mu+\sigma^2 t)^2e^{\mu t+\frac{\sigma^2 t^2}{2}}, \;\text{$t=0$ 대입}\\
-=\sigma^2+\mu^2$</p>
-</li>
-<li>
-<p>$Var(X)=E(X^2)-[E(X)]^2\\
-=\sigma^2+\mu^2-(\mu)^2\\
-=\sigma^2$
-</p>
-</li>
-</ul>
+<p><code>-</code> 정규 분포의 분산</p>
+<p>$\begin{aligned}E(X^2) &amp;= \frac{d^2M_X(t)}{dt^2}\\[10pt]
+&amp;=\sigma^{2}e^{\mu t+\frac{\sigma^2 t^2}{2}}+(\mu+\sigma^2 t)^2e^{\mu t+\frac{\sigma^2 t^2}{2}}, \quad\text{$t=0$ 대입}\\[10pt]
+&amp;=\sigma^2+\mu^2\end{aligned}$</p>
+<p>$\begin{aligned}Var(X)&amp;=E(X^2)-[E(X)]^2\\[10pt]
+&amp;=\sigma^2+\mu^2-(\mu)^2\\[10pt]
+&amp;=\sigma^2\end{aligned}$</p>
+<p></p>
 
 </div>
 </div>
