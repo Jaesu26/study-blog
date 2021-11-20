@@ -746,9 +746,14 @@ window.onload = wrap_img;
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> 베타 분포의 적률생성함수</p>
-<ul>
-<li>어려워서 나중에 수리통계학에서 배우면 하는걸로 합시다</li>
-</ul>
+<p>$\begin{aligned}M_t(x)&amp;=E(e^{tX})\\[10pt]
+&amp;=\int_{0}^{1}\frac{1}{B(\alpha, \beta)}e^{tx}x^{\alpha-1}(1-x)^{\beta-1}\;dx\\[10pt]
+&amp;=\int_{0}^{1}\frac{1}{B(\alpha, \beta)}\left(\sum\limits_{k=0}^{\infty}\frac{t^k x^{k-1}}{k!}\right)x^{\alpha-1}(1-x)^{\beta-1}\;dx\\[10pt]
+&amp;=\sum\limits_{k=0}^{\infty}\int_{0}^{1} \frac{1}{B(\alpha, \beta)}\frac{t^k}{k!}x^{\alpha+k-1}(1-x)^{\beta-1}\;dx\\[10pt]
+&amp;=\sum\limits_{k=0}^{\infty}\left[\int_{0}^{1}\frac{B(\alpha +k,\beta)}{B(\alpha, \beta)}\frac{1}{B(\alpha+k,\beta)}\frac{t^k}{k!}x^{\alpha+k-1}(1-x)^{\beta-1}\;dx\right]\\[10pt]
+&amp;=1+\sum\limits_{k=1}^{\infty}\left[\frac{B(\alpha +k,\beta)}{B(\alpha, \beta)}\frac{t^k}{k!}\int_{0}^{1}\frac{1}{B(\alpha+k,\beta)}x^{\alpha+k-1}(1-x)^{\beta-1}\;dx\right]\\[10pt]
+&amp;=1+\sum\limits_{k=1}^{\infty}\left[\frac{\Gamma(\alpha +k)}{\Gamma(\alpha+ \beta+k)}\frac{\Gamma(\alpha +\beta)}{\Gamma(\alpha)}\frac{t^k}{k!}\right]\\[10pt]
+&amp;=1+\sum\limits_{k=1}^{\infty}\left[\prod\limits_{i=0}^{k-1}\frac{\Gamma(\alpha +i)}{\Gamma(\alpha+ \beta+i)}\frac{t^k}{k!}\right]\end{aligned}$</p>
 
 </div>
 </div>
@@ -890,7 +895,7 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> 카이제곱 분포의 확률 밀도 함수: $f(x) = \cfrac{1}{2^\frac{k}{2}\Gamma\big(\frac{k}{2}\big)}x^{\frac{k}{2}-1}e^{-\frac{x}{2}}$</p>
+<p><code>-</code> 카이제곱 분포의 확률 밀도 함수: $f(x) = \dfrac{1}{2^\frac{k}{2}\Gamma\big(\frac{k}{2}\big)}x^{\frac{k}{2}-1}e^{-\frac{x}{2}}$</p>
 <p><code>-</code> $k$는 자유도</p>
 <p><code>-</code> 감마 분포에서 $\alpha=\frac{k}{2}, \beta = 2$인 경우 카이제곱 분포라고 했음</p>
 <p><code>-</code> 그렇기에 감마분포의 평균, 분산, 적률생성함수에 $\alpha=\frac{k}{2}, \beta = 2$를 대입하여 카이제곱 분포의 평균, 분산, 적률생섬함수를 구할 수 있음(내 생각)</p>
@@ -922,14 +927,6 @@ window.onload = wrap_img;
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> 카이제곱 분포의 분산</p>
 <p><code>-</code> $Var(X) = \alpha\beta^2=2k,\quad\text{$\alpha=\frac{k}{2},\; \beta = 2$ 대입}$</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> 이렇게 적고보니 너무 양심이 없는 것 같아 나중에 감마분포를 통해 구하지 않는 방법 추가 예정</p>
 
 </div>
 </div>
