@@ -1774,10 +1774,10 @@ R(\beta_2\mid\beta_0)=70.01471$</p>
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>$Q_1=\boldsymbol{y'[I-X(X'X)^{-1}X']y = y'Cy}=SSE$ 이고 $df_E=n-k-1$이고 $\sigma^2=1$이다</p>
 <p>$\boldsymbol{V=I}$이고 $\boldsymbol{CVCV=CV}$로 멱등행렬이다</p>
-<p>$\begin{aligned}\boldsymbol{(I-X(X'X)^{-1}X')(I-X(X'X)^{-1}X')&amp;=I-2X(X'X)^{-1}X'+X(X'X)^{-1}X'X(X'X)^{-1}X'\\
-&amp;=I-X(X'X)^{-1}X'}\end{aligned}$</p>
+<p>$\begin{aligned}\boldsymbol{(I-X(X'X)^{-1}X')(I-X(X'X)^{-1}X')}&amp;=\boldsymbol{I-2X(X'X)^{-1}X'+X(X'X)^{-1}X'X(X'X)^{-1}X'}\\
+&amp;=\boldsymbol{I-X(X'X)^{-1}X'}\end{aligned}$</p>
 <p>이므로 $\boldsymbol{I-X(X'X)^{-1}X'}$은 멱등행렬이다</p>
-<p>$r(C)=tr(C)=n-k-1$이므로 $Q_1$은 $\chi^2(n-k-1)$을 따른다</p>
+<p>$r(\boldsymbol{C})=tr(\boldsymbol{C})=n-k-1$이므로 $Q_1$은 $\chi^2(n-k-1)$을 따른다</p>
 
 </div>
 </div>
@@ -1798,7 +1798,8 @@ R(\beta_2\mid\beta_0)=70.01471$</p>
 <p>$\boldsymbol{V=I}$이고 $\boldsymbol{BVBV=BV}$로 멱등행렬이다</p>
 <p>$\boldsymbol{(X(X'X)^{-1}X')(X(X'X)^{-1}X')= XB^{-1}B(X'X)^{-1}X'=X(X'X)^{-1}X'}$</p>
 <p>이므로 $\boldsymbol{X(X'X)^{-1}X'}$은 멱등행렬이다</p>
-<p>$r(B)=tr(B)=k+1$이므로 $Q_2$은 $\chi^2(k+1,\frac{1}{2}\boldsymbol{\beta'X'X\beta})$을 따른다</p>
+<p>$r(\boldsymbol{B})=tr(\boldsymbol{B}
+)=k+1$이므로 $Q_2$은 $\chi^2(k+1,\frac{1}{2}\boldsymbol{\beta'X'X\beta})$을 따른다</p>
 
 </div>
 </div>
@@ -1839,7 +1840,7 @@ R(\beta_2\mid\beta_0)=70.01471$</p>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>$Q_1,Q_2$는 서로 독립이고 $\boldsymbol{\beta}=\boldsymbol{0}$ 이면 $Q_1\sim\chi^2(n-k-1),\;Q_2\sim\chi^2(k+1,\boldsymbol{0})=\chi^2(k+1)$</p>
-<p>이므로 $\dfrac{Q_2/(k+1)}{Q_1/(n-k-1)}\sim F(k+1,n-k-1)$ 이다</p>
+<p>이므로 $ \dfrac{Q_2 \big{/}(k+1)}{Q_1\big{/}(n-k-1)}\sim F(k+1,n-k-1) $ 이다</p>
 
 </div>
 </div>
