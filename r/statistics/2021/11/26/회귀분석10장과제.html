@@ -1,0 +1,1503 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>회귀분석 10장 과제 | Jaesu’s blog</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="회귀분석 10장 과제" />
+<meta name="author" content="한재수" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="작성 완료" />
+<meta property="og:description" content="작성 완료" />
+<link rel="canonical" href="https://jaesu26.github.io/green/r/statistics/2021/11/26/%ED%9A%8C%EA%B7%80%EB%B6%84%EC%84%9D10%EC%9E%A5%EA%B3%BC%EC%A0%9C.html" />
+<meta property="og:url" content="https://jaesu26.github.io/green/r/statistics/2021/11/26/%ED%9A%8C%EA%B7%80%EB%B6%84%EC%84%9D10%EC%9E%A5%EA%B3%BC%EC%A0%9C.html" />
+<meta property="og:site_name" content="Jaesu’s blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-11-26T00:00:00-06:00" />
+<script type="application/ld+json">
+{"url":"https://jaesu26.github.io/green/r/statistics/2021/11/26/%ED%9A%8C%EA%B7%80%EB%B6%84%EC%84%9D10%EC%9E%A5%EA%B3%BC%EC%A0%9C.html","@type":"BlogPosting","headline":"회귀분석 10장 과제","dateModified":"2021-11-26T00:00:00-06:00","datePublished":"2021-11-26T00:00:00-06:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://jaesu26.github.io/green/r/statistics/2021/11/26/%ED%9A%8C%EA%B7%80%EB%B6%84%EC%84%9D10%EC%9E%A5%EA%B3%BC%EC%A0%9C.html"},"author":{"@type":"Person","name":"한재수"},"description":"작성 완료","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/green/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://jaesu26.github.io/green/feed.xml" title="Jaesu's blog" /><link rel="shortcut icon" type="image/x-icon" href="/green/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.css" integrity="sha512-h7nl+xz8wgDlNM4NqKEM4F1NkIRS17M9+uJwIGwuo8vGqIl4BhuCKdxjWEINm+xyrUjNCnK5dCrhM0sj+wTIXw==" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.js" integrity="sha512-/CMIhXiDA3m2c9kzRyd97MTb3MC6OVnx4TElQ7fkkoRghwDf6gi41gaT1PwF270W6+J60uTmwgeRpNpJdRV6sg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/contrib/auto-render.min.js" integrity="sha512-Do7uJAaHZm5OLrIv/yN4w0iG1dbu01kzdMNnFfu/mAqgUk6Nniv2JYHcwH+cNwjqgLcqcuBBk+JRvprLVI8azg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha512-0doc9hKxR3PYwso42RD1p5ySZpzzuDiOwMrdCEh2WdJZCjcmFKc/wEnL+z8fBQrnHoiNWbo+3fiGkOYXBdQp4A==" crossorigin="anonymous"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement( document.body, {
+        delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "[%", right: "%]", display: true},
+            {left: "$", right: "$", display: false}
+        ]}
+        );
+    });
+    </script>
+
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/green/">Jaesu&#39;s blog</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/green/about/">About Me</a><a class="page-link" href="/green/search/">Search</a><a class="page-link" href="/green/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">회귀분석 10장 과제</h1><p class="page-description">작성 완료</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2021-11-26T00:00:00-06:00" itemprop="datePublished">
+        Nov 26, 2021
+      </time>• 
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">한재수</span></span>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      5 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/green/categories/#R">R</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/green/categories/#statistics">statistics</a>
+        
+      
+      </p>
+    
+
+    
+      
+        <div class="pb-5 d-flex flex-wrap flex-justify-end">
+          <div class="px-2">
+
+    <a href="https://github.com/Jaesu26/green/tree/master/_notebooks/2021-11-26-회귀분석10장과제.ipynb" role="button" target="_blank">
+<img class="notebook-badge-image" src="/green/assets/badges/github.svg" alt="View On GitHub">
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://mybinder.org/v2/gh/Jaesu26/green/master?filepath=_notebooks%2F2021-11-26-%ED%9A%8C%EA%B7%80%EB%B6%84%EC%84%9D10%EC%9E%A5%EA%B3%BC%EC%A0%9C.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/green/assets/badges/binder.svg" alt="Open In Binder"/>
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://colab.research.google.com/github/Jaesu26/green/blob/master/_notebooks/2021-11-26-회귀분석10장과제.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/green/assets/badges/colab.svg" alt="Open In Colab"/>
+    </a>
+</div>
+        </div>
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul class="section-nav">
+<li class="toc-entry toc-h2"><a href="#10.2">10.2 </a></li>
+<li class="toc-entry toc-h2"><a href="#10.4">10.4 </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#1)">1) </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#2)">2) </a></li>
+<li class="toc-entry toc-h2"><a href="#10.5">10.5 </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#1)">1) </a></li>
+<li class="toc-entry toc-h3"><a href="#2)">2) </a></li>
+<li class="toc-entry toc-h3"><a href="#3)">3) </a></li>
+<li class="toc-entry toc-h3"><a href="#4)">4) </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#10.7">10.7 </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#1)">1) </a></li>
+<li class="toc-entry toc-h3"><a href="#2)">2) </a></li>
+<li class="toc-entry toc-h3"><a href="#3)">3) </a></li>
+</ul>
+</li>
+</ul><!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2021-11-26-회귀분석10장과제.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="10.2">
+<a class="anchor" href="#10.2" aria-hidden="true"><span class="octicon octicon-link"></span></a>10.2<a class="anchor-link" href="#10.2"> </a>
+</h2>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">18</span><span class="p">,</span> <span class="m">17.4</span><span class="p">,</span> <span class="m">14.5</span><span class="p">,</span> <span class="m">14</span><span class="p">,</span> <span class="m">13.4</span><span class="p">,</span> <span class="m">24.4</span><span class="p">,</span> <span class="m">22.7</span><span class="p">,</span> <span class="m">12.7</span><span class="p">,</span> <span class="m">27.1</span><span class="p">,</span>
+       <span class="m">25.4</span><span class="p">,</span><span class="m">33.5</span><span class="p">,</span> <span class="m">35.6</span><span class="p">,</span> <span class="m">26.1</span><span class="p">,</span> <span class="m">36.8</span><span class="p">,</span> <span class="m">34.9</span><span class="p">,</span> <span class="m">43.6</span><span class="p">)</span>
+<span class="n">x1</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">61</span><span class="p">,</span> <span class="m">72</span><span class="p">,</span> <span class="m">85</span><span class="p">,</span> <span class="m">84</span><span class="p">,</span> <span class="m">98</span><span class="p">,</span> <span class="m">53</span><span class="p">,</span> <span class="m">54</span><span class="p">,</span> <span class="m">89</span><span class="p">,</span> <span class="m">77</span><span class="p">,</span> <span class="m">88</span><span class="p">,</span> <span class="m">76</span><span class="p">,</span> <span class="m">59</span><span class="p">,</span> <span class="m">91</span><span class="p">,</span> <span class="m">65</span><span class="p">,</span> <span class="m">81</span><span class="p">,</span> <span class="m">51</span><span class="p">)</span>
+<span class="n">x2</span> <span class="o">=</span> <span class="nf">rep</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="s">'A'</span><span class="p">,</span> <span class="s">'B'</span><span class="p">),</span> <span class="n">each</span> <span class="o">=</span> <span class="m">8</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="n">x2</span> <span class="o">=</span> <span class="nf">ifelse</span><span class="p">(</span><span class="n">x2</span> <span class="o">==</span> <span class="s">'A'</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">1</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="n">x2</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea ">
+<style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+&lt;ol class=list-inline&gt;<li>0</li>
+<li>0</li>
+<li>0</li>
+<li>0</li>
+<li>0</li>
+<li>0</li>
+<li>0</li>
+<li>0</li>
+<li>1</li>
+<li>1</li>
+<li>1</li>
+<li>1</li>
+<li>1</li>
+<li>1</li>
+<li>1</li>
+<li>1</li>&lt;/ol&gt;
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="nf">lm</span><span class="p">(</span><span class="n">y</span><span class="o">~</span><span class="n">x1</span><span class="o">+</span><span class="n">x2</span><span class="p">)</span>
+<span class="nf">summary</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea ">
+<pre>
+Call:
+lm(formula = y ~ x1 + x2)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-4.7121 -1.5151 -0.1434  1.3539  4.3026 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept) 39.76136    3.62542  10.967 6.10e-08 ***
+x1          -0.30368    0.04689  -6.476 2.08e-05 ***
+x2          15.43382    1.37079  11.259 4.47e-08 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 2.74 on 13 degrees of freedom
+Multiple R-squared:  0.9304,	Adjusted R-squared:  0.9197 
+F-statistic: 86.95 on 2 and 13 DF,  p-value: 2.987e-08
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>$\hat{y}=39.76136-0.30368 x_1+15.43382 x_2$</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="n">m0</span> <span class="o">=</span> <span class="nf">lm</span><span class="p">(</span><span class="n">y</span><span class="o">~</span><span class="m">1</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="nf">anova</span><span class="p">(</span><span class="n">m0</span><span class="p">,</span> <span class="n">m</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea ">
+<table class="dataframe">
+<caption>A anova: 2 × 6</caption>
+<thead>
+	<tr>
+<th></th>
+<th scope="col">Res.Df</th>
+<th scope="col">RSS</th>
+<th scope="col">Df</th>
+<th scope="col">Sum of Sq</th>
+<th scope="col">F</th>
+<th scope="col">Pr(&gt;F)</th>
+</tr>
+	<tr>
+<th></th>
+<th scope="col">&lt;dbl&gt;</th>
+<th scope="col">&lt;dbl&gt;</th>
+<th scope="col">&lt;dbl&gt;</th>
+<th scope="col">&lt;dbl&gt;</th>
+<th scope="col">&lt;dbl&gt;</th>
+<th scope="col">&lt;dbl&gt;</th>
+</tr>
+</thead>
+<tbody>
+	<tr>
+<th scope="row">1</th>
+<td>15</td>
+<td>1403.10938</td>
+<td>NA</td>
+<td>      NA</td>
+<td>      NA</td>
+<td>         NA</td>
+</tr>
+	<tr>
+<th scope="row">2</th>
+<td>13</td>
+<td>  97.59762</td>
+<td> 2</td>
+<td>1305.512</td>
+<td>86.94707</td>
+<td>2.98717e-08</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 에제 10.2에서는 회귀모델은 유의하나 교호작용항은 p값이 0.11252로 커서 유의하지 않았다</p>
+<p><code>-</code> 교호작용이 없는 모형에서는 모든 변수가 유의하다</p>
+<p><code>-</code> 또한 p-value가 거의 0이므로 추정된 회귀모델은 유의하다고 할 수 있다</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="10.4">
+<a class="anchor" href="#10.4" aria-hidden="true"><span class="octicon octicon-link"></span></a>10.4<a class="anchor-link" href="#10.4"> </a>
+</h2>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="n">x1</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">2.5</span><span class="p">,</span> <span class="m">4.4</span><span class="p">,</span> <span class="m">4.5</span><span class="p">,</span> <span class="m">1.4</span><span class="p">,</span> <span class="m">4.7</span><span class="p">,</span> <span class="m">3.5</span><span class="p">,</span> <span class="m">2.5</span><span class="p">,</span> <span class="m">3.8</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">65</span><span class="p">,</span> <span class="m">34</span><span class="p">,</span> <span class="m">40</span><span class="p">,</span> <span class="m">80</span><span class="p">,</span> <span class="m">30</span><span class="p">,</span> <span class="m">57</span><span class="p">,</span> <span class="m">72</span><span class="p">,</span> <span class="m">48</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="1)">
+<a class="anchor" href="#1)" aria-hidden="true"><span class="octicon octicon-link"></span></a>1)<a class="anchor-link" href="#1)"> </a>
+</h3>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="nf">plot</span><span class="p">(</span><span class="n">y</span><span class="o">~</span><span class="n">x1</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,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" width="420" height="420">
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> $x = 3.8$을 기준으로 2개의 구간으로 나누어 분석하는것이 좋아보인다</p>
+<p><code>-</code> $x=3.8$ 이전 데이터들의 기울기보다 $x=3.8$ 이후 데이터들의 기울기가 눈에 띄게 더 가파르고 이전 데이터는 넓은 범위에 존재하는 반면 이후에는 3개의 데이터가 밀집되어 있기 때문이다</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="2)">
+<a class="anchor" href="#2)" aria-hidden="true"><span class="octicon octicon-link"></span></a>2)<a class="anchor-link" href="#2)"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 위와 같은 이유로 $x = 3.8$을 기준으로 나누는것이 좋아보인다</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="n">x2</span> <span class="o">=</span> <span class="nf">function</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="nf">ifelse</span><span class="p">(</span><span class="n">x1</span> <span class="o">&gt;</span> <span class="m">3.8</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">0</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="n">x2_</span> <span class="o">=</span> <span class="p">(</span><span class="n">x1</span><span class="m">-3.8</span><span class="p">)</span><span class="o">*</span><span class="nf">x2</span><span class="p">(</span><span class="n">x1</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="nf">lm</span><span class="p">(</span><span class="n">y</span><span class="o">~</span><span class="n">x1</span><span class="o">+</span><span class="n">x2_</span><span class="p">)</span>
+<span class="nf">summary</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea ">
+<pre>
+Call:
+lm(formula = y ~ x1 + x2_)
+
+Residuals:
+     1      2      3      4      5      6      7      8 
+-2.421 -3.663  4.531 -1.462 -1.082  2.344  4.579 -2.826 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)   99.333      5.907  16.817 1.36e-05 ***
+x1           -12.765      2.046  -6.238  0.00155 ** 
+x2_           -9.173      6.201  -1.479  0.19911    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 3.939 on 5 degrees of freedom
+Multiple R-squared:  0.9668,	Adjusted R-squared:  0.9535 
+F-statistic: 72.71 on 2 and 5 DF,  p-value: 0.0002015
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>$\hat{y}=99.333-12.765x_1-9.173x_{2\_}$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> $x{2\_}$에 대한 p-value가 0.19911로 0.05보다 크므로 영가설을 기각하지 못한다</p>
+<p><code>-</code> $\beta_2\neq 0$ 라고 할 수 없다</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="10.5">
+<a class="anchor" href="#10.5" aria-hidden="true"><span class="octicon octicon-link"></span></a>10.5<a class="anchor-link" href="#10.5"> </a>
+</h2>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">15</span><span class="p">,</span> <span class="m">16</span><span class="p">,</span> <span class="m">18</span><span class="p">,</span> <span class="m">13</span><span class="p">,</span> <span class="m">19</span><span class="p">,</span> <span class="m">16</span><span class="p">,</span> <span class="m">15</span><span class="p">,</span> <span class="m">16</span><span class="p">,</span> <span class="m">17</span><span class="p">,</span> <span class="m">15</span><span class="p">,</span>
+      <span class="m">18</span><span class="p">,</span> <span class="m">17</span><span class="p">,</span> <span class="m">18</span><span class="p">,</span> <span class="m">19</span><span class="p">,</span> <span class="m">20</span><span class="p">,</span> <span class="m">16</span><span class="p">,</span> <span class="m">15</span><span class="p">,</span> <span class="m">19</span><span class="p">,</span> <span class="m">18</span><span class="p">,</span> <span class="m">16</span><span class="p">,</span>
+      <span class="m">20</span><span class="p">,</span> <span class="m">19</span><span class="p">,</span> <span class="m">21</span><span class="p">,</span> <span class="m">18</span><span class="p">,</span> <span class="m">19</span><span class="p">,</span> <span class="m">17</span><span class="p">,</span> <span class="m">18</span><span class="p">,</span> <span class="m">21</span><span class="p">,</span> <span class="m">20</span><span class="p">,</span> <span class="m">17</span><span class="p">,</span>
+      <span class="m">16</span><span class="p">,</span> <span class="m">17</span><span class="p">,</span> <span class="m">18</span><span class="p">,</span> <span class="m">17</span><span class="p">,</span> <span class="m">15</span><span class="p">,</span> <span class="m">15</span><span class="p">,</span> <span class="m">15</span><span class="p">,</span> <span class="m">18</span><span class="p">,</span> <span class="m">17</span><span class="p">,</span> <span class="m">16</span><span class="p">,</span> 
+      <span class="m">19</span><span class="p">,</span> <span class="m">21</span><span class="p">,</span> <span class="m">22</span><span class="p">,</span> <span class="m">23</span><span class="p">,</span> <span class="m">20</span><span class="p">,</span> <span class="m">18</span><span class="p">,</span> <span class="m">20</span><span class="p">,</span> <span class="m">21</span><span class="p">,</span> <span class="m">22</span><span class="p">,</span> <span class="m">19</span><span class="p">,</span>
+      <span class="m">24</span><span class="p">,</span> <span class="m">25</span><span class="p">,</span> <span class="m">23</span><span class="p">,</span> <span class="m">25</span><span class="p">,</span> <span class="m">25</span><span class="p">,</span> <span class="m">23</span><span class="p">,</span> <span class="m">24</span><span class="p">,</span> <span class="m">22</span><span class="p">,</span> <span class="m">26</span><span class="p">,</span> <span class="m">24</span><span class="p">)</span>
+
+<span class="n">x1</span> <span class="o">=</span> <span class="nf">rep</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="m">5</span><span class="p">,</span> <span class="m">10</span><span class="p">,</span> <span class="m">20</span><span class="p">,</span> <span class="m">5</span><span class="p">,</span> <span class="m">10</span><span class="p">,</span> <span class="m">20</span><span class="p">),</span> <span class="n">each</span> <span class="o">=</span> <span class="m">10</span><span class="p">)</span>
+<span class="n">x2</span> <span class="o">=</span> <span class="nf">rep</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="s">'A'</span><span class="p">,</span> <span class="s">'B'</span><span class="p">),</span> <span class="n">each</span> <span class="o">=</span> <span class="m">30</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="n">x2</span> <span class="o">=</span> <span class="nf">ifelse</span><span class="p">(</span><span class="n">x2</span> <span class="o">==</span> <span class="s">'A'</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">1</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="n">x2</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea ">
+<style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+&lt;ol class=list-inline&gt;<li>0</li>
+<li>0</li>
+<li>0</li>
+<li>0</li>
+<li>0</li>
+<li>0</li>
+<li>0</li>
+<li>0</li>
+<li>0</li>
+<li>0</li>
+<li>0</li>
+<li>0</li>
+<li>0</li>
+<li>0</li>
+<li>0</li>
+<li>0</li>
+<li>0</li>
+<li>0</li>
+<li>0</li>
+<li>0</li>
+<li>0</li>
+<li>0</li>
+<li>0</li>
+<li>0</li>
+<li>0</li>
+<li>0</li>
+<li>0</li>
+<li>0</li>
+<li>0</li>
+<li>0</li>
+<li>1</li>
+<li>1</li>
+<li>1</li>
+<li>1</li>
+<li>1</li>
+<li>1</li>
+<li>1</li>
+<li>1</li>
+<li>1</li>
+<li>1</li>
+<li>1</li>
+<li>1</li>
+<li>1</li>
+<li>1</li>
+<li>1</li>
+<li>1</li>
+<li>1</li>
+<li>1</li>
+<li>1</li>
+<li>1</li>
+<li>1</li>
+<li>1</li>
+<li>1</li>
+<li>1</li>
+<li>1</li>
+<li>1</li>
+<li>1</li>
+<li>1</li>
+<li>1</li>
+<li>1</li>&lt;/ol&gt;
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="1)">
+<a class="anchor" href="#1)" aria-hidden="true"><span class="octicon octicon-link"></span></a>1)<a class="anchor-link" href="#1)"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> $y$는 불안도, $x_1$은 약의 복용량, $x_2$는 약의 종류</p>
+<p>$y=\beta_0+\beta_1 x_1+\beta_2 x_2$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="2)">
+<a class="anchor" href="#2)" aria-hidden="true"><span class="octicon octicon-link"></span></a>2)<a class="anchor-link" href="#2)"> </a>
+</h3>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="n">m0</span> <span class="o">=</span> <span class="nf">lm</span><span class="p">(</span><span class="n">y</span><span class="o">~</span><span class="m">1</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="nf">lm</span><span class="p">(</span><span class="n">y</span><span class="o">~</span><span class="n">x1</span><span class="o">+</span><span class="n">x2</span><span class="p">)</span>
+<span class="nf">summary</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea ">
+<pre>
+Call:
+lm(formula = y ~ x1 + x2)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-3.3786 -1.0875 -0.0571  1.0857  3.7429 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept) 13.55000    0.54711  24.766  &lt; 2e-16 ***
+x1           0.34143    0.03741   9.127 9.59e-13 ***
+x2           2.80000    0.46658   6.001 1.43e-07 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 1.807 on 57 degrees of freedom
+Multiple R-squared:  0.6767,	Adjusted R-squared:  0.6654 
+F-statistic: 59.66 on 2 and 57 DF,  p-value: 1.055e-14
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>$\hat{y}=13.55000+0.34143x_1+2.80000x_2$</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="nf">anova</span><span class="p">(</span><span class="n">m0</span><span class="p">,</span> <span class="n">m</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea ">
+<table class="dataframe">
+<caption>A anova: 2 × 6</caption>
+<thead>
+	<tr>
+<th></th>
+<th scope="col">Res.Df</th>
+<th scope="col">RSS</th>
+<th scope="col">Df</th>
+<th scope="col">Sum of Sq</th>
+<th scope="col">F</th>
+<th scope="col">Pr(&gt;F)</th>
+</tr>
+	<tr>
+<th></th>
+<th scope="col">&lt;dbl&gt;</th>
+<th scope="col">&lt;dbl&gt;</th>
+<th scope="col">&lt;dbl&gt;</th>
+<th scope="col">&lt;dbl&gt;</th>
+<th scope="col">&lt;dbl&gt;</th>
+<th scope="col">&lt;dbl&gt;</th>
+</tr>
+</thead>
+<tbody>
+	<tr>
+<th scope="row">1</th>
+<td>59</td>
+<td>575.7333</td>
+<td>NA</td>
+<td>      NA</td>
+<td>      NA</td>
+<td>          NA</td>
+</tr>
+	<tr>
+<th scope="row">2</th>
+<td>57</td>
+<td>186.1286</td>
+<td> 2</td>
+<td>389.6048</td>
+<td>59.65627</td>
+<td>1.055268e-14</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> F통계량에 근거한 p-value가 거의 0이므로 회귀모형은 유의하다</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="3)">
+<a class="anchor" href="#3)" aria-hidden="true"><span class="octicon octicon-link"></span></a>3)<a class="anchor-link" href="#3)"> </a>
+</h3>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="nf">lm</span><span class="p">(</span><span class="n">y</span><span class="o">~</span><span class="n">x1</span><span class="o">+</span><span class="n">x2</span><span class="p">)</span>
+<span class="nf">summary</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea ">
+<pre>
+Call:
+lm(formula = y ~ x1 + x2)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-3.3786 -1.0875 -0.0571  1.0857  3.7429 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept) 13.55000    0.54711  24.766  &lt; 2e-16 ***
+x1           0.34143    0.03741   9.127 9.59e-13 ***
+x2           2.80000    0.46658   6.001 1.43e-07 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 1.807 on 57 degrees of freedom
+Multiple R-squared:  0.6767,	Adjusted R-squared:  0.6654 
+F-statistic: 59.66 on 2 and 57 DF,  p-value: 1.055e-14
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>$\hat{y}=13.55000+0.34143x_1+2.80000x_2$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> F-통계량에 근거한 p-value가 거의 0이므로 회귀모형은 유의하다</p>
+<p><code>-</code> A안정제보다 B안정제인 경우 실험용동물의 평균불안도가 2.8 더 높다</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="4)">
+<a class="anchor" href="#4)" aria-hidden="true"><span class="octicon octicon-link"></span></a>4)<a class="anchor-link" href="#4)"> </a>
+</h3>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="n">x12</span> <span class="o">=</span> <span class="n">x1</span><span class="o">*</span><span class="n">x2</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="n">m2</span> <span class="o">=</span> <span class="nf">lm</span><span class="p">(</span><span class="n">y</span><span class="o">~</span><span class="n">x1</span><span class="o">+</span><span class="n">x2</span><span class="o">+</span><span class="n">x12</span><span class="p">)</span>
+<span class="nf">summary</span><span class="p">(</span><span class="n">m2</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea ">
+<pre>
+Call:
+lm(formula = y ~ x1 + x2 + x12)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-3.2571 -1.2143 -0.1286  0.8893  3.4857 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept) 15.30000    0.59828  25.573  &lt; 2e-16 ***
+x1           0.19143    0.04523   4.233 8.65e-05 ***
+x2          -0.70000    0.84609  -0.827    0.412    
+x12          0.30000    0.06396   4.691 1.79e-05 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 1.545 on 56 degrees of freedom
+Multiple R-squared:  0.7679,	Adjusted R-squared:  0.7555 
+F-statistic: 61.76 on 3 and 56 DF,  p-value: &lt; 2.2e-16
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 교호작용항(x12)의 검정통계량에 근거한 p-value가 거의 0이므로 교호작용이 있다고 할 수 있따</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="10.7">
+<a class="anchor" href="#10.7" aria-hidden="true"><span class="octicon octicon-link"></span></a>10.7<a class="anchor-link" href="#10.7"> </a>
+</h2>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="m">4</span><span class="p">,</span> <span class="m">5</span><span class="p">,</span> <span class="m">6</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="n">p_mean</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">15</span><span class="o">/</span><span class="m">250</span><span class="p">,</span> <span class="m">20</span><span class="o">/</span><span class="m">252</span><span class="p">,</span> <span class="m">18</span><span class="o">/</span><span class="m">151</span><span class="p">,</span> <span class="m">25</span><span class="o">/</span><span class="m">204</span><span class="p">,</span> <span class="m">32</span><span class="o">/</span><span class="m">202</span><span class="p">,</span> <span class="m">40</span><span class="o">/</span><span class="m">195</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="1)">
+<a class="anchor" href="#1)" aria-hidden="true"><span class="octicon octicon-link"></span></a>1)<a class="anchor-link" href="#1)"> </a>
+</h3>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="n">logit</span> <span class="o">=</span> <span class="nf">function</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="nf">log</span><span class="p">(</span><span class="n">x</span><span class="o">/</span><span class="p">(</span><span class="m">1</span><span class="o">-</span><span class="n">x</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="n">m_logit</span> <span class="o">=</span> <span class="nf">lm</span><span class="p">(</span><span class="nf">logit</span><span class="p">(</span><span class="n">p_mean</span><span class="p">)</span><span class="o">~</span><span class="n">x</span><span class="p">)</span>
+<span class="nf">summary</span><span class="p">(</span><span class="n">m_logit</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea ">
+<pre>
+Call:
+lm(formula = logit(p_mean) ~ x)
+
+Residuals:
+        1         2         3         4         5         6 
+-0.050412 -0.017289  0.166332 -0.069607 -0.038567  0.009543 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept) -2.96853    0.08945  -33.19 4.92e-06 ***
+x            0.26741    0.02297   11.64 0.000311 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 0.09609 on 4 degrees of freedom
+Multiple R-squared:  0.9713,	Adjusted R-squared:  0.9642 
+F-statistic: 135.5 on 1 and 4 DF,  p-value: 0.0003111
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p></p>
+<p><code>-</code> 로짓회귀식은 $\hat{{p}^{*}}=-2.96853+ 0.26741 x$ 이다</p>
+<p><code>-</code> 로지스틱 반응함수는 $\hat{y}=\cfrac{e^{-2.96853+ 0.26741x}}{1+e^{-2.96853+ 0.26741x}}$ 이다</p>
+<p></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="2)">
+<a class="anchor" href="#2)" aria-hidden="true"><span class="octicon octicon-link"></span></a>2)<a class="anchor-link" href="#2)"> </a>
+</h3>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="n">logistic</span> <span class="o">=</span> <span class="nf">function</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="nf">exp</span><span class="p">(</span><span class="m">-2.96853+0.26741</span><span class="o">*</span><span class="n">x</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="m">1</span><span class="o">+</span><span class="nf">exp</span><span class="p">(</span><span class="m">-2.96853+0.26741</span><span class="o">*</span><span class="n">x</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="n">newdata</span> <span class="o">=</span> <span class="nf">data.frame</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="m">4</span><span class="p">)</span>
+<span class="n">predict_</span> <span class="o">=</span> <span class="nf">predict</span><span class="p">(</span><span class="n">m_logit</span><span class="p">,</span> <span class="n">newdata</span> <span class="o">=</span> <span class="n">newdata</span><span class="p">)</span>
+<span class="c1">#predict_ </span>
+<span class="nf">logistic</span><span class="p">(</span><span class="n">predict_</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea ">
+<strong>1:</strong> 0.0299936908243327
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 문제의 확률은 $0.0299936908243327$ 이다</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="3)">
+<a class="anchor" href="#3)" aria-hidden="true"><span class="octicon octicon-link"></span></a>3)<a class="anchor-link" href="#3)"> </a>
+</h3>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="nf">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="nf">logit</span><span class="p">(</span><span class="n">p_mean</span><span class="p">))</span>
+<span class="nf">abline</span><span class="p">(</span><span class="n">m_logit</span><span class="p">,</span> <span class="n">col</span> <span class="o">=</span> <span class="s">'red'</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA0gAAANICAMAAADKOT/pAAAAM1BMVEUAAABNTU1oaGh8fHyM%0AjIyampqnp6eysrK9vb3Hx8fQ0NDZ2dnh4eHp6enw8PD/AAD///89ODILAAAACXBIWXMAABJ0%0AAAASdAHeZh94AAAbL0lEQVR4nO3d62LS2haA0RVupRWQ93/aDZR2V20hkJl1Scb4gd3nKAut%0AnyQzF9IRGCyVfgEwBUKCAEKCAEKCAEKCAEKCAEKCAEKCAEKCAEKCAEKCAEKCAEKCAEKCAEKC%0AAEKCAEKCAEKCAEKCAEKCAEKCAEKCAEKCAEKCAEKCAEKCAEKCAEKCAEKCAEKCAEKCAEKCAEKC%0AAEKCAEKCAEKCAEKCAEKCAEKCAEKCAEKCAEKCAEKCAEKCAEKCAEKCAEKCAEKCAEKCAEKCAEKC%0AAEKCAEKCAEKCAEKCAEKCAEKCAEKCAEKCAEKCAEKCAEKCAEKCAEKCAEKCAEKCAEKCAEKCAEKC%0AAEKCAEKCAEKCAEKCAEKCAEKCAEKCAEKCAEKCAEKCAEKCAEKCAEKCAEKCAEKCAEKCAEKCAEKC%0AAEKCAEKCAEKCAEKCAEKCAEKCAEKCAEKCAEKCAEKCABlCStCYJ/6Wx4dTYAmIJCQIICQIICQI%0AICQI8PvxXyIk+Mtv70gw2G+bdjDU79/2kWCoy+6RkGCQ9zGDkGCI67hOSDDAx9hbSPC8z8NH%0AQoJn/f7/MKyQ4Elfz2YQEjznj7OChARP+fPsOiHBM/46S1VI0NeXK8r/PttbSNDPpaL3lH7/%0Ac9WEkKCf9Pn4zcVHQoJe0ueP313EJyTo5TOkby+GFRL08vGX8vuLyouEdPduekKiPu9/K3+4%0AOYOQoJ/zX9vfP92cIWNID9ziVUjUKP18j5OMIf3qhETTbtxzK+em3WGVlvvLM9i0o0G37l2X%0Adx/pNaXXo5Bo0s17QGYeNuyXaXUQEg26fS/V7FO7l9S9CYnW/Ht23Z/yj793i/ufyiQk6nL3%0A1t4ljiOthURb7t8i3ylCcE+Pj5oQEtzR5yNbSoXkgCyt6PXRR0KCW+6N665s2sENfT+JT0jw%0As96faFlPSL3PaIVc+n8ybD0hZV4C7nrgE5aFBD945JPKhQTf6jmuu3KFLHznoYyyhrQVEs14%0AsKOsm3a7bjn2EhDi0Y7y7iPt0mbsJSDAwx1lHjZs027sJWCwxzsytYO/PDauuxIS/OGZjIQE%0A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%0ATl1B6/Ct6lJ/lrvif4uP53+RliWX35T827RM+4LfgFV6W6cubsPqUYt0fOkum/dRig5uyq39%0Abpveyi1+2rQq9xfp+JJeS34DVu+zhmL/jqV0eQWBWwRzDmnfldzj3a66cjsKl539gt+AdOr4%0AeCj3lnxqaHc+BBH3DZhxSIeu6Ibd8bylXuov0uI8+C39DThtWi8Krfx+5GEfuP6MQ1qW+i5+%0AipwaPWR92aYt/Q0o+ApS+NR2tiHtF8vA49pPKvVHkD6VWf//11Fo4fjDH3MN6a3swO79OFLk%0ApsVDiof08fsvtZP6cnlL3gf+JZhpSJF/hM+4nNlwWJU9mlLwG7A5TywPm2JT09M/YYfzsOE1%0A7BlnGtK69KZNV3b8e1HwG3B4//2Xm/+/RP/5zzSk0ps2p3+Tu7Qoe3S/6DfgUPr3/7aMPSBc%0AfHADUyAkCCAkCCAkCCAkCCAkCCAkCCAkCCAkCCAkCCAkCCAkCCAkCCAkCCAkCCAkCCAkCCAk%0ACCAkCCAkCCAkCCAkCCAkCCAkCCAkCCAkCCAkCCAkCCAkCCAkCCAkCCAkCCAkCCAkCCAkCCAk%0ACCAkCCCkJi3Tr9Pjr7Qu/UK4ElKT9qk7PXbdofQL4UpIbdqml+NLei39MvggpEYt0zatSr8I%0APgmpUfuU0r70i+CTkFq1SZvSL4H/CalR3pHqIqRGrU77SMvSL4JPQmrT62nD7iVtS78MPgip%0ASYfuchzJxl01hNSk9fXMBht3tRASBBASBBASBBASBBASBBASBBASBBASBBASBBASBBASBBAS%0ABBASBBASBBASBBASBBASBBASBBASBBASBBASBBASBBASBBASBBASBBASBBASBBASBBASBBAS%0ABBASBPgPVtQV5WZ3BxMAAAAASUVORK5CYII=" width="420" height="420">
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="nf">anova</span><span class="p">(</span><span class="n">m_logit</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea ">
+<table class="dataframe">
+<caption>A anova: 2 × 5</caption>
+<thead>
+	<tr>
+<th></th>
+<th scope="col">Df</th>
+<th scope="col">Sum Sq</th>
+<th scope="col">Mean Sq</th>
+<th scope="col">F value</th>
+<th scope="col">Pr(&gt;F)</th>
+</tr>
+	<tr>
+<th></th>
+<th scope="col">&lt;int&gt;</th>
+<th scope="col">&lt;dbl&gt;</th>
+<th scope="col">&lt;dbl&gt;</th>
+<th scope="col">&lt;dbl&gt;</th>
+<th scope="col">&lt;dbl&gt;</th>
+</tr>
+</thead>
+<tbody>
+	<tr>
+<th scope="row">x</th>
+<td>1</td>
+<td>1.25136337</td>
+<td>1.251363368</td>
+<td>135.5378</td>
+<td>0.0003111466</td>
+</tr>
+	<tr>
+<th scope="row">Residuals</th>
+<td>4</td>
+<td>0.03693031</td>
+<td>0.009232577</td>
+<td>      NA</td>
+<td>          NA</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 로지스틱 회귀모형에서 F통계량에 근거한 p-value가 0.000311로 매우 작으므로 회귀모형은 유의하다</p>
+<p><code>-</code> 로지스틱 반응함수를 적합시키는 것이 타당하다</p>
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+  </div><!-- from https://github.com/utterance/utterances -->
+<script src="https://utteranc.es/client.js"
+        repo="Jaesu26/green"
+        issue-term="title"
+        label="blogpost-comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script><a class="u-url" href="/green/r/statistics/2021/11/26/%ED%9A%8C%EA%B7%80%EB%B6%84%EC%84%9D10%EC%9E%A5%EA%B3%BC%EC%A0%9C.html" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/green/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/green/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/green/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>An easy to use blogging platform with support for Jupyter Notebooks.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/Jaesu26" title="Jaesu26"><svg class="svg-icon grey"><use xlink:href="/green/assets/minima-social-icons.svg#github"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
