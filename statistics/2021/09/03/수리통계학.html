@@ -1,0 +1,1316 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>수리통계학 | Jaesu’s blog</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="수리통계학" />
+<meta name="author" content="한재수" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="작성 중" />
+<meta property="og:description" content="작성 중" />
+<link rel="canonical" href="https://jaesu26.github.io/green/statistics/2021/09/03/%EC%88%98%EB%A6%AC%ED%86%B5%EA%B3%84%ED%95%99.html" />
+<meta property="og:url" content="https://jaesu26.github.io/green/statistics/2021/09/03/%EC%88%98%EB%A6%AC%ED%86%B5%EA%B3%84%ED%95%99.html" />
+<meta property="og:site_name" content="Jaesu’s blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-09-03T00:00:00-05:00" />
+<script type="application/ld+json">
+{"url":"https://jaesu26.github.io/green/statistics/2021/09/03/%EC%88%98%EB%A6%AC%ED%86%B5%EA%B3%84%ED%95%99.html","@type":"BlogPosting","headline":"수리통계학","dateModified":"2021-09-03T00:00:00-05:00","datePublished":"2021-09-03T00:00:00-05:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://jaesu26.github.io/green/statistics/2021/09/03/%EC%88%98%EB%A6%AC%ED%86%B5%EA%B3%84%ED%95%99.html"},"author":{"@type":"Person","name":"한재수"},"description":"작성 중","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/green/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://jaesu26.github.io/green/feed.xml" title="Jaesu's blog" /><link rel="shortcut icon" type="image/x-icon" href="/green/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.css" integrity="sha512-h7nl+xz8wgDlNM4NqKEM4F1NkIRS17M9+uJwIGwuo8vGqIl4BhuCKdxjWEINm+xyrUjNCnK5dCrhM0sj+wTIXw==" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.js" integrity="sha512-/CMIhXiDA3m2c9kzRyd97MTb3MC6OVnx4TElQ7fkkoRghwDf6gi41gaT1PwF270W6+J60uTmwgeRpNpJdRV6sg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/contrib/auto-render.min.js" integrity="sha512-Do7uJAaHZm5OLrIv/yN4w0iG1dbu01kzdMNnFfu/mAqgUk6Nniv2JYHcwH+cNwjqgLcqcuBBk+JRvprLVI8azg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha512-0doc9hKxR3PYwso42RD1p5ySZpzzuDiOwMrdCEh2WdJZCjcmFKc/wEnL+z8fBQrnHoiNWbo+3fiGkOYXBdQp4A==" crossorigin="anonymous"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement( document.body, {
+        delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "[%", right: "%]", display: true},
+            {left: "$", right: "$", display: false}
+        ]}
+        );
+    });
+    </script>
+
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/green/">Jaesu&#39;s blog</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/green/about/">About Me</a><a class="page-link" href="/green/search/">Search</a><a class="page-link" href="/green/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">수리통계학</h1><p class="page-description">작성 중</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2021-09-03T00:00:00-05:00" itemprop="datePublished">
+        Sep 3, 2021
+      </time>• 
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">한재수</span></span>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      9 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/green/categories/#statistics">statistics</a>
+        
+      
+      </p>
+    
+
+    
+      
+        <div class="pb-5 d-flex flex-wrap flex-justify-end">
+          <div class="px-2">
+
+    <a href="https://github.com/Jaesu26/green/tree/master/_notebooks/2021-09-03-수리통계학.ipynb" role="button" target="_blank">
+<img class="notebook-badge-image" src="/green/assets/badges/github.svg" alt="View On GitHub">
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://mybinder.org/v2/gh/Jaesu26/green/master?filepath=_notebooks%2F2021-09-03-%EC%88%98%EB%A6%AC%ED%86%B5%EA%B3%84%ED%95%99.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/green/assets/badges/binder.svg" alt="Open In Binder"/>
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://colab.research.google.com/github/Jaesu26/green/blob/master/_notebooks/2021-09-03-수리통계학.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/green/assets/badges/colab.svg" alt="Open In Colab"/>
+    </a>
+</div>
+        </div>
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul class="section-nav">
+<li class="toc-entry toc-h1"><a href="#확률이론">확률이론 </a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#표본공간과-사건">표본공간과 사건 </a></li>
+<li class="toc-entry toc-h2"><a href="#확률의-정의">확률의 정의 </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#확률공리">확률공리 </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#조건부-확률">조건부 확률 </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#전확률-공식(total-probability)">전확률 공식(total probability) </a></li>
+<li class="toc-entry toc-h3"><a href="#베이즈-정리(Bayes'-theorem)">베이즈 정리(Bayes&#39; theorem) </a></li>
+<li class="toc-entry toc-h3"><a href="#사건의-독립">사건의 독립 </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#경우의-수">경우의 수 </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#순열(permutation)">순열(permutation) </a></li>
+<li class="toc-entry toc-h3"><a href="#조합">조합 </a></li>
+<li class="toc-entry toc-h3"><a href="#이항정리">이항정리 </a></li>
+<li class="toc-entry toc-h3"><a href="#같은-것이-있는-순열">같은 것이 있는 순열 </a></li>
+<li class="toc-entry toc-h3"><a href="#다항정리">다항정리 </a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-entry toc-h1"><a href="#확률변수">확률변수 </a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#확률변수의-정의">확률변수의 정의 </a></li>
+<li class="toc-entry toc-h2"><a href="#확률공간(probability-space)">확률공간(probability space) </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#표본공간">표본공간 </a></li>
+<li class="toc-entry toc-h3"><a href="#사건공간">사건공간 </a></li>
+<li class="toc-entry toc-h3"><a href="#확률측도">확률측도 </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#확률(probability)">확률(probability) </a></li>
+<li class="toc-entry toc-h2"><a href="#확률밀도함수(pdf)-및-누적분포함수(cdf)">확률밀도함수(pdf) 및 누적분포함수(cdf) </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#확률밀도함수(probability-density-function,-pdf)">확률밀도함수(probability density function, pdf) </a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#이산형의-경우-pdf의-조건">이산형의 경우 pdf의 조건 </a></li>
+<li class="toc-entry toc-h4"><a href="#연속형의-경우-pdf의-조건">연속형의 경우 pdf의 조건 </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h3"><a href="#누적분포함수(cumulative-distribution-function,-cdf)">누적분포함수(cumulative distribution function, cdf) </a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#누적분포함수의-조건">누적분포함수의 조건 </a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#결합-및-조건부-확률분포">결합 및 조건부 확률분포 </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#결합-확률분포">결합 확률분포 </a></li>
+<li class="toc-entry toc-h3"><a href="#결합-누적분포함수">결합 누적분포함수 </a></li>
+<li class="toc-entry toc-h3"><a href="#주변-확률분포">주변 확률분포 </a></li>
+<li class="toc-entry toc-h3"><a href="#조건부-확률분포">조건부 확률분포 </a></li>
+<li class="toc-entry toc-h3"><a href="#독립확률변수">독립확률변수 </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#기댓값">기댓값 </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#기댓값의-성질">기댓값의 성질 </a></li>
+<li class="toc-entry toc-h3"><a href="#분산과-공분산">분산과 공분산 </a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#분산의-성질">분산의 성질 </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h3"><a href="#조건부-기댓값">조건부 기댓값 </a></li>
+<li class="toc-entry toc-h3"><a href="#확률부등식">확률부등식 </a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-entry toc-h1"><a href="#표본분포-및-그의-근사">표본분포 및 그의 근사 </a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#대수의-법칙과-중심극한정리">대수의 법칙과 중심극한정리 </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#대수의-법칙">대수의 법칙 </a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul><!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2021-09-03-수리통계학.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 2학기 수업에서 배우는 수리통계학에 대해 정리할 것임</p>
+<p><code>-</code> 중요한 내용은 따로 정리하여 다른 주피터 노트북 파일로 만들 수 도 있음</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="확률이론">
+<a class="anchor" href="#%ED%99%95%EB%A5%A0%EC%9D%B4%EB%A1%A0" aria-hidden="true"><span class="octicon octicon-link"></span></a>확률이론<a class="anchor-link" href="#%ED%99%95%EB%A5%A0%EC%9D%B4%EB%A1%A0"> </a>
+</h1>
+<p><code>-</code> 확률모형 ---&gt; 동전 던지기와 같이 가능성(chance)에 의존</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="표본공간과-사건">
+<a class="anchor" href="#%ED%91%9C%EB%B3%B8%EA%B3%B5%EA%B0%84%EA%B3%BC-%EC%82%AC%EA%B1%B4" aria-hidden="true"><span class="octicon octicon-link"></span></a>표본공간과 사건<a class="anchor-link" href="#%ED%91%9C%EB%B3%B8%EA%B3%B5%EA%B0%84%EA%B3%BC-%EC%82%AC%EA%B1%B4"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> <code>표본공간(sample space)</code> : <code>모든 관찰 가능한 결과</code>들의 집합 ---&gt; $S$ 또는 $\Omega$</p>
+<p><code>-</code> <code>사건(event)</code> : <code>표본공간의 일부분</code>(부분집합) ---&gt; $A, B$ 등 영어 알파벳 대문자</p>
+<p><code>-</code> <code>실험(experiment)</code> 또는 <code>시행 (trial)</code> : 어떤 현상의 관찰결과를 얻기위한 <code>과정</code></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>예시</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 동전의 앞면을 H, 뒷면을 T라 할 때 동전을 2회 던지는 실험을 시행하자</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 표본공간 $S = \{HH, HT, TH, TT\}$</p>
+<p><code>-</code> 1회 앞면이 나오는 사건 $A = \{HT, TH\}$</p>
+<p><code>-</code> 2회 뒷면이 나오는 사건 $B = \{TT\}$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>정의</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 사건 $A$와 $B$가 동시에 속하는 사건 ---&gt; $A$와 $B$의 <code>공통부분(intersection)</code> ---&gt; $A \cap B$</p>
+<p><code>-</code> 사건 $A$ 또는 $B$에 속하는 사건 ---&gt; $A$와 $B$의 <code>합(union)</code> ---&gt; $A \cup B$</p>
+<p><code>-</code> $A \cap B$ = $\emptyset$ ---&gt; 두 사건 $A$와 $B$는 <code>상호배반(mutually exclusive)</code></p>
+<p><code>-</code> 사건 $A$에 포함되지 않은 모든 $S$의 원소의 집합 ---&gt; $A$의 <code>여사건(complement)</code> ---&gt; $A^c$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>사건에 대한 분배법칙과 드 모르간 법칙</li>
+</ul>
+<p><code>-</code> $(A \cup B)^c = A^c \cap B^c$ ---&gt; 드 모르간(De Morgan) 법칙</p>
+<p><code>-</code> $(A \cap B)^c = A^c \cup B^c$ ---&gt; 드 모르간 법칙</p>
+<p><code>-</code> $A \cup (B \cap C) = (A \cup B) \cap (A \cup C)$ ---&gt; 분배법칙</p>
+<p><code>-</code> $A \cap (B \cup C) = (A \cap B) \cup (A \cap C)$ ---&gt; 분배법칙</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="확률의-정의">
+<a class="anchor" href="#%ED%99%95%EB%A5%A0%EC%9D%98-%EC%A0%95%EC%9D%98" aria-hidden="true"><span class="octicon octicon-link"></span></a>확률의 정의<a class="anchor-link" href="#%ED%99%95%EB%A5%A0%EC%9D%98-%EC%A0%95%EC%9D%98"> </a>
+</h2>
+<p><code>-</code> 확률은 함수임</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>고전적 정의 </li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 표본공간이 <code>유한 개</code>($N$)의 결과로 구성되고 모든 가능한 실험결과들이 일어날 가능성이 <code>동일한</code>경우 $M$개의 실험결과로 이루어진 사건 $A$의 확률 $P(A) = \dfrac{M}{N}$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>상대도수의 극한</li>
+</ul>
+<p><code>-</code> 실험을 독립적으로 n회 반복했을 때 사건 $A$의 발생횟수를 m이라 하면 실험이 무한히 반복되면 $P(A) = \dfrac{m}{n}$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="확률공리">
+<a class="anchor" href="#%ED%99%95%EB%A5%A0%EA%B3%B5%EB%A6%AC" aria-hidden="true"><span class="octicon octicon-link"></span></a>확률공리<a class="anchor-link" href="#%ED%99%95%EB%A5%A0%EA%B3%B5%EB%A6%AC"> </a>
+</h3>
+<p><code>1.</code> 임의의 사건 $A$에 대해 $P(A) \geq 0$</p>
+<p><code>2.</code> $P(S)=1$</p>
+<p><code>3.</code> 표본공간 $S$에 정의된 사건열 $A_1, A_2, \cdots$가 있다고 할 때 모든 $i\neq j$에 대하여 $A_i \cap A_j = \phi$이면 $P\bigg(\bigcup\limits_{i=1}^{\infty} A_i\bigg) 
+= P(A_1 \cup A_2 \cup A_3 \cup \cdots) = \sum\limits_{i=1}^{\infty} P(A_i)$</p>
+<p><code>-</code> 3번째 공리는 쉽게 말하자면 서로소인 두 사건 $A$와 $B$에 대해 $P(A) + P(B) = p(A\cup B)$이다 + 집합열 이해 안되면 통계수학 책 참고하셈</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> <code>확률</code> ---&gt; 표본공간의 부분집합의 모임(특별한 성질 만족)을 정의역으로 하면서 확률공리를 만족하는 함수</p>
+<p><code>-</code> 아니 특별한 성질이 뭐임??? ---&gt; 교수님 - (노트) 확률, 확률변수, 시계열, 정상성 파일에 나와있긴 한데......</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>정리</li>
+</ul>
+<p><code>-</code> 증명은 교재 참고</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>1.</code> $P(A^c) = 1- P(A)$</p>
+<p><code>2.</code> $P(\emptyset) = 0$</p>
+<p><code>3.</code> $A\subset B$이면 $P(A) \leq P(B)$</p>
+<p><code>4.</code> $P(A\cup B)=P(A)+P(B)-P(A\cap B)$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 정리 4번 사건 3개 버전</p>
+<p><code>-</code> $P(A \cup B \cup C) = P(A) + P(B) + P(C) - P(A\cap B) - P(B \cap C) - P(C \cap A) + P(A \cap B \cap C)$ ---&gt; 벤 다이어그램을 그려보면 간단히 알 수 있음</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="조건부-확률">
+<a class="anchor" href="#%EC%A1%B0%EA%B1%B4%EB%B6%80-%ED%99%95%EB%A5%A0" aria-hidden="true"><span class="octicon octicon-link"></span></a>조건부 확률<a class="anchor-link" href="#%EC%A1%B0%EA%B1%B4%EB%B6%80-%ED%99%95%EB%A5%A0"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 사건$A$와 $B$가 표본공간 $S$상에 정의되어 있으며 $P(B) &gt; $일 때 $B$가 일어났다는 가정하에 사건 $A$가 일어날 조건부 확률은$P(A \mid B) = \cfrac{P(A\cap B)}{P(B)}$로 정의됨</p>
+<p><code>-</code> 조건부 확률도 확률 공리를 만족함</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="전확률-공식(total-probability)">
+<a class="anchor" href="#%EC%A0%84%ED%99%95%EB%A5%A0-%EA%B3%B5%EC%8B%9D(total-probability)" aria-hidden="true"><span class="octicon octicon-link"></span></a>전확률 공식(total probability)<a class="anchor-link" href="#%EC%A0%84%ED%99%95%EB%A5%A0-%EA%B3%B5%EC%8B%9D(total-probability)"> </a>
+</h3>
+<p><code>-</code> 사건 $B_1, B_2,\cdots,B_k$ 는 상호배반이며 $(B_1\cap B_j = \emptyset,\;i \neq j),\;\bigcup\limits_{i=1}^{k}B_{i}=S$라고 하자</p>
+<p><code>-</code> 이때 임의의 사건 $A$에 대하여 $P(A) = \sum\limits_{i=1}^{k}P(B_i)P(A\mid B_i)$가 성립함</p>
+<p><code>-</code> 증명: $P(A) = P(A\cap S) = P\bigg[A\cap\bigg(\bigcup\limits_{i=1}^{k}B_i\bigg)\bigg] = \sum\limits_{i=1}^{k}P(A\cap B_i)=\sum\limits_{i=1}^{k}P(B_i)P(A\mid B_i)$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="베이즈-정리(Bayes'-theorem)">
+<a class="anchor" href="#%EB%B2%A0%EC%9D%B4%EC%A6%88-%EC%A0%95%EB%A6%AC(Bayes'-theorem)" aria-hidden="true"><span class="octicon octicon-link"></span></a>베이즈 정리(Bayes' theorem)<a class="anchor-link" href="#%EB%B2%A0%EC%9D%B4%EC%A6%88-%EC%A0%95%EB%A6%AC(Bayes'-theorem)"> </a>
+</h3>
+<p><code>-</code> 사건 $B_1, B_2,\cdots,B_k$ 는 상호배반이며 $(B_1\cap B_j = \emptyset,\;i \neq j),\;\bigcup\limits_{i=1}^{k}B_{i}=S$라고 하자</p>
+<p><code>-</code> 이때 사건 $A$가 일어났다는 조건하에서 사건 $B_j$가 일어날 확률은 $P(B_j\mid A)=\cfrac{P(B_j)P(A\mid B_j)}{\sum\limits_{i=1}^{k}P(B_i)P(A\mid B_i)}$</p>
+<p><code>-</code> 증명(전확률 공식 사용): $P(B_j\mid A)=\cfrac{P(A\cap B_j)}{P(A)}=\cfrac{P(B_j)P(A\mid B_j)}{P(A)}=\cfrac{P(B_j)P(A\mid B_j)}{\sum\limits_{i=1}^{k}P(B_i)P(A\mid B_i)}$</p>
+<p><code>-</code> $P(B_1),\cdots,P(B_k)$는 $B$의 사전확률(prior probability)</p>
+<p><code>-</code> 사건 $A$가 일어났다는 정보가 추가됨 ---&gt; $P(B_1 \mid A),\cdots,P(B_k\mid A)$는 $B$의 사후확률(posteriori probability)</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="사건의-독립">
+<a class="anchor" href="#%EC%82%AC%EA%B1%B4%EC%9D%98-%EB%8F%85%EB%A6%BD" aria-hidden="true"><span class="octicon octicon-link"></span></a>사건의 독립<a class="anchor-link" href="#%EC%82%AC%EA%B1%B4%EC%9D%98-%EB%8F%85%EB%A6%BD"> </a>
+</h3>
+<p><code>-</code> 두 사건 $A$와 $B$가 $P(A\cap B) = P(A) \cdot P(B)$를 만족시키면 서로 <code>독립(independent)</code>이라고 함</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="경우의-수">
+<a class="anchor" href="#%EA%B2%BD%EC%9A%B0%EC%9D%98-%EC%88%98" aria-hidden="true"><span class="octicon octicon-link"></span></a>경우의 수<a class="anchor-link" href="#%EA%B2%BD%EC%9A%B0%EC%9D%98-%EC%88%98"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="순열(permutation)">
+<a class="anchor" href="#%EC%88%9C%EC%97%B4(permutation)" aria-hidden="true"><span class="octicon octicon-link"></span></a>순열(permutation)<a class="anchor-link" href="#%EC%88%9C%EC%97%B4(permutation)"> </a>
+</h3>
+<p><code>-</code> 서로 다른 n개의 원소 중에서 r개를 선택하여 <code>순서 있게</code> 놓는 것(${_n\rm P_r}$)</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="조합">
+<a class="anchor" href="#%EC%A1%B0%ED%95%A9" aria-hidden="true"><span class="octicon octicon-link"></span></a>조합<a class="anchor-link" href="#%EC%A1%B0%ED%95%A9"> </a>
+</h3>
+<p><code>-</code> 서로 다른 n개의 원소 중에서 <code>순서에 관계없이</code> r개를 선택하는 것($_n\rm C_r$)</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="이항정리">
+<a class="anchor" href="#%EC%9D%B4%ED%95%AD%EC%A0%95%EB%A6%AC" aria-hidden="true"><span class="octicon octicon-link"></span></a>이항정리<a class="anchor-link" href="#%EC%9D%B4%ED%95%AD%EC%A0%95%EB%A6%AC"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> $(a+b)^n = \sum\limits_{k=0}^{n}\dbinom{n}{k}a^{k} b^{n-k}$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="같은-것이-있는-순열">
+<a class="anchor" href="#%EA%B0%99%EC%9D%80-%EA%B2%83%EC%9D%B4-%EC%9E%88%EB%8A%94-%EC%88%9C%EC%97%B4" aria-hidden="true"><span class="octicon octicon-link"></span></a>같은 것이 있는 순열<a class="anchor-link" href="#%EA%B0%99%EC%9D%80-%EA%B2%83%EC%9D%B4-%EC%9E%88%EB%8A%94-%EC%88%9C%EC%97%B4"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> $\dbinom{n}{\;r_1\; r_2\;\cdots\;r_k\;} = \cfrac{n!}{r_1!\; r_2!\; \cdots\; r_k!}$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="다항정리">
+<a class="anchor" href="#%EB%8B%A4%ED%95%AD%EC%A0%95%EB%A6%AC" aria-hidden="true"><span class="octicon octicon-link"></span></a>다항정리<a class="anchor-link" href="#%EB%8B%A4%ED%95%AD%EC%A0%95%EB%A6%AC"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> $(a_1+a_2+\cdots+a_k)^n=\sum\limits_{r_1,\cdots,r_k\in\mathbb N}^{r_1+\cdots+r_k=n}\dbinom{n}{\;r_1\; r_2\;\cdots\;r_k\;}\,a_1^{r_1}\,a_2^{r_2}\cdots a_k^{r_k}$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="확률변수">
+<a class="anchor" href="#%ED%99%95%EB%A5%A0%EB%B3%80%EC%88%98" aria-hidden="true"><span class="octicon octicon-link"></span></a>확률변수<a class="anchor-link" href="#%ED%99%95%EB%A5%A0%EB%B3%80%EC%88%98"> </a>
+</h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> <code>확률변수(random variable)</code> : 실험결과를 표현하는 수치적인 양</p>
+<p><code>-</code> 확률변수의 값은 실험결과에 따라 정해지므로 비결정적(non-deterministic)</p>
+<p><code>-</code> <code>확률분포(probability distribution)</code> : 확률변수의 값들이 나올 가능성</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="확률변수의-정의">
+<a class="anchor" href="#%ED%99%95%EB%A5%A0%EB%B3%80%EC%88%98%EC%9D%98-%EC%A0%95%EC%9D%98" aria-hidden="true"><span class="octicon octicon-link"></span></a>확률변수의 정의<a class="anchor-link" href="#%ED%99%95%EB%A5%A0%EB%B3%80%EC%88%98%EC%9D%98-%EC%A0%95%EC%9D%98"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> <code>확률변수</code> $\to$ 표본공간 $S$에 정의된 실수값을 가지는 함수(real-valued function)</p>
+<p><code>-</code> 이산형(discrete) - 가질 수 있는 값이 유한개 (finite) 또는 셀 수 있는 무한개(countably infinite)인 확률변수</p>
+<p><code>-</code> 연속형(continuous) - 가질 수 있는 값의 범위가 실직선상의 어떤 구간인 확률변수</p>
+<p><code>-</code> 혼합형 - ex) $\{1, 2, (5, 10)\}$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="확률공간(probability-space)">
+<a class="anchor" href="#%ED%99%95%EB%A5%A0%EA%B3%B5%EA%B0%84(probability-space)" aria-hidden="true"><span class="octicon octicon-link"></span></a>확률공간(probability space)<a class="anchor-link" href="#%ED%99%95%EB%A5%A0%EA%B3%B5%EA%B0%84(probability-space)"> </a>
+</h2>
+<p><code>-</code> 확률 공간($\Omega,\mathcal{F}, \Pr)$ 은 전체 측도가 $1$인 <a href="https://ko.wikipedia.org/wiki/%EC%B8%A1%EB%8F%84">측도 공간</a>이다</p>
+<p><code>-</code> 측도는 집합에 크기를 부여하기 위해 만든 개념으로 가산집합에 실수로 가는 함수를 부여한 것</p>
+<p><code>-</code> 확률적인 현상에서 확률공간의 측도는 확률을 정의한다</p>
+<p><code>-</code> 확률공간이 같다는건 $\Omega$가 동일하고 (주사위 던지기 $\Omega=\{1,2,3,4,5,6\}$)</p>
+<p><code>-</code> $\mathcal{F}$가 동일하고(예컨대 짝수, 홀수에만 관심이 있어서 $\mathcal{F}=\{\emptyset,\{1,3,5\},\{2,4,6\},\Omega\}$)</p>
+<p><code>-</code> $Pr$이 동일하다는 것(예컨대 짝수, 홀수가 나올 가능성이 다른 주사위라 확률측도가 다음과 같다)</p>
+<p>
+$$\begin{aligned}\Pr(\emptyset)&amp;=0.0\\ \Pr(\{1,3,5\})&amp;=0.4\\ \Pr(\{2,4,6\})&amp;=0.6\\ \Pr(\Omega)&amp;=1.0\end{aligned}$$
+</p>
+<p><code>-</code> 참고 : <a href="https://ko.wikipedia.org/wiki/%ED%99%95%EB%A5%A0_%EA%B3%B5%EA%B0%84">https://ko.wikipedia.org/wiki/%ED%99%95%EB%A5%A0_%EA%B3%B5%EA%B0%84</a></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="표본공간">
+<a class="anchor" href="#%ED%91%9C%EB%B3%B8%EA%B3%B5%EA%B0%84" aria-hidden="true"><span class="octicon octicon-link"></span></a>표본공간<a class="anchor-link" href="#%ED%91%9C%EB%B3%B8%EA%B3%B5%EA%B0%84"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 확률실험에서 발생할 수 있는 모든 결과들의 집합을 <code>표본공간(Sample Space)</code> 이라고 한다</p>
+<p><code>-</code> 표본공간은 $S$ 또는 $\Omega$ 기호로 나타낸다</p>
+<p><code>-</code> $\Omega=\{\omega_1,\omega_2,\cdots,\omega_n\}$는 가능한 모든 결과를 포함하고 각 원소끼리는 배반이다</p>
+<p><code>-</code> 예컨대 동전던지기 실험에서 표본공간은 다음과 같이 나타낼 수 있음 ---&gt; $\Omega=\{H,T\}$</p>
+<p><code>-</code> 참고 : <a href="https://en.wikipedia.org/wiki/Sample_space">https://en.wikipedia.org/wiki/Sample_space</a></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="사건공간">
+<a class="anchor" href="#%EC%82%AC%EA%B1%B4%EA%B3%B5%EA%B0%84" aria-hidden="true"><span class="octicon octicon-link"></span></a>사건공간<a class="anchor-link" href="#%EC%82%AC%EA%B1%B4%EA%B3%B5%EA%B0%84"> </a>
+</h3>
+<p><code>-</code> 표본공간 $\Omega$의 $\sigma$-field를 <code>사건공간(event space)</code> 이라 한다</p>
+<p><code>-</code> 사건공간의 원소를 사건이라고 한다</p>
+<p><code>-</code> 사건 : 표본공간의 부분집합</p>
+<p><code>-</code> 사건공간($\mathcal{F}$) : 사건의 집합 $\Longleftrightarrow$ 표본공간의 $\sigma$-field</p>
+<p><code>-</code> 동전던지기의 경우 사건은 $\emptyset,\{H\},\{T\},\Omega$이므로 사건공간 중 하나를 다음과 같이 나타낼 수 있음</p>
+<p><code>-</code> $\mathcal{F}=\{\emptyset,\{H\},\{T\},\Omega\}$ ---&gt; $\mathcal{F}$의 원소 하나하나가 사건에 해당함</p>
+<p><code>-</code> 사건공간 중 하나라고 표현한건 $\sigma$-field 정의에 의해 사건공간은 여러개가 될 수 있기 때문</p>
+<p><code>-</code> 예컨대 주사위 던지기의 경우에서 주사위의 특정값이 아닌 단지 짝인지 홀인지에만 관심이 있으면 $\mathcal{F}=\{\emptyset,\{1,3,5\},\{2,4,6\},\Omega\}$로 설정해도 된다</p>
+<p><code>-</code> 참고 : <a href="https://en.wikipedia.org/wiki/%CE%A3-algebra">https://en.wikipedia.org/wiki/%CE%A3-algebra</a></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="확률측도">
+<a class="anchor" href="#%ED%99%95%EB%A5%A0%EC%B8%A1%EB%8F%84" aria-hidden="true"><span class="octicon octicon-link"></span></a>확률측도<a class="anchor-link" href="#%ED%99%95%EB%A5%A0%EC%B8%A1%EB%8F%84"> </a>
+</h3>
+<p><code>-</code> 측도공간 $(\Omega,\mathcal{F})$에 대해서 어떤 함수 $\Pr(\cdot):\mathcal{F}\to \mathbb{R}$가 다음 세 조건을 만족하면 $\Pr$을 확률측도라고 한다</p>
+<p><code>1.</code> $\Pr(A)\leq 0,\quad \forall A\in\mathcal{F}$</p>
+<p><code>2.</code> $\Pr(\Omega)=1$</p>
+<p><code>3.</code> Countable, pairwise disjoint set $\{A_1,A_2,\cdots\mid A_i\in \mathcal{F}\}$에 대하여 $\Pr\bigg(\bigcap\limits_{i=1}^{\infty}A_i\bigg)=\sum\limits_{i=1}^{\infty}\Pr(A_i)$</p>
+<p><code>-</code> 예컨대 동전던지기의 사건공간이 $\mathcal{F}=\{\emptyset,\{H\},\{T\},\Omega\}$ 라면 위의 조건을 만족하는 확률측도를 아래와 같이 만들 수 있다</p>
+<p>
+$$\begin{aligned}\Pr(\emptyset)&amp;=0.0\\ \Pr(\{H\})&amp;=0.5\\ \Pr(\{T\})&amp;=0.5\\ \Pr(\Omega)&amp;=1.0\end{aligned}$$
+</p>
+<p><code>-</code> 그러나 확률측도는 위의 세 조건인 <a href="https://en.wikipedia.org/wiki/Probability_axioms">Kolmogorov axioms</a>를 만족하기만 하면 되기에 확률측도는 하나가 아니다</p>
+<p><code>-</code> 예컨대 아래와 같이 확률측도를 만들 수 도 있다는 것</p>
+<p>
+$$\begin{aligned}\Pr(\emptyset)&amp;=0.0\\ \Pr(\{H\})&amp;=0.4\\ \Pr(\{T\})&amp;=0.6\\ \Pr(\Omega)&amp;=1.0\end{aligned}$$
+</p>
+<p><code>-</code> 참고 : <a href="https://gem763.github.io/probability%20theory/%ED%99%95%EB%A5%A0%EC%9D%98-%EC%9D%B4%ED%95%B4.html">https://gem763.github.io/probability%20theory/%ED%99%95%EB%A5%A0%EC%9D%98-%EC%9D%B4%ED%95%B4.html</a></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="확률(probability)">
+<a class="anchor" href="#%ED%99%95%EB%A5%A0(probability)" aria-hidden="true"><span class="octicon octicon-link"></span></a>확률(probability)<a class="anchor-link" href="#%ED%99%95%EB%A5%A0(probability)"> </a>
+</h2>
+<p><code>-</code> 확률공간 $(\Omega, \mathcal{F}, \Pr)$과 특정사건 $A\in \mathcal{F}$에 대하여 $Pr(A)$을 사건 $A$의 확률이라고 한다</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="확률밀도함수(pdf)-및-누적분포함수(cdf)">
+<a class="anchor" href="#%ED%99%95%EB%A5%A0%EB%B0%80%EB%8F%84%ED%95%A8%EC%88%98(pdf)-%EB%B0%8F-%EB%88%84%EC%A0%81%EB%B6%84%ED%8F%AC%ED%95%A8%EC%88%98(cdf)" aria-hidden="true"><span class="octicon octicon-link"></span></a>확률밀도함수(pdf) 및 누적분포함수(cdf)<a class="anchor-link" href="#%ED%99%95%EB%A5%A0%EB%B0%80%EB%8F%84%ED%95%A8%EC%88%98(pdf)-%EB%B0%8F-%EB%88%84%EC%A0%81%EB%B6%84%ED%8F%AC%ED%95%A8%EC%88%98(cdf)"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="확률밀도함수(probability-density-function,-pdf)">
+<a class="anchor" href="#%ED%99%95%EB%A5%A0%EB%B0%80%EB%8F%84%ED%95%A8%EC%88%98(probability-density-function,-pdf)" aria-hidden="true"><span class="octicon octicon-link"></span></a>확률밀도함수(probability density function, pdf)<a class="anchor-link" href="#%ED%99%95%EB%A5%A0%EB%B0%80%EB%8F%84%ED%95%A8%EC%88%98(probability-density-function,-pdf)"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="이산형의-경우-pdf의-조건">
+<a class="anchor" href="#%EC%9D%B4%EC%82%B0%ED%98%95%EC%9D%98-%EA%B2%BD%EC%9A%B0-pdf%EC%9D%98-%EC%A1%B0%EA%B1%B4" aria-hidden="true"><span class="octicon octicon-link"></span></a>이산형의 경우 pdf의 조건<a class="anchor-link" href="#%EC%9D%B4%EC%82%B0%ED%98%95%EC%9D%98-%EA%B2%BD%EC%9A%B0-pdf%EC%9D%98-%EC%A1%B0%EA%B1%B4"> </a>
+</h4>
+<p><code>1.</code> 모든 실수 $x$에 대하여 $f(x) \geq 0$</p>
+<p><code>2.</code> 확률변수 $X$가 가질 수 있는 값 $x_1,\,x_2,\,\cdots$ 에 대하여 $f(x_i)&gt;0$ 이며 $\sum f(x_i)=1$</p>
+<p><code>-</code> $f(x)$는 $P(X=x)=f(x)$ 를 만족하고 확률질량함수(probability mass function, pmf)라고도 함</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="연속형의-경우-pdf의-조건">
+<a class="anchor" href="#%EC%97%B0%EC%86%8D%ED%98%95%EC%9D%98-%EA%B2%BD%EC%9A%B0-pdf%EC%9D%98-%EC%A1%B0%EA%B1%B4" aria-hidden="true"><span class="octicon octicon-link"></span></a>연속형의 경우 pdf의 조건<a class="anchor-link" href="#%EC%97%B0%EC%86%8D%ED%98%95%EC%9D%98-%EA%B2%BD%EC%9A%B0-pdf%EC%9D%98-%EC%A1%B0%EA%B1%B4"> </a>
+</h4>
+<p><code>1.</code> 모든 실수 $x$에 대하여 $f(x) \geq 0$</p>
+<p><code>2.</code> $\int^{\infty}_{-\infty}f(x)\,dx = 1$</p>
+<p><code>-</code> 연속형 확률변수는 가질 수 있는 값이 셀 수 없는 무한개이므로 가능한 값 하나하나에 확률을 부여하지 않음</p>
+<p><code>-</code> 대신에 구간에 확률을 부여함</p>
+<p><code>-</code> $P(X=x)=0$ 이고 $-\infty &lt; a &lt; b &lt; \infty \longrightarrow \int_{a}^{b}f(x)\,dx=P(a\leq X \leq b)$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="누적분포함수(cumulative-distribution-function,-cdf)">
+<a class="anchor" href="#%EB%88%84%EC%A0%81%EB%B6%84%ED%8F%AC%ED%95%A8%EC%88%98(cumulative-distribution-function,-cdf)" aria-hidden="true"><span class="octicon octicon-link"></span></a>누적분포함수(cumulative distribution function, cdf)<a class="anchor-link" href="#%EB%88%84%EC%A0%81%EB%B6%84%ED%8F%AC%ED%95%A8%EC%88%98(cumulative-distribution-function,-cdf)"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 누적분포함수 $F(x) = P(X \leq x)$</p>
+<p><code>-</code> $X\sim f(x)$ : 확률변수 $X$가 확률밀도함수 $f(x)$를 가리킴</p>
+<p><code>-</code> $X\sim F(x)$ : 확률변수 $X$가 누적분포함수 $f(x)$를 가리킴</p>
+<p><code>-</code> $P(a&lt; X \leq b) = F(b) - F(a)$</p>
+<p><code>-</code> $f(x) = \dfrac{d}{dx}F(x)$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="누적분포함수의-조건">
+<a class="anchor" href="#%EB%88%84%EC%A0%81%EB%B6%84%ED%8F%AC%ED%95%A8%EC%88%98%EC%9D%98-%EC%A1%B0%EA%B1%B4" aria-hidden="true"><span class="octicon octicon-link"></span></a>누적분포함수의 조건<a class="anchor-link" href="#%EB%88%84%EC%A0%81%EB%B6%84%ED%8F%AC%ED%95%A8%EC%88%98%EC%9D%98-%EC%A1%B0%EA%B1%B4"> </a>
+</h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>1.</code> $\lim\limits_{x\to-\infty}F(x)=0$</p>
+<p><code>2.</code> $\lim\limits_{x\to\infty}F(x)=1$</p>
+<p><code>3.</code> $\lim\limits_{h\to0^{+}}F(x+h)=F(x) \longrightarrow$ 우연속 함수</p>
+<p><code>4.</code> $a&lt;b$ 이면 $F(a) \leq F(b)$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="결합-및-조건부-확률분포">
+<a class="anchor" href="#%EA%B2%B0%ED%95%A9-%EB%B0%8F-%EC%A1%B0%EA%B1%B4%EB%B6%80-%ED%99%95%EB%A5%A0%EB%B6%84%ED%8F%AC" aria-hidden="true"><span class="octicon octicon-link"></span></a>결합 및 조건부 확률분포<a class="anchor-link" href="#%EA%B2%B0%ED%95%A9-%EB%B0%8F-%EC%A1%B0%EA%B1%B4%EB%B6%80-%ED%99%95%EB%A5%A0%EB%B6%84%ED%8F%AC"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="결합-확률분포">
+<a class="anchor" href="#%EA%B2%B0%ED%95%A9-%ED%99%95%EB%A5%A0%EB%B6%84%ED%8F%AC" aria-hidden="true"><span class="octicon octicon-link"></span></a>결합 확률분포<a class="anchor-link" href="#%EA%B2%B0%ED%95%A9-%ED%99%95%EB%A5%A0%EB%B6%84%ED%8F%AC"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 여러 개의 확률변수들을 한번에 고려하는 경우에 사용 ---&gt; ex) 아빠와 아들의 키를 함께 고려</p>
+<p><code>-</code> <code>확률벡터</code> ---&gt; $\boldsymbol{X} = (X_1,\,X_2,\,\cdots,\,X_k)$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 두 확률변수 $X$와 $Y$의 결합 확률밀도함수 $f_{\,X,\,Y}(x,y)$</p>
+<p><code>-</code> 이산형인 경우 :  $f_{\,X,\,Y}(x,y)=P(X=x,\,Y=y)$</p>
+<p><code>-</code> 연속형인 경우 : 임의의 영역 $A$에 대하여 $P[(X,\,Y)\in A]=\iint_{\,A}f_{\,X,\,Y}(x,y)\,dxdy$ 를 만족하는 $f_{\,X,\,Y}(x,y)$</p>
+<p><code>-</code> 통계수학 교재의 통계학에서의 적분과 미분적분학 교재의 적분 공부하기</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="결합-누적분포함수">
+<a class="anchor" href="#%EA%B2%B0%ED%95%A9-%EB%88%84%EC%A0%81%EB%B6%84%ED%8F%AC%ED%95%A8%EC%88%98" aria-hidden="true"><span class="octicon octicon-link"></span></a>결합 누적분포함수<a class="anchor-link" href="#%EA%B2%B0%ED%95%A9-%EB%88%84%EC%A0%81%EB%B6%84%ED%8F%AC%ED%95%A8%EC%88%98"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 결합 누적분포함수 : $F(x_1,\,x_2,\,\cdots,\,x_k) = P(X_1\leq x_1,\,X_2\leq x_2,\,\cdots,\,X_k\leq x_k)$</p>
+<p><code>-</code> $f(x_1,\,x_2,\,\cdots,\,x_k) = \cfrac{\partial^k}{\partial x_1\cdots\partial x_k}F(x_1,\,x_2,\,\cdots,\,x_k)$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="주변-확률분포">
+<a class="anchor" href="#%EC%A3%BC%EB%B3%80-%ED%99%95%EB%A5%A0%EB%B6%84%ED%8F%AC" aria-hidden="true"><span class="octicon octicon-link"></span></a>주변 확률분포<a class="anchor-link" href="#%EC%A3%BC%EB%B3%80-%ED%99%95%EB%A5%A0%EB%B6%84%ED%8F%AC"> </a>
+</h3>
+<p><code>-</code> 결합분포가 주어졌다고 하자 그런데 각 변수만의 분포가 필요할 수 있음</p>
+<p><code>-</code> 결합 확률밀도함수 $f_{X,Y}(x,y)$가 주어졌을 때 $f_X(x),\;f_Y(y)$를 주변 확률밀도함수라고 함</p>
+<p><code>-</code> 주변 확률밀도함수 ---&gt; marginal probability density function</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>이산형인 경우</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>
+$$f_X(x) = \sum\limits_{\text{모든 $y$}}f_{X,Y}(x,y),\quad f_Y(y) = \sum\limits_{\text{모든 $x$}}f_{X,Y}(x,y)$$
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>연속형인 경우</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>
+$$f_X(x) = \int^{\infty}_{-\infty}f_{X,Y}(x,y)\,dy,\quad f_Y(y) = \int^{\infty}_{-\infty}f_{X,Y}(x,y)\,dx$$
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 여러개의 확률변수에 대해서도 확장 가능함</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="조건부-확률분포">
+<a class="anchor" href="#%EC%A1%B0%EA%B1%B4%EB%B6%80-%ED%99%95%EB%A5%A0%EB%B6%84%ED%8F%AC" aria-hidden="true"><span class="octicon octicon-link"></span></a>조건부 확률분포<a class="anchor-link" href="#%EC%A1%B0%EA%B1%B4%EB%B6%80-%ED%99%95%EB%A5%A0%EB%B6%84%ED%8F%AC"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 조건부 확률의 확률변수 버전</p>
+<p><code>-</code> 어떤 몇 개의 확률변수 값이 주어졌을 때 다른 확률변수들의 분포</p>
+<p><code>-</code> $X=x$가 주어졌을 때 $Y\mid X=x$의 조건부 확률밀도함수는 $f_{Y\mid x}(y\mid x)$ 이다</p>
+<p><code>-</code> 편의상 $Y\mid X = x \Longleftrightarrow Y\mid x$</p>
+<p><code>-</code> 조건부 확률밀도함수 ---&gt; conditional probability density function</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>
+$$f_{Y\mid X=x}(y\mid x)=\cfrac{f_{X,Y}(x,y)}{f_X(x)}\qquad\text{단, } f_X(x)&gt;0$$
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="독립확률변수">
+<a class="anchor" href="#%EB%8F%85%EB%A6%BD%ED%99%95%EB%A5%A0%EB%B3%80%EC%88%98" aria-hidden="true"><span class="octicon octicon-link"></span></a>독립확률변수<a class="anchor-link" href="#%EB%8F%85%EB%A6%BD%ED%99%95%EB%A5%A0%EB%B3%80%EC%88%98"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 두 확률변수 $X$와 $Y$는 임의의 실구간 $A$와 $B$에 대하여
+
+$$ P(X\in A,\,Y\in B)=P(X\in A) \cdot P(Y\in B)$$
+
+가 성립할 때 서로 독립(independent)이라고 함</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 위의 정리를 확률밀도함수를 사용하여 나타내보자</p>
+<p><code>-</code> 두 확률변수 $X$와 $Y$가 서로 독립일 필요충분조건은
+
+$$f_{X,Y}(x,y)=f_X(x)\cdot f_Y(y)$$
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 두 확률변수 $X$와 $Y$의 독립여부 파악하는 방법!</p>
+<p><code>1.</code> 결합 확률밀도함수를 통해 $X$와 $Y$의 주변 확률밀도함수를 구한다</p>
+<p><code>2.</code> 그리고 $f_{X,Y}(x,y)=f_X(x)\cdot f_Y(y)$가 성립하는지 확인한다</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p></p>
+<div class="flash flash-success">
+    <svg class="octicon octicon-checklist" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M2.5 1.75a.25.25 0 01.25-.25h8.5a.25.25 0 01.25.25v7.736a.75.75 0 101.5 0V1.75A1.75 1.75 0 0011.25 0h-8.5A1.75 1.75 0 001 1.75v11.5c0 .966.784 1.75 1.75 1.75h3.17a.75.75 0 000-1.5H2.75a.25.25 0 01-.25-.25V1.75zM4.75 4a.75.75 0 000 1.5h4.5a.75.75 0 000-1.5h-4.5zM4 7.75A.75.75 0 014.75 7h2a.75.75 0 010 1.5h-2A.75.75 0 014 7.75zm11.774 3.537a.75.75 0 00-1.048-1.074L10.7 14.145 9.281 12.72a.75.75 0 00-1.062 1.058l1.943 1.95a.75.75 0 001.055.008l4.557-4.45z"></path></svg>
+    <strong>Tip: </strong>쉬운방법은 $f_{X,Y}(x,y)$가 $X$만의 함수와 $Y$만의 함수로 인수분해 되는지 파악하는 것
+</div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="기댓값">
+<a class="anchor" href="#%EA%B8%B0%EB%8C%93%EA%B0%92" aria-hidden="true"><span class="octicon octicon-link"></span></a>기댓값<a class="anchor-link" href="#%EA%B8%B0%EB%8C%93%EA%B0%92"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 확률변수 $X$의 확률밀도함수가 $f(x)$일 때 $X$의 기댓값(expectation)은
+
+$$E(X)=\begin{cases}\sum\limits_{\text{모든 }x_i}x_{i}f(x_i)\quad \text{이산형인 경우} \\ \int_{-\infty}^{\infty}xf(x)\,dx\quad \text{연속형인 경우}\end{cases}$$
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 단 $E(|X|)&lt;\infty$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 확률변수 $X$의 기댓값이 아닌 $2X+3$이나 $X^2$ 같은 확률변수의 기댓값이 궁금할 수 있다</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> $Y=g(X)$의 확률밀도함수를 $f_Y(y)$라고 하면
+
+$$E_X[g(X)]=E_Y(Y)=\begin{cases}\sum\limits_{\text{모든 }y_i}y_{i}f_{Y}(y_i)\quad \text{이산형인 경우} \\ \int_{-\infty}^{\infty}yf_{Y}(y)\,dy\quad \text{연속형인 경우}\end{cases}$$
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 만약 $X$의 확률밀도함수를 알고 있으면 $Y$의 확률밀도함수를 구할 필요가 없다</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>
+$$E_X[g(X)]=E_Y(Y)=\begin{cases}\sum\limits_{\text{모든 }x_i}g(x_{i})f_{X}(x_i)\quad \text{이산형인 경우} \\ \int_{-\infty}^{\infty}g(x)f_{X}(x)\,dx\quad \text{연속형인 경우}\end{cases}$$
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> $Y=g(X)$의 기댓값을 구하는 데는 위의 두 가지 방법이 가능함</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="기댓값의-성질">
+<a class="anchor" href="#%EA%B8%B0%EB%8C%93%EA%B0%92%EC%9D%98-%EC%84%B1%EC%A7%88" aria-hidden="true"><span class="octicon octicon-link"></span></a>기댓값의 성질<a class="anchor-link" href="#%EA%B8%B0%EB%8C%93%EA%B0%92%EC%9D%98-%EC%84%B1%EC%A7%88"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> $E(c)=c$</p>
+<p><code>-</code> $E(aX+b)=aE(X)+b$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 두 확률변수 $X$와 $Y$가 서로 독립인 경우</p>
+<p><code>-</code> $E(XY)=E(X)\cdot E(Y)$</p>
+<p><code>-</code> $E(g(X)h(Y)]=E[g(X)]\cdot E[h(Y)]$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="분산과-공분산">
+<a class="anchor" href="#%EB%B6%84%EC%82%B0%EA%B3%BC-%EA%B3%B5%EB%B6%84%EC%82%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>분산과 공분산<a class="anchor-link" href="#%EB%B6%84%EC%82%B0%EA%B3%BC-%EA%B3%B5%EB%B6%84%EC%82%B0"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+$$Var(X)=E[X-E(X)]^2=E(X^2)-[E(X)]^2\\
+\sigma_{X}=\sqrt{Var(X)}$$
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 두 확률변수 $X,Y$의 공분산은 다음과 같다</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+$$\begin{aligned}Cov(X,Y)&amp;=E[(X-EX)(Y-EY)]\\
+&amp;=E(XY)-E(X)E(Y)\end{aligned}$$
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="분산의-성질">
+<a class="anchor" href="#%EB%B6%84%EC%82%B0%EC%9D%98-%EC%84%B1%EC%A7%88" aria-hidden="true"><span class="octicon octicon-link"></span></a>분산의 성질<a class="anchor-link" href="#%EB%B6%84%EC%82%B0%EC%9D%98-%EC%84%B1%EC%A7%88"> </a>
+</h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>1.</code> $Var(aX+b)=a^2Var(X)$</p>
+<p><code>2.</code> 확률변수들이 서로 독립이면 $Var\bigg(\sum\limits^{n}_{i=1}X_{i}\bigg)=\sum\limits^{n}_{i=1}Var(X_i)$</p>
+<p><code>3.</code> $Cov(X,X)=Var(X)$</p>
+<p><code>4.</code> 두 확률변수가 서로 독립이면 $Cov(X,Y)=0$</p>
+<p><code>5.</code> $Cov(aX+b,cY+d)=acCov(X,Y)$</p>
+<p><code>6.</code> $Var\bigg(\sum\limits^{n}_{i=1}X_{i}\bigg)=\sum\limits^{n}_{i=1}Var(X_{i})+2\mathop{\sum\sum}\limits_{j&lt;k}Cov(X_j,X_k)$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="조건부-기댓값">
+<a class="anchor" href="#%EC%A1%B0%EA%B1%B4%EB%B6%80-%EA%B8%B0%EB%8C%93%EA%B0%92" aria-hidden="true"><span class="octicon octicon-link"></span></a>조건부 기댓값<a class="anchor-link" href="#%EC%A1%B0%EA%B1%B4%EB%B6%80-%EA%B8%B0%EB%8C%93%EA%B0%92"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>
+$$E(Y\mid X=x)=E_Y(Y)=\begin{cases}\sum\limits_{\text{모든 }y_i}y_{i}f_{Y\mid x}(y_i\mid x)\quad X,Y\text{가 이산형인 경우} \\ \int_{-\infty}^{\infty}yf_{Y\mid x}(y\mid x)\,dy\quad X,Y\text{가 연속형인 경우}\end{cases}$$
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> (이중 기댓값 정리) 두 확률변수 $X,Y$에 대하여 $E[E(Y\mid X)]=E(Y)$ 가 성립함</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 확률변수 $X$와 $Y$가 독립이면 $E(Y\mid x)=E(Y),\;E(X\mid y)=E(X) \to$ 사건의 독립 확률변수 버전</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 조건부 분산 : $Var(Y\mid x)=E[\{Y-E(Y\mid x)\}^2\mid x] = E(Y^2\mid x)-[E(Y\mid x)]^2$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 분산 분해 : $Var(Y) =  E[Var(Y\mid X)]+Var[E(Y\mid X)]$</p>
+<p><code>-</code> 조건부 분산($E[Var(Y\mid X)]$)이 무조건부 분산($Var(Y))$보다 평균적으로 더 작음</p>
+<p><code>-</code> $Var(E(Y\mid X))\leq Var(Y) \longrightarrow$ 개별 개체의 산포보다 그룹별 평균의 산포가 작음</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="확률부등식">
+<a class="anchor" href="#%ED%99%95%EB%A5%A0%EB%B6%80%EB%93%B1%EC%8B%9D" aria-hidden="true"><span class="octicon octicon-link"></span></a>확률부등식<a class="anchor-link" href="#%ED%99%95%EB%A5%A0%EB%B6%80%EB%93%B1%EC%8B%9D"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 마코프 확률부등식 : 실함수 $u(X) &gt; 0$라고 할 때 $P[u(X)\geq c] \leq \dfrac{E[u(X)]}{c}$</p>
+<p><code>-</code> 체비셰프 부등식 : $P(|X-\mu| &lt; k\sigma)\geq 1-\dfrac{1}{k^2}$</p>
+<p><code>-</code> 코시-슈바르츠 부등식 : $[E(XY)]^2 \leq E(X^2)\cdot E(Y^2)$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="표본분포-및-그의-근사">
+<a class="anchor" href="#%ED%91%9C%EB%B3%B8%EB%B6%84%ED%8F%AC-%EB%B0%8F-%EA%B7%B8%EC%9D%98-%EA%B7%BC%EC%82%AC" aria-hidden="true"><span class="octicon octicon-link"></span></a>표본분포 및 그의 근사<a class="anchor-link" href="#%ED%91%9C%EB%B3%B8%EB%B6%84%ED%8F%AC-%EB%B0%8F-%EA%B7%B8%EC%9D%98-%EA%B7%BC%EC%82%AC"> </a>
+</h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="대수의-법칙과-중심극한정리">
+<a class="anchor" href="#%EB%8C%80%EC%88%98%EC%9D%98-%EB%B2%95%EC%B9%99%EA%B3%BC-%EC%A4%91%EC%8B%AC%EA%B7%B9%ED%95%9C%EC%A0%95%EB%A6%AC" aria-hidden="true"><span class="octicon octicon-link"></span></a>대수의 법칙과 중심극한정리<a class="anchor-link" href="#%EB%8C%80%EC%88%98%EC%9D%98-%EB%B2%95%EC%B9%99%EA%B3%BC-%EC%A4%91%EC%8B%AC%EA%B7%B9%ED%95%9C%EC%A0%95%EB%A6%AC"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="대수의-법칙">
+<a class="anchor" href="#%EB%8C%80%EC%88%98%EC%9D%98-%EB%B2%95%EC%B9%99" aria-hidden="true"><span class="octicon octicon-link"></span></a>대수의 법칙<a class="anchor-link" href="#%EB%8C%80%EC%88%98%EC%9D%98-%EB%B2%95%EC%B9%99"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 확률변수의 열 $X_1,X_2,\cdots,X_n,\cdots$과 확률변수 $X$가 같은 확률공간에 정의된다고 하자</p>
+<p><code>-</code> 만약 임의의 $\epsilon&gt;0$에 대해 $\lim\limits_{n \to \infty}P(|X_n-X|\leq \epsilon)=0$ 또는 $\lim\limits_{n\to\infty}P(|X_n-X|&lt; \epsilon)=1$ 이라면</p>
+<p><code>-</code> $X_n$이 $X$로 확률적으로 수렴한다고 하고 $X_n{\xrightarrow{~~p~~}} X$로 표기 : <code>확률 수렴(convergence in probability)</code></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 즉 $(X_1),\;(X_1,X_2),\;\cdots, (X_1,X_2,\cdots,X_n),\;\cdots,\; n\to\infty$ 이면 $X$를 가지고 평균이나 분산을 구하는 것과</p>
+<p><code>-</code> $(X_1,X_2,\cdots,X_n)$을 가지고 평균이나 분산을 구하는것이 같아진다는 의미</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 평균이 $\mu&lt;\infty$인 확률밀도함수 $f(x)$로부터 랜덤표본 $X_1,X_2,\cdots,X_n$을 얻었다면 $\overline{X_n}\xrightarrow{~~p~~}\mu$가 성립 : <code>대수의 법칙(law of large numbers)</code></p>
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+  </div><!-- from https://github.com/utterance/utterances -->
+<script src="https://utteranc.es/client.js"
+        repo="Jaesu26/green"
+        issue-term="title"
+        label="blogpost-comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script><a class="u-url" href="/green/statistics/2021/09/03/%EC%88%98%EB%A6%AC%ED%86%B5%EA%B3%84%ED%95%99.html" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/green/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/green/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/green/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>An easy to use blogging platform with support for Jupyter Notebooks.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/Jaesu26" title="Jaesu26"><svg class="svg-icon grey"><use xlink:href="/green/assets/minima-social-icons.svg#github"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
