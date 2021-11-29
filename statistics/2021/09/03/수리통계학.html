@@ -96,7 +96,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      9 min read
+      11 min read
     
 </span></p>
 
@@ -140,7 +140,7 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h2"><a href="#표본공간과-사건">표본공간과 사건 </a></li>
 <li class="toc-entry toc-h2"><a href="#확률의-정의">확률의 정의 </a>
 <ul>
-<li class="toc-entry toc-h3"><a href="#확률공리">확률공리 </a></li>
+<li class="toc-entry toc-h3"><a href="#확률-공리">확률 공리 </a></li>
 </ul>
 </li>
 <li class="toc-entry toc-h2"><a href="#조건부-확률">조건부 확률 </a>
@@ -214,7 +214,9 @@ window.onload = wrap_img;
 <ul>
 <li class="toc-entry toc-h2"><a href="#대수의-법칙과-중심극한정리">대수의 법칙과 중심극한정리 </a>
 <ul>
+<li class="toc-entry toc-h3"><a href="#확률-수렴">확률 수렴 </a></li>
 <li class="toc-entry toc-h3"><a href="#대수의-법칙">대수의 법칙 </a></li>
+<li class="toc-entry toc-h3"><a href="#분포-수렴">분포 수렴 </a></li>
 </ul>
 </li>
 </ul>
@@ -310,7 +312,7 @@ window.onload = wrap_img;
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> 사건 $A$와 $B$가 동시에 속하는 사건 ---&gt; $A$와 $B$의 <code>공통부분(intersection)</code> ---&gt; $A \cap B$</p>
 <p><code>-</code> 사건 $A$ 또는 $B$에 속하는 사건 ---&gt; $A$와 $B$의 <code>합(union)</code> ---&gt; $A \cup B$</p>
-<p><code>-</code> $A \cap B$ = $\emptyset$ ---&gt; 두 사건 $A$와 $B$는 <code>상호배반(mutually exclusive)</code></p>
+<p><code>-</code> $A \cap B$ = $\phi$ ---&gt; 두 사건 $A$와 $B$는 <code>상호배반(mutually exclusive)</code></p>
 <p><code>-</code> 사건 $A$에 포함되지 않은 모든 $S$의 원소의 집합 ---&gt; $A$의 <code>여사건(complement)</code> ---&gt; $A^c$</p>
 
 </div>
@@ -373,8 +375,8 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="확률공리">
-<a class="anchor" href="#%ED%99%95%EB%A5%A0%EA%B3%B5%EB%A6%AC" aria-hidden="true"><span class="octicon octicon-link"></span></a>확률공리<a class="anchor-link" href="#%ED%99%95%EB%A5%A0%EA%B3%B5%EB%A6%AC"> </a>
+<h3 id="확률-공리">
+<a class="anchor" href="#%ED%99%95%EB%A5%A0-%EA%B3%B5%EB%A6%AC" aria-hidden="true"><span class="octicon octicon-link"></span></a>확률 공리<a class="anchor-link" href="#%ED%99%95%EB%A5%A0-%EA%B3%B5%EB%A6%AC"> </a>
 </h3>
 <p><code>1.</code> 임의의 사건 $A$에 대해 $P(A) \geq 0$</p>
 <p><code>2.</code> $P(S)=1$</p>
@@ -408,7 +410,7 @@ window.onload = wrap_img;
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>1.</code> $P(A^c) = 1- P(A)$</p>
-<p><code>2.</code> $P(\emptyset) = 0$</p>
+<p><code>2.</code> $P(\phi) = 0$</p>
 <p><code>3.</code> $A\subset B$이면 $P(A) \leq P(B)$</p>
 <p><code>4.</code> $P(A\cup B)=P(A)+P(B)-P(A\cap B)$</p>
 
@@ -448,7 +450,7 @@ window.onload = wrap_img;
 <h3 id="전확률-공식(total-probability)">
 <a class="anchor" href="#%EC%A0%84%ED%99%95%EB%A5%A0-%EA%B3%B5%EC%8B%9D(total-probability)" aria-hidden="true"><span class="octicon octicon-link"></span></a>전확률 공식(total probability)<a class="anchor-link" href="#%EC%A0%84%ED%99%95%EB%A5%A0-%EA%B3%B5%EC%8B%9D(total-probability)"> </a>
 </h3>
-<p><code>-</code> 사건 $B_1, B_2,\cdots,B_k$ 는 상호배반이며 $(B_1\cap B_j = \emptyset,\;i \neq j),\;\bigcup\limits_{i=1}^{k}B_{i}=S$라고 하자</p>
+<p><code>-</code> 사건 $B_1, B_2,\cdots,B_k$ 는 상호배반이며 $(B_1\cap B_j = \phi,\;i \neq j),\;\bigcup\limits_{i=1}^{k}B_{i}=S$라고 하자</p>
 <p><code>-</code> 이때 임의의 사건 $A$에 대하여 $P(A) = \sum\limits_{i=1}^{k}P(B_i)P(A\mid B_i)$가 성립함</p>
 <p><code>-</code> 증명: $P(A) = P(A\cap S) = P\bigg[A\cap\bigg(\bigcup\limits_{i=1}^{k}B_i\bigg)\bigg] = \sum\limits_{i=1}^{k}P(A\cap B_i)=\sum\limits_{i=1}^{k}P(B_i)P(A\mid B_i)$</p>
 
@@ -461,7 +463,7 @@ window.onload = wrap_img;
 <h3 id="베이즈-정리(Bayes'-theorem)">
 <a class="anchor" href="#%EB%B2%A0%EC%9D%B4%EC%A6%88-%EC%A0%95%EB%A6%AC(Bayes'-theorem)" aria-hidden="true"><span class="octicon octicon-link"></span></a>베이즈 정리(Bayes' theorem)<a class="anchor-link" href="#%EB%B2%A0%EC%9D%B4%EC%A6%88-%EC%A0%95%EB%A6%AC(Bayes'-theorem)"> </a>
 </h3>
-<p><code>-</code> 사건 $B_1, B_2,\cdots,B_k$ 는 상호배반이며 $(B_1\cap B_j = \emptyset,\;i \neq j),\;\bigcup\limits_{i=1}^{k}B_{i}=S$라고 하자</p>
+<p><code>-</code> 사건 $B_1, B_2,\cdots,B_k$ 는 상호배반이며 $(B_1\cap B_j = \phi,\;i \neq j),\;\bigcup\limits_{i=1}^{k}B_{i}=S$라고 하자</p>
 <p><code>-</code> 이때 사건 $A$가 일어났다는 조건하에서 사건 $B_j$가 일어날 확률은 $P(B_j\mid A)=\cfrac{P(B_j)P(A\mid B_j)}{\sum\limits_{i=1}^{k}P(B_i)P(A\mid B_i)}$</p>
 <p><code>-</code> 증명(전확률 공식 사용): $P(B_j\mid A)=\cfrac{P(A\cap B_j)}{P(A)}=\cfrac{P(B_j)P(A\mid B_j)}{P(A)}=\cfrac{P(B_j)P(A\mid B_j)}{\sum\limits_{i=1}^{k}P(B_i)P(A\mid B_i)}$</p>
 <p><code>-</code> $P(B_1),\cdots,P(B_k)$는 $B$의 사전확률(prior probability)</p>
@@ -612,10 +614,10 @@ window.onload = wrap_img;
 <p><code>-</code> 측도는 집합에 크기를 부여하기 위해 만든 개념으로 가산집합에 실수로 가는 함수를 부여한 것</p>
 <p><code>-</code> 확률적인 현상에서 확률공간의 측도는 확률을 정의한다</p>
 <p><code>-</code> 확률공간이 같다는건 $\Omega$가 동일하고 (주사위 던지기 $\Omega=\{1,2,3,4,5,6\}$)</p>
-<p><code>-</code> $\mathcal{F}$가 동일하고(예컨대 짝수, 홀수에만 관심이 있어서 $\mathcal{F}=\{\emptyset,\{1,3,5\},\{2,4,6\},\Omega\}$)</p>
+<p><code>-</code> $\mathcal{F}$가 동일하고(예컨대 짝수, 홀수에만 관심이 있어서 $\mathcal{F}=\{\phi,\{1,3,5\},\{2,4,6\},\Omega\}$)</p>
 <p><code>-</code> $Pr$이 동일하다는 것(예컨대 짝수, 홀수가 나올 가능성이 다른 주사위라 확률측도가 다음과 같다)</p>
 <p>
-$$\begin{aligned}\Pr(\emptyset)&amp;=0.0\\ \Pr(\{1,3,5\})&amp;=0.4\\ \Pr(\{2,4,6\})&amp;=0.6\\ \Pr(\Omega)&amp;=1.0\end{aligned}$$
+$$\begin{aligned}\Pr(\phi)&amp;=0.0\\ \Pr(\{1,3,5\})&amp;=0.4\\ \Pr(\{2,4,6\})&amp;=0.6\\ \Pr(\Omega)&amp;=1.0\end{aligned}$$
 </p>
 <p><code>-</code> 참고 : <a href="https://ko.wikipedia.org/wiki/%ED%99%95%EB%A5%A0_%EA%B3%B5%EA%B0%84">https://ko.wikipedia.org/wiki/%ED%99%95%EB%A5%A0_%EA%B3%B5%EA%B0%84</a></p>
 
@@ -653,10 +655,10 @@ $$\begin{aligned}\Pr(\emptyset)&amp;=0.0\\ \Pr(\{1,3,5\})&amp;=0.4\\ \Pr(\{2,4,6
 <p><code>-</code> 사건공간의 원소를 사건이라고 한다</p>
 <p><code>-</code> 사건 : 표본공간의 부분집합</p>
 <p><code>-</code> 사건공간($\mathcal{F}$) : 사건의 집합 $\Longleftrightarrow$ 표본공간의 $\sigma$-field</p>
-<p><code>-</code> 동전던지기의 경우 사건은 $\emptyset,\{H\},\{T\},\Omega$이므로 사건공간 중 하나를 다음과 같이 나타낼 수 있음</p>
-<p><code>-</code> $\mathcal{F}=\{\emptyset,\{H\},\{T\},\Omega\}$ ---&gt; $\mathcal{F}$의 원소 하나하나가 사건에 해당함</p>
+<p><code>-</code> 동전던지기의 경우 사건은 $\phi,\{H\},\{T\},\Omega$이므로 사건공간 중 하나를 다음과 같이 나타낼 수 있음</p>
+<p><code>-</code> $\mathcal{F}=\{\phi,\{H\},\{T\},\Omega\}$ ---&gt; $\mathcal{F}$의 원소 하나하나가 사건에 해당함</p>
 <p><code>-</code> 사건공간 중 하나라고 표현한건 $\sigma$-field 정의에 의해 사건공간은 여러개가 될 수 있기 때문</p>
-<p><code>-</code> 예컨대 주사위 던지기의 경우에서 주사위의 특정값이 아닌 단지 짝인지 홀인지에만 관심이 있으면 $\mathcal{F}=\{\emptyset,\{1,3,5\},\{2,4,6\},\Omega\}$로 설정해도 된다</p>
+<p><code>-</code> 예컨대 주사위 던지기의 경우에서 주사위의 특정값이 아닌 단지 짝인지 홀인지에만 관심이 있으면 $\mathcal{F}=\{\phi,\{1,3,5\},\{2,4,6\},\Omega\}$로 설정해도 된다</p>
 <p><code>-</code> 참고 : <a href="https://en.wikipedia.org/wiki/%CE%A3-algebra">https://en.wikipedia.org/wiki/%CE%A3-algebra</a></p>
 
 </div>
@@ -668,20 +670,22 @@ $$\begin{aligned}\Pr(\emptyset)&amp;=0.0\\ \Pr(\{1,3,5\})&amp;=0.4\\ \Pr(\{2,4,6
 <h3 id="확률측도">
 <a class="anchor" href="#%ED%99%95%EB%A5%A0%EC%B8%A1%EB%8F%84" aria-hidden="true"><span class="octicon octicon-link"></span></a>확률측도<a class="anchor-link" href="#%ED%99%95%EB%A5%A0%EC%B8%A1%EB%8F%84"> </a>
 </h3>
-<p><code>-</code> 측도공간 $(\Omega,\mathcal{F})$에 대해서 어떤 함수 $\Pr(\cdot):\mathcal{F}\to \mathbb{R}$가 다음 세 조건을 만족하면 $\Pr$을 확률측도라고 한다</p>
-<p><code>1.</code> $\Pr(A)\leq 0,\quad \forall A\in\mathcal{F}$</p>
+<p><code>-</code> 측도공간 $(\Omega,\mathcal{F})$에 대해서 어떤 함수 $\Pr(\cdot):\mathcal{F}\to \mathbb{R}$가 다음 세 조건(확률 공리)을 만족하면 $\Pr$을 확률측도라고 한다</p>
+<p><code>1.</code> $\Pr(A)\geq 0,\quad \forall A\in\mathcal{F}$</p>
 <p><code>2.</code> $\Pr(\Omega)=1$</p>
 <p><code>3.</code> Countable, pairwise disjoint set $\{A_1,A_2,\cdots\mid A_i\in \mathcal{F}\}$에 대하여 $\Pr\bigg(\bigcap\limits_{i=1}^{\infty}A_i\bigg)=\sum\limits_{i=1}^{\infty}\Pr(A_i)$</p>
-<p><code>-</code> 예컨대 동전던지기의 사건공간이 $\mathcal{F}=\{\emptyset,\{H\},\{T\},\Omega\}$ 라면 위의 조건을 만족하는 확률측도를 아래와 같이 만들 수 있다</p>
+<p><code>-</code> 예컨대 동전던지기의 사건공간이 $\mathcal{F}=\{\phi,\{H\},\{T\},\Omega\}$ 라면 위의 조건을 만족하는 확률측도를 아래와 같이 만들 수 있다</p>
 <p>
-$$\begin{aligned}\Pr(\emptyset)&amp;=0.0\\ \Pr(\{H\})&amp;=0.5\\ \Pr(\{T\})&amp;=0.5\\ \Pr(\Omega)&amp;=1.0\end{aligned}$$
+$$\begin{aligned}\Pr(\phi)&amp;=0.0\\ \Pr(\{H\})&amp;=0.5\\ \Pr(\{T\})&amp;=0.5\\ \Pr(\Omega)&amp;=1.0\end{aligned}$$
 </p>
 <p><code>-</code> 그러나 확률측도는 위의 세 조건인 <a href="https://en.wikipedia.org/wiki/Probability_axioms">Kolmogorov axioms</a>를 만족하기만 하면 되기에 확률측도는 하나가 아니다</p>
 <p><code>-</code> 예컨대 아래와 같이 확률측도를 만들 수 도 있다는 것</p>
 <p>
-$$\begin{aligned}\Pr(\emptyset)&amp;=0.0\\ \Pr(\{H\})&amp;=0.4\\ \Pr(\{T\})&amp;=0.6\\ \Pr(\Omega)&amp;=1.0\end{aligned}$$
+$$\begin{aligned}\Pr(\phi)&amp;=0.0\\ \Pr(\{H\})&amp;=0.4\\ \Pr(\{T\})&amp;=0.6\\ \Pr(\Omega)&amp;=1.0\end{aligned}$$
 </p>
+<p><code>-</code> 참고로 함수 $\Pr$의 정의역은 $\mathcal{F}$이고 치역은 $\{s\in R:0\leq s \leq 1\}$이다</p>
 <p><code>-</code> 참고 : <a href="https://gem763.github.io/probability%20theory/%ED%99%95%EB%A5%A0%EC%9D%98-%EC%9D%B4%ED%95%B4.html">https://gem763.github.io/probability%20theory/%ED%99%95%EB%A5%A0%EC%9D%98-%EC%9D%B4%ED%95%B4.html</a></p>
+<p><code>-</code> 그런데 $\Pr$이랑 $P$랑 다른거야? ---&gt; <a href="https://stats.stackexchange.com/questions/108441/which-notation-and-why-textp-pr-textprob-or-mathbbp">https://stats.stackexchange.com/questions/108441/which-notation-and-why-textp-pr-textprob-or-mathbbp</a></p>
 
 </div>
 </div>
@@ -757,7 +761,7 @@ $$\begin{aligned}\Pr(\emptyset)&amp;=0.0\\ \Pr(\{H\})&amp;=0.4\\ \Pr(\{T\})&amp;
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> 누적분포함수 $F(x) = P(X \leq x)$</p>
 <p><code>-</code> $X\sim f(x)$ : 확률변수 $X$가 확률밀도함수 $f(x)$를 가리킴</p>
-<p><code>-</code> $X\sim F(x)$ : 확률변수 $X$가 누적분포함수 $f(x)$를 가리킴</p>
+<p><code>-</code> $X\sim F(x)$ : 확률변수 $X$가 누적분포함수 $F(x)$를 가리킴</p>
 <p><code>-</code> $P(a&lt; X \leq b) = F(b) - F(a)$</p>
 <p><code>-</code> $f(x) = \dfrac{d}{dx}F(x)$</p>
 
@@ -778,7 +782,7 @@ $$\begin{aligned}\Pr(\emptyset)&amp;=0.0\\ \Pr(\{H\})&amp;=0.4\\ \Pr(\{T\})&amp;
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>1.</code> $\lim\limits_{x\to-\infty}F(x)=0$</p>
 <p><code>2.</code> $\lim\limits_{x\to\infty}F(x)=1$</p>
-<p><code>3.</code> $\lim\limits_{h\to0^{+}}F(x+h)=F(x) \longrightarrow$ 우연속 함수</p>
+<p><code>3.</code> $\lim\limits_{h\to0+}F(x+h)=F(x) \longrightarrow$ 우연속 함수</p>
 <p><code>4.</code> $a&lt;b$ 이면 $F(a) \leq F(b)$</p>
 
 </div>
@@ -1236,6 +1240,76 @@ $$E(Y\mid X=x)=E_Y(Y)=\begin{cases}\sum\limits_{\text{모든 }y_i}y_{i}f_{Y\mid 
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="확률-수렴">
+<a class="anchor" href="#%ED%99%95%EB%A5%A0-%EC%88%98%EB%A0%B4" aria-hidden="true"><span class="octicon octicon-link"></span></a>확률 수렴<a class="anchor-link" href="#%ED%99%95%EB%A5%A0-%EC%88%98%EB%A0%B4"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 확률변수의 열 $X_1,X_2,\cdots,X_n,\cdots$과 확률변수 $X$가 같은 확률공간에 정의된다고 하자</p>
+<p><code>-</code> 확률변수의 열을 모르면 다음을 참고하자 : <a href="https://www.probabilitycourse.com/chapter7/7_2_2_sequence_of_random_variables.php">https://www.probabilitycourse.com/chapter7/7_2_2_sequence_of_random_variables.php</a></p>
+<p><code>-</code> 만약 임의의 $\epsilon&gt;0$에 대해 $\lim\limits_{n \to \infty}P(|X_n-X|\geq \epsilon)=0$ 또는 $\lim\limits_{n\to\infty}P(|X_n-X|&lt; \epsilon)=1$ 이라면</p>
+<p><code>-</code> $X_n$이 $X$로 확률적으로 수렴한다고 하고 $X_n{\xrightarrow{~~p~~}} X$로 표기 : <code>확률 수렴(convergence in probability)</code></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 확률 수렴이 무엇인지 뭔가 직관적으로 와닿지 않는다</p>
+<p><code>-</code> 일단 수열의 수렴을 생각해보자</p>
+<p><code>-</code> 예컨데 $1,\dfrac{1}{2},\dfrac{1}{4},\dfrac{1}{8},\cdots $ 와 같은 <a href="https://ko.wikipedia.org/wiki/%EC%88%98%EC%97%B4">수열</a>이 있다고 하자</p>
+<p><code>-</code> 위의 수열을 다음과 같이 나타낼 수 있음 ---&gt; $a_n=\dfrac{1}{2^n},\;n\in \mathbb{N}$</p>
+<p><code>-</code> 여기서 $n\to\infty$ 이면 $a_n\to 0$임을 알 수 있다</p>
+<p><code>-</code> 즉 $n$이 커지면 어떠한 상수 $a$로 수렴한다는 것</p>
+<p><code>-</code> 수열 대신 확률변수의 열인 경우도 똑같이 생각하면 된다</p>
+<p><code>-</code> 예컨대 다음과 같은 확률변수의 열이 있다고 해보자</p>
+<p><code>-</code> $X_1,X_2,\cdots,X_n$</p>
+<p><code>-</code> 그런데 $X_1\sim EXP(1),\; X_2\sim EXP(2),\;\cdots,\;X_n\sim EXP(n)$ 라고 하자</p>
+<p><code>-</code> 즉 $X_n\sim EXP(n)$, 예컨대 $n=3$이면 $X_3\sim EXP(3)$</p>
+<p><code>-</code> 참고로 $EXP(n)$에서 $n$은 포아송분포의 모수 $\lambda$를 의미한다</p>
+<p><code>-</code> 만약  $n\to\infty$ 이면 $X_n\to 0$가 되고 이는 $X_n\xrightarrow{~~p~~}0$</p>
+$$\begin{aligned}\lim\limits_{n\to\infty} P(|X_n-X|\geq \epsilon)&amp;=\lim\limits_{n\to\infty} P(|X_n-0|\geq \epsilon)\\
+&amp;=\lim\limits_{n\to\infty} P(X_n\geq \epsilon)\quad (X_n\geq 0 \text{ as } X_n\sim EXP(n))\\
+&amp;=\lim\limits_{n\to\infty} 1-F_{X_n}(\epsilon)\\
+&amp;=\lim\limits_{n\to\infty} 1-(1-e^{-n\epsilon})\\
+&amp;=\lim\limits_{n\to\infty} e^{-n\epsilon}\\
+&amp;=0,\quad \forall \epsilon \geq 0\end{aligned}$$<p><code>-</code> 따라서 $X_n\xrightarrow{~~p~~}0$</p>
+<p><code>-</code> 다시 말하자면 확률변수의 열 $X_1,X_2,\cdots,X_n$은 zero random variable $X$로 확률 수렴한다</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 참고 : <a href="https://www.probabilitycourse.com/chapter7/7_2_5_convergence_in_probability.php">https://www.probabilitycourse.com/chapter7/7_2_5_convergence_in_probability.php</a></p>
+<p><code>-</code> 근데 문득 궁금한점이 생겼다</p>
+<p><code>-</code> $X_1,X_2,\cdots,X_n$은 같은 확률공간에 존재하는건가?</p>
+<p><code>-</code> $\Omega,\mathcal{F}$는 같다</p>
+<p><code>-</code> 그런데 $\Pr$은?</p>
+<p><code>-</code> $\Pr$이 같다면 예컨대 $\Pr(1&lt;X&lt;2)$가 $X_1,X_2,\cdots,X_n$에 대해서 같아야 하는거 아닌가?</p>
+<p><code>-</code> 하지만 $X_1,X_2,\cdots,X_n$ 각각의 pdf는 다르기에 $\Pr(1&lt;X&lt;2)$도 다르다</p>
+<p><code>-</code> 그럼 같은 확률공간이 아닌건가?</p>
+<p><code>-</code> 아니면 임의의 실수 $a$에 대해서 $\Pr(a)=0$이니까 똑같나?</p>
+<p><code>-</code> 그냥 내가 확률공간의 의미를 잘못알고 있는 걸수도...</p>
+<p><code>-</code> 위에 대한 나의 생각 : $\Pr$은 $\mathcal{F}$를 $[0,1]$로 맵핑하는 함수다 ---&gt; 예컨대 동전던지기의 경우 $\Pr(\{H\})=\dfrac{1}{2}$</p>
+<p><code>-</code> $\Pr(1&lt;X&lt;2)$에서 $1&lt;X&lt;2$는 $\mathcal{F}$ 중에서 하나의 사건에 해당한다(?)</p>
+<p><code>-</code> $\Pr$은 $1&lt;X&lt;2$를 $f_X(x)$ 그래프 상에서 전체면적($1$) 대비 $1&lt;x&lt;2$ 아래의 면적의 차지 비율에 맵핑한다</p>
+<p><code>-</code> 예컨대 정규분포의 경우 $\Pr(0&lt;X&lt;\infty) = 0.5$이다</p>
+<p><code>-</code> 위의 경우 $\Pr$은 $\mathcal{F}$를 $f_X(x)$ 그래프 상에서 전체면적($1$) 대비 $\mathcal{F}$에 해당하는 아래의 면적의 차지 비율에 맵핑한다</p>
+<p><code>-</code> 즉 $X_1,X_2,\cdots,X_n$ 각각의 pdf는 다르기에 $\Pr(1&lt;X&lt;2)$도 다르지만 $\Pr$ 함수의 규칙은 같으므로 같은 확률공간에 있다고 한다(?)</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="대수의-법칙">
 <a class="anchor" href="#%EB%8C%80%EC%88%98%EC%9D%98-%EB%B2%95%EC%B9%99" aria-hidden="true"><span class="octicon octicon-link"></span></a>대수의 법칙<a class="anchor-link" href="#%EB%8C%80%EC%88%98%EC%9D%98-%EB%B2%95%EC%B9%99"> </a>
 </h3>
@@ -1245,26 +1319,26 @@ $$E(Y\mid X=x)=E_Y(Y)=\begin{cases}\sum\limits_{\text{모든 }y_i}y_{i}f_{Y\mid 
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> 확률변수의 열 $X_1,X_2,\cdots,X_n,\cdots$과 확률변수 $X$가 같은 확률공간에 정의된다고 하자</p>
-<p><code>-</code> 만약 임의의 $\epsilon&gt;0$에 대해 $\lim\limits_{n \to \infty}P(|X_n-X|\leq \epsilon)=0$ 또는 $\lim\limits_{n\to\infty}P(|X_n-X|&lt; \epsilon)=1$ 이라면</p>
-<p><code>-</code> $X_n$이 $X$로 확률적으로 수렴한다고 하고 $X_n{\xrightarrow{~~p~~}} X$로 표기 : <code>확률 수렴(convergence in probability)</code></p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> 즉 $(X_1),\;(X_1,X_2),\;\cdots, (X_1,X_2,\cdots,X_n),\;\cdots,\; n\to\infty$ 이면 $X$를 가지고 평균이나 분산을 구하는 것과</p>
-<p><code>-</code> $(X_1,X_2,\cdots,X_n)$을 가지고 평균이나 분산을 구하는것이 같아진다는 의미</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> 평균이 $\mu&lt;\infty$인 확률밀도함수 $f(x)$로부터 랜덤표본 $X_1,X_2,\cdots,X_n$을 얻었다면 $\overline{X_n}\xrightarrow{~~p~~}\mu$가 성립 : <code>대수의 법칙(law of large numbers)</code></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="분포-수렴">
+<a class="anchor" href="#%EB%B6%84%ED%8F%AC-%EC%88%98%EB%A0%B4" aria-hidden="true"><span class="octicon octicon-link"></span></a>분포 수렴<a class="anchor-link" href="#%EB%B6%84%ED%8F%AC-%EC%88%98%EB%A0%B4"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 확률변수의 열 $X_1,X_2,\cdots,X_n,\cdots$이 누적분포함수 $F_{X_1},F_{X_2},\cdots,F_{X_n},\cdots$을 각각 갖고 $X\sim F_X$라고 하자</p>
+<p><code>-</code> 만약 함수 $F_X$가 연소긴 모든 점 $x$에서 $\lim\limits_{n\to\infty}F_{X_n}=F_X(x)$가 만족된다면</p>
+<p><code>-</code> $X_n$이 $X$로 분포 수렴한다고 말하고 $X_n{\xrightarrow{~~d~~}} X$로 표기 : <code>분포 수렴(convergence in distribution)</code></p>
 
 </div>
 </div>
