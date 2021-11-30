@@ -233,8 +233,7 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> 2학기 수업에서 배우는 수리통계학에 대해 정리할 것임</p>
-<p><code>-</code> 중요한 내용은 따로 정리하여 다른 주피터 노트북 파일로 만들 수 도 있음</p>
+<p><code>-</code> 수리통계학 내용 정리</p>
 
 </div>
 </div>
@@ -1251,6 +1250,7 @@ $$E(Y\mid X=x)=E_Y(Y)=\begin{cases}\sum\limits_{\text{모든 }y_i}y_{i}f_{Y\mid 
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> 확률변수의 열 $X_1,X_2,\cdots,X_n,\cdots$과 확률변수 $X$가 같은 확률공간에 정의된다고 하자</p>
 <p><code>-</code> 확률변수의 열을 모르면 다음을 참고하자 : <a href="https://www.probabilitycourse.com/chapter7/7_2_2_sequence_of_random_variables.php">https://www.probabilitycourse.com/chapter7/7_2_2_sequence_of_random_variables.php</a></p>
+<p><code>-</code> 확률변수의 수렴 : <a href="https://www.probabilitycourse.com/chapter7/7_2_0_convergence_of_random_variables.php">https://www.probabilitycourse.com/chapter7/7_2_0_convergence_of_random_variables.php</a></p>
 <p><code>-</code> 만약 임의의 $\epsilon&gt;0$에 대해 $\lim\limits_{n \to \infty}P(|X_n-X|\geq \epsilon)=0$ 또는 $\lim\limits_{n\to\infty}P(|X_n-X|&lt; \epsilon)=1$ 이라면</p>
 <p><code>-</code> $X_n$이 $X$로 확률적으로 수렴한다고 하고 $X_n{\xrightarrow{~~p~~}} X$로 표기 : <code>확률 수렴(convergence in probability)</code></p>
 
@@ -1268,7 +1268,7 @@ $$E(Y\mid X=x)=E_Y(Y)=\begin{cases}\sum\limits_{\text{모든 }y_i}y_{i}f_{Y\mid 
 <p><code>-</code> 즉 $n$이 커지면 어떠한 상수 $a$로 수렴한다는 것</p>
 <p><code>-</code> 수열 대신 확률변수의 열인 경우도 똑같이 생각하면 된다</p>
 <p><code>-</code> 예컨대 다음과 같은 확률변수의 열이 있다고 해보자</p>
-<p><code>-</code> $X_1,X_2,\cdots,X_n$</p>
+<p><code>-</code> $X_1,X_2,\cdots,X_n$ ---&gt; $n$에 의존한다</p>
 <p><code>-</code> 그런데 $X_1\sim EXP(1),\; X_2\sim EXP(2),\;\cdots,\;X_n\sim EXP(n)$ 라고 하자</p>
 <p><code>-</code> 즉 $X_n\sim EXP(n)$, 예컨대 $n=3$이면 $X_3\sim EXP(3)$</p>
 <p><code>-</code> 참고로 $EXP(n)$에서 $n$은 포아송분포의 모수 $\lambda$를 의미한다</p>
@@ -1319,7 +1319,7 @@ $$\begin{aligned}\lim\limits_{n\to\infty} P(|X_n-X|\geq \epsilon)&amp;=\lim\limi
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> 평균이 $\mu&lt;\infty$인 확률밀도함수 $f(x)$로부터 랜덤표본 $X_1,X_2,\cdots,X_n$을 얻었다면 $\overline{X_n}\xrightarrow{~~p~~}\mu$가 성립 : <code>대수의 법칙(law of large numbers)</code></p>
+<p><code>-</code> 평균이 $\mu&lt;\infty$인 확률밀도함수 $f(x)$로부터 랜덤표본($i.i.d$) $X_1,X_2,\cdots,X_n$을 얻었다면 $\overline{X_n}\xrightarrow{~~p~~}\mu$가 성립 : <code>대수의 법칙(law of large numbers)</code></p>
 
 </div>
 </div>
@@ -1337,8 +1337,40 @@ $$\begin{aligned}\lim\limits_{n\to\infty} P(|X_n-X|\geq \epsilon)&amp;=\lim\limi
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> 확률변수의 열 $X_1,X_2,\cdots,X_n,\cdots$이 누적분포함수 $F_{X_1},F_{X_2},\cdots,F_{X_n},\cdots$을 각각 갖고 $X\sim F_X$라고 하자</p>
-<p><code>-</code> 만약 함수 $F_X$가 연소긴 모든 점 $x$에서 $\lim\limits_{n\to\infty}F_{X_n}=F_X(x)$가 만족된다면</p>
+<p><code>-</code> 만약 함수 $F_X$가 연속인 모든 점 $x$에서 $\lim\limits_{n\to\infty}F_{X_n}=F_X(x)$가 만족된다면</p>
 <p><code>-</code> $X_n$이 $X$로 분포 수렴한다고 말하고 $X_n{\xrightarrow{~~d~~}} X$로 표기 : <code>분포 수렴(convergence in distribution)</code></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p></p>
+<div class="flash">
+    <svg class="octicon octicon-info" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8 1.5a6.5 6.5 0 100 13 6.5 6.5 0 000-13zM0 8a8 8 0 1116 0A8 8 0 010 8zm6.5-.25A.75.75 0 017.25 7h1a.75.75 0 01.75.75v2.75h.25a.75.75 0 010 1.5h-2a.75.75 0 010-1.5h.25v-2h-.25a.75.75 0 01-.75-.75zM8 6a1 1 0 100-2 1 1 0 000 2z"></path></svg>
+    <strong>Note: </strong>$X_n{\xrightarrow{~~p~~}} X$ 이면 $X_n{\xrightarrow{~~d~~}} X$ 이지만 역은 항상 성립하진 않는다
+</div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 참고 : <a href="https://www.probabilitycourse.com/chapter7/7_2_4_convergence_in_distribution.php">https://www.probabilitycourse.com/chapter7/7_2_4_convergence_in_distribution.php</a></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p></p>
+<div class="flash">
+    <svg class="octicon octicon-info octicon octicon-info" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8 1.5a6.5 6.5 0 100 13 6.5 6.5 0 000-13zM0 8a8 8 0 1116 0A8 8 0 010 8zm6.5-.25A.75.75 0 017.25 7h1a.75.75 0 01.75.75v2.75h.25a.75.75 0 010 1.5h-2a.75.75 0 010-1.5h.25v-2h-.25a.75.75 0 01-.75-.75zM8 6a1 1 0 100-2 1 1 0 000 2z"></path></svg>
+    <strong>Note: </strong>$c$가 상수일 때 $X_n{\xrightarrow{~~p~~}} c$ 와 $X_n{\xrightarrow{~~d~~}} c$ 는 서로 동치이다
+</div>
 
 </div>
 </div>
