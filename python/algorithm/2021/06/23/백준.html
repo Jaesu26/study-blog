@@ -148,6 +148,7 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h3"><a href="#평균은-넘겠지">평균은 넘겠지 </a></li>
 <li class="toc-entry toc-h3"><a href="#고양이-출력">고양이 출력 </a></li>
 <li class="toc-entry toc-h3"><a href="#강아지">강아지 </a></li>
+<li class="toc-entry toc-h3"><a href="#나머지">나머지 </a></li>
 </ul>
 </li>
 <li class="toc-entry toc-h2"><a href="#if문">if문 </a>
@@ -1111,6 +1112,75 @@ window.onload = wrap_img;
 ( 0 )"""\
 |"^"`    |
 ||_/=\\__|
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="나머지">
+<a class="anchor" href="#%EB%82%98%EB%A8%B8%EC%A7%80" aria-hidden="true"><span class="octicon octicon-link"></span></a>나머지<a class="anchor-link" href="#%EB%82%98%EB%A8%B8%EC%A7%80"> </a>
+</h3>
+<ul>
+<li>문제 출처: <a href="https://www.acmicpc.net/problem/3052">백준 3052번</a>
+</li>
+</ul>
+<p><code>-</code> 서로 다른 값의 개수를 구하라는 것은 중복되는 값을 없애고 남은 숫자의 개수를 세라는 말이다</p>
+<p><code>-</code> 집합(set)을 사용하면 중복되는 숫자를 없앨 수 있다!</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+    <span class="n">x</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span> <span class="o">%</span> <span class="mi">42</span><span class="p">)</span>
+    
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">x</span><span class="p">)))</span> <span class="c1">## set()을 사용하여 x에서 중복되는 원소를 하나만 남기고 나머지를 제외한다</span>
+<span class="c1">## 처음부터 x를 set으로 만들어도 된다</span>
+
+<span class="c1"># input</span>
+<span class="c1"># 1</span>
+<span class="c1"># 2</span>
+<span class="c1"># 3</span>
+<span class="c1"># 4</span>
+<span class="c1"># 5</span>
+<span class="c1"># 6</span>
+<span class="c1"># 7</span>
+<span class="c1"># 8</span>
+<span class="c1"># 9</span>
+<span class="c1"># 10</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+</div>
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>10
 </pre>
 </div>
 </div>
@@ -4310,7 +4380,7 @@ window.onload = wrap_img;
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> 밑에 문제인 IQ Test도 틀린 이유가 몫 연산자를 쓰지 않고 나누기 연산자를 사용한 것이다</p>
-<p><code>-</code> 위에서 확인한 봐와 같이 반올림 오차 때문에 float형은 불안정하므로 몫 연산자를 사용하는 것이 무조건 안전하다</p>
+<p><code>-</code> 위에서 확인한 바와 같이 반올림 오차 때문에 float형은 불안정하므로 몫 연산자를 사용하는 것이 안전하다</p>
 
 </div>
 </div>
@@ -4803,7 +4873,7 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> 다른 사람 아이디어 보고 만든 코드 --&gt; 내 코드보다 코드 길이가 10배 짧아서 10배 좋다고 생각할라 했는데 시간이 너무 오래 걸리네? --&gt; 내 실수인 걸로 할라 했는데 숏코딩 보니까 다른 사람도 시간이 오래 걸렸다.</p>
+<p><code>-</code> 다른 사람 아이디어 보고 만든 코드</p>
 <p><code>-</code> 종말의 수는 $10000$개가 최대이므로 아무거 커도 $3000000$ 이하이다.</p>
 <p><code>-</code> $3000000$까지의 숫자 중 $666$을 포함하면 새로운 리스트에 포함한다.</p>
 
@@ -4853,7 +4923,7 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> 숏코딩으로 만들었음(가독성 쓰레기)</p>
+<p><code>-</code> 숏코딩으로 만들었음</p>
 
 </div>
 </div>
@@ -4865,7 +4935,7 @@ window.onload = wrap_img;
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">([</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">9</span><span class="o">**</span><span class="mi">7</span><span class="p">)</span><span class="k">if</span><span class="s1">'666'</span><span class="ow">in</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)][</span><span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">([</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">9</span><span class="o">**</span><span class="mi">7</span><span class="p">)</span> <span class="k">if</span><span class="s1">'666'</span><span class="ow">in</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)][</span><span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
 </pre></div>
 
     </div>
@@ -6372,7 +6442,7 @@ window.onload = wrap_img;
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> 이동 횟수를 최소화할려면?</p>
 <p><code>-</code> $x지점(출발=0)\to{1}\to{2}\to{3}\to\dots\to{n}\to{n-1}\to\dots\to{2}\to{1}\to{y지점}(도착=0)$</p>
-<p><code>-</code> $이동\,거리 = \sum_{i=1}^{n}{k} + \sum_{i=1}^{n-1}{k} = \frac{n(n+1)}{2} + \frac{(n-1)n}{2} = n^2$</p>
+<p><code>-</code> $이동\,거리 = \sum\limits_{i=1}^{n}{k} + \sum\limits_{i=1}^{n-1}{k} = \dfrac{n(n+1)}{2} + \dfrac{(n-1)n}{2} = n^2$</p>
 <p><code>-</code> $y-x = n^2$</p>
 <p><code>-</code> $이동\,횟수 = 화살표의\,개수 = n+(n-1)=2n-1$</p>
 <p><code>-</code> 즉 $n^2$의 거리를 이동하기 위한 최소한의 이동 횟수는 $2n-1$이다.</p>
