@@ -791,7 +791,8 @@ F-statistic: 72.71 on 2 and 5 DF,  p-value: 0.0002015
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> $y$는 불안도, $x_1$은 약의 복용량, $x_2$는 약의 종류</p>
-<p>$y=\beta_0+\beta_1 x_1+\beta_2 x_2$</p>
+<p><code>-</code> 약의 종류는 질적변수이므로 지시변수로 바꾸고 약의 종류와 약의 복용량 사이에 교호작용이 있을 수 있으므로 아래와 같이 모형을 설정했다</p>
+<p>$y=\beta_0+\beta_1 x_1+\beta_2 x_2+\beta_3 x_1 x_2$, $\quad x_2=\begin{cases}0,\quad \text{안정제 A} \\ 1,\quad \text{안정제 B}\end{cases}$</p>
 
 </div>
 </div>
@@ -829,7 +830,8 @@ F-statistic: 72.71 on 2 and 5 DF,  p-value: 0.0002015
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-r"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="nf">lm</span><span class="p">(</span><span class="n">y</span><span class="o">~</span><span class="n">x1</span><span class="o">+</span><span class="n">x2</span><span class="p">)</span>
+<div class=" highlight hl-r"><pre><span></span><span class="n">x12</span> <span class="o">=</span> <span class="n">x1</span><span class="o">*</span><span class="n">x2</span>
+<span class="n">m</span> <span class="o">=</span> <span class="nf">lm</span><span class="p">(</span><span class="n">y</span><span class="o">~</span><span class="n">x1</span><span class="o">+</span><span class="n">x2</span><span class="o">+</span><span class="n">x12</span><span class="p">)</span>
 <span class="nf">summary</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
 </pre></div>
 
@@ -847,23 +849,24 @@ F-statistic: 72.71 on 2 and 5 DF,  p-value: 0.0002015
 <div class="output_text output_subarea ">
 <pre>
 Call:
-lm(formula = y ~ x1 + x2)
+lm(formula = y ~ x1 + x2 + x12)
 
 Residuals:
     Min      1Q  Median      3Q     Max 
--3.3786 -1.0875 -0.0571  1.0857  3.7429 
+-3.2571 -1.2143 -0.1286  0.8893  3.4857 
 
 Coefficients:
             Estimate Std. Error t value Pr(&gt;|t|)    
-(Intercept) 13.55000    0.54711  24.766  &lt; 2e-16 ***
-x1           0.34143    0.03741   9.127 9.59e-13 ***
-x2           2.80000    0.46658   6.001 1.43e-07 ***
+(Intercept) 15.30000    0.59828  25.573  &lt; 2e-16 ***
+x1           0.19143    0.04523   4.233 8.65e-05 ***
+x2          -0.70000    0.84609  -0.827    0.412    
+x12          0.30000    0.06396   4.691 1.79e-05 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
-Residual standard error: 1.807 on 57 degrees of freedom
-Multiple R-squared:  0.6767,	Adjusted R-squared:  0.6654 
-F-statistic: 59.66 on 2 and 57 DF,  p-value: 1.055e-14
+Residual standard error: 1.545 on 56 degrees of freedom
+Multiple R-squared:  0.7679,	Adjusted R-squared:  0.7555 
+F-statistic: 61.76 on 3 and 56 DF,  p-value: &lt; 2.2e-16
 </pre>
 </div>
 
@@ -878,7 +881,7 @@ F-statistic: 59.66 on 2 and 57 DF,  p-value: 1.055e-14
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>$\hat{y}=13.55000+0.34143x_1+2.80000x_2$</p>
+<p>$\hat{y}=15.30000+0.19143x_1-0.70000x_2+0.30000x_1x_2  $</p>
 
 </div>
 </div>
@@ -938,12 +941,12 @@ F-statistic: 59.66 on 2 and 57 DF,  p-value: 1.055e-14
 </tr>
 	<tr>
 <th scope="row">2</th>
-<td>57</td>
-<td>186.1286</td>
-<td> 2</td>
-<td>389.6048</td>
-<td>59.65627</td>
-<td>1.055268e-14</td>
+<td>56</td>
+<td>133.6286</td>
+<td> 3</td>
+<td>442.1048</td>
+<td>61.75792</td>
+<td>9.239807e-18</td>
 </tr>
 </tbody>
 </table>
@@ -1061,25 +1064,7 @@ F-statistic: 59.66 on 2 and 57 DF,  p-value: 1.055e-14
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-r"><pre><span></span><span class="n">x12</span> <span class="o">=</span> <span class="n">x1</span><span class="o">*</span><span class="n">x2</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-    
-
-    
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-r"><pre><span></span><span class="n">m2</span> <span class="o">=</span> <span class="nf">lm</span><span class="p">(</span><span class="n">y</span><span class="o">~</span><span class="n">x1</span><span class="o">+</span><span class="n">x2</span><span class="o">+</span><span class="n">x12</span><span class="p">)</span>
-<span class="nf">summary</span><span class="p">(</span><span class="n">m2</span><span class="p">)</span>
+<div class=" highlight hl-r"><pre><span></span><span class="nf">summary</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -1128,7 +1113,7 @@ F-statistic: 61.76 on 3 and 56 DF,  p-value: &lt; 2.2e-16
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> 교호작용항(x12)의 검정통계량에 근거한 p-value가 거의 0이므로 교호작용이 있다고 할 수 있따</p>
+<p><code>-</code> 교호작용항(x12)의 검정통계량에 근거한 p-value가 거의 0이므로 교호작용이 있다고 할 수 있다</p>
 
 </div>
 </div>
@@ -1281,7 +1266,7 @@ F-statistic: 135.5 on 1 and 4 DF,  p-value: 0.0003111
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-r"><pre><span></span><span class="n">logistic</span> <span class="o">=</span> <span class="nf">function</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="nf">exp</span><span class="p">(</span><span class="m">-2.96853+0.26741</span><span class="o">*</span><span class="n">x</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="m">1</span><span class="o">+</span><span class="nf">exp</span><span class="p">(</span><span class="m">-2.96853+0.26741</span><span class="o">*</span><span class="n">x</span><span class="p">))</span>
+<div class=" highlight hl-r"><pre><span></span><span class="n">logistic</span> <span class="o">=</span> <span class="nf">function</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="nf">exp</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="m">1</span><span class="o">+</span><span class="nf">exp</span><span class="p">(</span><span class="n">p</span><span class="p">))</span>
 </pre></div>
 
     </div>
@@ -1300,7 +1285,6 @@ F-statistic: 135.5 on 1 and 4 DF,  p-value: 0.0003111
     <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span><span class="n">newdata</span> <span class="o">=</span> <span class="nf">data.frame</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="m">4</span><span class="p">)</span>
 <span class="n">predict_</span> <span class="o">=</span> <span class="nf">predict</span><span class="p">(</span><span class="n">m_logit</span><span class="p">,</span> <span class="n">newdata</span> <span class="o">=</span> <span class="n">newdata</span><span class="p">)</span>
-<span class="c1">#predict_ </span>
 <span class="nf">logistic</span><span class="p">(</span><span class="n">predict_</span><span class="p">)</span>
 </pre></div>
 
@@ -1315,7 +1299,7 @@ F-statistic: 135.5 on 1 and 4 DF,  p-value: 0.0003111
 
 
 <div class="output_html rendered_html output_subarea ">
-<strong>1:</strong> 0.0299936908243327
+<strong>1:</strong> 0.130232738197006
 </div>
 
 </div>
@@ -1329,7 +1313,7 @@ F-statistic: 135.5 on 1 and 4 DF,  p-value: 0.0003111
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> 문제의 확률은 $0.0299936908243327$ 이다</p>
+<p><code>-</code> 새로 전학을 오게될 4학년이 안경을 쓸 확률은 $0.130232738197006$ 이다</p>
 
 </div>
 </div>
