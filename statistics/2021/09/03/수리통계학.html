@@ -96,7 +96,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      11 min read
+      12 min read
     
 </span></p>
 
@@ -217,6 +217,7 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h3"><a href="#확률-수렴">확률 수렴 </a></li>
 <li class="toc-entry toc-h3"><a href="#대수의-법칙">대수의 법칙 </a></li>
 <li class="toc-entry toc-h3"><a href="#분포-수렴">분포 수렴 </a></li>
+<li class="toc-entry toc-h3"><a href="#중심극한정리">중심극한정리 </a></li>
 </ul>
 </li>
 </ul>
@@ -1339,6 +1340,7 @@ $$\begin{aligned}\lim\limits_{n\to\infty} P(|X_n-X|\geq \epsilon)&amp;=\lim\limi
 <p><code>-</code> 확률변수의 열 $X_1,X_2,\cdots,X_n,\cdots$이 누적분포함수 $F_{X_1},F_{X_2},\cdots,F_{X_n},\cdots$을 각각 갖고 $X\sim F_X$라고 하자</p>
 <p><code>-</code> 만약 함수 $F_X$가 연속인 모든 점 $x$에서 $\lim\limits_{n\to\infty}F_{X_n}=F_X(x)$가 만족된다면</p>
 <p><code>-</code> $X_n$이 $X$로 분포 수렴한다고 말하고 $X_n{\xrightarrow{~~d~~}} X$로 표기 : <code>분포 수렴(convergence in distribution)</code></p>
+<p><code>-</code> 여기서 $X$의 분포를 $X_n$의 <code>극한분포(Limiting Distribution)</code> 또는 <code>점근적분포(Asymptotic Distribution)</code>라고 한다</p>
 
 </div>
 </div>
@@ -1371,6 +1373,38 @@ $$\begin{aligned}\lim\limits_{n\to\infty} P(|X_n-X|\geq \epsilon)&amp;=\lim\limi
     <svg class="octicon octicon-info octicon octicon-info" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8 1.5a6.5 6.5 0 100 13 6.5 6.5 0 000-13zM0 8a8 8 0 1116 0A8 8 0 010 8zm6.5-.25A.75.75 0 017.25 7h1a.75.75 0 01.75.75v2.75h.25a.75.75 0 010 1.5h-2a.75.75 0 010-1.5h.25v-2h-.25a.75.75 0 01-.75-.75zM8 6a1 1 0 100-2 1 1 0 000 2z"></path></svg>
     <strong>Note: </strong>$c$가 상수일 때 $X_n{\xrightarrow{~~p~~}} c$ 와 $X_n{\xrightarrow{~~d~~}} c$ 는 서로 동치이다
 </div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="중심극한정리">
+<a class="anchor" href="#%EC%A4%91%EC%8B%AC%EA%B7%B9%ED%95%9C%EC%A0%95%EB%A6%AC" aria-hidden="true"><span class="octicon octicon-link"></span></a>중심극한정리<a class="anchor-link" href="#%EC%A4%91%EC%8B%AC%EA%B7%B9%ED%95%9C%EC%A0%95%EB%A6%AC"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 확률변수 $X_1,X_2,\cdots$의 cdf가 $F_1,F_2,\cdots$이고 mgf가 $M_1(t),M_2(t),\cdots$라고 하자</p>
+<p><code>-</code> 이때 어떤 $t$의 개구간 $-h&lt;t&lt;h$에 대하여 $\lim\limits_{n\to \infty}M_n(t)=M(t)$이고</p>
+<p><code>-</code> $M(t)$가 누적분포함수 $F(x)$를 갖는 어떤 확률분포의 mgf라고 하면 $F(x)$가 연속인 모든 점에서 $\lim\limits_{n\to \infty}F_n(x)=F(x)$가 성립한다</p>
+<p><code>-</code> 즉, 적률생섬함수열의 극한이 임의의 확률변수 $X$의 mgf로 수렴하면  $X_n{\xrightarrow{~~d~~}} X$가 성립한다</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 평균과 분산이 각각 $\mu$와 $\sigma^2&lt;\infty$인 $f(x)$로부터 랜덤표본 $X_1,X_2,\cdots,X_n$을 얻었다면 이때 확률변량</p>
+<p>
+$$Z_n=\dfrac{\sum\limits_{i=1}^{n}X_i-E\left(\sum\limits_{i=1}^{n}X_i\right)}{\sqrt{Var\left(\sum\limits_{i=1}^{n}X_i\right)}}=\dfrac{\sum\limits_{i=1}^{n}(X_i-\mu)}{\sqrt{n}\sigma}$$
+</p>
+<p><code>-</code> 는 표본의 크기 $n$이 무한대에 접근함에 따라 표준정규분포 $N(0,1)$로 분포수렴한다 : <code>중심극한정리(central limit theorem)</code></p>
 
 </div>
 </div>
