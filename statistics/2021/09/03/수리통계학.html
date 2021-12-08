@@ -744,8 +744,8 @@ $$\begin{aligned}\Pr(\phi)&amp;=0.0\\ \Pr(\{H\})&amp;=0.4\\ \Pr(\{T\})&amp;=0.6\
 <p>
 $$F_X(x)=\begin{cases}0,\quad x&lt;0 \\ \frac{1}{2},\quad 0 \leq x &lt;1 \\ 1,\quad x\geq 1\end{cases}$$
 </p>
-$$F_Y(y)=\begin{cases}0,\quad y&lt;1 \\[5pt]  \dfrac{1}{6},\quad 1\leq y &lt;2 \\[5pt] \dfrac{2}{6},\quad 2\leq y &lt;3 \\[5pt]
-\dfrac{3}{6},\quad 3\leq y &lt;4 \\[5pt] \dfrac{4}{6},\quad 4\leq y &lt;5 \\[5pt] \dfrac{5}{6},\quad 5\leq y &lt;6 \\[5pt] 1,\quad y\geq 6\end{cases}$$<p><code>-</code> 참고로 cdf뿐만 아니라 pdf도 다르다</p>
+$$F_Y(y)=\begin{cases}0,\quad y&lt;1 \\[5pt]  \dfrac{1}{6},\quad 1\leq y &lt;2 \\[7pt] \dfrac{2}{6},\quad 2\leq y &lt;3 \\[7pt]
+\dfrac{3}{6},\quad 3\leq y &lt;4 \\[7pt] \dfrac{4}{6},\quad 4\leq y &lt;5 \\[7pt] \dfrac{5}{6},\quad 5\leq y &lt;6 \\[5pt] 1,\quad y\geq 6\end{cases}$$<p><code>-</code> 참고로 cdf뿐만 아니라 pdf도 다르다</p>
 <p><code>-</code> 참고 : <a href="https://math.stackexchange.com/questions/2596665/x-and-y-are-defined-on-the-same-probability-space-omega-mathcalf-ma?rq=1">https://math.stackexchange.com/questions/2596665/x-and-y-are-defined-on-the-same-probability-space-omega-mathcalf-ma?rq=1</a></p>
 
 </div>
@@ -1335,7 +1335,7 @@ $$E(Y\mid X=x)=E_Y(Y)=\begin{cases}\sum\limits_{\text{모든 }y_i}y_{i}f_{Y\mid 
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> 확률 수렴이 무엇인지 뭔가 직관적으로 와닿지 않는다</p>
 <p><code>-</code> 일단 수열의 수렴을 생각해보자</p>
-<p><code>-</code> 예컨데 $1,\dfrac{1}{2},\dfrac{1}{4},\dfrac{1}{8},\cdots $ 와 같은 <a href="https://ko.wikipedia.org/wiki/%EC%88%98%EC%97%B4">수열</a>이 있다고 하자</p>
+<p><code>-</code> 예컨데 $1,\frac{1}{2},\frac{1}{4},\frac{1}{8},\cdots $ 와 같은 <a href="https://ko.wikipedia.org/wiki/%EC%88%98%EC%97%B4">수열</a>이 있다고 하자</p>
 <p><code>-</code> 위의 수열을 다음과 같이 나타낼 수 있음 ---&gt; $a_n=\dfrac{1}{2^n},\;n\in \mathbb{N}$</p>
 <p><code>-</code> 여기서 $n\to\infty$ 이면 $a_n\to 0$임을 알 수 있다</p>
 <p><code>-</code> 즉 $n$이 커지면 어떠한 상수 $a$로 수렴한다는 것</p>
@@ -1389,6 +1389,9 @@ $$\begin{aligned}\lim\limits_{n\to\infty} P(|X_n-X|\geq \epsilon)&amp;=\lim\limi
     
     
 <div class="cell border-box-sizing code_cell rendered">
+<details class="description">
+      <summary class="btn btn-sm" data-open="Hide Code" data-close="Show Code"></summary>
+        <p></p>
 <div class="input">
 
 <div class="inner_cell">
@@ -1425,10 +1428,8 @@ $$\begin{aligned}\lim\limits_{n\to\infty} P(|X_n-X|\geq \epsilon)&amp;=\lim\limi
     </div>
 </div>
 </div>
-<details class="description">
-      <summary class="btn btn-sm" data-open="Hide Output" data-close="Show Output"></summary>
-        <p>
-</p>
+
+    </details>
 <div class="output_wrapper">
 <div class="output">
 
@@ -1445,7 +1446,6 @@ $$\begin{aligned}\lim\limits_{n\to\infty} P(|X_n-X|\geq \epsilon)&amp;=\lim\limi
 </div>
 </div>
 
-    </details>
 </div>
     
 
