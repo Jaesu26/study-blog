@@ -96,7 +96,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      14 min read
+      15 min read
     
 </span></p>
 
@@ -220,6 +220,7 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h3"><a href="#분포-수렴">분포 수렴 </a></li>
 <li class="toc-entry toc-h3"><a href="#중심극한정리">중심극한정리 </a></li>
 <li class="toc-entry toc-h3"><a href="#Slutsky-정리">Slutsky 정리 </a></li>
+<li class="toc-entry toc-h3"><a href="#델타-방법">델타 방법 </a></li>
 </ul>
 </li>
 </ul>
@@ -1469,7 +1470,7 @@ $$\begin{aligned}\lim\limits_{n\to\infty} P(|X_n-X|\geq \epsilon)&amp;=\lim\limi
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> 평균이 $\mu&lt;\infty$인 확률밀도함수 $f(x)$로부터 랜덤표본($i.i.d$) $X_1,X_2,\cdots,X_n$을 얻었다면 $\overline{X_n}\xrightarrow{~~p~~}\mu$가 성립 : <code>대수의 법칙(law of large numbers)</code></p>
+<p><code>-</code> 평균이 $\mu&lt;\infty$인 확률밀도함수 $f(x)$로부터 랜덤표본($i.i.d$) $X_1,X_2,\cdots,X_n$을 얻었다면 $\overline{X}_n\xrightarrow{~~p~~}\mu$가 성립 : <code>대수의 법칙(law of large numbers)</code></p>
 
 </div>
 </div>
@@ -1550,10 +1551,8 @@ $$\begin{aligned}\lim\limits_{n\to\infty} P(|X_n-X|\geq \epsilon)&amp;=\lim\limi
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> 평균과 분산이 각각 $\mu$와 $\sigma^2&lt;\infty$인 $f(x)$로부터 랜덤표본 $X_1,X_2,\cdots,X_n$을 얻었다면 이때 확률변량</p>
-<p>
-$$Z_n=\dfrac{\sum\limits_{i=1}^{n}X_i-E\left(\sum\limits_{i=1}^{n}X_i\right)}{\sqrt{Var\left(\sum\limits_{i=1}^{n}X_i\right)}}=\dfrac{\sum\limits_{i=1}^{n}(X_i-\mu)}{\sqrt{n}\sigma}$$
-</p>
-<p><code>-</code> 는 표본의 크기 $n$이 무한대에 접근함에 따라 표준정규분포 $N(0,1)$로 분포수렴한다 : <code>중심극한정리(central limit theorem)</code></p>
+$$Z_n=\dfrac{\sum\limits_{i=1}^{n}X_i-E\left(\sum\limits_{i=1}^{n}X_i\right)}{\sqrt{Var\left(\sum\limits_{i=1}^{n}X_i\right)}}=\dfrac{\sum\limits_{i=1}^{n}(X_i-\mu)}{\sqrt{n}\sigma}
+=\dfrac{\overline{X}_n-E(\overline{X}_n)}{\sqrt{Var(\overline{X}_n)}}=\dfrac{\overline{X}_n-\mu}{\left. \sigma \middle/ \sqrt n \right.}$$<p><code>-</code> 는 표본의 크기 $n$이 무한대에 접근함에 따라 표준정규분포 $N(0,1)$로 분포수렴한다 : <code>중심극한정리(central limit theorem)</code></p>
 
 </div>
 </div>
@@ -1585,6 +1584,81 @@ $$Z_n=\dfrac{\sum\limits_{i=1}^{n}X_i-E\left(\sum\limits_{i=1}^{n}X_i\right)}{\s
 <p><code>-</code> 확률변수열 $X_1,X_2,\cdots,X_n$이 상수 $c$로 확률적으로 수렴($X_n\xrightarrow{~~p~~}c$)하며</p>
 <p><code>-</code> 확률변수열 $Y_1,Y_2,\cdots,Y_n$은 확률변수 $Z$로 분포수렴($Y_n\xrightarrow{~~d~~}Z$)한다고 하면</p>
 <p><code>-</code> $X_n+Y_n\xrightarrow{~~d~~}Z+c$와 $X_nY_n\xrightarrow{~~d~~}cZ$가 성립한다</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> Slutsky 정리 응용 예시</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 평균과 분산이 각각 $\mu$와 $\sigma^2 &lt; \infty$인 모분포루터 랜덤표본 $X_1,X_2,\cdots,X_n$을 얻었다고 하자</p>
+<p><code>-</code> $\dfrac{\overline{X}_n - \mu}{\left. S_n \middle/  \sqrt n \right.}\sim t(n-1)$를 스튜던트화된 표본평균이라 한다</p>
+<p><code>-</code> 그런데 중심극한정리에 의해 $\dfrac{\overline{X}_n - \mu}{\left. \sigma \middle/ \sqrt n \right.}\xrightarrow{~~d~~}N(0,1)$ 이고 
+$S_n\xrightarrow{~~p~~}\sigma$ 이므로 다음이 성립한다</p>
+<p><code>-</code> $\dfrac{\overline{X}_n - \mu}{\left. S_n \middle/ \sqrt n \right.}=\dfrac{\overline{X}_n - \mu}{\left. \sigma \middle/ \sqrt n \right.}\times \dfrac{\sigma}{S_n}
+\xrightarrow{~~d~~}N(0,1)$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="델타-방법">
+<a class="anchor" href="#%EB%8D%B8%ED%83%80-%EB%B0%A9%EB%B2%95" aria-hidden="true"><span class="octicon octicon-link"></span></a>델타 방법<a class="anchor-link" href="#%EB%8D%B8%ED%83%80-%EB%B0%A9%EB%B2%95"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 임의의 함수 $g(\theta)$의 연속인 도함수 $g'(\theta)$가 존재하고 $0$이 아니라고 하자</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 확률변수의 열 $X_1,X_2,\cdots,X_n,\cdots$에 대해서 $\sqrt{n}(X_n-\theta)\xrightarrow{~~d~~}N(0,\sigma^2)$ 이라고 하자</p>
+<p><code>-</code> 평균값 정리에 의하여 $X_n$과 $\theta$ 사이에 있는 $\tilde{\theta}$에 대하여 $\dfrac{g(X_n)-g(\theta)}{X_n-\theta}=g'(\tilde{\theta})$가 성립한다</p>
+<p><code>-</code> 한편 $X_n\xrightarrow{~~p~~}\theta$이므로 $X_n$과 $\theta$사이에 있는 $\tilde{\theta}$에 대해서도 
+$\tilde{\theta}\xrightarrow{~~p~~}\theta$이며 $g'(\tilde{\theta})\xrightarrow{~~p~~}g'(\theta)$가 성립한다</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 따라서 $\sqrt{n}\big[(g(X_n)-g(\theta)\big]=g'(\tilde{\theta})\sqrt{n}(X_n-\theta)$으로부터 슬럿츠키 정리를 사용하여</p>
+<p><code>-</code> $\sqrt{n}(g(X_n)-g(\theta))\xrightarrow{~~d~~}N(0,\sigma^2[g'(\theta)]^2)$을 보일 수 있다</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 델타 방법은 때로는 점근적 정규성에 대한 가정을 하지 않고 확률변수 $g(X)$의 기댓값과 분산을 확률변수 $X$를 통해 근사할 때도 사용된다</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 테일러 전개 : $E\big[g(X)\big]\approx E\big[(g(\mu)+g'(\mu)(X-\mu)\big]=g(\mu)=g\big(E(X)\big)$</p>
+<p><code>-</code> 테일러 전개 : $Var\big(g(X)\big)\approx Var\big((g(\mu)+g'(\mu)(X-\mu)\big)=g(\mu)=\big\{g'(\mu)\big\}^2 Var(X)$</p>
 
 </div>
 </div>
