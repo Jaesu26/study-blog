@@ -96,7 +96,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      45 min read
+      49 min read
     
 </span></p>
 
@@ -164,7 +164,13 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h4"><a href="#혈압의-끝자리수-편향">혈압의 끝자리수 편향 </a></li>
 <li class="toc-entry toc-h4"><a href="#공복혈당">공복혈당 </a></li>
 <li class="toc-entry toc-h4"><a href="#공복혈당-고찰">공복혈당 고찰 </a></li>
-<li class="toc-entry toc-h4"><a href="#혈압,-혈당-범주-vs-고혈압,-당뇨-진료내역">혈압, 혈당 범주 vs 고혈압, 당뇨 진료내역 </a></li>
+<li class="toc-entry toc-h4"><a href="#혈압,-혈당-범주-vs-고혈압,-당뇨-진료내역">혈압, 혈당 범주 vs 고혈압, 당뇨 진료내역 </a>
+<ul>
+<li class="toc-entry toc-h5"><a href="#수축기-혈압">수축기 혈압 </a></li>
+<li class="toc-entry toc-h5"><a href="#이완기-혈압">이완기 혈압 </a></li>
+<li class="toc-entry toc-h5"><a href="#공복혈당">공복혈당 </a></li>
+</ul>
+</li>
 <li class="toc-entry toc-h4"><a href="#BMI">BMI </a></li>
 </ul>
 </li>
@@ -989,13 +995,13 @@ memory usage: 53.4 MB
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> 변수가 가지는 범주가 너무 많고 범주가 가지는 나이의 범위가 현재 2세인데 조금 더 늘려도 크게 차이가 있을 것 같지는 않다</p>
-<p><code>-</code> 표본수가 많으므로 10세 간격으로 끊지 않고 5세 간격으로 끊어 비슷한 연령끼리 그룹화 하자</p>
+<p><code>-</code> 표본수가 많으므로 10세 간격으로 끊지 않고 5세 간격으로 끊어 비슷한 연령끼리 그룹화 하겠다</p>
 <p><code>-</code> 애매한 것은 연령대 데이터가 31-32, 33-34, 35-36, 37-38, 39-40 이런식으로 되어있어 5개씩 나눌 수 가 없는 점이다</p>
 <p><code>-</code> 0~4 과 5~9으로 나누면 균등해지고 좋을 것 같다</p>
 <p><code>-</code> 혈압혈당데이터는 건강검진을 받은 사람들 중 백만명을 무작위 층화추출했다</p>
-<p><code>-</code> 그렇기에 주기성이 없을 것이니 하나의 난수를 가지고 20~70세의 초반, 후반을 나누자</p>
+<p><code>-</code> 그렇기에 주기성이 없을 것이니 하나의 난수를 가지고 20~70세의 초반, 후반을 나누겠다</p>
 <p><code>-</code> 5세 간격으로 끊어 편의상 0~4는 '초반', 5~9는 '후반'으로 표기했다</p>
-<p><code>-</code> 위의 범주를 무작위로 50%씩 나눠서 반절은 '초반'에 나머지 반절은 '후반'에 할당하자</p>
+<p><code>-</code> 위의 범주를 무작위로 50%씩 나눠서 반절은 '초반'에 나머지 반절은 '후반'에 할당하겠다</p>
 
 </div>
 </div>
@@ -1068,7 +1074,7 @@ memory usage: 53.4 MB
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> 연령대의 도수분포표를 그려보자</p>
+<p><code>-</code> 연령대의 도수분포표를 그려보겠다</p>
 
 </div>
 </div>
@@ -1442,7 +1448,7 @@ dtype: int64</pre>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> 고혈압/당뇨 진료내역에 따른 사람들의 연령대와 성별을 확인해보자</p>
-<p><code>-</code> 우선 고혈압/당뇨 진료내역에 따른 연령대를 확인하자</p>
+<p><code>-</code> 우선 고혈압/당뇨 진료내역에 따른 연령대를 확인하겠다</p>
 
 </div>
 </div>
@@ -1836,7 +1842,7 @@ dtype: int64</pre>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> 일단 4(고혈압,당뇨 둘 다 없음)인 경우를 확인해보자</p>
+<p><code>-</code> 일단 4(고혈압,당뇨 둘 다 없음)인 경우를 확인하겠다</p>
 <p><code>-</code> 20대초반의 99%는 4인데 나이가 들어감에 따라 비율이 감소하여 75세이상에서는 4의 경우가 30%이다</p>
 <p><code>-</code> 1과 2의 경우는 4의 경우와 반대로 나이가 들어가면서 비율이 높아진다</p>
 <p><code>-</code> 3의 경우는 60대후반까지는 증가하다가 그 이후부터 줄어든다</p>
@@ -1848,7 +1854,7 @@ dtype: int64</pre>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> 고혈압_당뇨 범주마다 연령대의 비율은 어느정도인지 시각화해보자</p>
+<p><code>-</code> 고혈압_당뇨 범주마다 연령대의 비율은 어느정도인지 시각화하겠다</p>
 
 </div>
 </div>
@@ -1937,7 +1943,7 @@ dtype: int64</pre>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> 이제 고혈압/당뇨 진료내역에 따른 성별을 확인하자</p>
+<p><code>-</code> 이제 고혈압/당뇨 진료내역에 따른 성별을 확인하겠다</p>
 
 </div>
 </div>
@@ -2218,7 +2224,7 @@ dtype: int64</pre>
 <p><code>-</code> 표본크기가 매우커서 55%, 45%(당뇨 진료내역 있음) 정도면 차이가 있다고 할 수 있다</p>
 <p><code>-</code> 그리고 52.4%, 47.6%(고혈압, 당뇨 진료내역 있음) 도 차이가 있다고 할 수 있다</p>
 <p><code>-</code> 마찬가지로 고혈압 진료내역이 있는 경우도 차이가 있다고 할 수 있다</p>
-<p><code>-</code> 비율 차이 검정을 통해 정확히 확인하자</p>
+<p><code>-</code> 비율 차이 검정을 통해 정확히 확인하겠다</p>
 
 </div>
 </div>
@@ -2376,7 +2382,7 @@ dtype: int64</pre>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> 양적 변수인 수축기혈압, 이완기혈압, 공복혈당, BMI의 분포를 확인해보자</p>
+<p><code>-</code> 양적 변수인 수축기혈압, 이완기혈압, 공복혈당, BMI의 분포를 확인하겠다</p>
 
 </div>
 </div>
@@ -2769,7 +2775,7 @@ dtype: int64</pre>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> 고혈압/당뇨 둘다 진료내역이 없는 그룹은 수축기혈압이 낮은쪽에서는 이상점이 없다</p>
-<p><code>-</code> 바이올린플랏을 그려 분포의 모양도 같이 확인하자</p>
+<p><code>-</code> 바이올린플랏을 그려 분포의 모양도 같이 확인하겠다</p>
 
 </div>
 </div>
@@ -2829,7 +2835,7 @@ dtype: int64</pre>
 <p><code>-</code> 3과 4를 보면 당뇨 진료내역이 있는 사람들이 그렇지 않은 사람보다 평균이 조금 더 크고 분포도 더 넓게 퍼져있다</p>
 <p><code>-</code> 고협압/당뇨 둘 다 진료내역이 없는 상황에서 당뇨 진료내역이 추가되면 수축기 혈압이 높아지고 더 넓게 분포한다</p>
 <p><code>-</code> 하지만 고혈압 진료내역이 있는 상태라면 당뇨 진료내역의 유무는 수축기 혈압에 거의 영향을 끼치지 못하는 것으로 보인다</p>
-<p><code>-</code> 수치로 정확히 확인해보자</p>
+<p><code>-</code> 수치로 정확히 확인하겠다</p>
 
 </div>
 </div>
@@ -3167,7 +3173,7 @@ dtype: int64</pre>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> 그런데 연령대 말고도 고혈압, 당뇨 진료내역마다 수축기혈압에 차이가 존재한다</p>
-<p><code>-</code> 연령대별 고혈압, 당뇨 진료내역마다 수축기혈압의 중앙값들을 구하고 연령대에 따른 변화를 살펴보도록 하자</p>
+<p><code>-</code> 연령대별 고혈압, 당뇨 진료내역마다 수축기혈압의 중앙값들을 구하고 연령대에 따른 변화를 살펴보겠다</p>
 
 </div>
 </div>
@@ -3267,7 +3273,7 @@ dtype: int64</pre>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> 이완기 혈압도 수축기 혈압과 비슷한 양상을 보이는지 확인하자</p>
+<p><code>-</code> 이완기 혈압도 수축기 혈압과 비슷한 양상을 보이는지 확인하겠다</p>
 
 </div>
 </div>
@@ -3330,7 +3336,7 @@ dtype: int64</pre>
 <p><code>-</code> 이완기 혈압도 수축기 혈압의 분포처럼 몇 군에데 데이터가 많이 몰려있는 분포(봉우리)이다</p>
 <p><code>-</code> 짜잘한 봉우리가 많이 있긴한데 눈에 띄는 봉우리는 2개가 존재한다(쌍봉분포)</p>
 <p><code>-</code> 왜 봉우리가 2개(70, 80)인지 궁금하다</p>
-<p><code>-</code> 연령대 때문일까?</p>
+<p><code>-</code> 연령대 때문인지가 궁금하다</p>
 
 </div>
 </div>
@@ -3541,7 +3547,7 @@ dtype: int64</pre>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> 수축기 혈압 분포와 이완기 혈압 분포를 같이 놓고 비교해보자</p>
+<p><code>-</code> 수축기 혈압 분포와 이완기 혈압 분포를 같이 놓고 비교하겠다</p>
 
 </div>
 </div>
@@ -3597,7 +3603,7 @@ dtype: int64</pre>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> 고혈압/당뇨에 따른 이완기 혈압 분포를 확인하자</p>
+<p><code>-</code> 고혈압/당뇨에 따른 이완기 혈압 분포를 확인하겠다</p>
 
 </div>
 </div>
@@ -3954,7 +3960,7 @@ dtype: int64</pre>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> 당뇨 진료내역만 있는 경우와 진료내역이 없는 경우의 이완기혈압 평균의 차이는 존재한다!</p>
+<p><code>-</code> 당뇨 진료내역만 있는 경우와 진료내역이 없는 경우의 이완기혈압 평균의 차이는 존재한다</p>
 <p><code>-</code> 하지만 그 차이가 1 뿐이기에 통계적으로는 유의한 차이지만 실질적인 차이는 거의 없다</p>
 
 </div>
@@ -3982,7 +3988,7 @@ dtype: int64</pre>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> 수축기혈압때처럼 연령대별 이완기혈압의 중앙값들을 구하고 연령대에 따른 변화를 살펴보도록 하자</p>
+<p><code>-</code> 수축기혈압때처럼 연령대별 이완기혈압의 중앙값들을 구하고 연령대에 따른 변화를 살펴보겠다</p>
 
 </div>
 </div>
@@ -4156,7 +4162,7 @@ dtype: int64</pre>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> 그런데 연령대 말고도 고혈압, 당뇨 진료내역마다 이완기혈압에 차이가 존재한다</p>
-<p><code>-</code> 연령대별 고혈압, 당뇨 진료내역마다 이완기혈압의 중앙값들을 구하고 연령대에 따른 변화를 살펴보도록 하자</p>
+<p><code>-</code> 연령대별 고혈압, 당뇨 진료내역마다 이완기혈압의 중앙값들을 구하고 연령대에 따른 변화를 살펴보겠다</p>
 
 </div>
 </div>
@@ -4260,7 +4266,7 @@ dtype: int64</pre>
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> 위에서 수축기혈압과 이완기혈압의 분포를 살펴봤는데 고혈압 진료내역이 있지만 혈압이 낮은 사람도 있고 고혈압 진료내역이 없지만 혈압이 높은사람도 있었다</p>
 <p><code>-</code> 고혈압 진료내역이 있지만 혈압이 정상범주안에 있는 사람은 혈압관리가 잘되고 있는것으로 간주할 수 있을 것 같다</p>
-<p><code>-</code> 이들의 비율을 확인해보자</p>
+<p><code>-</code> 이들의 비율을 확인하겠다</p>
 
 </div>
 </div>
@@ -4270,7 +4276,7 @@ dtype: int64</pre>
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> 고혈압은 우리나라 기준 수축기 혈압 140mmHg 이상이거나 이완기 혈압 90mmHg 이상인 경우라고 한다</p>
 <p><code>-</code> 참고 : <a href="http://hqcenter.snu.ac.kr/archives/jiphyunjeon/%EA%B3%A0%ED%98%88%EC%95%95">http://hqcenter.snu.ac.kr/archives/jiphyunjeon/%EA%B3%A0%ED%98%88%EC%95%95</a></p>
-<p><code>-</code> 위에 고혈압 기준을 넘어가는 혈압을 가진 사람들은 고혈압으로 그렇지 않는 사람은 정상혈압으로 간주하자</p>
+<p><code>-</code> 위에 고혈압 기준을 넘어가는 혈압을 가진 사람들은 고혈압으로 그렇지 않는 사람은 정상혈압으로 간주하겠다</p>
 <p><code>-</code> 그런데 수축기혈압, 이완기혈압의 분포를 보면 혈압이 매우 낮은 사람도 존재함을 알 수 있다</p>
 <p><code>-</code> 이들은 저혈압으로 간주할 수 있을 것 같다</p>
 <p><code>-</code> 저혈압은 일반적으로 수축기 혈압 90mmHg 미만이거나 이완기 혈압 60mmHg 미만인 경우라고한다</p>
@@ -4790,10 +4796,10 @@ dtype: int64</pre>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> 같은 고혈압이더라도 수축기혈압만 높은지 이완기혈압만 높은지 아니면 둘 다 높은지가 다를것이다</p>
-<p><code>-</code> 그런데 위와 같이 나누면 이를 구분할 수 없다...</p>
+<p><code>-</code> 그런데 위와 같이 나누면 이를 구분할 수 없다</p>
 <p><code>-</code> 게다가 수축기혈압은 고혈압인데 이완기혈압은 저혈압인 경우도 있다고 한다</p>
 <p><code>-</code> 혈압범주를 세분화시키면 정확도는 올라가지만 편의성이 떨어진다</p>
-<p><code>-</code> 세분화시킬 필요가 있을지 확인하자</p>
+<p><code>-</code> 세분화시킬 필요가 있을지 확인하겠다</p>
 
 </div>
 </div>
@@ -4812,7 +4818,7 @@ dtype: int64</pre>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> 일단 혈압범주를 세분화시킨 새로운 컬럼을 만들고 시각화 해보자</p>
+<p><code>-</code> 일단 혈압범주를 세분화시킨 새로운 컬럼을 만들고 시각화하겠다</p>
 
 </div>
 </div>
@@ -4884,7 +4890,7 @@ dtype: int64</pre>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> 진료내역별 혈압세부범주를 확인해보자</p>
+<p><code>-</code> 진료내역별 혈압세부범주를 확인하겠다</p>
 
 </div>
 </div>
@@ -5285,7 +5291,7 @@ dtype: int64</pre>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> 그런데 위에서 확인했듯이 고혈압 진료내역이 있다고 현재도 고혈압인것은 아니다</p>
-<p><code>-</code> 그러니 혈압범주와 혈압세부범주를 비교해보자</p>
+<p><code>-</code> 그러니 혈압범주와 혈압세부범주를 비교하겠다</p>
 
 </div>
 </div>
@@ -5293,7 +5299,7 @@ dtype: int64</pre>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> 또한 혈압범주를 혈압세부범주로 나눈것이 얼마나 유용할지도 판다하자</p>
+<p><code>-</code> 또한 혈압범주를 혈압세부범주로 나눈것이 얼마나 유용할지도 판단하겠다</p>
 
 </div>
 </div>
@@ -5426,7 +5432,7 @@ dtype: int64</pre>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> 그래서 혈압범주와 혈압세부범주는 얼마나 차이가 있는가?</p>
-<p><code>-</code> 간단히 plot을 통해 확인하자</p>
+<p><code>-</code> 간단히 plot을 통해 확인하겠다</p>
 
 </div>
 </div>
@@ -5950,7 +5956,7 @@ dtype: int64</pre>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> 고혈압, 당뇨 진료내역에 따른 박스플랏을 그려보자</p>
+<p><code>-</code> 고혈압, 당뇨 진료내역에 따른 박스플랏을 그려보겠다</p>
 
 </div>
 </div>
@@ -6010,8 +6016,8 @@ dtype: int64</pre>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> 고혈압 진료내역이 있지만 현재는 혈압이 정상범주에 속해있을 수 도 있다</p>
-<p><code>-</code> 그러니 고혈압, 당뇨 진료내역의 따른 맥압의 분포말고 건강검진을 받았을 당시의 혈압으로 구분하자</p>
-<p><code>-</code> 혈압이 정상범주인 경우의 맥압의 분포와 그렇지 않은 경우 맥압의 분포를 비교해보자</p>
+<p><code>-</code> 그러니 고혈압, 당뇨 진료내역의 따른 맥압의 분포말고 건강검진을 받았을 당시의 혈압으로 구분하겠다</p>
+<p><code>-</code> 혈압이 정상범주인 경우의 맥압의 분포와 그렇지 않은 경우 맥압의 분포를 비교하겠다</p>
 
 </div>
 </div>
@@ -6076,7 +6082,7 @@ dtype: int64</pre>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> 한편 위의 출처에 나와있는 설명을 보면 나이가 들어감에따라 맥압이 높아진다고 한다</p>
-<p><code>-</code> 연령대에 따른 박스플랏을 그려보자</p>
+<p><code>-</code> 연령대에 따른 박스플랏을 그려보겠다</p>
 
 </div>
 </div>
@@ -6277,7 +6283,7 @@ dtype: int64</pre>
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> 남자인 경우 여자인 경우보다 평균적으로 수축기혈압이 5정도 높았고 이완기혈압은 4정도 높았는데 맥압의 경우는 1정도 차이가 난다</p>
 <p><code>-</code> 수축기혈압(5) - 이완기혈압(4) = 맥압(1)</p>
-<p><code>-</code> 하지만 통계적으로 유의한 차이가 아닐 수 도 있기에 평균차이검정을 실시하자</p>
+<p><code>-</code> 하지만 통계적으로 유의한 차이가 아닐 수 도 있기에 평균차이검정을 실시하겠다</p>
 <p><code>-</code> 특정값에 집중적으로 몰려있어 정규분포라 하기 어려울 수 있지만 종모양이고 표본 크기가 매우 크므로 t검정을 실행할 것이다</p>
 
 </div>
@@ -6394,7 +6400,7 @@ dtype: int64</pre>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> 혈압의 끝자리수 편향에 대해 얘기하기전에 수축기혈압과 이완기혈압의 분포를 다시한번 시각화해보자</p>
+<p><code>-</code> 혈압의 끝자리수 편향에 대해 얘기하기전에 수축기혈압과 이완기혈압의 분포를 다시한번 시각화하겠다</p>
 
 </div>
 </div>
@@ -6459,7 +6465,7 @@ dtype: int64</pre>
 <p><code>-</code> 그래서 혈압을 측정함에 있어 문제가 있는것이 아닐까 생각했다</p>
 <p><code>-</code> 혈압을 측정하여 소수점이 나오면 이를 자연수로 만듦으로써 소수점 이하를 없애는데 측정자의 주관이 개입한것이다</p>
 <p><code>-</code> 예컨대 수축기혈압이 138.7mmHg가 나왔다면 반올림하면 139mmHg이지만 숫자를 깔끔하게 하기 위해 140mmHg로 처리하는 것이다</p>
-<p><code>-</code> 정말 그런걸까? ---&gt; 이를 확인해보자</p>
+<p><code>-</code> 정말 그런건지 확인하겠다</p>
 
 </div>
 </div>
@@ -6684,7 +6690,7 @@ dtype: int64</pre>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> 이완기혈압도 수축기혈압과 같은 양상을 보이는지 확인하자</p>
+<p><code>-</code> 이완기혈압도 수축기혈압과 같은 양상을 보이는지 확인하겠다</p>
 
 </div>
 </div>
@@ -6764,7 +6770,7 @@ dtype: int64</pre>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> 혈압은 여기까지 살펴보고 이제 공복혈당의 분포를 확인하자</p>
+<p><code>-</code> 이제 공복혈당의 분포를 확인하겠다</p>
 
 </div>
 </div>
@@ -6832,7 +6838,7 @@ dtype: int64</pre>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> 성별에 따라 공복혈당이 다른지 확인해보자</p>
+<p><code>-</code> 성별에 따라 공복혈당이 다른지 확인하겠다</p>
 
 </div>
 </div>
@@ -6880,6 +6886,15 @@ dtype: int64</pre>
 </div>
     
 
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 성별에 따라 공복혈당은 비슷해보인다</p>
+<p><code>-</code> 수치로 확인하겠다</p>
+
+</div>
+</div>
+</div>
     
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -6979,7 +6994,6 @@ dtype: int64</pre>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> 성별에 따라 공복혈당은 비슷해보인다 수치로 확인하자</p>
 <p><code>-</code> 남자가 여자보다 공복혈당이 평균 5정도 높고 표준편차가 4정도 높다</p>
 <p><code>-</code> 혈압과 혈당을 보면 남자가 여자보다 살짝 높은정도를 제외하면 차이가 없다</p>
 <p><code>-</code> $\text{남자} = \text{여자} + \alpha$ 와 같이 어느 한쪽으로 나머지를 나타낼 수 있어 보인다</p>
@@ -6991,7 +7005,7 @@ dtype: int64</pre>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> 고혈압_당뇨 진료내역에 따른 공복혈당의 분포를 확인하자</p>
+<p><code>-</code> 고혈압_당뇨 진료내역에 따른 공복혈당의 분포를 확인하겠다</p>
 
 </div>
 </div>
@@ -7166,7 +7180,7 @@ dtype: int64</pre>
 <p><code>-</code> 고혈압, 당뇨 둘 다 진료내역이 없는 경우와 고혈압만 있는 경우의 분포는 고혈압만 있는 경우가 조금 더 넓게 퍼진것을 빼면 동일하다</p>
 <p><code>-</code> 분포의 중심은 95인것으로 보인다</p>
 <p><code>-</code> 당뇨가 있다면 공복혈당이 평균적으로 30정도 높다</p>
-<p><code>-</code> 위의 그림을 통해 공복혈당의 분포는 당뇨병의 진료내역이 좌지우지하는것으로 보인다(고혈압 진료내역은 거의 영향을 끼치지 못함)</p>
+<p><code>-</code> 위의 그림을 통해 공복혈당의 분포는 당뇨병의 진료내역이 좌지우지하는것으로 보인다(고혈압 진료내역은 거의 영향을 끼치지 못한다)</p>
 
 </div>
 </div>
@@ -7237,7 +7251,7 @@ dtype: int64</pre>
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> 위에서 공복혈당 분포를 살펴봤는데 당뇨 진료내역이 있지만 공복혈당이 낮은 사람도 있고 당뇨 진료내역이 없지만 공복혈당이 높은사람도 있었다</p>
 <p><code>-</code> 당뇨 진료내역이 있지만 공복혈당이 정상범주안에 있는 사람은 혈당조절을 잘하고 있는것으로 간주할 수 있을 것 같다</p>
-<p><code>-</code> 이들의 비율을 확인해보자</p>
+<p><code>-</code> 이들의 비율을 확인하겠다</p>
 
 </div>
 </div>
@@ -7247,8 +7261,8 @@ dtype: int64</pre>
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> 당뇨병의 진단에 있어 혈당치의 기준은 공복 혈당치 126 mg/dL 이상(고혈당)이라고 한다</p>
 <p><code>-</code> 참고 : <a href="https://www.diabetes.or.kr/general/class/index.php?idx=5">https://www.diabetes.or.kr/general/class/index.php?idx=5</a></p>
-<p><code>-</code> 위에서 기준을 넘어가는 혈당을 가진 사람들은 고혈당으로 그렇지 않는 사람은 정상혈당으로 간주하자</p>
-<p><code>-</code> 공복혈당이 너무 낮으면(60 mg/dL이하) 저혈당으로 간주하나 거의 최소값이 60 mg/dL임으로 무시하자</p>
+<p><code>-</code> 위에서 기준을 넘어가는 혈당을 가진 사람들은 고혈당으로 그렇지 않는 사람은 정상혈당으로 간주하겠다</p>
+<p><code>-</code> 공복혈당이 너무 낮으면(60 mg/dL이하) 저혈당으로 간주하나 거의 최소값이 60 mg/dL임으로 무시하겠다</p>
 
 </div>
 </div>
@@ -7339,7 +7353,6 @@ dtype: int64</pre>
       <th>고혈압_당뇨_진료내역</th>
       <th>BMI</th>
       <th>혈압범주</th>
-      <th>맥압</th>
       <th>혈당범주</th>
     </tr>
   </thead>
@@ -7354,7 +7367,6 @@ dtype: int64</pre>
       <td>4</td>
       <td>16.6</td>
       <td>정상혈압</td>
-      <td>38</td>
       <td>정상혈당</td>
     </tr>
     <tr>
@@ -7367,7 +7379,6 @@ dtype: int64</pre>
       <td>4</td>
       <td>22.3</td>
       <td>정상혈압</td>
-      <td>40</td>
       <td>정상혈당</td>
     </tr>
     <tr>
@@ -7380,7 +7391,6 @@ dtype: int64</pre>
       <td>4</td>
       <td>21.9</td>
       <td>정상혈압</td>
-      <td>40</td>
       <td>정상혈당</td>
     </tr>
     <tr>
@@ -7393,7 +7403,6 @@ dtype: int64</pre>
       <td>4</td>
       <td>20.2</td>
       <td>정상혈압</td>
-      <td>41</td>
       <td>정상혈당</td>
     </tr>
     <tr>
@@ -7406,7 +7415,6 @@ dtype: int64</pre>
       <td>4</td>
       <td>20.0</td>
       <td>정상혈압</td>
-      <td>40</td>
       <td>정상혈당</td>
     </tr>
   </tbody>
@@ -7578,7 +7586,7 @@ dtype: int64</pre>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> 전체 인구를 혈압, 혈당에 따라 나타내 확인하자</p>
+<p><code>-</code> 전체 인구를 혈압, 혈당에 따라 나타내 확인하겠다</p>
 
 </div>
 </div>
@@ -7691,8 +7699,27 @@ dtype: int64</pre>
 <p><code>-</code> 그런데 이 차이가 그냥 고혈압에 의한것이라면??</p>
 <p><code>-</code> 나는 고혈압 진료내역이 있으면 혈압이 정상범주더라도 높은쪽에 위치할것이라 생각했다</p>
 <p><code>-</code> 이것이 아니라면 굳이 애매모호한 고혈압 진료내역 대신에 혈압범주를 사용하는것이 좋을것이다(당뇨도 마찬가지)</p>
-<p><code>-</code> 이를 확인해보자</p>
+<p><code>-</code> 이를 평균 차이 검정을 통해 확인하겠다</p>
 
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 혈압(수축기, 이완기)과 혈당에 대해 특정 값에 데이터가 많이 몰려있어 정규분포는 아닌것처럼 보이지만</p>
+<p><code>-</code> 표본크기가 매우 크고 종모양이기에 t검정을 실시하겠다</p>
+<p><code>-</code> 우선 등분산임을 검정하겠다</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h5 id="수축기-혈압">
+<a class="anchor" href="#%EC%88%98%EC%B6%95%EA%B8%B0-%ED%98%88%EC%95%95" aria-hidden="true"><span class="octicon octicon-link"></span></a>수축기 혈압<a class="anchor-link" href="#%EC%88%98%EC%B6%95%EA%B8%B0-%ED%98%88%EC%95%95"> </a>
+</h5>
 </div>
 </div>
 </div>
@@ -7703,7 +7730,7 @@ dtype: int64</pre>
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">'혈압범주 == "정상혈압"'</span><span class="p">),</span> <span class="n">y</span> <span class="o">=</span> <span class="s1">'수축기혈압'</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="s1">'고혈압_당뇨_진료내역'</span><span class="p">)</span> 
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">'혈압범주 == "정상혈압"'</span><span class="p">),</span> <span class="n">y</span> <span class="o">=</span> <span class="s1">'수축기혈압'</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="s1">'고혈압_당뇨_진료내역'</span><span class="p">)</span> 
 </pre></div>
 
     </div>
@@ -7746,7 +7773,148 @@ dtype: int64</pre>
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">'혈압범주 == "고혈압"'</span><span class="p">),</span> <span class="n">y</span> <span class="o">=</span> <span class="s1">'수축기혈압'</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="s1">'고혈압_당뇨_진료내역'</span><span class="p">)</span> 
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">x_B</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">'(혈압범주 == "정상혈압" and 고혈압_당뇨_진료내역 == 1) or (혈압범주 == "정상혈압" and 고혈압_당뇨_진료내역 == 2)'</span><span class="p">)[</span><span class="s1">'수축기혈압'</span><span class="p">]</span>
+<span class="n">x_NB</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">'(혈압범주 == "정상혈압" and 고혈압_당뇨_진료내역 == 3) or (혈압범주 == "정상혈압" and 고혈압_당뇨_진료내역 == 4)'</span><span class="p">)[</span><span class="s1">'수축기혈압'</span><span class="p">]</span>
+<span class="c1"># print(stats.bartlett(x_B, x_NB))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">stats</span><span class="o">.</span><span class="n">levene</span><span class="p">(</span><span class="n">x_B</span><span class="p">,</span> <span class="n">x_NB</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>LeveneResult(statistic=3281.337451885476, pvalue=0.0)
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> p-value가 0이다</p>
+<p><code>-</code> 그러니 이분산 가정하에 t검정을 실시하겠다</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x_B</span><span class="p">),</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x_NB</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>(123.56359921833364, 117.8503658501316)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">t_stat</span><span class="p">,</span> <span class="n">pvalue</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">ttest_ind</span><span class="p">(</span><span class="n">x_B</span><span class="p">,</span> <span class="n">x_NB</span><span class="p">,</span> <span class="n">equal_var</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">alternative</span> <span class="o">=</span> <span class="s1">'greater'</span><span class="p">)</span> 
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">t_stat</span><span class="p">,</span> <span class="n">pvalue</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>183.60168146108893 0.0
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> t통계량에 근거한 p-value가 0이다</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 정상혈압 범주에 속하더라도 고혈압 진료내역이 있는 경우 그렇지 않은 경우보다</p>
+<p><code>-</code> 평균 수축기혈압이 높다고 할 수 있다</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">'혈압범주 == "고혈압"'</span><span class="p">),</span> <span class="n">y</span> <span class="o">=</span> <span class="s1">'수축기혈압'</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="s1">'고혈압_당뇨_진료내역'</span><span class="p">)</span> 
 </pre></div>
 
     </div>
@@ -7789,7 +7957,148 @@ dtype: int64</pre>
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">'혈압범주 == "저혈압"'</span><span class="p">),</span> <span class="n">y</span> <span class="o">=</span> <span class="s1">'수축기혈압'</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="s1">'고혈압_당뇨_진료내역'</span><span class="p">)</span> 
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">x_B</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">'(혈압범주 == "고혈압" and 고혈압_당뇨_진료내역 == 1) or (혈압범주 == "고혈압" and 고혈압_당뇨_진료내역 == 2)'</span><span class="p">)[</span><span class="s1">'수축기혈압'</span><span class="p">]</span>
+<span class="n">x_NB</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">'(혈압범주 == "고혈압" and 고혈압_당뇨_진료내역 == 3) or (혈압범주 == "고혈압" and 고혈압_당뇨_진료내역 == 4)'</span><span class="p">)[</span><span class="s1">'수축기혈압'</span><span class="p">]</span>
+<span class="c1"># print(stats.bartlett(x_B, x_NB))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">stats</span><span class="o">.</span><span class="n">levene</span><span class="p">(</span><span class="n">x_B</span><span class="p">,</span> <span class="n">x_NB</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>LeveneResult(statistic=5.967971491616882, pvalue=0.014569299214451329)
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> p-value가 0.015이다</p>
+<p><code>-</code> 그러니 이분산 가정하에 t검정을 실시하겠다</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x_B</span><span class="p">),</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x_NB</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>(146.45712425457612, 143.02040002952248)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">t_stat</span><span class="p">,</span> <span class="n">pvalue</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">ttest_ind</span><span class="p">(</span><span class="n">x_B</span><span class="p">,</span> <span class="n">x_NB</span><span class="p">,</span> <span class="n">equal_var</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">alternative</span> <span class="o">=</span> <span class="s1">'greater'</span><span class="p">)</span> 
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">t_stat</span><span class="p">,</span> <span class="n">pvalue</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>56.10982828533957 0.0
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> t통계량에 근거한 p-value가 0이다</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 고혈압 범주에 속하더라도 고혈압 진료내역이 있는 경우 그렇지 않은 경우보다</p>
+<p><code>-</code> 평균 수축기혈압이 높다고 할 수 있다</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">'혈압범주 == "저혈압"'</span><span class="p">),</span> <span class="n">y</span> <span class="o">=</span> <span class="s1">'수축기혈압'</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="s1">'고혈압_당뇨_진료내역'</span><span class="p">)</span> 
 </pre></div>
 
     </div>
@@ -7832,7 +8141,157 @@ dtype: int64</pre>
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">'혈압범주 == "정상혈압"'</span><span class="p">),</span> <span class="n">y</span> <span class="o">=</span> <span class="s1">'이완기혈압'</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="s1">'고혈압_당뇨_진료내역'</span><span class="p">)</span> 
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">x_B</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">'(혈압범주 == "저혈압" and 고혈압_당뇨_진료내역 == 1) or (혈압범주 == "저혈압" and 고혈압_당뇨_진료내역 == 2)'</span><span class="p">)[</span><span class="s1">'수축기혈압'</span><span class="p">]</span>
+<span class="n">x_NB</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">'(혈압범주 == "저혈압" and 고혈압_당뇨_진료내역 == 3) or (혈압범주 == "저혈압" and 고혈압_당뇨_진료내역 == 4)'</span><span class="p">)[</span><span class="s1">'수축기혈압'</span><span class="p">]</span>
+<span class="c1"># print(stats.bartlett(x_B, x_NB))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">stats</span><span class="o">.</span><span class="n">levene</span><span class="p">(</span><span class="n">x_B</span><span class="p">,</span> <span class="n">x_NB</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>LeveneResult(statistic=294.86340294030697, pvalue=9.754371916406274e-66)
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> p-value가 0이다</p>
+<p><code>-</code> 그러니 이분산 가정하에 t검정을 실시하겠다</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x_B</span><span class="p">),</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x_NB</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>(108.05237887385421, 100.26552611163285)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">t_stat</span><span class="p">,</span> <span class="n">pvalue</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">ttest_ind</span><span class="p">(</span><span class="n">x_B</span><span class="p">,</span> <span class="n">x_NB</span><span class="p">,</span> <span class="n">equal_var</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">alternative</span> <span class="o">=</span> <span class="s1">'greater'</span><span class="p">)</span> 
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">t_stat</span><span class="p">,</span> <span class="n">pvalue</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>32.08308134495256 1.7389384139189746e-190
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> t통계량에 근거한 p-value가 0이다</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 저혈압 범주에 속하더라도 고혈압 진료내역이 있는 경우 그렇지 않은 경우보다</p>
+<p><code>-</code> 평균 수축기혈압이 높다고 할 수 있다</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h5 id="이완기-혈압">
+<a class="anchor" href="#%EC%9D%B4%EC%99%84%EA%B8%B0-%ED%98%88%EC%95%95" aria-hidden="true"><span class="octicon octicon-link"></span></a>이완기 혈압<a class="anchor-link" href="#%EC%9D%B4%EC%99%84%EA%B8%B0-%ED%98%88%EC%95%95"> </a>
+</h5>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">'혈압범주 == "정상혈압"'</span><span class="p">),</span> <span class="n">y</span> <span class="o">=</span> <span class="s1">'이완기혈압'</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="s1">'고혈압_당뇨_진료내역'</span><span class="p">)</span> 
 </pre></div>
 
     </div>
@@ -7875,7 +8334,122 @@ dtype: int64</pre>
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">'혈압범주 == "고혈압"'</span><span class="p">),</span> <span class="n">y</span> <span class="o">=</span> <span class="s1">'이완기혈압'</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="s1">'고혈압_당뇨_진료내역'</span><span class="p">)</span> 
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">x_B</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">'(혈압범주 == "정상혈압" and 고혈압_당뇨_진료내역 == 1) or (혈압범주 == "정상혈압" and 고혈압_당뇨_진료내역 == 2)'</span><span class="p">)[</span><span class="s1">'이완기혈압'</span><span class="p">]</span>
+<span class="n">x_NB</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">'(혈압범주 == "정상혈압" and 고혈압_당뇨_진료내역 == 3) or (혈압범주 == "정상혈압" and 고혈압_당뇨_진료내역 == 4)'</span><span class="p">)[</span><span class="s1">'이완기혈압'</span><span class="p">]</span>
+<span class="c1"># print(stats.bartlett(x_B, x_NB))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">stats</span><span class="o">.</span><span class="n">levene</span><span class="p">(</span><span class="n">x_B</span><span class="p">,</span> <span class="n">x_NB</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>LeveneResult(statistic=2356.370080988216, pvalue=0.0)
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x_B</span><span class="p">),</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x_NB</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>(75.8151400030064, 73.81038696243168)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">t_stat</span><span class="p">,</span> <span class="n">pvalue</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">ttest_ind</span><span class="p">(</span><span class="n">x_B</span><span class="p">,</span> <span class="n">x_NB</span><span class="p">,</span> <span class="n">equal_var</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">alternative</span> <span class="o">=</span> <span class="s1">'greater'</span><span class="p">)</span> 
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">t_stat</span><span class="p">,</span> <span class="n">pvalue</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>98.5367189947476 0.0
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">'혈압범주 == "고혈압"'</span><span class="p">),</span> <span class="n">y</span> <span class="o">=</span> <span class="s1">'이완기혈압'</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="s1">'고혈압_당뇨_진료내역'</span><span class="p">)</span> 
 </pre></div>
 
     </div>
@@ -7918,7 +8492,122 @@ dtype: int64</pre>
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">'혈압범주 == "저혈압"'</span><span class="p">),</span> <span class="n">y</span> <span class="o">=</span> <span class="s1">'이완기혈압'</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="s1">'고혈압_당뇨_진료내역'</span><span class="p">)</span> 
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">x_B</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">'(혈압범주 == "고혈압" and 고혈압_당뇨_진료내역 == 1) or (혈압범주 == "고혈압" and 고혈압_당뇨_진료내역 == 2)'</span><span class="p">)[</span><span class="s1">'이완기혈압'</span><span class="p">]</span>
+<span class="n">x_NB</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">'(혈압범주 == "고혈압" and 고혈압_당뇨_진료내역 == 3) or (혈압범주 == "고혈압" and 고혈압_당뇨_진료내역 == 4)'</span><span class="p">)[</span><span class="s1">'이완기혈압'</span><span class="p">]</span>
+<span class="c1"># print(stats.bartlett(x_B, x_NB))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">stats</span><span class="o">.</span><span class="n">levene</span><span class="p">(</span><span class="n">x_B</span><span class="p">,</span> <span class="n">x_NB</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>LeveneResult(statistic=886.1776754493117, pvalue=4.221002676847139e-194)
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x_B</span><span class="p">),</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x_NB</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>(88.67230944524186, 90.75784190715181)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">t_stat</span><span class="p">,</span> <span class="n">pvalue</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">ttest_ind</span><span class="p">(</span><span class="n">x_B</span><span class="p">,</span> <span class="n">x_NB</span><span class="p">,</span> <span class="n">equal_var</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">alternative</span> <span class="o">=</span> <span class="s1">'greater'</span><span class="p">)</span> 
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">t_stat</span><span class="p">,</span> <span class="n">pvalue</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>-43.85799935873388 1.0
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">'혈압범주 == "저혈압"'</span><span class="p">),</span> <span class="n">y</span> <span class="o">=</span> <span class="s1">'이완기혈압'</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="s1">'고혈압_당뇨_진료내역'</span><span class="p">)</span> 
 </pre></div>
 
     </div>
@@ -7961,7 +8650,141 @@ dtype: int64</pre>
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">'혈당범주 == "고혈당"'</span><span class="p">),</span> <span class="n">y</span> <span class="o">=</span> <span class="s1">'공복혈당'</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="s1">'고혈압_당뇨_진료내역'</span><span class="p">)</span> 
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">x_B</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">'(혈압범주 == "저혈압" and 고혈압_당뇨_진료내역 == 1) or (혈압범주 == "저혈압" and 고혈압_당뇨_진료내역 == 2)'</span><span class="p">)[</span><span class="s1">'이완기혈압'</span><span class="p">]</span>
+<span class="n">x_NB</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">'(혈압범주 == "저혈압" and 고혈압_당뇨_진료내역 == 3) or (혈압범주 == "저혈압" and 고혈압_당뇨_진료내역 == 4)'</span><span class="p">)[</span><span class="s1">'이완기혈압'</span><span class="p">]</span>
+<span class="c1"># print(stats.bartlett(x_B, x_NB))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">stats</span><span class="o">.</span><span class="n">levene</span><span class="p">(</span><span class="n">x_B</span><span class="p">,</span> <span class="n">x_NB</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>LeveneResult(statistic=15.370482832670643, pvalue=8.85777173868185e-05)
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x_B</span><span class="p">),</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x_NB</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>(56.317765168048886, 56.322322485811114)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">t_stat</span><span class="p">,</span> <span class="n">pvalue</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">ttest_ind</span><span class="p">(</span><span class="n">x_B</span><span class="p">,</span> <span class="n">x_NB</span><span class="p">,</span> <span class="n">equal_var</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">alternative</span> <span class="o">=</span> <span class="s1">'greater'</span><span class="p">)</span> 
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">t_stat</span><span class="p">,</span> <span class="n">pvalue</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>-0.07423781188396941 0.5295867869938078
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 이완기혈압은 수축기혈압과 다른 양상을 보였다</p>
+<p><code>-</code> 정상혈압에 속하는 경우를 제외하면 고혈압 진료내역이 있는 경우 그렇지 않은 경우보다</p>
+<p><code>-</code> 이완기혈압이 더 높다고 할 수 없다</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h5 id="공복혈당">
+<a class="anchor" href="#%EA%B3%B5%EB%B3%B5%ED%98%88%EB%8B%B9" aria-hidden="true"><span class="octicon octicon-link"></span></a>공복혈당<a class="anchor-link" href="#%EA%B3%B5%EB%B3%B5%ED%98%88%EB%8B%B9"> </a>
+</h5>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">'혈당범주 == "고혈당"'</span><span class="p">),</span> <span class="n">y</span> <span class="o">=</span> <span class="s1">'공복혈당'</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="s1">'고혈압_당뇨_진료내역'</span><span class="p">)</span> 
 </pre></div>
 
     </div>
@@ -8004,7 +8827,148 @@ dtype: int64</pre>
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">'혈당범주 == "정상혈당"'</span><span class="p">),</span> <span class="n">y</span> <span class="o">=</span> <span class="s1">'공복혈당'</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="s1">'고혈압_당뇨_진료내역'</span><span class="p">)</span> 
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">x_B</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">'(혈당범주 == "고혈당" and 고혈압_당뇨_진료내역 == 1) or (혈당범주 == "고혈당" and 고혈압_당뇨_진료내역 == 3)'</span><span class="p">)[</span><span class="s1">'공복혈당'</span><span class="p">]</span>
+<span class="n">x_NB</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">'(혈당범주 == "고혈당" and 고혈압_당뇨_진료내역 == 2) or (혈당범주 == "고혈당" and 고혈압_당뇨_진료내역 == 4)'</span><span class="p">)[</span><span class="s1">'공복혈당'</span><span class="p">]</span>
+<span class="c1"># print(stats.bartlett(x_B, x_NB))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">stats</span><span class="o">.</span><span class="n">levene</span><span class="p">(</span><span class="n">x_B</span><span class="p">,</span> <span class="n">x_NB</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>LeveneResult(statistic=723.8340005554786, pvalue=1.234539994480611e-158)
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> p-value가 0.015이다</p>
+<p><code>-</code> 그러니 이분산 가정하에 t검정을 실시하겠다</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x_B</span><span class="p">),</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x_NB</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>(165.37926091825307, 152.71555656934308)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">t_stat</span><span class="p">,</span> <span class="n">pvalue</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">ttest_ind</span><span class="p">(</span><span class="n">x_B</span><span class="p">,</span> <span class="n">x_NB</span><span class="p">,</span> <span class="n">equal_var</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">alternative</span> <span class="o">=</span> <span class="s1">'greater'</span><span class="p">)</span> 
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">t_stat</span><span class="p">,</span> <span class="n">pvalue</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>41.82511929437937 0.0
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> t통계량에 근거한 p-value가 0이다</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 고혈당 범주에 속하더라도 당뇨 진료내역이 있는 경우 그렇지 않은 경우보다</p>
+<p><code>-</code> 평균 공복혈당이 높다고 할 수 있다</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">'혈당범주 == "정상혈당"'</span><span class="p">),</span> <span class="n">y</span> <span class="o">=</span> <span class="s1">'공복혈당'</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="s1">'고혈압_당뇨_진료내역'</span><span class="p">)</span> 
 </pre></div>
 
     </div>
@@ -8040,11 +9004,134 @@ dtype: int64</pre>
 </div>
     
 
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">x_B</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">'(혈당범주 == "정상혈당" and 고혈압_당뇨_진료내역 == 1) or (혈당범주 == "정상혈당" and 고혈압_당뇨_진료내역 == 3)'</span><span class="p">)[</span><span class="s1">'공복혈당'</span><span class="p">]</span>
+<span class="n">x_NB</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">'(혈당범주 == "정상혈당" and 고혈압_당뇨_진료내역 == 2) or (혈당범주 == "정상혈당" and 고혈압_당뇨_진료내역 == 4)'</span><span class="p">)[</span><span class="s1">'공복혈당'</span><span class="p">]</span>
+<span class="c1"># print(stats.bartlett(x_B, x_NB))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">stats</span><span class="o">.</span><span class="n">levene</span><span class="p">(</span><span class="n">x_B</span><span class="p">,</span> <span class="n">x_NB</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>LeveneResult(statistic=7492.881978979407, pvalue=0.0)
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> 위 plot들을 보면 진료내역이 영향을 끼치는것으로 보인다</p>
-<p><code>-</code> 예컨대 현재 정상혈압 범주안에 들더라도 고혈압 진료내역이 있으면 혈압이 비교적 높다(당뇨도 마찬가지다)</p>
+<p><code>-</code> p-value가 0.015이다</p>
+<p><code>-</code> 그러니 이분산 가정하에 t검정을 실시하겠다</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x_B</span><span class="p">),</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x_NB</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>(103.95798465157533, 93.5627473825332)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">t_stat</span><span class="p">,</span> <span class="n">pvalue</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">ttest_ind</span><span class="p">(</span><span class="n">x_B</span><span class="p">,</span> <span class="n">x_NB</span><span class="p">,</span> <span class="n">equal_var</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">alternative</span> <span class="o">=</span> <span class="s1">'greater'</span><span class="p">)</span> 
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">t_stat</span><span class="p">,</span> <span class="n">pvalue</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>171.357714380074 0.0
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> t통계량에 근거한 p-value가 0이다</p>
 
 </div>
 </div>
@@ -8052,7 +9139,24 @@ dtype: int64</pre>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> 이제 BMI의 분포를 확인하자</p>
+<p><code>-</code> 정상혈당 범주에 속하더라도 당뇨 진료내역이 있는 경우 그렇지 않은 경우보다</p>
+<p><code>-</code> 평균 공복혈당이 높다고 할 수 있다</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> plot을 그려보고 가설검정을 통해 진료내역이 영향을 끼치는 것을 알 수 있었다</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 이제 BMI의 분포를 확인하겠다</p>
 
 </div>
 </div>
@@ -8496,7 +9600,7 @@ dtype: int64</pre>
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> 여기까지 개별 양적변수에 대한 분포를 확인했다</p>
 <p><code>-</code> 그런데 수축기혈압과 이완기혈압같이 두 변수사이에 관계가 있을 수 있다</p>
-<p><code>-</code> 그렇기에 산점도를 그려 변수사이에 관계를 확인해보자</p>
+<p><code>-</code> 그렇기에 산점도를 그려 변수사이에 관계를 확인하겠다</p>
 
 </div>
 </div>
@@ -9709,7 +10813,9 @@ dtype: float64
 <p><code>-</code> 이들을 제외한 나머지 변수사이의 상관계수는 0.2보다 작은 수준이다</p>
 <p><code>-</code> 연령대가 높아질수록 수축기혈압, 이완기혈압은 높아지는 경향을 보인다</p>
 <p><code>-</code> 그러나 이완기혈압의 경우 고혈압, 당뇨 진료내역이 없는 경우를 제외하면 높아지다가 내려가는 경향을 보인다</p>
-<p><code>-</code> 고혈압 또는 당뇨 진료내역이 있는 사람은 진료내역이 없는 사람과 비교하여 평균적으로 혈압 또는 혈당이 높다</p>
+<p><code>-</code> 고혈압 또는 당뇨 진료내역이 있는 사람은 진료내역이 없는 사람과 비교하여</p>
+<p><code>-</code> 이완기혈압을 제외하면 평균적으로 혈압 또는 혈당이 높다</p>
+<p><code>-</code> 정상혈압인 경우를 제외하면 오히려 이완기 혈압이 더 낮았다</p>
 <p><code>-</code> 수축기혈압과 이완기혈압의 분포에서 많은 봉우리를 관찰할 수 있는데 이는 혈압의 끝자리수 편향때문이다</p>
 
 </div>
