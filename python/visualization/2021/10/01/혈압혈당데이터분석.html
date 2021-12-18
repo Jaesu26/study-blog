@@ -1447,7 +1447,7 @@ dtype: int64</pre>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> 고혈압/당뇨 진료내역에 따른 사람들의 연령대와 성별을 확인해보자</p>
+<p><code>-</code> 고혈압/당뇨 진료내역에 따른 사람들의 연령대와 성별을 확인하겠다</p>
 <p><code>-</code> 우선 고혈압/당뇨 진료내역에 따른 연령대를 확인하겠다</p>
 
 </div>
@@ -2712,8 +2712,8 @@ dtype: int64</pre>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> 근데 사실 궁금한건 고혈압/당뇨인 사람들은 어떤 특성을 가진 사람들인가 이다</p>
-<p><code>-</code> 고혈압/당뇨에 따라 plot을 그려보자</p>
+<p><code>-</code> 그런데 사실 고혈압/당뇨인 사람들은 어떤 특성을 가진 사람들인지가 궁금하다</p>
+<p><code>-</code> 고혈압/당뇨에 따라 plot을 그려보겠다</p>
 
 </div>
 </div>
@@ -3853,7 +3853,7 @@ dtype: int64</pre>
 <p><code>-</code> 당뇨 진료내역 여부는 혈압에 영향을 별로 끼치지 못하는 것처럼 보인다</p>
 <p><code>-</code> 정말로 그런지 진료내역이 없는 경우와 당뇨 진료내역만 있는 경우의 평균 차이에 대해 검정하도록 하겠다</p>
 <p><code>-</code> 특정 값에 데이터가 많이 몰려있어 정규분포는 아닌것처럼 보이지만 표본크기가 매우 크고 종모양이기에 t검정을 실시하겠다</p>
-<p><code>-</code> 우선 등분산임을 검정하겠다</p>
+<p><code>-</code> 우선 등분산인지 검정하겠다</p>
 
 </div>
 </div>
@@ -5720,7 +5720,7 @@ dtype: int64</pre>
 <p><code>-</code> 만약 둘다 고혈압인 경우와 하나만 고혈압인 경우가 많이 다르다면 고려할만 하지만 차이가 별로 없다</p>
 <p><code>-</code> 하지만 위에서 그린 공복혈당, BMI 바이올린플랏을 보면 알수있듯이 거의 차이가 없다</p>
 <p><code>-</code> 혈압범주를 세분화시킨건 여러개의 봉우리가 생긴원인이 이때문인지 확인하려고 한 것이다</p>
-<p><code>-</code> 그런데 세분화시켰음에도 이는 동일하다 ---&gt; 그러니 혈압은 고혈압, 저혈압, 정상혈압으로만 나누자</p>
+<p><code>-</code> 그런데 세분화시켰음에도 이는 동일하다 ---&gt; 그러니 혈압은 고혈압, 저혈압, 정상혈압으로만 나누겠다</p>
 <p><code>-</code> 결론 : 혈압을 세분화시켜도 차이가 거의 없으니 시각화하기 편하게 3가지로만 나눈다</p>
 
 </div>
@@ -7697,7 +7697,7 @@ dtype: int64</pre>
 <p><code>-</code> 그냥 혈압, 혈당 범주로 대체하면 될것같다</p>
 <p><code>-</code> 고혈압, 당뇨 진료내역에 따라 수축기혈압에 차이가 있었다</p>
 <p><code>-</code> 그런데 이 차이가 그냥 고혈압에 의한것이라면??</p>
-<p><code>-</code> 나는 고혈압 진료내역이 있으면 혈압이 정상범주더라도 높은쪽에 위치할것이라 생각했다</p>
+<p><code>-</code> 고혈압 진료내역이 있으면 혈압이 정상범주더라도 높은쪽에 위치할것이라 생각했다</p>
 <p><code>-</code> 이것이 아니라면 굳이 애매모호한 고혈압 진료내역 대신에 혈압범주를 사용하는것이 좋을것이다(당뇨도 마찬가지)</p>
 <p><code>-</code> 이를 평균 차이 검정을 통해 확인하겠다</p>
 
@@ -7709,7 +7709,7 @@ dtype: int64</pre>
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> 혈압(수축기, 이완기)과 혈당에 대해 특정 값에 데이터가 많이 몰려있어 정규분포는 아닌것처럼 보이지만</p>
 <p><code>-</code> 표본크기가 매우 크고 종모양이기에 t검정을 실시하겠다</p>
-<p><code>-</code> 우선 등분산임을 검정하겠다</p>
+<p><code>-</code> 우선 등분산인지 검정하겠다</p>
 
 </div>
 </div>
@@ -9539,7 +9539,7 @@ dtype: int64</pre>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> 고혈압과 당뇨가 끼치는 영향을 같이 확인해보자</p>
+<p><code>-</code> 고혈압과 당뇨가 끼치는 영향을 같이 확인하겠다</p>
 
 </div>
 </div>
@@ -9626,7 +9626,7 @@ dtype: int64</pre>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> 우선 양적변수간의 상관관계 행렬을 그려보자</p>
+<p><code>-</code> 우선 양적변수간의 상관관계 행렬을 그려보겠다</p>
 
 </div>
 </div>
@@ -9824,7 +9824,7 @@ dtype: int64</pre>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> 이제 두 변수 사이의 관계를 시각화하자</p>
+<p><code>-</code> 이제 두 변수 사이의 관계를 시각화하겠다</p>
 
 </div>
 </div>
@@ -9894,7 +9894,7 @@ dtype: int64</pre>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> 문제가 있는데 관측치(점의 개수)가 너무 많아 시각화가 제대로 되지 않는다</p>
-<p><code>-</code> 전체의 1%(10000개) 정도만 무작위 추출하여 산점도를 그려보자</p>
+<p><code>-</code> 전체의 1%(10000개) 정도만 무작위 추출하여 산점도를 그려보겠다</p>
 
 </div>
 </div>
@@ -10009,7 +10009,7 @@ dtype: int64</pre>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> 원본과 비율이 거의 동일하다</p>
-<p><code>-</code> 새로운 데이터프레임을 사용해 시각화하자</p>
+<p><code>-</code> 새로운 데이터프레임을 사용해 시각화하겠다</p>
 
 </div>
 </div>
