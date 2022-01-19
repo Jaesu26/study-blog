@@ -96,7 +96,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      4 min read
+      5 min read
     
 </span></p>
 
@@ -164,6 +164,17 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h2"><a href="#2차형식">2차형식 </a>
 <ul>
 <li class="toc-entry toc-h3"><a href="#(준)정부호행렬">(준)정부호행렬 </a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-entry toc-h1"><a href="#벡터공간">벡터공간 </a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#벡터공간(vector-space)">벡터공간(vector space) </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#선형결합">선형결합 </a></li>
+<li class="toc-entry toc-h3"><a href="#생성집합">생성집합 </a></li>
+<li class="toc-entry toc-h3"><a href="#선형독립과-선형종속">선형독립과 선형종속 </a></li>
 </ul>
 </li>
 <li class="toc-entry toc-h2"><a href="#행렬의-계수">행렬의 계수 </a></li>
@@ -605,9 +616,124 @@ $${a_j}'a_j = \begin{cases} 1 &amp; \text{for $i=j$}\\
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="벡터공간">
+<a class="anchor" href="#%EB%B2%A1%ED%84%B0%EA%B3%B5%EA%B0%84" aria-hidden="true"><span class="octicon octicon-link"></span></a>벡터공간<a class="anchor-link" href="#%EB%B2%A1%ED%84%B0%EA%B3%B5%EA%B0%84"> </a>
+</h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="벡터공간(vector-space)">
+<a class="anchor" href="#%EB%B2%A1%ED%84%B0%EA%B3%B5%EA%B0%84(vector-space)" aria-hidden="true"><span class="octicon octicon-link"></span></a>벡터공간(vector space)<a class="anchor-link" href="#%EB%B2%A1%ED%84%B0%EA%B3%B5%EA%B0%84(vector-space)"> </a>
+</h2>
+<p><code>-</code> 벡터들을 포함하는 집합 $S$가 다음을 만족하면 벡터공간이라 한다</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>1.</code> $\boldsymbol{0} \in S$</p>
+<p><code>2.</code> $\boldsymbol{x} \in S,\; \boldsymbol{y} \in S \longrightarrow \boldsymbol{x}+\boldsymbol{y} \in S$</p>
+<p><code>3.</code> $\boldsymbol{x} \in S \longrightarrow \alpha \boldsymbol{x} \in S$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="선형결합">
+<a class="anchor" href="#%EC%84%A0%ED%98%95%EA%B2%B0%ED%95%A9" aria-hidden="true"><span class="octicon octicon-link"></span></a>선형결합<a class="anchor-link" href="#%EC%84%A0%ED%98%95%EA%B2%B0%ED%95%A9"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 다음과 같은 벡터 $\boldsymbol{v}=\sum\limits_{i=1}^{n}\alpha_i \boldsymbol{x_i} $를 벡터 $\boldsymbol{x_1},\cdots, \boldsymbol{x_n}$의 <code>선형결합(linear combination)</code>이라고 한다</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="생성집합">
+<a class="anchor" href="#%EC%83%9D%EC%84%B1%EC%A7%91%ED%95%A9" aria-hidden="true"><span class="octicon octicon-link"></span></a>생성집합<a class="anchor-link" href="#%EC%83%9D%EC%84%B1%EC%A7%91%ED%95%A9"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 벡터공간 $S$에 속하는 모든 벡터 $\boldsymbol{s}$에 대해 $\boldsymbol{s}=c_1\boldsymbol{x_1}+\cdots+c_m\boldsymbol{x_m}$을 만족하는</p>
+<p><code>-</code> 벡터 $\boldsymbol{c}=(c_1,\cdots,c_m)^\top \in \mathbb{R}^m$가 존재할 때 $\{\boldsymbol{x_1},\cdots,\boldsymbol{x_m}\}$을 $S$의 <code>생성집합(spanning set)</code>이라고 한다</p>
+<p><code>-</code> 예컨대 $S_2 = (a,b,a+b)^\top$의 경우 $\{(1,0,1)^\top,(0,1,1)^\top\}$가 생성집합의 예가 될 수 있다</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 두 개의 벡터공간 $S_a,S_b$에 대해 $S_a  \subset S_b$이면 $S_a$를 $S_b$의 <code>벡터 부분공간(subspace)</code>라고 표현하기도 한다</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="선형독립과-선형종속">
+<a class="anchor" href="#%EC%84%A0%ED%98%95%EB%8F%85%EB%A6%BD%EA%B3%BC-%EC%84%A0%ED%98%95%EC%A2%85%EC%86%8D" aria-hidden="true"><span class="octicon octicon-link"></span></a>선형독립과 선형종속<a class="anchor-link" href="#%EC%84%A0%ED%98%95%EB%8F%85%EB%A6%BD%EA%B3%BC-%EC%84%A0%ED%98%95%EC%A2%85%EC%86%8D"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 벡터공간 $S$에 포함되는 <code>영벡터가 아닌</code> $m$개의 벡터로 이루어진 집합 $\{\boldsymbol{x_1},\cdots,\boldsymbol{x_m}\}$에 대해</p>
+<p><code>-</code> $\sum\limits_{i=1}^{m}\alpha_i\boldsymbol{x_i}=\boldsymbol{0}$을 만족시키는 벡터 $\alpha \neq \boldsymbol{0}$가 존재하면</p>
+<p><code>-</code> $\{\boldsymbol{x_1},\cdots,\boldsymbol{x_m}\}$는 <code>선형종속(linearly dependent)</code>이다</p>
+<p><code>-</code> $\sum\limits_{i=1}^{m}\alpha_i\boldsymbol{x_i}=\boldsymbol{0}$을 만족시키는 벡터 $\alpha \neq \boldsymbol{0}$가 존재하지 않을 때</p>
+<p><code>-</code> $\{\boldsymbol{x_1},\cdots,\boldsymbol{x_m}\}$는 <code>선형독립(linearly independent)</code>이다</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<blockquote>
+<p>Note :임의의 벡터집합이 선형종속이기 위한 필요충분조건은 벡터집합의 최소한 하나의 벡터는 다른 벡터들의 선형결합으로 표현되는 것</p>
+</blockquote>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="행렬의-계수">
 <a class="anchor" href="#%ED%96%89%EB%A0%AC%EC%9D%98-%EA%B3%84%EC%88%98" aria-hidden="true"><span class="octicon octicon-link"></span></a>행렬의 계수<a class="anchor-link" href="#%ED%96%89%EB%A0%AC%EC%9D%98-%EA%B3%84%EC%88%98"> </a>
 </h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 선형독립인 벡터들의 모임 $\boldsymbol{x_1},\cdots,\boldsymbol{x_m}$이 벡터공간 $S$의 생성집할일 때</p>
+<p><code>-</code> 이를 벡터공간 $S$의 <code>기저(basis)</code>라고 하고 벡터의 수 $m$을 벡터공간 $S$의 <code>차원(dimension)</code>이라고 한다</p>
+<p><code>-</code> <code>정규직교기저(orthonormal basis)</code> : $\lVert \boldsymbol{x} \rVert= 1, \lVert \boldsymbol{y} \rVert = 1,\quad \boldsymbol{x^\top} \boldsymbol{y} = 0,\quad \forall \boldsymbol{x},\boldsymbol{y}\in B$</p>
+
 </div>
 </div>
 </div>
