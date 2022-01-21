@@ -177,7 +177,11 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h3"><a href="#선형독립과-선형종속">선형독립과 선형종속 </a></li>
 </ul>
 </li>
-<li class="toc-entry toc-h2"><a href="#행렬의-계수">행렬의 계수 </a></li>
+<li class="toc-entry toc-h2"><a href="#행렬의-계수">행렬의 계수 </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#행렬의-계수와-관련된-성질">행렬의 계수와 관련된 성질 </a></li>
+</ul>
+</li>
 <li class="toc-entry toc-h2"><a href="#고유값과-고유벡터">고유값과 고유벡터 </a></li>
 </ul>
 </li>
@@ -711,9 +715,11 @@ $${a_j}'a_j = \begin{cases} 1 &amp; \text{for $i=j$}\\
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<blockquote>
-<p>Note :임의의 벡터집합이 선형종속이기 위한 필요충분조건은 벡터집합의 최소한 하나의 벡터는 다른 벡터들의 선형결합으로 표현되는 것</p>
-</blockquote>
+<p></p>
+<div class="flash">
+    <svg class="octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8 1.5a6.5 6.5 0 100 13 6.5 6.5 0 000-13zM0 8a8 8 0 1116 0A8 8 0 010 8zm6.5-.25A.75.75 0 017.25 7h1a.75.75 0 01.75.75v2.75h.25a.75.75 0 010 1.5h-2a.75.75 0 010-1.5h.25v-2h-.25a.75.75 0 01-.75-.75zM8 6a1 1 0 100-2 1 1 0 000 2z"></path></svg>
+    <strong>Note: </strong>임의의 벡터집합이 선형종속이기 위한 필요충분조건은 벡터집합의 최소한 하나의 벡터는 다른 벡터들의 선형결합으로 표현되는 것
+</div>
 
 </div>
 </div>
@@ -732,7 +738,22 @@ $${a_j}'a_j = \begin{cases} 1 &amp; \text{for $i=j$}\\
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> 선형독립인 벡터들의 모임 $\boldsymbol{x_1},\cdots,\boldsymbol{x_m}$이 벡터공간 $S$의 생성집할일 때</p>
 <p><code>-</code> 이를 벡터공간 $S$의 <code>기저(basis)</code>라고 하고 벡터의 수 $m$을 벡터공간 $S$의 <code>차원(dimension)</code>이라고 한다</p>
-<p><code>-</code> <code>정규직교기저(orthonormal basis)</code> : $\lVert \boldsymbol{x} \rVert= 1, \lVert \boldsymbol{y} \rVert = 1,\quad \boldsymbol{x^\top} \boldsymbol{y} = 0,\quad \forall \boldsymbol{x},\boldsymbol{y}\in B$</p>
+<p><code>-</code> <code>정규직교기저(orthonormal basis)</code> : 벡터공간 $S$의 기저 $B$를 이루는 다음을 만족하는 벡터, $\lVert \boldsymbol{x} \rVert= 1, \lVert \boldsymbol{y} \rVert = 1,\; \boldsymbol{x^\top} \boldsymbol{y} = 0,\; \forall \boldsymbol{x},\boldsymbol{y}\in B$</p>
+<p><code>-</code> 쉽게 말하면 각 벡터의 크기는 $1$이며 벡터들은 서로 직교한다</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="행렬의-계수와-관련된-성질">
+<a class="anchor" href="#%ED%96%89%EB%A0%AC%EC%9D%98-%EA%B3%84%EC%88%98%EC%99%80-%EA%B4%80%EB%A0%A8%EB%90%9C-%EC%84%B1%EC%A7%88" aria-hidden="true"><span class="octicon octicon-link"></span></a>행렬의 계수와 관련된 성질<a class="anchor-link" href="#%ED%96%89%EB%A0%AC%EC%9D%98-%EA%B3%84%EC%88%98%EC%99%80-%EA%B4%80%EB%A0%A8%EB%90%9C-%EC%84%B1%EC%A7%88"> </a>
+</h3>
+<p><code>-</code> $A : m \times n$ 행렬, $B : n \times p$ 행렬</p>
+<p><code>1.</code> $rank(A) = rank(A^\top)$</p>
+<p><code>2.</code> $rank(A) \leq \min(m,n)$</p>
+<p><code>3.</code> $rank(AB) \leq \min(rank(A),rank(B))$</p>
 
 </div>
 </div>
