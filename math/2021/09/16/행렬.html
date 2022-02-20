@@ -381,7 +381,7 @@ $$\boldsymbol{AB}=\big(\boldsymbol{a_{\,\cdot \,1}},\, \boldsymbol{a_{\,\cdot \,
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> $tr(\boldsymbol{A}) = \sum\limits_{i=1}^{m}a_{ii}$</p>
+<p><code>-</code> $\operatorname{tr}(\boldsymbol{A}) = \sum\limits_{i=1}^{m}a_{ii}$</p>
 
 </div>
 </div>
@@ -392,8 +392,8 @@ $$\boldsymbol{AB}=\big(\boldsymbol{a_{\,\cdot \,1}},\, \boldsymbol{a_{\,\cdot \,
 <h4 id="대각합의-성질">
 <a class="anchor" href="#%EB%8C%80%EA%B0%81%ED%95%A9%EC%9D%98-%EC%84%B1%EC%A7%88" aria-hidden="true"><span class="octicon octicon-link"></span></a>대각합의 성질<a class="anchor-link" href="#%EB%8C%80%EA%B0%81%ED%95%A9%EC%9D%98-%EC%84%B1%EC%A7%88"> </a>
 </h4>
-<p><code>-</code> $tr(\boldsymbol{A}) = tr(\boldsymbol{A'})$</p>
-<p><code>-</code> $tr(\boldsymbol{AB}) = tr(\boldsymbol{BA})$</p>
+<p><code>-</code> $\operatorname{tr}(\boldsymbol{A}) = \operatorname{tr}(\boldsymbol{A'})$</p>
+<p><code>-</code> $\operatorname{tr}(\boldsymbol{AB}) = \operatorname{tr}(\boldsymbol{BA})$</p>
 <p><code>-</code> 나머지는 간단하니 교재 참고</p>
 
 </div>
@@ -412,7 +412,7 @@ $$\boldsymbol{AB}=\big(\boldsymbol{a_{\,\cdot \,1}},\, \boldsymbol{a_{\,\cdot \,
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p></p>
-<p><code>-</code> 행렬식(determinant) : $\begin{vmatrix}\boldsymbol{A}\end{vmatrix}$ or $det(\boldsymbol{A})$</p>
+<p><code>-</code> 행렬식(determinant) : $\begin{vmatrix}\boldsymbol{A}\end{vmatrix}$ or $\det(\boldsymbol{A})$</p>
 <p><code>-</code> 행렬 $\begin{vmatrix}\boldsymbol{A}\end{vmatrix}$ 가 $m\times m$ 일 때 $|\boldsymbol{A}|=\sum\limits_{i=1}^{m}(-1)^{i+1}a_{1i}\begin{vmatrix}\boldsymbol{M_{1i}}\end{vmatrix}$</p>
 <p><code>-</code> $\boldsymbol{M_{ij}}$ 는 행렬 $\boldsymbol{A}$ 에서 $i$ 번째 행과 $j$ 번째 열을 제외한 $(m-1)\times(m-1)$ 부분행렬</p>
 <p><code>-</code> $\boldsymbol{A_{ij}} = (-1)^{i+j}\boldsymbol{M_{ij}} \longrightarrow \boldsymbol{A_{ij}}$ 를 원소 $a_{ij}$ 의 <code>여인수</code>라고 함</p>
@@ -441,16 +441,16 @@ $$\boldsymbol{AB}=\big(\boldsymbol{a_{\,\cdot \,1}},\, \boldsymbol{a_{\,\cdot \,
 </p>
 <ol>
 <li>
-<p>$det(\boldsymbol{A}) = det(\boldsymbol{A'})$</p>
+<p>$\det(\boldsymbol{A}) = \det(\boldsymbol{A'})$</p>
 </li>
 <li>
-<p>$det(\alpha\boldsymbol{A}) = \alpha^{m}(det(\boldsymbol{A}))$</p>
+<p>$\det(\alpha\boldsymbol{A}) = \alpha^{m}(\det(\boldsymbol{A}))$</p>
 </li>
 <li>
-<p>$\boldsymbol{A}$ 가 대각행렬이면 $det(\boldsymbol{A}) = a_{11}\times a_{22}\times \cdots \times a_{mm}$</p>
+<p>$\boldsymbol{A}$ 가 대각행렬이면 $\det(\boldsymbol{A}) = a_{11}\times a_{22}\times \cdots \times a_{mm}$</p>
 </li>
 <li>
-<p>행렬 $det(\boldsymbol{AB}) = det(\boldsymbol{A})\times det(\boldsymbol{B})$</p>
+<p>행렬 $\det(\boldsymbol{AB}) = \det(\boldsymbol{A})\times \det(\boldsymbol{B})$</p>
 </li>
 <li>
 <p>정사각행렬 $\boldsymbol{P, \,Q}$ 에 대하여 $\begin{vmatrix}\begin{pmatrix}
@@ -512,7 +512,7 @@ a_{n1}x_1 + a_{n2}x_2+\cdots+a_{nn}x_n=d_n$$<p><code>-</code> 위의 $n$ 차 연
 <p>$\begin{vmatrix}\boldsymbol{A^{-1}}\end{vmatrix}=\begin{vmatrix}\boldsymbol{A}\end{vmatrix}^{-1}$</p>
 </li>
 <li>
-<p>$\boldsymbol{A} = diag(a_{11},a_{22},\cdots,a_{mm}) \Longrightarrow \boldsymbol{A^{-1}} = diag(a_{11}^{\,-1},a_{22}^{\,-1},\cdots,a_{mm}^{\,-1})$</p>
+<p>$\boldsymbol{A} = \operatorname{diag}(a_{11},a_{22},\cdots,a_{mm}) \Longrightarrow \boldsymbol{A^{-1}} = \operatorname{diag}(a_{11}^{\,-1},a_{22}^{\,-1},\cdots,a_{mm}^{\,-1})$</p>
 </li>
 <li>
 <p>$(\boldsymbol{AB})^{\boldsymbol{-1}}=\boldsymbol{B^{-1}}\boldsymbol{A^{-1}}$</p>
@@ -750,10 +750,13 @@ $${a_j}'a_j = \begin{cases} 1 &amp; \text{for $i=j$}\\
 <h3 id="행렬의-계수와-관련된-성질">
 <a class="anchor" href="#%ED%96%89%EB%A0%AC%EC%9D%98-%EA%B3%84%EC%88%98%EC%99%80-%EA%B4%80%EB%A0%A8%EB%90%9C-%EC%84%B1%EC%A7%88" aria-hidden="true"><span class="octicon octicon-link"></span></a>행렬의 계수와 관련된 성질<a class="anchor-link" href="#%ED%96%89%EB%A0%AC%EC%9D%98-%EA%B3%84%EC%88%98%EC%99%80-%EA%B4%80%EB%A0%A8%EB%90%9C-%EC%84%B1%EC%A7%88"> </a>
 </h3>
-<p><code>-</code> $A : m \times n$ 행렬, $B : n \times p$ 행렬</p>
-<p><code>1.</code> $rank(A) = rank(A^\top)$</p>
-<p><code>2.</code> $rank(A) \leq \min(m,n)$</p>
-<p><code>3.</code> $rank(AB) \leq \min(rank(A),rank(B))$</p>
+<p><code>-</code> $A : m \times n$ 행렬, $B : n \times p$ 행렬, $C : n \times n$ 행렬, $H :$ 멱등행렬</p>
+<p><code>1.</code> $\operatorname{rank}(A) = \operatorname{rank}(A^\top) = \operatorname{rank}(AA^\top) = \operatorname{rank}(A^{\top}A)$</p>
+<p><code>2.</code> $\operatorname{rank}(A) \leq \min(m,n)$</p>
+<p><code>3.</code> $\operatorname{rank}(AB) \leq \min(\operatorname{rank}(A),\, \operatorname{rank}(B))$</p>
+<p><code>4.</code> $m=n$ 일 때, $\det(A)=0$이면 $\operatorname{rank}(A)&lt;m$</p>
+<p><code>5.</code> $\operatorname{rank}(AC) = \operatorname{rank}(A)$</p>
+<p><code>6.</code> $\operatorname{rank}(H) = \operatorname{tr}(H)$</p>
 
 </div>
 </div>
