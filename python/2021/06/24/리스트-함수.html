@@ -137,9 +137,9 @@ window.onload = wrap_img;
     <ul class="section-nav">
 <li class="toc-entry toc-h1"><a href="#리스트-정렬">리스트 정렬 </a>
 <ul>
-<li class="toc-entry toc-h2"><a href="#list.sort()함수,-sorted()함수">list.sort()함수, sorted()함수 </a></li>
-<li class="toc-entry toc-h2"><a href="#reverse()함수">reverse()함수 </a></li>
-<li class="toc-entry toc-h2"><a href="#reversed()함수">reversed()함수 </a></li>
+<li class="toc-entry toc-h2"><a href="#sort-함수와-sorted함수">sort 함수와 sorted함수 </a></li>
+<li class="toc-entry toc-h2"><a href="#reverse-함수">reverse 함수 </a></li>
+<li class="toc-entry toc-h2"><a href="#reversed-함수">reversed 함수 </a></li>
 </ul>
 </li>
 <li class="toc-entry toc-h1"><a href="#리스트-초기화">리스트 초기화 </a>
@@ -170,8 +170,8 @@ window.onload = wrap_img;
 </li>
 <li class="toc-entry toc-h1"><a href="#문자열-포함여부">문자열 포함여부 </a>
 <ul>
-<li class="toc-entry toc-h2"><a href="#?.find("문자열")">?.find(&quot;문자열&quot;) </a></li>
-<li class="toc-entry toc-h2"><a href="#"문자열"-in-?-,-"문자열"-not-in-?">&quot;문자열&quot; in ? , &quot;문자열&quot; not in ? </a></li>
+<li class="toc-entry toc-h2"><a href="#?.find('문자열')">?.find(&#39;문자열&#39;) </a></li>
+<li class="toc-entry toc-h2"><a href="#'문자열'-in-?-,-'문자열'-not-in-?">&#39;문자열&#39; in ? , &#39;문자열&#39; not in ? </a></li>
 </ul>
 </li>
 <li class="toc-entry toc-h1"><a href="#enumerate-함수">enumerate 함수 </a></li>
@@ -197,13 +197,13 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="list.sort()함수,-sorted()함수">
-<a class="anchor" href="#list.sort()%ED%95%A8%EC%88%98,-sorted()%ED%95%A8%EC%88%98" aria-hidden="true"><span class="octicon octicon-link"></span></a><code>list</code>.sort()함수, sorted()함수<a class="anchor-link" href="#list.sort()%ED%95%A8%EC%88%98,-sorted()%ED%95%A8%EC%88%98"> </a>
+<h2 id="sort-함수와-sorted함수">
+<a class="anchor" href="#sort-%ED%95%A8%EC%88%98%EC%99%80-sorted%ED%95%A8%EC%88%98" aria-hidden="true"><span class="octicon octicon-link"></span></a>sort 함수와 sorted함수<a class="anchor-link" href="#sort-%ED%95%A8%EC%88%98%EC%99%80-sorted%ED%95%A8%EC%88%98"> </a>
 </h2>
-<p><code>-</code> ?.sort()함수는 list형태인 <code>?</code> 의 요소를 오름차순으로 정렬한다</p>
-<p><code>-</code> ?.sort(reverse = True)함수는 내림차순으로 정렬한다</p>
-<p><code>-</code> ?.sort()함수와 sorted()함수는 거의 같다</p>
-<p><code>-</code> ?.sort()함수는 ?의 속성을 바꾸지만 sorted()함수는 ?의 속성을 바꾸지 않는다 (a.append()와 + 연산의 차이)</p>
+<p><code>-</code> <code>?.sort</code> 함수는 <code>list</code>타입인 <code>?</code> 의 요소를 오름차순으로 정렬한다</p>
+<p><code>-</code> <code>?.sort(reverse = True)</code>함수는 내림차순으로 정렬한다</p>
+<p><code>-</code> <code>sort</code>함수와 <code>sorted</code>함수는 거의 같다</p>
+<p><code>-</code> <code>?.sort()</code> 함수는 ?의 속성을 바꾸지만 <code>sorted()</code> 함수는 ?의 속성을 바꾸지 않는다 (<code>a.append()와 + 연산의 차이</code>)</p>
 
 </div>
 </div>
@@ -215,8 +215,8 @@ window.onload = wrap_img;
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">a</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span>
-<span class="n">a</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -228,12 +228,10 @@ window.onload = wrap_img;
 
 <div class="output_area">
 
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>[1, 5, 2, 3, 7, 4]</pre>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[1, 5, 2, 3, 7, 4]
+</pre>
 </div>
-
 </div>
 
 </div>
@@ -250,7 +248,7 @@ window.onload = wrap_img;
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">a</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
-<span class="n">a</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -262,12 +260,10 @@ window.onload = wrap_img;
 
 <div class="output_area">
 
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>[1, 2, 3, 4, 5, 7]</pre>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[1, 2, 3, 4, 5, 7]
+</pre>
 </div>
-
 </div>
 
 </div>
@@ -284,7 +280,7 @@ window.onload = wrap_img;
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">a</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">reverse</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
-<span class="n">a</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -296,12 +292,10 @@ window.onload = wrap_img;
 
 <div class="output_area">
 
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>[7, 5, 4, 3, 2, 1]</pre>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[7, 5, 4, 3, 2, 1]
+</pre>
 </div>
-
 </div>
 
 </div>
@@ -313,7 +307,7 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> sort(), sorted()의 key 옵션에 지정된 함수의 결과에따라 정렬한다</p>
+<p><code>-</code> sort, sorted의 <code>key</code> 옵션에 지정된 함수의 결과에따라 정렬한다</p>
 <p><code>-</code>  lambda함수(익명 함수) 사용 --&gt; <code>lambda</code> <code>매개변수</code>: <code>결과</code></p>
 
 </div>
@@ -355,10 +349,10 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="reverse()함수">
-<a class="anchor" href="#reverse()%ED%95%A8%EC%88%98" aria-hidden="true"><span class="octicon octicon-link"></span></a>reverse()함수<a class="anchor-link" href="#reverse()%ED%95%A8%EC%88%98"> </a>
+<h2 id="reverse-함수">
+<a class="anchor" href="#reverse-%ED%95%A8%EC%88%98" aria-hidden="true"><span class="octicon octicon-link"></span></a>reverse 함수<a class="anchor-link" href="#reverse-%ED%95%A8%EC%88%98"> </a>
 </h2>
-<p><code>-</code> ?.reverse()함수는 list형태인 <code>?</code> 의 요소를 역순으로 정렬한다</p>
+<p><code>-</code> <code>?.reverse</code> 함수는 list형태인 <code>?</code> 의 요소를 역순으로 정렬한다</p>
 
 </div>
 </div>
@@ -399,8 +393,8 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="reversed()함수">
-<a class="anchor" href="#reversed()%ED%95%A8%EC%88%98" aria-hidden="true"><span class="octicon octicon-link"></span></a>reversed()함수<a class="anchor-link" href="#reversed()%ED%95%A8%EC%88%98"> </a>
+<h2 id="reversed-함수">
+<a class="anchor" href="#reversed-%ED%95%A8%EC%88%98" aria-hidden="true"><span class="octicon octicon-link"></span></a>reversed 함수<a class="anchor-link" href="#reversed-%ED%95%A8%EC%88%98"> </a>
 </h2>
 </div>
 </div>
@@ -408,7 +402,7 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> reversed()함수는 요소를 역순으로 정렬해 반환한다</p>
+<p><code>-</code> <code>reversed</code> 함수는 요소를 역순으로 정렬해 반환한다</p>
 <p><code>-</code> 반환값을 그대로 사용하지 않고 list()나 tuple()함수를 통해 사용한다</p>
 
 </div>
@@ -421,7 +415,7 @@ window.onload = wrap_img;
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
 <span class="nb">reversed</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
 </pre></div>
 
@@ -437,7 +431,7 @@ window.onload = wrap_img;
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;list_reverseiterator at 0x2185ce99e20&gt;</pre>
+<pre>&lt;list_reverseiterator at 0x179d8c11f10&gt;</pre>
 </div>
 
 </div>
@@ -455,8 +449,8 @@ window.onload = wrap_img;
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span>
-<span class="nb">tuple</span><span class="p">(</span><span class="nb">reversed</span><span class="p">(</span><span class="n">d</span><span class="p">))</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">tuple</span><span class="p">(</span><span class="nb">reversed</span><span class="p">(</span><span class="n">d</span><span class="p">)))</span>
 </pre></div>
 
     </div>
@@ -468,12 +462,10 @@ window.onload = wrap_img;
 
 <div class="output_area">
 
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>(4, 7, 3, 2, 5, 1)</pre>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>(4, 7, 3, 2, 5, 1)
+</pre>
 </div>
-
 </div>
 
 </div>
@@ -508,7 +500,7 @@ window.onload = wrap_img;
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1">## 빈 리스트로 초기화</span>
-<span class="n">a</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -520,12 +512,10 @@ window.onload = wrap_img;
 
 <div class="output_area">
 
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>[]</pre>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[]
+</pre>
 </div>
-
 </div>
 
 </div>
@@ -539,7 +529,7 @@ window.onload = wrap_img;
 <div class="text_cell_render border-box-sizing rendered_html">
 <div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="o">*</span> <span class="n">n</span>
 </pre></div>
-<p>$A = [x, x, x, ..., x, x] --&gt;$ $x$가 $n$개인 $1$차원 리스트</p>
+<p><code>-</code> $A = [x, x, x, \cdots, x, x] \longrightarrow$ $x$가 $n$개인 $1$차원 리스트</p>
 
 </div>
 </div>
@@ -552,7 +542,7 @@ window.onload = wrap_img;
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="mi">10</span> <span class="c1">## 0리스트로 초기화</span>
-<span class="n">a</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -564,12 +554,10 @@ window.onload = wrap_img;
 
 <div class="output_area">
 
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>[0, 0, 0, 0, 0, 0, 0, 0, 0, 0]</pre>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+</pre>
 </div>
-
 </div>
 
 </div>
@@ -595,7 +583,7 @@ window.onload = wrap_img;
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">5</span>
-<span class="nb">list</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">n</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)]</span> <span class="c1">## 0으로 채원진 2차원 리스트</span>
+<span class="n">list_</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">n</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)]</span> <span class="c1">## 0으로 채원진 2차원 리스트</span>
 </pre></div>
 
     </div>
@@ -612,7 +600,7 @@ window.onload = wrap_img;
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">list</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">list_</span>
 </pre></div>
 
     </div>
@@ -649,7 +637,7 @@ window.onload = wrap_img;
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">list</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">123</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">list_</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">123</span>
 </pre></div>
 
     </div>
@@ -666,7 +654,7 @@ window.onload = wrap_img;
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">list</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">list_</span>
 </pre></div>
 
     </div>
@@ -699,10 +687,9 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> ??</p>
 <div class="highlight"><pre><span></span><span class="n">List</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="mi">5</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
 </pre></div>
-<p>그런데 <code>_</code> 는 뭐지?</p>
+<p><code>-</code> 그런데 <code>_</code> 는 뭐지?</p>
 
 </div>
 </div>
@@ -723,7 +710,7 @@ window.onload = wrap_img;
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="o">*</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)]</span>
-<span class="n">x</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -735,12 +722,10 @@ window.onload = wrap_img;
 
 <div class="output_area">
 
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>[0, 0, 0, 0, 0]</pre>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[0, 0, 0, 0, 0]
+</pre>
 </div>
-
 </div>
 
 </div>
@@ -774,7 +759,7 @@ window.onload = wrap_img;
 <p><code>-</code> 아무역할도 하지 않는다</p>
 <p><code>-</code> 0을 5개 생성하고 이를 5번 반복한다</p>
 <p><code>-</code> <code>List</code>를 정의할 때 부터 정해졌다</p>
-<p><code>-</code> <code>i</code>는 그저 for문을 쓰기 위해 필요함 --&gt; range(5)의 값을 받아낼 변수가 필요하다</p>
+<p><code>-</code> <code>i</code>는 그저 for문을 쓰기 위해 필요함 ---&gt; range(5)의 값을 받아낼 변수가 필요하다</p>
 <p><code>-</code> 그래서 <code>i</code> 자리에 오는 변수는 아무짝에도 쓸모가 없다</p>
 <p><code>-</code> 아무 의미가 없어서 그냥 아무 의미 없어보이는 기호인 <code>_</code>를 쓴다(내 생각)</p>
 
@@ -796,7 +781,7 @@ window.onload = wrap_img;
 <h2 id="?.append()">
 <a class="anchor" href="#?.append()" aria-hidden="true"><span class="octicon octicon-link"></span></a><code>?.append()</code><a class="anchor-link" href="#?.append()"> </a>
 </h2>
-<p><code>-</code> <code>?</code> --&gt; 리스트</p>
+<p><code>-</code> <code>?</code> ---&gt; 리스트</p>
 <p><code>-</code> 마지막(<code>?[-1]</code>) 위치에 하나의 원소 추가</p>
 
 </div>
@@ -811,7 +796,7 @@ window.onload = wrap_img;
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="n">a</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">a</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -823,12 +808,10 @@ window.onload = wrap_img;
 
 <div class="output_area">
 
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>[1]</pre>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[1]
+</pre>
 </div>
-
 </div>
 
 </div>
@@ -855,9 +838,9 @@ window.onload = wrap_img;
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">b</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">]</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">b</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">]</span>
 <span class="n">b</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
-<span class="n">b</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -869,12 +852,10 @@ window.onload = wrap_img;
 
 <div class="output_area">
 
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>[1, 2, 3, 4, 5, 6, 7]</pre>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[1, 2, 3, 4, 5, 6, 7]
+</pre>
 </div>
-
 </div>
 
 </div>
@@ -901,9 +882,9 @@ window.onload = wrap_img;
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">c</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span>
-<span class="n">c</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">])</span>
-<span class="n">c</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">c</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<span class="n">c</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -915,12 +896,10 @@ window.onload = wrap_img;
 
 <div class="output_area">
 
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>[1, 2, 3, 4, 5, 6, 7, 8]</pre>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[1, 2, 3, 4, 5, 6, 7, 8]
+</pre>
 </div>
-
 </div>
 
 </div>
@@ -935,7 +914,7 @@ window.onload = wrap_img;
 <h2 id="?.pop()">
 <a class="anchor" href="#?.pop()" aria-hidden="true"><span class="octicon octicon-link"></span></a><code>?.pop()</code><a class="anchor-link" href="#?.pop()"> </a>
 </h2>
-<p><code>-</code> pop(i)는 리스트의 i번째 요소를 돌려주고 그 요소는 삭제, pop( ) = pop(-1)</p>
+<p><code>-</code> <code>pop(i)</code>는 리스트의 i번째 요소를 돌려주고 그 요소는 삭제, <code>pop() = pop(-1)</code></p>
 
 </div>
 </div>
@@ -982,9 +961,8 @@ window.onload = wrap_img;
 <a class="anchor" href="#arr%5B::%5D-%EC%9A%A9%EB%B2%95" aria-hidden="true"><span class="octicon octicon-link"></span></a><code>arr[::] 용법</code><a class="anchor-link" href="#arr%5B::%5D-%EC%9A%A9%EB%B2%95"> </a>
 </h2>
 <p><code>-</code> 슬라이싱 방법임</p>
-<p><code>-</code> arr[A:B:C] ---&gt; index A부터 index B(포함X)까지 C간격으로 arr 생성</p>
+<p><code>-</code> <code>arr[A:B:C]</code> ---&gt; index A부터 index B(포함X)까지 C간격으로 arr 생성</p>
 <p><code>-</code> A가 none이면 처음부터 B가 none이면 끝까지 C가 none이면 1만큼</p>
-<p><code>-</code> ::은 :과 동일함</p>
 <p><code>-</code> 참고: <a href="https://docs.python.org/release/2.3.5/whatsnew/section-slices.html">https://docs.python.org/release/2.3.5/whatsnew/section-slices.html</a></p>
 
 </div>
@@ -998,7 +976,7 @@ window.onload = wrap_img;
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">arr</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
-<span class="n">arr</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -1010,12 +988,10 @@ window.onload = wrap_img;
 
 <div class="output_area">
 
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]</pre>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+</pre>
 </div>
-
 </div>
 
 </div>
@@ -1394,7 +1370,7 @@ window.onload = wrap_img;
 <a class="anchor" href="#%EB%8B%A4%EC%B0%A8%EC%9B%90%EC%97%90%EC%84%9C%EC%9D%98-%EC%82%AC%EC%9A%A9" aria-hidden="true"><span class="octicon octicon-link"></span></a>다차원에서의 사용<a class="anchor-link" href="#%EB%8B%A4%EC%B0%A8%EC%9B%90%EC%97%90%EC%84%9C%EC%9D%98-%EC%82%AC%EC%9A%A9"> </a>
 </h3>
 <p><code>-</code> 다차원 matrix에서의 사용도 동일함</p>
-<p><code>-</code> 리스트에서 [ ]를 영역마다 사용하여 슬라이싱 ---&gt; ex) list[0:2][0:2][0:2]</p>
+<p><code>-</code> 리스트에서 <code>[ ]</code>를 영역마다 사용하여 슬라이싱 ---&gt; ex) <code>list[0:2][0:2][0:2]</code></p>
 <p><code>-</code> 참고: <a href="https://docs.scipy.org/doc/numpy-1.13.0/reference/arrays.indexing.html">https://docs.scipy.org/doc/numpy-1.13.0/reference/arrays.indexing.html</a></p>
 
 </div>
@@ -1519,7 +1495,7 @@ window.onload = wrap_img;
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="n">arr3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">arr2</span><span class="p">)</span>
-<span class="n">arr3</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">arr3</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -1531,19 +1507,17 @@ window.onload = wrap_img;
 
 <div class="output_area">
 
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[[[1 2 3]
+  [2 3 4]]
 
+ [[3 4 5]
+  [4 5 6]]
 
-<div class="output_text output_subarea output_execute_result">
-<pre>array([[[1, 2, 3],
-        [2, 3, 4]],
-
-       [[3, 4, 5],
-        [4, 5, 6]],
-
-       [[5, 6, 7],
-        [6, 7, 8]]])</pre>
+ [[5 6 7]
+  [6 7 8]]]
+</pre>
 </div>
-
 </div>
 
 </div>
@@ -1589,9 +1563,9 @@ window.onload = wrap_img;
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> 리스트에서는 [ ]를 영역마다 사용했지만 numpy array에서는 하나의 [ ]안에서 표현 가능</p>
-<p><code>-</code> numpy array에서는 콤마(,)로 영역을 구분하고 <code>:</code>를 통해 슬라이싱을 함 ---&gt; ex) numpy_array[0:2, 0:2, 0:2]</p>
-<p><code>-</code> list[0:2][0:2][0:2] ---&gt; 리스트에서 슬라이싱</p>
-<p><code>-</code> arr[0:2, 0:2, 0:2] ---&gt; numpy array에서 슬라이싱</p>
+<p><code>-</code> numpy array에서는 <code>콤마(,)</code>로 영역을 구분하고 <code>:</code>를 통해 슬라이싱을 함 ---&gt; ex) <code>numpy_array[0:2, 0:2, 0:2]</code></p>
+<p><code>-</code> <code>list[0:2][0:2][0:2]</code> ---&gt; 리스트에서 슬라이싱</p>
+<p><code>-</code> <code>arr[0:2, 0:2, 0:2]</code> ---&gt; numpy array에서 슬라이싱</p>
 <p><code>-</code> 둘다 의미는 x축에서 0~1까지, y축에서 0~1까지, z축에서 0~1까지 array를 슬라이싱하라는 뜻</p>
 
 </div>
@@ -1939,7 +1913,7 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> cv.imread()를 통해 이미지를 읽어오는데 이 함수가 RGB순서가 아닌 BGR순서로 이미지를 읽어서 원본과 다르게 보이는 것임</p>
+<p><code>-</code> <code>cv.imread()</code>를 통해 이미지를 읽어오는데 이 함수가 RGB순서가 아닌 BGR순서로 이미지를 읽어서 원본과 다르게 보이는 것임</p>
 
 </div>
 </div>
@@ -1947,11 +1921,11 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> 이미지도 숫자 matrix임 ---&gt; BGR순서만 GRB로 할 수 있을까?</p>
+<p><code>-</code> 이미지도 숫자 matrix임 ---&gt; BGR순서만 RGB로 할 수 있을까?</p>
 <p><code>-</code> 만약 어떤 array가 있는데 나머지는 그대로 두고 마지막 차원의 원소의 순서만 반대로 하고 싶다면?? ---&gt; <code>...</code>을 활용하자</p>
-<p><code>-</code> img[..., ?]과 같이 하면 일단 마지막 차원의 원소를 제외하고 모두 그대로임</p>
+<p><code>-</code> <code>img[..., ?]</code>과 같이 하면 일단 마지막 차원의 원소를 제외하고 모두 그대로임</p>
 <p><code>-</code> 이제 제어할 차원이 하나 남음 ---&gt; 벡터와 마찬가지</p>
-<p><code>-</code> 1차원 array의 순서를 거꾸로 하려면??? ---&gt; array[ : : -1] ---&gt; 처음부터 끝까지 음의 방향으로 리스트 슬라이싱</p>
+<p><code>-</code> 1차원 array의 순서를 거꾸로 하려면??? ---&gt; <code>array[ : : -1]</code> ---&gt; 처음부터 끝까지 음의 방향으로 리스트 슬라이싱</p>
 
 </div>
 </div>
@@ -2045,7 +2019,7 @@ window.onload = wrap_img;
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">]</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
 <span class="n">a</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 </pre></div>
@@ -2119,8 +2093,8 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id='?.find("문자열")'>
-<a class="anchor" href="#?.find(" aria-hidden="true"><span class="octicon octicon-link"></span></a><code>?.find("문자열")</code><a class="anchor-link" href="#?.find(%22%EB%AC%B8%EC%9E%90%EC%97%B4%22)"> </a>
+<h2 id="?.find('문자열')">
+<a class="anchor" href="#?.find('%EB%AC%B8%EC%9E%90%EC%97%B4')" aria-hidden="true"><span class="octicon octicon-link"></span></a><code>?.find('문자열')</code><a class="anchor-link" href="#?.find('%EB%AC%B8%EC%9E%90%EC%97%B4')"> </a>
 </h2>
 <p><code>-</code> <code>?</code>에 <code>문자열</code>이 존재하면 가장 앞에 원소의 시작 인덱스 값을 반환하며 존재하지 않으면 -1값을 반환</p>
 
@@ -2134,7 +2108,7 @@ window.onload = wrap_img;
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">day</span> <span class="o">=</span> <span class="s2">"2021-07-03"</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">day</span> <span class="o">=</span> <span class="s1">'2021-07-03'</span>
 </pre></div>
 
     </div>
@@ -2246,10 +2220,10 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id='"문자열"-in-?-,-"문자열"-not-in-?'>
-<a class="anchor" href="#" aria-hidden="true"><span class="octicon octicon-link"></span></a><code>"문자열" in ? , "문자열" not in ?</code><a class="anchor-link" href="#%22%EB%AC%B8%EC%9E%90%EC%97%B4%22-in-?-,-%22%EB%AC%B8%EC%9E%90%EC%97%B4%22-not-in-?"> </a>
+<h2 id="'문자열'-in-?-,-'문자열'-not-in-?">
+<a class="anchor" href="#'%EB%AC%B8%EC%9E%90%EC%97%B4'-in-?-,-'%EB%AC%B8%EC%9E%90%EC%97%B4'-not-in-?" aria-hidden="true"><span class="octicon octicon-link"></span></a><code>'문자열' in ? , '문자열' not in ?</code><a class="anchor-link" href="#'%EB%AC%B8%EC%9E%90%EC%97%B4'-in-?-,-'%EB%AC%B8%EC%9E%90%EC%97%B4'-not-in-?"> </a>
 </h2>
-<p><code>-</code> <code>?</code>에 <code>문자열</code>이 존재하면 True 반환, 존재하지 않으면 False 반환, not in에 경우는 반대로</p>
+<p><code>-</code> <code>?</code>에 <code>문자열</code>이 존재하면 True 반환, 존재하지 않으면 False 반환, <code>not in</code>에 경우는 반대로</p>
 
 </div>
 </div>
@@ -2261,7 +2235,7 @@ window.onload = wrap_img;
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">day</span> <span class="o">=</span> <span class="s2">"2021-07-03"</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">day</span> <span class="o">=</span> <span class="s1">'2021-07-03'</span>
 </pre></div>
 
     </div>
@@ -2630,9 +2604,8 @@ window.onload = wrap_img;
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">(</span><span class="s2">"John"</span><span class="p">,</span> <span class="s2">"Charles"</span><span class="p">,</span> <span class="s2">"Mike"</span><span class="p">)</span>
-<span class="n">b</span> <span class="o">=</span> <span class="p">(</span><span class="s2">"Jenny"</span><span class="p">,</span> <span class="s2">"Christy"</span><span class="p">,</span> <span class="s2">"Monica"</span><span class="p">)</span>
-
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">(</span><span class="s1">'John'</span><span class="p">,</span> <span class="s1">'Charles'</span><span class="p">,</span> <span class="s1">'Mike'</span><span class="p">)</span>
+<span class="n">b</span> <span class="o">=</span> <span class="p">(</span><span class="s1">'Jenny'</span><span class="p">,</span> <span class="s1">'Christy'</span><span class="p">,</span> <span class="s1">'Monica'</span><span class="p">)</span>
 <span class="nb">zip</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
 </pre></div>
 
@@ -2648,7 +2621,7 @@ window.onload = wrap_img;
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;zip at 0x28632cc8e40&gt;</pre>
+<pre>&lt;zip at 0x179d8b6d100&gt;</pre>
 </div>
 
 </div>
