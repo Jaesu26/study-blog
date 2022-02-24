@@ -308,7 +308,7 @@ window.onload = wrap_img;
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> sort, sorted의 <code>key</code> 옵션에 지정된 함수의 결과에따라 정렬한다</p>
-<p><code>-</code>  lambda함수(익명 함수) 사용 --&gt; <code>lambda</code> <code>매개변수</code>: <code>결과</code></p>
+<p><code>-</code>  lambda함수(익명 함수) 사용 --&gt; <code>lambda 매개변수: 결과</code></p>
 
 </div>
 </div>
@@ -364,7 +364,7 @@ window.onload = wrap_img;
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
 <span class="n">d</span><span class="o">.</span><span class="n">reverse</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
 </pre></div>
@@ -1562,7 +1562,7 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> 리스트에서는 [ ]를 영역마다 사용했지만 numpy array에서는 하나의 [ ]안에서 표현 가능</p>
+<p><code>-</code> <code>list</code>에서는 <code>[ ]</code>를 <code>영역마다 사용</code>했지만 <code>numpy array</code>에서는 <code>하나의 [ ]</code> 안에서 표현 가능</p>
 <p><code>-</code> numpy array에서는 <code>콤마(,)</code>로 영역을 구분하고 <code>:</code>를 통해 슬라이싱을 함 ---&gt; ex) <code>numpy_array[0:2, 0:2, 0:2]</code></p>
 <p><code>-</code> <code>list[0:2][0:2][0:2]</code> ---&gt; 리스트에서 슬라이싱</p>
 <p><code>-</code> <code>arr[0:2, 0:2, 0:2]</code> ---&gt; numpy array에서 슬라이싱</p>
@@ -1853,11 +1853,11 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> 이 문제때문에 ellipsis에 대해 알아봄</p>
+<p><code>-</code> 이 문제 때문에 ellipsis에 대해 알아봄</p>
 <p><code>-</code> OpenCV를 통해 이미지를 불러온다고 해보자</p>
-<p><code>-</code> OpenCV에서는 컬러 이미지를 BGR 순서로 저장함</p>
-<p><code>-</code> plt.imshow()로 이미지를 확인할 것임</p>
-<p><code>-</code> 그런데 matplotlib에서는 RGB 순서로 저장함 ---&gt; RGB순서가 바뀜(흑백 사진은 괜찮음)</p>
+<p><code>-</code> <code>OpenCV</code>에서는 <code>컬러 이미지</code>를 <code>BGR 순서</code>로 저장함</p>
+<p><code>-</code> <code>plt.imshow()</code>로 이미지를 확인할 것임</p>
+<p><code>-</code> 그런데 <code>matplotlib</code>에서는 <code>RGB 순서</code>로 저장함 ---&gt; <code>RGB순서가 바뀜</code>(흑백 사진은 괜찮음)</p>
 <p><code>-</code> 즉 OpenCV로 읽어온 이미지를 RGB순서로 바꿔야 함</p>
 
 </div>
