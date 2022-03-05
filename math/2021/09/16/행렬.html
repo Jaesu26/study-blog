@@ -96,7 +96,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      5 min read
+      6 min read
     
 </span></p>
 
@@ -750,13 +750,13 @@ $${a_j}'a_j = \begin{cases} 1 &amp; \text{for $i=j$}\\
 <h3 id="행렬의-계수와-관련된-성질">
 <a class="anchor" href="#%ED%96%89%EB%A0%AC%EC%9D%98-%EA%B3%84%EC%88%98%EC%99%80-%EA%B4%80%EB%A0%A8%EB%90%9C-%EC%84%B1%EC%A7%88" aria-hidden="true"><span class="octicon octicon-link"></span></a>행렬의 계수와 관련된 성질<a class="anchor-link" href="#%ED%96%89%EB%A0%AC%EC%9D%98-%EA%B3%84%EC%88%98%EC%99%80-%EA%B4%80%EB%A0%A8%EB%90%9C-%EC%84%B1%EC%A7%88"> </a>
 </h3>
-<p><code>-</code> $A : m \times n$ 행렬, $B : n \times p$ 행렬, $C : n \times n$ 행렬, $H :$ 멱등행렬</p>
-<p><code>1.</code> $\operatorname{rank}(A) = \operatorname{rank}(A^\top) = \operatorname{rank}(AA^\top) = \operatorname{rank}(A^{\top}A)$</p>
-<p><code>2.</code> $\operatorname{rank}(A) \leq \min(m,n)$</p>
-<p><code>3.</code> $\operatorname{rank}(AB) \leq \min(\operatorname{rank}(A),\, \operatorname{rank}(B))$</p>
-<p><code>4.</code> $m=n$ 일 때, $\det(A)=0$이면 $\operatorname{rank}(A)&lt;m$</p>
-<p><code>5.</code> $\operatorname{rank}(AC) = \operatorname{rank}(A)$</p>
-<p><code>6.</code> $\operatorname{rank}(H) = \operatorname{tr}(H)$</p>
+<p><code>-</code> $\boldsymbol{A} : m \times n$ 행렬, $\boldsymbol{B} : n \times p$ 행렬, $\boldsymbol{C} : n \times n$ 행렬, $\boldsymbol{H} :$ 멱등행렬</p>
+<p><code>1.</code> $\operatorname{rank}(\boldsymbol{A}) = \operatorname{rank}(\boldsymbol {A^\top}) = \operatorname{rank}(\boldsymbol {AA^\top}) = \operatorname{rank}(\boldsymbol{A^{\top}A})$</p>
+<p><code>2.</code> $\operatorname{rank}(\boldsymbol{A}) \leq \min(m,n)$</p>
+<p><code>3.</code> $\operatorname{rank}(\boldsymbol{AB}) \leq \min(\operatorname{rank}(\boldsymbol{A}),\, \operatorname{rank}(\boldsymbol{B}))$</p>
+<p><code>4.</code> $m=n$ 일 때, $\det(\boldsymbol{A})=0$이면 $\operatorname{rank}(\boldsymbol{A})&lt;m$</p>
+<p><code>5.</code> $\operatorname{rank}(\boldsymbol{AC}) = \operatorname{rank}(\boldsymbol{A})$</p>
+<p><code>6.</code> $\operatorname{rank}(\boldsymbol{H}) = \operatorname{tr}(\boldsymbol{H})$</p>
 
 </div>
 </div>
@@ -767,6 +767,21 @@ $${a_j}'a_j = \begin{cases} 1 &amp; \text{for $i=j$}\\
 <h2 id="고유값과-고유벡터">
 <a class="anchor" href="#%EA%B3%A0%EC%9C%A0%EA%B0%92%EA%B3%BC-%EA%B3%A0%EC%9C%A0%EB%B2%A1%ED%84%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>고유값과 고유벡터<a class="anchor-link" href="#%EA%B3%A0%EC%9C%A0%EA%B0%92%EA%B3%BC-%EA%B3%A0%EC%9C%A0%EB%B2%A1%ED%84%B0"> </a>
 </h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> $m\times m$ 정사각행렬 $\boldsymbol{A}$에 대하여 $\boldsymbol{0}$이 아닌 벡터 $\boldsymbol{x}\in \mathbb{R}^m$와 스칼라 $\lambda$가 $\boldsymbol{Ax}=\lambda \boldsymbol{x}$를 만족할 때</p>
+<p><code>-</code> $\boldsymbol{x}$를 <code>고유값(eigenvalue)</code> $\lambda$에 대응하는 <code>고유벡터(eigenvector)</code>라고 한다</p>
+<p><code>-</code> $\boldsymbol{x}\neq \boldsymbol{0}$에 대하여 $\boldsymbol{Ax}-\lambda \boldsymbol{Ix}=(\boldsymbol{A}-\lambda \boldsymbol{I})\boldsymbol{x}=\boldsymbol{0}$</p>
+<p><code>-</code> 한편, $\boldsymbol{B}=(\boldsymbol{A}-\lambda \boldsymbol{I})$일 때 만약 $\boldsymbol{B}$의 역행렬이 존재한다면</p>
+<p><code>-</code> $\boldsymbol{B^{-1}Bx} = \boldsymbol{B^{-1}0}$이므로 $\boldsymbol{x}$는 영벡터인데 조건에서  $\boldsymbol{x}$는 영벡터가 아니라고 했으므로</p>
+<p><code>-</code> $(\boldsymbol{A}-\lambda \boldsymbol{I})$는 특이행렬이고 그 행렬식은 $0$이다</p>
+<p><code>-</code> 즉 $\operatorname{det}(\boldsymbol{A}-\lambda \boldsymbol{I}) = 0$을 통해 고유값 $\lambda$를 구하고</p>
+<p><code>-</code> 각 고유값 $\lambda$에 대하여 $\boldsymbol{Ax}=\lambda \boldsymbol{x}$를 통해 고유벡터 $\boldsymbol{x}$를 구한다</p>
+
 </div>
 </div>
 </div>

@@ -96,7 +96,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      15 min read
+      16 min read
     
 </span></p>
 
@@ -223,6 +223,7 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h3"><a href="#델타-방법">델타 방법 </a></li>
 </ul>
 </li>
+<li class="toc-entry toc-h2"><a href="#순서통계량">순서통계량 </a></li>
 </ul>
 </li>
 </ul><!--
@@ -238,6 +239,7 @@ window.onload = wrap_img;
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> 수리통계학 내용 정리</p>
+<p><code>-</code> 참고 : 수리통계학 제5판 송성주$\cdot$전명식 지음</p>
 
 </div>
 </div>
@@ -1659,6 +1661,42 @@ $\tilde{\theta}\xrightarrow{~~p~~}\theta$이며 $g'(\tilde{\theta})\xrightarrow{
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> 테일러 전개 : $E\big[g(X)\big]\approx E\big[(g(\mu)+g'(\mu)(X-\mu)\big]=g(\mu)=g\big(E(X)\big)$</p>
 <p><code>-</code> 테일러 전개 : $Var\big(g(X)\big)\approx Var\big((g(\mu)+g'(\mu)(X-\mu)\big)=g(\mu)=\big\{g'(\mu)\big\}^2 Var(X)$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="순서통계량">
+<a class="anchor" href="#%EC%88%9C%EC%84%9C%ED%86%B5%EA%B3%84%EB%9F%89" aria-hidden="true"><span class="octicon octicon-link"></span></a>순서통계량<a class="anchor-link" href="#%EC%88%9C%EC%84%9C%ED%86%B5%EA%B3%84%EB%9F%89"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 확률밀도함수가 $f(x)$이고 누적분포함수가 $F(x)$인 모집단으로부터</p>
+<p><code>-</code> 크기가 $n$인 랜덤표본 $X_1,X_2,\cdots,X_n$을 얻었다고 하자</p>
+<p><code>-</code> 이때 랜덤표본을 작은 것부터 크기순으로 나열하여 다음과 같은 <code>순서통계량(order statistic)</code>을 구할 수 있다</p>
+<p>
+$$X_{(1)} \leq X_{(2)} \leq \cdots \leq X_{(n-1)} \leq X_{(n)}$$
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 예컨대 모집단이 표준정규분포일 때 크기가 $n$인 랜덤표본 $X_1,X_2,\cdots,X_n$를 얻었다면</p>
+<p><code>-</code> 확률변수의 순서통계량은 $1:1$ 변환이 아니다($n!:1$ 변환)</p>
+<p><code>-</code> 그렇기에 순서통계량의 결합 확률밀도함수는 $n!f(x_{(1)})f(x_{(2)})\cdots f(x_{(n)})$이다</p>
+<p><code>-</code> 한편, $k$번째 순서통계량 $X_{(k)}$의 확률밀도함수는 다음과 같다</p>
+<p>
+$$f_{X_k}(x_{(k)})=\cfrac{n!}{(k-1)!(n-k)!}(F(x_{(k)}))^{k-1}(1-F(x_{(k)}))^{n-k}f(x_{(k)})$$
+</p>
 
 </div>
 </div>
