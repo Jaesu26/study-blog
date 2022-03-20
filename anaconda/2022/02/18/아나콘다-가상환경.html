@@ -150,6 +150,8 @@ window.onload = wrap_img;
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> 가상환경 목록 확인 : <code>conda env list</code></p>
 <p><code>-</code> 가상환경 간단한 명령어 : <code>conda env</code></p>
+<p><code>-</code> 가상환경에서 커널 확인 : <code>jupyter kernelspec list</code></p>
+<p><code>-</code> 가상환경에서 커널 삭제 : <code>jupyter kernelspec uninstall unwanted-kernel</code></p>
 
 </div>
 </div>
@@ -175,7 +177,7 @@ window.onload = wrap_img;
 <p><code>5.</code> <code>R</code> $\longrightarrow$ R 환경진입</p>
 <p><code>6.</code> <code>install.packages("IRkernel")</code></p>
 <p><code>7.</code> <code>library(IRkernel)</code></p>
-<p><code>8.</code> <code>installspec()</code></p>
+<p><code>8.</code> <code>IRkernel::installspec()</code></p>
 <p><code>9.</code> <code>q()</code></p>
 <p><code>10.</code> <code>jupyter lab</code> $\longrightarrow$ 주피터랩 실행</p>
 
