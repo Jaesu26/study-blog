@@ -96,7 +96,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      17 min read
+      18 min read
     
 </span></p>
 
@@ -142,7 +142,16 @@ window.onload = wrap_img;
   <div class="post-content e-content" itemprop="articleBody">
     <ul class="section-nav">
 <li class="toc-entry toc-h1"><a href="#중심극한정리(central-limit-theorem)">중심극한정리(central limit theorem) </a></li>
-<li class="toc-entry toc-h1"><a href="#붓스트랩과-p-값">붓스트랩과 p-값 </a></li>
+<li class="toc-entry toc-h1"><a href="#붓스트랩과-p-값">붓스트랩과 p-값 </a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#붓스트랩(Bootstrap)">붓스트랩(Bootstrap) </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#신뢰수준과-확률의-차이">신뢰수준과 확률의 차이 </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#p-값">p-값 </a></li>
+</ul>
+</li>
 <li class="toc-entry toc-h1"><a href="#평균에-대한-추론">평균에 대한 추론 </a>
 <ul>
 <li class="toc-entry toc-h2"><a href="#표본-평균에-대한-중심극한정리">표본 평균에 대한 중심극한정리 </a></li>
@@ -219,6 +228,15 @@ window.onload = wrap_img;
 <h1 id="붓스트랩과-p-값">
 <a class="anchor" href="#%EB%B6%93%EC%8A%A4%ED%8A%B8%EB%9E%A9%EA%B3%BC-p-%EA%B0%92" aria-hidden="true"><span class="octicon octicon-link"></span></a>붓스트랩과 p-값<a class="anchor-link" href="#%EB%B6%93%EC%8A%A4%ED%8A%B8%EB%9E%A9%EA%B3%BC-p-%EA%B0%92"> </a>
 </h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="붓스트랩(Bootstrap)">
+<a class="anchor" href="#%EB%B6%93%EC%8A%A4%ED%8A%B8%EB%9E%A9(Bootstrap)" aria-hidden="true"><span class="octicon octicon-link"></span></a>붓스트랩(Bootstrap)<a class="anchor-link" href="#%EB%B6%93%EC%8A%A4%ED%8A%B8%EB%9E%A9(Bootstrap)"> </a>
+</h2>
 </div>
 </div>
 </div>
@@ -708,8 +726,61 @@ window.onload = wrap_img;
 <p><code>-</code> 붓스트랩은 처음에 뽑은 50명 표본 하나를 가지고 확장하여 사용하기 때문에 중심은 모평균이 아닌 50명 학생들의 맥박수에 수렴할 수 밖에 없다</p>
 <p><code>-</code> 만약 처음에 뽑은 50명이 운이 없게도 전부 극단값에 치우쳐져 있다면 이를 가지고 만든 신뢰구간은 모평균을 포함하지 못할 것이다</p>
 <p><code>-</code> 하지만 <code>처음에 뽑은 50명이 극단값에 치우쳐져 있는지 아니면 중심 부근에 위치한지 어떻게 알 수 있지??</code></p>
-<p><code>-</code> 추가 중</p>
-<p><code>-</code> 표본평균의 분포의 표준편차는 모평균의 변동성을 설명하는 것</p>
+<p><code>-</code> 당연하게도 모집단에 대한 정보를 모르는 상태에서 뽑은 표본은 극단적인지 아닌지 알 방법이 없다</p>
+<p><code>-</code> 전북대학생들의 맥박수 평균이 얼마인지도 모르고 당연히 분포의 모양도 모르는 상태에서</p>
+<p><code>-</code> <code>무작위로 뽑은 학생 50명의 평균 맥박이 극단적인 값인지 아닌지 알 수 없다</code></p>
+<ul>
+<li>그렇기에 이를 가지고 만든 신뢰구간을 가지고 다음과 같이 말할 수 밖에 없다</li>
+</ul>
+<p><code>-</code> 내가 붓스트랩 표본을 가지고 신뢰구간을 만들었는데 이 신뢰구간이 모평균을 포함하는지 안하는지는 모르겠어</p>
+<p><code>-</code> 하지만 <code>붓스트랩 표본을 가지고 신뢰구간을 만드는 행위를 반복한다면 이 중에서 95%의 신뢰구간은 모평균을 포함할 거야</code></p>
+<p><code>-</code> 여기서 95%는 신뢰수준을 나타낸다</p>
+<ul>
+<li>그런데 95% 신뢰수준이나 95% 확률이나 똑같은거 아닌가?</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="신뢰수준과-확률의-차이">
+<a class="anchor" href="#%EC%8B%A0%EB%A2%B0%EC%88%98%EC%A4%80%EA%B3%BC-%ED%99%95%EB%A5%A0%EC%9D%98-%EC%B0%A8%EC%9D%B4" aria-hidden="true"><span class="octicon octicon-link"></span></a>신뢰수준과 확률의 차이<a class="anchor-link" href="#%EC%8B%A0%EB%A2%B0%EC%88%98%EC%A4%80%EA%B3%BC-%ED%99%95%EB%A5%A0%EC%9D%98-%EC%B0%A8%EC%9D%B4"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 95% 신뢰수준과 95% 확률의 차이점을 간단히 알아보자</p>
+<p><code>-</code> 예컨대 <code>95% 확률로 아이유짤</code>과 같은 글이 있다고 해보자</p>
+<p><code>-</code> 글을 클릭했는데 아이유 사진이 나왔다!</p>
+<p><code>-</code> 그런데 다시 글을 클릭하더라도 계속해서 아이유 사진밖에 나오지 않는다</p>
+<p><code>-</code> 즉, 변동성이 없다</p>
+<p><code>-</code> 제목이 맞는 말이 되려면 글을 클릭해서 사진을 보는 행위를 반복하면 이 중에서 95%는 아이유 사진이고 나머지 5%는 다른 사진이어야 한다</p>
+<p><code>-</code> 하지만 계속 클릭해도 아이유 사진밖에 나오지 않으므로 95% 확률로 아이유짤 이라는 말은 틀렸다</p>
+<p><code>-</code> 글을 클릭하기 전부터 아이유 사진인지 다른 사진인지가 고정되어 있다(마찬가지로 위의 맥박 수 예시에서 모평균은 고정된 값이다)</p>
+<p><code>-</code> 그럼 <code>95% 신뢰수준으로 아이유짤</code>은 무엇을 의미하는 걸까?</p>
+<p><code>-</code> "95% 신뢰수준으로 아이유짤"과 같은 글이 여러개가 있고 이 중에서 95% 정도가 아이유 사진이라는 것을 의미한다</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="p-값">
+<a class="anchor" href="#p-%EA%B0%92" aria-hidden="true"><span class="octicon octicon-link"></span></a>p-값<a class="anchor-link" href="#p-%EA%B0%92"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 작성 중</p>
 
 </div>
 </div>
