@@ -96,7 +96,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      16 min read
+      17 min read
     
 </span></p>
 
@@ -296,8 +296,12 @@ window.onload = wrap_img;
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> 표본공간 $S = \{HH, HT, TH, TT\}$</p>
+<p><code>-</code> $S$의 원소는 $HH, HT, TH, TT$이다</p>
 <p><code>-</code> 1회 앞면이 나오는 사건 $A = \{HT, TH\}$</p>
 <p><code>-</code> 2회 뒷면이 나오는 사건 $B = \{TT\}$</p>
+<p><code>-</code> 참고로 집합을 나타나낼 땐 $\{ \}$를 사용한다</p>
+<p><code>-</code> ex) $HT$: $S$의 원소(집합X), $\{HT\}$ : $S$의 부분집합(집합O)</p>
+<p><code>-</code> 또한 $HT \in S$, $\{HT\} \subset S$</p>
 
 </div>
 </div>
@@ -457,7 +461,7 @@ window.onload = wrap_img;
 </h3>
 <p><code>-</code> 사건 $B_1, B_2,\cdots,B_k$ 는 상호배반이며 $(B_1\cap B_j = \phi,\;i \neq j),\;\bigcup\limits_{i=1}^{k}B_{i}=S$라고 하자</p>
 <p><code>-</code> 이때 임의의 사건 $A$에 대하여 $P(A) = \sum\limits_{i=1}^{k}P(B_i)P(A\mid B_i)$가 성립함</p>
-<p><code>-</code> 증명: $P(A) = P(A\cap S) = P\bigg[A\cap\bigg(\bigcup\limits_{i=1}^{k}B_i\bigg)\bigg] = \sum\limits_{i=1}^{k}P(A\cap B_i)=\sum\limits_{i=1}^{k}P(B_i)P(A\mid B_i)$</p>
+<p><code>-</code> $P(A) = P(A\cap S) = P\bigg[A\cap\bigg(\bigcup\limits_{i=1}^{k}B_i\bigg)\bigg] = \sum\limits_{i=1}^{k}P(A\cap B_i)=\sum\limits_{i=1}^{k}P(B_i)P(A\mid B_i)$</p>
 
 </div>
 </div>
@@ -470,7 +474,7 @@ window.onload = wrap_img;
 </h3>
 <p><code>-</code> 사건 $B_1, B_2,\cdots,B_k$ 는 상호배반이며 $(B_1\cap B_j = \phi,\;i \neq j),\;\bigcup\limits_{i=1}^{k}B_{i}=S$라고 하자</p>
 <p><code>-</code> 이때 사건 $A$가 일어났다는 조건하에서 사건 $B_j$가 일어날 확률은 $P(B_j\mid A)=\cfrac{P(B_j)P(A\mid B_j)}{\sum\limits_{i=1}^{k}P(B_i)P(A\mid B_i)}$</p>
-<p><code>-</code> 증명(전확률 공식 사용): $P(B_j\mid A)=\cfrac{P(A\cap B_j)}{P(A)}=\cfrac{P(B_j)P(A\mid B_j)}{P(A)}=\cfrac{P(B_j)P(A\mid B_j)}{\sum\limits_{i=1}^{k}P(B_i)P(A\mid B_i)}$</p>
+<p><code>-</code> $P(B_j\mid A)=\cfrac{P(A\cap B_j)}{P(A)}=\cfrac{P(B_j)P(A\mid B_j)}{P(A)}=\cfrac{P(B_j)P(A\mid B_j)}{\sum\limits_{i=1}^{k}P(B_i)P(A\mid B_i)}$</p>
 <p><code>-</code> $P(B_1),\cdots,P(B_k)$는 $B$의 사전확률(prior probability)</p>
 <p><code>-</code> 사건 $A$가 일어났다는 정보가 추가됨 ---&gt; $P(B_1 \mid A),\cdots,P(B_k\mid A)$는 $B$의 사후확률(posteriori probability)</p>
 
@@ -483,7 +487,7 @@ window.onload = wrap_img;
 <h3 id="사건의-독립">
 <a class="anchor" href="#%EC%82%AC%EA%B1%B4%EC%9D%98-%EB%8F%85%EB%A6%BD" aria-hidden="true"><span class="octicon octicon-link"></span></a>사건의 독립<a class="anchor-link" href="#%EC%82%AC%EA%B1%B4%EC%9D%98-%EB%8F%85%EB%A6%BD"> </a>
 </h3>
-<p><code>-</code> 두 사건 $A$와 $B$가 $P(A\cap B) = P(A) \cdot P(B)$를 만족시키면 서로 <code>독립(independent)</code>이라고 함</p>
+<p><code>-</code> 두 사건 $A$와 $B$가 $P(A\cap B) = P(A) \cdot P(B)$를 만족시키면 서로 <code>독립(independent)</code>이다</p>
 
 </div>
 </div>
@@ -601,7 +605,7 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> <code>확률변수</code> $\to$ 표본공간 $\Omega$에 정의된 실수값을 가지는 함수(real-valued function) ---&gt; $X:\Omega\to\mathbb{R}$</p>
+<p><code>-</code> <code>확률변수</code> : 표본공간 $\Omega$에 정의된 실수값을 가지는 함수(real-valued function) $\to$ $X:\Omega\to\mathbb{R}$</p>
 <p><code>-</code> 예컨대 $X(\omega)=x$, 참고로 $x$를 realization(실현)이라고 한다</p>
 <p><code>-</code> 이산형(discrete) - 가질 수 있는 값이 유한개 (finite) 또는 셀 수 있는 무한개(countably infinite)인 확률변수</p>
 <p><code>-</code> 연속형(continuous) - 가질 수 있는 값의 범위가 실직선상의 어떤 구간인 확률변수</p>
