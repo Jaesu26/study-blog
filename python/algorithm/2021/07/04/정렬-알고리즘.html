@@ -275,9 +275,7 @@ window.onload = wrap_img;
             <span class="n">min_idx</span> <span class="o">=</span> <span class="n">j</span>
             
     <span class="n">List</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">List</span><span class="p">[</span><span class="n">min_idx</span><span class="p">]</span> <span class="o">=</span> <span class="n">List</span><span class="p">[</span><span class="n">min_idx</span><span class="p">],</span> <span class="n">List</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
-    
-    <span class="nb">print</span><span class="p">(</span><span class="n">List</span><span class="p">)</span>
-        
+    <span class="nb">print</span><span class="p">(</span><span class="n">List</span><span class="p">)</span>     
 </pre></div>
 
     </div>
@@ -379,10 +377,8 @@ window.onload = wrap_img;
 <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">List</span><span class="p">)</span>
 
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">):</span>
-    
     <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">List</span><span class="p">[</span><span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">List</span><span class="p">[</span><span class="n">j</span><span class="p">]:</span>
-            
             <span class="n">List</span><span class="p">[</span><span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">],</span> <span class="n">List</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">List</span><span class="p">[</span><span class="n">j</span><span class="p">],</span> <span class="n">List</span><span class="p">[</span><span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span>
     
     <span class="nb">print</span><span class="p">(</span><span class="n">List</span><span class="p">)</span>
@@ -485,9 +481,9 @@ window.onload = wrap_img;
     <span class="n">j</span> <span class="o">=</span> <span class="n">i</span> <span class="o">-</span> <span class="mi">1</span>
     <span class="n">key</span> <span class="o">=</span> <span class="n">List</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
     <span class="k">while</span> <span class="n">List</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">key</span> <span class="ow">and</span> <span class="n">j</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="n">List</span><span class="p">[</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">List</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+        <span class="n">List</span><span class="p">[</span><span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">List</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
         <span class="n">j</span> <span class="o">=</span> <span class="n">j</span> <span class="o">-</span> <span class="mi">1</span>
-    <span class="n">List</span><span class="p">[</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">key</span>
+    <span class="n">List</span><span class="p">[</span><span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">key</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">List</span><span class="p">)</span>
 </pre></div>
 
@@ -639,8 +635,8 @@ window.onload = wrap_img;
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> 아래의 코드가 이해가 잘 안될 수 있다</p>
 <p><code>-</code> 그래서 어떻게 split하고 merge가 되는지 알아보기로 하자</p>
-<p><code>-</code> 밑의 출력을 보니 처음으로 <code>merge()</code>에 대입된 left와 right는 [5]와 [8]임을 알 수 있다</p>
-<p><code>-</code> 처음으로 넣은 값은  [5, 8, 7, 1, 2, 3, 9, 4]인데 신기하다</p>
+<p><code>-</code> 밑의 출력을 보니 처음으로 <code>merge()</code>에 대입된 left와 right는 <code>[5]</code>와 <code>[8]</code>임을 알 수 있다</p>
+<p><code>-</code> 처음으로 넣은 값은 <code>[5, 8, 7, 1, 2, 3, 9, 4]</code>인데 신기하다</p>
 <p><code>-</code> 자세히 살펴보자</p>
 
 </div>
@@ -684,7 +680,7 @@ window.onload = wrap_img;
     <span class="nb">print</span><span class="p">(</span><span class="n">right</span><span class="p">)</span>
     
     <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">left</span><span class="p">)</span> <span class="ow">and</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">right</span><span class="p">):</span> <span class="c1">## left와 right중 더 작은 값 넣기</span>
-        <span class="k">if</span> <span class="n">left</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">right</span><span class="p">[</span><span class="n">j</span><span class="p">]:</span>
+        <span class="k">if</span> <span class="n">left</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">right</span><span class="p">[</span><span class="n">j</span><span class="p">]:</span>
             <span class="n">sorted_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">left</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
             <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
         <span class="k">else</span><span class="p">:</span>
@@ -702,7 +698,7 @@ window.onload = wrap_img;
         
     <span class="k">return</span> <span class="n">sorted_list</span>
    
-<span class="nb">print</span><span class="p">(</span><span class="n">mergeSort</span><span class="p">(</span><span class="n">List</span><span class="p">))</span> 
+<span class="nb">print</span><span class="p">(</span><span class="s1">'</span><span class="se">\n</span><span class="s1">정렬된 배열:'</span><span class="p">,</span> <span class="n">mergeSort</span><span class="p">(</span><span class="n">List</span><span class="p">))</span> 
 </pre></div>
 
     </div>
@@ -736,7 +732,8 @@ return 횟수 6
 return 횟수 7
 [1, 5, 7, 8]
 [2, 3, 4, 9]
-[1, 2, 3, 4, 5, 7, 8, 9]
+
+정렬된 배열: [1, 2, 3, 4, 5, 7, 8, 9]
 </pre>
 </div>
 </div>
@@ -769,8 +766,8 @@ return 횟수 7
 <p><code>8.</code> mergeSort에 <code>[5, 8, 7, 1]</code>이 대입된다</p>
 <p><code>9.</code> 그러면 <code>mergeSort([5, 8, 7, 1])</code>는 <code>merge(mergeSort([5, 8]), mergeSort([7, 1]))</code>를 return한다</p>
 <p><code>10.</code> 근데 <code>mergeSort([5, 8])</code>, <code>mergeSort([7, 1])</code>값은 뭐지?? ---&gt; 이것도 구해야 한다</p>
-<p><code>11.</code> <code>mergeSort([5, 8])</code>을 구하면 next_left = [5], next_right = [8]이다</p>
-<p><code>12.</code> <code>merge(next_left, next_right)</code>는 <code>merge([5], [8])</code>이 되고 드디어 merge()함수에 left와 right가 대입된다 ---&gt; 그래서 처음 left와 right로 출력된 값이 <code>[5]</code>와 <code>[8]</code>이었던 것: <code>return1</code></p>
+<p><code>11.</code> <code>mergeSort([5, 8])</code>을 구하면 next_left = <code>[5]</code>, next_right = <code>[8]</code>이다</p>
+<p><code>12.</code> <code>merge(next_left, next_right)</code>는 <code>merge([5], [8])</code>이 되고 드디어 <code>merge</code>함수에 left와 right가 대입된다 ---&gt; 그래서 처음 left와 right로 출력된 값이 <code>[5]</code>와 <code>[8]</code>이었던 것: <code>return1</code></p>
 <p><code>13.</code> <code>merge([5], [8])</code>은 <code>[5,8]</code>인 sorted_list를 return한다 ---&gt; <code>mergeSort([5, 8])</code>은 <code>[5, 8]</code>을 return한다 즉, <code>mergeSort([5, 8]) = [5, 8]</code></p>
 <p><code>14.</code> 이제 <code>mergeSort([5, 8])</code>를 구했으니 <code>mergeSort([7, 1])</code>값을 구할 차례이다</p>
 <p><code>15.</code> <code>mergeSort([7, 1])</code>은 <code>merge([7], [1])</code>이고 <code>[1, 7]</code>을 return한다 ---&gt; <code>mergeSort([7, 1]) = [1, 7]</code>: <code>return2</code></p>
