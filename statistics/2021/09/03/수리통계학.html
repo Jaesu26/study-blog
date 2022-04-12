@@ -1425,11 +1425,16 @@ $$E(Y\mid X=x)=E_Y(Y)=\begin{cases}\sum\limits_{\text{모든 }y_i}y_{i}f_{Y\mid 
 <p><code>-</code> 확률변수 $X_1$이 가질 수 있는 값들과 확률변수 $X_2$가 가질 수 있는 값들을 그려놓고(pdf)</p>
 <p><code>-</code> 둘의 분포를 겹쳐놓았을 때 빈틈이 조금이라도 있을 확률이 $0$이라면 $X_1$은 $X_2$로 확률수렴한다는 것</p>
 <p><code>-</code> 예시에서 두 확률변수가 표준정규분포를 <code>따른다</code>고 표현한 것도 변동성 때문이다($X = Z$가 아니라 변동성 때문에 $X \sim Z$로 표현)</p>
-<p><code>-</code> 다시 본론으로 돌아와서 다음과 같은 확률변수의 열이 있다고 해보자</p>
+<ul>
+<li>확률변수의 열 헷갈리는 점 짚고 가기</li>
+</ul>
 <p><code>-</code> $X_1,X_2,\cdots,X_n \longrightarrow n$에 의존한다(여기서 $n$은 표본크기 의미하는게 아님; 일련번호라고 생각하자)</p>
 <p><code>-</code> 그러니까 $X_n$ 자체는 그냥 어떤 확률분포를 따를 뿐 밑첨자가 $n$이라고 확률분포에서 표본 $n$개를 뽑는 것이 아님</p>
-<p><code>-</code> 그런데 $\overline{X}_n$과 같은 경우는 $n$이 유사하게 표본크기와 같은 역할을 하는데 왜냐면 $\overline{X}_n = \cfrac{X_1+\cdots+X_n}{n}$ 이기 때문</p>
-<p><code>-</code> 아무튼, 이제 $X_1\sim EXP(1),\; X_2\sim EXP(2),\;\cdots,\;X_n\sim EXP(n)$ 라고 하자</p>
+<p><code>-</code> 그런데 $\overline{X}_n$과 같은 경우는 $n$이 표본크기를 나타내는데 왜냐면 $\overline{X}_n = \cfrac{X_1+\cdots+X_n}{n}$ 이기 때문</p>
+<ul>
+<li>다시 본론으로 돌아와서 다음과 같은 확률변수의 열이 있다고 해보자</li>
+</ul>
+<p><code>-</code> $X_1\sim EXP(1),\; X_2\sim EXP(2),\;\cdots,\;X_n\sim EXP(n)$ 라고 하자</p>
 <p><code>-</code> 즉 $X_n\sim EXP(n)$, 예컨대 $n=3$이면 $X_3\sim EXP(3)$</p>
 <p><code>-</code> 참고로 $EXP(n)$에서 $n$은 포아송분포의 모수 $\lambda$를 의미한다</p>
 <p><code>-</code> 만약  $n\to\infty$ 이면 $X_n\to 0$가 되고 이는 $X_n\xrightarrow{~~p~~}0$</p>
