@@ -96,7 +96,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      2 min read
+      4 min read
     
 </span></p>
 
@@ -144,9 +144,12 @@ window.onload = wrap_img;
 <ul>
 <li class="toc-entry toc-h3"><a href="#크래머-라오-하한값">크래머-라오 하한값 </a></li>
 <li class="toc-entry toc-h3"><a href="#충분통계량(sufficient-statistic)">충분통계량(sufficient statistic) </a></li>
+<li class="toc-entry toc-h3"><a href="#라오-블랙웰-정리">라오-블랙웰 정리 </a></li>
+<li class="toc-entry toc-h3"><a href="#완비통계량(complete-statistic)">완비통계량(complete statistic) </a></li>
+<li class="toc-entry toc-h3"><a href="#레만-쉐페-정리">레만-쉐페 정리 </a></li>
+<li class="toc-entry toc-h3"><a href="#지수족(exponential-family)">지수족(exponential family) </a></li>
 </ul>
 </li>
-<li class="toc-entry toc-h2"><a href="#라오-블랙웰-정리">라오-블랙웰 정리 </a></li>
 </ul>
 </li>
 </ul><!--
@@ -351,16 +354,102 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="라오-블랙웰-정리">
+<h3 id="라오-블랙웰-정리">
 <a class="anchor" href="#%EB%9D%BC%EC%98%A4-%EB%B8%94%EB%9E%99%EC%9B%B0-%EC%A0%95%EB%A6%AC" aria-hidden="true"><span class="octicon octicon-link"></span></a>라오-블랙웰 정리<a class="anchor-link" href="#%EB%9D%BC%EC%98%A4-%EB%B8%94%EB%9E%99%EC%9B%B0-%EC%A0%95%EB%A6%AC"> </a>
-</h2>
+</h3>
 <p><code>-</code> $S$가 $g(\theta)$의 충분통계량이고 $T(X)$를 $g(\theta)$의 비편향추정량이라고 하자</p>
-<p><code>-</code> $\delta(S)=E(T(X)\mid S)$이면 $\delta(S)$도 $g(\theta)$의 비편향추정량이며 모든 $\theta$에 대해 아래가 성립</p>
+<p><code>-</code> $\delta(S)=E\left(T(X)\mid S\right)$이면 $\delta(S)$도 $g(\theta)$의 비편향추정량이며 모든 $\theta$에 대해 아래가 성립(분산 분해 사용)</p>
 $$\begin{aligned}
-Var\left(\delta(S)\right) &amp;= E\left[\left(\delta(S)-g(\theta)\right)^2\right]\\[10pt]
-&amp;\leq  E\left[\left(T(X)-g(\theta)\right)^2\right]\\[10pt]
-&amp;= Var\left(T(X)\right)
-\end{aligned}$$
+Var\left(T(X)\right) &amp;= E\left(Var\left(T(X)\mid S\right)\right) + Var\left(E\left(T(X)\mid S\right)\right)\\[10pt]
+&amp;=E\left[E\left(\left(T(X)-\delta(S)\right)^2\mid S\right)\right] +Var\left(\delta(S)\right)\\[10pt]
+&amp;\geq Var\left(\delta(S)\right)\end{aligned}$$
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 이중 기댓값 정리에 의하여 $E\left(\delta(S)\right)=E\left(E(T(X)\mid S)\right)=g(\theta)$ 이므로 $\delta(S)$도 $g(\theta)$의 비편향추정량이다</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="완비통계량(complete-statistic)">
+<a class="anchor" href="#%EC%99%84%EB%B9%84%ED%86%B5%EA%B3%84%EB%9F%89(complete-statistic)" aria-hidden="true"><span class="octicon octicon-link"></span></a>완비통계량(complete statistic)<a class="anchor-link" href="#%EC%99%84%EB%B9%84%ED%86%B5%EA%B3%84%EB%9F%89(complete-statistic)"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 랜덤표본 $X_1,X_2,\cdots,X_n$으로 부터 계산된 통계량 $S$에 대하여</p>
+<p><code>-</code> $E\left(g(S)\right)=0$을 모든 $\theta\in\Omega$에 대해서 만족하는 $\theta$와 무관한 함수 $g$가 $g(\cdot)\equiv 0$ 뿐이라면</p>
+<p><code>-</code> $S$를 <code>완비통계량</code>이라고 하며 만약 $S$가 $\theta$에 대한 충분통계량이라면 <code>완비 충분통계량(C.S.S)</code>라고 한다</p>
+<ul>
+<li>예시</li>
+</ul>
+<p><code>-</code> $X_1,\cdots,X_n \overset{iid}\sim Bernoulli(p)$ 라고 하자</p>
+<p><code>-</code> $X_1-X_2$는 완비통계량이 아니다 $\to$ $g=I, S(X) = X_1-X_2$ 라고 하자</p>
+<p><code>-</code> $E\left[g\left(S(X)\right)\right]=E(X_1-X_2)=0 \to g\left(S(X)\right) = X_1-X_2\neq0$</p>
+<ul>
+<li>완비성의 의미</li>
+</ul>
+<p><code>-</code> $S(X)$가 완비통계량이면 $S(X)$의 서로 다른 두 함수가 같은 기댓값을 가지지 못한다</p>
+<p><code>-</code> $E\left[g_1\left(S(X)\right)\right] = g(\theta), E\left[g_2\left(S(X)\right)\right] = g(\theta)\Longrightarrow E\left[g_1\left(S(X)\right)-g_2\left(S(X)\right)\right] =0$</p>
+<p><code>-</code> 그런데 완비성에 의해 $S(X)$에 임의의 함수$g$ 를 취한 확률변수의 기댓값이 $0$이라면 $g\left(S(X)\right)=0$이므로</p>
+<p><code>-</code> $g_1\left(S(X)\right)=g_2\left(S(X)\right)$이 성립한다</p>
+<p><code>-</code> 같은 기댓값을 가지지 못한다는 것은 완비통계량의 함수로서 비편향추정량은 하나 뿐이라는 것이고</p>
+<p><code>-</code> 이때의 비편향추정량은 하나 뿐이니 당연하게도 최소분산 비편향추정량이 된다</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="레만-쉐페-정리">
+<a class="anchor" href="#%EB%A0%88%EB%A7%8C-%EC%89%90%ED%8E%98-%EC%A0%95%EB%A6%AC" aria-hidden="true"><span class="octicon octicon-link"></span></a>레만-쉐페 정리<a class="anchor-link" href="#%EB%A0%88%EB%A7%8C-%EC%89%90%ED%8E%98-%EC%A0%95%EB%A6%AC"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 모수 $\theta$에 대해 $S$가 완비 충분통계량이고 $T(X)$가 $g(\theta)$의 비편향추정량이라고 하자</p>
+<p><code>-</code> 이때 $\delta(S)=E\left(T(X)\mid S\right)$는 $g(\theta)$의 유일한 <code>최소분산 비편향추정량(MVUE)</code>이다</p>
+<ul>
+<li>모수 $\theta$에 대한 MVUE 찾는 방법</li>
+</ul>
+<p><code>1.</code> 크래머-라오 하한값을 분산으로 가지는 비편향추정량 찾기</p>
+<p><code>2.</code> 완비 충분통계량의 함수 중에서 비편향추정량 찾기</p>
+<p><code>3.</code> 비편향추정량에 완비 통계량으로 조건부 기댓값 취하기</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="지수족(exponential-family)">
+<a class="anchor" href="#%EC%A7%80%EC%88%98%EC%A1%B1(exponential-family)" aria-hidden="true"><span class="octicon octicon-link"></span></a>지수족(exponential family)<a class="anchor-link" href="#%EC%A7%80%EC%88%98%EC%A1%B1(exponential-family)"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 확률밀도함수 $f(x;\boldsymbol{\theta})=a(\boldsymbol\theta)b(x)\exp\left[\sum\limits_{i=1}^{k}c_i(\boldsymbol\theta)t_i(x)\right]I(x:f(x;\boldsymbol{\theta})&gt;0),\boldsymbol\theta=(\theta_1,\cdots,\theta_n)$</p>
+<p><code>-</code> 위의 확률밀도함수를 $k$개의 모수 $\theta_1,\cdots,\theta_k$를 가진 지수족에 속한다고 한다</p>
+<p><code>-</code> 참고로 $f(x;\boldsymbol{\theta})$의 support는 모수 $\boldsymbol{\theta}$에 의존하지 않는다</p>
+<p><code>-</code> $X_1,\cdots,X_n \overset{iid}{\sim} f(x;\boldsymbol\theta)$일 때 통계량 $S_1=\sum\limits_{i=1}^{N}t_1(X_i),\cdots,S_k=\sum\limits_{i=1}^{N}t_k (X_i)$는 모수 $\theta_1,\cdots,\theta_k$에 대한 결합 완비 충분통계량이다</p>
+<p><code>-</code> 완비 충분통계량의 $1:1$ 함수도 완비 충분통계량이다</p>
+
 </div>
 </div>
 </div>
