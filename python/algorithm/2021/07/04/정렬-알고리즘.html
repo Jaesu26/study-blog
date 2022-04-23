@@ -96,7 +96,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      12 min read
+      14 min read
     
 </span></p>
 
@@ -171,9 +171,9 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h2"><a href="#퀵-정렬-(Quick-sort)">퀵 정렬 (Quick sort) </a>
 <ul>
 <li class="toc-entry toc-h3"><a href="#퀵-정렬-알고리즘">퀵 정렬 알고리즘 </a></li>
+<li class="toc-entry toc-h3"><a href="#퀵-정렬-알고리즘-코드-구현">퀵 정렬 알고리즘 코드 구현 </a></li>
 </ul>
 </li>
-<li class="toc-entry toc-h2"><a href="#퀵-정렬-알고리즘-코드-구현">퀵 정렬 알고리즘 코드 구현 </a></li>
 </ul>
 </li>
 <li class="toc-entry toc-h1"><a href="#$O(N)$-정렬">$O(N)$ 정렬 </a>
@@ -184,6 +184,14 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h3"><a href="#계수-정렬-알고리즘-코드-구현">계수 정렬 알고리즘 코드 구현 </a></li>
 </ul>
 </li>
+</ul>
+</li>
+<li class="toc-entry toc-h1"><a href="#시간-복잡도-정리">시간 복잡도 정리 </a></li>
+<li class="toc-entry toc-h1"><a href="#재귀-함수-시간복잡도-닫힌-해">재귀 함수 시간복잡도 닫힌 해 </a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#반복-대치-(Repeated-Substitution)">반복 대치 (Repeated Substitution) </a></li>
+<li class="toc-entry toc-h2"><a href="#수학적-귀납법-(Mathematical-induction)">수학적 귀납법 (Mathematical induction) </a></li>
+<li class="toc-entry toc-h2"><a href="#마스터-정리-(Master-theorem)">마스터 정리 (Master theorem) </a></li>
 </ul>
 </li>
 </ul><!--
@@ -835,9 +843,9 @@ return 횟수 7
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="퀵-정렬-알고리즘-코드-구현">
+<h3 id="퀵-정렬-알고리즘-코드-구현">
 <a class="anchor" href="#%ED%80%B5-%EC%A0%95%EB%A0%AC-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EC%BD%94%EB%93%9C-%EA%B5%AC%ED%98%84" aria-hidden="true"><span class="octicon octicon-link"></span></a>퀵 정렬 알고리즘 코드 구현<a class="anchor-link" href="#%ED%80%B5-%EC%A0%95%EB%A0%AC-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EC%BD%94%EB%93%9C-%EA%B5%AC%ED%98%84"> </a>
-</h2>
+</h3>
 </div>
 </div>
 </div>
@@ -1042,6 +1050,247 @@ return 횟수 7
 </div>
     
 
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="시간-복잡도-정리">
+<a class="anchor" href="#%EC%8B%9C%EA%B0%84-%EB%B3%B5%EC%9E%A1%EB%8F%84-%EC%A0%95%EB%A6%AC" aria-hidden="true"><span class="octicon octicon-link"></span></a>시간 복잡도 정리<a class="anchor-link" href="#%EC%8B%9C%EA%B0%84-%EB%B3%B5%EC%9E%A1%EB%8F%84-%EC%A0%95%EB%A6%AC"> </a>
+</h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Name</th>
+<th style="text-align:center">$T_{\operatorname{comp}}(n)$</th>
+<th style="text-align:center">$T_{\operatorname{swap}}(n)$</th>
+<th style="text-align:center">Time(worst case) : $T(n)$</th>
+<th style="text-align:center">Space</th>
+<th style="text-align:center">In-place(Extra)</th>
+<th style="text-align:center">Stable</th>
+<th style="text-align:center">Adaptive</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Selection</td>
+<td style="text-align:center">$\Theta(n^2)$</td>
+<td style="text-align:center">$\Theta(n)$</td>
+<td style="text-align:center">$\Theta(n^2)$</td>
+<td style="text-align:center">$\Theta(n)$</td>
+<td style="text-align:center">Yes : $\Theta(1)$</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">No</td>
+</tr>
+<tr>
+<td style="text-align:center">Bubble</td>
+<td style="text-align:center">$\Theta(n^2)$</td>
+<td style="text-align:center">$\Theta(n^2)$</td>
+<td style="text-align:center">$\Theta(n^2)$</td>
+<td style="text-align:center">$\Theta(n)$</td>
+<td style="text-align:center">Yes : $\Theta(1)$</td>
+<td style="text-align:center">Yes</td>
+<td style="text-align:center">No</td>
+</tr>
+<tr>
+<td style="text-align:center">Bubble+</td>
+<td style="text-align:center">$\Theta(n^2)$</td>
+<td style="text-align:center">$\Theta(n^2)$</td>
+<td style="text-align:center">$\Theta(n^2)$</td>
+<td style="text-align:center">$\Theta(n)$</td>
+<td style="text-align:center">Yes : $\Theta(1)$</td>
+<td style="text-align:center">Yes</td>
+<td style="text-align:center">Yes</td>
+</tr>
+<tr>
+<td style="text-align:center">Insertion</td>
+<td style="text-align:center">$\Theta(n^2)$</td>
+<td style="text-align:center">$\Theta(n^2)$</td>
+<td style="text-align:center">$\Theta(n^2)$</td>
+<td style="text-align:center">$\Theta(n)$</td>
+<td style="text-align:center">Yes : $\Theta(1)$</td>
+<td style="text-align:center">Yes</td>
+<td style="text-align:center">Yes</td>
+</tr>
+<tr>
+<td style="text-align:center">Merge</td>
+<td style="text-align:center">$\Theta(n\log n)$</td>
+<td style="text-align:center">$\Theta(n\log n)$</td>
+<td style="text-align:center">$\Theta(n\log n)$</td>
+<td style="text-align:center">$\Theta(n)$</td>
+<td style="text-align:center">No : $\Theta(n)$</td>
+<td style="text-align:center">Yes</td>
+<td style="text-align:center">No</td>
+</tr>
+<tr>
+<td style="text-align:center">Quick</td>
+<td style="text-align:center">$\Theta(n^2)$</td>
+<td style="text-align:center">$\Theta(n^2)$</td>
+<td style="text-align:center">$\Theta(n^2)$</td>
+<td style="text-align:center">$\Theta(n)$</td>
+<td style="text-align:center">Yes : $\Theta(\log n)$</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">No</td>
+</tr>
+<tr>
+<td style="text-align:center">Heap</td>
+<td style="text-align:center">$\Theta(n\log n)$</td>
+<td style="text-align:center">$\Theta(n\log n)$</td>
+<td style="text-align:center">$\Theta(n\log n)$</td>
+<td style="text-align:center">$\Theta(n)$</td>
+<td style="text-align:center">Yes : $\Theta(1)$</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">No</td>
+</tr>
+<tr>
+<td style="text-align:center">Counting</td>
+<td style="text-align:center">No comparison</td>
+<td style="text-align:center">No swap</td>
+<td style="text-align:center">$\Theta(n+k)$</td>
+<td style="text-align:center">$\Theta(n+k)$</td>
+<td style="text-align:center">No : $\Theta(n+k)$</td>
+<td style="text-align:center">Yes</td>
+<td style="text-align:center">No</td>
+</tr>
+<tr>
+<td style="text-align:center">Radix</td>
+<td style="text-align:center">No comparison</td>
+<td style="text-align:center">No swap</td>
+<td style="text-align:center">$\Theta(w(n+k))$</td>
+<td style="text-align:center">$\Theta(n+k)$</td>
+<td style="text-align:center">No : $\Theta(n+k)$</td>
+<td style="text-align:center">Yes</td>
+<td style="text-align:center">No</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="재귀-함수-시간복잡도-닫힌-해">
+<a class="anchor" href="#%EC%9E%AC%EA%B7%80-%ED%95%A8%EC%88%98-%EC%8B%9C%EA%B0%84%EB%B3%B5%EC%9E%A1%EB%8F%84-%EB%8B%AB%ED%9E%8C-%ED%95%B4" aria-hidden="true"><span class="octicon octicon-link"></span></a>재귀 함수 시간복잡도 닫힌 해<a class="anchor-link" href="#%EC%9E%AC%EA%B7%80-%ED%95%A8%EC%88%98-%EC%8B%9C%EA%B0%84%EB%B3%B5%EC%9E%A1%EB%8F%84-%EB%8B%AB%ED%9E%8C-%ED%95%B4"> </a>
+</h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 시간복잡도의 형태가 재귀 함수꼴로 되어 있어 해를 구할 줄 알아야 된다(ex: 병합 정렬)</p>
+<p><code>-</code> 아래는 이를 구하는 방법들이다</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="반복-대치-(Repeated-Substitution)">
+<a class="anchor" href="#%EB%B0%98%EB%B3%B5-%EB%8C%80%EC%B9%98-(Repeated-Substitution)" aria-hidden="true"><span class="octicon octicon-link"></span></a>반복 대치 (Repeated Substitution)<a class="anchor-link" href="#%EB%B0%98%EB%B3%B5-%EB%8C%80%EC%B9%98-(Repeated-Substitution)"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> $T(n)=T(n-1)+C$ 라고 하자</p>
+<p><code>-</code> $T(n) = T(n-1)+C = (T(n-2)+C) + C = \cdots = T(1) + (n-1)C$</p>
+<p><code>-</code> 그러므로 $T(n)=O(n)$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="수학적-귀납법-(Mathematical-induction)">
+<a class="anchor" href="#%EC%88%98%ED%95%99%EC%A0%81-%EA%B7%80%EB%82%A9%EB%B2%95-(Mathematical-induction)" aria-hidden="true"><span class="octicon octicon-link"></span></a>수학적 귀납법 (Mathematical induction)<a class="anchor-link" href="#%EC%88%98%ED%95%99%EC%A0%81-%EA%B7%80%EB%82%A9%EB%B2%95-(Mathematical-induction)"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> $T(n) \leq 2T\left(\dfrac{n}{2}+10\right)+n$ 라고 하자</p>
+<p><code>-</code> $T(n)\leq cn\log n$ 이라고 추정한다(어떤 함수로 추정할지 잘 생각해야 됨) $\to$ $T(n)=O(n\log n)$</p>
+<p><code>-</code> $T(i)\leq ci\log i ,\;n_0\leq i&lt; k$ 라고 가정한다</p>
+<p><code>-</code> 이제 $T(k)\leq ck\log k$ 일 때도 성립하는지 증명한다</p>
+$$\begin{aligned} T(k) &amp;\leq 2T\left(\dfrac{k}{2}+10\right)+k\\[10pt]
+&amp;\leq 2c\left(\dfrac{k}{2}+10\right)\log\left(\dfrac{k}{2}+10\right)+k\\[10pt]
+&amp;=ck\log\left(\dfrac{k}{2}+10\right) + 20c\log\left(\dfrac{k}{2}+10\right)+k\\[10pt]
+&amp;\leq ck\log \dfrac{2k}{3} + 20c\log\dfrac{2k}{3}+k\\[10pt]
+&amp;=ck\log k +c(\log 2 -\log 3)k + 20c\log\dfrac{2k}{3}+k \, ---\,  (1)\\[10pt]
+&amp;\leq ck\log k\, ---\,  (2)
+\end{aligned}$$
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 위에 $(1)$번 식에서 $(2)$번 식으로 어떻게 전개되는지 간단히 설명</p>
+<p><code>-</code> 일단 $\text{(1)번 식} \leq \text{(2)번 식}$ 이라는 것은 $c(\log 3 -\log 2)k\geq 20c\log\dfrac{2k}{3}+k $을 뜻한다</p>
+<p><code>-</code> $c(\log 3 -\log 2)k\geq 20c\log\dfrac{2k}{3}$ $\to$ $k$를 매우 크게 하면 된다($k$를 무한히 크게 하면 무한히 큰 차이가 생김)</p>
+<p><code>-</code> $c(\log 3 -\log 2)k\geq k$ $\to$ $c$를 매우 크게 하면 된다($c$를 무한히 크게 하면 무한히 큰 차이가 생김)</p>
+<ul>
+<li>결론</li>
+</ul>
+<p><code>-</code> $\dfrac{k}{2}+10\leq k,\, \dfrac{k}{2}+10\leq \dfrac{2k}{3}$을 만족하면서 충분히 큰 $k$와 충분히 큰 $c$를 고르면 $\text{(1)번 식} \leq \text{(2)번 식}$ 이 성립한다</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="마스터-정리-(Master-theorem)">
+<a class="anchor" href="#%EB%A7%88%EC%8A%A4%ED%84%B0-%EC%A0%95%EB%A6%AC-(Master-theorem)" aria-hidden="true"><span class="octicon octicon-link"></span></a>마스터 정리 (Master theorem)<a class="anchor-link" href="#%EB%A7%88%EC%8A%A4%ED%84%B0-%EC%A0%95%EB%A6%AC-(Master-theorem)"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> $T(n)=aT\left(\dfrac{n}{b}\right)+f(n)$ 일 때 적용 가능하다</p>
+<p><code>-</code> $a\geq 1,\,b&gt; 1$이며 $f(n)$은 다항식 형태</p>
+<p><code>-</code> $h(n)=n^{\log_b a}$ $\to$ $n=1$인 sub-problems 개수</p>
+<p><code>-</code> <code>case 1)</code> $\lim\limits_{n\to\infty}\dfrac{f(n)}{h(n)}=0 \Longrightarrow T(n)=\Theta\left(h(n)\right)$</p>
+<p><code>-</code> <code>case 2)</code> $\lim\limits_{n\to\infty}\dfrac{f(n)}{h(n)}=\infty$ and $af\left(\dfrac{n}{b}\right) &lt; f(n)  \Longrightarrow T(n)=\Theta\left(f(n)\right)$</p>
+<p><code>-</code> <code>case 3)</code> $\lim\limits_{n\to\infty}\dfrac{f(n)}{h(n)}=\Theta(1) \Longrightarrow T(n)=\Theta\left(h(n)\log_2 n\right)$</p>
+<p><code>-</code> <code>exception</code> $\dfrac{f(n)}{h(n)}=\Theta\left(\log^k n\right)\Longrightarrow T(n)=\Theta\left(h(n)\log^{k+1} n\right)$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>변수를 치환해서 마스터 정리를 적합시키기</li>
+</ul>
+<p><code>-</code> $T(n)=2T\left(\sqrt{n}\right)+\log_2 n$</p>
+<p><code>-</code> 위의 식에는 마스터 정리를 적용시키지 못한다($\sqrt{n}=n^{0.5}$과 $f(n)=\log_2 n$이 문제임, $n^1$ 이고 $f(n)$은 다항식이어야 한다)</p>
+<p><code>-</code> $m =\log_2 n \Longleftrightarrow 2^m=n$</p>
+<p><code>-</code> $T(2^m)=2T\left(2^{0.5m}\right)+m$</p>
+<p><code>-</code> $P(m) = T(2^m)$ 이라고 하자</p>
+<p><code>-</code> $P(m)=2P\left(\dfrac{1}{2}m\right)+m$ $\to$ 마스터 정리를 적용시킬 수 있다!</p>
+<p><code>-</code> 마스터 정리를 적용시키면 $P(m)=\Theta(m\log m)$이 되고 $m$을 다시 $\log_2 n$로 치환시키면 아래와 같다</p>
+<p><code>-</code> $T(n)=\Theta\left(\log n\log(\log n)\right)$</p>
+
+</div>
+</div>
+</div>
 </div>
 
 
