@@ -746,7 +746,7 @@ $$\begin{aligned}\Pr(\phi)&amp;=0.0\\ \Pr(\{H\})&amp;=0.4\\ \Pr(\{T\})&amp;=0.6\
 <p><code>-</code> 확률변수 $X(\omega)=I(\text{$\omega$ is odd})$라 하고 $Y(\omega)=\omega$라고 하자</p>
 <p><code>-</code> 즉 확률변수 $X$는 주사위를 던져서 나온값이 홀수이면 $1$로 맵핑하고 짝수이면 $0$으로 맵핑한다</p>
 <p><code>-</code> 반면 확률변수 $Y$는 주사위를 던져서 나온값으로 맵핑한다(확률변수 $Y$는 항등함수)</p>
-<p><code>-</code> 확률변수 $X$와 $Y$는 같은 확률공간을 가진다, 둘의 차이점이라곤 주사위를 던져서 나온값은 어떤 실수로 맵핑하냐 뿐이다</p>
+<p><code>-</code> 확률변수 $X$와 $Y$는 같은 확률공간을 가진다, 둘의 차이점이라곤 주사위를 던져서 나온값을 어떤 실수로 맵핑하냐 뿐이다</p>
 <p><code>-</code> 하지만 둘의 cdf는 다르다</p>
 <p>
 $$F_X(x)=\begin{cases}0,\quad x&lt;0 \\ \frac{1}{2},\quad 0 \leq x &lt;1 \\ 1,\quad x\geq 1\end{cases}$$
@@ -885,6 +885,43 @@ $$F_Y(y)=\begin{cases}0,\quad y&lt;1 \\[5pt]  \dfrac{1}{6},\quad 1\leq y &lt;2 \
 <p><code>-</code> 애초에 확률변수 $X$에 연산을 하는 것이 아니라 표본공간에 연산을 한다고 생각할 수 도 있는데</p>
 <p><code>-</code> 표본공간에 연산을 취해서 실수로 맵핑하는 함수가 확률변수임(사실 이건 좀 그렇고(+1이 확률변수는 아니니까...))</p>
 <p><code>-</code> 그냥 표본공간에 +1 할 이유가 없음...</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>위치모수와 척도모수</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 확률변수 $X$가 분포A를 따를때 $X + b$도 분포A를 따르면 분포A는 위치모수를 가진다</p>
+<p><code>-</code> 확률변수 $X$가 분포B를 따를때 $aX$도 분포B를 따르면 분포B는 척도모수를 가진다</p>
+<p><code>-</code> 확률변수 $X$가 분포C를 따를때 $aX+b$도 분포C를 따르면 분포C는 위치모수와 척도모수를 가진다</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 정규분포는 위치모수와 척도모수를 둘 다 가지는데</p>
+<p><code>-</code> 예컨대 확률변수 $X$가 정규분포를 따른다면 $X+1$이나 $2X$도 정규분포를 따른다</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> $g(X)$의 pdf를 구하는 방식은 누적분포함수를 이용 또는 결합 확률밀도함수(자코비안) 이용</p>
 
 </div>
 </div>
