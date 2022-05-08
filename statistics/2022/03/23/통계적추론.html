@@ -256,6 +256,21 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> <code>일치성(consistency)</code> : $T(X)\xrightarrow{~~p~~}g(\theta)$</p>
+<p><code>-</code> $\lim\limits_{n\to\infty} E \big [T_n(X)-g(\theta)\big]^2=0$이 성립하면 $T_n(X)$는 일치성이 있다(확률부등식 사용)</p>
+<p><code>-</code> $g(x)$가 $\theta$에서 연속인 함수이면 불변성 성립!</p>
+<ul>
+<li>비편향성(불편성)과 일치성의 차이</li>
+</ul>
+<p><code>-</code> 불편성은 고정된 표본크기에 대한 추정량의 <code>기댓값</code>이 $g(\theta)$인 것이고</p>
+<p><code>-</code> 일치성은 표본크기가 무한히 커지면 추정량 자체의 값이 $g(\theta)$로 확률수렴(확률적으로 수렴)하는 것</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="최소분산-비편향추정량(Minimum-Variance-Unbiased-Estimator,-MVUE)">
 <a class="anchor" href="#%EC%B5%9C%EC%86%8C%EB%B6%84%EC%82%B0-%EB%B9%84%ED%8E%B8%ED%96%A5%EC%B6%94%EC%A0%95%EB%9F%89(Minimum-Variance-Unbiased-Estimator,-MVUE)" aria-hidden="true"><span class="octicon octicon-link"></span></a>최소분산 비편향추정량(Minimum Variance Unbiased Estimator, MVUE)<a class="anchor-link" href="#%EC%B5%9C%EC%86%8C%EB%B6%84%EC%82%B0-%EB%B9%84%ED%8E%B8%ED%96%A5%EC%B6%94%EC%A0%95%EB%9F%89(Minimum-Variance-Unbiased-Estimator,-MVUE)"> </a>
 </h2>
@@ -399,9 +414,9 @@ Var\left(T(X)\right) &amp;= E\left(Var\left(T(X)\mid S\right)\right) + Var\left(
 <li>완비성의 의미</li>
 </ul>
 <p><code>-</code> $S(X)$가 완비통계량이면 $S(X)$의 서로 다른 두 함수가 같은 기댓값을 가지지 못한다</p>
-<p><code>-</code> $E\left[g_1\left(S(X)\right)\right] = g(\theta), E\left[g_2\left(S(X)\right)\right] = g(\theta)\Longrightarrow E\left[g_1\left(S(X)\right)-g_2\left(S(X)\right)\right] =0$</p>
+<p><code>-</code> $E\left[g_{_1}\left(S(X)\right)\right] = g(\theta), E\left[g_{_2}\left(S(X)\right)\right] = g(\theta)\Longrightarrow E\left[g_{_1}\left(S(X)\right)-g_{_2}\left(S(X)\right)\right] =0$</p>
 <p><code>-</code> 그런데 완비성에 의해 $S(X)$에 임의의 함수$g$ 를 취한 확률변수의 기댓값이 $0$이라면 $g\left(S(X)\right)=0$이므로</p>
-<p><code>-</code> $g_1\left(S(X)\right)=g_2\left(S(X)\right)$이 성립한다</p>
+<p><code>-</code> $g_{_1}\left(S(X)\right)=g_{_2}\left(S(X)\right)$이 성립한다</p>
 <p><code>-</code> 같은 기댓값을 가지지 못한다는 것은 완비통계량의 함수로서 비편향추정량은 하나 뿐이라는 것이고</p>
 <p><code>-</code> 이때의 비편향추정량은 하나 뿐이니 당연하게도 최소분산 비편향추정량이 된다</p>
 
