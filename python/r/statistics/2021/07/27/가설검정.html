@@ -96,7 +96,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      19 min read
+      18 min read
     
 </span></p>
 
@@ -1980,20 +1980,7 @@ mean of the differences
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> 우선 단일 모분산에 대한 검정에는 $\chi^2$분포가 사용됨 ---&gt; 왜?</p>
-<p><code>-</code> 카이제곱분포를 떠올려보면 다음과 같음</p>
-<p><code>-</code> $n$개의 서로 독립인 확률표본이 평균 $\mu$ 분산 $\sigma^2$인 정규분포에서 추출되었다고 하자</p>
-<p><code>-</code> 모평균이 알려져 있지 않은 상황에서는 $\mu$ 대신 $\overline{X}$를 사용함</p>
-$$\begin{aligned}\sum Z_{i}^{2}&amp;=\left(\cfrac{X_1-\overline{X}_n}{\sigma}\right)^2 + \left(\cfrac{X_2-\overline{X}_n}{\sigma}\right)^2+\cdots+\left(\cfrac{X_n-\overline{X}_n}{\sigma}\right)^2\\
-&amp;=\cfrac{1}{\sigma^2}\sum(X_i-\overline{X}_n)^2\\[10pt]
-&amp;=\chi^2_{n-1}\end{aligned}$$
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> 그런데 $s^2=\cfrac{1}{n-1}\sum(X_i-\overline{X}_n)^2$ 이므로 $\chi^2_{n-1}=\cfrac{(n-1)s^2}{\sigma^2}$ 이다</p>
+<p><code>-</code> 우선 단일 모분산에 대한 검정에는 $\chi^2$분포가 사용됨 ---&gt; 왜?(나중에 증명 추가)</p>
 
 </div>
 </div>
@@ -2001,7 +1988,7 @@ $$\begin{aligned}\sum Z_{i}^{2}&amp;=\left(\cfrac{X_1-\overline{X}_n}{\sigma}\ri
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> 따라서 $\cfrac{(n-1)s^2}{\sigma^2}$의 표본분포는 자유도가 $n-1$인 $\chi^2_{n-1}$분포를 하고 있다</p>
+<p><code>-</code> 확률변수 $Q=\cfrac{(n-1)s^2}{\sigma^2}$는 자유도가 $n-1$인 $\chi^2_{n-1}$를 따른다</p>
 
 </div>
 </div>
@@ -2100,19 +2087,19 @@ $$\begin{aligned}\sum Z_{i}^{2}&amp;=\left(\cfrac{X_1-\overline{X}_n}{\sigma}\ri
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> 단일모분산을 검정하는 검정통계량은 다음과 같음</p>
 <p>
-$$\chi^2_{n-1}=\cfrac{(n-1)s^2}{\sigma^2}$$
+$$\chi^2=\cfrac{(n-1)s^2}{\sigma^2}$$
 </p>
 <p><code>-</code> 가설 $H_0 : \sigma^2 = \sigma_0^2$ 에 대한 검정은 대안가설 부호에 따라 다름</p>
-$$\begin{aligned}H_a &amp;: \sigma^2&gt;\sigma_0^2\longrightarrow \chi^2&lt;\chi^{2}_{\alpha}\\
-H_a &amp;: \sigma^2&lt;\sigma_0^2\longrightarrow \chi^2&gt;\chi^2_{1-\alpha}\\
-H_a &amp;: \sigma^2\neq\sigma_0^2\longrightarrow \chi^2&lt;\chi^2_{1-\frac{\alpha}{2}}\; or\; \chi^2&gt;\chi^2_{\frac{\alpha}{2}}\end{aligned}$$
+$$\begin{aligned}H_a &amp;: \sigma^2&gt;\sigma_0^2\longrightarrow \chi^2&lt;\chi^{^2}_{_{_{\alpha}}}\\[10pt]
+H_a &amp;: \sigma^2&lt;\sigma_0^2\longrightarrow \chi^2&gt;\chi^{^2}_{_{_{1-\alpha}}}\\[10pt]
+H_a &amp;: \sigma^2\neq\sigma_0^2\longrightarrow \chi^2&lt;\chi^{^2}_{_{1-\frac{\alpha}{2}}} \; \operatorname{or}\; \chi^2&gt;\chi^{^2}_{_{\frac{\alpha}{2}}} \end{aligned}$$
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> 이때 $\chi^2_{\alpha}$은 분포의 오른쪽 확률이 $\alpha$임을 나타낸다</p>
+<p><code>-</code> 위에서 $\chi^{^2}_{_{_{\alpha}}}$은 자유도가 $n-1$인 $\chi^2$분포의 $100(1-\alpha)\%$ 백분위수이다</p>
 
 </div>
 </div>
