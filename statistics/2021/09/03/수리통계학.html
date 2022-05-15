@@ -1400,6 +1400,7 @@ $$E(Y\mid X=x)=E_Y(Y)=\begin{cases}\sum\limits_{\text{모든 }y_i}y_{i}f_{Y\mid 
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> 마코프 확률부등식 : 실함수 $u(X) &gt; 0$라고 할 때 $P[u(X)\geq c] \leq \dfrac{E[u(X)]}{c}$</p>
+<p><code>-</code> $P[u(X) &lt; c] = 1-P[u(X)\geq c] \geq 1-\dfrac{E[u(X)]}{c}$</p>
 <ul>
 <li>마코프 확률부등식 증명</li>
 </ul>
@@ -1626,7 +1627,7 @@ $$\begin{aligned}\lim\limits_{n\to\infty} P(|X_n-X|\geq \epsilon)&amp;=\lim\limi
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-$$\begin{aligned} P\left(\left\lvert\,\overline{X}_n-\mu\,\right\rvert\geq \epsilon\right)&amp; = P\left(\left|\,\overline{X}_n-\mu\,\right|^2 \geq \epsilon^2\right)\\
+$$\begin{aligned} P\left(\left\lvert\,\overline{X}_n-\mu\,\right\rvert &lt; \epsilon\right)&amp; = P\left(\left|\,\overline{X}_n-\mu\,\right|^2 &lt; \epsilon^2\right)\\
 &amp;\leq 1 - \dfrac{E\left(\overline{X}_n-\mu\right)^2}{\epsilon^2}\\
 &amp;= 1 - \dfrac{ \sigma^2  / n}{\epsilon^2} \xrightarrow{~~n \to \infty~~} 1 \end{aligned}$$
 </div>
