@@ -1726,6 +1726,27 @@ $$Z_n=\dfrac{\sum\limits_{i=1}^{n}X_i-E\left(\sum\limits_{i=1}^{n}X_i\right)}{\s
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>증명(적률생성함수가 존재하는 경우)</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 랜덤표본이므로 $X_i-\mu$의 mgf는 모든 $i$에 대해 동일하고 이를 $m(t)=E\left[e^{t(X_i-\mu)}\right]$라고 하자</p>
+<p><code>-</code> 그러면 $m'(0)=E(X_i-\mu)=0,\; m''(0)=E(X_i-\mu)^2=\sigma^2$이고 테일러 전개의 의해 아래가 성립</p>
+$$\begin{aligned}m(t)&amp;=m(0)+m'(0)t+\dfrac{m''(\xi)t^2}{2} \quad (0&lt;\xi&lt;t)\\
+&amp;=1+\dfrac{m''(\xi)t^2}{2}\\
+&amp;=1+\dfrac{\sigma^2 t^2}{2}+\dfrac{(m''(\xi)-\sigma^2)t^2}{2}\end{aligned}$$
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Slutsky-정리">
 <a class="anchor" href="#Slutsky-%EC%A0%95%EB%A6%AC" aria-hidden="true"><span class="octicon octicon-link"></span></a>Slutsky 정리<a class="anchor-link" href="#Slutsky-%EC%A0%95%EB%A6%AC"> </a>
 </h3>
