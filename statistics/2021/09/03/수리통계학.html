@@ -9,15 +9,15 @@
 <meta property="og:title" content="수리통계학" />
 <meta name="author" content="한재수" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="작성 중" />
-<meta property="og:description" content="작성 중" />
+<meta name="description" content="작성 완료" />
+<meta property="og:description" content="작성 완료" />
 <link rel="canonical" href="https://jaesu26.github.io/green/statistics/2021/09/03/%EC%88%98%EB%A6%AC%ED%86%B5%EA%B3%84%ED%95%99.html" />
 <meta property="og:url" content="https://jaesu26.github.io/green/statistics/2021/09/03/%EC%88%98%EB%A6%AC%ED%86%B5%EA%B3%84%ED%95%99.html" />
 <meta property="og:site_name" content="Jaesu’s blog" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2021-09-03T00:00:00-05:00" />
 <script type="application/ld+json">
-{"url":"https://jaesu26.github.io/green/statistics/2021/09/03/%EC%88%98%EB%A6%AC%ED%86%B5%EA%B3%84%ED%95%99.html","@type":"BlogPosting","headline":"수리통계학","dateModified":"2021-09-03T00:00:00-05:00","datePublished":"2021-09-03T00:00:00-05:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://jaesu26.github.io/green/statistics/2021/09/03/%EC%88%98%EB%A6%AC%ED%86%B5%EA%B3%84%ED%95%99.html"},"author":{"@type":"Person","name":"한재수"},"description":"작성 중","@context":"https://schema.org"}</script>
+{"url":"https://jaesu26.github.io/green/statistics/2021/09/03/%EC%88%98%EB%A6%AC%ED%86%B5%EA%B3%84%ED%95%99.html","@type":"BlogPosting","headline":"수리통계학","dateModified":"2021-09-03T00:00:00-05:00","datePublished":"2021-09-03T00:00:00-05:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://jaesu26.github.io/green/statistics/2021/09/03/%EC%88%98%EB%A6%AC%ED%86%B5%EA%B3%84%ED%95%99.html"},"author":{"@type":"Person","name":"한재수"},"description":"작성 완료","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/green/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://jaesu26.github.io/green/feed.xml" title="Jaesu's blog" /><link rel="shortcut icon" type="image/x-icon" href="/green/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
@@ -88,7 +88,7 @@ window.onload = wrap_img;
         <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title p-name" itemprop="name headline">수리통계학</h1><p class="page-description">작성 중</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2021-09-03T00:00:00-05:00" itemprop="datePublished">
+    <h1 class="post-title p-name" itemprop="name headline">수리통계학</h1><p class="page-description">작성 완료</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2021-09-03T00:00:00-05:00" itemprop="datePublished">
         Sep 3, 2021
       </time>• 
           <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -96,7 +96,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      19 min read
+      20 min read
     
 </span></p>
 
@@ -1413,6 +1413,7 @@ $$\begin{aligned}E_X[u(X)]&amp;=\int^{\infty}_{-\infty}u(x)f(x)dx\\[10pt]
 &amp;=cP\big(u(X)\geq c\big)\quad(\therefore A=\{x:u(x)\geq c\})
 \end{aligned}$$<p><code>-</code> 체비셰프 부등식(확률부등식의 응용) : $P(|X-\mu| &lt; k\sigma)\geq 1-\dfrac{1}{k^2}$</p>
 <p><code>-</code> 코시-슈바르츠 부등식 : $[E(XY)]^2 \leq E(X^2)\cdot E(Y^2)$</p>
+<p><code>-</code> 젠센 부등식 : $E[\phi(\boldsymbol{X})]\geq \phi[E(\boldsymbol{X})]$ ($\therefore \phi(x)$는 이차 미분가능하고 convex)</p>
 
 </div>
 </div>
@@ -1740,7 +1741,18 @@ $$Z_n=\dfrac{\sum\limits_{i=1}^{n}X_i-E\left(\sum\limits_{i=1}^{n}X_i\right)}{\s
 <p><code>-</code> 그러면 $m'(0)=E(X_i-\mu)=0,\; m''(0)=E(X_i-\mu)^2=\sigma^2$이고 테일러 전개의 의해 아래가 성립</p>
 $$\begin{aligned}m(t)&amp;=m(0)+m'(0)t+\dfrac{m''(\xi)t^2}{2} \quad (0&lt;\xi&lt;t)\\
 &amp;=1+\dfrac{m''(\xi)t^2}{2}\\
-&amp;=1+\dfrac{\sigma^2 t^2}{2}+\dfrac{(m''(\xi)-\sigma^2)t^2}{2}\end{aligned}$$
+&amp;=1+\dfrac{\sigma^2 t^2}{2}+\dfrac{(m''(\xi)-\sigma^2)t^2}{2}\end{aligned}$$<p><code>-</code> $Z_n = \dfrac{\overline{X}_n-\mu}{\left. \sigma \middle/ \sqrt n \right.}=\dfrac{\sum\limits_{i=1}^{n}(X_i-\mu)}{\sqrt{n}\sigma}$ 라고 하면 $Z_n$의 mgf는 아래와 같다</p>
+<p>
+$$\begin{aligned}M_{_{Z_{_n}}}(t)&amp;=M_{{\Sigma(X_i-\mu)}}\left(\frac{t}{\sqrt{n}\sigma}\right)\\
+&amp;=\prod\limits_{i=1}^{n}M_{{(X_i-\mu)}}\left(\frac{t}{\sqrt{n}\sigma}\right)\\
+&amp;=\left[M_{{(X_i-\mu)}}\left(\frac{t}{\sqrt{n}\sigma}\right)\right]^n\\
+&amp;=\left[m\left(\frac{t}{\sqrt{n}\sigma}\right)\right]^n
+\end{aligned}$$
+</p>
+<p>이고, $0&lt;\xi &lt; \dfrac{t}{\sqrt n\sigma}$인 $\xi$에 대해 $M_{_{Z_{_n}}}(t)=\left[1+\dfrac{\sigma^2 t^2}{2n\sigma^2}+\dfrac{\left(m''(\xi)-\sigma^2\right)t^2}{2n\sigma^2}\right]^n$</p>
+<p><code>-</code> 그런데 $n\to\infty$일 때 $\dfrac{t}{\sqrt n\sigma}\to0,\,\xi\to 0$, 그리고 $m''$의 연속성에 의해 $m''(\xi)\to\sigma$이므로 $\lim_{n\to\infty}M_{_{Z_{_n}}}(t)=\exp\left(\dfrac{t^2}{2}\right)$</p>
+<p><code>-</code> 이는 표준정규분포의 mgf이므로 확률변량 $Z_n$에 대하여 $Z_n\xrightarrow{~~d~~}N(0,1)$이 성립한다</p>
+
 </div>
 </div>
 </div>
@@ -1759,7 +1771,7 @@ $$\begin{aligned}m(t)&amp;=m(0)+m'(0)t+\dfrac{m''(\xi)t^2}{2} \quad (0&lt;\xi&lt
 <p></p>
 <div class="flash">
     <svg class="octicon octicon-info octicon octicon-info octicon octicon-info" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8 1.5a6.5 6.5 0 100 13 6.5 6.5 0 000-13zM0 8a8 8 0 1116 0A8 8 0 010 8zm6.5-.25A.75.75 0 017.25 7h1a.75.75 0 01.75.75v2.75h.25a.75.75 0 010 1.5h-2a.75.75 0 010-1.5h.25v-2h-.25a.75.75 0 01-.75-.75zM8 6a1 1 0 100-2 1 1 0 000 2z"></path></svg>
-    <strong>Note: </strong>확률변수열 $u_n$과 임의의 함수 $g$와 상수 $u$에 대하여 $u_n\xrightarrow{~~p~~}u$이면 $g(u_n)\xrightarrow{~~p~~}g(u)$가 성립한다
+    <strong>Note: </strong>확률변수열 $u_n$과 $u$에서 연속인 함수 $g$와 상수 $u$에 대하여 $u_n\xrightarrow{~~p~~}u$이면 $g(u_n)\xrightarrow{~~p~~}g(u)$가 성립한다
 </div>
 
 </div>
