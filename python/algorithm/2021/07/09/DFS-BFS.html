@@ -236,8 +236,9 @@ window.onload = wrap_img;
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> tree 구조</p>
 <p><code>-</code> stack 자료 구조 활용: 후입선출(한쪽면이 막힌 원통)</p>
-<p><code>-</code> 노드: [A], [B], [C], [D], [E], [F], [G], [H], [I], [J]</p>
-<p><code>-</code> 분기: [A, B, E], [A, B, F, I], [A, C, G], [A, D, H, I]</p>
+<p><code>-</code> 노드: <code>[A], [B], [C], [D], [E], [F], [G], [H], [I], [J]</code></p>
+<p><code>-</code> 분기: <code>[A, B, E], [A, B, F, I], [A, C, G], [A, D, H, I]</code></p>
+<p><code>-</code> <code>재귀함수를 활용한 DFS 코드가 최종 코드이다</code> (리스트 활용과 해시 테이블 활용 part에서 구현한 DFS는 비효율적임)</p>
 
 </div>
 </div>
@@ -294,10 +295,11 @@ window.onload = wrap_img;
     <span class="n">visited</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1">## 방문한 노드</span>
     <span class="n">stack</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1">## 방문할 노드</span>
     <span class="n">stack</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">start_node</span><span class="p">)</span> <span class="c1">## 방문할 노드에 시작 노드 추가</span>
+    <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1">## 방문을 몇 번 했는지 기록</span>
 
     <span class="k">while</span> <span class="n">stack</span><span class="p">:</span>  <span class="c1">## 방문할 노드가 있다면(리스트에 원소가 있으면 True)</span>
-        <span class="n">node</span> <span class="o">=</span> <span class="n">stack</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span> <span class="c1">## 마지막 노드 추가(스택 구조 사용) </span>
-        
+        <span class="n">node</span> <span class="o">=</span> <span class="n">stack</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span> <span class="c1">## node를 방문했다!, 마지막 노드 추가(스택 구조 사용) </span>
+        <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span> <span class="c1">## 방문 횟수 + 1</span>
         <span class="k">if</span> <span class="n">node</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">visited</span><span class="p">:</span>  <span class="c1">## 만약 아직 방문한 노드가 아니라면</span>
             <span class="n">visited</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>  <span class="c1">## 이제 방문했으니까 방문한 노드에 추가</span>
             <span class="n">stack</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="nb">reversed</span><span class="p">(</span><span class="n">graph</span><span class="p">[</span><span class="n">node</span><span class="p">]))</span> <span class="c1">## 방문한 노드에 연결된 노드를 탐색해보자</span>
@@ -306,7 +308,7 @@ window.onload = wrap_img;
         <span class="nb">print</span><span class="p">(</span><span class="n">stack</span><span class="p">)</span>
         <span class="nb">print</span><span class="p">(</span><span class="s1">'-------------------------------------------------------'</span><span class="p">)</span> <span class="c1">## 방문과정 확인</span>
     
-    <span class="k">return</span> <span class="n">visited</span> <span class="c1">## 방문한 노드를 반환</span>
+    <span class="k">return</span> <span class="n">visited</span><span class="p">,</span> <span class="n">count</span> <span class="c1">## 방문한 노드를 반환</span>
 
 <span class="n">DFS_list</span><span class="p">(</span><span class="n">tree</span><span class="p">,</span> <span class="s1">'A'</span><span class="p">)</span> <span class="c1">## 마지막은 return 값</span>
 </pre></div>
@@ -387,7 +389,7 @@ window.onload = wrap_img;
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>['A', 'B', 'E', 'F', 'I', 'C', 'G', 'D', 'H', 'J']</pre>
+<pre>(['A', 'B', 'E', 'F', 'I', 'C', 'G', 'D', 'H', 'J'], 19)</pre>
 </div>
 
 </div>
@@ -402,6 +404,7 @@ window.onload = wrap_img;
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> return 결과를 보면 DFS 방식임을 알 수 있다</p>
+<p><code>-</code> 노드가 10개이므로 10번 방문해야 하지만 19번 방문함</p>
 
 </div>
 </div>
@@ -436,17 +439,18 @@ window.onload = wrap_img;
     <span class="n">visited</span> <span class="o">=</span> <span class="p">{}</span> <span class="c1">## 방문한 노드</span>
     <span class="n">stack</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1">## 방문할 노드</span>
     <span class="n">stack</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">start_node</span><span class="p">)</span> <span class="c1">## 방문할 노드에 시작 노드 추가</span>
+    <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1">## 방문을 몇 번 했는지 기록</span>
 
     <span class="k">while</span> <span class="n">stack</span><span class="p">:</span>  <span class="c1">## 방문할 노드가 있다면(리스트에 원소가 있으면 True)</span>
-        <span class="n">node</span> <span class="o">=</span> <span class="n">stack</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span> <span class="c1">## 마지막 노드 추가(스택 구조 사용) </span>
-        
+        <span class="n">node</span> <span class="o">=</span> <span class="n">stack</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span> <span class="c1">## node를 방문했다!, 마지막 노드 추가(스택 구조 사용) </span>
+        <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span> <span class="c1">## 방문 횟수 + 1</span>
         <span class="k">if</span> <span class="n">node</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">visited</span><span class="p">:</span>  <span class="c1">## 만약 아직 방문한 노드가 아니라면</span>
             <span class="n">visited</span><span class="p">[</span><span class="n">node</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>  <span class="c1">## 이제 방문했으니까 방문한 노드에 추가</span>
             <span class="n">stack</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="nb">reversed</span><span class="p">(</span><span class="n">graph</span><span class="p">[</span><span class="n">node</span><span class="p">]))</span> <span class="c1">## 방문한 노드에 연결된 노드를 탐색해보자</span>
             
-    <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="n">visited</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span> <span class="c1">## 방문한 노드를 반환</span>
+    <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="n">visited</span><span class="o">.</span><span class="n">keys</span><span class="p">()),</span> <span class="n">count</span> <span class="c1">## 방문한 노드를 반환</span>
 
-<span class="n">DFS_list</span><span class="p">(</span><span class="n">tree</span><span class="p">,</span> <span class="s1">'A'</span><span class="p">)</span> <span class="c1">## 마지막은 return 값</span>
+<span class="n">DFS_Hash_Table</span><span class="p">(</span><span class="n">tree</span><span class="p">,</span> <span class="s1">'A'</span><span class="p">)</span> <span class="c1">## 마지막은 return 값</span>
 </pre></div>
 
     </div>
@@ -461,7 +465,7 @@ window.onload = wrap_img;
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>['A', 'B', 'E', 'F', 'I', 'C', 'G', 'D', 'H', 'J']</pre>
+<pre>(['A', 'B', 'E', 'F', 'I', 'C', 'G', 'D', 'H', 'J'], 19)</pre>
 </div>
 
 </div>
@@ -478,6 +482,7 @@ window.onload = wrap_img;
 <p><code>-</code> list를 활용한 코드와 return 결과는 동일하다</p>
 <p><code>-</code> 시간복잡도면에서 list를 활용한 것 보다 Hash Table을 사용한 것이 성능이 우월하다</p>
 <p><code>-</code> return 결과를 보면 DFS 방식임을 알 수 있다</p>
+<p><code>-</code> 노드가 10개이므로 10번 방문해야 하지만 19번 방문함</p>
 
 </div>
 </div>
@@ -491,6 +496,17 @@ window.onload = wrap_img;
 </div>
 </div>
 </div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 위에서 구현한 <code>DFS</code>는 방문을 한 뒤에 방문했다고 처리를 한다</p>
+<p><code>-</code> 방문을 하고 방문 처리를 하면 <code>하나의 노드에 대해 중복 방문하므로 비효율적</code>이다</p>
+<p><code>-</code> 아래와 같이 해당 노드를 방문할 때 방문 처리를 하면 중복 방문을 피할 수 있다</p>
+<p><code>-</code> 또한 재귀함수를 활용하여 코드를 더 간략하게 할 수 있다</p>
+
+</div>
+</div>
+</div>
     
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -498,13 +514,14 @@ window.onload = wrap_img;
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">DFS_recursive</span><span class="p">(</span><span class="n">graph</span><span class="p">,</span> <span class="n">start_node</span><span class="p">,</span> <span class="n">visited</span> <span class="o">=</span> <span class="p">{}):</span>
-    <span class="n">visited</span><span class="p">[</span><span class="n">start_node</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
- 
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">count</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1">## 방문 횟수</span>
+<span class="k">def</span> <span class="nf">DFS_recursive</span><span class="p">(</span><span class="n">graph</span><span class="p">,</span> <span class="n">start_node</span><span class="p">,</span> <span class="n">visited</span> <span class="o">=</span> <span class="p">{}):</span>
+    <span class="k">global</span> <span class="n">count</span>
+    <span class="n">visited</span><span class="p">[</span><span class="n">start_node</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span> <span class="c1">## 시작 정점 방문! (방문 처리)</span>
+    <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span> <span class="c1">## 방문 횟수 + 1</span>
     <span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">graph</span><span class="p">[</span><span class="n">start_node</span><span class="p">]:</span>
-        
-        <span class="k">if</span> <span class="n">node</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">visited</span><span class="p">:</span>
-            <span class="n">DFS_recursive</span><span class="p">(</span><span class="n">graph</span><span class="p">,</span> <span class="n">node</span><span class="p">,</span> <span class="n">visited</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">node</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">visited</span><span class="p">:</span> <span class="c1">## 인접 노드를 아직 방문하지 않았다면 </span>
+            <span class="n">DFS_recursive</span><span class="p">(</span><span class="n">graph</span><span class="p">,</span> <span class="n">node</span><span class="p">,</span> <span class="n">visited</span><span class="p">)</span> <span class="c1">## 방문하자!</span>
             
             <span class="c1">## 간단히 설명 -&gt; 처음 시작 노드는 'A' -&gt; 'A'를 visited에 추가 'A'의 node는 ['B', 'C', 'D']</span>
             <span class="c1">## -&gt; 'B'는 아직 방문 안했음 -&gt; 재귀함수 실행 -&gt; 'B'를 start_node로 하여 visited에 추가 -&gt;'B'의 node는 ['A', E', 'F']</span>
@@ -518,7 +535,7 @@ window.onload = wrap_img;
             <span class="c1">## -&gt; 'F'는 이미 방문했음 -&gt; pass</span>
             <span class="c1">## -&gt; 'A'의 node인 ['B', 'C', 'D']중 'B'를 방문 끝냈으므로 'B'를 탐색했던 것처럼 나머지 'C'와 'D'도 탐색하면 끝임</span>
             
-    <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="n">visited</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+    <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="n">visited</span><span class="o">.</span><span class="n">keys</span><span class="p">()),</span> <span class="n">count</span>
 
 <span class="n">DFS_recursive</span><span class="p">(</span><span class="n">tree</span><span class="p">,</span> <span class="s1">'A'</span><span class="p">)</span>
 </pre></div>
@@ -535,7 +552,7 @@ window.onload = wrap_img;
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>['A', 'B', 'E', 'F', 'I', 'C', 'G', 'D', 'H', 'J']</pre>
+<pre>(['A', 'B', 'E', 'F', 'I', 'C', 'G', 'D', 'H', 'J'], 10)</pre>
 </div>
 
 </div>
@@ -550,14 +567,8 @@ window.onload = wrap_img;
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> 재귀함수를 사용하여 방문한 노드를 visited에 추가한다</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> return 결과를 보면 DFS 방식임을 알 수 있다</p>
+<p><code>-</code> 노드가 10개이므로 10번 방문했다 (리스트 활용과 해시 테이블 활용 part에선 쓸데없이 19번 방문했다)</p>
 
 </div>
 </div>
@@ -646,8 +657,8 @@ window.onload = wrap_img;
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> tree 구조</p>
 <p><code>-</code> queue 자료 구조 활용: 선입선출(양쪽 면이 뚫린 원통)</p>
-<p><code>-</code> 노드: [A], [B], [C], [D], [E], [F], [G], [H], [I], [J]</p>
-<p><code>-</code> 분기: [A, B, E], [A, B, F, I], [A, C, G], [A, D, H, I]</p>
+<p><code>-</code> 노드: <code>[A], [B], [C], [D], [E], [F], [G], [H], [I], [J]</code></p>
+<p><code>-</code> 분기: <code>[A, B, E], [A, B, F, I], [A, C, G], [A, D, H, I]</code></p>
 
 </div>
 </div>
@@ -665,10 +676,12 @@ window.onload = wrap_img;
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> 성능이 좋음 --&gt; $O(1)$</p>
-<p><code>-</code> 사용: from collections import deque</p>
-<p><code>-</code> 만약 queue = list()라면 queue.pop(0)을 해야함 --&gt; $O(N)$</p>
-<p><code>-</code> deque를 사용하여 queue.pop(0)대신 queue.popleft( ) 사용 --&gt; $O(1)$</p>
+<p><code>-</code> 사용: <code>from collections import deque</code></p>
+<p><code>-</code> 만약 <code>queue = list()</code>라면 <code>queue.pop(0)</code>을 해야함 --&gt; $O(N)$</p>
+<p><code>-</code> <code>deque</code>를 사용하여 <code>queue.pop(0)</code>대신 <code>queue.popleft()</code> 사용 --&gt; $O(1)$</p>
 <p><code>-</code> DFS와 마찬가지로 visited는 해시 테이블로 구현</p>
+<p><code>-</code> <code>방문 하기 전에 방문 처리를 해야 한다</code></p>
+<p><code>-</code> 만약, 방문을 하고 나서 방문 처리를 하면 중복 방문을 하게 되므로 비효율적임</p>
 
 </div>
 </div>
@@ -682,22 +695,27 @@ window.onload = wrap_img;
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">BFS_queue</span><span class="p">(</span><span class="n">graph</span><span class="p">,</span> <span class="n">start_node</span><span class="p">):</span>
     <span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">deque</span> <span class="c1">## deque패키지 import</span>
-    <span class="n">visited</span> <span class="o">=</span> <span class="p">{}</span> <span class="c1">## 방문한 노드</span>
     <span class="n">queue</span> <span class="o">=</span> <span class="n">deque</span><span class="p">()</span> <span class="c1">## 방문할 노드</span>
     <span class="n">queue</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">start_node</span><span class="p">)</span> <span class="c1">## 방문할 노드에 시작 노드 추가</span>
+    <span class="n">visited</span> <span class="o">=</span> <span class="p">{}</span> <span class="c1">## 방문한 노드</span>
+    <span class="n">visited</span><span class="p">[</span><span class="s1">'A'</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span> <span class="c1">## 시작 정점을 방문!</span>
+    <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1">## 방문 횟수</span>
 
-    <span class="k">while</span> <span class="n">queue</span><span class="p">:</span>  <span class="c1">## 방문할 노드가 있다면(리스트에 원소가 있으면 True)</span>
-        <span class="n">node</span> <span class="o">=</span> <span class="n">queue</span><span class="o">.</span><span class="n">popleft</span><span class="p">()</span> <span class="c1">## 첫번째 노드 추가(큐 구조 사용) </span>
+    <span class="k">while</span> <span class="n">queue</span><span class="p">:</span>  <span class="c1">## 방문할 노드가 있다면(리스트에 원소가 있으면 True)      </span>
+        <span class="n">u</span> <span class="o">=</span> <span class="n">queue</span><span class="o">.</span><span class="n">popleft</span><span class="p">()</span> <span class="c1">## 노드 u를 방문하자!</span>
+        <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span> <span class="c1">## 방문 횟수 + 1</span>
         
-        <span class="k">if</span> <span class="n">node</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">visited</span><span class="p">:</span>  <span class="c1">## 만약 아직 방문한 노드가 아니라면</span>
-            <span class="n">visited</span><span class="p">[</span><span class="n">node</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>  <span class="c1">## 이제 방문했으니까 방문한 노드에 추가</span>
-            <span class="n">queue</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">graph</span><span class="p">[</span><span class="n">node</span><span class="p">])</span> <span class="c1">## 방문한 노드에 연결된 노드를 탐색해보자</span>
-       
-        <span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">visited</span><span class="o">.</span><span class="n">keys</span><span class="p">()))</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">queue</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">visited</span><span class="o">.</span><span class="n">keys</span><span class="p">()))</span> <span class="c1">## 방문한 노드         </span>
+        
+        <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">graph</span><span class="p">[</span><span class="n">u</span><span class="p">]:</span>
+            <span class="k">if</span> <span class="n">v</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">visited</span><span class="p">:</span> <span class="c1">## 만약 아직 방문한 노드가 아니라면</span>
+                <span class="n">visited</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span> <span class="c1">## 이제 방문했으니까 방문한 노드에 추가 (방문 처리)</span>
+                <span class="n">queue</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="c1">## 방문한 노드에 연결된 노드를 탐색해보자</span>
+        
+        <span class="nb">print</span><span class="p">(</span><span class="n">queue</span><span class="p">)</span> <span class="c1">## 방문할 노드 (popleft 하기 전에 방문 체크를 미리해서 실질적으로 방문할 노드와 차이가 있음)</span>
         <span class="nb">print</span><span class="p">(</span><span class="s1">'-------------------------------------------------------'</span><span class="p">)</span> <span class="c1">## 방문과정 확인</span>
-
-    <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="n">visited</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span> <span class="c1">## 방문한 노드를 반환</span>
+        
+    <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="n">visited</span><span class="o">.</span><span class="n">keys</span><span class="p">()),</span> <span class="n">count</span> <span class="c1">## 방문한 노드를 반환</span>
 
 <span class="n">BFS_queue</span><span class="p">(</span><span class="n">tree</span><span class="p">,</span> <span class="s1">'A'</span><span class="p">)</span>
 </pre></div>
@@ -715,56 +733,29 @@ window.onload = wrap_img;
 <pre>['A']
 deque(['B', 'C', 'D'])
 -------------------------------------------------------
-['A', 'B']
-deque(['C', 'D', 'A', 'E', 'F'])
--------------------------------------------------------
-['A', 'B', 'C']
-deque(['D', 'A', 'E', 'F', 'A', 'G'])
--------------------------------------------------------
 ['A', 'B', 'C', 'D']
-deque(['A', 'E', 'F', 'A', 'G', 'A', 'H'])
--------------------------------------------------------
-['A', 'B', 'C', 'D']
-deque(['E', 'F', 'A', 'G', 'A', 'H'])
--------------------------------------------------------
-['A', 'B', 'C', 'D', 'E']
-deque(['F', 'A', 'G', 'A', 'H', 'B'])
+deque(['C', 'D', 'E', 'F'])
 -------------------------------------------------------
 ['A', 'B', 'C', 'D', 'E', 'F']
-deque(['A', 'G', 'A', 'H', 'B', 'B', 'I'])
--------------------------------------------------------
-['A', 'B', 'C', 'D', 'E', 'F']
-deque(['G', 'A', 'H', 'B', 'B', 'I'])
+deque(['D', 'E', 'F', 'G'])
 -------------------------------------------------------
 ['A', 'B', 'C', 'D', 'E', 'F', 'G']
-deque(['A', 'H', 'B', 'B', 'I', 'C'])
--------------------------------------------------------
-['A', 'B', 'C', 'D', 'E', 'F', 'G']
-deque(['H', 'B', 'B', 'I', 'C'])
+deque(['E', 'F', 'G', 'H'])
 -------------------------------------------------------
 ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H']
-deque(['B', 'B', 'I', 'C', 'D', 'J'])
+deque(['F', 'G', 'H'])
 -------------------------------------------------------
 ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H']
-deque(['B', 'I', 'C', 'D', 'J'])
--------------------------------------------------------
-['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H']
-deque(['I', 'C', 'D', 'J'])
+deque(['G', 'H', 'I'])
 -------------------------------------------------------
 ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I']
-deque(['C', 'D', 'J', 'F'])
+deque(['H', 'I'])
 -------------------------------------------------------
 ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I']
-deque(['D', 'J', 'F'])
--------------------------------------------------------
-['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I']
-deque(['J', 'F'])
+deque(['I', 'J'])
 -------------------------------------------------------
 ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J']
-deque(['F', 'H'])
--------------------------------------------------------
-['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J']
-deque(['H'])
+deque(['J'])
 -------------------------------------------------------
 ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J']
 deque([])
@@ -778,7 +769,7 @@ deque([])
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J']</pre>
+<pre>(['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'], 10)</pre>
 </div>
 
 </div>
@@ -793,6 +784,8 @@ deque([])
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> return 결과를 보면 BFS 방식임을 알 수 있다</p>
+<p><code>-</code>  <code>popleft</code> 하기 전에 방문 체크를 미리해서 출력을 보면 방문한 노드와 방문할 노드에 중복으로 들어간 원소가 있음</p>
+<p><code>-</code> 문제가 있는 것 같지만 <code>BFS</code>는 정확히 원소 개수인 10번만큼 방문했다! (한 번에 하니씩 <code>popleft</code> 하기 때문에 시간 상에 차이가 있어서 그런 것)</p>
 
 </div>
 </div>
