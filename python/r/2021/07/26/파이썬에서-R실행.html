@@ -103,7 +103,7 @@ window.onload = wrap_img;
     
       <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
       
-        <a class="category-tags-link" href="/green/categories/#python">python</a>
+        <a class="category-tags-link" href="/green/categories/#Python">Python</a>
         &nbsp;
       
         <a class="category-tags-link" href="/green/categories/#R">R</a>
@@ -163,23 +163,37 @@ window.onload = wrap_img;
 <p><code>1.</code> <a href="https://www.anaconda.com/products/individual">아나콘다</a>에 접속한 후 Anaconda Installers에서 64-Bit Graphical Installer(477MB)설치</p>
 <p><code>2.</code> Anaconda Prompt (anaconda3) 실행</p>
 <p><code>3.</code> 아래와 같이 입력</p>
-<p>(base) C:\Users\한재수&gt; conda create -n py38r40 python=3.8</p>
-<p>(base) C:\Users\한재수&gt; conda activate py38r40</p>
-<p>(py38r40) C:\Users\한재수&gt; conda install jupyter lab</p>
-<p>(py38r40) C:\Users\한재수&gt; pip install rpy2</p>
-<p>(py38r40) C:\Users\한재수&gt; R</p>
+
+<pre><code>(base) C:\Users\한재수&gt; conda create -n py38r40 python=3.8
+
+(base) C:\Users\한재수&gt; conda activate py38r40
+
+(py38r40) C:\Users\한재수&gt; conda install jupyter lab
+
+(py38r40) C:\Users\한재수&gt; pip install rpy2
+
+(py38r40) C:\Users\한재수&gt; R</code></pre>
 <p><code>4.</code> R에서 아래와 같이 입력</p>
-<p>&gt; install.packages("IRcernel")</p>
-<p>&gt; IRcernel::installspec()</p>
-<p>&gt; R.home() ## 나오는 경로 복사</p>
-<p>&gt; q() ## R 종료</p>
+
+<pre><code>\&gt; install.packages("IRcernel")
+
+\&gt; IRcernel::installspec()
+
+\&gt; R.home() ## 나오는 경로 복사
+
+\&gt; q() ## R 종료</code></pre>
 <p><code>5.</code> 다시 프롬프트로 돌아와서 주피터랩 실행</p>
-<p>(py38r40) C:\Users\한재수&gt; jupyter lab</p>
+
+<pre><code>(py38r40) C:\Users\한재수&gt; jupyter lab</code></pre>
 <p><code>6.</code> R세팅은 끝났고 파이썬에서 R을 사용하려면 아래와 같이 입력(주피터랩 킬 때마다 한 번씩만 입력)</p>
-<p>import os</p>
-<p>os.environ['R_HOME']='C:/anaconda3/envs/py38r40/lib/R' ## R.HOME 에서 복사한 경로</p>
-<p>import rpy2</p>
-<p>%load_ext rpy2.ipython</p>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+
+<span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">'R_HOME'</span><span class="p">]</span><span class="o">=</span><span class="s1">'C:/anaconda3/envs/py38r40/lib/R'</span> <span class="c1">## R.HOME 에서 복사한 경로</span>
+
+<span class="kn">import</span> <span class="nn">rpy2</span> 
+
+<span class="o">%</span><span class="n">load_ext</span> <span class="n">rpy2</span><span class="o">.</span><span class="n">ipython</span>
+</pre></div>
 <p><code>7.</code> R사용</p>
 <p>셀 마다 %R or %%R 입력하여 사용</p>
 
