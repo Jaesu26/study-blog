@@ -4,20 +4,20 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.6.1 -->
-<title>자료구조 힙(heap) | Jaesu’s blog</title>
+<title>자료구조 스택(stack) | Jaesu’s blog</title>
 <meta name="generator" content="Jekyll v4.1.1" />
-<meta property="og:title" content="자료구조 힙(heap)" />
+<meta property="og:title" content="자료구조 스택(stack)" />
 <meta name="author" content="한재수" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="작성 완료" />
 <meta property="og:description" content="작성 완료" />
-<link rel="canonical" href="https://jaesu26.github.io/green/python/data%20structure/2021/08/26/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0-%ED%9E%99.html" />
-<meta property="og:url" content="https://jaesu26.github.io/green/python/data%20structure/2021/08/26/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0-%ED%9E%99.html" />
+<link rel="canonical" href="https://jaesu26.github.io/green/data%20structure/2021/08/30/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0-%EC%8A%A4%ED%83%9D.html" />
+<meta property="og:url" content="https://jaesu26.github.io/green/data%20structure/2021/08/30/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0-%EC%8A%A4%ED%83%9D.html" />
 <meta property="og:site_name" content="Jaesu’s blog" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2021-08-26T00:00:00-05:00" />
+<meta property="article:published_time" content="2021-08-30T00:00:00-05:00" />
 <script type="application/ld+json">
-{"url":"https://jaesu26.github.io/green/python/data%20structure/2021/08/26/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0-%ED%9E%99.html","@type":"BlogPosting","headline":"자료구조 힙(heap)","dateModified":"2021-08-26T00:00:00-05:00","datePublished":"2021-08-26T00:00:00-05:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://jaesu26.github.io/green/python/data%20structure/2021/08/26/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0-%ED%9E%99.html"},"author":{"@type":"Person","name":"한재수"},"description":"작성 완료","@context":"https://schema.org"}</script>
+{"url":"https://jaesu26.github.io/green/data%20structure/2021/08/30/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0-%EC%8A%A4%ED%83%9D.html","@type":"BlogPosting","headline":"자료구조 스택(stack)","dateModified":"2021-08-30T00:00:00-05:00","datePublished":"2021-08-30T00:00:00-05:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://jaesu26.github.io/green/data%20structure/2021/08/30/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0-%EC%8A%A4%ED%83%9D.html"},"author":{"@type":"Person","name":"한재수"},"description":"작성 완료","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/green/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://jaesu26.github.io/green/feed.xml" title="Jaesu's blog" /><link rel="shortcut icon" type="image/x-icon" href="/green/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
@@ -88,8 +88,8 @@ window.onload = wrap_img;
         <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title p-name" itemprop="name headline">자료구조 힙(heap)</h1><p class="page-description">작성 완료</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2021-08-26T00:00:00-05:00" itemprop="datePublished">
-        Aug 26, 2021
+    <h1 class="post-title p-name" itemprop="name headline">자료구조 스택(stack)</h1><p class="page-description">작성 완료</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2021-08-30T00:00:00-05:00" itemprop="datePublished">
+        Aug 30, 2021
       </time>• 
           <span itemprop="author" itemscope itemtype="http://schema.org/Person">
             <span class="p-author h-card" itemprop="name">한재수</span></span>
@@ -103,10 +103,7 @@ window.onload = wrap_img;
     
       <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
       
-        <a class="category-tags-link" href="/green/categories/#python">python</a>
-        &nbsp;
-      
-        <a class="category-tags-link" href="/green/categories/#data structure">data structure</a>
+        <a class="category-tags-link" href="/green/categories/#Data Structure">Data Structure</a>
         
       
       </p>
@@ -117,19 +114,19 @@ window.onload = wrap_img;
         <div class="pb-5 d-flex flex-wrap flex-justify-end">
           <div class="px-2">
 
-    <a href="https://github.com/Jaesu26/green/tree/master/_notebooks/2021-08-26-자료구조-힙.ipynb" role="button" target="_blank">
+    <a href="https://github.com/Jaesu26/green/tree/master/_notebooks/2021-08-30-자료구조-스택.ipynb" role="button" target="_blank">
 <img class="notebook-badge-image" src="/green/assets/badges/github.svg" alt="View On GitHub">
     </a>
 </div>
 
           <div class="px-2">
-    <a href="https://mybinder.org/v2/gh/Jaesu26/green/master?filepath=_notebooks%2F2021-08-26-%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0-%ED%9E%99.ipynb" target="_blank">
+    <a href="https://mybinder.org/v2/gh/Jaesu26/green/master?filepath=_notebooks%2F2021-08-30-%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0-%EC%8A%A4%ED%83%9D.ipynb" target="_blank">
         <img class="notebook-badge-image" src="/green/assets/badges/binder.svg" alt="Open In Binder"/>
     </a>
 </div>
 
           <div class="px-2">
-    <a href="https://colab.research.google.com/github/Jaesu26/green/blob/master/_notebooks/2021-08-26-자료구조-힙.ipynb" target="_blank">
+    <a href="https://colab.research.google.com/github/Jaesu26/green/blob/master/_notebooks/2021-08-30-자료구조-스택.ipynb" target="_blank">
         <img class="notebook-badge-image" src="/green/assets/badges/colab.svg" alt="Open In Colab"/>
     </a>
 </div>
@@ -138,11 +135,11 @@ window.onload = wrap_img;
 
   <div class="post-content e-content" itemprop="articleBody">
     <ul class="section-nav">
-<li class="toc-entry toc-h1"><a href="#힙(heap)">힙(heap) </a>
+<li class="toc-entry toc-h1"><a href="#스택(stack)">스택(stack) </a>
 <ul>
-<li class="toc-entry toc-h2"><a href="#힙(heap)-사용">힙(heap) 사용 </a>
+<li class="toc-entry toc-h2"><a href="#스택(stack)-사용">스택(stack) 사용 </a>
 <ul>
-<li class="toc-entry toc-h3"><a href="#예제:-카드-합체-놀이">예제: 카드 합체 놀이 </a></li>
+<li class="toc-entry toc-h3"><a href="#예제---제로">예제 - 제로 </a></li>
 </ul>
 </li>
 </ul>
@@ -151,7 +148,7 @@ window.onload = wrap_img;
 #################################################
 ### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
 #################################################
-# file to edit: _notebooks/2021-08-26-자료구조-힙.ipynb
+# file to edit: _notebooks/2021-08-30-자료구조-스택.ipynb
 -->
 
 <div class="container" id="notebook-container">
@@ -159,8 +156,8 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="힙(heap)">
-<a class="anchor" href="#%ED%9E%99(heap)" aria-hidden="true"><span class="octicon octicon-link"></span></a>힙(heap)<a class="anchor-link" href="#%ED%9E%99(heap)"> </a>
+<h1 id="스택(stack)">
+<a class="anchor" href="#%EC%8A%A4%ED%83%9D(stack)" aria-hidden="true"><span class="octicon octicon-link"></span></a>스택(stack)<a class="anchor-link" href="#%EC%8A%A4%ED%83%9D(stack)"> </a>
 </h1>
 </div>
 </div>
@@ -168,15 +165,9 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> <code>최댓값</code> 및 <code>최솟값</code>을 찾아내는 연산을 빠르게 하기 위해 고안된 <code>완전이진트리</code> 자료구조</p>
-<p><code>-</code> 힙 속성 ---&gt; A가 B의 부모노드(parent node) 이면 A의 키(key)값과 B의 키값 사이에는 <code>대소관계</code>가 성립</p>
-<p><code>-</code> <code>최대 힙</code>: 부모노드의 키값이 자식노드의 키값보다 항상 큰 힙</p>
-<p><code>-</code> <code>최소 힙</code>: 부모노드의 키값이 자식노드의 키값보다 항상 작은 힙</p>
-<p><code>-</code> 키(key)값의 대소관계는 오로지 부모노드와 자식노드 간에만 성립하며 특히 형제 사이에는 대소관계가 정해지지 않음</p>
-<p><code>-</code> 대개 자식노드 개수가 최대 2개인 이진 힙(binary heap)을 사용함</p>
-<p><code>-</code> 데이터의 최대값(최대 힙) or 최소값(최소 힙)을 찾는데 $O(1)$이 소요됨 ---&gt; 루트노드에 저장되어 있으므로</p>
-<p><code>-</code> 데이터의 삽입과 삭제는 $O(\log N)$이 소요됨</p>
-<p><code>-</code> 참고: <a href="https://ko.wikipedia.org/wiki/%ED%9E%99_(%EC%9E%90%EB%A3%8C_%EA%B5%AC%EC%A1%B0)">자료구조 힙</a></p>
+<p><code>-</code> 스택(stack)은 기본적인 자료 구조</p>
+<p><code>-</code> 스택은 자료를 넣고(push) 자료를 빼는(pop) 입구가 같은 선형 구조(LIFO - Last In First Out)으로 되어 있음</p>
+<p><code>-</code> 참고: <a href="https://ko.wikipedia.org/wiki/%EC%8A%A4%ED%83%9D">자료구조 스택</a></p>
 
 </div>
 </div>
@@ -184,8 +175,8 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="힙(heap)-사용">
-<a class="anchor" href="#%ED%9E%99(heap)-%EC%82%AC%EC%9A%A9" aria-hidden="true"><span class="octicon octicon-link"></span></a>힙(heap) 사용<a class="anchor-link" href="#%ED%9E%99(heap)-%EC%82%AC%EC%9A%A9"> </a>
+<h2 id="스택(stack)-사용">
+<a class="anchor" href="#%EC%8A%A4%ED%83%9D(stack)-%EC%82%AC%EC%9A%A9" aria-hidden="true"><span class="octicon octicon-link"></span></a>스택(stack) 사용<a class="anchor-link" href="#%EC%8A%A4%ED%83%9D(stack)-%EC%82%AC%EC%9A%A9"> </a>
 </h2>
 </div>
 </div>
@@ -193,13 +184,9 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> 파이썬의 <code>heapq</code> 모듈은 <code>최소 힙</code>이다</p>
-<p><code>-</code> 힙(Heap) 구조 그림으로 보기 ---&gt; <a href="https://namu.wiki/w/%ED%9E%99%20%ED%8A%B8%EB%A6%AC">힙 구조</a> ---&gt; 이거 보면 무조건 이해 가능</p>
-<p><code>-</code> 힙을 코드로 구현하기 전에 필요한 함수를 공부하자</p>
-<p><code>-</code> <code>heapq.heappush(heap, item)</code> ---&gt; <code>item</code>을 <code>heap</code>에 추가함</p>
-<p><code>-</code> <code>heapq.heappop(heap)</code> ---&gt; <code>heap</code>에서 가장 작은 원소(루트 노드)를 <code>pop(추출)</code>하고 비어 있으면 IndexError</p>
-<p><code>-</code> <code>heapq.heapify(x)</code> ---&gt; 리스트 x를 heap 자료 구조로 변환함</p>
-<p><code>-</code> 참고: <a href="https://docs.python.org/3.8/library/heapq.html">heapq</a></p>
+<p><code>-</code> 파이썬에서 stack은 <code>list</code>를 통해 구현할 수 있다</p>
+<p><code>-</code> <code>stack.append(x)</code>를 통해 스택에 x를 오른쪽(뒤)에 push한다</p>
+<p><code>-</code> <code>stack.pop()</code>을 통해 스택의 마지막 원소를 pop한다</p>
 
 </div>
 </div>
@@ -207,23 +194,15 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="예제:-카드-합체-놀이">
-<a class="anchor" href="#%EC%98%88%EC%A0%9C:-%EC%B9%B4%EB%93%9C-%ED%95%A9%EC%B2%B4-%EB%86%80%EC%9D%B4" aria-hidden="true"><span class="octicon octicon-link"></span></a>예제: 카드 합체 놀이<a class="anchor-link" href="#%EC%98%88%EC%A0%9C:-%EC%B9%B4%EB%93%9C-%ED%95%A9%EC%B2%B4-%EB%86%80%EC%9D%B4"> </a>
+<h3 id="예제---제로">
+<a class="anchor" href="#%EC%98%88%EC%A0%9C---%EC%A0%9C%EB%A1%9C" aria-hidden="true"><span class="octicon octicon-link"></span></a>예제 - 제로<a class="anchor-link" href="#%EC%98%88%EC%A0%9C---%EC%A0%9C%EB%A1%9C"> </a>
 </h3>
 <ul>
-<li>문제 출처: <a href="https://www.acmicpc.net/problem/15903">백준 15903번</a>
+<li>문제 출처: <a href="https://www.acmicpc.net/problem/10773">백준 10773번</a>
 </li>
 </ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> 카드 더미의 최소값 2개를 뽑은다음 두 숫자를 두 수의 합으로 바꿔주는 것을 반복하면 됨</p>
-<p><code>-</code> 최소값 2개를 뽑으면 되니 Heap을 사용하자</p>
-<p><code>-</code> Heap에서 최소값 추출은 $O(1)$ 삽입과 삭제는 $O(logN)$이므로 다른 구조보다 효율적으로 문제를 해결할 수 있음</p>
+<p><code>-</code> 스택(stack)의 기본적인 push와 pop을 이요하면 된다</p>
+<p><code>-</code> 0이 입력되면 pop하고 그 외에 수가 입력되면 push한다</p>
 
 </div>
 </div>
@@ -235,18 +214,18 @@ window.onload = wrap_img;
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">heapq</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">K</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+<span class="n">stack</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span> <span class="c1">## stack = []와 동일</span>
 
-<span class="n">n</span><span class="p">,</span> <span class="n">m</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
-<span class="n">cards</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">()))</span>
-<span class="n">heapq</span><span class="o">.</span><span class="n">heapify</span><span class="p">(</span><span class="n">cards</span><span class="p">)</span> <span class="c1">## list인 cards를 Heap구조로 변홤함</span>
-
-<span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">m</span><span class="p">):</span>
-    <span class="n">two_card_sum</span> <span class="o">=</span> <span class="n">heapq</span><span class="o">.</span><span class="n">heappop</span><span class="p">(</span><span class="n">cards</span><span class="p">)</span> <span class="o">+</span> <span class="n">heapq</span><span class="o">.</span><span class="n">heappop</span><span class="p">(</span><span class="n">cards</span><span class="p">)</span> <span class="c1">## 최소값 2개(제일 작은 값과 두 번째로 작은 값)를 뽑음</span>
-    <span class="n">heapq</span><span class="o">.</span><span class="n">heappush</span><span class="p">(</span><span class="n">cards</span><span class="p">,</span> <span class="n">two_card_sum</span><span class="p">)</span> <span class="c1">## 두 수를 두 수의 합으로 바꿔줌</span>
-    <span class="n">heapq</span><span class="o">.</span><span class="n">heappush</span><span class="p">(</span><span class="n">cards</span><span class="p">,</span> <span class="n">two_card_sum</span><span class="p">)</span> <span class="c1">## 그리고 cards 에 push한다</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">cards</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">K</span><span class="p">):</span>
+    <span class="n">num</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+    <span class="k">if</span> <span class="n">num</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">stack</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+        
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">stack</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
+        
+<span class="nb">print</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">stack</span><span class="p">))</span>
 </pre></div>
 
     </div>
@@ -264,7 +243,7 @@ window.onload = wrap_img;
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>19
+<pre>0
 </pre>
 </div>
 </div>
@@ -287,7 +266,7 @@ window.onload = wrap_img;
         theme="github-light"
         crossorigin="anonymous"
         async>
-</script><a class="u-url" href="/green/python/data%20structure/2021/08/26/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0-%ED%9E%99.html" hidden></a>
+</script><a class="u-url" href="/green/data%20structure/2021/08/30/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0-%EC%8A%A4%ED%83%9D.html" hidden></a>
 </article>
       </div>
     </main><footer class="site-footer h-card">

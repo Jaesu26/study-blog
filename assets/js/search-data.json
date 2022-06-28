@@ -147,8 +147,8 @@
         ,"post13": {
             "title": "이진 탐색(Binary search)",
             "content": "&#51060;&#51652; &#53456;&#49353;(Binary search) . - 오름차순으로 정렬된 리스트에서 특정한 값의 위치를 찾는 알고리즘 . - 처음 중간의 값을 임의의 값으로 선택하고 그 값과 찾고자 하는 값의 크고 작음을 비교하는 방식을 사용 . - 처음 선택한 중앙값이 만약 찾는 값보다 크면 그 값은 새로운 최댓값이 되며 작으면 그 값은 새로운 최솟값이 됨 . - 검색 원리상 정렬된 리스트에만 사용할 수 있다는 단점이 있지만 검색이 반복될 때마다 목표값을 찾을 확률은 두 배가 되므로 속도가 빠르다는 장점 &gt; $O(logN)$ . - 참고: 이진 탐색 . &#51060;&#51652; &#53456;&#49353; &#44396;&#54788; . - 정렬된 array에서 target의 위치를 이진 탐색으로 찾는 코드를 구현하자 . - 이 코드를 통해 1~100 숫자(arr)에서 88(target)을 찾는 과정을 살펴보자 . def binary_search(arr, target): arr.sort() ## 리스트를 오름차순으로 정렬 low = 0 high = len(arr) - 1 ## arr의 첫번째 인덱스(low)부터 마지막 인덱스(high)까지 탐색 while low &lt;= high: mid = (high + low) // 2 print(&#39;low: {} nhigh: {} nmid: {}&#39;.format(low, high, mid)) if arr[mid] == target: ## 원하는 값을 찾으면 mid(인덱스)를 반환 return mid elif arr[mid] &gt; target: ## 원하는 값이 중간점보다 작은 경우 왼쪽 부분 탐색 high = mid - 1 else: low = mid + 1 ## 원하는 값이 중간점보다 큰 경우 오른쪽 부분 탐색 return False ## 원하는 값이 arr에 없는 경우 . arr = list(range(1, 101)) target = 88 binary_search(arr, target) . low: 0 high: 99 mid: 49 low: 50 high: 99 mid: 74 low: 75 high: 99 mid: 87 . 87 . - 우리가 찾는 target인 88은 arr의 87번째 인덱스 값이라고 한다 . arr[87] . 88 . - 진짜임 . - 어떤 과정을 거쳐서 87번째 인덱스라는 것을 알려준 것일까? . - arr은 1부터 100까지의 값임 . 1. 1 2 3 $ cdots$ 98 99 100 &gt; low는 0이고 high는 99이므로 mid는 49임 . 2. arr[mid(49)] = 50는 target(88)보다 작으므로 arr[mid(49)+1] ~ arr[high(99)] 를 탐색하면 target(88)이 존재할 것임 . 3. 51 52 53 $ cdots$ 98 99 100 &gt; low는 50이고 high는 99이므로 mid는 74임 . 4. arr[mid(74)]는 target(88)보다 작으므로 arr[mid(74)+1] ~ arr[high(99)] 를 탐색하면 target(88)이 존재할 것임 . 5. 76 77 78 $ cdots$ 98 99 100 &gt; low는 75이고 high는 99이므로 mid는 87임 . 6. arr[mid(87)]는 target(88)과 동일하므로 mid(87)를 return한다 . &#51060;&#51652; &#53456;&#49353; &#49884;&#44036; &#48373;&#51105;&#46020; . - 시간 복잡도는 $O(logN)$이다 . - 위에서 1~100사이에서 target을 찾는 과정을 살펴봤음 . - 탐색 범위를 $N$이라고 한다면 처음에는 $N$만큼 탐색함 . - 그 다음에는 $ frac{N}{2}$만큼 탐색함 . - 또 그 다음에는 $ frac{N}{4}$만큼 탐색함 . - 이를 살펴보면 탐색 범위는 $N, frac{N}{2}, frac{N}{4}, cdots , 1$ . - 시간 복잡도는 알고리즘의 의해 수행되는 기본 연산의 개수를 보면 알 수 있음 . - 연산 횟수(탐색 반복 횟수)를 $k$라고 하면 처음 탐색($k=1$)때의 탐색 범위는 $N$, 두번째 탐색($k=2$)때의 탐색 범위는 $ frac{N}{2}$이며 이를 계속하면 탐색 범위는 $1$이 됨 . - 위의 관계식을 통해 $N times( frac{1}{2})^{k} = 1$임을 알 수 있고 이를 정리하면 $k=log_{2}N$임 . - Big O 표기법에서 로그의 밑은 영향이 없으므로 이진 탐색의 시간 복잡도는 $O(logN)$이라고 할 수 있음 &gt; 이해 안되면 통계수학 big O 표기법 다시 보기 .",
-            "url": "https://jaesu26.github.io/green/python/algorithm/2021/08/31/%EC%9D%B4%EC%A7%84%ED%83%90%EC%83%89.html",
-            "relUrl": "/python/algorithm/2021/08/31/%EC%9D%B4%EC%A7%84%ED%83%90%EC%83%89.html",
+            "url": "https://jaesu26.github.io/green/algorithm/2021/08/31/%EC%9D%B4%EC%A7%84%ED%83%90%EC%83%89.html",
+            "relUrl": "/algorithm/2021/08/31/%EC%9D%B4%EC%A7%84%ED%83%90%EC%83%89.html",
             "date": " • Aug 31, 2021"
         }
         
@@ -158,8 +158,8 @@
         ,"post14": {
             "title": "자료구조 스택(stack)",
             "content": "&#49828;&#53469;(stack) . - 스택(stack)은 기본적인 자료 구조 . - 스택은 자료를 넣고(push) 자료를 빼는(pop) 입구가 같은 선형 구조(LIFO - Last In First Out)으로 되어 있음 . - 참고: 자료구조 스택 . &#49828;&#53469;(stack) &#49324;&#50857; . - 파이썬에서 stack은 list를 통해 구현할 수 있다 . - stack.append(x)를 통해 스택에 x를 오른쪽(뒤)에 push한다 . - stack.pop()을 통해 스택의 마지막 원소를 pop한다 . &#50696;&#51228; - &#51228;&#47196; . 문제 출처: 백준 10773번 | . - 스택(stack)의 기본적인 push와 pop을 이요하면 된다 . - 0이 입력되면 pop하고 그 외에 수가 입력되면 push한다 . K = int(input()) stack = list() ## stack = []와 동일 for _ in range(K): num = int(input()) if num == 0: stack.pop() else: stack.append(num) print(sum(stack)) . 0 .",
-            "url": "https://jaesu26.github.io/green/python/data%20structure/2021/08/30/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0-%EC%8A%A4%ED%83%9D.html",
-            "relUrl": "/python/data%20structure/2021/08/30/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0-%EC%8A%A4%ED%83%9D.html",
+            "url": "https://jaesu26.github.io/green/data%20structure/2021/08/30/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0-%EC%8A%A4%ED%83%9D.html",
+            "relUrl": "/data%20structure/2021/08/30/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0-%EC%8A%A4%ED%83%9D.html",
             "date": " • Aug 30, 2021"
         }
         
@@ -169,8 +169,8 @@
         ,"post15": {
             "title": "자료구조 힙(heap)",
             "content": "&#55193;(heap) . - 최댓값 및 최솟값을 찾아내는 연산을 빠르게 하기 위해 고안된 완전이진트리 자료구조 . - 힙 속성 &gt; A가 B의 부모노드(parent node) 이면 A의 키(key)값과 B의 키값 사이에는 대소관계가 성립 . - 최대 힙: 부모노드의 키값이 자식노드의 키값보다 항상 큰 힙 . - 최소 힙: 부모노드의 키값이 자식노드의 키값보다 항상 작은 힙 . - 키(key)값의 대소관계는 오로지 부모노드와 자식노드 간에만 성립하며 특히 형제 사이에는 대소관계가 정해지지 않음 . - 대개 자식노드 개수가 최대 2개인 이진 힙(binary heap)을 사용함 . - 데이터의 최대값(최대 힙) or 최소값(최소 힙)을 찾는데 $O(1)$이 소요됨 &gt; 루트노드에 저장되어 있으므로 . - 데이터의 삽입과 삭제는 $O( log N)$이 소요됨 . - 참고: 자료구조 힙 . &#55193;(heap) &#49324;&#50857; . - 파이썬의 heapq 모듈은 최소 힙이다 . - 힙(Heap) 구조 그림으로 보기 &gt; 힙 구조 &gt; 이거 보면 무조건 이해 가능 . - 힙을 코드로 구현하기 전에 필요한 함수를 공부하자 . - heapq.heappush(heap, item) &gt; item을 heap에 추가함 . - heapq.heappop(heap) &gt; heap에서 가장 작은 원소(루트 노드)를 pop(추출)하고 비어 있으면 IndexError . - heapq.heapify(x) &gt; 리스트 x를 heap 자료 구조로 변환함 . - 참고: heapq . &#50696;&#51228;: &#52852;&#46300; &#54633;&#52404; &#45440;&#51060; . 문제 출처: 백준 15903번 | . - 카드 더미의 최소값 2개를 뽑은다음 두 숫자를 두 수의 합으로 바꿔주는 것을 반복하면 됨 . - 최소값 2개를 뽑으면 되니 Heap을 사용하자 . - Heap에서 최소값 추출은 $O(1)$ 삽입과 삭제는 $O(logN)$이므로 다른 구조보다 효율적으로 문제를 해결할 수 있음 . import heapq n, m = map(int, input().split()) cards = list(map(int, input().split())) heapq.heapify(cards) ## list인 cards를 Heap구조로 변홤함 for _ in range(m): two_card_sum = heapq.heappop(cards) + heapq.heappop(cards) ## 최소값 2개(제일 작은 값과 두 번째로 작은 값)를 뽑음 heapq.heappush(cards, two_card_sum) ## 두 수를 두 수의 합으로 바꿔줌 heapq.heappush(cards, two_card_sum) ## 그리고 cards 에 push한다 print(sum(cards)) . 19 .",
-            "url": "https://jaesu26.github.io/green/python/data%20structure/2021/08/26/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0-%ED%9E%99.html",
-            "relUrl": "/python/data%20structure/2021/08/26/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0-%ED%9E%99.html",
+            "url": "https://jaesu26.github.io/green/data%20structure/2021/08/26/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0-%ED%9E%99.html",
+            "relUrl": "/data%20structure/2021/08/26/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0-%ED%9E%99.html",
             "date": " • Aug 26, 2021"
         }
         
