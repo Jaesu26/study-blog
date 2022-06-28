@@ -139,6 +139,7 @@ window.onload = wrap_img;
 <ul>
 <li class="toc-entry toc-h3"><a href="#동작-원리">동작 원리 </a></li>
 <li class="toc-entry toc-h3"><a href="#구현">구현 </a></li>
+<li class="toc-entry toc-h3"><a href="#시간복잡도와-공간복잡도">시간복잡도와 공간복잡도 </a></li>
 </ul>
 </li>
 </ul><!--
@@ -303,11 +304,12 @@ window.onload = wrap_img;
         <span class="k">return</span> <span class="p">[]</span> <span class="c1">## 빈 리스트</span>
     <span class="n">path</span> <span class="o">=</span> <span class="p">[</span><span class="n">u</span><span class="p">]</span> <span class="c1">## 출발 노드</span>
     <span class="k">while</span> <span class="n">u</span> <span class="o">!=</span> <span class="n">v</span><span class="p">:</span> <span class="c1">## u에서 출발하여 v에 도착할때까지</span>
-        <span class="c1">## 현재 상황: u -&gt; k -&gt;  ... -&gt; v</span>
+        <span class="c1">## 현재 상황: u -&gt; k -&gt; k2 -&gt; k3 -&gt; ... -&gt; v</span>
         <span class="c1">## next_node[u][v] = k</span>
-        <span class="c1">## u를 k로 갱신!</span>
-        <span class="c1">## k -&gt; k2 -&gt; ... -&gt; v</span>
+        <span class="c1">## u를 k로 갱신!, 그리고 path에 갱신된 u를 append</span>
+        <span class="c1">## k -&gt; k2 -&gt; k3 -&gt; ... -&gt; v</span>
         <span class="c1">## 다시 k에 대해 이를 반복!</span>
+        <span class="c1">## 언제까지? v에 도착해서 u와 v가 똑같아질 때까지!</span>
         <span class="n">u</span> <span class="o">=</span> <span class="n">next_node</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">]</span>
         <span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">u</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">path</span>
@@ -331,6 +333,28 @@ window.onload = wrap_img;
 <p><code>-</code> 그러면 기존의 경로 $u\to x\to v$에서 $u$에서 $x$로 갈 때 $t$가 아닌 $p$로 가는 것이 더 짧다</p>
 <p><code>-</code> 즉 $s$에서 $t \to v$가 아닌 $p\to v$가 더 짧은 경로이고 이는 $s$가 $u$에서 $v$로 가는 최단 경로라는 가정에 모순된다</p>
 <p><code>-</code> 따라서 귀류법에 의해 최단 경로의 부분 경로 또한 최단 경로이다</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="시간복잡도와-공간복잡도">
+<a class="anchor" href="#%EC%8B%9C%EA%B0%84%EB%B3%B5%EC%9E%A1%EB%8F%84%EC%99%80-%EA%B3%B5%EA%B0%84%EB%B3%B5%EC%9E%A1%EB%8F%84" aria-hidden="true"><span class="octicon octicon-link"></span></a>시간복잡도와 공간복잡도<a class="anchor-link" href="#%EC%8B%9C%EA%B0%84%EB%B3%B5%EC%9E%A1%EB%8F%84%EC%99%80-%EA%B3%B5%EA%B0%84%EB%B3%B5%EC%9E%A1%EB%8F%84"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 위에서 구현한 플로이드-워셜 알고리즘 코드 내부를 보면 <code>for</code>문이 3번 중첩되어 있다</p>
+<p><code>-</code> 따라서 시간복잡도는 $O(V^3)$이다 ($V$는 노드의 개수)</p>
+<p><code>-</code> 공간복잡도는 $(V+1) \times (V+1)$ 크기의 2차원 배열을 사용하므로 $O(V^2)$이다</p>
+<p><code>-</code> 경로를 재현하는 part는 $O(E)$의 시간복잡도와 $O(V)$의 공간복잡도이다 ($E$는 간선의 개수)</p>
+<p><code>-</code> $u\to v$에서 최악의 경우 모든 간선을 거쳐야하므로 시간복잡도는 $O(E)$이고</p>
+<p><code>-</code> 이때의 경로는 모든 노드를 포함하므로 이를 담기 위한 $O(V)$크기의 배열이 필요, 따라서 공간복잡도는 $O(V)$이다</p>
 
 </div>
 </div>
