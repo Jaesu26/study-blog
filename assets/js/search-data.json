@@ -125,8 +125,8 @@
         ,"post11": {
             "title": "자료구조 큐(queue)",
             "content": "&#53328;(queue) . - 큐(queue)는 기본적인 자료 구조 + 스택(stack)과 반대되는 개념 . - 큐는 먼저 집어 넣은(push) 데이터가 먼저 나오는(pop) FIFO(First In First Out)구조로 되어 있음 &gt; 식당에서 줄 기다리기 &gt; 먼저 줄을 선 사람이 먼저 줄에서 나감( =식당으로 들어감) . - 참고: 자료구조 큐 . &#53328;(queue) &#49324;&#50857; . - 파이썬에서 queue은 from collections import deque를 실행한 후 deque()통해 구현할 수 있다 . - queue.append(x)를 통해 큐에 x를 오른쪽(뒤)에 push한다 . - queue.popleft()를 통해 큐에서 앞의 원소(왼쪽)를 pop한다 . - 참고: queue in python . &#50696;&#51228; . from collections import deque ## 큐(queue)를 사용하기 위해 deque라이브러리 import queue = deque() ## 큐(queue) 자료구조 생성 &gt; deque([]) queue.append(1) ## 큐에 1 추가 &gt; deque([1]) queue.append(2) ## 큐에 2 추가 &gt; deque([1, 2]) queue.popleft() ## 큐에서 앞의 원소를 추출함 &gt; 선입선출 구조 &gt; deque([2]) queue . deque([2]) .",
-            "url": "https://jaesu26.github.io/green/python/data%20structure/2021/09/05/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0-%ED%81%90.html",
-            "relUrl": "/python/data%20structure/2021/09/05/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0-%ED%81%90.html",
+            "url": "https://jaesu26.github.io/green/data%20structure/2021/09/05/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0-%ED%81%90.html",
+            "relUrl": "/data%20structure/2021/09/05/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0-%ED%81%90.html",
             "date": " • Sep 5, 2021"
         }
         
