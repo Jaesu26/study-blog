@@ -177,7 +177,7 @@ window.onload = wrap_img;
 <p><code>-</code> 모든 정점을 한번만 방문</p>
 <p><code>-</code> 시작 노드에서 다음 분기로 넘어가기 전에 해당 분기를 완벽하게 탐색</p>
 <p><code>-</code> <code>방문할 노드</code>와 <code>방문한 노드</code>를 기준으로 탐색</p>
-<p><code>-</code> 특정 노드가 <code>방문할 노드</code> --&gt; <code>탐색</code>, <code>방문한 노드</code> --&gt; <code>지나감</code></p>
+<p><code>-</code> 특정 노드가 <code>방문할 노드</code> ---&gt; <code>탐색</code>, <code>방문한 노드</code> ---&gt; <code>지나감</code></p>
 <p><code>-</code> 그래프나 트리는 <code>dictionary</code>로 생성</p>
 <p><code>-</code> <code>stack 구조</code> 와 <code>재귀 함수</code>로 구현 가능</p>
 
@@ -203,7 +203,7 @@ window.onload = wrap_img;
 <a class="anchor" href="#DFS-%EB%8B%A8%EC%A0%90" aria-hidden="true"><span class="octicon octicon-link"></span></a>DFS 단점<a class="anchor-link" href="#DFS-%EB%8B%A8%EC%A0%90"> </a>
 </h2>
 <p><code>-</code> 해가 없는 경로에 깊이 빠질 가능성 존재</p>
-<p><code>-</code> 얻어진 해가 최단 경로가 된다는 보장이 없음 --&gt; 목표에 이르는 경로가 다수일 때 해에 다다르면 탐색을 끝내버림 --&gt; 이때 얻어진 해는 최적이 아닐 수 있음</p>
+<p><code>-</code> 얻어진 해가 최단 경로가 된다는 보장이 없음 ---&gt; 목표에 이르는 경로가 다수일 때 해에 다다르면 탐색을 끝내버림 ---&gt; 이때 얻어진 해는 최적이 아닐 수 있음</p>
 
 </div>
 </div>
@@ -273,10 +273,10 @@ window.onload = wrap_img;
 <a class="anchor" href="#%EB%A6%AC%EC%8A%A4%ED%8A%B8-%ED%99%9C%EC%9A%A9" aria-hidden="true"><span class="octicon octicon-link"></span></a>리스트 활용<a class="anchor-link" href="#%EB%A6%AC%EC%8A%A4%ED%8A%B8-%ED%99%9C%EC%9A%A9"> </a>
 </h3>
 <p><code>-</code> 파이썬에서 리스트는 stack구조여서 DFS에 활용 가능</p>
-<p><code>-</code> <code>list.pop(i)</code>은 성능이 떨어짐, i번째 이후 원소들을 한 칸씩 앞으로 땡겨야하기 때문 --&gt; $O(N)$</p>
+<p><code>-</code> <code>list.pop(i)</code>은 성능이 떨어짐, i번째 이후 원소들을 한 칸씩 앞으로 땡겨야하기 때문 ---&gt; $O(N)$</p>
 <p><code>-</code> 비고: $O(N-i) \to O(N)$ 최악의 경우(0번째 인덱스)</p>
 <p><code>-</code> <code>list.pop()</code>은 마지막 원소만 pop하므로 $O(1)$</p>
-<p><code>-</code> <code>list.pop()</code>--&gt; 맨 마지막에 넣었던 노드를 가져옴: <code>stack구조</code>와 동일(후입선출)</p>
+<p><code>-</code> <code>list.pop()</code> ---&gt; 맨 마지막에 넣었던 노드를 가져옴: <code>stack구조</code>와 동일(후입선출)</p>
 
 </div>
 </div>
@@ -418,9 +418,15 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> <code>if node not in visited:</code> --&gt; <code>visited</code>가 <code>list</code>인 경우 $O(N)$의 시간복잡도를 가짐</p>
+<p><code>-</code> <code>if node not in visited:</code> ---&gt; <code>visited</code>가 <code>list</code>인 경우 $O(N)$의 시간복잡도를 가짐</p>
 <p><code>-</code> visited도 <code>해시 테이블</code>(<code>key: value</code> 관계인 자료형: 파이썬의 <code>dictionary</code>)로 구현하면 $O(1)$로 효율$\uparrow$</p>
-<p><code>-</code> 해시 테이블에 관한 좋은 영상 ---&gt; <a href="https://www.youtube.com/watch?v=HraOg7W3VAM">https://www.youtube.com/watch?v=HraOg7W3VAM</a></p>
+<p><code>-</code> 해시 테이블에 관한 좋은 영상
+
+</p>
+<center>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/HraOg7W3VAM" frameborder="0" allowfullscreen=""></iframe>
+</center>
+
 
 </div>
 </div>
@@ -586,7 +592,7 @@ window.onload = wrap_img;
 <p><code>-</code> 시작 노드에서 인접한 다음 분기로 넘어가면서 탐색</p>
 <p><code>-</code> 넘어갈 분기가 없으면 하위 노드를 탐색</p>
 <p><code>-</code> <code>방문할 노드</code>와 <code>방문한 노드</code>를 기준으로 탐색</p>
-<p><code>-</code> 특정 노드가 <code>방문할 노드</code> --&gt; <code>탐색</code>, <code>방문한 노드</code> --&gt; <code>지나감</code></p>
+<p><code>-</code> 특정 노드가 <code>방문할 노드</code> ---&gt; <code>탐색</code>, <code>방문한 노드</code> ---&gt; <code>지나감</code></p>
 <p><code>-</code> 그래프나 트리는 <code>dictionary</code>로 생성</p>
 <p><code>-</code> <code>queue 구조</code>로 구현 가능</p>
 
@@ -672,10 +678,10 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> 성능이 좋음 --&gt; $O(1)$</p>
+<p><code>-</code> 성능이 좋음 ---&gt; $O(1)$</p>
 <p><code>-</code> 사용: <code>from collections import deque</code></p>
-<p><code>-</code> 만약 <code>queue = list()</code>라면 <code>queue.pop(0)</code>을 해야함 --&gt; $O(N)$</p>
-<p><code>-</code> <code>deque</code>를 사용하여 <code>queue.pop(0)</code>대신 <code>queue.popleft()</code> 사용 --&gt; $O(1)$</p>
+<p><code>-</code> 만약 <code>queue = list()</code>라면 <code>queue.pop(0)</code>을 해야함 ---&gt; $O(N)$</p>
+<p><code>-</code> <code>deque</code>를 사용하여 <code>queue.pop(0)</code>대신 <code>queue.popleft()</code> 사용 ---&gt; $O(1)$</p>
 <p><code>-</code> DFS와 마찬가지로 visited는 해시 테이블로 구현</p>
 <p><code>-</code> <code>방문 하기 전에 방문 처리를 해야 한다</code></p>
 <p><code>-</code> 만약, 방문을 하고 나서 방문 처리를 하면 중복 방문을 하게 되므로 비효율적임</p>
