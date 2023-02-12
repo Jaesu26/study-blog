@@ -96,7 +96,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      1 min read
+      2 min read
     
 </span></p>
 
@@ -140,6 +140,7 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h3"><a href="#예시">예시 </a></li>
 <li class="toc-entry toc-h3"><a href="#장점">장점 </a></li>
 <li class="toc-entry toc-h3"><a href="#단점">단점 </a></li>
+<li class="toc-entry toc-h3"><a href="#사용-시-주의사항">사용 시 주의사항 </a></li>
 </ul>
 </li>
 <li class="toc-entry toc-h2"><a href="#SMOTE-코드-설명">SMOTE 코드 설명 </a></li>
@@ -195,10 +196,78 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> 샘플 $(6,4)$와 그의 이웃 $(4, 3)$을 고려하자</p>
-<p><code>-</code> 샘플 $(4, 3)$은 샘플 $(6, 4)$의 가장 가까운 $k$개의 이웃 중 하나이다</p>
-<p><code>-</code> 생성될 샘플: $\left(f_1', f_2'\right) = (6, 4) + \operatorname{rand}(0\sim 1) * \left\{(4,3) - (6,4)\right\}$</p>
-<p><code>-</code> $\operatorname{rand}(0\sim 1)$는 $0$과 $1$ 사이에 있는 임의의 수이다</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">X1</td>
+<td style="text-align:center">X2</td>
+<td style="text-align:center">class</td>
+</tr>
+<tr>
+<td style="text-align:center">i1</td>
+<td style="text-align:center">3</td>
+<td style="text-align:center">7</td>
+<td style="text-align:center">A</td>
+</tr>
+<tr>
+<td style="text-align:center">i2</td>
+<td style="text-align:center">4</td>
+<td style="text-align:center">8</td>
+<td style="text-align:center">A</td>
+</tr>
+<tr>
+<td style="text-align:center">i3</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">5</td>
+<td style="text-align:center">B</td>
+</tr>
+<tr>
+<td style="text-align:center">i4</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">B</td>
+</tr>
+<tr>
+<td style="text-align:center">i5</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">B</td>
+</tr>
+<tr>
+<td style="text-align:center">i6</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">3</td>
+<td style="text-align:center">B</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 마이너 클래스는 <code>A</code>, 메이저 클래스는 <code>B</code>이다</p>
+<p><code>-</code> 합성할 샘플 수 $N$은 $1$로 하겠다, 고려할 이웃의 개수 $k$는 1로 하겠다</p>
+<p><code>1.</code> 마이너 클래스 샘플끼리의 거리를 계산한다</p>
+<p>
+$$Dist(i_1,i_2) = \sqrt{(3-4)^2 + (7-8)^2} = \sqrt{2}$$
+</p>
+<p><code>2.</code> 마이너 클래스 샘플 중 무작위로 $N$개를 복원추출한다 $\Longrightarrow i_1$이 선택됐다고 가정</p>
+<p><code>3.</code> $i_1$에 가장 가까운 이웃 $k$개를 선택한다 $\Longrightarrow i_2$가 선택됐다고 가정</p>
+<p><code>4.</code> 새로운 샘플을 생성: $i_7 = i_1 + 0.5*(i_2-i_1) = (3.5, 7.5),\quad (\therefore \text{$0.5$는 $0$과 $1$ 사이에 있는 임의의 수)}$</p>
+<p><code>5.</code> 합성된 샘플 $i_7$의 class는 <code>A</code>이다</p>
+<p><code>-</code> 위에선 표준화를 생략했지만 정확한 결과를 얻기 위해서는 표준화를 수행해야 한다</p>
 
 </div>
 </div>
@@ -238,6 +307,24 @@ window.onload = wrap_img;
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> 마이너 클래스 샘플의 가장 가까운 $k$개의 이웃의 대부분이 마이너 클래스가 아닐 수 있다</p>
 <p><code>-</code> 즉, 마이너 클래스에 분산이 큰 변수가 존재하는 경우 생성한 샘플이 메이저 클래스 샘플과 겹칠 수 있다</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="사용-시-주의사항">
+<a class="anchor" href="#%EC%82%AC%EC%9A%A9-%EC%8B%9C-%EC%A3%BC%EC%9D%98%EC%82%AC%ED%95%AD" aria-hidden="true"><span class="octicon octicon-link"></span></a>사용 시 주의사항<a class="anchor-link" href="#%EC%82%AC%EC%9A%A9-%EC%8B%9C-%EC%A3%BC%EC%9D%98%EC%82%AC%ED%95%AD"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 유클리드 거리를 사용하므로 모든 변수의 영향력을 동일시하기 위해 각 변수를 표준화해야 한다</p>
+<p><code>-</code> 훈련 데이터에만 적용해야 한다</p>
 
 </div>
 </div>
