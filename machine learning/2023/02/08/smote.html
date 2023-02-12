@@ -200,18 +200,12 @@ window.onload = wrap_img;
 <thead>
 <tr>
 <th style="text-align:center"></th>
-<th style="text-align:center"></th>
-<th style="text-align:center"></th>
-<th style="text-align:center"></th>
+<th style="text-align:center">X1</th>
+<th style="text-align:center">X2</th>
+<th style="text-align:center">class</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td style="text-align:center"></td>
-<td style="text-align:center">X1</td>
-<td style="text-align:center">X2</td>
-<td style="text-align:center">class</td>
-</tr>
 <tr>
 <td style="text-align:center">i1</td>
 <td style="text-align:center">3</td>
@@ -265,7 +259,7 @@ $$Dist(i_1,i_2) = \sqrt{(3-4)^2 + (7-8)^2} = \sqrt{2}$$
 </p>
 <p><code>2.</code> 마이너 클래스 샘플 중 무작위로 $N$개를 복원추출한다 $\Longrightarrow i_1$이 선택됐다고 가정</p>
 <p><code>3.</code> $i_1$에 가장 가까운 이웃 $k$개를 선택한다 $\Longrightarrow i_2$가 선택됐다고 가정</p>
-<p><code>4.</code> 새로운 샘플을 생성: $i_7 = i_1 + 0.5*(i_2-i_1) = (3.5, 7.5),\quad (\therefore \text{$0.5$는 $0$과 $1$ 사이에 있는 임의의 수)}$</p>
+<p><code>4.</code> 새로운 샘플을 생성: $i_7 = i_1 + 0.5*(i_2-i_1) = (3.5, 7.5),\; (\text{0.5는 0과 1 사이에 있는 임의의 수})$</p>
 <p><code>5.</code> 합성된 샘플 $i_7$의 class는 <code>A</code>이다</p>
 <p><code>-</code> 위에선 표준화를 생략했지만 정확한 결과를 얻기 위해서는 표준화를 수행해야 한다</p>
 
@@ -286,8 +280,8 @@ $$Dist(i_1,i_2) = \sqrt{(3-4)^2 + (7-8)^2} = \sqrt{2}$$
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> 메이저 클래스의 결정 영역에 존재하는 마이너 클래스 샘플을 단순 복제할 경우 마이너 클래스 샘플의 영향력이 커진다</p>
 <p><code>-</code> 즉, 마이너 클래스의 결정 영역이 더욱 특별해지고 결정 나무는 새로운 분기를 생성하게 되어 오버피팅이 발생한다</p>
-<p><code>-</code> 마이너 클래스의 단순 복제는 결정 영역을 메이저 클래스의 결정 영억으로 확장시키지 못한다 ($\text{마이너 클래스의 결정 영역}^c = \text{메이저 클래스의 결정 영역}$)</p>
-<p><code>-</code> 하지만 SMOTE를 사용하면 기존에 존재하지 않던 새로운 마이너 클래스 샘플을 만들므로 마이너 클래스의 결정 영역을 확장시킬 수 있음</p>
+<p><code>-</code> 마이너 클래스의 단순 복제는 결정 영역을 메이저 클래스의 결정 영역으로 확장시키지 못한다 (마이너 클래스의 결정 영역$^c$ = 메이저 클래스의 결정 영역)</p>
+<p><code>-</code> 하지만 SMOTE를 사용하면 기존에 존재하지 않던 새로운 마이너 클래스 샘플을 만들므로 마이너 클래스의 결정 영역을 확장시킬 수 있다</p>
 <p><code>-</code> 합성된 샘플은 더 크고 덜 중요한 결정 영역을 만듦으로써 작고 특정한 결정 영역에 오버피팅 되지 않아 더욱 일반화된 분류기를 만든다</p>
 
 </div>
@@ -342,8 +336,8 @@ $$Dist(i_1,i_2) = \sqrt{(3-4)^2 + (7-8)^2} = \sqrt{2}$$
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> 코드: <a href="https://github.com/scikit-learn-contrib/imbalanced-learn/blob/master/imblearn/over_sampling/_smote/base.py#L217">https://github.com/scikit-learn-contrib/imbalanced-learn/blob/master/imblearn/over_sampling/_smote/base.py#L217</a></p>
-<p><code>1.</code> <code>sampling_strategy</code> 매개변수를 사용하여 클래스 라벨(i.g. male)에 합성할 샘플 수(i.g. 150)를 대응시킨 딕셔너리를 만듦 (= <code>sampling_strategy_</code>)</p>
-<p><code>2.</code> <code>sampling_strategy_</code> 딕셔너리를 순회하여 클래스를 합성할 샘플 수 만큼 오버샘플링 함</p>
+<p><code>1.</code> <code>sampling_strategy</code> 매개변수를 사용하여 클래스 라벨(i.g. male)에 합성할 샘플 수(i.g. 150)를 대응시킨 딕셔너리를 만든다 (= <code>sampling_strategy_</code>)</p>
+<p><code>2.</code> <code>sampling_strategy_</code> 딕셔너리를 순회하여 클래스를 합성할 샘플 수 만큼 오버샘플링 한다</p>
 
 </div>
 </div>
