@@ -259,7 +259,7 @@ $$Dist(i_1,i_2) = \sqrt{(3-4)^2 + (7-8)^2} = \sqrt{2}$$
 </p>
 <p><code>2.</code> 마이너 클래스 샘플 중 무작위로 $N$개를 복원추출한다 $\Longrightarrow i_1$이 선택됐다고 가정</p>
 <p><code>3.</code> $i_1$에 가장 가까운 이웃 $k$개를 선택한다 $\Longrightarrow i_2$가 선택됐다고 가정</p>
-<p><code>4.</code> 새로운 샘플을 생성: $i_7 = i_1 + 0.5*(i_2-i_1) = (3.5, 7.5),\; (\text{0.5는 0과 1 사이에 있는 임의의 수})$</p>
+<p><code>4.</code> 새로운 샘플을 생성: $$i_7 = i_1 + 0.5*(i_2-i_1) = (3.5, 7.5),\; (\text{0.5는 0과 1 사이에 있는 임의의 수})$$</p>
 <p><code>5.</code> 합성된 샘플 $i_7$의 class는 <code>A</code>이다</p>
 <p><code>-</code> 위에선 표준화를 생략했지만 정확한 결과를 얻기 위해서는 표준화를 수행해야 한다</p>
 
@@ -279,10 +279,10 @@ $$Dist(i_1,i_2) = \sqrt{(3-4)^2 + (7-8)^2} = \sqrt{2}$$
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> 메이저 클래스의 결정 영역에 존재하는 마이너 클래스 샘플을 단순 복제할 경우 마이너 클래스 샘플의 영향력이 커진다</p>
-<p><code>-</code> 즉, 마이너 클래스의 결정 영역이 더욱 특별해지고 결정 나무는 새로운 분기를 생성하게 되어 오버피팅이 발생한다</p>
+<p><code>-</code> 즉, 마이너 클래스의 결정 영역이 더욱 특별해지고 결정 트리는 새로운 분기를 생성하게 되어 오버피팅이 발생한다</p>
 <p><code>-</code> 마이너 클래스의 단순 복제는 결정 영역을 메이저 클래스의 결정 영역으로 확장시키지 못한다 (마이너 클래스의 결정 영역$^c$ = 메이저 클래스의 결정 영역)</p>
 <p><code>-</code> 하지만 SMOTE를 사용하면 기존에 존재하지 않던 새로운 마이너 클래스 샘플을 만들므로 마이너 클래스의 결정 영역을 확장시킬 수 있다</p>
-<p><code>-</code> 합성된 샘플은 더 크고 덜 중요한 결정 영역을 만듦으로써 작고 특정한 결정 영역에 오버피팅 되지 않아 더욱 일반화된 분류기를 만든다</p>
+<p><code>-</code> 합성된 샘플은 더 크고 덜 중요한 결정 영역을 만듦으로써 분류기가 작고 특정한 결정 영역에 오버피팅 되지 않고 일반화되도록 한다</p>
 
 </div>
 </div>
@@ -299,8 +299,8 @@ $$Dist(i_1,i_2) = \sqrt{(3-4)^2 + (7-8)^2} = \sqrt{2}$$
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> 마이너 클래스 샘플의 가장 가까운 $k$개의 이웃의 대부분이 마이너 클래스가 아닐 수 있다</p>
-<p><code>-</code> 즉, 마이너 클래스에 분산이 큰 변수가 존재하는 경우 생성한 샘플이 메이저 클래스 샘플과 겹칠 수 있다</p>
+<p><code>-</code> 마이너 클래스 샘플의 가장 가까운 $k$개의 이웃 대부분이 마이너 클래스가 아닐 수 있다</p>
+<p><code>-</code> 즉, 마이너 클래스에 분산이 큰 변수가 존재하는 경우 합성된 샘플이 메이저 클래스 샘플과 겹칠 수 있다</p>
 
 </div>
 </div>
@@ -317,8 +317,8 @@ $$Dist(i_1,i_2) = \sqrt{(3-4)^2 + (7-8)^2} = \sqrt{2}$$
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> 유클리드 거리를 사용하므로 모든 변수의 영향력을 동일시하기 위해 각 변수를 표준화해야 한다</p>
-<p><code>-</code> 훈련 데이터에만 적용해야 한다</p>
+<p><code>-</code> 유클리드 거리를 사용하므로 변수의 영향력을 동일시하기 위해 변수마다 표준화를 수행해야 한다</p>
+<p><code>-</code> 훈련 데이터에만 적용해야 한다 (합성된 샘플이 검증 데이터를 대표하지 않을 경우 검증 결과를 신뢰할 수 없음)</p>
 
 </div>
 </div>
