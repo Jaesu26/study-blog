@@ -337,10 +337,10 @@ $$Dist(i_1,i_2) = \sqrt{(3-4)^2 + (7-8)^2} = \sqrt{2}$$
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> 코드: <a href="https://github.com/scikit-learn-contrib/imbalanced-learn/blob/master/imblearn/over_sampling/_smote/base.py#L217">https://github.com/scikit-learn-contrib/imbalanced-learn/blob/master/imblearn/over_sampling/_smote/base.py#L217</a></p>
 <ul>
-<li>가장 가까운 이웃 $k$ 계산</li>
+<li>가장 가까운 이웃 $k$개 계산</li>
 </ul>
-<p><code>-</code> <code>check_neighbors_object</code> 함수를 사용해 <code>nn_k_</code> 라는 <code>sklearn.neighbors.NearestNeighbors</code> 오브젝트를 생성하여 가장 가까운 $k$개의 이웃을 계산한다</p>
-<p><code>-</code> 그런데 <code>check_neighbors_object</code> 함수의 <code>additional_neighbor</code> 매개변수의 기본값이 $1$이어서 의도한 이웃 수보다 $1$개 더 많아진다</p>
+<p><code>-</code> <code>check_neighbors_object</code> 함수를 사용해 <code>nn_k_</code> 라는 <code>sklearn.neighbors.NearestNeighbors</code> 인스턴스를 생성하여 가장 가까운 $k$개의 이웃을 계산한다</p>
+<p><code>-</code> 그런데 <code>check_neighbors_object</code> 함수의 <code>additional_neighbor</code> 매개변수의 기본값이 $1$이어서 <code>nn_k_</code>의 이웃 수는 의도한 이웃 수보다 $1$개 더 많아진다</p>
 <ul>
 <li>거리 계산</li>
 </ul>
