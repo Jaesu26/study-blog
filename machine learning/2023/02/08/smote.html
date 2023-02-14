@@ -166,6 +166,25 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>글을 읽기 전 주의 사항</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 이진 분류인 경우 "마이너 클래스$^c$ = 메이저 클래스"이지만 다중 분류에서는 성립하지 않는다</p>
+<p><code>-</code> 작성한 글에서는 이진 분류, 다중 분류를 고려하지 않고 마이너 클래스와 메이저 클래스만 언급했는데 다중 분류인 경우 메이저 클래스를 마이너 클래스가 아닌 클래스로 생각하자</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="SMOTE-작동-방식">
 <a class="anchor" href="#SMOTE-%EC%9E%91%EB%8F%99-%EB%B0%A9%EC%8B%9D" aria-hidden="true"><span class="octicon octicon-link"></span></a>SMOTE 작동 방식<a class="anchor-link" href="#SMOTE-%EC%9E%91%EB%8F%99-%EB%B0%A9%EC%8B%9D"> </a>
 </h2>
@@ -278,9 +297,9 @@ $$Dist(i_1,i_2) = \sqrt{(3-4)^2 + (7-8)^2} = \sqrt{2}$$
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> 메이저 클래스의 결정 영역에 존재하는 마이너 클래스 샘플을 단순 복제할 경우 마이너 클래스 샘플의 영향력이 커진다</p>
+<p><code>-</code> 메이저 클래스의 결정 영역에 존재하는 마이너 클래스 샘플을 단순 복제할 경우 해당 마이너 클래스 샘플의 영향력이 커진다</p>
 <p><code>-</code> 즉, 마이너 클래스의 결정 영역이 더욱 특별해지고 결정 트리는 새로운 분기를 생성하게 되어 오버피팅이 발생한다</p>
-<p><code>-</code> 마이너 클래스의 단순 복제는 결정 영역을 메이저 클래스의 결정 영역으로 확장시키지 못한다 (마이너 클래스의 결정 영역$^c$ = 메이저 클래스의 결정 영역)</p>
+<p><code>-</code> 마이너 클래스의 단순 복제는 결정 영역을 메이저 클래스의 결정 영역으로 확장시키지 못한다</p>
 <p><code>-</code> 하지만 SMOTE를 사용하면 기존에 존재하지 않던 새로운 마이너 클래스 샘플을 만들므로 마이너 클래스의 결정 영역을 확장시킬 수 있다</p>
 <p><code>-</code> 합성된 샘플은 더 크고 덜 중요한 결정 영역을 만듦으로써 분류기가 작고 특정한 결정 영역에 오버피팅 되지 않고 일반화되도록 한다</p>
 
