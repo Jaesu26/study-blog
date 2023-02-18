@@ -194,11 +194,12 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 논문에 등장한 SMOTE는 이진 분류를 가정한다</p>
 <p><code>-</code> SMOTE를 사용하기 위해선 변수들이 모두 양적 변수여야 한다 (데이터의 차원은 $n\times p$, 이때 $n$은 샘플의 개수, $p$는 변수의 개수)</p>
 <p><code>1.</code> 마이너 클래스의 각 샘플에 대하여 가장 가까운 마이너 클래스 이웃 $k$개의 인덱스를 계산한다 (유클리드 거리를 사용)</p>
 <p><code>2.</code> 마이너 클래스에서 $N$개의 샘플을 복원추출하여 인덱스를 저장한다</p>
 <p><code>3.</code> 선택된 $N$개의 샘플 각각에 대하여 $k$개의 가장 가까운 이웃중 무작위로 하나를 선택한다</p>
-<p><code>4.</code> 모든 $p$개의 변수에 대하여 샘플과 그 샘플의 이웃간의 내분점을 무작위로 선택하여 새로운 샘플을 생성한다</p>
+<p><code>4.</code> 모든 $p$개의 변수에 대하여 샘플과 그 샘플의 이웃간의 내분점을 무작위로 선택하여 새로운 샘플을 생성한다 (모든 변수에 대해 내분비는 동일)</p>
 
 </div>
 </div>
@@ -278,7 +279,7 @@ $$Dist(i_1,i_2) = \sqrt{(3-4)^2 + (7-8)^2} = \sqrt{2}$$
 </p>
 <p><code>2.</code> 마이너 클래스 샘플 중 무작위로 $N$개를 복원추출한다 $\Longrightarrow i_1$이 선택됐다고 가정</p>
 <p><code>3.</code> $i_1$에 가장 가까운 이웃 $k$개를 선택한다 $\Longrightarrow i_2$가 선택됐다고 가정</p>
-<p><code>4.</code> 새로운 샘플을 생성: $$i_7 = i_1 + 0.5*(i_2-i_1) = (3.5, 7.5),\; (\text{0.5는 0과 1 사이에 있는 임의의 수})$$</p>
+<p><code>4.</code> 새로운 샘플을 생성: $$i_7 = i_1 + 0.5*(i_2-i_1) = (3.5, 7.5),\; (\text{0.5는 내분비로 0과 1 사이에 있는 선택된 임의의 수})$$</p>
 <p><code>5.</code> 합성된 샘플 $i_7$의 class는 <code>A</code>이다</p>
 <p><code>-</code> 위에선 표준화를 생략했지만 정확한 결과를 얻기 위해서는 표준화를 수행해야 한다</p>
 
@@ -446,6 +447,7 @@ $$Dist(i_1,i_2) = \sqrt{(3-4)^2 + (7-8)^2} = \sqrt{2}$$
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> 코드: <a href="https://github.com/scikit-learn-contrib/imbalanced-learn/blob/master/imblearn/over_sampling/_smote/base.py#L217">https://github.com/scikit-learn-contrib/imbalanced-learn/blob/master/imblearn/over_sampling/_smote/base.py#L217</a></p>
+<p><code>-</code> 다중 분류에서도 SMOTE를 사용할 수 있게 만들었다</p>
 <ul>
 <li>가장 가까운 이웃 $k$개 계산</li>
 </ul>
