@@ -154,7 +154,6 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> 간단하게 정리</p>
 <p><code>-</code> 참고: <a href="https://en.wikipedia.org/wiki/Floyd%E2%80%93Warshall_algorithm">https://en.wikipedia.org/wiki/Floyd%E2%80%93Warshall_algorithm</a></p>
 
 </div>
@@ -191,17 +190,17 @@ window.onload = wrap_img;
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> $1$에서 $N$까지 번호가 매겨진 $V$를 꼭짓점으로 가지는 그래프 $G$를 고려하자</p>
-<p><code>-</code> $D(i,j,k)$를 $i$에서 $j$로 가는데 집합 $\{1,2,\cdots,k-1,k\}$의 꼭짓점들 만을 <code>경유지</code>로 거쳐가는 최단 경로를 반환하는 함수라고 하자</p>
-<p><code>-</code> 여기서 $D(i,j,k)$는 꼭짓점 $k$를 거치는 경우(1)와 그렇지 않은 경우(2)로 나눌 수 있다</p>
+<p><code>-</code> $D(i,j,k)$를 $i$에서 $j$로 가는데 집합 $\{1,2,\cdots,k-1,k\}$의 꼭짓점만을 <code>경유지</code>로 거쳐가는 최단 경로를 반환하는 함수라고 하자</p>
+<p><code>-</code> 여기서 $D(i,j,k)$는 꼭짓점 $k$를 거치지 않는 경우(1)와 거치는 경우(2)로 나눌 수 있다</p>
 <ul>
 <li>(1)번의 경우</li>
 </ul>
-<p><code>-</code> $i$에서 $j$로 가는데 집합 $\{1,2,\cdots,k-2,k-1\}$의 꼭짓점들 만을 <code>경유지</code>로 고려하므로 $D(i,j,k)=D(i,j,k-1)$이다</p>
+<p><code>-</code> $i$에서 $j$로 가는데 집합 $\{1,2,\cdots,k-2,k-1\}$의 꼭짓점만을 <code>경유지</code>로 고려하므로 $D(i,j,k)=D(i,j,k-1)$이다</p>
 <ul>
 <li>(2)번의 경우</li>
 </ul>
 <p><code>-</code>  $i$에서 $j$로 가는데 경유지로 꼭짓점 $k$를 거치므로 최단 경로는 $i\to k \to j$가 된다</p>
-<p><code>-</code> $i\to k$와 $k\to j$를 생각하면 둘 모두 집합 $\{1,2,\cdots,k-2,k-1\}$의 꼭짓점들 만을 <code>경유지</code>로 고려한다</p>
+<p><code>-</code> $i\to k$와 $k\to j$를 생각하면 둘 모두 집합 $\{1,2,\cdots,k-2,k-1\}$의 꼭짓점만을 <code>경유지</code>로 고려한다</p>
 <p><code>-</code> 즉, (2)번의 경우 $D(i,j,k)=D(i,k,k-1)+D(k,j,k-1)$이다</p>
 <p><code>-</code> 따라서 $D(i,j,k)=\min\left(D(i,j,k-1),D(i,k,k-1)+D(k,j,k-1)\right)$이다</p>
 <p><code>-</code> $k=1$일 때의 $D(i,j,k)$를 구하고 이를 바탕으로 $k=2$일 때를 계산하는 식으로 $k=N$일 때까지 반복하면 모든 $(i,j)$쌍에 대해서 최단 경로를 찾을 수 있다</p>
@@ -351,8 +350,8 @@ window.onload = wrap_img;
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> 아래에서 $V$는 노드의 개수이고 $E$는 간선의 개수이다</p>
 <p><code>-</code> 위에서 구현한 플로이드-워셜 알고리즘 코드 내부를 보면 <code>for</code>문이 3번 중첩되어 있고 각 <code>for</code>문은 $V$번 동작한다</p>
-<p><code>-</code> 따라서 시간복잡도는 $O(V^3)$이다</p>
-<p><code>-</code> 공간복잡도는 $(V+1) \times (V+1)$ 크기의 2차원 배열을 사용하므로 $O(V^2)$이다</p>
+<p><code>-</code> 따라서 시간복잡도는 $O\big(V^3\big)$이다</p>
+<p><code>-</code> 공간복잡도는 $(V+1) \times (V+1)$ 크기의 2차원 배열을 사용하므로 $O\big(V^2\big)$이다</p>
 <p><code>-</code> 경로를 재현하는 part는 $O(E)$의 시간복잡도와 $O(V)$의 공간복잡도이다</p>
 <p><code>-</code> $u\to v$에서 최악의 경우 모든 간선을 거쳐야하므로 시간복잡도는 $O(E)$이고</p>
 <p><code>-</code> 이때의 경로는 모든 노드를 포함하므로 이를 담기 위한 $O(V)$크기의 배열이 필요, 따라서 공간복잡도는 $O(V)$이다</p>
