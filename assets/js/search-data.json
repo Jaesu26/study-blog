@@ -466,16 +466,10 @@
   
 
   
-
   
 
   
-
-  
-  
-
-  
-      ,"page14": {
+      ,"page11": {
           "title": "",
           "content": "Sitemap: {{ “sitemap.xml” | absolute_url }} | .",
           "url": "https://jaesu26.github.io/green/robots.txt",
