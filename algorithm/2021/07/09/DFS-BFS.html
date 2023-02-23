@@ -702,7 +702,7 @@ window.onload = wrap_img;
     <span class="n">queue</span> <span class="o">=</span> <span class="n">deque</span><span class="p">()</span> <span class="c1">## 방문할 노드</span>
     <span class="n">queue</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">start_node</span><span class="p">)</span> <span class="c1">## 방문할 노드에 시작 노드 추가</span>
     <span class="n">visited</span> <span class="o">=</span> <span class="p">{}</span> <span class="c1">## 방문한 노드</span>
-    <span class="n">visited</span><span class="p">[</span><span class="s1">'A'</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span> <span class="c1">## 시작 정점을 방문!</span>
+    <span class="n">visited</span><span class="p">[</span><span class="n">start_node</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span> <span class="c1">## 시작 정점을 방문!</span>
     <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1">## 방문 횟수</span>
 
     <span class="k">while</span> <span class="n">queue</span><span class="p">:</span>  <span class="c1">## 방문할 노드가 있다면(리스트에 원소가 있으면 True)      </span>
