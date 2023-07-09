@@ -18,31 +18,16 @@ permalink: /about/
 
 `-` 3학년 2학기: 4.25
 
+`-` 4학년 1학기: 4.50
+
 ### 프로그래밍 언어
 
-`-` R
-
-`-` 파이썬
-
-`-` C / C++
+`-` Python, R, C, C++
 
 ### 자격증
 
-`-` 컴활 1급
+`-` 컴퓨터활용능력 1급
 
-### 토익
-
-`-` 반타작
-
-### 대외활동/공모전
-
-`-` 데이콘 / 인공지능팩토리
-
-### 봉사활동
-
-`-` ...
-
-
-
+`-` TOEIC 540
 
 [^1]:a blogging platform that natively supports Jupyter notebooks in addition to other formats.
