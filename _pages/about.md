@@ -28,6 +28,14 @@ permalink: /about/
 
 `-` 전체 평점: 4.43
 
+### 수상 내역
+
+`-` [2023년 전북대학교 SW중심대학사업 인공지능 경진대회 금상](https://github.com/Jaesu26/jbnu-book-genre-classification)
+
+`-` [2022 제2회 K-water AI 경진대회 수돗물 수요예측 AI 알고리즘 개발 장려상](https://github.com/Jaesu26/aifactory-water-demand-forecasting)
+
+`-` [2022 월간 데이콘 숫자 3D 이미지 분류 AI 경진대회 수상](https://github.com/Jaesu26/dacon-3d-mnist-image-classification)
+
 ### 프로그래밍 언어
 
 `-` Python, R, C, C++
