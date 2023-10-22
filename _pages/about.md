@@ -38,7 +38,7 @@ permalink: /about/
 
 ### 프로그래밍 언어
 
-`-` Python, R, C, C++
+`-` **Python**, R, C/C++
 
 ### 자격증
 
