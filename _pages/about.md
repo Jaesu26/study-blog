@@ -36,6 +36,8 @@ permalink: /about/
 
 `-` [2022 월간 데이콘 숫자 3D 이미지 분류 AI 경진대회 수상](https://github.com/Jaesu26/dacon-3d-mnist-image-classification)
 
+`-` 총장상(성적우수상)
+
 ### 프로그래밍 언어
 
 `-` **Python**, R
