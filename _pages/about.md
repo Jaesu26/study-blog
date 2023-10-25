@@ -38,6 +38,10 @@ permalink: /about/
 
 `-` 총장상(성적우수상)
 
+### 프로젝트
+
+`-` [데이콘 Basic 대회 참여](https://github.com/Jaesu26/dacon-basic)
+
 ### 프로그래밍 언어
 
 `-` **Python**, R
