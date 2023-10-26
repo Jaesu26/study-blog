@@ -42,6 +42,12 @@ permalink: /about/
 
 `-` [데이콘 Basic 대회 참여](https://github.com/Jaesu26/dacon-basic)
 
+### 오픈 소스
+
+`-` [https://github.com/Jaesu26/textmentations](https://github.com/Jaesu26/textmentations)
+
+`-` [https://github.com/Jaesu26/vime](https://github.com/Jaesu26/vime)
+
 ### 프로그래밍 언어
 
 `-` **Python**, R
