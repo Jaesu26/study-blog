@@ -44,6 +44,8 @@ permalink: /about/
 
 `-` [국민건강보험공단 건강검진정보 공공데이터를 활용한 통계 분석](https://github.com/Jaesu26/statistical-database-project)
 
+`-` [사람로 명언 텍스트 마이닝](https://github.com/Jaesu26/text-mining-project)
+
 ### 오픈 소스
 
 `-` [https://github.com/Jaesu26/textmentations](https://github.com/Jaesu26/textmentations)
