@@ -46,6 +46,8 @@ permalink: /about/
 
 `-` [사람로 명언 텍스트 마이닝](https://github.com/Jaesu26/text-mining-project)
 
+`-` [데이콘 신용카드 사기 거래 탐지 AI 경진대회](https://github.com/Jaesu26/dacon-credit-card-fraud-detection)
+
 ### 오픈 소스
 
 `-` [https://github.com/Jaesu26/textmentations](https://github.com/Jaesu26/textmentations)
