@@ -48,6 +48,8 @@ permalink: /about/
 
 `-` [데이콘 신용카드 사기 거래 탐지 AI 경진대회](https://github.com/Jaesu26/dacon-credit-card-fraud-detection)
 
+`-` [데이콘 2022 관광데이터 AI 경진대회](https://github.com/Jaesu26/dacon-point-of-interest-category-classification)
+
 ### 오픈 소스
 
 `-` [https://github.com/Jaesu26/textmentations](https://github.com/Jaesu26/textmentations)
