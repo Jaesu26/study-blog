@@ -50,6 +50,8 @@ permalink: /about/
 
 `-` [데이콘 2022 관광데이터 AI 경진대회](https://github.com/Jaesu26/dacon-point-of-interest-category-classification)
 
+`-` [2022 국립국어원 인공 지능 언어 능력 평가](https://github.com/Jaesu26/korean-aspect-based-sentiment-analysis)
+
 ### 오픈 소스
 
 `-` [https://github.com/Jaesu26/textmentations](https://github.com/Jaesu26/textmentations)
