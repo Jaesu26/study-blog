@@ -52,6 +52,8 @@ permalink: /about/
 
 `-` [2022 국립국어원 인공 지능 언어 능력 평가](https://github.com/Jaesu26/korean-aspect-based-sentiment-analysis)
 
+`-` [데이콘 유전체 정보 품종 분류 AI 경진대회](https://github.com/Jaesu26/dacon-species-classification-using-snp)
+
 ### 오픈 소스
 
 `-` [https://github.com/Jaesu26/textmentations](https://github.com/Jaesu26/textmentations)
