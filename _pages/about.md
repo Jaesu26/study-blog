@@ -68,6 +68,4 @@ permalink: /about/
 
 `-` 컴퓨터활용능력 1급
 
-`-` TOEIC 540
-
 [^1]:a blogging platform that natively supports Jupyter notebooks in addition to other formats.
