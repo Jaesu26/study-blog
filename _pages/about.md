@@ -62,7 +62,7 @@ permalink: /about/
 
 ### 프로그래밍 언어
 
-`-` Python($\star\star\star$), R($\star$)
+`-` Python ($\star\star\star$)
 
 ### 자격증
 
