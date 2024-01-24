@@ -165,7 +165,7 @@ window.onload = wrap_img;
 <p><code>-</code> 마력 2줄 옵션이 먼저 나온 $\frac{n}{2}$명은 공격력 2줄 옵션을 얻을 때까지 큐브를 사용한다</p>
 <p><code>-</code> 그러면 $\frac{n}{2}$명 중 평균적으로 $\frac{n}{4}$명은 공격력 2줄 옵션이 먼저 나왔을 것이며 나머지 $\frac{n}{4}$명은 마력 2줄 옵션이 먼저 나왔을 것이다</p>
 <p><code>-</code> 여기서, <code>공격력 등장 횟수 = 마력 등장 횟수 = n / 4</code>이다</p>
-<p><code>-</code> 이를 반복하면 $n$명의 사람들이 큐브를 사용해서 얻은 잠재능력 중 공격력 2줄 옵션이 등장한 횟수의 기댓값은 $\frac{n}{2} + \frac{n}{4} + \cdots = n$이며 마력도 동일하다</p>
+<p><code>-</code> 이를 반복하면 $n$명의 사람들이 큐브를 사용해서 얻은 잠재능력 중 공격력 2줄 옵션이 등장한 횟수의 기댓값은 $\frac{n}{2} + \frac{n}{4} + \cdots = n$ 이며 마력도 동일하다</p>
 <p><code>-</code> 그런데 공격력 2줄 옵션 또는 마력 2줄 옵션을 확인하는 것이 아니라 첫 번째줄 옵션이 공격력인지 마력인지 확인하는 경우는 어떨까?</p>
 <p><code>-</code> 마력 2줄이 많이 등장했더라도 첫 번째줄 옵션만 놓고보면 공격력이 마력보다 많이 등장했을 수도 있다</p>
 <p><code>-</code> 반면, 마력 2줄이 많이 등장했다는 것은 해당 수치만큼 첫 번째 줄 옵션에서 마력이 등장했다는 것을 의미한다</p>
@@ -175,15 +175,41 @@ window.onload = wrap_img;
 </div>
 </div>
 </div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p></p>
+<div class="flash">
+    <svg class="octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8 1.5a6.5 6.5 0 100 13 6.5 6.5 0 000-13zM0 8a8 8 0 1116 0A8 8 0 010 8zm6.5-.25A.75.75 0 017.25 7h1a.75.75 0 01.75.75v2.75h.25a.75.75 0 010 1.5h-2a.75.75 0 010-1.5h.25v-2h-.25a.75.75 0 01-.75-.75zM8 6a1 1 0 100-2 1 1 0 000 2z"></path></svg>
+    <strong>Note: </strong>첫 번째 줄에서 공격력이 등장할 확률 = 마력이 등장할 확률 = $4.878\%$
+</div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p></p>
+<div class="flash">
+    <svg class="octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8 1.5a6.5 6.5 0 100 13 6.5 6.5 0 000-13zM0 8a8 8 0 1116 0A8 8 0 010 8zm6.5-.25A.75.75 0 017.25 7h1a.75.75 0 01.75.75v2.75h.25a.75.75 0 010 1.5h-2a.75.75 0 010-1.5h.25v-2h-.25a.75.75 0 01-.75-.75zM8 6a1 1 0 100-2 1 1 0 000 2z"></path></svg>
+    <strong>Note: </strong>두 번째 줄에서 공격력이 등장할 확률 = 마력이 등장할 확률 = $6.2791\%$
+</div>
+
+</div>
+</div>
+</div>
     
     
 <div class="cell border-box-sizing code_cell rendered">
+<details class="description">
+      <summary class="btn btn-sm" data-open="Hide Code" data-close="Show Code"></summary>
+        <p></p>
 <div class="input">
 
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
 
 
 <span class="k">def</span> <span class="nf">get_1st_option</span><span class="p">():</span>
@@ -280,19 +306,19 @@ window.onload = wrap_img;
     <span class="k">return</span> <span class="n">n</span><span class="p">,</span> <span class="n">valid_spell_power_count</span><span class="p">,</span> <span class="n">spell_power_count</span><span class="p">,</span> <span class="n">attack_power_count</span>
 
 
-<span class="k">def</span> <span class="nf">test</span><span class="p">():</span>
+<span class="k">def</span> <span class="nf">test</span><span class="p">(</span><span class="n">threshold</span><span class="o">=</span><span class="mi">3</span><span class="p">):</span>
     <span class="n">n</span><span class="p">,</span> <span class="n">valid_spell_power_count</span><span class="p">,</span> <span class="n">spell_power_count</span><span class="p">,</span> <span class="n">attack_power_count</span> <span class="o">=</span> <span class="n">get_sample</span><span class="p">()</span>
-    <span class="k">if</span> <span class="n">valid_spell_power_count</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">:</span>  <span class="c1"># 에디 마력 2줄을 3번 이상 보고 에디 공격력 2줄을 획득한 경우, 억까당했다고 표현</span>
+    <span class="k">if</span> <span class="n">valid_spell_power_count</span> <span class="o">&lt;</span> <span class="n">threshold</span><span class="p">:</span>  <span class="c1"># 에디 마력 2줄을 3번 이상 보고 에디 공격력 2줄을 획득한 경우, 억까당했다고 표현</span>
         <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span>
     <span class="k">return</span> <span class="n">n</span><span class="p">,</span> <span class="n">spell_power_count</span><span class="p">,</span> <span class="n">attack_power_count</span>
 
 
-<span class="k">def</span> <span class="nf">record_tests</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">1000</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">record_tests</span><span class="p">(</span><span class="n">threshold</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">1000</span><span class="p">):</span>
     <span class="n">ns</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="n">spell_power_counts</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="n">attack_power_counts</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">size</span><span class="p">):</span>
-        <span class="n">n</span><span class="p">,</span> <span class="n">spell_power_count</span><span class="p">,</span> <span class="n">attack_power_count</span> <span class="o">=</span> <span class="n">test</span><span class="p">()</span>
+        <span class="n">n</span><span class="p">,</span> <span class="n">spell_power_count</span><span class="p">,</span> <span class="n">attack_power_count</span> <span class="o">=</span> <span class="n">test</span><span class="p">(</span><span class="n">threshold</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>  <span class="c1"># 억까당한 경우만 기록</span>
             <span class="k">continue</span>
         <span class="n">ns</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
@@ -308,6 +334,7 @@ window.onload = wrap_img;
 </div>
 </div>
 
+    </details>
 </div>
     
 
