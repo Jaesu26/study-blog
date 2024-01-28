@@ -96,7 +96,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      4 min read
+      5 min read
     
 </span></p>
 
@@ -362,7 +362,7 @@ window.onload = wrap_img;
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <ul>
-<li>에디 공격력 2줄을 뽑기위해 시도한 횟수</li>
+<li>억까당하고 공격력 2줄을 뽑기위해 시도한 횟수</li>
 </ul>
 
 </div>
@@ -406,7 +406,7 @@ window.onload = wrap_img;
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <ul>
-<li>억까당하고 에디 공격력 2줄을 뽑았을 때 첫 줄 옵션에서 공격력보다 마력이 더 많이 등장했을까?</li>
+<li>억까당하고 공격력 2줄을 뽑았을 때 첫 줄 옵션에서 공격력보다 마력이 더 많이 등장했을까?</li>
 </ul>
 
 </div>
@@ -534,7 +534,7 @@ window.onload = wrap_img;
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">sum</span><span class="p">(</span><span class="n">gaps</span><span class="p">)</span>  <span class="c1"># 표본크기 n의 -3% ~ 3% 정도 오차가 존재 (억까만 걸러내지 않고 모두 포함했을 때 -&gt; 일반적인 상황)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">sum</span><span class="p">(</span><span class="n">gaps</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -564,6 +564,186 @@ window.onload = wrap_img;
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> 에디 마력 2줄을 3번 획득한 후 공격력 2줄을 획득한 6193명의 경우 첫 번째 줄에서 마력이 공격력보다 18015번 더 등장했다</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">threshold</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">size</span> <span class="o">=</span> <span class="mi">50000</span>
+<span class="n">ns</span><span class="p">,</span> <span class="n">spell_power_counts</span><span class="p">,</span> <span class="n">attack_power_counts</span> <span class="o">=</span> <span class="n">record_tests</span><span class="p">(</span><span class="n">threshold</span><span class="o">=</span><span class="n">threshold</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">size</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>공격력 2줄을 뽑기위해 시도한 횟수</li>
+</ul>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">ns</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,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%0A">
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>일반적인 상황에선 공격력 2줄을 뽑았을 때 첫 줄 옵션에서 공격력보다 마력이 더 많이 등장했을까?</li>
+</ul>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">gaps</span> <span class="o">=</span> <span class="n">spell_power_counts</span> <span class="o">-</span> <span class="n">attack_power_counts</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">gaps</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>50000
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">sum</span><span class="p">(</span><span class="n">gaps</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>-885</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="mi">885</span> <span class="o">/</span> <span class="mi">50000</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>0.0177</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 공격력 2줄을 뽑았을 때 첫 번째 줄에서 공격력이 마력보다 885번 더 등장했다</p>
+<p><code>-</code> 이는 표본 크기의 $1.77\%$로 오차 범위내에 존재한다</p>
 <p><code>-</code> 결론: 억까인 상황에 대해서는 첫 줄에 마력이 공격력보다 더 많이 등장한다</p>
 
 </div>
