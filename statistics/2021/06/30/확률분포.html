@@ -333,8 +333,8 @@ window.onload = wrap_img;
 <a class="anchor" href="#%EC%97%B0%EC%86%8D-%ED%99%95%EB%A5%A0-%EB%B6%84%ED%8F%AC" aria-hidden="true"><span class="octicon octicon-link"></span></a>연속 확률 분포<a class="anchor-link" href="#%EC%97%B0%EC%86%8D-%ED%99%95%EB%A5%A0-%EB%B6%84%ED%8F%AC"> </a>
 </h1>
 <p><code>-</code> 연속 확률 변수가 가지는 확률 분포</p>
-<p><code>-</code> 이산 확률 변수는 확률을 $[\star]P(X=x)[\star]$와 같이 표현 가능, 연속 확률 변수는 이런 표현이 무의미(어차피 $0$)</p>
-<p><code>-</code> 연속 확률 변수는 확률을 $[\star]P(A\leq X\leq B)[\star]$로 표현 가능</p>
+<p><code>-</code> 이산 확률 변수는 확률을 $P(X=x)$와 같이 표현 가능, 연속 확률 변수는 이런 표현이 무의미 (어차피 $0$)</p>
+<p><code>-</code> 연속 확률 변수는 확률을 $P(A\leq X\leq B)$로 표현 가능</p>
 
 </div>
 </div>
@@ -354,10 +354,10 @@ window.onload = wrap_img;
 <p><code>-</code> 정규 분포는 수집된 자료의 분포를 근사하는 데에 자주 사용됨</p>
 <p><code>-</code> 중심극한정리에 의하여 독립적인 확률변수들의 평균은 정규 분포에 가까워지는 성질이 있기 때문임</p>
 <p><code>-</code> 신뢰구간이나 가설검정 등의 모델에서 사용</p>
-<p><code>-</code> 기호로는 $N \sim (\mu, \sigma^{2})$</p>
+<p><code>-</code> 어떤 확률 변수 $X$가 정규분포를 따를 때 기호로 $X \sim N(\mu, \sigma^{2})$과 같이 표기</p>
 <p><code>-</code> 정규 분포의 기댓값, 중앙값, 최빈값은 $\mu$, 분산은 $\sigma^{2}$</p>
-<p><code>-</code> 표준정규분포는 평균이 0, 표준편차가 1인 경우임 ---&gt; $N \sim (0, 1)$</p>
-<p><code>-</code> 정규 분포에서 $\mu\pm2\sigma$에 전체 데이터 중 $95\%$가 존재</p>
+<p><code>-</code> 표준정규분포는 평균이 $0$, 표준편차가 $1$인 경우임 ---&gt; $N(0, 1)$</p>
+<p><code>-</code> 정규 분포에서 $(\mu-2\sigma, \mu+2\sigma)$에 전체 데이터 중 $95\%$가 존재</p>
 
 </div>
 </div>
@@ -618,7 +618,9 @@ $</p>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> 증명</p>
+<ul>
+<li>증명 </li>
+</ul>
 <p>$U=F(x)=P(X\leq x)\\
 F_{U}(u)=P(U\leq u)=P(F(X)\leq u)=P(X\leq F^{-1}(u))=F(F^{-1}(u))=u\\
 f_{U}(u)=1,\;0&lt;u&lt;1\\
