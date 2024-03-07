@@ -9,15 +9,15 @@
 <meta property="og:title" content="익몬 적합도 검정" />
 <meta name="author" content="한재수" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="작성 중" />
-<meta property="og:description" content="작성 중" />
+<meta name="description" content="작성 완료" />
+<meta property="og:description" content="작성 완료" />
 <link rel="canonical" href="https://jaesu26.github.io/study-blog/statistics/2024/02/24/%EB%A9%94%EC%9D%B4%ED%94%8C%EC%9D%B5%EB%AA%AC%ED%99%95%EB%A5%A0%EA%B2%80%EC%A0%95.html" />
 <meta property="og:url" content="https://jaesu26.github.io/study-blog/statistics/2024/02/24/%EB%A9%94%EC%9D%B4%ED%94%8C%EC%9D%B5%EB%AA%AC%ED%99%95%EB%A5%A0%EA%B2%80%EC%A0%95.html" />
 <meta property="og:site_name" content="Jaesu’s blog" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2024-02-24T00:00:00-06:00" />
 <script type="application/ld+json">
-{"url":"https://jaesu26.github.io/study-blog/statistics/2024/02/24/%EB%A9%94%EC%9D%B4%ED%94%8C%EC%9D%B5%EB%AA%AC%ED%99%95%EB%A5%A0%EA%B2%80%EC%A0%95.html","@type":"BlogPosting","headline":"익몬 적합도 검정","dateModified":"2024-02-24T00:00:00-06:00","datePublished":"2024-02-24T00:00:00-06:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://jaesu26.github.io/study-blog/statistics/2024/02/24/%EB%A9%94%EC%9D%B4%ED%94%8C%EC%9D%B5%EB%AA%AC%ED%99%95%EB%A5%A0%EA%B2%80%EC%A0%95.html"},"author":{"@type":"Person","name":"한재수"},"description":"작성 중","@context":"https://schema.org"}</script>
+{"url":"https://jaesu26.github.io/study-blog/statistics/2024/02/24/%EB%A9%94%EC%9D%B4%ED%94%8C%EC%9D%B5%EB%AA%AC%ED%99%95%EB%A5%A0%EA%B2%80%EC%A0%95.html","@type":"BlogPosting","headline":"익몬 적합도 검정","dateModified":"2024-02-24T00:00:00-06:00","datePublished":"2024-02-24T00:00:00-06:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://jaesu26.github.io/study-blog/statistics/2024/02/24/%EB%A9%94%EC%9D%B4%ED%94%8C%EC%9D%B5%EB%AA%AC%ED%99%95%EB%A5%A0%EA%B2%80%EC%A0%95.html"},"author":{"@type":"Person","name":"한재수"},"description":"작성 완료","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/study-blog/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://jaesu26.github.io/study-blog/feed.xml" title="Jaesu's blog" /><link rel="shortcut icon" type="image/x-icon" href="/study-blog/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
@@ -88,7 +88,7 @@ window.onload = wrap_img;
         <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title p-name" itemprop="name headline">익몬 적합도 검정</h1><p class="page-description">작성 중</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2024-02-24T00:00:00-06:00" itemprop="datePublished">
+    <h1 class="post-title p-name" itemprop="name headline">익몬 적합도 검정</h1><p class="page-description">작성 완료</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2024-02-24T00:00:00-06:00" itemprop="datePublished">
         Feb 24, 2024
       </time>• 
           <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -157,16 +157,15 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> 익몬을 하는데 빅풋이 체감상 맨날 마지막 탐색 위치(7시)에 뜸</p>
-<p><code>-</code> 그래서 다음부터 위치 기록하기로 하고 이 참에 검정도 하기로 함</p>
-<p><code>-</code> 한줄 요약: 빅풋 등장 위치 이상하다 싶어서 시작함</p>
-<p><code>-</code> 영가설: 각 위치별 빅풋 등장확률은 같다 (즉 각각 1/10)</p>
-<p><code>-</code> 대안가설: 각 위치별 빅풋 등장확률은 같지 않다</p>
-<p><code>-</code> 다항분포이므로 카이제곱분포 사용하면 됨</p>
-<p><code>-</code> 적합도 검정(기대도수 계산하면 됨), 유의수준은 0.99로 세팅</p>
-<p><code>-</code> 일반적으로 기대도수가 5이상인 범주가 80%는 되야 함, 표본 크기를 45로 하면 각 기대 도수는 5이다.</p>
-<p><code>-</code> 나는 유의수준을 크게 해서 신뢰구간도 크므로 유의 수준 0.95에 비해서 기각하기 쉽지 않음</p>
-<p><code>-</code> 따라서 표본 크기 n = 100으로 하기로 함</p>
+<p><code>-</code> 익몬을 하는데 빅풋이 체감상 맨날 마지막 탐색 위치(7시)에 뜸다고 느꼈다</p>
+<p><code>-</code> 그래서 빅풋의 등장 위치를 기록하기로 하고 적합도 검정도 하기로 했다</p>
+<p><code>-</code> 한줄 요약: 빅풋의 등장 위치가 편향되었다 싶어서 시작</p>
+<p><code>-</code> $H_0$: 각 위치별 빅풋 등장확률은 같다</p>
+<p><code>-</code> $H_a$: 각 위치별 빅풋 등장확률은 같지 않다</p>
+<p><code>-</code> 적합도 검정, 유의수준은 $0.99$로 결정했다</p>
+<p><code>-</code> 일반적으로 기대 도수가 $5$이상인 범주가 $80\%$는 되야 하는데 표본 크기를 $45$로 하면 각 기대 도수는 $5$이다</p>
+<p><code>-</code> 나는 유의수준을 크게 해서 신뢰구간도 크므로 유의 수준 $0.95$에 비해서 기각하기 쉽지 않다</p>
+<p><code>-</code> 따라서 표본 크기 $n = 100$으로 하기로 결정했다</p>
 
 </div>
 </div>
@@ -195,7 +194,7 @@ window.onload = wrap_img;
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span>  <span class="c1"># 제단</span>
     <span class="mi">1</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span>
     <span class="mi">3</span><span class="p">:</span> <span class="mi">15</span><span class="p">,</span>
     <span class="mi">5</span><span class="p">:</span> <span class="mi">13</span><span class="p">,</span>
