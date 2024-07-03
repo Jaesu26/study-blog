@@ -96,7 +96,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      4 min read
+      5 min read
     
 </span></p>
 
@@ -261,7 +261,7 @@ window.onload = wrap_img;
 <p><code>-</code> 만약 $x,y$가 3과 5라면 $xy$는 15이고 15는 3과 5의 곱으로만 이루어지므로 A가 처음에 답을 맞혔을 것이다</p>
 <p><code>-</code> 따라서 약수의 개수가 4개 이하인 15는 $xy$로 가능하지 않다</p>
 <p><code>-</code> 하지만 12와 16은 약수의 개수가 4개 초과이므로 $xy$로 가능하다</p>
-<p><code>-</code> 즉 B는 A의 답변을 듣고서도 $x,y$가 2와 6인지 3과 5인지 알아낼 수 없다</p>
+<p><code>-</code> 즉, B는 A의 답변을 듣더라도 $x,y$가 2와 6인지 3과 5인지 알아낼 수 없다</p>
 
 </div>
 </div>
@@ -314,6 +314,14 @@ window.onload = wrap_img;
 <p><code>-</code> 이러면 가능한 $x,y$ 조합이 2개 이상이므로 B의 입장에서는 $x,y$가 2와 6인지 4와 4인지 알 수 없다</p>
 <p><code>-</code> 즉, $xy$가 12라면 B의 답변 정보를 바탕으로 A는 $x+y$가 7이 아닌 8임을 알아낼 수 있다</p>
 <p><code>-</code> 그렇게 되면 A는 $xy$는 12, $x+y$는 8이라는 정보를 바탕으로 $x,y$가 2와 6임을 알아내고 정답을 맞힐 수 있다</p>
+<ul>
+<li>알고리즘</li>
+</ul>
+<p><code>-</code> A에게 주어진 $xy$를 바탕으로 가능한 $x+y$를 계산한다</p>
+<p><code>-</code> 계산된 $x+y$ 각각에 대해 가능한 $xy$를 계산한다</p>
+<p><code>-</code> $xy$ 집합에 대해 약수의 개수가 4개 이하인 것들을 제외한다</p>
+<p><code>-</code> 그리고 남은 $xy$ 집합의 원소가 1개라면 B가 정답을 맞혔을 것이므로 해당 $x+y$는 제외한다</p>
+<p><code>-</code> 이 과정을 $x+y$ 집합의 모든 원소에 대해 반복한 후 남아있는 원소가 1개 뿐이라면 A가 정답을 맞힐 수 있다</p>
 
 </div>
 </div>
@@ -324,6 +332,14 @@ window.onload = wrap_img;
 <h4 id="B:-나도-알겠어!">
 <a class="anchor" href="#B:-%EB%82%98%EB%8F%84-%EC%95%8C%EA%B2%A0%EC%96%B4!" aria-hidden="true"><span class="octicon octicon-link"></span></a><code>B: 나도 알겠어!</code><a class="anchor-link" href="#B:-%EB%82%98%EB%8F%84-%EC%95%8C%EA%B2%A0%EC%96%B4!"> </a>
 </h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> B는 A의 대답을 듣고 자신도 두 수가 무엇인지 알겠다고 했다</p>
+
 </div>
 </div>
 </div>
