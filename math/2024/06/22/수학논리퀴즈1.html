@@ -96,7 +96,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      7 min read
+      9 min read
     
 </span></p>
 
@@ -142,6 +142,7 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h4"><a href="#B:-나도-모르겠어">B: 나도 모르겠어 </a></li>
 <li class="toc-entry toc-h4"><a href="#A:-두-수가-뭔지-알겠어!">A: 두 수가 뭔지 알겠어! </a></li>
 <li class="toc-entry toc-h4"><a href="#B:-나도-알겠어!">B: 나도 알겠어! </a></li>
+<li class="toc-entry toc-h2"><a href="#파이썬으로-풀어보자">파이썬으로 풀어보자 </a></li>
 </ul>
 </li>
 </ul><!--
@@ -239,7 +240,7 @@ window.onload = wrap_img;
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> B는 A의 답변을 듣고 추가 정보를 얻어도 두 수가 뭔지 모르겠다고 했다</p>
 <p><code>-</code> 그런데 A의 답변과 두 수의 합을 알고서 두 수가 무엇인지 알 수 있을까?</p>
-<p><code>-</code> A의 답변을 듣지 않아도 두 수가 무엇인지 알 수 있는 경우가 존재한다</p>
+<p><code>-</code> 사실 A의 답변을 듣지 않아도 두 수가 무엇인지 알 수 있는 경우가 존재한다</p>
 <p><code>-</code> 만약 $x+y$가 4또는 5라고 해보자</p>
 <p><code>-</code> $x+y$가 4라면 두 수는 2와 2이고 $x+y$가 5라면 두 수는 2와 3이다</p>
 <p><code>-</code> $x+y$가 이보다 큰 6부터는 두 수를 무엇인지 바로 알 수 없게 된다 (2와 4 또는 3과 3)</p>
@@ -285,9 +286,9 @@ window.onload = wrap_img;
 <p><code>-</code> 그러면 $x,y$는 2와 6이거나 3과 4이다</p>
 <p><code>-</code> 다르게 얘기하면 $x+y$는 7이거나 8이다</p>
 <p><code>-</code> 즉, $xy$로 $x+y$를 추론할 수 있으므로 B의 답변 정보를 사용할 수 있다!</p>
-<p><code>-</code> <code>B가 나도 모르겠다</code> 답변했으니 이를 사용해보자</p>
+<p><code>-</code> <code>B가 나도 모르겠다</code>라고 답변했으니 이를 사용해보자</p>
 <p><code>-</code> 우선 $x+y$가 7이라고 가정해보자</p>
-<p><code>-</code> 그러면 B의 입장에서 가능한 $x,y$의 조합은 $(2,5),(3,4)$이다</p>
+<p><code>-</code> 그러면 $xy$를 모르고 $x+y$만 알고 있는 B의 입장에서 가능한 $x,y$의 조합은 $(2,5),(3,4)$이다</p>
 <p><code>-</code> 각 조합에 대해 $xy$를 계산하면 $10, 12$이다</p>
 <p><code>-</code> $10$의 약수의 개수는 $1,2,5,10$으로 4개이다</p>
 <p><code>-</code> $12$의 약수의 개수는 $1,2,3,4,6,12$로 6개이다</p>
@@ -295,12 +296,12 @@ window.onload = wrap_img;
 <p><code>-</code> 그렇게 되면 A가 처음에 정답을 맞혔을 것이므로 처음에 모르겠다고 답변한 것과 모순된다</p>
 <p><code>-</code> 하지만 $xy$가 12라면 약수의 개수가 6개로 가능한 곱의 조합이 2개 이상이다</p>
 <p><code>-</code> 그러면 A가 처음에 모르겠다고 한 것이 합리적이다</p>
-<p><code>-</code> 즉, B의 입장에서 $x+y$가 7이라면 가능한 $xy$는 12뿐이며 이때의 $x,y$는 3과 4이다</p>
+<p><code>-</code> 즉, B의 입장에서 $x+y$가 7일 때 가능한 $xy$는 12뿐이며 이때의 $x,y$는 3과 4이다</p>
 <p><code>-</code> 그런데 이것이 사실이라면 B가 A의 답변을 듣고 정답을 모르겠다 답변한 것과 모순된다</p>
 <p><code>-</code> 따라서 $x+y$는 7이 될 수 없다</p>
 <p><code>-</code> 이제 $x+y$가 8이라고 가정해보자</p>
 <p><code>-</code> 만약 $x+y$가 8이라고 가정했는데 모순이 안 된다면 A의 입장에선 $xy$는 12이고 $x+y$는 8이므로 $x,y$는 2와 6임을 알아낼 수 있다!</p>
-<p><code>-</code> $x+y$가 8일 때 B의 입장에서 가능한 $x,y$의 조합은 $(2,6),(3,5), (4,4)$이다</p>
+<p><code>-</code> $x+y$가 8일 때 B의 입장에서 가능한 $x,y$의 조합은 $(2,6), (3,5), (4,4)$이다</p>
 <p><code>-</code> 각 조합에 대해 $xy$를 계산하면 $12, 15, 16$이다</p>
 <p><code>-</code> $12$의 약수의 개수는 $1,2,3,4,6,12$로 6개이다</p>
 <p><code>-</code> $15$의 약수의 개수는 $1,3,5,15$로 4개이다</p>
@@ -312,7 +313,7 @@ window.onload = wrap_img;
 <p><code>-</code> 그러면 A가 처음에 모르겠다고 한 것이 합리적이다</p>
 <p><code>-</code> 즉, $x+y$가 8이라면 B의 입장에서 가능한 $xy$는 12 또는 16이며 이때의 $x,y$는 2와 6 그리고 4와 4이다</p>
 <p><code>-</code> 이러면 가능한 $x,y$ 조합이 2개 이상이므로 B의 입장에서는 $x,y$가 2와 6인지 4와 4인지 알 수 없다</p>
-<p><code>-</code> 즉, $xy$가 12라면 B의 답변 정보를 바탕으로 A는 $x+y$가 7이 아닌 8임을 알아낼 수 있다</p>
+<p><code>-</code> 즉, $xy$가 12라면 B의 답변을 바탕으로 A는 $x+y$가 7이 아닌 8임을 알아낼 수 있다</p>
 <p><code>-</code> 그렇게 되면 A는 $xy$는 12, $x+y$는 8이라는 정보를 바탕으로 $x,y$가 2와 6임을 알아내고 정답을 맞힐 수 있다</p>
 <ul>
 <li>알고리즘</li>
@@ -340,19 +341,19 @@ window.onload = wrap_img;
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> B는 A의 대답을 듣고 자신도 두 수가 무엇인지 알겠다고 했다</p>
 <p><code>-</code> A의 대답을 이용하기 위해 A의 생각을 따라가보자</p>
-<p><code>-</code> 만약 $x+y$가 8이라고 해보자</p>
-<p><code>-</code> 그러면 가능한 $x,y$의 조합은 $(2,6),(3,5), (4,4)$이다</p>
+<p><code>-</code> 만약 B에게 $x+y$가 8이라는 정보가 주어졌다고 해보자</p>
+<p><code>-</code> 그러면 가능한 $x,y$의 조합은 $(2,6), (3,5), (4,4)$이다</p>
 <p><code>-</code> 각 조합에 대해 $xy$를 계산하면 $12, 15, 16$이다</p>
 <p><code>-</code> 만약 $x, y$가 3과 5라면 $xy$는 15이며 15는 3과 5의 곱으로만 이루어진다</p>
 <p><code>-</code> 그렇게 되면 A가 처음에 정답을 맞혔을 것이므로 처음에 모르겠다고 답변한 것과 모순된다</p>
 <p><code>-</code> 하지만 $xy$가 12 또는 16이라면 약수의 개수가 4를 초과하므로 가능한 곱의 조합이 2개 이상이다</p>
-<p><code>-</code> 12라면 2와 6 또는 3과 4. 16이라면 2와 8 또는 4와 4</p>
+<p><code>-</code> 12라면 2와 6 또는 3과 4, 16이라면 2와 8 또는 4와 4</p>
 <p><code>-</code> 그러면 A가 처음에 모르겠다고 한 것이 합리적이다</p>
 <p><code>-</code> 만약 $xy$가 12라고 해보자</p>
 <p><code>-</code> A의 입장에서 볼 때 $xy$가 12라면 가능한 $x,y$의 조합은 $(2,6),(3,4)$이다</p>
 <p><code>-</code> 각 조합에 대해 $x+y$를 계산하면 $7,8$이다</p>
 <p><code>-</code> 우선 $x+y$가 7이라고 가정해보자</p>
-<p><code>-</code> 그러면 A가 생각했을 때 B의 입장에서 가능한 $x,y$의 조합은 $(2,5),(3,4)$이다</p>
+<p><code>-</code> 그러면 A가 생각했을 때 $xy$를 모르는 B의 입장에서 가능한 $x,y$의 조합은 $(2,5),(3,4)$이다</p>
 <p><code>-</code> 각 조합에 대해 $xy$를 계산하면 $10, 12$이다</p>
 <p><code>-</code> $10$의 약수의 개수는 $1,2,5,10$으로 4개이다</p>
 <p><code>-</code> $12$의 약수의 개수는 $1,2,3,4,6,12$로 6개이다</p>
@@ -360,12 +361,11 @@ window.onload = wrap_img;
 <p><code>-</code> 그렇게 되면 A가 처음에 정답을 맞혔을 것이므로 처음에 모르겠다고 답변한 것과 모순된다</p>
 <p><code>-</code> 하지만 $xy$가 12라면 약수의 개수가 6개로 가능한 곱의 조합이 2개 이상이다</p>
 <p><code>-</code> 그러면 A가 처음에 모르겠다고 한 것이 합리적이다</p>
-<p><code>-</code> 즉, A가 생각했을 때 B의 입장에서 $x+y$가 7이라면 가능한 $xy$는 12뿐이며 이때의 $x,y$는 3과 4이다</p>
+<p><code>-</code> 즉, A가 생각했을 때 $xy$를 모르는 B의 입장에서 $x+y$가 7이라면 가능한 $xy$는 12뿐이며 이때의 $x,y$는 3과 4이다</p>
 <p><code>-</code> 그런데 이것이 사실이라면 B가 A의 답변을 듣고 정답을 모르겠다 답변한 것과 모순된다</p>
 <p><code>-</code> 따라서 $x+y$는 7이 될 수 없다</p>
 <p><code>-</code> 이제 $x+y$가 8이라고 가정해보자</p>
-<p><code>-</code> 만약 $x+y$가 8이라고 가정했는데 모순이 안 된다면 A의 입장에선 $xy$는 12이고 $x+y$는 8이므로 $x,y$는 2와 6임을 알아낼 수 있다!</p>
-<p><code>-</code> $x+y$가 8일 때 A가 생각했을 때 B의 입장에서 가능한 $x,y$의 조합은 $(2,6),(3,5), (4,4)$이다</p>
+<p><code>-</code> $x+y$가 8이라면 A가 생각했을 때 $xy$를 모르는 B의 입장에서 가능한 $x,y$의 조합은 $(2,6),(3,5), (4,4)$이다</p>
 <p><code>-</code> 각 조합에 대해 $xy$를 계산하면 $12, 15, 16$이다</p>
 <p><code>-</code> $12$의 약수의 개수는 $1,2,3,4,6,12$로 6개이다</p>
 <p><code>-</code> $15$의 약수의 개수는 $1,3,5,15$로 4개이다</p>
@@ -373,14 +373,64 @@ window.onload = wrap_img;
 <p><code>-</code> 만약 $x, y$가 3과 5라면 $xy$는 15이며 15는 3과 5의 곱으로만 이루어진다</p>
 <p><code>-</code> 그렇게 되면 A가 처음에 정답을 맞혔을 것이므로 처음에 모르겠다고 답변한 것과 모순된다</p>
 <p><code>-</code> 하지만 $xy$가 12 또는 16이라면 약수의 개수가 4를 초과하므로 가능한 곱의 조합이 2개 이상이다</p>
-<p><code>-</code> 12라면 2와 6 또는 3과 4. 16이라면 2와 8 또는 4와 4</p>
+<p><code>-</code> 12라면 2와 6 또는 3과 4, 16이라면 2와 8 또는 4와 4</p>
 <p><code>-</code> 그러면 A가 처음에 모르겠다고 한 것이 합리적이다</p>
-<p><code>-</code> 즉, $x+y$가 8이라면 A가 생각했을 때 B의 입장에서 가능한 $xy$는 12 또는 16이며 이때의 $x,y$는 2와 6 그리고 4와 4이다</p>
-<p><code>-</code> 이러면 가능한 $x,y$ 조합이 2개 이상이므로 B의 입장에서는 $x,y$가 2와 6인지 4와 4인지 알 수 없다</p>
-<p><code>-</code> 즉, $xy$가 12라면 B의 답변 정보를 바탕으로 A는 $x+y$가 7이 아닌 8임을 알아낼 수 있다</p>
+<p><code>-</code> 즉, A가 생각했을 때 $x+y$가 8이라고 가정하면 B의 입장에서 가능한 $xy$는 12 또는 16이며 이때의 $x,y$는 2와 6 그리고 4와 4이다</p>
+<p><code>-</code> 이러면 가능한 $x,y$ 조합이 2개 이상이므로 B의 입장에선 $x,y$가 2와 6인지 4와 4인지 알 수 없다</p>
+<p><code>-</code> 즉, A에게 주어진 $xy$가 12라면 B의 답변 정보를 바탕으로 A는 $x+y$가 7이 아닌 8임을 알아낼 수 있다</p>
 <p><code>-</code> 그렇게 되면 A는 $xy$는 12, $x+y$는 8이라는 정보를 바탕으로 $x,y$가 2와 6임을 알아내고 정답을 맞힐 수 있다</p>
 <p><code>-</code> 즉, $x,y$가 2와 6이라면 <code>A: 두 수가 뭔지 모르겠어</code>, <code>B: 나도 모르겠어</code>, <code>A: 두 수가 뭔지 알겠어!</code> 까지의 과정에 모순되는 점이 없다</p>
-<p><code>-</code> 그렇다면 이제 $xy$가 16이라고 해보자</p>
+<p><code>-</code> 따라서 $x+y=8$이 주어진 B의 입장에선 $xy$의 후보군으로 12를 고려할 수 있다</p>
+<p><code>-</code> 그렇다면 이제 $xy$가 16이라고 가정하고 A의 입장이 되어 생각해보자</p>
+<p><code>-</code> A의 입장에서 볼 때 $xy$가 16이라면 가능한 $x,y$의 조합은 $(2,8),(4,4)$이다</p>
+<p><code>-</code> 각 조합에 대해 $x+y$를 계산하면 $8,10$이다</p>
+<p><code>-</code> 우선 $x+y$가 8이라고 가정해보자</p>
+<p><code>-</code> 그러면 A가 생각했을 때 $xy$를 모르는 B의 입장에서 가능한 $x,y$의 조합은 $(2,6),(3,5),(4,4)$이다</p>
+<p><code>-</code> 각 조합에 대해 $xy$를 계산하면 $12, 15,16$이다</p>
+<p><code>-</code> 약수의 개수가 4개를 초과해야 하므로 가능한 $xy$는 12 또는 16이다</p>
+<p><code>-</code> $x+y$가 8이라면 <code>B: 나도 모르겠어</code>라는 답변이 합리적이다</p>
+<p><code>-</code> 이제 $x+y$가 10이라고 가정해보자</p>
+<p><code>-</code> 그러면 A가 생각했을 때 $xy$를 모르는 B의 입장에서 가능한 $x,y$의 조합은 $(2,8),(3,7),(4,6),(5,5)$이다</p>
+<p><code>-</code> 각 조합에 대해 $xy$를 계산하면 $16, 21,24,25$이다</p>
+<p><code>-</code> 약수의 개수가 4개를 초과해야 하므로 가능한 $xy$는 16 또는 24이다</p>
+<p><code>-</code> $x+y$가 10이라면 <code>B: 나도 모르겠어</code>라는 답변이 합리적이다</p>
+<p><code>-</code> 따라서 만약 $xy$가 16이라면 A의 입장에서 볼 때 가능한 $x+y$는 8과 10이며 이때의 $x,y$는 4와 4 그리고 2와 8이다</p>
+<p><code>-</code> 그런데 이렇게 되면 A의 입장에선 $x+y$가 8과 10 둘 다 가능하므로 둘 중 어느것인지 알지 못한다</p>
+<p><code>-</code> 그러면 <code>A: 두 수가 뭔지 알겠어!</code>와 같이 대답할 수 없으므로 모순이다</p>
+<p><code>-</code> 즉, 처음 B에게 주어진 $x+y$가 8이라면 $xy$는 16이 될 수 없다</p>
+<p><code>-</code> 따라서, 가능한 $xy$는 12이므로 B는 $x,y$가 2와 6임을 알 수 있고 <code>B: 나도 알겠어!</code>라고 대답할 수 있다</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="파이썬으로-풀어보자">
+<a class="anchor" href="#%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%9C%BC%EB%A1%9C-%ED%92%80%EC%96%B4%EB%B3%B4%EC%9E%90" aria-hidden="true"><span class="octicon octicon-link"></span></a>파이썬으로 풀어보자<a class="anchor-link" href="#%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%9C%BC%EB%A1%9C-%ED%92%80%EC%96%B4%EB%B3%B4%EC%9E%90"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 위의 풀이는 정답인 2와 6을 시작으로 접근했기에 쉽게 문제를 해결할 수 있었다 (사실 아무 두 수나 정한건데 그게 정답이었다;;)</p>
+<p><code>-</code> 모든 경우를 빠르게 고려하기 위해 파이썬을 사용해보자</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>또 다른 문제</li>
+</ul>
+<p><code>-</code> P: 도저히 모르겠는데요</p>
+<p><code>-</code> S: 당신이 모를 거란 것쯤은 이미 알고 있었어요</p>
+<p><code>-</code> P: 아, 두 수가 뭔지 알겠습니다</p>
+<p><code>-</code> S: 저도 두 수가 뭔지 알겠습니다</p>
 
 </div>
 </div>
