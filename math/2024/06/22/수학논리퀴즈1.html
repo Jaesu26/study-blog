@@ -149,6 +149,7 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h3"><a href="#A:-두-수가-뭔지-모르겠어">A: 두 수가 뭔지 모르겠어 </a></li>
 <li class="toc-entry toc-h3"><a href="#B:-나도-모르겠어">B: 나도 모르겠어 </a></li>
 <li class="toc-entry toc-h3"><a href="#A:-두-수가-뭔지-알겠어!">A: 두 수가 뭔지 알겠어! </a></li>
+<li class="toc-entry toc-h3"><a href="#B:-나도-알겠어!">B: 나도 알겠어! </a></li>
 </ul>
 </li>
 <li class="toc-entry toc-h2"><a href="#다른-버전의-문제">다른 버전의 문제 </a></li>
@@ -714,8 +715,8 @@ window.onload = wrap_img;
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">filter_product_pairs</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">min_val</span><span class="p">,</span> <span class="n">max_val</span><span class="p">):</span>
-    <span class="n">product_pairs</span> <span class="o">=</span> <span class="n">find_product_pairs</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">min_val</span><span class="p">,</span> <span class="n">max_val</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">filter_product_pairs</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">min_val</span><span class="p">,</span> <span class="n">max_val</span><span class="p">):</span>
+    <span class="n">product_pairs</span> <span class="o">=</span> <span class="n">find_product_pairs</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">min_val</span><span class="p">,</span> <span class="n">max_val</span><span class="p">)</span>
     <span class="n">selected_pairs</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="k">for</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">product_pairs</span><span class="p">:</span>
         <span class="n">T</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
@@ -726,20 +727,21 @@ window.onload = wrap_img;
     <span class="k">return</span> <span class="n">selected_pairs</span>
 
 
-<span class="k">def</span> <span class="nf">is_valid_product</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">min_val</span><span class="p">,</span> <span class="n">max_val</span><span class="p">):</span>  <span class="c1"># 함수명 바꾸자</span>
+<span class="k">def</span> <span class="nf">is_valid_product</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">min_val</span><span class="p">,</span> <span class="n">max_val</span><span class="p">):</span>
     <span class="sd">"""A가 두 수가 무엇인지 알겠다고 한 것이 타당한지 확인"""</span>
-    <span class="n">selected_pairs</span> <span class="o">=</span> <span class="n">filter_product_pairs</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">min_val</span><span class="p">,</span> <span class="n">max_val</span><span class="p">)</span>
-    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">selected_pairs</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
-        <span class="k">return</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">selected_pairs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">selected_pairs</span> <span class="o">=</span> <span class="n">filter_product_pairs</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">min_val</span><span class="p">,</span> <span class="n">max_val</span><span class="p">)</span>
+    <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">selected_pairs</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span>
 
 
 <span class="c1"># 예시</span>
 <span class="n">n</span> <span class="o">=</span> <span class="mi">12</span>
 <span class="n">min_val</span> <span class="o">=</span> <span class="mi">2</span>
 <span class="n">max_val</span> <span class="o">=</span> <span class="mi">50</span>
-<span class="n">result</span> <span class="o">=</span> <span class="n">is_valid_product</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">min_val</span><span class="p">,</span> <span class="n">max_val</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">filter_product_pairs</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">min_val</span><span class="p">,</span> <span class="n">max_val</span><span class="p">))</span>
+<span class="k">if</span> <span class="n">is_valid_product</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">min_val</span><span class="p">,</span> <span class="n">max_val</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"A: 두 수가 뭔지 알겠어!"</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"A: 두 수가 뭔지 모르겠어"</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -752,7 +754,8 @@ window.onload = wrap_img;
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>(2, 6)
+<pre>[(2, 6)]
+A: 두 수가 뭔지 알겠어!
 </pre>
 </div>
 </div>
@@ -763,6 +766,15 @@ window.onload = wrap_img;
 </div>
     
 
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="B:-나도-알겠어!">
+<a class="anchor" href="#B:-%EB%82%98%EB%8F%84-%EC%95%8C%EA%B2%A0%EC%96%B4!" aria-hidden="true"><span class="octicon octicon-link"></span></a><code>B: 나도 알겠어!</code><a class="anchor-link" href="#B:-%EB%82%98%EB%8F%84-%EC%95%8C%EA%B2%A0%EC%96%B4!"> </a>
+</h3>
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
