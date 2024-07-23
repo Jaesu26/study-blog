@@ -96,7 +96,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      12 min read
+      13 min read
     
 </span></p>
 
@@ -472,7 +472,7 @@ window.onload = wrap_img;
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
 
 
-<span class="k">def</span> <span class="nf">find_product_pairs</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">minimum</span><span class="p">,</span> <span class="n">maximum</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">find_product_pairs</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">minimum</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">maximum</span><span class="o">=</span><span class="mi">50</span><span class="p">):</span>
     <span class="n">product_pairs</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">minimum</span><span class="p">,</span> <span class="n">math</span><span class="o">.</span><span class="n">isqrt</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">n</span> <span class="o">%</span> <span class="n">x</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
@@ -533,7 +533,7 @@ window.onload = wrap_img;
     <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">sequence</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">2</span>
 
 
-<span class="k">def</span> <span class="nf">step1</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">minimum</span><span class="p">,</span> <span class="n">maximum</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">step1</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">minimum</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">maximum</span><span class="o">=</span><span class="mi">50</span><span class="p">):</span>
     <span class="sd">"""A가 모르겠다고 한 것이 타당한지 확인"""</span>
     <span class="n">product_pairs</span> <span class="o">=</span> <span class="n">find_product_pairs</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">minimum</span><span class="p">,</span> <span class="n">maximum</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">has_elements</span><span class="p">(</span><span class="n">product_pairs</span><span class="p">)</span>
@@ -604,7 +604,7 @@ window.onload = wrap_img;
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">find_sum_pairs</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">minimum</span><span class="p">,</span> <span class="n">maximum</span><span class="p">):</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">find_sum_pairs</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">minimum</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">maximum</span><span class="o">=</span><span class="mi">50</span><span class="p">):</span>
     <span class="n">sum_pairs</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">minimum</span><span class="p">,</span> <span class="n">maximum</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
         <span class="n">y</span> <span class="o">=</span> <span class="n">n</span> <span class="o">-</span> <span class="n">x</span>
@@ -659,7 +659,7 @@ window.onload = wrap_img;
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">filter_sum_pairs</span><span class="p">(</span><span class="n">sum_pairs</span><span class="p">,</span> <span class="n">minimum</span><span class="p">,</span> <span class="n">maximum</span><span class="p">):</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">filter_sum_pairs</span><span class="p">(</span><span class="n">sum_pairs</span><span class="p">,</span> <span class="n">minimum</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">maximum</span><span class="o">=</span><span class="mi">50</span><span class="p">):</span>
     <span class="n">selected_pairs</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="k">for</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">sum_pairs</span><span class="p">:</span>
         <span class="n">n</span> <span class="o">=</span> <span class="n">x</span> <span class="o">*</span> <span class="n">y</span>
@@ -669,7 +669,7 @@ window.onload = wrap_img;
     <span class="k">return</span> <span class="n">selected_pairs</span>
 
 
-<span class="k">def</span> <span class="nf">step2</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">minimum</span><span class="p">,</span> <span class="n">maximum</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">step2</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">minimum</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">maximum</span><span class="o">=</span><span class="mi">50</span><span class="p">):</span>
     <span class="sd">"""B가 모르겠다고 한 것이 타당한지 확인"""</span>
     <span class="n">sum_pairs</span> <span class="o">=</span> <span class="n">find_sum_pairs</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">minimum</span><span class="p">,</span> <span class="n">maximum</span><span class="p">)</span>
     <span class="n">selected_pairs</span> <span class="o">=</span> <span class="n">filter_sum_pairs</span><span class="p">(</span><span class="n">sum_pairs</span><span class="p">,</span> <span class="n">minimum</span><span class="p">,</span> <span class="n">maximum</span><span class="p">)</span>
@@ -677,7 +677,7 @@ window.onload = wrap_img;
 
 
 <span class="c1"># 예시 실행</span>
-<span class="n">n</span> <span class="o">=</span> <span class="mi">7</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">8</span>
 <span class="n">minimum</span> <span class="o">=</span> <span class="mi">2</span>
 <span class="n">maximum</span> <span class="o">=</span> <span class="mi">50</span>
 <span class="n">result</span> <span class="o">=</span> <span class="n">step2</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">minimum</span><span class="p">,</span> <span class="n">maximum</span><span class="p">)</span>
@@ -694,7 +694,7 @@ window.onload = wrap_img;
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>두 수의 합으로 7이 주어졌을 때 A의 답변을 들은 B는 두 수가 무엇인지 모릅니까?: False
+<pre>두 수의 합으로 8이 주어졌을 때 A의 답변을 들은 B는 두 수가 무엇인지 모릅니까?: True
 </pre>
 </div>
 </div>
@@ -717,8 +717,10 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> 주어진 곱을 $(x, y)$ 쌍으로 나누고 합을 구한다</p>
-<p><code>-</code> 각 합에 대해 곱의 쌍이 2개 이상이면 B가 정답을 모르는게 합리적이다</p>
+<p><code>-</code> 주어진 곱을 $(x, y)$ 쌍으로 나눈다</p>
+<p><code>-</code> 각 곱에 대해 <code>A: 두 수가 뭔지 모르겠어</code>에서 사용한 알고리즘을 적용한다</p>
+<p><code>-</code> 남은 곱에 대해 합을 구한다</p>
+<p><code>-</code> 각 합에 대해 <code>B: 나도 모르겠어</code>에서 사용한 알고리즘을 적용한다</p>
 <p><code>-</code> 이를 만족하는 합이 2개 이상이면 A는 정답을 맞히지 못한다</p>
 <p><code>-</code> 하지만 A는 두 수가 무엇인지 알아냈으므로 이를 만족하는 합이 단 1개 뿐인 것을 의미한다</p>
 
@@ -730,7 +732,10 @@ window.onload = wrap_img;
 <div class="text_cell_render border-box-sizing rendered_html">
 <ul>
 <li>
-<p>주어진 곱을 $(x, y)$ 쌍으로 나누고 합을 구하자</p>
+<p>주어진 곱을 $(x, y)$ 쌍으로 나누자</p>
+</li>
+<li>
+<p>각 쌍에 대해 step1 함수의 알고리즘를 적용하고 남은 쌍에 대해 합을 구하자</p>
 </li>
 <li>
 <p>각 합에 대해 step2 함수를 적용하고 이를 만족하는 합을 고려하자</p>
@@ -750,7 +755,7 @@ window.onload = wrap_img;
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">filter_product_pairs</span><span class="p">(</span><span class="n">product_pairs</span><span class="p">,</span> <span class="n">minimum</span><span class="p">,</span> <span class="n">maximum</span><span class="p">):</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">filter_product_pairs</span><span class="p">(</span><span class="n">product_pairs</span><span class="p">,</span> <span class="n">minimum</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">maximum</span><span class="o">=</span><span class="mi">50</span><span class="p">):</span>
     <span class="n">selected_pairs</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="k">for</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">product_pairs</span><span class="p">:</span>
         <span class="n">n</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
@@ -760,15 +765,17 @@ window.onload = wrap_img;
     <span class="k">return</span> <span class="n">selected_pairs</span>
 
 
-<span class="k">def</span> <span class="nf">step3</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">minimum</span><span class="p">,</span> <span class="n">maximum</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">step3</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">minimum</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">maximum</span><span class="o">=</span><span class="mi">50</span><span class="p">):</span>
     <span class="sd">"""A가 두 수가 무엇인지 알겠다고 한 것이 타당한지 확인"""</span>
     <span class="n">product_pairs</span> <span class="o">=</span> <span class="n">find_product_pairs</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">minimum</span><span class="p">,</span> <span class="n">maximum</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">has_elements</span><span class="p">(</span><span class="n">product_pairs</span><span class="p">):</span>  <span class="c1"># 중복 연산 방지를 위해 step1 함수 사용 안 함</span>
+        <span class="k">return</span> <span class="kc">False</span>
     <span class="n">selected_pairs</span> <span class="o">=</span> <span class="n">filter_product_pairs</span><span class="p">(</span><span class="n">product_pairs</span><span class="p">,</span> <span class="n">minimum</span><span class="p">,</span> <span class="n">maximum</span><span class="p">)</span>
     <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">selected_pairs</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span>
 
 
 <span class="c1"># 예시</span>
-<span class="n">n</span> <span class="o">=</span> <span class="mi">12</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">15</span>
 <span class="n">minimum</span> <span class="o">=</span> <span class="mi">2</span>
 <span class="n">maximum</span> <span class="o">=</span> <span class="mi">50</span>
 <span class="n">result</span> <span class="o">=</span> <span class="n">step3</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">minimum</span><span class="p">,</span> <span class="n">maximum</span><span class="p">)</span>
@@ -785,7 +792,7 @@ window.onload = wrap_img;
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>두 수의 곱이 12일 때 B의 답변을 들은 A는 두 수가 무엇인지 압니까?: True
+<pre>두 수의 곱이 15일 때 B의 답변을 들은 A는 두 수가 무엇인지 압니까?: False
 </pre>
 </div>
 </div>
@@ -805,6 +812,66 @@ window.onload = wrap_img;
 </div>
 </div>
 </div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 주어진 합을 $(x, y)$ 쌍으로 나누고 곱을 구한다</p>
+<p><code>-</code> 이제 각 곱에 대해 생각해보자</p>
+<p><code>-</code> 각 곱에 대해 <code>A: 두 수가 뭔지 알겠어!</code>에서 사용한 알고리즘을 적용한다</p>
+<p><code>-</code> 남은 곱이 단 하나뿐이라면 B는 정답을 맞힐 수 있다</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">step4</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">minimum</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">maximum</span><span class="o">=</span><span class="mi">50</span><span class="p">):</span>
+    <span class="n">sum_pairs</span> <span class="o">=</span> <span class="n">find_sum_pairs</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">minimum</span><span class="p">,</span> <span class="n">maximum</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">step2</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">minimum</span><span class="p">,</span> <span class="n">maximum</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">[]</span>
+    <span class="n">selected_pairs</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">sum_pairs</span><span class="p">:</span>
+        <span class="n">n</span> <span class="o">=</span> <span class="n">x</span> <span class="o">*</span> <span class="n">y</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">step3</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">minimum</span><span class="p">,</span> <span class="n">maximum</span><span class="p">):</span>
+            <span class="k">continue</span>
+        <span class="n">selected_pairs</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">selected_pairs</span>
+
+
+<span class="c1"># 예시</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">8</span>
+<span class="n">minimum</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">maximum</span> <span class="o">=</span> <span class="mi">50</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">step4</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">minimum</span><span class="p">,</span> <span class="n">maximum</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"두 수의 곱이 </span><span class="si">{</span><span class="n">n</span><span class="si">}</span><span class="s2">일 때 B의 답변을 들은 A는 두 수가 무엇인지 압니까?: </span><span class="si">{</span><span class="n">result</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>두 수의 곱이 8일 때 B의 답변을 들은 A는 두 수가 무엇인지 압니까?: [(2, 6)]
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
