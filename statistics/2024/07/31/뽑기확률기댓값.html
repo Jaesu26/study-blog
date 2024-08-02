@@ -96,7 +96,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      2 min read
+      3 min read
     
 </span></p>
 
@@ -138,6 +138,7 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h2"><a href="#상황-가정">상황 가정 </a></li>
 <li class="toc-entry toc-h2"><a href="#확률에-따른-변화">확률에 따른 변화 </a></li>
 <li class="toc-entry toc-h2"><a href="#진실">진실 </a></li>
+<li class="toc-entry toc-h2"><a href="#활용">활용 </a></li>
 <li class="toc-entry toc-h2"><a href="#부록">부록 </a></li>
 </ul><!--
 #################################################
@@ -360,59 +361,6 @@ window.onload = wrap_img;
     
     
 <div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-    
-
-    
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">1e-4</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">1e-4</span><span class="p">)</span>
-<span class="n">fp</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-    
-
-    
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">convergence_value</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">e</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-    
-
-    
-    
-<div class="cell border-box-sizing code_cell rendered">
 <details class="description">
       <summary class="btn btn-sm" data-open="Hide Code" data-close="Show Code"></summary>
         <p></p>
@@ -420,7 +368,14 @@ window.onload = wrap_img;
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">p</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">1e-4</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">1e-4</span><span class="p">)</span>
+<span class="n">fp</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+<span class="n">convergence_value</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">e</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">fp</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"$f(p) = 1 - (1 - p)^{1 / p}$"</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"blue"</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">"-"</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="n">convergence_value</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"r"</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">"--"</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"$1 - </span><span class="se">\\</span><span class="s2">frac</span><span class="si">{1}{e}</span><span class="s2">$"</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">"$p$"</span><span class="p">)</span>
@@ -481,11 +436,38 @@ window.onload = wrap_img;
 <p><code>-</code> 그런데 어디서 본 것 같은 모양이다?</p>
 <p><code>-</code> 자연로그의 밑 $e=\lim\limits_{n \to \infty}\left(1+\frac{1}{n}\right)^n$</p>
 <p><code>-</code> $\lim\limits_{p\to 0+}(1-p)^{\frac{1}{p}} = \lim\limits_{n\to \infty}\left(1-\frac{1}{n}\right)^{n},\quad p\to {0+}\; \text{as}\; n \to \infty$</p>
-<p><code>-</code> $ \lim\limits_{n\to \infty}\left(1-\frac{1}{n}\right)^{n} =  \lim\limits_{n\to \infty}\left(\dfrac{n-1}{n}\right)^{n}$</p>
-<p><code>-</code> $n = t+1$로 치환하면 $\lim\limits_{t\to \infty}\left(\dfrac{t}{t+1}\right)^{t+1} = \lim\limits_{t\to \infty}\left(\dfrac{t+1}{t}\right)^{-(t+1)} = \lim\limits_{t\to \infty}\left(1+\frac{1}{t}\right)^{-t}\left(1+\frac{1}{t}\right)^{-1}$</p>
-<p><code>-</code> 이때 극한의 성질에 의해 $\lim\limits_{t\to \infty}\left(1+\frac{1}{t}\right)^{-t}=\left(\lim\limits_{t\to \infty}\left(1+\frac{1}{t}\right)^t\right)^{-1}=e^{-1},\quad \lim\limits_{t\to \infty}\left(1+\frac{1}{t}\right)^{-1} = 1$</p>
+<p><code>-</code> $ \lim\limits_{n\to \infty}\left(1-\frac{1}{n}\right)^{n} =  \lim\limits_{n\to \infty}\left(\frac{n-1}{n}\right)^{n}$</p>
+<p><code>-</code> $n = t+1$로 치환하면 $\lim\limits_{t\to \infty}\left(\frac{t}{t+1}\right)^{t+1} = \lim\limits_{t\to \infty}\left(\frac{t+1}{t}\right)^{-(t+1)} = \lim\limits_{t\to \infty}\left(1+\frac{1}{t}\right)^{-t}\left(1+\frac{1}{t}\right)^{-1}$</p>
+<p><code>-</code> 극한의 성질에 의해 $\lim\limits_{t\to \infty}\left(1+\frac{1}{t}\right)^{-t}=\left(\lim\limits_{t\to \infty}\left(1+\frac{1}{t}\right)^t\right)^{-1}=e^{-1},\quad \lim\limits_{t\to \infty}\left(1+\frac{1}{t}\right)^{-1} = 1$</p>
 <p><code>-</code> 따라서 극한의 성질에 의해 $\lim\limits_{t\to \infty}\left(1+\frac{1}{t}\right)^{-t}\left(1+\frac{1}{t}\right)^{-1}=\lim\limits_{t\to \infty}\left(1+\frac{1}{t}\right)^{-t} \times\lim\limits_{t\to \infty}\left(1+\frac{1}{t}\right)^{-1}=\frac{1}{e}$</p>
 <p><code>-</code> 즉, $p$가 적당히 작으면 $P(A)$를 $\frac{1}{e}$에 근사할 수 있다</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="활용">
+<a class="anchor" href="#%ED%99%9C%EC%9A%A9" aria-hidden="true"><span class="octicon octicon-link"></span></a>활용<a class="anchor-link" href="#%ED%99%9C%EC%9A%A9"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 어떤 사람이 당첨 확률이 $p=0.1$인 아이템을 35번 사용했는데도 당첨 안됐다고 해보자</p>
+<p><code>-</code> $p=0.1$이므로 당첨되기 위해 시도하는 횟수의 기댓값은 $10$이다</p>
+<p><code>-</code> 기댓값만큼 시도해서 안될 확률은 약 $0.368$였다</p>
+<p><code>-</code> 아이템을 사용하는 것은 독립시행이므로 35번 시도해서 안될 확률은 $0.368^{\frac{35}{10}}\approx 0.03$이다</p>
+<p><code>-</code> 추가로 내가 다른 사람들보다 운이 얼마나 없는지도 평가할 수 있다</p>
+<p><code>-</code> 당첨되기까지의 시도 횟수를 오름차순 정렬해보자</p>
+<p><code>-</code> 35번 쓰고도 당첨 안된 사람은 하위 $3\%$안에 든다</p>
+<p><code>-</code> 물론 아직 당첨된 게 아니므로 운이 더 나빠질 가능성이 남아있다</p>
+<p><code>-</code> 참고로 이러한 접근 방법은 <code>당첨 될 때까지 시도</code>하는 모든 것에 가능하다</p>
+<p><code>-</code> 즉, 확률 변수가 2개의 결과 (ex: $0$ or $1$, 당첨 or 실패)를 가지며 원하는 결과가 나올 때까지 시도하는 것에 바로 적용 가능하다</p>
+<p><code>-</code> 이러한 확률 변수는 <a href="https://jaesu26.github.io/study-blog/statistics/2021/06/30/%ED%99%95%EB%A5%A0%EB%B6%84%ED%8F%AC.html#%EA%B8%B0%ED%95%98-%EB%B6%84%ED%8F%AC">기하 분포</a>를 따른다</p>
 
 </div>
 </div>
