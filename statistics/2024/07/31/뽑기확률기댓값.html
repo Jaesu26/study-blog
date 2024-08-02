@@ -428,7 +428,7 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> 위의 그래프를 보면 $p$가 어느 한 점으로 수렴하는 것 같다</p>
+<p><code>-</code> 위의 그래프를 보면 $f(p)$가 어느 한 점으로 수렴하는 것 같다</p>
 <p><code>-</code> 우리가 고려하고 있는 상황을 복기해보자</p>
 <p><code>-</code> 당첨 확률이 $p$인 뽑기를 $n = \frac{1}{p}$번 하는 것을 고려하자</p>
 <p><code>-</code> 이때 당첨 확률이 $p$인 뽑기를 $n$번 시도해서 1개도 못 뽑을 확률을 $P(A)$라 하고 이를 계산하자</p>
@@ -439,7 +439,8 @@ window.onload = wrap_img;
 <p><code>-</code> $ \lim\limits_{n\to \infty}\left(1-\frac{1}{n}\right)^{n} =  \lim\limits_{n\to \infty}\left(\frac{n-1}{n}\right)^{n}$</p>
 <p><code>-</code> $n = t+1$로 치환하면 $\lim\limits_{t\to \infty}\left(\frac{t}{t+1}\right)^{t+1} = \lim\limits_{t\to \infty}\left(\frac{t+1}{t}\right)^{-(t+1)} = \lim\limits_{t\to \infty}\left(1+\frac{1}{t}\right)^{-t}\left(1+\frac{1}{t}\right)^{-1}$</p>
 <p><code>-</code> 극한의 성질에 의해 $\lim\limits_{t\to \infty}\left(1+\frac{1}{t}\right)^{-t}=\left(\lim\limits_{t\to \infty}\left(1+\frac{1}{t}\right)^t\right)^{-1}=e^{-1},\quad \lim\limits_{t\to \infty}\left(1+\frac{1}{t}\right)^{-1} = 1$</p>
-<p><code>-</code> 따라서 극한의 성질에 의해 $\lim\limits_{t\to \infty}\left(1+\frac{1}{t}\right)^{-t}\left(1+\frac{1}{t}\right)^{-1}=\lim\limits_{t\to \infty}\left(1+\frac{1}{t}\right)^{-t} \times\lim\limits_{t\to \infty}\left(1+\frac{1}{t}\right)^{-1}=\frac{1}{e}$</p>
+<p><code>-</code> 따라서 극한의 성질에 의해</p>
+<p><code>-</code> $\lim\limits_{t\to \infty}\left(1+\frac{1}{t}\right)^{-t}\left(1+\frac{1}{t}\right)^{-1}=\lim\limits_{t\to \infty}\left(1+\frac{1}{t}\right)^{-t} \times\lim\limits_{t\to \infty}\left(1+\frac{1}{t}\right)^{-1}=\frac{1}{e}$</p>
 <p><code>-</code> 즉, $p$가 적당히 작으면 $P(A)$를 $\frac{1}{e}$에 근사할 수 있다</p>
 
 </div>
