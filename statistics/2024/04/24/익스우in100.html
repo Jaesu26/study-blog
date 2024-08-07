@@ -150,6 +150,14 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 전제 조건: 모든 직업에게 공평한 상황이라 익스우 in 100에 포함될 확률이 동일하다고 가정</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="충분한-인원이-도전하는-경우">
 <a class="anchor" href="#%EC%B6%A9%EB%B6%84%ED%95%9C-%EC%9D%B8%EC%9B%90%EC%9D%B4-%EB%8F%84%EC%A0%84%ED%95%98%EB%8A%94-%EA%B2%BD%EC%9A%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>충분한 인원이 도전하는 경우<a class="anchor-link" href="#%EC%B6%A9%EB%B6%84%ED%95%9C-%EC%9D%B8%EC%9B%90%EC%9D%B4-%EB%8F%84%EC%A0%84%ED%95%98%EB%8A%94-%EA%B2%BD%EC%9A%B0"> </a>
 </h2>
@@ -159,7 +167,6 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> 모든 직업에게 공평한 상황이라 익스우 in 100에 포함될 확률이 동일하다고 가정하자</p>
 <p><code>-</code> 익스우 in 100에 포함되지 않은 직업이 적어도 하나 이상 존재할 사건을 $A$라 하자</p>
 <p><code>-</code> $A$의 여집합은 익스우 in 100에 모든 직업이 포함되는 것이다</p>
 <p><code>-</code> 이때 $P(A) = 1 - P(A^c)$</p>
@@ -279,11 +286,11 @@ window.onload = wrap_img;
                 <span class="n">dp</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">+=</span> <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span> <span class="o">-</span> <span class="n">k</span><span class="p">]</span>
     <span class="k">return</span> <span class="n">dp</span><span class="p">[</span><span class="n">job_count</span><span class="p">][</span><span class="n">target_sum</span><span class="p">]</span>
 
+
 <span class="c1"># 주어진 등식의 해의 개수 계산</span>
 <span class="n">target_sum</span> <span class="o">=</span> <span class="mi">54</span>
 <span class="n">job_count</span> <span class="o">=</span> <span class="mi">46</span>
 <span class="n">max_value</span> <span class="o">=</span> <span class="mi">9</span>
-
 <span class="n">result</span> <span class="o">=</span> <span class="n">solution</span><span class="p">(</span><span class="n">target_sum</span><span class="p">,</span> <span class="n">job_count</span><span class="p">,</span> <span class="n">max_value</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">"음이 아닌 정수 해의 개수:"</span><span class="p">,</span> <span class="n">result</span><span class="p">)</span>
 </pre></div>
@@ -319,7 +326,6 @@ window.onload = wrap_img;
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">target_sum</span> <span class="o">=</span> <span class="mi">100</span>
 <span class="n">job_count</span> <span class="o">=</span> <span class="mi">46</span>
 <span class="n">max_value</span> <span class="o">=</span> <span class="mi">10</span>
-
 <span class="n">result2</span> <span class="o">=</span> <span class="n">solution</span><span class="p">(</span><span class="n">target_sum</span><span class="p">,</span> <span class="n">job_count</span><span class="p">,</span> <span class="n">max_value</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">"음이 아닌 정수 해의 개수:"</span><span class="p">,</span> <span class="n">result2</span><span class="p">)</span>
 </pre></div>
@@ -402,7 +408,7 @@ window.onload = wrap_img;
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">get_p</span><span class="p">(</span><span class="n">max_value</span><span class="p">):</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">compute_p</span><span class="p">(</span><span class="n">max_value</span><span class="p">):</span>
     <span class="n">result</span> <span class="o">=</span> <span class="n">solution</span><span class="p">(</span><span class="mi">54</span><span class="p">,</span> <span class="mi">46</span><span class="p">,</span> <span class="n">max_value</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
     <span class="n">result2</span> <span class="o">=</span> <span class="n">solution</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">46</span><span class="p">,</span> <span class="n">max_value</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">result</span> <span class="o">/</span> <span class="n">result2</span>
@@ -422,7 +428,7 @@ window.onload = wrap_img;
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">get_p</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">compute_p</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -455,7 +461,7 @@ window.onload = wrap_img;
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">get_p</span><span class="p">(</span><span class="mi">73</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">compute_p</span><span class="p">(</span><span class="mi">73</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -497,7 +503,7 @@ window.onload = wrap_img;
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">get_p</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">compute_p</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -530,7 +536,7 @@ window.onload = wrap_img;
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">get_p</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">compute_p</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
 </pre></div>
 
     </div>
