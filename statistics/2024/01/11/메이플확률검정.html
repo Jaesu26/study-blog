@@ -96,7 +96,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      7 min read
+      8 min read
     
 </span></p>
 
@@ -354,6 +354,30 @@ window.onload = wrap_img;
     <span class="n">spell_power_counts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">spell_power_counts</span><span class="p">)</span>
     <span class="n">attack_power_counts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">attack_power_counts</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">ns</span><span class="p">,</span> <span class="n">spell_power_counts</span><span class="p">,</span> <span class="n">attack_power_counts</span>
+
+
+<span class="k">def</span> <span class="nf">test_v2</span><span class="p">(</span><span class="n">threshold</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+    <span class="n">n</span><span class="p">,</span> <span class="n">valid_spell_power_count</span><span class="p">,</span> <span class="n">spell_power_count</span><span class="p">,</span> <span class="n">attack_power_count</span> <span class="o">=</span> <span class="n">get_sample</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">valid_spell_power_count</span> <span class="o">!=</span> <span class="n">threshold</span><span class="p">:</span>  <span class="c1"># 에디 마력 2줄을 threshold번 보고 에디 공격력 2줄을 획득한 경우, 억까 당했다고 표현</span>
+        <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span>
+    <span class="k">return</span> <span class="n">n</span><span class="p">,</span> <span class="n">spell_power_count</span><span class="p">,</span> <span class="n">attack_power_count</span>
+
+
+<span class="k">def</span> <span class="nf">record_tests_v2</span><span class="p">(</span><span class="n">threshold</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">1000</span><span class="p">):</span>
+    <span class="n">ns</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">spell_power_counts</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">attack_power_counts</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">size</span><span class="p">):</span>
+        <span class="n">n</span><span class="p">,</span> <span class="n">spell_power_count</span><span class="p">,</span> <span class="n">attack_power_count</span> <span class="o">=</span> <span class="n">test_v2</span><span class="p">(</span><span class="n">threshold</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>  <span class="c1"># 억까당한 경우만 기록</span>
+            <span class="k">continue</span>
+        <span class="n">ns</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+        <span class="n">spell_power_counts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">spell_power_count</span><span class="p">)</span>
+        <span class="n">attack_power_counts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">attack_power_count</span><span class="p">)</span>
+    <span class="n">ns</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">ns</span><span class="p">)</span>
+    <span class="n">spell_power_counts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">spell_power_counts</span><span class="p">)</span>
+    <span class="n">attack_power_counts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">attack_power_counts</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">ns</span><span class="p">,</span> <span class="n">spell_power_counts</span><span class="p">,</span> <span class="n">attack_power_counts</span>
 </pre></div>
 
     </div>
@@ -395,7 +419,7 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> 마력 2줄을 3번 획득한 후에 공격력 2줄을 획득한 경우 억까당했다고 볼 수 있을 것이다</p>
+<p><code>-</code> 마력 2줄을 3번 이상 획득한 후에 공격력 2줄을 획득한 경우 억까당했다고 볼 수 있을 것이다</p>
 
 </div>
 </div>
@@ -640,7 +664,7 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> 에디 마력 2줄을 3번 획득한 후 공격력 2줄을 획득한 사람은 50000명 중 6193명이다</p>
+<p><code>-</code> 에디 마력 2줄을 3번 이상 획득한 후 공격력 2줄을 획득한 사람은 50000명 중 6193명이다</p>
 <p><code>-</code> 이 6193명의 경우 총 2501084번 잠재능력을 재설정 했으며 첫 번째 줄에서 마력이 공격력보다 18015번 더 등장했다</p>
 <p><code>-</code> 이 수치가 일반적인 경우와 비교했을 때 이상치인지 확인하겠다</p>
 
@@ -866,8 +890,8 @@ window.onload = wrap_img;
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> 한편, 억까의 기준이 너무 높다고 생각할 수 있다</p>
-<p><code>-</code> 위에서 정한 억까의 기준은 에디 마력 2줄을 3번 획득한 후 공격력 2줄을 획득한 경우이다</p>
-<p><code>-</code> 억까의 기준을 가장 약하게 정한다면 에디 마력 2줄을 1번 획득한 후 공격력 2줄을 획득한 경우로 정의할 수 있다</p>
+<p><code>-</code> 위에서 정한 억까의 기준은 에디 마력 2줄을 3번 이상 획득한 후 공격력 2줄을 획득한 경우이다</p>
+<p><code>-</code> 억까의 기준을 가장 약하게 정한다면 <code>에디 마력 2줄을 단 1번</code> 획득한 후 공격력 2줄을 획득한 경우로 정의할 수 있다</p>
 
 </div>
 </div>
@@ -881,7 +905,7 @@ window.onload = wrap_img;
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">threshold</span> <span class="o">=</span> <span class="mi">1</span>
 <span class="n">size</span> <span class="o">=</span> <span class="mi">50000</span>
-<span class="n">ns</span><span class="p">,</span> <span class="n">spell_power_counts</span><span class="p">,</span> <span class="n">attack_power_counts</span> <span class="o">=</span> <span class="n">record_tests</span><span class="p">(</span><span class="n">threshold</span><span class="o">=</span><span class="n">threshold</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">size</span><span class="p">)</span>
+<span class="n">ns</span><span class="p">,</span> <span class="n">spell_power_counts</span><span class="p">,</span> <span class="n">attack_power_counts</span> <span class="o">=</span> <span class="n">record_tests_v2</span><span class="p">(</span><span class="n">threshold</span><span class="o">=</span><span class="n">threshold</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">size</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -913,9 +937,9 @@ window.onload = wrap_img;
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>6030774
+<pre>2007492
 2
-2210
+1297
 </pre>
 </div>
 </div>
@@ -963,7 +987,7 @@ window.onload = wrap_img;
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>24903
+<pre>12469
 </pre>
 </div>
 </div>
@@ -996,7 +1020,7 @@ window.onload = wrap_img;
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>26357</pre>
+<pre>12</pre>
 </div>
 
 </div>
@@ -1010,11 +1034,17 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> 에디 마력 2줄을 1번 획득한 후 공격력 2줄을 획득한 사람은 50000명 중 24903명이다</p>
-<p><code>-</code> 이 24903명의 경우 총 6030774번 잠재능력을 재설정 했으며 첫 번째 줄에서 마력이 공격력보다 26357번 더 등장했다</p>
-<p><code>-</code> 이는 일반적인 기준과 비교했을 때 이상치로 취급된다</p>
-<p><code>-</code> 즉, 억까의 기준이 낮든 높든 편향되어 있으면 편향된 데이터를 얻게 된다</p>
-<p><code>-</code> 애초에 50000명 중 24903명의 데이터만 편향을 가지고 취합했으므로 당연한 결과이다</p>
+<p><code>-</code> 에디 마력 2줄을 단 1번 획득한 후 공격력 2줄을 획득한 사람은 50000명 중 12469명이다</p>
+<p><code>-</code> 이 12469명의 경우 총 2007492번 잠재능력을 재설정 했으며 첫 번째 줄에서 마력이 공격력보다 12번 더 등장했다</p>
+<p><code>-</code> 위에서 계산한 것과 동일하게 해보면 $95\%$의 데이터는 $(-431, 431)$에 존재한다</p>
+<p><code>-</code> 이는 일반적인 기준과 비교했을 때 이상치로 취급되지 않는다</p>
+<p><code>-</code> 따라서 일반적인 경우에서 샘플링한 것인지 에디 마력 2줄을 1번 획득한 후 공격력 2줄을 획득한 사람을 대상으로 샘플링한 것인지 구분할 수 없다</p>
+<p><code>-</code> 생각해보면 당연한게 마력 2줄을 1번 획득했고 공격력 2줄도 동일하게 1번 획득했다</p>
+<p><code>-</code> 즉, 둘의 비율이 $1:1$이다</p>
+<p><code>-</code> 일반적인 경우도 맨 처음에 계산했듯이 둘의 비율이 $1:1$이다</p>
+<p><code>-</code> 그러니 구분하지 못하는게 당연하고 오히려 첫 번째 줄에서 공격력 또는 마력이 나머지에 비해 $431$번 더 등장했다면 문제가 된다</p>
+<p><code>-</code> 처음에 설정한 궁금증은 <code>마력 2줄을 여러 번 획득한 후 공격력 2줄을 획득했을 때 첫 번째 줄 옵션은 마력이 공격력보다 많이 획득되도록 편향되었을까?</code>였다</p>
+<p><code>-</code> 이 궁금증은 <code>에디 마력 2줄을 단 1번 획득한 후 공격력 2줄을 획득한 사람</code>을 제외하곤 성립한다</p>
 
 </div>
 </div>
