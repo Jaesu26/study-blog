@@ -96,7 +96,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      1 min read
+      2 min read
     
 </span></p>
 
@@ -151,6 +151,7 @@ window.onload = wrap_img;
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> 참고: <a href="https://docs.python.org/3.11/library/typing.html#typing.TypeVar">https://docs.python.org/3.11/library/typing.html#typing.TypeVar</a></p>
+<p><code>-</code> 참고: <a href="https://peps.python.org/pep-0484/">https://peps.python.org/pep-0484/</a></p>
 
 </div>
 </div>
@@ -228,8 +229,9 @@ window.onload = wrap_img;
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> 위와 같이 <code>|</code> 또는  <code>typing.Union[str, int]</code>를 사용해 나타내는 걸 생각해볼 수 있다</p>
-<p><code>-</code> 근데 이러한 표기법엔 치명적인 문제가 존재한다</p>
+<p><code>-</code> 그런데 이러한 표기법엔 조금의 문제가 존재한다</p>
 <p><code>-</code> <code>x</code> 타입이 <strong>str</strong>이라면 반환 타입은 당연히 <code>list[str]</code>여야 될 것 같지만 <code>list[int]</code>여도 문제 없다 (mypy같은 타입 검사기에 오류가 발생하지 않음)</p>
+<p><code>-</code> 표기법의 의미 그대로 <code>str 또는 int</code>이기 때문이다</p>
 <p><code>-</code> 물론 위 함수는 동작 상 반환 값의 타입이 <code>list[x]</code>의 타입을 따라가지만 다른 경우엔 문제가 될 수 있다</p>
 
 </div>
@@ -277,20 +279,41 @@ window.onload = wrap_img;
 
 
 <span class="k">def</span> <span class="nf">repeat</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">T</span><span class="p">,</span> <span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">T</span><span class="p">]:</span>
-    <span class="sd">"""Return a list containing n references to x."""</span>
     <span class="k">return</span> <span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="o">*</span> <span class="n">n</span>
 
 
+<span class="k">def</span> <span class="nf">multiply</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">T</span><span class="p">,</span> <span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">T</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">*</span> <span class="n">n</span>
+
+
 <span class="k">def</span> <span class="nf">print_capitalized</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">S</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">S</span><span class="p">:</span>
-    <span class="sd">"""Print x capitalized, and return x."""</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">capitalize</span><span class="p">())</span>
     <span class="k">return</span> <span class="n">x</span>
 
 
 <span class="k">def</span> <span class="nf">concatenate</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">A</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">A</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">A</span><span class="p">:</span>
-    <span class="sd">"""Add two strings or bytes objects together."""</span>
     <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
 </pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 보통 <code>T = TypeVar("T")</code>와 같이 변수명과 name 인자명을 동일하게 작성한다</p>
+<p><code>-</code> 이제부터 <code>T</code>는 함수 내에서 임의의 자료형을 의미한다</p>
+<p><code>-</code> 만약 <code>repeat</code> 함수에서 <code>x</code>의 자료형이 <code>int</code>라면 반환값의 자료형은 <code>Sequence[int]</code>이다</p>
+<p><code>-</code> 참고로 <code>T</code>의 자료형은 동일한 함수내에서만 일치하면 된다</p>
+<p><code>-</code> repeat 함수에서 T를 int형으로 사용했다고 multiply 함수에서도 T를 int형으로만 사용해야 된다는 것은 아니다</p>
+<p><code>-</code> 그런데 모든 타입이 가능하게 하기 보단 특정 자료형만 가능하게 하고 싶을 수 있다</p>
+<p><code>-</code> 이런 경우엔 제한하고 싶은 자료형을 <code>*constraints</code>로 전달하면 된다</p>
+<p><code>-</code> <code>A = TypeVar("A", str, bytes)</code>라면 <code>A</code>의 자료형으론 str 또는 bytes만 가능하다</p>
+<p><code>-</code> A의 타입을 가지는 어떤 변수가 있을 때 해당 변수의 타입이 str로 정해지면 타입이 A인 다른 변수의 자료형도 str이어야 한다</p>
+<p><code>-</code> str 또는 bytes만 가능하다고 언급해서 함수 내에서도 혼용해서 사용해도 된다는 의미로 받아들이면 안 된다</p>
+<p><code>-</code> 단, 제한하는 자료형은 2개 이상부터 가능하다 (예컨대 <code>S = TypeVar("S", str)</code>과 같이 할 수 없다)</p>
+<p><code>-</code> 대신 <code>bound</code>를 사용할 수 있다</p>
+<p><code>-</code> <code>S = TypeVar("S", bound=str)</code>와 같이 할당하면 <code>S</code>는 자료형으로 <code>str 또는 str의 하위 자료형</code>을 취할 수 있다</p>
 
 </div>
 </div>
