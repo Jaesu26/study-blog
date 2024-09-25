@@ -259,10 +259,10 @@ window.onload = wrap_img;
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> 위의 <code>add</code> 함수를 고려하자</p>
-<p><code>-</code> a, b, 반환 값 모두 <strong>str</strong>이거나 <strong>int</strong>이라는 첫 번째 경우의 의도와 같이 작성한 것이지만</p>
+<p><code>-</code> a, b, 반환 값의 타입 모두 <strong>str</strong>이거나 <strong>int</strong>이라는 첫 번째 경우의 의도와 같이 작성한 것이지만</p>
 <p><code>-</code> 실제론 a와 b의 타입이 달라도 타입 검사기에 문제가 생기지 않는다</p>
 <p><code>-</code> 하지만 둘의 타입이 다르면 실행 시 오류가 발생한다</p>
-<p><code>-</code> 즉, a가 <strong>str</strong>이면 b도 <strong>str</strong>이면 좋겠고 a가 <strong>int</strong>라면 b도 <strong>int</strong>이면 좋겠다</p>
+<p><code>-</code> 즉, a의 타입이 <strong>str</strong>이면 b도 <strong>str</strong>이면 좋겠고 a가 <strong>int</strong>라면 b도 <strong>int</strong>이면 좋겠다</p>
 <p><code>-</code> 이러한 소망은 <code>Union</code>을 사용해선 이룰 수 없다</p>
 <p><code>-</code> 이를 가능하게 하는 것이 <code>TypeVar</code>이다</p>
 
@@ -286,7 +286,7 @@ window.onload = wrap_img;
 <span class="n">A</span> <span class="o">=</span> <span class="n">TypeVar</span><span class="p">(</span><span class="s2">"A"</span><span class="p">,</span> <span class="nb">str</span><span class="p">,</span> <span class="nb">bytes</span><span class="p">)</span>  <span class="c1"># Must be exactly str or bytes</span>
 
 
-<span class="k">def</span> <span class="nf">repeat</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">T</span><span class="p">,</span> <span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">T</span><span class="p">]:</span>
+<span class="k">def</span> <span class="nf">repeat</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">T</span><span class="p">,</span> <span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">T</span><span class="p">]:</span>
     <span class="k">return</span> <span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="o">*</span> <span class="n">n</span>
 
 
@@ -310,19 +310,19 @@ window.onload = wrap_img;
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> 보통 <code>T = TypeVar("T")</code>와 같이 변수명과 name 인자명을 동일하게 작성한다</p>
-<p><code>-</code> 이제부터 <code>T</code>는 함수 내에서 임의의 자료형을 의미한다</p>
-<p><code>-</code> 만약 <code>repeat</code> 함수에서 <code>x</code>의 자료형이 <code>int</code>라면 반환값의 자료형은 <code>Sequence[int]</code>이다</p>
-<p><code>-</code> 참고로 <code>T</code>의 자료형은 동일한 함수내에서만 일치하면 된다</p>
-<p><code>-</code> repeat 함수에서 T를 int형으로 사용했다고 multiply 함수에서도 T를 int형으로만 사용해야 된다는 것은 아니다</p>
-<p><code>-</code> 그런데 모든 타입이 가능하게 하기 보단 특정 자료형만 가능하게 하고 싶을 수 있다</p>
-<p><code>-</code> 이런 경우엔 제한하고 싶은 자료형을 <code>*constraints</code>로 전달하면 된다</p>
-<p><code>-</code> <code>A = TypeVar("A", str, bytes)</code>라면 <code>A</code>의 자료형으론 str 또는 bytes만 가능하다</p>
-<p><code>-</code> A의 타입을 가지는 어떤 변수가 있을 때 해당 변수의 타입이 str로 정해지면 타입이 A인 다른 변수의 자료형도 str이어야 한다</p>
+<p><code>-</code> 이제부터 <code>T</code>는 함수 내에서 임의의 타입을 의미한다</p>
+<p><code>-</code> 만약 <code>repeat</code> 함수에서 <code>x</code>의 타입이 <code>int</code>라면 반환값의 타입은 <code>List[int]</code>이다</p>
+<p><code>-</code> 참고로 <code>T</code>의 타입은 동일한 함수내에서만 일치하면 된다</p>
+<p><code>-</code> repeat 함수에서 T의 타입으로 int를 사용했다고 multiply 함수에서도 int로만 사용해야 된다는 것은 아니다</p>
+<p><code>-</code> 그런데 모든 타입이 가능하게 하기 보단 특정 타입만 가능하게 하고 싶을 수 있다</p>
+<p><code>-</code> 이런 경우엔 제한하고 싶은 타입을 <code>*constraints</code>로 전달하면 된다</p>
+<p><code>-</code> <code>A = TypeVar("A", str, bytes)</code>라면 <code>A</code>의 타입으론 str 또는 bytes만 가능하다</p>
+<p><code>-</code> A의 타입을 가지는 어떤 변수가 있을 때 해당 변수의 타입이 str로 정해지면 타입이 A인 다른 변수의 타입도 str이어야 한다</p>
 <p><code>-</code> str 또는 bytes만 가능하다고 언급해서 함수 내에서도 혼용해서 사용해도 된다는 의미로 받아들이면 안 된다</p>
-<p><code>-</code> 단, 제한하는 자료형은 2개 이상부터 가능하다 (예컨대 <code>S = TypeVar("S", str)</code>과 같이 할 수 없다)</p>
+<p><code>-</code> 단, 제한하는 타입은 2개 이상부터 가능하다 (예컨대 <code>S = TypeVar("S", str)</code>과 같이 할 수 없다)</p>
 <p><code>-</code> 대신 <code>bound</code>를 사용할 수 있다</p>
-<p><code>-</code> <code>S = TypeVar("S", bound=str)</code>와 같이 할당하면 <code>S</code>는 자료형으로 <code>str 또는 str의 하위 자료형</code>을 취할 수 있다</p>
-<p><code>-</code> 하위 자료형 말고 정확히 str 자료형으로 강제하는 것은 불가능하다 (이런 경우라면 런타입에서 타입이 str인지 검사하자)</p>
+<p><code>-</code> <code>S = TypeVar("S", bound=str)</code>와 같이 할당하면 <code>S</code>는 타입으로 <code>str 또는 str의 sub type</code>을 취할 수 있다</p>
+<p><code>-</code> 하위 타입 말고 정확히 str 타입으로 강제하는 것은 불가능하다 (이런 경우라면 런타입에서 타입이 str인지 검사하자)</p>
 
 </div>
 </div>
@@ -339,8 +339,8 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> covariant (공변성): 자료형이 상속 계층을 따라 동일한 방향으로 변경된다</p>
-<p><code>-</code> contravariant (공변성): 자료형이 상속 계층을 따라 반대 방향으로 변경된다</p>
+<p><code>-</code> covariant (공변성): 타입이 상속 계층을 따라 동일한 방향으로 변경된다</p>
+<p><code>-</code> contravariant (반공변성): 타입이 상속 계층을 따라 반대 방향으로 변경된다</p>
 
 </div>
 </div>
@@ -386,7 +386,7 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> 공변성은 상위 자료형이 필요한 곳에 하위 자료형을 사용할 수 있음을 의미한다</p>
+<p><code>-</code> 공변성은 상위 타입이 필요한 곳에 하위 타입을 사용할 수 있음을 의미한다</p>
 <p><code>-</code> 즉, Animal을 기대하는 곳에 Cat이나 Dog를 넣을 수 있다</p>
 
 </div>
@@ -463,8 +463,8 @@ Woof
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> 반공변성은 상위 자료형을 필요로 하는 곳에 하위 자료형을 사용할 수 없다는 것을 의미한다</p>
-<p><code>-</code> 대신, 하위 자료형이 필요한 곳에 상위 자료형을 사용할 수 있다.</p>
+<p><code>-</code> 반공변성은 상위 타입을 필요로 하는 곳에 하위 타입을 사용할 수 없다는 것을 의미한다</p>
+<p><code>-</code> 대신, 하위 타입이 필요한 곳에 상위 타입을 사용할 수 있다.</p>
 
 </div>
 </div>
@@ -478,7 +478,7 @@ Woof
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">LovelyCat</span><span class="p">(</span><span class="n">Cat</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">sound</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="s2">"MMeowwww"</span>
+        <span class="k">return</span> <span class="s2">"Meeowwww"</span>
 </pre></div>
 
     </div>
@@ -523,7 +523,7 @@ Woof
 <span class="n">cat</span> <span class="o">=</span> <span class="n">Cat</span><span class="p">()</span>
 <span class="n">lovely_cat</span> <span class="o">=</span> <span class="n">LovelyCat</span><span class="p">()</span>
 <span class="n">cats</span> <span class="o">=</span> <span class="p">[</span><span class="n">cat</span><span class="p">,</span> <span class="n">lovely_cat</span><span class="p">]</span>
-<span class="n">sound_all_animals</span><span class="p">(</span><span class="n">cats</span><span class="p">)</span>  <span class="c1"># 하위 자료형은 불가능한데 LovelyCat 인스턴스가 포함됐으므로 타입 검사기에서 오류가 발생한다</span>
+<span class="n">sound_all_animals</span><span class="p">(</span><span class="n">cats</span><span class="p">)</span>  <span class="c1"># 하위 타입은 불가능한데 LovelyCat 인스턴스가 포함됐으므로 타입 검사기에서 오류가 발생한다</span>
 </pre></div>
 
     </div>
@@ -537,7 +537,7 @@ Woof
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Meow
-MMeowwww
+Meeowwww
 </pre>
 </div>
 </div>
@@ -556,7 +556,7 @@ MMeowwww
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">real_cats</span> <span class="o">=</span> <span class="p">[</span><span class="n">animal</span><span class="p">,</span> <span class="n">cat</span><span class="p">]</span>
-<span class="n">sound_all_animals</span><span class="p">(</span><span class="n">real_cats</span><span class="p">)</span>  <span class="c1"># 상위 자료형은 가능하다!</span>
+<span class="n">sound_all_animals</span><span class="p">(</span><span class="n">real_cats</span><span class="p">)</span>  <span class="c1"># 상위 타입은 가능하다!</span>
 </pre></div>
 
     </div>
@@ -593,11 +593,11 @@ Meow
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> <code>Animal = TypeVar("Animal", bound=Animal)</code>은 Animal뿐만 아니라 Animal의 하위 자료형도 가능하다</p>
-<p><code>-</code> <code>Animal_co = TypeVar("Animal_co", bound=Animal, covariant=True)</code>는 Animal뿐만 아니라 Animal의 하위 자료형도 가능하며 추가로 covariant하다</p>
+<p><code>-</code> <code>Animal = TypeVar("Animal", bound=Animal)</code>은 Animal뿐만 아니라 Animal의 하위 타입도 가능하다</p>
+<p><code>-</code> <code>Animal_co = TypeVar("Animal_co", bound=Animal, covariant=True)</code>는 Animal뿐만 아니라 Animal의 하위 타입도 가능하며 추가로 covariant하다</p>
 <p><code>-</code> 그게 그거 아니야???</p>
-<p><code>-</code> 둘의 차이는 자료형 계층 간의 대체 가능성에 영향을 미친다</p>
-<p><code>-</code> <code>Animal = TypeVar("Animal", bound=Animal)</code>는 상위 자료형만 제한할 뿐 불변성을 가져 하위 자료형이어도 자유롭게 대체할 수는 없다</p>
+<p><code>-</code> 둘의 차이는 타입 계층 간의 대체 가능성에 영향을 미친다</p>
+<p><code>-</code> <code>Animal = TypeVar("Animal", bound=Animal)</code>는 상위 타입만 제한할 뿐 불변성을 가져 하위 타입이어도 자유롭게 대체할 수는 없다</p>
 
 </div>
 </div>
@@ -636,7 +636,7 @@ Meow
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">cat</span> <span class="o">=</span> <span class="n">Cat</span><span class="p">()</span>
 <span class="n">dog</span> <span class="o">=</span> <span class="n">Dog</span><span class="p">()</span>
 <span class="n">animals</span> <span class="o">=</span> <span class="p">[</span><span class="n">cat</span><span class="p">,</span> <span class="n">dog</span><span class="p">]</span>
-<span class="n">sound_all_animals</span><span class="p">(</span><span class="n">animals</span><span class="p">)</span>  <span class="c1"># 오류: 자료형이 불변성을 가지므로 고양이면 고양이만, 강아지면 강아지만 가져야 한다</span>
+<span class="n">sound_all_animals</span><span class="p">(</span><span class="n">animals</span><span class="p">)</span>  <span class="c1"># 오류: 타입이 불변성을 가지므로 고양이면 고양이만, 강아지면 강아지만 가져야 한다</span>
 </pre></div>
 
     </div>
@@ -714,7 +714,7 @@ Woof
 <span class="n">cat</span> <span class="o">=</span> <span class="n">Cat</span><span class="p">()</span>
 <span class="n">dog</span> <span class="o">=</span> <span class="n">Dog</span><span class="p">()</span>
 <span class="n">animals</span> <span class="o">=</span> <span class="p">[</span><span class="n">animal</span><span class="p">,</span> <span class="n">cat</span><span class="p">,</span> <span class="n">dog</span><span class="p">]</span>
-<span class="n">sound_all_animals</span><span class="p">(</span><span class="n">animals</span><span class="p">)</span>  <span class="c1"># 강아지든 고양이든 Animal 또는 Animal의 하위 자료형이면 섞어서 사용해도 무방하다</span>
+<span class="n">sound_all_animals</span><span class="p">(</span><span class="n">animals</span><span class="p">)</span>  <span class="c1"># 강아지든 고양이든 Animal 또는 Animal의 하위 타입이면 섞어서 사용해도 무방하다</span>
 </pre></div>
 
     </div>
@@ -778,7 +778,7 @@ Woof
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> greeting 함수의 입력으로 str 자료형뿐만 아니라 str의 하위 자료형도 가능하다</p>
+<p><code>-</code> greeting 함수의 입력으로 str 타입뿐만 아니라 str의 하위 타입도 가능하다</p>
 
 </div>
 </div>
@@ -820,7 +820,7 @@ Woof
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> add 함수의 입력 자료형으로 float뿐만 아니라 int도 가능하다 (<a href="https://peps.python.org/pep-0484/#the-numeric-tower">https://peps.python.org/pep-0484/#the-numeric-tower</a>)</p>
+<p><code>-</code> add 함수의 입력 타입으로 float뿐만 아니라 int도 가능하다 (<a href="https://peps.python.org/pep-0484/#the-numeric-tower">https://peps.python.org/pep-0484/#the-numeric-tower</a>)</p>
 
 </div>
 </div>
@@ -838,7 +838,7 @@ Woof
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> 하지만 int는 float의 서브 자료형일 뿐 인스턴스는 아니다</p>
+<p><code>-</code> 하지만 int는 float의 서브 타입일 뿐 인스턴스는 아니다</p>
 
 </div>
 </div>
