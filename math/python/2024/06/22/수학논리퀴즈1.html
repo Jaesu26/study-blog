@@ -96,7 +96,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      16 min read
+      17 min read
     
 </span></p>
 
@@ -149,10 +149,10 @@ window.onload = wrap_img;
 </li>
 <li class="toc-entry toc-h2"><a href="#파이썬으로-풀어보자">파이썬으로 풀어보자 </a>
 <ul>
-<li class="toc-entry toc-h3"><a href="#A:-두-수가-뭔지-모르겠어">A: 두 수가 뭔지 모르겠어 </a></li>
-<li class="toc-entry toc-h3"><a href="#B:-나도-모르겠어">B: 나도 모르겠어 </a></li>
-<li class="toc-entry toc-h3"><a href="#A:-두-수가-뭔지-알겠어!">A: 두 수가 뭔지 알겠어! </a></li>
-<li class="toc-entry toc-h3"><a href="#B:-나도-알겠어!">B: 나도 알겠어! </a></li>
+<li class="toc-entry toc-h3"><a href="#A:-두-수가-뭔지-모르겠다">A: 두 수가 뭔지 모르겠다 </a></li>
+<li class="toc-entry toc-h3"><a href="#B:-나도-모르겠다">B: 나도 모르겠다 </a></li>
+<li class="toc-entry toc-h3"><a href="#A:-두-수가-뭔지-알았어!">A: 두 수가 뭔지 알았어! </a></li>
+<li class="toc-entry toc-h3"><a href="#B:-나도-알았어!">B: 나도 알았어! </a></li>
 </ul>
 </li>
 <li class="toc-entry toc-h2"><a href="#부록">부록 </a>
@@ -239,6 +239,10 @@ window.onload = wrap_img;
 <p><code>-</code> 왜 1과 12는 고려하지 않는거지? ---&gt; 2 이상 50 이하의 수여야 하는데 1은 해당 범위에 포함되지 않음</p>
 <p><code>-</code> $xy$에 대하여 1과 자기 자신을 제외한 약수가 2개를 초과한다면 A는 두 수가 무엇인지 알 수 없다</p>
 <p><code>-</code> 즉 $xy$에 대하여 약수가 4개를 초과한다면 A는 두 수가 무엇인지 알 수 없다</p>
+<ul>
+<li>알고리즘</li>
+</ul>
+<p><code>-</code> $xy$에 대하여 1과 자기 자신을 제외한 약수가 2개를 초과한다면 A는 두 수가 무엇인지 알 수 없다</p>
 
 </div>
 </div>
@@ -258,12 +262,12 @@ window.onload = wrap_img;
 <p><code>-</code> B는 A의 답변을 듣고 추가 정보를 얻어도 두 수가 뭔지 모르겠다고 했다</p>
 <p><code>-</code> 그런데 A의 답변과 두 수의 합을 알고서 두 수가 무엇인지 알 수 있을까?</p>
 <p><code>-</code> 사실 A의 답변을 듣지 않아도 두 수가 무엇인지 알 수 있는 경우가 존재한다</p>
-<p><code>-</code> 만약 $x+y$가 4또는 5라고 해보자</p>
-<p><code>-</code> $x+y$가 4라면 두 수는 2와 2이고 $x+y$가 5라면 두 수는 2와 3이다</p>
-<p><code>-</code> $x+y$가 이보다 큰 6부터는 두 수를 무엇인지 바로 알 수 없게 된다 (2와 4 또는 3과 3)</p>
+<p><code>-</code> 만약 $x+y$가 5 또는 99라고 해보자</p>
+<p><code>-</code> $x+y$가 5라면 두 수는 2와 3이고 $x+y$가 99라면 두 수는 49와 50이다</p>
+<p><code>-</code> $x+y$가 6 이상 98 이하라면 두 수를 무엇인지 바로 알 수 없게 된다</p>
 <p><code>-</code> 이제 A의 답변 정보도 추가로 사용해보자</p>
-<p><code>-</code> 일단 두 수는 2이상 50이하이므로 $x+y$의 범위는 4 이상 100 이하이다</p>
-<p><code>-</code> $x+y$를 $T$라고 하자, $T$는 6 이상이다</p>
+<p><code>-</code> 일단 두 수는 2이상 50이하이므로 기본적으로 $x+y$의 범위는 4 이상 100 이하이다</p>
+<p><code>-</code> 정답으로 가능한 $x+y$를 $T$라고 하자, $T$는 6 이상 98 이하이다</p>
 <p><code>-</code> 그러면 $T$가 홀수일 때 두 수 $x,y$로 가능한 조합은 $(2, T-2), \cdots, \left(\big\lfloor\frac{T}{2}\big\rfloor, \big\lfloor\frac{T}{2}\big\rfloor + 1 \right)$이고</p>
 <p><code>-</code> $T$가 짝수일 때 두 수 $x,y$로 가능한 조합은 $(2, T-2), \cdots, \left(\frac{T}{2}, \frac{T}{2}\right)$이다</p>
 <p><code>-</code> 가능한 조합 각각에 대하여 $xy$를 계산하고 약수의 개수를 확인하자</p>
@@ -280,6 +284,12 @@ window.onload = wrap_img;
 <p><code>-</code> 따라서 약수의 개수가 4개 이하인 15는 $xy$로 가능하지 않다</p>
 <p><code>-</code> 하지만 12와 16은 약수의 개수가 4개 초과이므로 $xy$로 가능하다</p>
 <p><code>-</code> 즉, B는 A의 답변을 듣더라도 $x,y$가 2와 6인지 3과 5인지 알아낼 수 없다</p>
+<ul>
+<li>알고리즘</li>
+</ul>
+<p><code>-</code> 더 간단하겐 가능한 $x,y$의 조합에 대해 $xy$를 계산한다</p>
+<p><code>-</code> 그리고 해당 $xy$에 대해 A가 <code>두 수가 뭔지 모르겠어</code>라고 답변할 수 있으면 통과시키고 아니라면 제외한다</p>
+<p><code>-</code> 남아 있는 $x,y$가 2개 이상이라면 B는 정답을 맞힐 수 없다</p>
 
 </div>
 </div>
@@ -335,6 +345,9 @@ window.onload = wrap_img;
 <p><code>-</code> $xy$ 집합에 대해 약수의 개수가 4개 이하인 것들을 제외한다</p>
 <p><code>-</code> 그리고 남은 $xy$ 집합의 원소가 1개라면 B가 정답을 맞혔을 것이므로 해당 $x+y$는 제외한다</p>
 <p><code>-</code> 이 과정을 $x+y$ 집합의 모든 원소에 대해 반복한 후 남아있는 원소가 1개 뿐이라면 A가 정답을 맞힐 수 있다</p>
+<p><code>-</code> 더 간단하겐 가능한 $x,y$의 조합에 대해 $x+y$를 계산한다</p>
+<p><code>-</code> 그리고 해당 $x+y$에 대해 B가 <code>나도 모르겠어</code>라고 답변할 수 있으면 통과시키고 아니라면 제외한다</p>
+<p><code>-</code> 남아 있는 $x,y$가 1개라면 A는 정답을 맞힐 수 있다!</p>
 
 </div>
 </div>
@@ -356,11 +369,15 @@ window.onload = wrap_img;
 <p><code>-</code> 만약 B에게 $x+y$가 8이라는 정보가 주어졌다고 해보자</p>
 <p><code>-</code> 그러면 가능한 $x,y$의 조합은 $(2,6), (3,5), (4,4)$이다</p>
 <p><code>-</code> 각 조합에 대해 $xy$를 계산하면 $12, 15, 16$이다</p>
-<p><code>-</code> 만약 $x, y$가 3과 5라면 $xy$는 15이며 15는 3과 5의 곱으로만 이루어진다</p>
+<ul>
+<li>만약 $x, y$가 3과 5라면 $xy$는 15이며 15는 3과 5의 곱으로만 이루어진다</li>
+</ul>
 <p><code>-</code> 그렇게 되면 A가 처음에 정답을 맞혔을 것이므로 처음에 모르겠다고 답변한 것과 모순된다</p>
 <p><code>-</code> 하지만 $xy$가 12 또는 16이라면 약수의 개수가 4를 초과하므로 가능한 곱의 조합이 2개 이상이다</p>
 <p><code>-</code> 그러면 A가 처음에 모르겠다고 한 것이 합리적이다</p>
-<p><code>-</code> 만약 $xy$가 12라고 해보자</p>
+<ul>
+<li>만약 $xy$가 12라고 해보자</li>
+</ul>
 <p><code>-</code> A의 입장에서 볼 때 $xy$가 12라면 가능한 $x,y$의 조합은 $(2,6),(3,4)$이다</p>
 <p><code>-</code> 각 조합에 대해 $x+y$를 계산하면 $7,8$이다</p>
 <p><code>-</code> 우선 $x+y$가 7이라고 가정해보자</p>
@@ -387,7 +404,9 @@ window.onload = wrap_img;
 <p><code>-</code> 그렇게 되면 A는 $xy$는 12, $x+y$는 8이라는 정보를 바탕으로 $x,y$가 2와 6임을 알아내고 정답을 맞힐 수 있다</p>
 <p><code>-</code> 즉, $x,y$가 2와 6이라면 <code>A: 두 수가 뭔지 모르겠어</code>, <code>B: 나도 모르겠어</code>, <code>A: 두 수가 뭔지 알겠어!</code> 까지의 과정에 모순되는 점이 없다</p>
 <p><code>-</code> 따라서 $x+y=8$이 주어진 B의 입장에선 $xy$의 후보군으로 12를 고려할 수 있다</p>
-<p><code>-</code> 그렇다면 이제 $xy$가 16이라고 가정하고 A의 입장이 되어 생각해보자</p>
+<ul>
+<li>그렇다면 이제 $xy$가 16이라고 가정하고 A의 입장이 되어 생각해보자</li>
+</ul>
 <p><code>-</code> A의 입장에서 볼 때 $xy$가 16이라면 가능한 $x,y$의 조합은 $(2,8),(4,4)$이다</p>
 <p><code>-</code> 각 조합에 대해 $x+y$를 계산하면 $8,10$이다</p>
 <p><code>-</code> 우선 $x+y$가 8이라고 가정해보자</p>
@@ -404,7 +423,13 @@ window.onload = wrap_img;
 <p><code>-</code> 그런데 이렇게 되면 A의 입장에선 $x+y$가 8과 10 둘 다 가능하므로 둘 중 어느것인지 알지 못한다</p>
 <p><code>-</code> 그러면 <code>A: 두 수가 뭔지 알겠어!</code>와 같이 대답할 수 없으므로 모순이다</p>
 <p><code>-</code> 즉, 처음 B에게 주어진 $x+y$가 8이라면 $xy$는 16이 될 수 없다</p>
-<p><code>-</code> 따라서, 가능한 $xy$는 12이므로 B는 $x,y$가 2와 6임을 알 수 있고 <code>B: 나도 알겠어!</code>라고 대답할 수 있다</p>
+<p><code>-</code> 따라서 가능한 $xy$는 12이므로 B는 $x,y$가 2와 6임을 알 수 있고 <code>B: 나도 알겠어!</code>라고 대답할 수 있다</p>
+<ul>
+<li>알고리즘</li>
+</ul>
+<p><code>-</code> $x+y$를 바탕으로 가능한 $x,y$의 조합에 대해 $xy$를 계산한다</p>
+<p><code>-</code> 그리고 해당 $xy$에 대해 A가 <code>두 수가 뭔지 알겠어!</code>라고 답변할 수 있으면 통과시키고 아니라면 제외한다</p>
+<p><code>-</code> 남아 있는 $x,y$가 1개라면 B는 정답을 맞힐 수 있다!</p>
 
 </div>
 </div>
@@ -431,8 +456,8 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="A:-두-수가-뭔지-모르겠어">
-<a class="anchor" href="#A:-%EB%91%90-%EC%88%98%EA%B0%80-%EB%AD%94%EC%A7%80-%EB%AA%A8%EB%A5%B4%EA%B2%A0%EC%96%B4" aria-hidden="true"><span class="octicon octicon-link"></span></a><code>A: 두 수가 뭔지 모르겠어</code><a class="anchor-link" href="#A:-%EB%91%90-%EC%88%98%EA%B0%80-%EB%AD%94%EC%A7%80-%EB%AA%A8%EB%A5%B4%EA%B2%A0%EC%96%B4"> </a>
+<h3 id="A:-두-수가-뭔지-모르겠다">
+<a class="anchor" href="#A:-%EB%91%90-%EC%88%98%EA%B0%80-%EB%AD%94%EC%A7%80-%EB%AA%A8%EB%A5%B4%EA%B2%A0%EB%8B%A4" aria-hidden="true"><span class="octicon octicon-link"></span></a><code>A: 두 수가 뭔지 모르겠다</code><a class="anchor-link" href="#A:-%EB%91%90-%EC%88%98%EA%B0%80-%EB%AD%94%EC%A7%80-%EB%AA%A8%EB%A5%B4%EA%B2%A0%EB%8B%A4"> </a>
 </h3>
 </div>
 </div>
@@ -532,7 +557,7 @@ window.onload = wrap_img;
 
 <span class="k">def</span> <span class="nf">step1</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">minimum</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">maximum</span><span class="o">=</span><span class="mi">50</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">find_product_pairs</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">minimum</span><span class="p">,</span> <span class="n">maximum</span><span class="p">)</span>
-    
+
 
 <span class="k">def</span> <span class="nf">check_step1</span><span class="p">(</span><span class="n">pairs</span><span class="p">):</span>
     <span class="sd">"""A가 모르겠다고 한 것이 타당한지 확인"""</span>
@@ -575,8 +600,8 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="B:-나도-모르겠어">
-<a class="anchor" href="#B:-%EB%82%98%EB%8F%84-%EB%AA%A8%EB%A5%B4%EA%B2%A0%EC%96%B4" aria-hidden="true"><span class="octicon octicon-link"></span></a><code>B: 나도 모르겠어</code><a class="anchor-link" href="#B:-%EB%82%98%EB%8F%84-%EB%AA%A8%EB%A5%B4%EA%B2%A0%EC%96%B4"> </a>
+<h3 id="B:-나도-모르겠다">
+<a class="anchor" href="#B:-%EB%82%98%EB%8F%84-%EB%AA%A8%EB%A5%B4%EA%B2%A0%EB%8B%A4" aria-hidden="true"><span class="octicon octicon-link"></span></a><code>B: 나도 모르겠다</code><a class="anchor-link" href="#B:-%EB%82%98%EB%8F%84-%EB%AA%A8%EB%A5%B4%EA%B2%A0%EB%8B%A4"> </a>
 </h3>
 </div>
 </div>
@@ -723,8 +748,8 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="A:-두-수가-뭔지-알겠어!">
-<a class="anchor" href="#A:-%EB%91%90-%EC%88%98%EA%B0%80-%EB%AD%94%EC%A7%80-%EC%95%8C%EA%B2%A0%EC%96%B4!" aria-hidden="true"><span class="octicon octicon-link"></span></a><code>A: 두 수가 뭔지 알겠어!</code><a class="anchor-link" href="#A:-%EB%91%90-%EC%88%98%EA%B0%80-%EB%AD%94%EC%A7%80-%EC%95%8C%EA%B2%A0%EC%96%B4!"> </a>
+<h3 id="A:-두-수가-뭔지-알았어!">
+<a class="anchor" href="#A:-%EB%91%90-%EC%88%98%EA%B0%80-%EB%AD%94%EC%A7%80-%EC%95%8C%EC%95%98%EC%96%B4!" aria-hidden="true"><span class="octicon octicon-link"></span></a><code>A: 두 수가 뭔지 알았어!</code><a class="anchor-link" href="#A:-%EB%91%90-%EC%88%98%EA%B0%80-%EB%AD%94%EC%A7%80-%EC%95%8C%EC%95%98%EC%96%B4!"> </a>
 </h3>
 </div>
 </div>
@@ -887,8 +912,8 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="B:-나도-알겠어!">
-<a class="anchor" href="#B:-%EB%82%98%EB%8F%84-%EC%95%8C%EA%B2%A0%EC%96%B4!" aria-hidden="true"><span class="octicon octicon-link"></span></a><code>B: 나도 알겠어!</code><a class="anchor-link" href="#B:-%EB%82%98%EB%8F%84-%EC%95%8C%EA%B2%A0%EC%96%B4!"> </a>
+<h3 id="B:-나도-알았어!">
+<a class="anchor" href="#B:-%EB%82%98%EB%8F%84-%EC%95%8C%EC%95%98%EC%96%B4!" aria-hidden="true"><span class="octicon octicon-link"></span></a><code>B: 나도 알았어!</code><a class="anchor-link" href="#B:-%EB%82%98%EB%8F%84-%EC%95%8C%EC%95%98%EC%96%B4!"> </a>
 </h3>
 </div>
 </div>
