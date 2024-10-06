@@ -144,7 +144,7 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h3"><a href="#contravariant">contravariant </a></li>
 </ul>
 </li>
-<li class="toc-entry toc-h2"><a href="#추가로-생각해-볼-것?">추가로 생각해 볼 것? </a></li>
+<li class="toc-entry toc-h2"><a href="#추가로-생각해-볼-것">추가로 생각해 볼 것 </a></li>
 <li class="toc-entry toc-h2"><a href="#부록">부록 </a></li>
 </ul><!--
 #################################################
@@ -341,6 +341,21 @@ window.onload = wrap_img;
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> covariant (공변성): 타입이 상속 계층을 따라 동일한 방향으로 변경된다</p>
 <p><code>-</code> contravariant (반공변성): 타입이 상속 계층을 따라 반대 방향으로 변경된다</p>
+<p><code>-</code> 위 두 파라미터를 사용한 타입 변수는 단독으로는 사용 불가능하고 <code>List</code>같은 <code>제네릭 타입</code>에만 사용할 수 있다</p>
+<ul>
+<li>예시</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="n">T_co</span> <span class="o">=</span> <span class="n">TypeVar</span><span class="p">(</span><span class="s2">"T_co"</span><span class="p">,</span> <span class="n">covariant</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">example1</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">T_co</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">T_co</span><span class="p">:</span>  <span class="c1"># Possible</span>
+    <span class="k">return</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+
+<span class="k">def</span> <span class="nf">example2</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">T_co</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">T_co</span><span class="p">:</span>  <span class="c1"># Type checker will raise an error</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">x</span>
+</pre></div>
 
 </div>
 </div>
@@ -584,8 +599,8 @@ Meow
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="추가로-생각해-볼-것?">
-<a class="anchor" href="#%EC%B6%94%EA%B0%80%EB%A1%9C-%EC%83%9D%EA%B0%81%ED%95%B4-%EB%B3%BC-%EA%B2%83?" aria-hidden="true"><span class="octicon octicon-link"></span></a>추가로 생각해 볼 것?<a class="anchor-link" href="#%EC%B6%94%EA%B0%80%EB%A1%9C-%EC%83%9D%EA%B0%81%ED%95%B4-%EB%B3%BC-%EA%B2%83?"> </a>
+<h2 id="추가로-생각해-볼-것">
+<a class="anchor" href="#%EC%B6%94%EA%B0%80%EB%A1%9C-%EC%83%9D%EA%B0%81%ED%95%B4-%EB%B3%BC-%EA%B2%83" aria-hidden="true"><span class="octicon octicon-link"></span></a>추가로 생각해 볼 것<a class="anchor-link" href="#%EC%B6%94%EA%B0%80%EB%A1%9C-%EC%83%9D%EA%B0%81%ED%95%B4-%EB%B3%BC-%EA%B2%83"> </a>
 </h2>
 </div>
 </div>
