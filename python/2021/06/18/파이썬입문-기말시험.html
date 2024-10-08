@@ -96,7 +96,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      3 min read
+      2 min read
     
 </span></p>
 
@@ -190,24 +190,23 @@ window.onload = wrap_img;
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">execution_sword</span><span class="p">():</span>
-    
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">upgradestate</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">'day0'</span><span class="p">:[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="mi">100</span><span class="p">})</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">upgradestate</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">"day0"</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="mi">100</span><span class="p">})</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">prob</span> <span class="o">=</span> <span class="mf">0.3</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">day</span> <span class="o">=</span> <span class="mi">0</span>
-        
+
     <span class="k">def</span> <span class="nf">add_day</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">day</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">day</span> <span class="o">+</span> <span class="mi">1</span>  <span class="c1">## 날짜를 하루 더한다</span>
-        
+        <span class="bp">self</span><span class="o">.</span><span class="n">day</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">day</span> <span class="o">+</span> <span class="mi">1</span>
+
     <span class="k">def</span> <span class="nf">attempt</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">attemptresult</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">binomial</span><span class="p">(</span><span class="n">n</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">p</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">prob</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="mi">100</span><span class="p">)</span> 
-           
+        <span class="bp">self</span><span class="o">.</span><span class="n">attemptresult</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">binomial</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">prob</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span> 
+
     <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">upgradestate</span><span class="p">[</span><span class="s1">'day</span><span class="si">%s</span><span class="s1">'</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">day</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">minimum</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">upgradestate</span><span class="p">[</span><span class="s1">'day</span><span class="si">%s</span><span class="s1">'</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">day</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)]</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">attemptresult</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span> <span class="c1">## +5이후로는 증가하지 않는다  </span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">ratio</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">upgradestate</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s1">'day</span><span class="si">%s</span><span class="s1">'</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">day</span><span class="p">]</span> <span class="o">==</span> <span class="mi">5</span><span class="p">)</span> <span class="o">/</span> <span class="mi">100</span> 
-        
+        <span class="bp">self</span><span class="o">.</span><span class="n">upgradestate</span><span class="p">[</span><span class="s2">"day</span><span class="si">%s</span><span class="s2">"</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">day</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">minimum</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">upgradestate</span><span class="p">[</span><span class="s2">"day</span><span class="si">%s</span><span class="s2">"</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">day</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)]</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">attemptresult</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>  <span class="c1"># +5이후로는 증가하지 않는다  </span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ratio</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">upgradestate</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s2">"day</span><span class="si">%s</span><span class="s2">"</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">day</span><span class="p">]</span> <span class="o">==</span> <span class="mi">5</span><span class="p">)</span> <span class="o">/</span> <span class="mi">100</span> 
+
     <span class="k">def</span> <span class="nf">return_ratio</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">ratio</span> <span class="c1">## ratio(성공한 사람 수 / 전체 사람 수)를 리턴한다</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">ratio</span>  <span class="c1"># ratio(성공한 사람 수 / 전체 사람 수)를 리턴한다</span>
 </pre></div>
 
     </div>
@@ -224,16 +223,14 @@ window.onload = wrap_img;
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#1-(1)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 1-(1)</span>
 <span class="n">test1</span> <span class="o">=</span> <span class="n">execution_sword</span><span class="p">()</span>
-
 <span class="k">for</span> <span class="n">test1</span><span class="o">.</span><span class="n">day</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">63</span><span class="p">):</span>
     <span class="n">test1</span><span class="o">.</span><span class="n">attempt</span><span class="p">()</span>
     <span class="n">test1</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>
-    
-<span class="mi">100</span> <span class="o">*</span> <span class="n">test1</span><span class="o">.</span><span class="n">ratio</span> <span class="c1">## 62일후 100명중 몇명이 +5강화 상태인가?</span>
+<span class="mi">100</span> <span class="o">*</span> <span class="n">test1</span><span class="o">.</span><span class="n">ratio</span>  <span class="c1"># 62일후 100명중 몇명이 +5강화 상태인가?</span>
 
-<span class="c1">## 시뮬레이션 결과 100명이였다</span>
+<span class="c1"># 시뮬레이션 결과 100명이였다</span>
 </pre></div>
 
     </div>
@@ -262,7 +259,7 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> 위에처럼 <code>test.i</code>를 함수 외부에서 조작하는 것은 좋지 않다</p>
+<p><code>-</code> 위에처럼 <code>test.day</code>를 함수 외부에서 조작하는 것은 좋지 않다</p>
 <p><code>-</code> 마찬가지로 test1 클래스의 멤버변수(ratio)에 직접 접근하는 것도 좋지 않다</p>
 <p><code>-</code> 이를 조작할 수 있는 함수를 새로 만들고 코드를 다시 구현하자</p>
 
@@ -277,12 +274,10 @@ window.onload = wrap_img;
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">test_1</span> <span class="o">=</span> <span class="n">execution_sword</span><span class="p">()</span>
-
 <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">63</span><span class="p">):</span>
     <span class="n">test_1</span><span class="o">.</span><span class="n">add_day</span><span class="p">()</span>
     <span class="n">test_1</span><span class="o">.</span><span class="n">attempt</span><span class="p">()</span>
     <span class="n">test_1</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>
-    
 <span class="mi">100</span> <span class="o">*</span> <span class="n">test_1</span><span class="o">.</span><span class="n">return_ratio</span><span class="p">()</span>
 </pre></div>
 
@@ -326,48 +321,44 @@ window.onload = wrap_img;
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">execution_sword2</span><span class="p">(</span><span class="n">execution_sword</span><span class="p">):</span>
-    
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span> <span class="c1">## 함수 오버라이딩</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">prob</span> <span class="o">=</span> <span class="mf">0.7</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">failstate</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">'day0'</span><span class="p">:[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="mi">100</span><span class="p">})</span>
-        
+        <span class="bp">self</span><span class="o">.</span><span class="n">failstate</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">"day0"</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="mi">100</span><span class="p">})</span>
+
     <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">update</span><span class="p">()</span> <span class="c1">## 함수 오버라이딩</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">failstate</span><span class="p">[</span><span class="s1">'day</span><span class="si">%s</span><span class="s1">'</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">day</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">failstate</span><span class="p">[</span><span class="s1">'day</span><span class="si">%s</span><span class="s1">'</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">day</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)]</span> <span class="o">+</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">attemptresult</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="o">*</span> <span class="mi">1</span>
-        
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">failstate</span><span class="p">[</span><span class="s2">"day</span><span class="si">%s</span><span class="s2">"</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">day</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">failstate</span><span class="p">[</span><span class="s2">"day</span><span class="si">%s</span><span class="s2">"</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">day</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)]</span> <span class="o">+</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">attemptresult</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="o">*</span> <span class="mi">1</span>
         <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">):</span>
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">upgradestate</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">j</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">day</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">failstate</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">j</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">day</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">failstate</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">j</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">day</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span> 
-            <span class="c1">## i-1번째 + 강화시도(0 or 1) = i번째</span>
-            <span class="c1">## i, i-1번째 강화상태가 0이라는 의미는 i-1째에 시도한 강화가 실패했다는 의미</span>
-            <span class="c1">## upgradestate가 0이라는 의미는 실패했다는 것이므로 실패횟수가 하나 쌓인다</span>
-            <span class="c1">## +0에서는 실패횟수가 쌓이지 않으므로 failstate값을 하나 뺀다</span>
-            
+            <span class="c1"># i-1번째 + 강화시도(0 or 1) = i번째</span>
+            <span class="c1"># i, i-1번째 강화상태가 0이라는 의미는 i-1째에 시도한 강화가 실패했다는 의미</span>
+            <span class="c1"># upgradestate가 0이라는 의미는 실패했다는 것이므로 실패횟수가 하나 쌓인다</span>
+            <span class="c1"># +0에서는 실패횟수가 쌓이지 않으므로 failstate값을 하나 뺀다</span>
             <span class="k">if</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">upgradestate</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">j</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">day</span><span class="p">]</span> <span class="o">==</span> <span class="mi">5</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">attemptresult</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">):</span>
-            <span class="c1">## i-1번째 + 강화시도(0 or 1) = i번째 </span>
-            <span class="c1">## i번째가 +5강화이면서 i-1번째 시도한 강화가 실패라는 의미는</span>
-            <span class="c1">## i-1번째가 +5강화였다는 의미이다. 그러므로 i번째 실패횟수가 +1 됐을것이다</span>
-            <span class="c1">## +5강화에서는 강화를 도전하지 않을 것이다</span>
-            <span class="c1">## 그러므로 i번째 실패횟수를 1을 감소시킨다</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">failstate</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">j</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">day</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">failstate</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">j</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">day</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span> 
-            <span class="c1">## +5에서는 강화를 시도하지 않을것이므로 </span>
-            <span class="c1">## 만약 실패했다면 failstate값을 하나 뺀다</span>
-                
+            <span class="c1"># i-1번째 + 강화시도(0 or 1) = i번째 </span>
+            <span class="c1"># i번째가 +5강화이면서 i-1번째 시도한 강화가 실패라는 의미는</span>
+            <span class="c1"># i-1번째가 +5강화였다는 의미이다. 그러므로 i번째 실패횟수가 +1 됐을것이다</span>
+            <span class="c1"># +5강화에서는 강화를 도전하지 않을 것이다</span>
+            <span class="c1"># 그러므로 i번째 실패횟수를 1을 감소시킨다</span>
+            <span class="c1"># +5에서는 강화를 시도하지 않을것이므로 </span>
+            <span class="c1"># 만약 실패했다면 failstate값을 하나 뺀다</span>
+
     <span class="k">def</span> <span class="nf">reset</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span> 
         <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">):</span>
             <span class="k">if</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">upgradestate</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">j</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">day</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">upgradestate</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">j</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">day</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">):</span>     
                 <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">failstate</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">j</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">day</span><span class="p">]</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
                     <span class="bp">self</span><span class="o">.</span><span class="n">failstate</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">j</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">day</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
                     <span class="bp">self</span><span class="o">.</span><span class="n">upgradestate</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">j</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">day</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
-            <span class="c1">## 실패스택이 2라면 실패스택을 0으로 바꾸고 강화상태를 +0으로 바꾼다 </span>
-            
+            <span class="c1"># 실패스택이 2라면 실패스택을 0으로 바꾸고 강화상태를 +0으로 바꾼다 </span>
+
     <span class="k">def</span> <span class="nf">arrangeprobt</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">ratio</span> <span class="o">&gt;=</span> <span class="mf">0.5</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">prob</span> <span class="o">=</span> <span class="mf">0.9</span>
-            
-        <span class="c1">## +5강 비율이 50%이상이라면 전체유저의 강화 성공확률을 90%로 바꾼다</span>
-    
+        <span class="c1"># +5강 비율이 50%이상이라면 전체유저의 강화 성공확률을 90%로 바꾼다</span>
+
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">return_ratio</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">ratio</span>  
@@ -398,18 +389,16 @@ window.onload = wrap_img;
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#2-(1)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 2-(1)</span>
 <span class="n">test2</span> <span class="o">=</span> <span class="n">execution_sword2</span><span class="p">()</span>
-
 <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">63</span><span class="p">):</span>
     <span class="n">test2</span><span class="o">.</span><span class="n">add_day</span><span class="p">()</span>
     <span class="n">test2</span><span class="o">.</span><span class="n">attempt</span><span class="p">()</span>
     <span class="n">test2</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>
     <span class="n">test2</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
-    
-<span class="mi">100</span> <span class="o">*</span> <span class="n">test2</span><span class="o">.</span><span class="n">return_ratio</span>  <span class="c1">## 괄호 생략 가능 ## 그런데 메소드 이름이 return_ratio라 괄호가 있는 것이 자연스러운 것 같음</span>
+<span class="mi">100</span> <span class="o">*</span> <span class="n">test2</span><span class="o">.</span><span class="n">return_ratio</span>  <span class="c1"># 괄호 생략 가능, 그런데 메소드 이름이 return_ratio라 괄호가 있는 것이 자연스러운 것 같음</span>
 
-<span class="c1">## 시뮬레이션 결과 100명이였다       </span>
+<span class="c1"># 시뮬레이션 결과 100명이였다       </span>
 </pre></div>
 
     </div>
@@ -442,18 +431,16 @@ window.onload = wrap_img;
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#2-(2)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 2-(2)</span>
 <span class="n">test3</span> <span class="o">=</span> <span class="n">execution_sword2</span><span class="p">()</span>
-
 <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">32</span><span class="p">):</span>
     <span class="n">test3</span><span class="o">.</span><span class="n">add_day</span><span class="p">()</span>
     <span class="n">test3</span><span class="o">.</span><span class="n">attempt</span><span class="p">()</span>
     <span class="n">test3</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>
     <span class="n">test3</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
+<span class="mi">100</span> <span class="o">*</span> <span class="n">test3</span><span class="o">.</span><span class="n">return_ratio</span>  <span class="c1"># 31일후 100명중 몇명이 +5강화 상태인가?</span>
 
-<span class="mi">100</span> <span class="o">*</span> <span class="n">test3</span><span class="o">.</span><span class="n">return_ratio</span>  <span class="c1">## 31일후 100명중 몇명이 +5강화 상태인가?</span>
-
-<span class="c1">## 시뮬레이션 결과 99명이였다</span>
+<span class="c1"># 시뮬레이션 결과 99명이였다</span>
 </pre></div>
 
     </div>
@@ -486,19 +473,17 @@ window.onload = wrap_img;
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#2-(3)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 2-(3)</span>
 <span class="n">test4</span> <span class="o">=</span> <span class="n">execution_sword2</span><span class="p">()</span>
-
 <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">63</span><span class="p">):</span>
     <span class="n">test4</span><span class="o">.</span><span class="n">add_day</span><span class="p">()</span>
     <span class="n">test4</span><span class="o">.</span><span class="n">attempt</span><span class="p">()</span>
     <span class="n">test4</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>
     <span class="n">test4</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
     <span class="n">test4</span><span class="o">.</span><span class="n">arrangeprobt</span><span class="p">()</span>
-    
-<span class="mi">100</span> <span class="o">*</span> <span class="n">test4</span><span class="o">.</span><span class="n">return_ratio</span>  <span class="c1">## 과반수가 +5강화 일때 성공확률을 0.9로 바꾼다, 62일후 100명중 몇명이 +5강화 상태인가?</span>
+<span class="mi">100</span> <span class="o">*</span> <span class="n">test4</span><span class="o">.</span><span class="n">return_ratio</span>  <span class="c1"># 과반수가 +5강화 일때 성공확률을 0.9로 바꾼다, 62일후 100명중 몇명이 +5강화 상태인가?</span>
 
-<span class="c1">## 시뮬레이션 결과 100명이였다</span>
+<span class="c1"># 시뮬레이션 결과 100명이였다</span>
 </pre></div>
 
     </div>

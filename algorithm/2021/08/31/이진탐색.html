@@ -190,25 +190,19 @@ window.onload = wrap_img;
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">binary_search</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">target</span><span class="p">):</span>
-    <span class="n">arr</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span> <span class="c1">## 리스트를 오름차순으로 정렬</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">binary_search</span><span class="p">(</span><span class="n">sorted_arr</span><span class="p">,</span> <span class="n">target</span><span class="p">):</span>
     <span class="n">low</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="n">high</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span> <span class="c1">## arr의 첫번째 인덱스(low)부터 마지막 인덱스(high)까지 탐색</span>
-    
+    <span class="n">high</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">sorted_arr</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>  <span class="c1"># sorted_arr의 첫번째 인덱스(low)부터 마지막 인덱스(high)까지 탐색</span>
     <span class="k">while</span> <span class="n">low</span> <span class="o">&lt;=</span> <span class="n">high</span><span class="p">:</span>
         <span class="n">mid</span> <span class="o">=</span> <span class="p">(</span><span class="n">high</span> <span class="o">+</span> <span class="n">low</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s1">'low: </span><span class="si">{}</span><span class="se">\n</span><span class="s1">high: </span><span class="si">{}</span><span class="se">\n</span><span class="s1">mid: </span><span class="si">{}</span><span class="s1">'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">low</span><span class="p">,</span> <span class="n">high</span><span class="p">,</span> <span class="n">mid</span><span class="p">))</span>
-        
-        <span class="k">if</span> <span class="n">arr</span><span class="p">[</span><span class="n">mid</span><span class="p">]</span> <span class="o">==</span> <span class="n">target</span><span class="p">:</span> <span class="c1">## 원하는 값을 찾으면 mid(인덱스)를 반환</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"low: </span><span class="si">{}</span><span class="se">\n</span><span class="s2">high: </span><span class="si">{}</span><span class="se">\n</span><span class="s2">mid: </span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">low</span><span class="p">,</span> <span class="n">high</span><span class="p">,</span> <span class="n">mid</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">sorted_arr</span><span class="p">[</span><span class="n">mid</span><span class="p">]</span> <span class="o">==</span> <span class="n">target</span><span class="p">:</span>  <span class="c1"># 원하는 값을 찾으면 mid(인덱스)를 반환</span>
             <span class="k">return</span> <span class="n">mid</span>
-        
-        <span class="k">elif</span> <span class="n">arr</span><span class="p">[</span><span class="n">mid</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">target</span><span class="p">:</span> <span class="c1">## 원하는 값이 중간점보다 작은 경우 왼쪽 부분 탐색</span>
+        <span class="k">if</span> <span class="n">sorted_arr</span><span class="p">[</span><span class="n">mid</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">target</span><span class="p">:</span>  <span class="c1"># 원하는 값이 중간점보다 작은 경우 왼쪽 부분 탐색</span>
             <span class="n">high</span> <span class="o">=</span> <span class="n">mid</span> <span class="o">-</span> <span class="mi">1</span>
-            
         <span class="k">else</span><span class="p">:</span>
-            <span class="n">low</span> <span class="o">=</span> <span class="n">mid</span> <span class="o">+</span> <span class="mi">1</span> <span class="c1">## 원하는 값이 중간점보다 큰 경우 오른쪽 부분 탐색</span>
-        
-    <span class="k">return</span> <span class="kc">False</span> <span class="c1">## 원하는 값이 arr에 없는 경우</span>
+            <span class="n">low</span> <span class="o">=</span> <span class="n">mid</span> <span class="o">+</span> <span class="mi">1</span>  <span class="c1"># 원하는 값이 중간점보다 큰 경우 오른쪽 부분 탐색</span>
+    <span class="k">return</span> <span class="kc">False</span>  <span class="c1"># 원하는 값이 sorted_arr에 없는 경우</span>
 </pre></div>
 
     </div>
@@ -226,8 +220,8 @@ window.onload = wrap_img;
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">arr</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">101</span><span class="p">))</span>
+<span class="n">arr</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>  <span class="c1"># 오름차순 정렬</span>
 <span class="n">target</span> <span class="o">=</span> <span class="mi">88</span>
-
 <span class="n">binary_search</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">target</span><span class="p">)</span>
 </pre></div>
 
