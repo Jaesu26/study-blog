@@ -96,7 +96,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      8 min read
+      9 min read
     
 </span></p>
 
@@ -234,68 +234,105 @@ window.onload = wrap_img;
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#collapse</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
 
-<span class="k">def</span> <span class="nf">get_1st_option</span><span class="p">():</span>
-    <span class="n">r</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">()</span>
-    <span class="k">if</span> <span class="n">r</span> <span class="o">&lt;</span> <span class="mf">0.04878</span><span class="p">:</span>
-        <span class="k">return</span> <span class="s2">"공격력"</span>
-    <span class="k">if</span> <span class="n">r</span> <span class="o">&lt;</span> <span class="mf">0.04878</span> <span class="o">*</span> <span class="mi">2</span><span class="p">:</span>
-        <span class="k">return</span> <span class="s2">"마력"</span>
-    <span class="k">return</span> <span class="s2">"잡옵"</span>
+<span class="k">class</span> <span class="nc">AdditionalCube</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">first_prob</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"공격력"</span><span class="p">:</span> <span class="mf">0.04878</span><span class="p">,</span> <span class="s2">"마력"</span><span class="p">:</span> <span class="mf">0.04878</span><span class="p">,</span> <span class="s2">"잡옵"</span><span class="p">:</span> <span class="mi">1</span> <span class="o">-</span> <span class="mf">0.04878</span> <span class="o">*</span> <span class="mi">2</span><span class="p">}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">second_prob</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"공격력"</span><span class="p">:</span> <span class="mf">0.062791</span><span class="p">,</span> <span class="s2">"마력"</span><span class="p">:</span> <span class="mf">0.062791</span><span class="p">,</span> <span class="s2">"잡옵"</span><span class="p">:</span> <span class="mi">1</span> <span class="o">-</span> <span class="mf">0.062791</span> <span class="o">*</span> <span class="mi">2</span><span class="p">}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">third_prob</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"공격력"</span><span class="p">:</span> <span class="mf">0.06907</span><span class="p">,</span> <span class="s2">"마력"</span><span class="p">:</span> <span class="mf">0.06907</span><span class="p">,</span> <span class="s2">"잡옵"</span><span class="p">:</span> <span class="mi">1</span> <span class="o">-</span> <span class="mf">0.06907</span> <span class="o">*</span> <span class="mi">2</span><span class="p">}</span>
+
+    <span class="k">def</span> <span class="nf">roll</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_get_option</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">first_prob</span><span class="p">),</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_get_option</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">second_prob</span><span class="p">),</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_get_option</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">third_prob</span><span class="p">),</span>
+        <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_get_option</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">prob_dict</span><span class="p">):</span>
+        <span class="n">rand</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">()</span>
+        <span class="n">cumulative_prob</span> <span class="o">=</span> <span class="mf">0.0</span>
+        <span class="k">for</span> <span class="n">option</span><span class="p">,</span> <span class="n">prob</span> <span class="ow">in</span> <span class="n">prob_dict</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="n">cumulative_prob</span> <span class="o">+=</span> <span class="n">prob</span>
+            <span class="k">if</span> <span class="n">rand</span> <span class="o">&lt;=</span> <span class="n">cumulative_prob</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">option</span>
 
 
-<span class="k">def</span> <span class="nf">get_2nd_option</span><span class="p">():</span>
-    <span class="n">r</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">()</span>
-    <span class="k">if</span> <span class="n">r</span> <span class="o">&lt;</span> <span class="mf">0.062791</span><span class="p">:</span>
-        <span class="k">return</span> <span class="s2">"공격력"</span>
-    <span class="k">if</span> <span class="n">r</span> <span class="o">&lt;</span> <span class="mf">0.062791</span> <span class="o">*</span> <span class="mi">2</span><span class="p">:</span>
-        <span class="k">return</span> <span class="s2">"마력"</span>
-    <span class="k">return</span> <span class="s2">"잡옵"</span>
+<span class="k">class</span> <span class="nc">CubeResultAnalyzer</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">is_attack_power</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">option</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">option</span> <span class="o">==</span> <span class="s2">"공격력"</span>
+
+    <span class="k">def</span> <span class="nf">is_spell_power</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">option</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">option</span> <span class="o">==</span> <span class="s2">"마력"</span>
+
+    <span class="k">def</span> <span class="nf">is_valid_attack_power</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">first</span><span class="p">,</span> <span class="n">second</span><span class="p">,</span> <span class="n">third</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_attack_power</span><span class="p">(</span><span class="n">first</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">is_attack_power</span><span class="p">(</span><span class="n">second</span><span class="p">)</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_attack_power</span><span class="p">(</span><span class="n">third</span><span class="p">))</span>
+
+    <span class="k">def</span> <span class="nf">is_valid_spell_power</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">first</span><span class="p">,</span> <span class="n">second</span><span class="p">,</span> <span class="n">third</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_spell_power</span><span class="p">(</span><span class="n">first</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">is_spell_power</span><span class="p">(</span><span class="n">second</span><span class="p">)</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_spell_power</span><span class="p">(</span><span class="n">third</span><span class="p">))</span>
 
 
-<span class="k">def</span> <span class="nf">get_3rd_option</span><span class="p">():</span>
-    <span class="n">r</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">()</span>
-    <span class="k">if</span> <span class="n">r</span> <span class="o">&lt;</span> <span class="mf">0.06907</span><span class="p">:</span>
-        <span class="k">return</span> <span class="s2">"공격력"</span>
-    <span class="k">if</span> <span class="n">r</span> <span class="o">&lt;</span> <span class="mf">0.06907</span> <span class="o">*</span> <span class="mi">2</span><span class="p">:</span>
-        <span class="k">return</span> <span class="s2">"마력"</span>
-    <span class="k">return</span> <span class="s2">"잡옵"</span>
+<span class="c1"># 시뮬레이터 클래스</span>
+<span class="k">class</span> <span class="nc">CubeSimulator</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cube</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mi">3</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cube</span> <span class="o">=</span> <span class="n">cube</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">threshold</span> <span class="o">=</span> <span class="n">threshold</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">analyzer</span> <span class="o">=</span> <span class="n">CubeResultAnalyzer</span><span class="p">()</span>
 
+    <span class="k">def</span> <span class="nf">_reset</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">n</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">attack_power_count</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">valid_attack_power_count</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">spell_power_count</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">valid_spell_power_count</span> <span class="o">=</span> <span class="mi">0</span>
 
-<span class="k">def</span> <span class="nf">is_attack_power</span><span class="p">(</span><span class="n">option</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">option</span> <span class="o">==</span> <span class="s2">"공격력"</span><span class="p">:</span>
-        <span class="k">return</span> <span class="kc">True</span>
-    <span class="k">return</span> <span class="kc">False</span>
+    <span class="k">def</span> <span class="nf">simulate_once</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">first</span><span class="p">,</span> <span class="n">second</span><span class="p">,</span> <span class="n">third</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cube</span><span class="o">.</span><span class="n">roll</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">n</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">analyzer</span><span class="o">.</span><span class="n">is_valid_attack_power</span><span class="p">(</span><span class="n">first</span><span class="p">,</span> <span class="n">second</span><span class="p">,</span> <span class="n">third</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">valid_attack_power_count</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">analyzer</span><span class="o">.</span><span class="n">is_valid_spell_power</span><span class="p">(</span><span class="n">first</span><span class="p">,</span> <span class="n">second</span><span class="p">,</span> <span class="n">third</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">valid_spell_power_count</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">analyzer</span><span class="o">.</span><span class="n">is_attack_power</span><span class="p">(</span><span class="n">first</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">attack_power_count</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">analyzer</span><span class="o">.</span><span class="n">is_spell_power</span><span class="p">(</span><span class="n">first</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">spell_power_count</span> <span class="o">+=</span> <span class="mi">1</span>
 
+    <span class="k">def</span> <span class="nf">simulate_until_attack2</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">"""공격력2줄이 나올 때까지 큐브 사용"""</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_reset</span><span class="p">()</span>
+        <span class="k">while</span> <span class="bp">self</span><span class="o">.</span><span class="n">valid_attack_power</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">simulate_once</span><span class="p">()</span>
 
-<span class="k">def</span> <span class="nf">is_spell_power</span><span class="p">(</span><span class="n">option</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">option</span> <span class="o">==</span> <span class="s2">"마력"</span><span class="p">:</span>
-        <span class="k">return</span> <span class="kc">True</span>
-    <span class="k">return</span> <span class="kc">False</span>
+    <span class="k">def</span> <span class="nf">test</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">"""억까 여부를 판단"""</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">simulate_until_attack2</span><span class="p">()</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">valid_spell_power_count</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">threshold</span><span class="p">:</span>
+            <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">n</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">attack_power_count</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">spell_power_count</span>
 
+    <span class="k">def</span> <span class="nf">record_tests</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">1000</span><span class="p">):</span>
+        <span class="n">ns</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">spell_power_counts</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">attack_power_counts</span> <span class="o">=</span> <span class="p">[]</span>
 
-<span class="k">def</span> <span class="nf">is_valid_attack_power</span><span class="p">(</span><span class="n">first_option</span><span class="p">,</span> <span class="n">second_option</span><span class="p">,</span> <span class="n">third_option</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">first_option</span> <span class="o">==</span> <span class="s2">"공격력"</span> <span class="ow">and</span> <span class="p">(</span><span class="n">second_option</span> <span class="o">==</span> <span class="s2">"공격력"</span> <span class="ow">or</span> <span class="n">third_option</span> <span class="o">==</span> <span class="s2">"공격력"</span><span class="p">):</span>
-        <span class="k">return</span> <span class="kc">True</span>
-    <span class="k">return</span> <span class="kc">False</span>
+        <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">size</span><span class="p">):</span>
+            <span class="n">n</span><span class="p">,</span> <span class="n">spell_power_count</span><span class="p">,</span> <span class="n">attack_power_count</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">test</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>  <span class="c1"># 억까당한 경우만 기록</span>
+                <span class="k">continue</span>
+            <span class="n">ns</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+            <span class="n">spell_power_counts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">spell_power_count</span><span class="p">)</span>
+            <span class="n">attack_power_counts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">attack_power_count</span><span class="p">)</span>
 
+        <span class="n">ns</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">ns</span><span class="p">)</span>
+        <span class="n">spell_power_counts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">spell_power_counts</span><span class="p">)</span>
+        <span class="n">attack_power_counts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">attack_power_counts</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">ns</span><span class="p">,</span> <span class="n">spell_power_counts</span><span class="p">,</span> <span class="n">attack_power_counts</span>
 
-<span class="k">def</span> <span class="nf">is_valid_spell_power</span><span class="p">(</span><span class="n">first_option</span><span class="p">,</span> <span class="n">second_option</span><span class="p">,</span> <span class="n">third_option</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">first_option</span> <span class="o">==</span> <span class="s2">"마력"</span> <span class="ow">and</span> <span class="p">(</span><span class="n">second_option</span> <span class="o">==</span> <span class="s2">"마력"</span> <span class="ow">or</span> <span class="n">third_option</span> <span class="o">==</span> <span class="s2">"마력"</span><span class="p">):</span>
-        <span class="k">return</span> <span class="kc">True</span>
-    <span class="k">return</span> <span class="kc">False</span>
-
-
-<span class="k">def</span> <span class="nf">get_cube_option</span><span class="p">():</span>
-    <span class="n">first_option</span> <span class="o">=</span> <span class="n">get_1st_option</span><span class="p">()</span>
-    <span class="n">second_option</span> <span class="o">=</span> <span class="n">get_2nd_option</span><span class="p">()</span>
-    <span class="n">third_option</span> <span class="o">=</span> <span class="n">get_3rd_option</span><span class="p">()</span>
-    <span class="k">return</span> <span class="n">first_option</span><span class="p">,</span> <span class="n">second_option</span><span class="p">,</span> <span class="n">third_option</span>
-
-
+<span class="c1">##########################################################</span>
 <span class="k">def</span> <span class="nf">check_cube_option</span><span class="p">(</span><span class="n">first_option</span><span class="p">,</span> <span class="n">second_option</span><span class="p">,</span> <span class="n">third_option</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">is_valid_attack_power</span><span class="p">(</span><span class="n">first_option</span><span class="p">,</span> <span class="n">second_option</span><span class="p">,</span> <span class="n">third_option</span><span class="p">):</span>
         <span class="k">return</span> <span class="s2">"공격력_2줄"</span>
@@ -308,13 +345,13 @@ window.onload = wrap_img;
     <span class="k">return</span> <span class="s2">"잡옵"</span>
 
 
-<span class="k">def</span> <span class="nf">get_sample</span><span class="p">():</span>
+<span class="k">def</span> <span class="nf">simulate_valid_attack_power</span><span class="p">():</span>
     <span class="n">n</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="n">valid_spell_power_count</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="n">spell_power_count</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="n">attack_power_count</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-        <span class="n">first_option</span><span class="p">,</span> <span class="n">second_option</span><span class="p">,</span> <span class="n">third_option</span> <span class="o">=</span> <span class="n">get_cube_option</span><span class="p">()</span>
+        <span class="n">first_option</span><span class="p">,</span> <span class="n">second_option</span><span class="p">,</span> <span class="n">third_option</span> <span class="o">=</span> <span class="n">use_additional_cube</span><span class="p">()</span>
         <span class="n">output</span> <span class="o">=</span> <span class="n">check_cube_option</span><span class="p">(</span><span class="n">first_option</span><span class="p">,</span> <span class="n">second_option</span><span class="p">,</span> <span class="n">third_option</span><span class="p">)</span>
         <span class="n">n</span> <span class="o">+=</span> <span class="mi">1</span>
         <span class="k">if</span> <span class="n">output</span> <span class="o">==</span> <span class="s2">"공격력_2줄"</span><span class="p">:</span>
@@ -327,13 +364,11 @@ window.onload = wrap_img;
             <span class="n">spell_power_count</span> <span class="o">+=</span> <span class="mi">1</span>
         <span class="k">elif</span> <span class="n">output</span> <span class="o">==</span> <span class="s2">"마력_1줄"</span><span class="p">:</span>
             <span class="n">spell_power_count</span> <span class="o">+=</span> <span class="mi">1</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="k">pass</span>
     <span class="k">return</span> <span class="n">n</span><span class="p">,</span> <span class="n">valid_spell_power_count</span><span class="p">,</span> <span class="n">spell_power_count</span><span class="p">,</span> <span class="n">attack_power_count</span>
 
 
 <span class="k">def</span> <span class="nf">test</span><span class="p">(</span><span class="n">threshold</span><span class="o">=</span><span class="mi">3</span><span class="p">):</span>
-    <span class="n">n</span><span class="p">,</span> <span class="n">valid_spell_power_count</span><span class="p">,</span> <span class="n">spell_power_count</span><span class="p">,</span> <span class="n">attack_power_count</span> <span class="o">=</span> <span class="n">get_sample</span><span class="p">()</span>
+    <span class="n">n</span><span class="p">,</span> <span class="n">valid_spell_power_count</span><span class="p">,</span> <span class="n">spell_power_count</span><span class="p">,</span> <span class="n">attack_power_count</span> <span class="o">=</span> <span class="n">simulate_valid_attack_power</span><span class="p">()</span>
     <span class="k">if</span> <span class="n">valid_spell_power_count</span> <span class="o">&lt;</span> <span class="n">threshold</span><span class="p">:</span>  <span class="c1"># 에디 마력 2줄을 threshold번 이상 보고 에디 공격력 2줄을 획득한 경우, 억까 당했다고 표현</span>
         <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span>
     <span class="k">return</span> <span class="n">n</span><span class="p">,</span> <span class="n">spell_power_count</span><span class="p">,</span> <span class="n">attack_power_count</span>
