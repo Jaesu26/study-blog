@@ -237,26 +237,41 @@ window.onload = wrap_img;
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">ClassVar</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Literal</span><span class="p">,</span> <span class="n">Tuple</span> 
+
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">tqdm</span>
 
+<span class="n">Option</span> <span class="o">=</span> <span class="n">Literal</span><span class="p">[</span><span class="s2">"공격력"</span><span class="p">,</span> <span class="s2">"마력"</span><span class="p">,</span> <span class="s2">"잡옵"</span><span class="p">]</span>
 
-<span class="k">class</span> <span class="nc">AdditionalCube</span><span class="p">:</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">first_option2prob</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"공격력"</span><span class="p">:</span> <span class="mf">0.04878</span><span class="p">,</span> <span class="s2">"마력"</span><span class="p">:</span> <span class="mf">0.04878</span><span class="p">,</span> <span class="s2">"잡옵"</span><span class="p">:</span> <span class="mi">1</span> <span class="o">-</span> <span class="mf">0.04878</span> <span class="o">*</span> <span class="mi">2</span><span class="p">}</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">second_option2prob</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"공격력"</span><span class="p">:</span> <span class="mf">0.062791</span><span class="p">,</span> <span class="s2">"마력"</span><span class="p">:</span> <span class="mf">0.062791</span><span class="p">,</span> <span class="s2">"잡옵"</span><span class="p">:</span> <span class="mi">1</span> <span class="o">-</span> <span class="mf">0.062791</span> <span class="o">*</span> <span class="mi">2</span><span class="p">}</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">third_option2prob</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"공격력"</span><span class="p">:</span> <span class="mf">0.06907</span><span class="p">,</span> <span class="s2">"마력"</span><span class="p">:</span> <span class="mf">0.06907</span><span class="p">,</span> <span class="s2">"잡옵"</span><span class="p">:</span> <span class="mi">1</span> <span class="o">-</span> <span class="mf">0.06907</span> <span class="o">*</span> <span class="mi">2</span><span class="p">}</span>
 
-    <span class="k">def</span> <span class="nf">roll</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="k">class</span> <span class="nc">Cube</span><span class="p">:</span>
+    <span class="n">_first_option2prob</span><span class="p">:</span> <span class="n">ClassVar</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="n">Option</span><span class="p">,</span> <span class="nb">float</span><span class="p">]]</span>
+    <span class="n">_second_option2prob</span><span class="p">:</span> <span class="n">ClassVar</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="n">Option</span><span class="p">,</span> <span class="nb">float</span><span class="p">]]</span>
+    <span class="n">_third_option2prob</span><span class="p">:</span> <span class="n">ClassVar</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="n">Option</span><span class="p">,</span> <span class="nb">float</span><span class="p">]]</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">first_option2prob</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="n">Option</span><span class="p">,</span> <span class="nb">float</span><span class="p">]:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_first_option2prob</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">second_option2prob</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="n">Option</span><span class="p">,</span> <span class="nb">float</span><span class="p">]:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_second_option2prob</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">third_option2prob</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="n">Option</span><span class="p">,</span> <span class="nb">float</span><span class="p">]:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_third_option2prob</span>
+
+    <span class="k">def</span> <span class="nf">roll</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">Option</span><span class="p">,</span> <span class="n">Option</span><span class="p">,</span> <span class="n">Option</span><span class="p">]:</span>
         <span class="k">return</span> <span class="p">(</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_get_random_option</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">first_option2prob</span><span class="p">),</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_get_random_option</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">second_option2prob</span><span class="p">),</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_get_random_option</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">third_option2prob</span><span class="p">),</span>
         <span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">_get_random_option</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">option2prob</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">_get_random_option</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">option2prob</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="n">Option</span><span class="p">,</span> <span class="nb">float</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Option</span><span class="p">:</span>
         <span class="n">rand</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">()</span>
         <span class="n">cumulative_prob</span> <span class="o">=</span> <span class="mf">0.0</span>
         <span class="k">for</span> <span class="n">option</span><span class="p">,</span> <span class="n">prob</span> <span class="ow">in</span> <span class="n">option2prob</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
@@ -265,53 +280,74 @@ window.onload = wrap_img;
                 <span class="k">return</span> <span class="n">option</span>
 
 
+<span class="k">class</span> <span class="nc">AdditionalCube</span><span class="p">(</span><span class="n">Cube</span><span class="p">):</span>
+    <span class="n">_first_option2prob</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"공격력"</span><span class="p">:</span> <span class="mf">0.04878</span><span class="p">,</span> <span class="s2">"마력"</span><span class="p">:</span> <span class="mf">0.04878</span><span class="p">,</span> <span class="s2">"잡옵"</span><span class="p">:</span> <span class="mf">0.90244</span><span class="p">}</span>
+    <span class="n">_second_option2prob</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"공격력"</span><span class="p">:</span> <span class="mf">0.062791</span><span class="p">,</span> <span class="s2">"마력"</span><span class="p">:</span> <span class="mf">0.062791</span><span class="p">,</span> <span class="s2">"잡옵"</span><span class="p">:</span> <span class="mf">0.874418</span><span class="p">}</span>
+    <span class="n">_third_option2prob</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"공격력"</span><span class="p">:</span> <span class="mf">0.06907</span><span class="p">,</span> <span class="s2">"마력"</span><span class="p">:</span> <span class="mf">0.06907</span><span class="p">,</span> <span class="s2">"잡옵"</span><span class="p">:</span> <span class="mf">0.86186</span><span class="p">}</span>
+
+
 <span class="k">class</span> <span class="nc">CubeResultAnalyzer</span><span class="p">:</span>
-    <span class="k">def</span> <span class="nf">is_attack_power</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">option</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">is_attack_power</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">option</span><span class="p">:</span> <span class="n">Option</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">option</span> <span class="o">==</span> <span class="s2">"공격력"</span>
 
-    <span class="k">def</span> <span class="nf">is_magic_power</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">option</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">is_magic_power</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">option</span><span class="p">:</span> <span class="n">Option</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">option</span> <span class="o">==</span> <span class="s2">"마력"</span>
 
-    <span class="k">def</span> <span class="nf">is_valid_attack_power</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">first</span><span class="p">,</span> <span class="n">second</span><span class="p">,</span> <span class="n">third</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">is_valid_attack_power</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">first</span><span class="p">:</span> <span class="n">Option</span><span class="p">,</span> <span class="n">second</span><span class="p">:</span> <span class="n">Option</span><span class="p">,</span> <span class="n">third</span><span class="p">:</span> <span class="n">Option</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_attack_power</span><span class="p">(</span><span class="n">first</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">is_attack_power</span><span class="p">(</span><span class="n">second</span><span class="p">)</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_attack_power</span><span class="p">(</span><span class="n">third</span><span class="p">))</span>
 
-    <span class="k">def</span> <span class="nf">is_valid_magic_power</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">first</span><span class="p">,</span> <span class="n">second</span><span class="p">,</span> <span class="n">third</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">is_valid_magic_power</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">first</span><span class="p">:</span> <span class="n">Option</span><span class="p">,</span> <span class="n">second</span><span class="p">:</span> <span class="n">Option</span><span class="p">,</span> <span class="n">third</span><span class="p">:</span> <span class="n">Option</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_magic_power</span><span class="p">(</span><span class="n">first</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">is_magic_power</span><span class="p">(</span><span class="n">second</span><span class="p">)</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_magic_power</span><span class="p">(</span><span class="n">third</span><span class="p">))</span>
 
 
 <span class="k">class</span> <span class="nc">History</span><span class="p">:</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]</span> <span class="o">=</span> <span class="p">[]</span>
 
-    <span class="k">def</span> <span class="nf">record</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="nb">dict</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">record</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">reset</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">reset</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">clear</span>
 
-    <span class="k">def</span> <span class="nf">to_pandas</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">to_dataframe</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_records</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
 
 
 <span class="k">class</span> <span class="nc">CubeSimulator</span><span class="p">:</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cube</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mi">3</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cube</span><span class="p">:</span> <span class="n">Cube</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">cube</span> <span class="o">=</span> <span class="n">cube</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">threshold</span> <span class="o">=</span> <span class="n">threshold</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">analyzer</span> <span class="o">=</span> <span class="n">CubeResultAnalyzer</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">history</span> <span class="o">=</span> <span class="n">History</span><span class="p">()</span>
 
-    <span class="k">def</span> <span class="nf">reset</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">reset</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">history</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_reset_init_conditions</span><span class="p">()</span>
 
-    <span class="k">def</span> <span class="nf">_reset_init_conditions</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">_reset_init_conditions</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">n</span> <span class="o">=</span> <span class="mi">0</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">attack_power_count</span> <span class="o">=</span> <span class="mi">0</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">valid_attack_power_count</span> <span class="o">=</span> <span class="mi">0</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">magic_power_count</span> <span class="o">=</span> <span class="mi">0</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">valid_magic_power_count</span> <span class="o">=</span> <span class="mi">0</span>
 
-    <span class="k">def</span> <span class="nf">simulate_once</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">simulate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">size</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">size</span><span class="p">)):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_reset_init_conditions</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_simulate_until_attack2</span><span class="p">()</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="s2">"n"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">n</span><span class="p">,</span>
+                <span class="s2">"attack_power_count"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">attack_power_count</span><span class="p">,</span>
+                <span class="s2">"magic_power_count"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">magic_power_count</span><span class="p">,</span>
+                <span class="s2">"valid_magic_power_count"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">valid_magic_power_count</span><span class="p">,</span>
+            <span class="p">}</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">history</span><span class="o">.</span><span class="n">record</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_simulate_until_attack2</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">while</span> <span class="bp">self</span><span class="o">.</span><span class="n">valid_attack_power_count</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_simulate_once</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">_simulate_once</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">first</span><span class="p">,</span> <span class="n">second</span><span class="p">,</span> <span class="n">third</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cube</span><span class="o">.</span><span class="n">roll</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">n</span> <span class="o">+=</span> <span class="mi">1</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">analyzer</span><span class="o">.</span><span class="n">is_valid_attack_power</span><span class="p">(</span><span class="n">first</span><span class="p">,</span> <span class="n">second</span><span class="p">,</span> <span class="n">third</span><span class="p">):</span>
@@ -323,21 +359,8 @@ window.onload = wrap_img;
         <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">analyzer</span><span class="o">.</span><span class="n">is_magic_power</span><span class="p">(</span><span class="n">first</span><span class="p">):</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">magic_power_count</span> <span class="o">+=</span> <span class="mi">1</span>
 
-    <span class="k">def</span> <span class="nf">simulate_until_attack2</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">while</span> <span class="bp">self</span><span class="o">.</span><span class="n">valid_attack_power_count</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">simulate_once</span><span class="p">()</span>
-
-    <span class="k">def</span> <span class="nf">simulate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">size</span><span class="p">):</span>
-        <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">size</span><span class="p">)):</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_reset_init_conditions</span><span class="p">()</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">simulate_until_attack2</span><span class="p">()</span>
-            <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
-                <span class="s2">"n"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">n</span><span class="p">,</span>
-                <span class="s2">"attack_power_count"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">attack_power_count</span><span class="p">,</span>
-                <span class="s2">"magic_power_count"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">magic_power_count</span><span class="p">,</span>
-                <span class="s2">"valid_magic_power_count"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">valid_magic_power_count</span><span class="p">,</span>
-            <span class="p">}</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">history</span><span class="o">.</span><span class="n">record</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">export</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">history</span><span class="o">.</span><span class="n">to_dataframe</span><span class="p">()</span>
 </pre></div>
 
     </div>
@@ -404,7 +427,7 @@ window.onload = wrap_img;
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stderr output_text">
-<pre>100%|██████████████████████████████████████████████████████████████████████████| 50000/50000 [00:39&lt;00:00, 1259.10it/s]
+<pre>100%|██████████████████████████████████████████████████████████████████████████| 50000/50000 [00:41&lt;00:00, 1201.53it/s]
 </pre>
 </div>
 </div>
@@ -422,7 +445,7 @@ window.onload = wrap_img;
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">simulator</span><span class="o">.</span><span class="n">history</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">simulator</span><span class="o">.</span><span class="n">export</span><span class="p">()</span>
 </pre></div>
 
     </div>
@@ -1324,7 +1347,7 @@ window.onload = wrap_img;
 <p><code>-</code> 생각해보면 당연한게 마력 2줄을 1번 획득했고 공격력 2줄도 동일하게 1번 획득했다</p>
 <p><code>-</code> 즉, 둘의 비율이 $1:1$이다</p>
 <p><code>-</code> 일반적인 경우도 맨 처음에 계산했듯이 둘의 비율이 $1:1$이다</p>
-<p><code>-</code> 그러니 구분하지 못하는게 당연하고 오히려 첫 번째 줄에서 공격력 또는 마력이 나머지에 비해 $431$번 더 등장했다면 문제가 된다</p>
+<p><code>-</code> 그러니 구분하지 못하는게 당연하고 오히려 첫 번째 줄에서 공격력 또는 마력이 나머지에 비해 $864$번 더 등장했다면 문제가 된다</p>
 <p><code>-</code> 처음에 설정한 궁금증은 <code>마력 2줄을 여러 번 획득한 후 공격력 2줄을 획득했을 때 첫 번째 줄 옵션은 마력이 공격력보다 많이 획득되도록 편향되었을까?</code>였다</p>
 <p><code>-</code> 이 궁금증은 <code>에디 마력 2줄을 단 1번 획득한 후 공격력 2줄을 획득한 사람</code>을 제외하곤 성립한다</p>
 
