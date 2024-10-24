@@ -1,0 +1,1385 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>공격력/마력 확률 문제 | Jaesu’s blog</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="공격력/마력 확률 문제" />
+<meta name="author" content="한재수" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="작성 완료" />
+<meta property="og:description" content="작성 완료" />
+<link rel="canonical" href="https://jaesu26.github.io/study-blog/statistics/python/2024/01/11/%EB%A9%94%EC%9D%B4%ED%94%8C%ED%99%95%EB%A5%A0%EA%B2%80%EC%A0%95.html" />
+<meta property="og:url" content="https://jaesu26.github.io/study-blog/statistics/python/2024/01/11/%EB%A9%94%EC%9D%B4%ED%94%8C%ED%99%95%EB%A5%A0%EA%B2%80%EC%A0%95.html" />
+<meta property="og:site_name" content="Jaesu’s blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2024-01-11T00:00:00-06:00" />
+<script type="application/ld+json">
+{"url":"https://jaesu26.github.io/study-blog/statistics/python/2024/01/11/%EB%A9%94%EC%9D%B4%ED%94%8C%ED%99%95%EB%A5%A0%EA%B2%80%EC%A0%95.html","@type":"BlogPosting","headline":"공격력/마력 확률 문제","dateModified":"2024-01-11T00:00:00-06:00","datePublished":"2024-01-11T00:00:00-06:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://jaesu26.github.io/study-blog/statistics/python/2024/01/11/%EB%A9%94%EC%9D%B4%ED%94%8C%ED%99%95%EB%A5%A0%EA%B2%80%EC%A0%95.html"},"author":{"@type":"Person","name":"한재수"},"description":"작성 완료","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/study-blog/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://jaesu26.github.io/study-blog/feed.xml" title="Jaesu's blog" /><link rel="shortcut icon" type="image/x-icon" href="/study-blog/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.css" integrity="sha512-h7nl+xz8wgDlNM4NqKEM4F1NkIRS17M9+uJwIGwuo8vGqIl4BhuCKdxjWEINm+xyrUjNCnK5dCrhM0sj+wTIXw==" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.js" integrity="sha512-/CMIhXiDA3m2c9kzRyd97MTb3MC6OVnx4TElQ7fkkoRghwDf6gi41gaT1PwF270W6+J60uTmwgeRpNpJdRV6sg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/contrib/auto-render.min.js" integrity="sha512-Do7uJAaHZm5OLrIv/yN4w0iG1dbu01kzdMNnFfu/mAqgUk6Nniv2JYHcwH+cNwjqgLcqcuBBk+JRvprLVI8azg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha512-0doc9hKxR3PYwso42RD1p5ySZpzzuDiOwMrdCEh2WdJZCjcmFKc/wEnL+z8fBQrnHoiNWbo+3fiGkOYXBdQp4A==" crossorigin="anonymous"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement( document.body, {
+        delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "[%", right: "%]", display: true},
+            {left: "$", right: "$", display: false}
+        ]}
+        );
+    });
+    </script>
+
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/study-blog/">Jaesu&#39;s blog</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/study-blog/about/">About Me</a><a class="page-link" href="/study-blog/search/">Search</a><a class="page-link" href="/study-blog/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">공격력/마력 확률 문제</h1><p class="page-description">작성 완료</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2024-01-11T00:00:00-06:00" itemprop="datePublished">
+        Jan 11, 2024
+      </time>• 
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">한재수</span></span>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      8 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/study-blog/categories/#Statistics">Statistics</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/study-blog/categories/#Python">Python</a>
+        
+      
+      </p>
+    
+
+    
+      
+        <div class="pb-5 d-flex flex-wrap flex-justify-end">
+          <div class="px-2">
+
+    <a href="https://github.com/Jaesu26/study-blog/tree/master/_notebooks/2024-01-11-메이플확률검정.ipynb" role="button" target="_blank">
+<img class="notebook-badge-image" src="/study-blog/assets/badges/github.svg" alt="View On GitHub">
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://mybinder.org/v2/gh/Jaesu26/study-blog/master?filepath=_notebooks%2F2024-01-11-%EB%A9%94%EC%9D%B4%ED%94%8C%ED%99%95%EB%A5%A0%EA%B2%80%EC%A0%95.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/study-blog/assets/badges/binder.svg" alt="Open In Binder"/>
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://colab.research.google.com/github/Jaesu26/study-blog/blob/master/_notebooks/2024-01-11-메이플확률검정.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/study-blog/assets/badges/colab.svg" alt="Open In Colab"/>
+    </a>
+</div>
+        </div>
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul class="section-nav">
+<li class="toc-entry toc-h2"><a href="#문제-설정">문제 설정 </a></li>
+<li class="toc-entry toc-h2"><a href="#억까당한-경우">억까당한 경우 </a></li>
+<li class="toc-entry toc-h2"><a href="#일반적인-경우">일반적인 경우 </a></li>
+<li class="toc-entry toc-h2"><a href="#최소한의-억까?">최소한의 억까? </a></li>
+</ul><!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2024-01-11-메이플확률검정.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="문제-설정">
+<a class="anchor" href="#%EB%AC%B8%EC%A0%9C-%EC%84%A4%EC%A0%95" aria-hidden="true"><span class="octicon octicon-link"></span></a>문제 설정<a class="anchor-link" href="#%EB%AC%B8%EC%A0%9C-%EC%84%A4%EC%A0%95"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 공격력 직업으로 공격력 2줄 옵션(12% / 9%)을 획득할 때까지 에디셔널 잠재 능력을 재설정하는 상황을 가정하자</p>
+<p><code>-</code> 옵션을 재설정하다보면 공격력 2줄이 등장하기 전에 마력 2줄이 등장하는 경우를 쉽게 볼 수 있다</p>
+<p><code>-</code> 누군가는 공격력 직업으로 옵션을 재설정할 경우 공격력보다 마력이 등장할 확률이 더 높다고 체감할 수 있다</p>
+<p><code>-</code> 여기서 가설은 <code>공격력 직업으로 옵션을 재설정할 경우 공격력 2줄보다 마력 2줄이 등장할 확률이 더 높다</code> 이다</p>
+<p><code>-</code> 이것이 진짜인지 확인하는 방법은 간단한데 공격력 직업으로 에디셔널 잠재 능력을 수많이 재설정하면 된다</p>
+<p><code>-</code> 이를 혼자 진행하는 것은 어려우니 여러 명에게 데이터를 받아 진행할 수도 있다</p>
+<p><code>-</code> 만약, 데이터를 받을 사람을 미리 무작위로 정하는 것이 아닌 아무나에게 데이터를 받는다면 해당 데이터가 편향될 가능성이 높다</p>
+<p><code>-</code> 대개, 데이터를 제출하는 사람은 해당 가설이 참이라고 느낀 사람이 많을 것이다</p>
+<p><code>-</code> 반대로 공격력 2줄 옵션을 마력 2줄 옵션보다 먼저 획득한 사람은 해당 가설이 거짓이라고 생각하며 굳이 데이터를 제출하진 않을 것이다 (가설이 거짓임을 체감했기 때문)</p>
+<p><code>-</code> 그러면 수집된 데이터에는 마력 2줄 옵션이 공격력 2줄보다 많이 포함되고 이는 가설이 참이라는 결론을 도출하게 된다</p>
+<p><code>-</code> 무작위로 수집된 데이터라면 공격력 2줄이 등장할 확률과 마력 2줄이 등장할 확률은 같다</p>
+<p><code>-</code> 이에 대해 보충 설명을 하면 다음과 같다</p>
+<p><code>-</code> $n$명의 사람들에 대해 공격력 2줄 옵션이 나올 때까지 큐브를 사용한다고 가정하자</p>
+<p><code>-</code> 이 중 평균적으로 $\frac{n}{2}$명은 공격력 2줄 옵션이 먼저 나왔을 것이며 나머지 $\frac{n}{2}$명은 마력 2줄 옵션이 먼저 나왔을 것이다</p>
+<p><code>-</code> 여기서, <code>공격력 등장 횟수 = 마력 등장 횟수 = n / 2</code>이다</p>
+<p><code>-</code> 마력 2줄 옵션이 먼저 나온 $\frac{n}{2}$명은 공격력 2줄 옵션을 얻을 때까지 큐브를 사용한다</p>
+<p><code>-</code> 그러면 $\frac{n}{2}$명 중 평균적으로 $\frac{n}{4}$명은 공격력 2줄 옵션이 먼저 나왔을 것이며 나머지 $\frac{n}{4}$명은 마력 2줄 옵션이 먼저 나왔을 것이다</p>
+<p><code>-</code> 여기서, <code>공격력 등장 횟수 = 마력 등장 횟수 = n / 4</code>이다</p>
+<p><code>-</code> 이를 반복하면 $n$명의 사람들이 큐브를 사용해서 얻은 잠재능력 중 공격력 2줄 옵션이 등장한 횟수의 기댓값은 $\frac{n}{2} + \frac{n}{4} + \cdots = n$ 이며 마력도 동일하다</p>
+<p><code>-</code> 그런데 공격력 2줄 옵션 또는 마력 2줄 옵션을 확인하는 것이 아니라 첫 번째줄 옵션이 공격력인지 마력인지 확인하는 경우는 어떨까?</p>
+<p><code>-</code> 마력 2줄이 많이 등장했더라도 첫 번째줄 옵션만 놓고보면 공격력이 마력보다 많이 등장했을 수도 있다</p>
+<p><code>-</code> 하지만, 마력 2줄이 많이 등장했다는 것은 해당 수치만큼 첫 번째 줄 옵션에서 마력이 등장했다는 것을 의미한다</p>
+<p><code>-</code> 즉, 첫 번째 줄 옵션에서 마력이 어느정도 등장했음을 보장하므로 첫 번째 줄에서 공격력보다 마력이 평균적으로 많이 등장했을 것이다</p>
+<p><code>-</code> 궁금증: <code>마력 2줄을 여러 번 획득한 후 공격력 2줄을 획득했을 때 첫 번째 줄 옵션은 마력이 공격력보다 많이 획득되도록 편향되었을까?</code></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p></p>
+<div class="flash">
+    <svg class="octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8 1.5a6.5 6.5 0 100 13 6.5 6.5 0 000-13zM0 8a8 8 0 1116 0A8 8 0 010 8zm6.5-.25A.75.75 0 017.25 7h1a.75.75 0 01.75.75v2.75h.25a.75.75 0 010 1.5h-2a.75.75 0 010-1.5h.25v-2h-.25a.75.75 0 01-.75-.75zM8 6a1 1 0 100-2 1 1 0 000 2z"></path></svg>
+    <strong>Note: </strong>첫 번째 줄에서 공격력이 등장할 확률 = 마력이 등장할 확률 = $4.878\%$
+</div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p></p>
+<div class="flash">
+    <svg class="octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8 1.5a6.5 6.5 0 100 13 6.5 6.5 0 000-13zM0 8a8 8 0 1116 0A8 8 0 010 8zm6.5-.25A.75.75 0 017.25 7h1a.75.75 0 01.75.75v2.75h.25a.75.75 0 010 1.5h-2a.75.75 0 010-1.5h.25v-2h-.25a.75.75 0 01-.75-.75zM8 6a1 1 0 100-2 1 1 0 000 2z"></path></svg>
+    <strong>Note: </strong>두 번째 줄에서 공격력이 등장할 확률 = 마력이 등장할 확률 = $6.2791\%$
+</div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p></p>
+<div class="flash">
+    <svg class="octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info octicon octicon-info" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8 1.5a6.5 6.5 0 100 13 6.5 6.5 0 000-13zM0 8a8 8 0 1116 0A8 8 0 010 8zm6.5-.25A.75.75 0 017.25 7h1a.75.75 0 01.75.75v2.75h.25a.75.75 0 010 1.5h-2a.75.75 0 010-1.5h.25v-2h-.25a.75.75 0 01-.75-.75zM8 6a1 1 0 100-2 1 1 0 000 2z"></path></svg>
+    <strong>Note: </strong>세 번째 줄에서 공격력이 등장할 확률 = 마력이 등장할 확률 = $6.907\%$
+</div>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<details class="description">
+      <summary class="btn btn-sm" data-open="Hide Code" data-close="Show Code"></summary>
+        <p></p>
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">tqdm</span>
+
+
+<span class="k">class</span> <span class="nc">AdditionalCube</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">first_option2prob</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"공격력"</span><span class="p">:</span> <span class="mf">0.04878</span><span class="p">,</span> <span class="s2">"마력"</span><span class="p">:</span> <span class="mf">0.04878</span><span class="p">,</span> <span class="s2">"잡옵"</span><span class="p">:</span> <span class="mi">1</span> <span class="o">-</span> <span class="mf">0.04878</span> <span class="o">*</span> <span class="mi">2</span><span class="p">}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">second_option2prob</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"공격력"</span><span class="p">:</span> <span class="mf">0.062791</span><span class="p">,</span> <span class="s2">"마력"</span><span class="p">:</span> <span class="mf">0.062791</span><span class="p">,</span> <span class="s2">"잡옵"</span><span class="p">:</span> <span class="mi">1</span> <span class="o">-</span> <span class="mf">0.062791</span> <span class="o">*</span> <span class="mi">2</span><span class="p">}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">third_option2prob</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"공격력"</span><span class="p">:</span> <span class="mf">0.06907</span><span class="p">,</span> <span class="s2">"마력"</span><span class="p">:</span> <span class="mf">0.06907</span><span class="p">,</span> <span class="s2">"잡옵"</span><span class="p">:</span> <span class="mi">1</span> <span class="o">-</span> <span class="mf">0.06907</span> <span class="o">*</span> <span class="mi">2</span><span class="p">}</span>
+
+    <span class="k">def</span> <span class="nf">roll</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_get_random_option</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">first_option2prob</span><span class="p">),</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_get_random_option</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">second_option2prob</span><span class="p">),</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_get_random_option</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">third_option2prob</span><span class="p">),</span>
+        <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_get_random_option</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">option2prob</span><span class="p">):</span>
+        <span class="n">rand</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">()</span>
+        <span class="n">cumulative_prob</span> <span class="o">=</span> <span class="mf">0.0</span>
+        <span class="k">for</span> <span class="n">option</span><span class="p">,</span> <span class="n">prob</span> <span class="ow">in</span> <span class="n">option2prob</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="n">cumulative_prob</span> <span class="o">+=</span> <span class="n">prob</span>
+            <span class="k">if</span> <span class="n">rand</span> <span class="o">&lt;=</span> <span class="n">cumulative_prob</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">option</span>
+
+
+<span class="k">class</span> <span class="nc">CubeResultAnalyzer</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">is_attack_power</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">option</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">option</span> <span class="o">==</span> <span class="s2">"공격력"</span>
+
+    <span class="k">def</span> <span class="nf">is_magic_power</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">option</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">option</span> <span class="o">==</span> <span class="s2">"마력"</span>
+
+    <span class="k">def</span> <span class="nf">is_valid_attack_power</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">first</span><span class="p">,</span> <span class="n">second</span><span class="p">,</span> <span class="n">third</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_attack_power</span><span class="p">(</span><span class="n">first</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">is_attack_power</span><span class="p">(</span><span class="n">second</span><span class="p">)</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_attack_power</span><span class="p">(</span><span class="n">third</span><span class="p">))</span>
+
+    <span class="k">def</span> <span class="nf">is_valid_magic_power</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">first</span><span class="p">,</span> <span class="n">second</span><span class="p">,</span> <span class="n">third</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_magic_power</span><span class="p">(</span><span class="n">first</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">is_magic_power</span><span class="p">(</span><span class="n">second</span><span class="p">)</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_magic_power</span><span class="p">(</span><span class="n">third</span><span class="p">))</span>
+
+
+<span class="k">class</span> <span class="nc">History</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">def</span> <span class="nf">record</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="nb">dict</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">reset</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">clear</span>
+
+    <span class="k">def</span> <span class="nf">to_pandas</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_records</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">CubeSimulator</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cube</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mi">3</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cube</span> <span class="o">=</span> <span class="n">cube</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">threshold</span> <span class="o">=</span> <span class="n">threshold</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">analyzer</span> <span class="o">=</span> <span class="n">CubeResultAnalyzer</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">history</span> <span class="o">=</span> <span class="n">History</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">reset</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">history</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_reset_init_conditions</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">_reset_init_conditions</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">n</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">attack_power_count</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">valid_attack_power_count</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">magic_power_count</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">valid_magic_power_count</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">def</span> <span class="nf">simulate_once</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">first</span><span class="p">,</span> <span class="n">second</span><span class="p">,</span> <span class="n">third</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cube</span><span class="o">.</span><span class="n">roll</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">n</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">analyzer</span><span class="o">.</span><span class="n">is_valid_attack_power</span><span class="p">(</span><span class="n">first</span><span class="p">,</span> <span class="n">second</span><span class="p">,</span> <span class="n">third</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">valid_attack_power_count</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">analyzer</span><span class="o">.</span><span class="n">is_valid_magic_power</span><span class="p">(</span><span class="n">first</span><span class="p">,</span> <span class="n">second</span><span class="p">,</span> <span class="n">third</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">valid_magic_power_count</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">analyzer</span><span class="o">.</span><span class="n">is_attack_power</span><span class="p">(</span><span class="n">first</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">attack_power_count</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">analyzer</span><span class="o">.</span><span class="n">is_magic_power</span><span class="p">(</span><span class="n">first</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">magic_power_count</span> <span class="o">+=</span> <span class="mi">1</span>
+
+    <span class="k">def</span> <span class="nf">simulate_until_attack2</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">while</span> <span class="bp">self</span><span class="o">.</span><span class="n">valid_attack_power_count</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">simulate_once</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">simulate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">size</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">size</span><span class="p">)):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_reset_init_conditions</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">simulate_until_attack2</span><span class="p">()</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="s2">"n"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">n</span><span class="p">,</span>
+                <span class="s2">"attack_power_count"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">attack_power_count</span><span class="p">,</span>
+                <span class="s2">"magic_power_count"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">magic_power_count</span><span class="p">,</span>
+                <span class="s2">"valid_magic_power_count"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">valid_magic_power_count</span><span class="p">,</span>
+            <span class="p">}</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">history</span><span class="o">.</span><span class="n">record</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+    </details>
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">2024</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">cube</span> <span class="o">=</span> <span class="n">AdditionalCube</span><span class="p">()</span>
+<span class="n">simulator</span> <span class="o">=</span> <span class="n">CubeSimulator</span><span class="p">(</span><span class="n">cube</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">size</span> <span class="o">=</span> <span class="mi">50000</span>
+<span class="n">simulator</span><span class="o">.</span><span class="n">simulate</span><span class="p">(</span><span class="n">size</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>100%|██████████████████████████████████████████████████████████████████████████| 50000/50000 [00:39&lt;00:00, 1259.10it/s]
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">simulator</span><span class="o">.</span><span class="n">history</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>n</th>
+      <th>attack_power_count</th>
+      <th>magic_power_count</th>
+      <th>valid_magic_power_count</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>148</td>
+      <td>5</td>
+      <td>7</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>333</td>
+      <td>12</td>
+      <td>15</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>11</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>305</td>
+      <td>15</td>
+      <td>14</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>50</td>
+      <td>1</td>
+      <td>4</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="억까당한-경우">
+<a class="anchor" href="#%EC%96%B5%EA%B9%8C%EB%8B%B9%ED%95%9C-%EA%B2%BD%EC%9A%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>억까당한 경우<a class="anchor-link" href="#%EC%96%B5%EA%B9%8C%EB%8B%B9%ED%95%9C-%EA%B2%BD%EC%9A%B0"> </a>
+</h2>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_over_magic3</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">"valid_magic_power_count &gt;= 3"</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_over_magic3</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>n</th>
+      <th>attack_power_count</th>
+      <th>magic_power_count</th>
+      <th>valid_magic_power_count</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>5</th>
+      <td>358</td>
+      <td>19</td>
+      <td>18</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>425</td>
+      <td>18</td>
+      <td>22</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>308</td>
+      <td>12</td>
+      <td>15</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>71</th>
+      <td>122</td>
+      <td>3</td>
+      <td>5</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>77</th>
+      <td>424</td>
+      <td>22</td>
+      <td>24</td>
+      <td>3</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 마력 2줄을 3번 이상 획득한 후에 공격력 2줄을 획득한 경우 억까당했다고 볼 수 있을 것이다</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>억까당하고 공격력 2줄을 뽑기위해 시도한 횟수</li>
+</ul>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ns</span> <span class="o">=</span> <span class="n">df_over_magic3</span><span class="p">[</span><span class="s2">"n"</span><span class="p">]</span><span class="o">.</span><span class="n">to_list</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">ns</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,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%0A">
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">ns</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">ns</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">ns</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>2529798
+29
+2148
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>억까당하고 공격력 2줄을 뽑았을 때 첫 줄 옵션에서 공격력보다 마력이 더 많이 등장했을까?</li>
+</ul>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">attack_power_counts</span> <span class="o">=</span> <span class="n">df_over_magic3</span><span class="p">[</span><span class="s2">"attack_power_count"</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span> 
+<span class="n">magic_power_counts</span> <span class="o">=</span> <span class="n">df_over_magic3</span><span class="p">[</span><span class="s2">"magic_power_count"</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span> 
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">attack_power_counts</span><span class="p">[:</span><span class="mi">10</span><span class="p">],</span> <span class="n">magic_power_counts</span><span class="p">[:</span><span class="mi">10</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>(array([19, 18, 12,  3, 22, 13,  6,  4, 23, 24], dtype=int64),
+ array([18, 22, 15,  5, 24,  8, 14,  7, 25, 32], dtype=int64))</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">gaps</span> <span class="o">=</span> <span class="n">magic_power_counts</span> <span class="o">-</span> <span class="n">attack_power_counts</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">gaps</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>6256
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">gaps</span><span class="p">[:</span><span class="mi">10</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>array([-1,  4,  3,  2,  2, -5,  8,  3,  2,  8], dtype=int64)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">sum</span><span class="p">(</span><span class="n">gaps</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>18989</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 에디 마력 2줄을 3번 이상 획득한 후 공격력 2줄을 획득한 사람은 50000명 중 6256명이다</p>
+<p><code>-</code> 이 6256명의 경우 총 2529798번 잠재능력을 재설정 했으며 첫 번째 줄에서 마력이 공격력보다 18989번 더 등장했다</p>
+<p><code>-</code> 이 수치가 일반적인 경우와 비교했을 때 이상치인지 확인하겠다</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="일반적인-경우">
+<a class="anchor" href="#%EC%9D%BC%EB%B0%98%EC%A0%81%EC%9D%B8-%EA%B2%BD%EC%9A%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>일반적인 경우<a class="anchor-link" href="#%EC%9D%BC%EB%B0%98%EC%A0%81%EC%9D%B8-%EA%B2%BD%EC%9A%B0"> </a>
+</h2>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ns</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">"n"</span><span class="p">]</span><span class="o">.</span><span class="n">to_list</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>공격력 2줄을 뽑기위해 시도한 횟수</li>
+</ul>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">ns</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,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%0A">
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">ns</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">ns</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">ns</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>8046085
+1
+2148
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>일반적인 상황에선 공격력 2줄을 뽑았을 때 첫 줄 옵션에서 공격력보다 마력이 더 많이 등장했을까?</li>
+</ul>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">attack_power_counts</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">"attack_power_count"</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span> 
+<span class="n">magic_power_counts</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">"magic_power_count"</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span> 
+<span class="n">gaps</span> <span class="o">=</span> <span class="n">magic_power_counts</span> <span class="o">-</span> <span class="n">attack_power_counts</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">gaps</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>50000
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">sum</span><span class="p">(</span><span class="n">gaps</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>147</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 공격력 2줄을 뽑았을 때 첫 번째 줄에서 마력보다 공격력이 323번 더 등장했다</p>
+<p><code>-</code> 50000명이 총 8046085번 잠재능력을 재설정 했으며 첫 번째 줄에서 마력이 공격력보다 147번 더 등장했다</p>
+<p><code>-</code> 첫 번째 줄에서 공격력, 마력이 각각 등장할 확률 $p= 0.04878$이다</p>
+<p><code>-</code> $n=8046085$이므로 이항분포 $B(8046085, 0.04878)$를 생각할 수 있다</p>
+<p><code>-</code> 이는 한 번의 시행마다 공격력을 얻을 확률이 $0.04878$인 잠재능력 재설정을 8046085번 했을 때 등장한 공격력 옵션의 개수임을 뜻한다 (마력도 동일함)</p>
+<p><code>-</code> 그런데 표본을 수집할 때 $n=8046085$을 처음부터 정한 것은 아니며 여기서 $n$은 확률 변수의 실현치이다 (공격력 2줄을 50000번 얻을때까지 잠재능력 재설정을 한 횟수)</p>
+<p><code>-</code> 왜냐하면 8046085번 잠재능력을 설정한게 아니라 50000명의 사람들이 각각 공격력 2줄이 나올때까지 잠재능력을 재설정한 결과를 취합한 것이기 때문이다</p>
+<p><code>-</code> 항상 잠재능력 재설정의 마지막 결과는 공격력 2줄(공격력 1줄은 당연히 포함)이므로 여기서 첫 번째 줄에서 공격력이 등장한 횟수의 분포는 정확하게 이항 분포를 따르지는 않는다</p>
+<p><code>-</code> 하지만 표본 크기가 8046085로 매우 크므로 이항 분포로 근사 가능하다</p>
+<p><code>-</code> 공격력 2줄을 50000번 얻을 때까지 잠재능력 재설정을 하여 총 8046085번 잠재능력을 재설정 했을 때 첫 번째 줄에서 공격력이 등장한 횟수를 $X$라 하자</p>
+<p><code>-</code> 확률 변수 $X$는 근사적으로 이항 분포 $B(8046085, 0.04878)$를 따르며 마력의 경우도 이와 동일하며 확률 변수 $Y$라 칭하자</p>
+<p><code>-</code> $np=8046085\times0.04878=392488$로 충분히 크므로 확률 변수 $X$와 $Y$는 $N(np, np(1-p))$로 근사 가능하다</p>
+<p><code>-</code> 이때 확률 변수 $W=Y-X$는 정규분포의 성질에 의해 $N(0, 2np(1-p))$를 따른다</p>
+<p><code>-</code> 정규분포에서 $95\%$의 데이터는 $(\mu-2\sigma, \mu+2\sigma)$에 존재하는데 이를 계산하면 $(-1771, 1771)$이다</p>
+<p><code>-</code> 즉, 147이란 값은 충분히 등장할 수 있는 수치이다</p>
+<p><code>-</code> 위에서는 $n$도 2529798로 더 작으며 확률 변수 실현치인 18989도 $(-1771, 1771)$ 구간을 벗어났으니 편향된 값이라 볼 수 있다</p>
+<p><code>-</code> 결론: 억까인 상황에 대해서는 첫 줄에 마력이 공격력보다 더 많이 등장한다</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="최소한의-억까?">
+<a class="anchor" href="#%EC%B5%9C%EC%86%8C%ED%95%9C%EC%9D%98-%EC%96%B5%EA%B9%8C?" aria-hidden="true"><span class="octicon octicon-link"></span></a>최소한의 억까?<a class="anchor-link" href="#%EC%B5%9C%EC%86%8C%ED%95%9C%EC%9D%98-%EC%96%B5%EA%B9%8C?"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 한편, 억까의 기준이 너무 높다고 생각할 수 있다</p>
+<p><code>-</code> 위에서 정한 억까의 기준은 에디 마력 2줄을 3번 이상 획득한 후 공격력 2줄을 획득한 경우이다</p>
+<p><code>-</code> 억까의 기준을 가장 약하게 정한다면 <code>에디 마력 2줄을 단 1번</code> 획득한 후 공격력 2줄을 획득한 경우로 정의할 수 있다</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_magic1</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">"valid_magic_power_count == 1"</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ns</span> <span class="o">=</span> <span class="n">df_magic1</span><span class="p">[</span><span class="s2">"n"</span><span class="p">]</span><span class="o">.</span><span class="n">to_list</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">ns</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">ns</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">ns</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>2015066
+3
+1030
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">attack_power_counts</span> <span class="o">=</span> <span class="n">df_magic1</span><span class="p">[</span><span class="s2">"attack_power_count"</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span> 
+<span class="n">magic_power_counts</span> <span class="o">=</span> <span class="n">df_magic1</span><span class="p">[</span><span class="s2">"magic_power_count"</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span> 
+<span class="n">gaps</span> <span class="o">=</span> <span class="n">magic_power_counts</span> <span class="o">-</span> <span class="n">attack_power_counts</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">gaps</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>12561
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">sum</span><span class="p">(</span><span class="n">gaps</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>372</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 에디 마력 2줄을 단 1번 획득한 후 공격력 2줄을 획득한 사람은 50000명 중 12561명이다</p>
+<p><code>-</code> 이 12561명의 경우 총 2015066번 잠재능력을 재설정 했으며 첫 번째 줄에서 마력이 공격력보다 372번 더 등장했다</p>
+<p><code>-</code> 위에서 계산한 것과 동일하게 해보면 $95\%$의 데이터는 $(-864, 864)$에 존재한다</p>
+<p><code>-</code> 이는 일반적인 기준과 비교했을 때 이상치로 취급되지 않는다</p>
+<p><code>-</code> 따라서 일반적인 경우에서 샘플링한 것인지 에디 마력 2줄을 1번 획득한 후 공격력 2줄을 획득한 사람을 대상으로 샘플링한 것인지 구분할 수 없다</p>
+<p><code>-</code> 생각해보면 당연한게 마력 2줄을 1번 획득했고 공격력 2줄도 동일하게 1번 획득했다</p>
+<p><code>-</code> 즉, 둘의 비율이 $1:1$이다</p>
+<p><code>-</code> 일반적인 경우도 맨 처음에 계산했듯이 둘의 비율이 $1:1$이다</p>
+<p><code>-</code> 그러니 구분하지 못하는게 당연하고 오히려 첫 번째 줄에서 공격력 또는 마력이 나머지에 비해 $431$번 더 등장했다면 문제가 된다</p>
+<p><code>-</code> 처음에 설정한 궁금증은 <code>마력 2줄을 여러 번 획득한 후 공격력 2줄을 획득했을 때 첫 번째 줄 옵션은 마력이 공격력보다 많이 획득되도록 편향되었을까?</code>였다</p>
+<p><code>-</code> 이 궁금증은 <code>에디 마력 2줄을 단 1번 획득한 후 공격력 2줄을 획득한 사람</code>을 제외하곤 성립한다</p>
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+  </div><!-- from https://github.com/utterance/utterances -->
+<script src="https://utteranc.es/client.js"
+        repo="Jaesu26/study-blog"
+        issue-term="title"
+        label="blogpost-comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script><a class="u-url" href="/study-blog/statistics/python/2024/01/11/%EB%A9%94%EC%9D%B4%ED%94%8C%ED%99%95%EB%A5%A0%EA%B2%80%EC%A0%95.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/study-blog/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="https://jaesu26.github.io/study-blog/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/study-blog/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p></p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li>
+  <a rel="me" href="https://github.com/Jaesu26/" target="_blank" title="github">
+    <svg class="svg-icon grey">
+      <use xlink:href="/study-blog/assets/minima-social-icons.svg#github"></use>
+    </svg>
+  </a>
+</li>
+</ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
