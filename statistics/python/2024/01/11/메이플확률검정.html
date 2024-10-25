@@ -252,6 +252,9 @@ window.onload = wrap_img;
     <span class="n">_second_option2prob</span><span class="p">:</span> <span class="n">ClassVar</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="n">Option</span><span class="p">,</span> <span class="nb">float</span><span class="p">]]</span>
     <span class="n">_third_option2prob</span><span class="p">:</span> <span class="n">ClassVar</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="n">Option</span><span class="p">,</span> <span class="nb">float</span><span class="p">]]</span>
 
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">seed</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">random_state</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">RandomState</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>
+
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">first_option2prob</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="n">Option</span><span class="p">,</span> <span class="nb">float</span><span class="p">]:</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_first_option2prob</span>
@@ -272,7 +275,7 @@ window.onload = wrap_img;
         <span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">_get_random_option</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">option2prob</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="n">Option</span><span class="p">,</span> <span class="nb">float</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Option</span><span class="p">:</span>
-        <span class="n">rand</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">()</span>
+        <span class="n">rand</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">random_state</span><span class="o">.</span><span class="n">rand</span><span class="p">()</span>
         <span class="n">cumulative_prob</span> <span class="o">=</span> <span class="mf">0.0</span>
         <span class="k">for</span> <span class="n">option</span><span class="p">,</span> <span class="n">prob</span> <span class="ow">in</span> <span class="n">option2prob</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
             <span class="n">cumulative_prob</span> <span class="o">+=</span> <span class="n">prob</span>
@@ -319,6 +322,7 @@ window.onload = wrap_img;
         <span class="bp">self</span><span class="o">.</span><span class="n">cube</span> <span class="o">=</span> <span class="n">cube</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">analyzer</span> <span class="o">=</span> <span class="n">CubeResultAnalyzer</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">history</span> <span class="o">=</span> <span class="n">History</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_reset_init_conditions</span><span class="p">()</span>
 
     <span class="k">def</span> <span class="nf">reset</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">history</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
@@ -340,6 +344,7 @@ window.onload = wrap_img;
                 <span class="s2">"attack_power_count"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">attack_power_count</span><span class="p">,</span>
                 <span class="s2">"magic_power_count"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">magic_power_count</span><span class="p">,</span>
                 <span class="s2">"valid_magic_power_count"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">valid_magic_power_count</span><span class="p">,</span>
+                <span class="s2">"valid_attack_power_count"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">valid_attack_power_count</span><span class="p">,</span>
             <span class="p">}</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">history</span><span class="o">.</span><span class="n">record</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 
@@ -378,24 +383,8 @@ window.onload = wrap_img;
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">2024</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-    
-
-    
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">cube</span> <span class="o">=</span> <span class="n">AdditionalCube</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">seed</span> <span class="o">=</span> <span class="mi">2024</span>
+<span class="n">cube</span> <span class="o">=</span> <span class="n">AdditionalCube</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>
 <span class="n">simulator</span> <span class="o">=</span> <span class="n">CubeSimulator</span><span class="p">(</span><span class="n">cube</span><span class="p">)</span>
 </pre></div>
 
@@ -427,7 +416,7 @@ window.onload = wrap_img;
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stderr output_text">
-<pre>100%|██████████████████████████████████████████████████████████████████████████| 50000/50000 [00:41&lt;00:00, 1201.53it/s]
+<pre>100%|██████████████████████████████████████████████████████████████████████████| 50000/50000 [00:45&lt;00:00, 1092.31it/s]
 </pre>
 </div>
 </div>
@@ -498,6 +487,7 @@ window.onload = wrap_img;
       <th>attack_power_count</th>
       <th>magic_power_count</th>
       <th>valid_magic_power_count</th>
+      <th>valid_attack_power_count</th>
     </tr>
   </thead>
   <tbody>
@@ -507,12 +497,14 @@ window.onload = wrap_img;
       <td>5</td>
       <td>7</td>
       <td>1</td>
+      <td>1</td>
     </tr>
     <tr>
       <th>1</th>
       <td>333</td>
       <td>12</td>
       <td>15</td>
+      <td>1</td>
       <td>1</td>
     </tr>
     <tr>
@@ -521,6 +513,7 @@ window.onload = wrap_img;
       <td>1</td>
       <td>0</td>
       <td>0</td>
+      <td>1</td>
     </tr>
     <tr>
       <th>3</th>
@@ -528,6 +521,7 @@ window.onload = wrap_img;
       <td>15</td>
       <td>14</td>
       <td>2</td>
+      <td>1</td>
     </tr>
     <tr>
       <th>4</th>
@@ -535,6 +529,7 @@ window.onload = wrap_img;
       <td>1</td>
       <td>4</td>
       <td>0</td>
+      <td>1</td>
     </tr>
   </tbody>
 </table>
@@ -618,6 +613,7 @@ window.onload = wrap_img;
       <th>attack_power_count</th>
       <th>magic_power_count</th>
       <th>valid_magic_power_count</th>
+      <th>valid_attack_power_count</th>
     </tr>
   </thead>
   <tbody>
@@ -627,6 +623,7 @@ window.onload = wrap_img;
       <td>19</td>
       <td>18</td>
       <td>4</td>
+      <td>1</td>
     </tr>
     <tr>
       <th>21</th>
@@ -634,6 +631,7 @@ window.onload = wrap_img;
       <td>18</td>
       <td>22</td>
       <td>5</td>
+      <td>1</td>
     </tr>
     <tr>
       <th>27</th>
@@ -641,6 +639,7 @@ window.onload = wrap_img;
       <td>12</td>
       <td>15</td>
       <td>3</td>
+      <td>1</td>
     </tr>
     <tr>
       <th>71</th>
@@ -648,6 +647,7 @@ window.onload = wrap_img;
       <td>3</td>
       <td>5</td>
       <td>3</td>
+      <td>1</td>
     </tr>
     <tr>
       <th>77</th>
@@ -655,6 +655,7 @@ window.onload = wrap_img;
       <td>22</td>
       <td>24</td>
       <td>3</td>
+      <td>1</td>
     </tr>
   </tbody>
 </table>
