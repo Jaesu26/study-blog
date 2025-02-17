@@ -225,31 +225,31 @@ window.onload = wrap_img;
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">floyd_warsahll</span><span class="p">(</span><span class="n">graph</span><span class="p">):</span>
-    <span class="n">INF</span> <span class="o">=</span> <span class="mf">1e9</span> <span class="c1">## 무한을 의미</span>
-    <span class="n">dist</span> <span class="o">=</span> <span class="p">[[</span><span class="n">INF</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">V</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">V</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)]</span> <span class="c1">## V는 꼭짓점의 개수(=그래프에 존재하는 노드의 개수)</span>
-    <span class="c1">## 노드 번호가 1부터 시작하는데 파이썬 인덱스는 0부터 시작하므로 (V + 1) X (V + 1) 크기의 배열로 구성했다</span>
+    <span class="n">INF</span> <span class="o">=</span> <span class="mf">1e9</span>  <span class="c1"># 무한을 의미</span>
+    <span class="n">dist</span> <span class="o">=</span> <span class="p">[[</span><span class="n">INF</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">V</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">V</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)]</span>  <span class="c1"># V는 꼭짓점의 개수(=그래프에 존재하는 노드의 개수)</span>
+    <span class="c1"># 노드 번호가 1부터 시작하는데 파이썬 인덱스는 0부터 시작하므로 (V + 1) X (V + 1) 크기의 배열로 구성했다</span>
     
     <span class="k">for</span> <span class="n">edge</span> <span class="ow">in</span> <span class="n">graph</span><span class="p">:</span>
-        <span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">w</span> <span class="o">=</span> <span class="n">edge</span> <span class="c1">## 노드 u, 노드 v, u와 v 사이 간선의 가중치 w</span>
+        <span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">w</span> <span class="o">=</span> <span class="n">edge</span>  <span class="c1"># 노드 u, 노드 v, u와 v 사이 간선의 가중치 w</span>
         <span class="n">dist</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">]</span> <span class="o">=</span> <span class="n">w</span>
         
     <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">V</span><span class="p">):</span>
-        <span class="n">dist</span><span class="p">[</span><span class="n">v</span><span class="p">][</span><span class="n">v</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1">## 여기서 v는 vertex(꼭짓점), 당연하게도 v와 v 사이 간선의 가중치는 0이다 (애초에 간선이 없음...)</span>
+        <span class="n">dist</span><span class="p">[</span><span class="n">v</span><span class="p">][</span><span class="n">v</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># 여기서 v는 vertex(꼭짓점), 당연하게도 v와 v 사이 간선의 가중치는 0이다 (애초에 간선이 없음...)</span>
     
-    <span class="c1">## bottom up 방식으로 구현한 동적계획법</span>
+    <span class="c1"># bottom up 방식으로 구현한 동적계획법</span>
     <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">V</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span> <span class="c1">## 경유지: {1, 2, ..., k-1}</span>
         <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">V</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
             <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">V</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
-                <span class="k">if</span> <span class="n">dist</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">dist</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">k</span><span class="p">]</span> <span class="o">+</span> <span class="n">dist</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="n">j</span><span class="p">]:</span> <span class="c1">## 기존의 i -&gt; j보다 더 짧은 경로가 존재하면</span>
-                    <span class="n">dist</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">dist</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">k</span><span class="p">]</span> <span class="o">+</span> <span class="n">dist</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="c1">## relaxation               </span>
+                <span class="k">if</span> <span class="n">dist</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">dist</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">k</span><span class="p">]</span> <span class="o">+</span> <span class="n">dist</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="n">j</span><span class="p">]:</span>  <span class="c1"># 기존의 i -&gt; j보다 더 짧은 경로가 존재하면</span>
+                    <span class="n">dist</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">dist</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">k</span><span class="p">]</span> <span class="o">+</span> <span class="n">dist</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="n">j</span><span class="p">]</span>  <span class="c1"># relaxation               </span>
                 <span class="k">else</span><span class="p">:</span>
-                    <span class="k">pass</span> <span class="c1">## 이 경우 D(i, j, k) = min[D(i, j, k-1), D(i, k, k-1) + D(k, j, k-1)] = D(i, j, k-1)</span>
-                         <span class="c1">## 어차피 D(i, j, k)와 D(i, j, k-1)의 값이 같으니 아무것도 안해도 됨 (갱신할 필요가 없음)</span>
+                    <span class="k">pass</span>  <span class="c1"># 이 경우 D(i, j, k) = min[D(i, j, k-1), D(i, k, k-1) + D(k, j, k-1)] = D(i, j, k-1)</span>
+                          <span class="c1"># 어차피 D(i, j, k)와 D(i, j, k-1)의 값이 같으니 아무것도 안해도 됨 (갱신할 필요가 없음)</span>
     
-    <span class="c1">## 위의 for문은 모든 i와 j에 대해서 i = j일 때도 값을 갱신하려고 한다</span>
-    <span class="c1">## 초기에 dist[v][v] = 0으로 값을 설정했다</span>
-    <span class="c1">## 경로 [i -&gt; ... -&gt; k -&gt; ... -&gt; i]는 길이가 0보다 작을 때만 개선되므로 </span>
-    <span class="c1">## 만약 알고리즘이 종료된 후에 모든 v에 대해 dist[v][v]가 음수라면 그래프내에 음수 사이클이 존재함을 의미한다</span>
+    <span class="c1"># 위의 for문은 모든 i와 j에 대해서 i = j일 때도 값을 갱신하려고 한다</span>
+    <span class="c1"># 초기에 dist[v][v] = 0으로 값을 설정했다</span>
+    <span class="c1"># 경로 [i -&gt; ... -&gt; k -&gt; ... -&gt; i]는 길이가 0보다 작을 때만 개선되므로 </span>
+    <span class="c1"># 만약 알고리즘이 종료된 후에 모든 v에 대해 dist[v][v]가 음수라면 그래프내에 음수 사이클이 존재함을 의미한다</span>
 </pre></div>
 
     </div>
@@ -282,33 +282,34 @@ window.onload = wrap_img;
     <span class="k">for</span> <span class="n">edge</span> <span class="ow">in</span> <span class="n">graph</span><span class="p">:</span>
         <span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">w</span> <span class="o">=</span> <span class="n">edge</span> 
         <span class="n">dist</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">]</span> <span class="o">=</span> <span class="n">w</span>
-        <span class="n">next_node</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">]</span> <span class="o">=</span> <span class="n">v</span> <span class="c1">## k = next_node[u][v]라고 하면 u -&gt; k -&gt; ... -&gt; v를 의미, 즉 u에서 v로 가기위해 노드 u 다음으로 가야할 노드를 나타냄</span>
+        <span class="n">next_node</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">]</span> <span class="o">=</span> <span class="n">v</span>  <span class="c1"># k = next_node[u][v]라고 하면 u -&gt; k -&gt; ... -&gt; v를 의미, 즉 u에서 v로 가기위해 노드 u 다음으로 가야할 노드를 나타냄</span>
         
     <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">V</span><span class="p">):</span>
         <span class="n">dist</span><span class="p">[</span><span class="n">v</span><span class="p">][</span><span class="n">v</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
 
-    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">V</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span> <span class="c1">## 경유지: {1, 2, ..., k-1}</span>
+    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">V</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>  <span class="c1"># 경유지: {1, 2, ..., k-1}</span>
         <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">V</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
             <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">V</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
-                <span class="k">if</span> <span class="n">dist</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">dist</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">k</span><span class="p">]</span> <span class="o">+</span> <span class="n">dist</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="n">j</span><span class="p">]:</span> <span class="c1">## 기존의 i -&gt; j보다 더 짧은 경로가 존재하면</span>
-                    <span class="n">dist</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">dist</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">k</span><span class="p">]</span> <span class="o">+</span> <span class="n">dist</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="c1">## relaxation     </span>
+                <span class="k">if</span> <span class="n">dist</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">dist</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">k</span><span class="p">]</span> <span class="o">+</span> <span class="n">dist</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="n">j</span><span class="p">]:</span>  <span class="c1"># 기존의 i -&gt; j보다 더 짧은 경로가 존재하면</span>
+                    <span class="n">dist</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">dist</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">k</span><span class="p">]</span> <span class="o">+</span> <span class="n">dist</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="n">j</span><span class="p">]</span>  <span class="c1"># relaxation     </span>
                     
-                    <span class="c1">## 기존에는 i -&gt; j가 최단경로였지만 갱신되면서 i -&gt; ... -&gt; k -&gt; ... -&gt; j가 최단 경로로 바뀜</span>
-                    <span class="c1">## i -&gt; j로 가는 최단 경로는 i -&gt; k의 최단 경로와 j - &gt; k의 최단 경로의 합이므로</span>
-                    <span class="c1">## i에서 j로 가기위해 거쳐야 할 다음(next) 노드는 실질적으로 i에서 k로 가기위해 거쳐야 할 다음(next) 노드와 같다</span>
+                    <span class="c1"># 기존에는 i -&gt; j가 최단경로였지만 갱신되면서 i -&gt; ... -&gt; k -&gt; ... -&gt; j가 최단 경로로 바뀜</span>
+                    <span class="c1"># i -&gt; j로 가는 최단 경로는 i -&gt; k의 최단 경로와 j - &gt; k의 최단 경로의 합이므로</span>
+                    <span class="c1"># i에서 j로 가기위해 거쳐야 할 다음(next) 노드는 실질적으로 i에서 k로 가기위해 거쳐야 할 다음(next) 노드와 같다</span>
                     <span class="n">next_node</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">next_node</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">k</span><span class="p">]</span> 
-                    
+
+
 <span class="k">def</span> <span class="nf">path</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">next_node</span><span class="p">):</span>
-    <span class="k">if</span> <span class="ow">not</span> <span class="n">next_node</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">]:</span> <span class="c1">## u에서 v로 가는 경로가 없다면</span>
-        <span class="k">return</span> <span class="p">[]</span> <span class="c1">## 빈 리스트</span>
-    <span class="n">path</span> <span class="o">=</span> <span class="p">[</span><span class="n">u</span><span class="p">]</span> <span class="c1">## 출발 노드</span>
-    <span class="k">while</span> <span class="n">u</span> <span class="o">!=</span> <span class="n">v</span><span class="p">:</span> <span class="c1">## u에서 출발하여 v에 도착할때까지</span>
-        <span class="c1">## 현재 상황: u -&gt; k -&gt; k2 -&gt; k3 -&gt; ... -&gt; v</span>
-        <span class="c1">## next_node[u][v] = k</span>
-        <span class="c1">## u를 k로 갱신!, 그리고 path에 갱신된 u를 append</span>
-        <span class="c1">## k -&gt; k2 -&gt; k3 -&gt; ... -&gt; v</span>
-        <span class="c1">## 다시 k에 대해 이를 반복!</span>
-        <span class="c1">## 언제까지? v에 도착해서 u와 v가 똑같아질 때까지!</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">next_node</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">]:</span>  <span class="c1"># u에서 v로 가는 경로가 없다면</span>
+        <span class="k">return</span> <span class="p">[]</span>  <span class="c1"># 빈 리스트</span>
+    <span class="n">path</span> <span class="o">=</span> <span class="p">[</span><span class="n">u</span><span class="p">]</span>  <span class="c1"># 출발 노드</span>
+    <span class="k">while</span> <span class="n">u</span> <span class="o">!=</span> <span class="n">v</span><span class="p">:</span>  <span class="c1"># u에서 출발하여 v에 도착할때까지</span>
+        <span class="c1"># 현재 상황: u -&gt; k -&gt; k2 -&gt; k3 -&gt; ... -&gt; v</span>
+        <span class="c1"># next_node[u][v] = k</span>
+        <span class="c1"># u를 k로 갱신!, 그리고 path에 갱신된 u를 append</span>
+        <span class="c1"># k -&gt; k2 -&gt; k3 -&gt; ... -&gt; v</span>
+        <span class="c1"># 다시 k에 대해 이를 반복!</span>
+        <span class="c1"># 언제까지? v에 도착해서 u와 v가 똑같아질 때까지!</span>
         <span class="n">u</span> <span class="o">=</span> <span class="n">next_node</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">]</span>
         <span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">u</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">path</span>
@@ -385,7 +386,11 @@ window.onload = wrap_img;
         <p class="feed-subscribe">
           <a href="https://jaesu26.github.io/study-blog/feed.xml">
             <svg class="svg-icon orange">
-              <use xlink:href="/study-blog/assets/minima-social-icons.svg#rss"></use>
+              <path d="M12.8 16C12.8 8.978 7.022 3.2 0 3.2V0c8.777 0 16 7.223 16 16h-3.2zM2.194
+                11.61c1.21 0 2.195.985 2.195 2.196 0 1.21-.99 2.194-2.2 2.194C.98 16 0 15.017 0
+                13.806c0-1.21.983-2.195 2.194-2.195zM10.606
+                16h-3.11c0-4.113-3.383-7.497-7.496-7.497v-3.11c5.818 0 10.606 4.79 10.606 10.607z"
+              />
             </svg><span>Subscribe</span>
           </a>
         </p>
@@ -396,13 +401,10 @@ window.onload = wrap_img;
     </div>
 
     <div class="social-links"><ul class="social-media-list"><li>
-  <a rel="me" href="https://github.com/Jaesu26/" target="_blank" title="github">
-    <svg class="svg-icon grey">
-      <use xlink:href="/study-blog/assets/minima-social-icons.svg#github"></use>
-    </svg>
-  </a>
-</li>
-</ul>
+    <a rel="me" href="" target="_blank" title="">
+      <span class="grey fa-brands fa- fa-lg"></span>
+    </a>
+  </li></ul>
 </div>
 
   </div>
