@@ -39,7 +39,7 @@ baseurl: "/study-blog" # the subpath of your site, e.g. "/blog".
 # Github and twitter are optional:
 minima:
   social_links:
-    - { platform: github, user_id: "https://github.com/Jaesu26" }
+    - { platform: github, user_url: "https://github.com/Jaesu26" }
 
 # Set this to true to get LaTeX math equation support
 use_math: true
@@ -82,7 +82,7 @@ html_escape:
 future: true
 theme: minima
 plugins:
-  #- jekyll-feed
+  - jekyll-feed
   - jekyll-gist
   - jekyll-octicons
   - jekyll-toc
