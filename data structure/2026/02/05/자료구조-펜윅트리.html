@@ -100,7 +100,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      3 min read
+      4 min read
     
 </span></p>
 
@@ -308,7 +308,7 @@ window.onload = wrap_img;
 <p><code>-</code> $i$를 이진수로 나타내면 $xx\dots x100\dots0$과 같이 나타낼 수 있다</p>
 <p><code>-</code> $\sim i$는 $x'x'\dots x'011\dots1$이 된다 ($x'$은 $x$의 반전)</p>
 <p><code>-</code> 그럼 $\sim i + 1$은 $x'x'\dots x'100\dots0$이 되므로 $i \text{ \&amp; } (\sim i + 1)$은 $LSB(i)$가 된다</p>
-<p><code>-</code> 이때 $-i = \sim i + 1$이므로 $LSB(i) = i \text{ \&amp; } -i$이다</p>
+<p><code>-</code> 이때 $-i =\; \sim i + 1$이므로 $LSB(i) = i \text{ \&amp; } -i$이다</p>
 <p><code>-</code> 이에 대해선 $2$의 보수를 공부하자</p>
 
 </div>
@@ -340,6 +340,19 @@ window.onload = wrap_img;
 <p><code>-</code> 처음에 $\operatorname{tree}$는 $0$으로 구성된 $N+1$ 크기의 배열이다</p>
 <p><code>-</code> 이러면 시간 복잡도는 $O(N\log N)$인데 $O(N)$에 할 수도 있다</p>
 <p><code>-</code> 이는 맨 위의 참고 링크의 내용을 확인하자</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">init</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+    <span class="n">tree</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">a_i</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+        <span class="n">update</span><span class="p">(</span><span class="n">tree</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">a_i</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">tree</span>
+</pre></div>
 
 </div>
 </div>
