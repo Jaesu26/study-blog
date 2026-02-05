@@ -40,8 +40,8 @@ baseurl: "/study-blog" # the subpath of your site, e.g. "/blog".
 # minima:
 #   social_links:
 #     github: Jaesu26
- social_links:
-   github: Jaesu26
+social_links:
+  github: Jaesu26
 
 # Set this to true to get LaTeX math equation support
 use_math: true
