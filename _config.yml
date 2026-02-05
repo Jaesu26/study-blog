@@ -41,10 +41,6 @@ minima:
   social_links:
     - { platform: github, user_id: Jaesu26 }
 
-# RSS(feed.xml)를 하단에서 숨기려면 이 줄을 추가하세요
-header_pages:
-  - about.md
-
 # Set this to true to get LaTeX math equation support
 use_math: true
 
@@ -86,7 +82,7 @@ html_escape:
 future: true
 theme: minima
 plugins:
-  - jekyll-feed
+  #- jekyll-feed
   - jekyll-gist
   - jekyll-octicons
   - jekyll-toc
