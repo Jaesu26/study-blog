@@ -8,9 +8,19 @@
 
       <div class="footer-col">
         {%- if site.github_username -%}
-        <a href="https://github.com/{{ site.github_username }}" target="_blank" style="text-decoration: none; color: inherit; display: flex; align-items: center;">
-          <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" width="20" height="20" style="margin-right: 8px;">
-          <span>GitHub</span>
+        <a href="https://github.com/{{ site.github_username }}" target="_blank" 
+           style="display: inline-flex; 
+                  align-items: center; 
+                  justify-content: center; 
+                  width: 36px; 
+                  height: 36px; 
+                  border: 1px solid #e8e8e8; 
+                  border-radius: 4px; 
+                  transition: all 0.3s ease;">
+          
+          <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" 
+               width="20" height="20" 
+               style="display: block;">
         </a>
         {%- endif -%}
       </div>
