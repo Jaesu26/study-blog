@@ -1,22 +1,18 @@
-<footer class="site-footer h-card">
+<footer class="site-footer">
   <div class="wrapper">
-    <div class="footer-col-wrapper">
+    <div class="footer-col-wrapper" style="display: flex; justify-content: space-between; align-items: center;">
       
       <div class="footer-col">
-        <p class="p-name">{{ site.title | escape }}</p>
+        <p style="margin-bottom: 0;">{{ site.title | escape }}</p>
       </div>
 
       <div class="footer-col">
-        <ul class="social-media-list">
-          {%- if site.github_username -%}
-          <li>
-            <a href="https://github.com/{{ site.github_username }}" target="_blank">
-              <svg class="svg-icon"><use xlink:href="{{ '/assets/minima-social-icons.svg#github' | relative_url }}"></use></svg> 
-              <span class="username">GitHub</span>
-            </a>
-          </li>
-          {%- endif -%}
-        </ul>
+        {%- if site.github_username -%}
+        <a href="https://github.com/{{ site.github_username }}" target="_blank" style="text-decoration: none; color: inherit; display: flex; align-items: center;">
+          <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" width="20" height="20" style="margin-right: 8px;">
+          <span>GitHub</span>
+        </a>
+        {%- endif -%}
       </div>
 
     </div>
