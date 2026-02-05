@@ -218,13 +218,13 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">query</span><span class="p">(</span><span class="n">tree</span><span class="p">,</span> <span class="n">i</span><span class="p">):</span>
-    <span class="n">prefix_sum</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="k">while</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="n">prefix_sum</span> <span class="o">+=</span> <span class="n">tree</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
-        <span class="n">i</span> <span class="o">-=</span> <span class="n">LSB</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">prefix_sum</span>
-</pre></div>
+<p>```python
+def query(tree, i):
+    prefix_sum = 0
+    while i &gt; 0:
+        prefix_sum += tree[i]
+        i -= LSB(i)
+    return prefix_sum</p>
 
 </div>
 </div>
@@ -273,11 +273,11 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="n">tree</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">v</span><span class="p">):</span>
-    <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">N</span><span class="p">:</span>
-        <span class="n">tree</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+=</span> <span class="n">v</span>
-        <span class="n">i</span> <span class="o">+=</span> <span class="n">LSB</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
-</pre></div>
+<p>```python
+def update(tree, i, v):
+    while i &lt;= N:
+        tree[i] += v
+        i += LSB(i)</p>
 
 </div>
 </div>
@@ -317,9 +317,9 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">LSB</span><span class="p">(</span><span class="n">i</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">i</span> <span class="o">&amp;</span> <span class="o">-</span><span class="n">i</span>
-</pre></div>
+<p>```python
+def LSB(i):
+    return i &amp; -i</p>
 
 </div>
 </div>
@@ -347,12 +347,12 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">init</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
-    <span class="n">tree</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">a_i</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
-        <span class="n">update</span><span class="p">(</span><span class="n">tree</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">a_i</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">tree</span>
-</pre></div>
+<p>```python
+def init(array, n):
+    tree = [0] * (n + 1)
+    for i, a_i in enumerate(array, start=1):
+        update(tree, i, a_i)
+    return tree</p>
 
 </div>
 </div>
