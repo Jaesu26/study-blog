@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>백준 오픈 콘테스트 참여하기 | Jaesu’s blog</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="백준 오픈 콘테스트 참여하기" />
+<meta name="author" content="한재수" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="첫 번째" />
+<meta property="og:description" content="첫 번째" />
+<link rel="canonical" href="https://jaesu26.github.io/study-blog/algorithm/2026/03/30/iamcoder-open-contest-2026.html" />
+<meta property="og:url" content="https://jaesu26.github.io/study-blog/algorithm/2026/03/30/iamcoder-open-contest-2026.html" />
+<meta property="og:site_name" content="Jaesu’s blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2026-03-30T00:00:00-05:00" />
+<script type="application/ld+json">
+{"url":"https://jaesu26.github.io/study-blog/algorithm/2026/03/30/iamcoder-open-contest-2026.html","@type":"BlogPosting","headline":"백준 오픈 콘테스트 참여하기","dateModified":"2026-03-30T00:00:00-05:00","datePublished":"2026-03-30T00:00:00-05:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://jaesu26.github.io/study-blog/algorithm/2026/03/30/iamcoder-open-contest-2026.html"},"author":{"@type":"Person","name":"한재수"},"description":"첫 번째","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/study-blog/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://jaesu26.github.io/study-blog/feed.xml" title="Jaesu's blog" /><link rel="shortcut icon" type="image/x-icon" href="/study-blog/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.css" integrity="sha512-h7nl+xz8wgDlNM4NqKEM4F1NkIRS17M9+uJwIGwuo8vGqIl4BhuCKdxjWEINm+xyrUjNCnK5dCrhM0sj+wTIXw==" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.js" integrity="sha512-/CMIhXiDA3m2c9kzRyd97MTb3MC6OVnx4TElQ7fkkoRghwDf6gi41gaT1PwF270W6+J60uTmwgeRpNpJdRV6sg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/contrib/auto-render.min.js" integrity="sha512-Do7uJAaHZm5OLrIv/yN4w0iG1dbu01kzdMNnFfu/mAqgUk6Nniv2JYHcwH+cNwjqgLcqcuBBk+JRvprLVI8azg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha512-0doc9hKxR3PYwso42RD1p5ySZpzzuDiOwMrdCEh2WdJZCjcmFKc/wEnL+z8fBQrnHoiNWbo+3fiGkOYXBdQp4A==" crossorigin="anonymous"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement( document.body, {
+        delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "[%", right: "%]", display: true},
+            {left: "$", right: "$", display: false}
+        ]}
+        );
+    });
+    </script>
+
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper">
+    <a class="site-title" rel="author" href="/study-blog/">Jaesu&#39;s blog</a>
+      <nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon"></span>
+        </label>
+
+        <div class="nav-items">
+  <a class="nav-item" href="/study-blog/about/">About Me</a>
+  <a class="nav-item" href="/study-blog/search/">Search</a>
+  <a class="nav-item" href="/study-blog/categories/">Tags</a>
+</div>
+
+      </nav>
+  </div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">백준 오픈 콘테스트 참여하기</h1><p class="page-description">첫 번째</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2026-03-30T00:00:00-05:00" itemprop="datePublished">
+        Mar 30, 2026
+      </time>• 
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">한재수</span></span>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      7 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/study-blog/categories/#Algorithm">Algorithm</a>
+        
+      
+      </p>
+    
+
+    
+      
+        <div class="pb-5 d-flex flex-wrap flex-justify-end">
+          <div class="px-2">
+
+    <a href="https://github.com/Jaesu26/study-blog/tree/master/_notebooks/2026-03-30-iamcoder-open-contest-2026.ipynb" role="button" target="_blank">
+<img class="notebook-badge-image" src="/study-blog/assets/badges/github.svg" alt="View On GitHub">
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://mybinder.org/v2/gh/Jaesu26/study-blog/master?filepath=_notebooks%2F2026-03-30-iamcoder-open-contest-2026.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/study-blog/assets/badges/binder.svg" alt="Open In Binder"/>
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://colab.research.google.com/github/Jaesu26/study-blog/blob/master/_notebooks/2026-03-30-iamcoder-open-contest-2026.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/study-blog/assets/badges/colab.svg" alt="Open In Colab"/>
+    </a>
+</div>
+        </div>
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul class="section-nav">
+<li class="toc-entry toc-h2"><a href="#A번---문자열-회전">A번 - 문자열 회전 </a></li>
+<li class="toc-entry toc-h2"><a href="#B번---직사각형-색칠하기">B번 - 직사각형 색칠하기 </a></li>
+<li class="toc-entry toc-h2"><a href="#C번---Connect-the-GSHS-2">C번 - Connect the GSHS 2 </a></li>
+<li class="toc-entry toc-h2"><a href="#D번---눈부신-조명">D번 - 눈부신 조명 </a></li>
+</ul><!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2026-03-30-iamcoder-open-contest-2026.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 언젠가 대회에 제대로 참여해보고 싶었는데 할만한(?) 실력도 됐고 시간도 마침 괜찮아서 참여했다</p>
+<p><code>-</code> 참여한 대회는 2026 IamCoder Qualification Test Open이다</p>
+<p><code>-</code> 제한 시간은 3시간에 A번부터 I번까지 총 9문제로 A,B,C,D번 풀어서 총 4솔 했다</p>
+<p><code>-</code> 평상시에 골랜디 안 했으면 아마 2문제 풀고 끝났을 것이다</p>
+<p><code>-</code> 맞힌 문제에 대해선 어떻게 풀었는지 알아보자 (단, 코드는 대회에 제출했던 건 아니고 리팩토링 한 것이다)</p>
+<p><code>-</code> 풀지 못한 문제는 언젠가 업솔빙하면 좋겠다</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="A번---문자열-회전">
+<a class="anchor" href="#A%EB%B2%88---%EB%AC%B8%EC%9E%90%EC%97%B4-%ED%9A%8C%EC%A0%84" aria-hidden="true"><span class="octicon octicon-link"></span></a>A번 - 문자열 회전<a class="anchor-link" href="#A%EB%B2%88---%EB%AC%B8%EC%9E%90%EC%97%B4-%ED%9A%8C%EC%A0%84"> </a>
+</h2>
+<ul>
+<li>문제 출처: <a href="https://www.acmicpc.net/problem/35429">백준 35429번</a>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> $r = l+1$인 경우를 고려해보자</p>
+<p><code>-</code> 이는 두 문자의 위치를 바꾸는 것이 된다</p>
+<p><code>-</code> 이를 반복하면 임의의 문자를 내가 원하는 위치에 집어 넣을 수 있다</p>
+<p><code>-</code> 따라서 부분 문자열 GSHS의 개수는 문자열 $S$에 존재하는 G, S, H의 개수에만 영향을 받는다</p>
+<p><code>-</code> $6$분 걸렸고 $1$번에 맞혔다</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">Counter</span>
+
+
+<span class="k">def</span> <span class="nf">solution</span><span class="p">():</span>
+    <span class="n">N</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+    <span class="n">S</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">(</span><span class="n">S</span><span class="p">)</span>
+    <span class="n">answer</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="s2">"G"</span><span class="p">],</span> <span class="n">s</span><span class="p">[</span><span class="s2">"S"</span><span class="p">]</span> <span class="o">//</span> <span class="mi">2</span><span class="p">,</span> <span class="n">s</span><span class="p">[</span><span class="s2">"H"</span><span class="p">])</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">answer</span><span class="p">)</span>
+
+
+<span class="n">solution</span><span class="p">()</span>
+
+<span class="c1"># input</span>
+<span class="c1"># 10</span>
+<span class="c1"># GSHSHSGSHH</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+</div>
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>2
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 예상 티어: 실버 $5$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="B번---직사각형-색칠하기">
+<a class="anchor" href="#B%EB%B2%88---%EC%A7%81%EC%82%AC%EA%B0%81%ED%98%95-%EC%83%89%EC%B9%A0%ED%95%98%EA%B8%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>B번 - 직사각형 색칠하기<a class="anchor-link" href="#B%EB%B2%88---%EC%A7%81%EC%82%AC%EA%B0%81%ED%98%95-%EC%83%89%EC%B9%A0%ED%95%98%EA%B8%B0"> </a>
+</h2>
+<ul>
+<li>문제 출처: <a href="https://www.acmicpc.net/problem/35430">백준 35430번</a>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 생각보다 까다로운 문제였다</p>
+<p><code>-</code> $X=ab$이고 $a\le N, b \le M$이라면 $K=1$이다</p>
+<p><code>-</code> 이때 $x_1,y_1,x_2,y_2 = 0, 0, a, b$이다</p>
+<p><code>-</code> 그렇지 않다면 $X=qN+r,(0\le r &lt; N)$이라 할 때 넓이가 $qN$인 직사각형과 넓이가 $r$인 직사각형으로 나눌 수 있다</p>
+<p><code>-</code> 첫 번째 직사각형의 경우 $x_1,y_1,x_2,y_2 = 0, 0, N, q$이며 두 번째 직사각형의 경우 $x_1,y_1,x_2,y_2 = 0, q, r, q+1$이다</p>
+<p><code>-</code> $r &lt; N$이며 $q=M$인 경우 $X=NM$으로 애초에 $K=1$이다 ($X \le NM$ 조건 유의)</p>
+<p><code>-</code> 따라서 $q &lt; M$이고 이에 따라 $q+1 \le M$이므로 $0\le x_1&lt;x_2\le N, 0\le y_1&lt;y_2\le M$을 만족한다</p>
+<p><code>-</code> $K=1$이 가능한지 확인하기 위해 $X=ab$를 만족하는 모든 $a,b$에 대해 $a\le N, b \le M$인지 확인하자</p>
+<p><code>-</code> 이는 $O(\sqrt{NM})$이다</p>
+<p><code>-</code> $K=1$이 불가능하다면 자연스레 $K=2$이다</p>
+<p><code>-</code> 따라서 전체 알고리즘의 시간 복잡도는 $O(\sqrt{NM})$이며 $N,M\le 10^5$이므로 제한 시간 안에 동작한다</p>
+<p><code>-</code> $53$분 걸렸고 $4$번 만에 맞혔다</p>
+<p><code>-</code> 처음에 인수분해 코드에서 $i$의 범위를 $\operatorname{range}(1,n)$으로 코딩해서 계속 틀렸었음</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">check_k1</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+    <span class="n">factors</span> <span class="o">=</span> <span class="n">factorize</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">factors</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="k">if</span> <span class="n">a</span> <span class="o">&lt;=</span> <span class="n">n</span> <span class="ow">and</span> <span class="n">b</span> <span class="o">&lt;=</span> <span class="n">m</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+            <span class="k">return</span> <span class="kc">True</span>
+    <span class="k">return</span> <span class="kc">False</span>
+
+
+<span class="k">def</span> <span class="nf">factorize</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">factors</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">i</span> <span class="o">*</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="n">n</span><span class="p">:</span>
+            <span class="k">break</span>
+        <span class="k">if</span> <span class="n">n</span> <span class="o">%</span> <span class="n">i</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">continue</span>
+        <span class="n">factors</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">n</span> <span class="o">//</span> <span class="n">i</span>
+    <span class="n">factors</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="n">b</span><span class="p">:</span> <span class="n">a</span> <span class="k">for</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">factors</span><span class="o">.</span><span class="n">items</span><span class="p">()})</span>
+    <span class="k">return</span> <span class="n">factors</span>
+
+
+<span class="k">def</span> <span class="nf">run_k2</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+    <span class="n">q</span> <span class="o">=</span> <span class="n">x</span> <span class="o">//</span> <span class="n">n</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">x</span> <span class="o">%</span> <span class="n">n</span>
+    <span class="nb">print</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">q</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">q</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">q</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">solution</span><span class="p">():</span>
+    <span class="n">N</span><span class="p">,</span> <span class="n">M</span><span class="p">,</span> <span class="n">X</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+    <span class="k">if</span> <span class="n">check_k1</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">M</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
+        <span class="k">return</span>
+    <span class="n">run_k2</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">M</span><span class="p">,</span> <span class="n">X</span><span class="p">)</span>
+
+
+<span class="n">solution</span><span class="p">()</span>
+
+<span class="c1"># input</span>
+<span class="c1"># 8 6 32</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+</div>
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>1
+0 0 8 4
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 예상 티어: 실버 $2$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="C번---Connect-the-GSHS-2">
+<a class="anchor" href="#C%EB%B2%88---Connect-the-GSHS-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>C번 - Connect the GSHS 2<a class="anchor-link" href="#C%EB%B2%88---Connect-the-GSHS-2"> </a>
+</h2>
+<ul>
+<li>문제 출처: <a href="https://www.acmicpc.net/problem/35431">백준 35431번</a>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> <strong>수도</strong>에서 가장 먼 마을까지의 거리를 최소화해야 한다</p>
+<p><code>-</code> <strong>도시</strong> 중 한 곳이 <strong>수도</strong>이다</p>
+<p><code>-</code> 정의상 <strong>수도</strong>에서 어떤 마을까지 가는 경로엔 해당 마을의 <strong>도시</strong>가 포함되어야 한다</p>
+<p><code>-</code> 따라서 <strong>수도</strong>에서 가장 먼 마을까지의 거리를 최소화하려면 <strong>왕국</strong> 내 <strong>도시</strong>에서 가장 먼 <strong>왕국</strong> 내 마을까지의 거리를 최소화해야 한다</p>
+<p><code>-</code> 이는 <strong>왕국</strong> 내 모든 마을에 대해 한 번씩 번갈아가며 <strong>도시</strong>로 가정한 뒤 BFS를 수행해 실현할 수 있다</p>
+<p><code>-</code> 이를 모든 <strong>왕국</strong>에 대해 수행하는 건 최악의 경우 $O\left(KN^2 M\right)$이다 ($N=\max(N_i), M=\max(M_i)$)</p>
+<p><code>-</code> 이제 <strong>왕국</strong>마다 <strong>도시</strong>를 정했으니 $K$개의 도시를 <strong>선형</strong>으로 이은 뒤 이 중 한 곳을 <strong>수도</strong>로 정하면 된다</p>
+<p><code>-</code> 이때 간선의 개수는 $K-1$개로 정점의 개수보다 $1$개 부족하므로 <strong>도시</strong>끼리 연결된 그래프는 트리가 된다</p>
+<p><code>-</code> <strong>수도</strong>를 트리 상에서 루트 노드라고 가정해보자</p>
+<p><code>-</code> 각 <strong>도시</strong>는 최대 $2$개의 다른 <strong>도시</strong>와 연결될 수 있다</p>
+<p><code>-</code> 따라서 <strong>수도</strong>를 제외한 다른 <strong>도시</strong>는 최대 $1$개의 자식 노드만 가질 수 있다 (나머지 $1$개는 부모 노드)</p>
+<p><code>-</code> 임의의 <strong>도시</strong>가 트리 상에서 노드 $u$ 일 때 노드 $u$의 가중치 $w_u$를 <strong>왕국</strong> 내 <strong>도시</strong>($u$)에서 가장 먼 <strong>왕국</strong> 내 마을까지의 거리라고 하자</p>
+<p><code>-</code> 그럼 <strong>수도</strong>와 <strong>도시</strong>가 노드 $u$인 마을 사이의 거리의 최댓값은 $\operatorname{depth}_u + w_u$이다 ($\operatorname{depth}_u$는 트리 상에서 노드 $u$의 깊이)</p>
+<p><code>-</code> 트리 상에서 노드 $v$인 <strong>수도</strong>와 노드 $u$인 <strong>도시</strong>에 대해 트리에서 둘의 위치를 서로 바꾸면 결과는 $\operatorname{depth}_v + w_v$가 된다</p>
+<p><code>-</code> 이때 $\operatorname{depth}_u =\operatorname{depth}_v$이므로 $w_u$와 $w_r$만 비교하면 된다</p>
+<p><code>-</code> 교환 논증에 따라 결과적으로 노드의 가중치가 가장 큰 <strong>도시</strong>를 <strong>수도</strong>로 정해야 한다</p>
+<p><code>-</code> 그럼 이제 트리 상에서 깊이가 $0$인 루트 노드는 선택했으니 깊이가 $1$인 두 노드를 골라야 한다</p>
+<p><code>-</code> 이는 깊이만 $0$에서 $1$로 바뀌었을 뿐 나머지는 동일하다</p>
+<p><code>-</code> 따라서 교환 논증에 따라 노드의 가중치가 큰 <strong>도시</strong>부터 선택해 현재 트리 상에서 깊이가 가장 작은 노드로 명하면 된다 (트리는 빈 집합부터 시작)</p>
+<p><code>-</code> 가중치를 기준으로 <strong>도시</strong>를 정렬해야 하니 시간 복잡도는 $O(N\log N)$이 된다</p>
+<p><code>-</code> 트리가 완성되고 <strong>수도</strong>에서 가장 먼 마을까지의 거리를 계산하는 건 $O(N)$이다</p>
+<p><code>-</code> 전체 알고리즘의 시간 복잡도는 $O\left(KN^2 M + N\log N\right)$이다</p>
+<p><code>-</code> $30$분 걸렸고 $1$번에 맞혔다</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">deque</span>
+
+
+<span class="k">def</span> <span class="nf">minimize_distance_from_capital</span><span class="p">(</span><span class="n">graphs</span><span class="p">):</span>
+    <span class="n">min_weights</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">graph</span> <span class="ow">in</span> <span class="n">graphs</span><span class="p">:</span>
+        <span class="n">w</span> <span class="o">=</span> <span class="n">compute_city_weight</span><span class="p">(</span><span class="n">graph</span><span class="p">)</span>
+        <span class="n">min_weights</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">w</span><span class="p">)</span>
+    <span class="n">min_weights</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">min_distance</span> <span class="o">=</span> <span class="n">min_weights</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">depth</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">w</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">min_weights</span><span class="p">[</span><span class="mi">1</span><span class="p">:]):</span>
+        <span class="n">min_distance</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">w</span> <span class="o">+</span> <span class="n">depth</span><span class="p">,</span> <span class="n">min_distance</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">depth</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">min_distance</span>
+
+
+<span class="k">def</span> <span class="nf">compute_city_weight</span><span class="p">(</span><span class="n">graph</span><span class="p">):</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">graph</span><span class="p">)</span>
+    <span class="n">min_weight</span> <span class="o">=</span> <span class="n">INF</span>
+    <span class="k">for</span> <span class="n">city</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+        <span class="n">weight</span> <span class="o">=</span> <span class="n">bfs</span><span class="p">(</span><span class="n">graph</span><span class="p">,</span> <span class="n">city</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">weight</span> <span class="o">&lt;</span> <span class="n">min_weight</span><span class="p">:</span>
+            <span class="n">min_weight</span> <span class="o">=</span> <span class="n">weight</span>
+    <span class="k">return</span> <span class="n">min_weight</span>   
+
+
+<span class="k">def</span> <span class="nf">bfs</span><span class="p">(</span><span class="n">graph</span><span class="p">,</span> <span class="n">start</span><span class="p">):</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">graph</span><span class="p">)</span>
+    <span class="n">queue</span> <span class="o">=</span> <span class="n">deque</span><span class="p">([</span><span class="n">start</span><span class="p">])</span>
+    <span class="n">distances</span> <span class="o">=</span> <span class="p">[</span><span class="n">NONE</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">distances</span><span class="p">[</span><span class="n">start</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">while</span> <span class="n">queue</span><span class="p">:</span>
+        <span class="n">u</span> <span class="o">=</span> <span class="n">queue</span><span class="o">.</span><span class="n">popleft</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">graph</span><span class="p">[</span><span class="n">u</span><span class="p">]:</span>
+            <span class="k">if</span> <span class="n">distances</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">!=</span> <span class="n">NONE</span><span class="p">:</span>
+                <span class="k">continue</span>
+            <span class="n">distances</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">=</span> <span class="n">distances</span><span class="p">[</span><span class="n">u</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span>
+            <span class="n">queue</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+    <span class="k">return</span> <span class="nb">max</span><span class="p">(</span><span class="n">distances</span><span class="p">)</span>    
+
+
+<span class="k">def</span> <span class="nf">solution</span><span class="p">():</span>
+    <span class="k">global</span> <span class="n">INF</span><span class="p">,</span> <span class="n">NONE</span>
+    <span class="n">INF</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="s2">"inf"</span><span class="p">)</span>
+    <span class="n">NONE</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+    <span class="n">K</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+    <span class="n">graphs</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">K</span><span class="p">):</span>
+        <span class="n">N</span><span class="p">,</span> <span class="n">M</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+        <span class="n">graph</span> <span class="o">=</span> <span class="p">[[]</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)]</span>
+        <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">M</span><span class="p">):</span>
+            <span class="n">s</span><span class="p">,</span> <span class="n">e</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+            <span class="n">graph</span><span class="p">[</span><span class="n">s</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+            <span class="n">graph</span><span class="p">[</span><span class="n">e</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+        <span class="n">graphs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">graph</span><span class="p">)</span>
+    <span class="n">answer</span> <span class="o">=</span> <span class="n">minimize_distance_from_capital</span><span class="p">(</span><span class="n">graphs</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">answer</span><span class="p">)</span>
+
+
+<span class="n">solution</span><span class="p">()</span>
+
+<span class="c1"># input</span>
+<span class="c1"># 3</span>
+<span class="c1"># 3 3</span>
+<span class="c1"># 1 2</span>
+<span class="c1"># 2 3</span>
+<span class="c1"># 3 1</span>
+<span class="c1"># 4 4</span>
+<span class="c1"># 1 2</span>
+<span class="c1"># 2 3</span>
+<span class="c1"># 3 4</span>
+<span class="c1"># 4 1</span>
+<span class="c1"># 2 1</span>
+<span class="c1"># 1 2</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+</div>
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>2
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 예상 티어: 골드 $4$</p>
+<p><code>-</code> 내용 정리하고 보니까 티어 조금 낮게 매긴 듯</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="D번---눈부신-조명">
+<a class="anchor" href="#D%EB%B2%88---%EB%88%88%EB%B6%80%EC%8B%A0-%EC%A1%B0%EB%AA%85" aria-hidden="true"><span class="octicon octicon-link"></span></a>D번 - 눈부신 조명<a class="anchor-link" href="#D%EB%B2%88---%EB%88%88%EB%B6%80%EC%8B%A0-%EC%A1%B0%EB%AA%85"> </a>
+</h2>
+<ul>
+<li>문제 출처: <a href="https://www.acmicpc.net/problem/35432">백준 35432번</a>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 처음엔 <a href="https://www.acmicpc.net/problem/32136">소신발언</a> 문제와 비슷한 부류라고 생각해 이분 탐색으로 접근했었다</p>
+<p><code>-</code> 삽질 좀 하다가 제대로 된 풀이가 떠올랐다</p>
+<p><code>-</code> 모든 $l_i$는 다르다</p>
+<p><code>-</code> $m$번째 조명의 등급이 가장 크다고 하자</p>
+<p><code>-</code> 그럼 위치 $p_m$은 해당 조명에 의해 밝기가 $A^{l_m}$만큼 증가한다</p>
+<p><code>-</code> 최대 등급의 조명을 제외한 나머지 조명이 모두 같은 위치에 있다고 할 때 해당 위치의 밝기를 계산하면 다음과 같다</p>
+<p><code>-</code> $A^{l_1} + \cdots + A^{l_N}$ (단, $A^{l_m}$은 제외, 멀리 떨어져 있다고 생각하자)</p>
+<p><code>-</code> 이때 $A^{l_m} &gt; A^{l_1} + \cdots + A^{l_N}$이 성립한다 (증명은 생략, 수학적 귀납법으로 가능)</p>
+<p><code>-</code> 따라서 지하철 선로에서 최대 밝기가 나타나는 위치는 $l_m$ 등급의 조명에 의해 밝기가 증가하는 위치 중 하나이다</p>
+<p><code>-</code> $L_{i,x}$ 계산 공식에 의해 최대 밝기가 나타나는 위치를 $x$라 할 때 $p_{m} - d_m &lt; x &lt; p_{m} + d_m$이 성립한다</p>
+<p><code>-</code> 최대 $2d-2$개의 위치를 순회하며 해당 위치의 밝기를 계산하면 된다</p>
+<p><code>-</code> 근데 단순하게 밝기를 계산할 수는 없다 (수가 너무 커짐)</p>
+<p><code>-</code> 그렇다고 나머지 연산을 적용하면 대소 관계가 틀어질 수 있다</p>
+<p><code>-</code> $A^{l_m} &gt; A^{l_1} + \cdots + A^{l_N}$ 식과 같은 특성을 사용하여 비교하자</p>
+<p><code>-</code> 가능한 모든 $x$별로 $L_{i,x} \le 0$를 만족하는 모든 $L_{i,x}$를 내림차순 정렬해서 가지고 있자</p>
+<p><code>-</code> 이를 기준으로 밝기를 비교하면 된다</p>
+<p><code>-</code> 그 후 최대 밝기가 나타나는 위치의 실제 밝기를 계산하면 된다</p>
+<p><code>-</code> $A^{l_i}$를 $10^9+7$로 나눈 나머지는 분할 정복을 통해 $O(l_i)$에 계산할 수 있다</p>
+<p><code>-</code> 전체 알고리즘의 시간 복잡도는 최악의 경우 $O(dN\log N + \log l)$이다</p>
+<p><code>-</code> $d$는 최대 $100$이고 $l$은 최대 $10^9$이며 $N$은 최대 $10000$이므로 제한 시간 안에 동작할 수 있다</p>
+<p><code>-</code> $71$분 걸렸고 $1$번에 맞혔다</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">measure_light</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">lamps</span><span class="p">):</span>
+    <span class="n">light</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">p</span><span class="p">,</span> <span class="n">l</span><span class="p">,</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">lamps</span><span class="p">:</span>
+        <span class="n">L_ix</span> <span class="o">=</span> <span class="n">compute_L_ix</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">l</span><span class="p">,</span> <span class="n">d</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">L_ix</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">continue</span>
+        <span class="n">light</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">L_ix</span><span class="p">)</span>
+    <span class="n">light</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">light</span>
+
+
+<span class="k">def</span> <span class="nf">compute_L_ix</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">l</span><span class="p">,</span> <span class="n">d</span><span class="p">):</span>
+    <span class="n">L_ix</span> <span class="o">=</span> <span class="n">l</span> <span class="o">-</span> <span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">p</span> <span class="o">-</span> <span class="n">x</span><span class="p">)</span> <span class="o">//</span> <span class="n">d</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">L_ix</span>     
+
+
+<span class="k">def</span> <span class="nf">solution</span><span class="p">():</span>
+    <span class="n">mod</span> <span class="o">=</span> <span class="mi">10</span><span class="o">**</span><span class="mi">9</span> <span class="o">+</span> <span class="mi">7</span>
+    <span class="n">N</span><span class="p">,</span> <span class="n">A</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+    <span class="n">lamps</span> <span class="o">=</span> <span class="p">[</span><span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">()))</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">)]</span>
+    <span class="n">lamps</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">lamp</span><span class="p">:</span> <span class="n">lamp</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+    <span class="n">p</span><span class="p">,</span> <span class="n">l</span><span class="p">,</span> <span class="n">d</span> <span class="o">=</span> <span class="n">lamps</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">lights_info</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">p</span> <span class="o">-</span> <span class="n">d</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">10</span><span class="o">**</span><span class="mi">9</span><span class="p">),</span> <span class="nb">min</span><span class="p">(</span><span class="n">p</span> <span class="o">+</span> <span class="n">d</span><span class="p">,</span> <span class="mi">10</span><span class="o">**</span><span class="mi">9</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)):</span>
+        <span class="n">light</span> <span class="o">=</span> <span class="n">measure_light</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">lamps</span><span class="p">)</span>
+        <span class="n">lights_info</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">light</span><span class="p">,</span> <span class="n">x</span><span class="p">))</span>
+    <span class="n">lights_info</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+    <span class="n">light</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="n">lights_info</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">max_brightness</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">L_ix</span> <span class="ow">in</span> <span class="n">light</span><span class="p">:</span>
+        <span class="n">max_brightness</span> <span class="o">+=</span> <span class="nb">pow</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">L_ix</span><span class="p">,</span> <span class="n">mod</span><span class="p">)</span>
+        <span class="n">max_brightness</span> <span class="o">%=</span> <span class="n">mod</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">max_brightness</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+
+<span class="n">solution</span><span class="p">()</span>
+
+<span class="c1"># input</span>
+<span class="c1"># 3 4</span>
+<span class="c1"># 2 3 2</span>
+<span class="c1"># 3 1 2</span>
+<span class="c1"># 4 2 1</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+</div>
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>72
+3
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 예상 티어: 골드 $1$</p>
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+  </div><!-- from https://github.com/utterance/utterances -->
+<script src="https://utteranc.es/client.js"
+        repo="Jaesu26/study-blog"
+        issue-term="title"
+        label="blogpost-comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script><a class="u-url" href="/study-blog/algorithm/2026/03/30/iamcoder-open-contest-2026.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer">
+  <div class="wrapper">
+    <div class="footer-col-wrapper" style="display: flex; justify-content: space-between; align-items: center;">
+      
+      <div class="footer-col">
+        <p style="margin-bottom: 0;">Jaesu&#39;s blog</p>
+      </div>
+
+      <div class="footer-col"><a href="https://github.com/Jaesu26" target="_blank" 
+           style="display: inline-flex; 
+                  align-items: center; 
+                  justify-content: center; 
+                  width: 36px; 
+                  height: 36px; 
+                  border: 1px solid #e8e8e8; 
+                  border-radius: 4px; 
+                  transition: all 0.3s ease;">
+          
+          <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" 
+               width="20" height="20" 
+               style="display: block;">
+        </a></div>
+
+    </div>
+  </div>
+</footer>
+
+</body>
+
+</html>
