@@ -672,10 +672,20 @@
   
 
   
+
   
 
   
-      ,"page10": {
+
+  
+
+  
+
+  
+  
+
+  
+      ,"page15": {
           "title": "",
           "content": "Sitemap: {{ “sitemap.xml” | absolute_url }} | .",
           "url": "https://jaesu26.github.io/study-blog/robots.txt",
