@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>제2회 AGCU cup | Jaesu’s blog</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="제2회 AGCU cup" />
+<meta name="author" content="한재수" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="와쿠컵" />
+<meta property="og:description" content="와쿠컵" />
+<link rel="canonical" href="https://jaesu26.github.io/study-blog/algorithm/2026/08/08/%EC%A0%9C2%ED%9A%8C-AGCU-cup.html" />
+<meta property="og:url" content="https://jaesu26.github.io/study-blog/algorithm/2026/08/08/%EC%A0%9C2%ED%9A%8C-AGCU-cup.html" />
+<meta property="og:site_name" content="Jaesu’s blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2026-08-08T00:00:00-05:00" />
+<script type="application/ld+json">
+{"url":"https://jaesu26.github.io/study-blog/algorithm/2026/08/08/%EC%A0%9C2%ED%9A%8C-AGCU-cup.html","@type":"BlogPosting","headline":"제2회 AGCU cup","dateModified":"2026-08-08T00:00:00-05:00","datePublished":"2026-08-08T00:00:00-05:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://jaesu26.github.io/study-blog/algorithm/2026/08/08/%EC%A0%9C2%ED%9A%8C-AGCU-cup.html"},"author":{"@type":"Person","name":"한재수"},"description":"와쿠컵","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/study-blog/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://jaesu26.github.io/study-blog/feed.xml" title="Jaesu's blog" /><link rel="shortcut icon" type="image/x-icon" href="/study-blog/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.css" integrity="sha512-h7nl+xz8wgDlNM4NqKEM4F1NkIRS17M9+uJwIGwuo8vGqIl4BhuCKdxjWEINm+xyrUjNCnK5dCrhM0sj+wTIXw==" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.js" integrity="sha512-/CMIhXiDA3m2c9kzRyd97MTb3MC6OVnx4TElQ7fkkoRghwDf6gi41gaT1PwF270W6+J60uTmwgeRpNpJdRV6sg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/contrib/auto-render.min.js" integrity="sha512-Do7uJAaHZm5OLrIv/yN4w0iG1dbu01kzdMNnFfu/mAqgUk6Nniv2JYHcwH+cNwjqgLcqcuBBk+JRvprLVI8azg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha512-0doc9hKxR3PYwso42RD1p5ySZpzzuDiOwMrdCEh2WdJZCjcmFKc/wEnL+z8fBQrnHoiNWbo+3fiGkOYXBdQp4A==" crossorigin="anonymous"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement( document.body, {
+        delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "[%", right: "%]", display: true},
+            {left: "$", right: "$", display: false}
+        ]}
+        );
+    });
+    </script>
+
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper">
+    <a class="site-title" rel="author" href="/study-blog/">Jaesu&#39;s blog</a>
+      <nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon"></span>
+        </label>
+
+        <div class="nav-items">
+  <a class="nav-item" href="/study-blog/about/">About Me</a>
+  <a class="nav-item" href="/study-blog/search/">Search</a>
+  <a class="nav-item" href="/study-blog/categories/">Tags</a>
+</div>
+
+      </nav>
+  </div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">제2회 AGCU cup</h1><p class="page-description">와쿠컵</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2026-08-08T00:00:00-05:00" itemprop="datePublished">
+        Aug 8, 2026
+      </time>• 
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">한재수</span></span>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      7 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/study-blog/categories/#Algorithm">Algorithm</a>
+        
+      
+      </p>
+    
+
+    
+      
+        <div class="pb-5 d-flex flex-wrap flex-justify-end">
+          <div class="px-2">
+
+    <a href="https://github.com/Jaesu26/study-blog/tree/master/_notebooks/2026-08-08-제2회-AGCU-cup.ipynb" role="button" target="_blank">
+<img class="notebook-badge-image" src="/study-blog/assets/badges/github.svg" alt="View On GitHub">
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://mybinder.org/v2/gh/Jaesu26/study-blog/master?filepath=_notebooks%2F2026-08-08-%EC%A0%9C2%ED%9A%8C-AGCU-cup.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/study-blog/assets/badges/binder.svg" alt="Open In Binder"/>
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://colab.research.google.com/github/Jaesu26/study-blog/blob/master/_notebooks/2026-08-08-제2회-AGCU-cup.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/study-blog/assets/badges/colab.svg" alt="Open In Colab"/>
+    </a>
+</div>
+        </div>
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul class="section-nav">
+<li class="toc-entry toc-h2"><a href="#제4회-AGCU-Cup">제4회 AGCU Cup </a></li>
+<li class="toc-entry toc-h2"><a href="#^9(u">^9(u </a></li>
+<li class="toc-entry toc-h2"><a href="#제4회-AGCU-Cup-Recovery">제4회 AGCU Cup Recovery </a></li>
+<li class="toc-entry toc-h2"><a href="#내일은-월요일">내일은 월요일 </a></li>
+<li class="toc-entry toc-h2"><a href="#창의적인-문제">창의적인 문제 </a></li>
+<li class="toc-entry toc-h2"><a href="#사랑의-흉터">사랑의 흉터 </a></li>
+<li class="toc-entry toc-h2"><a href="#수열과-게으른-쿼리">수열과 게으른 쿼리 </a></li>
+<li class="toc-entry toc-h2"><a href="#금메달은-사실-은메달이야!!">금메달은 사실 은메달이야!! </a></li>
+<li class="toc-entry toc-h2"><a href="#로봇-팔-조립">로봇 팔 조립 </a></li>
+<li class="toc-entry toc-h2"><a href="#Double-Up">Double Up </a></li>
+<li class="toc-entry toc-h2"><a href="#천막-세우기">천막 세우기 </a></li>
+<li class="toc-entry toc-h2"><a href="#사랑의-상처">사랑의 상처 </a></li>
+</ul><!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2026-08-08-제2회-AGCU-cup.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 총 12문제이고 다 푸는데 2시간 걸렸다. 문제가 쉬운 거에 비해 구현 속도가 느려서 아쉽다</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="제4회-AGCU-Cup">
+<a class="anchor" href="#%EC%A0%9C4%ED%9A%8C-AGCU-Cup" aria-hidden="true"><span class="octicon octicon-link"></span></a>제4회 AGCU Cup<a class="anchor-link" href="#%EC%A0%9C4%ED%9A%8C-AGCU-Cup"> </a>
+</h2>
+<ul>
+<li>문제 출처: <a href="https://jungol.co.kr/problem/21041">정올 21041번</a>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> $s$에 각 문자가 있는지 판단하고 존재하면 그에 맞는 점수를 획득하면 된다</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<details class="description">
+      <summary class="btn btn-sm" data-open="Hide Code" data-close="Show Code"></summary>
+        <p></p>
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">solution</span><span class="p">():</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">rstrip</span><span class="p">()</span>
+    <span class="n">score</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">if</span> <span class="s2">"A"</span> <span class="ow">in</span> <span class="n">s</span><span class="p">:</span>
+        <span class="n">score</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">if</span> <span class="s2">"G"</span> <span class="ow">in</span> <span class="n">s</span><span class="p">:</span>
+        <span class="n">score</span> <span class="o">+=</span> <span class="mi">2</span>
+    <span class="k">if</span> <span class="s2">"C"</span> <span class="ow">in</span> <span class="n">s</span><span class="p">:</span>
+        <span class="n">score</span> <span class="o">+=</span> <span class="mi">4</span>
+    <span class="k">if</span> <span class="s2">"U"</span> <span class="ow">in</span> <span class="n">s</span><span class="p">:</span>
+        <span class="n">score</span> <span class="o">+=</span> <span class="mi">8</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">score</span><span class="p">)</span>
+
+
+<span class="n">solution</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+    </details>
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="^9(u">
+<a class="anchor" href="#%5E9(u" aria-hidden="true"><span class="octicon octicon-link"></span></a>^9(u<a class="anchor-link" href="#%5E9(u"> </a>
+</h2>
+<ul>
+<li>문제 출처: <a href="https://jungol.co.kr/problem/21042">정올 21042번</a>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 기존 문자열에서 <code>^9(u</code>의 개수를 세자. 그리고 ^, 9, (, u를 더미 문자로 바꾼 뒤 v, 6, ), n을 각각 ^, 9, (, u로 대체하고 문자열을 뒤집자. 이 문자열에서 <code>^9(u</code>의 개수를 센 뒤 기존 것과 비교하면 된다</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<details class="description">
+      <summary class="btn btn-sm" data-open="Hide Code" data-close="Show Code"></summary>
+        <p></p>
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">solution</span><span class="p">():</span>
+    <span class="n">N</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">rstrip</span><span class="p">()</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="s2">"^9(u"</span>
+    <span class="n">original</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">t</span><span class="p">))</span> <span class="o">-</span> <span class="mi">1</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">"^"</span><span class="p">,</span> <span class="s2">"@"</span><span class="p">)</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">"v"</span><span class="p">,</span> <span class="s2">"^"</span><span class="p">)</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">"9"</span><span class="p">,</span> <span class="s2">"@"</span><span class="p">)</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">"6"</span><span class="p">,</span> <span class="s2">"9"</span><span class="p">)</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">"("</span><span class="p">,</span> <span class="s2">"@"</span><span class="p">)</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">")"</span><span class="p">,</span> <span class="s2">"("</span><span class="p">)</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">"u"</span><span class="p">,</span> <span class="s2">"@"</span><span class="p">)</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">"n"</span><span class="p">,</span> <span class="s2">"u"</span><span class="p">)</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="n">s</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">reverse</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">t</span><span class="p">))</span> <span class="o">-</span> <span class="mi">1</span>
+    <span class="k">if</span> <span class="n">original</span> <span class="o">==</span> <span class="n">reverse</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"SAME"</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">original</span> <span class="o">&lt;</span> <span class="n">reverse</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"YES"</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"NO"</span><span class="p">)</span>
+
+
+<span class="n">solution</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+    </details>
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 에디토리얼 보니까 더 좋은 방법이 있다. 문자열을 명시적으로 뒤집는 대신 <code>n)6v</code>의 개수를 세는 것이다. 이는 뒤집은 문자열에 존재하는 <code>^9(u</code>의 개수와 동일하다</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="제4회-AGCU-Cup-Recovery">
+<a class="anchor" href="#%EC%A0%9C4%ED%9A%8C-AGCU-Cup-Recovery" aria-hidden="true"><span class="octicon octicon-link"></span></a>제4회 AGCU Cup Recovery<a class="anchor-link" href="#%EC%A0%9C4%ED%9A%8C-AGCU-Cup-Recovery"> </a>
+</h2>
+<ul>
+<li>문제 출처: <a href="https://jungol.co.kr/problem/21043">정올 21043번</a>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 하드 코딩해서 풀었다. 문자열의 길이가 $4$여야 함에 주의하자</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<details class="description">
+      <summary class="btn btn-sm" data-open="Hide Code" data-close="Show Code"></summary>
+        <p></p>
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">solution</span><span class="p">():</span>
+    <span class="n">N</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+    <span class="n">strings</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"AAAA"</span><span class="p">,</span> <span class="s2">"GGGG"</span><span class="p">,</span> <span class="s2">"AAAG"</span><span class="p">,</span> <span class="s2">"CCCC"</span><span class="p">,</span> <span class="s2">"AAAC"</span><span class="p">,</span> <span class="s2">"GGGC"</span><span class="p">,</span> <span class="s2">"AAGC"</span><span class="p">,</span> <span class="s2">"UUUU"</span><span class="p">,</span> <span class="s2">"AAAU"</span><span class="p">,</span> <span class="s2">"GGGU"</span><span class="p">,</span> <span class="s2">"AAGU"</span><span class="p">,</span> <span class="s2">"CCCU"</span><span class="p">,</span> <span class="s2">"AACU"</span><span class="p">,</span> <span class="s2">"GGCU"</span><span class="p">,</span> <span class="s2">"AGCU"</span><span class="p">]</span> 
+    <span class="nb">print</span><span class="p">(</span><span class="n">strings</span><span class="p">[</span><span class="n">N</span> <span class="o">-</span> <span class="mi">1</span><span class="p">])</span>
+
+
+<span class="n">solution</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+    </details>
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="내일은-월요일">
+<a class="anchor" href="#%EB%82%B4%EC%9D%BC%EC%9D%80-%EC%9B%94%EC%9A%94%EC%9D%BC" aria-hidden="true"><span class="octicon octicon-link"></span></a>내일은 월요일<a class="anchor-link" href="#%EB%82%B4%EC%9D%BC%EC%9D%80-%EC%9B%94%EC%9A%94%EC%9D%BC"> </a>
+</h2>
+<ul>
+<li>문제 출처: <a href="https://jungol.co.kr/problem/21044">정올 21044번</a>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> $d$를 $7$로 나눈 나머지의 개수를 저장하자. 이 중 최댓값을 가지는 나머지를 출력하면 된다. 단, 답이 $0$인 경우 $7$을 출력해야 한다</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<details class="description">
+      <summary class="btn btn-sm" data-open="Hide Code" data-close="Show Code"></summary>
+        <p></p>
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">solution</span><span class="p">():</span>
+    <span class="n">N</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+    <span class="n">remainders</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="mi">7</span>
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+        <span class="n">d</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+        <span class="n">remainders</span><span class="p">[</span><span class="n">d</span> <span class="o">%</span> <span class="mi">7</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">7</span><span class="p">),</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">remainders</span><span class="p">[</span><span class="n">x</span><span class="p">])</span>
+    <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">i</span> <span class="o">=</span> <span class="mi">7</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+
+
+<span class="n">solution</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+    </details>
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="창의적인-문제">
+<a class="anchor" href="#%EC%B0%BD%EC%9D%98%EC%A0%81%EC%9D%B8-%EB%AC%B8%EC%A0%9C" aria-hidden="true"><span class="octicon octicon-link"></span></a>창의적인 문제<a class="anchor-link" href="#%EC%B0%BD%EC%9D%98%EC%A0%81%EC%9D%B8-%EB%AC%B8%EC%A0%9C"> </a>
+</h2>
+<ul>
+<li>문제 출처: <a href="https://jungol.co.kr/problem/21045">정올 21045번</a>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 전투에서 승리한 쪽은 다른 전투에도 참여할 수 있으므로 항상 모든 창을 전투에 참여시키는 게 이득이다</p>
+<p><code>-</code> 대창 마을 입장에서 최악의 경우는 대방어 마을의 모든 방패를 전투에 참여시키는 것이다. 따라서 모든 창의 공격력 합이 모든 방패의 방어력 합보다 크면 정답은 YES이고 아니면 NO이다</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<details class="description">
+      <summary class="btn btn-sm" data-open="Hide Code" data-close="Show Code"></summary>
+        <p></p>
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">solution</span><span class="p">():</span>
+    <span class="n">N</span><span class="p">,</span> <span class="n">M</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+    <span class="n">A</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">()))</span>
+    <span class="n">B</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">()))</span>
+    <span class="k">if</span> <span class="nb">sum</span><span class="p">(</span><span class="n">A</span><span class="p">)</span> <span class="o">&gt;</span> <span class="nb">sum</span><span class="p">(</span><span class="n">B</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"YES"</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"NO"</span><span class="p">)</span>
+
+
+<span class="n">solution</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+    </details>
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="사랑의-흉터">
+<a class="anchor" href="#%EC%82%AC%EB%9E%91%EC%9D%98-%ED%9D%89%ED%84%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>사랑의 흉터<a class="anchor-link" href="#%EC%82%AC%EB%9E%91%EC%9D%98-%ED%9D%89%ED%84%B0"> </a>
+</h2>
+<ul>
+<li>문제 출처: <a href="https://jungol.co.kr/problem/21046">정올 21046번</a>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> <a href="https://jungol.co.kr/problem/21052">사랑의 상처</a> 문제 해설로 갈음하겠다</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="수열과-게으른-쿼리">
+<a class="anchor" href="#%EC%88%98%EC%97%B4%EA%B3%BC-%EA%B2%8C%EC%9C%BC%EB%A5%B8-%EC%BF%BC%EB%A6%AC" aria-hidden="true"><span class="octicon octicon-link"></span></a>수열과 게으른 쿼리<a class="anchor-link" href="#%EC%88%98%EC%97%B4%EA%B3%BC-%EA%B2%8C%EC%9C%BC%EB%A5%B8-%EC%BF%BC%EB%A6%AC"> </a>
+</h2>
+<ul>
+<li>문제 출처: <a href="https://jungol.co.kr/problem/21047">정올 21047번</a>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> $2$번 쿼리가 들어올 때마다 수열의 합을 출력하면 된다. $1$번 쿼리에 의해 수열의 합은 $c\cdot (r - l + 1)$만큼 변화하며 이는 $O(1)$이다. 따라서 전체 알고리즘의 시간 복잡도는 $O(N+Q)$이다</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<details class="description">
+      <summary class="btn btn-sm" data-open="Hide Code" data-close="Show Code"></summary>
+        <p></p>
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">solution</span><span class="p">():</span>
+    <span class="n">N</span><span class="p">,</span> <span class="n">Q</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+    <span class="n">array</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">()))</span>
+    <span class="n">total</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">array</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">Q</span><span class="p">):</span>
+        <span class="n">query</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">query</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">total</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">_</span><span class="p">,</span> <span class="n">l</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="n">query</span><span class="p">)</span>
+            <span class="n">total</span> <span class="o">+=</span> <span class="p">(</span><span class="n">r</span> <span class="o">-</span> <span class="n">l</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">c</span>
+
+
+<span class="n">solution</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+    </details>
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="금메달은-사실-은메달이야!!">
+<a class="anchor" href="#%EA%B8%88%EB%A9%94%EB%8B%AC%EC%9D%80-%EC%82%AC%EC%8B%A4-%EC%9D%80%EB%A9%94%EB%8B%AC%EC%9D%B4%EC%95%BC!!" aria-hidden="true"><span class="octicon octicon-link"></span></a>금메달은 사실 은메달이야!!<a class="anchor-link" href="#%EA%B8%88%EB%A9%94%EB%8B%AC%EC%9D%80-%EC%82%AC%EC%8B%A4-%EC%9D%80%EB%A9%94%EB%8B%AC%EC%9D%B4%EC%95%BC!!"> </a>
+</h2>
+<ul>
+<li>문제 출처: <a href="https://jungol.co.kr/problem/21048">정올 21048번</a>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 연속된 동일한 문자는 하나로 압축하자. 모두 은메달로 바꾸기 위해 앞에서부터 마법을 시전해 나가야 한다. 압축된 문자열의 길이를 $m$이라 하자</p>
+<p><code>-</code> 홀짝성을 이용해 문제를 해결할 수 있으며 압축된 문자열의 첫 번째 문자가 <code>G</code>이고 $m$이 홀수라면 정답은 $m$이다. 짝수라면 $m-1$이다</p>
+<p><code>-</code> 만약 압축된 문자열의 첫 번째 문자가 <code>S</code>이고 $m$이 홀수라면 정답은 $m-1$이다. 짝수라면 $m$이다</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<details class="description">
+      <summary class="btn btn-sm" data-open="Hide Code" data-close="Show Code"></summary>
+        <p></p>
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">groupby</span>
+
+
+<span class="k">def</span> <span class="nf">solution</span><span class="p">():</span>
+    <span class="n">N</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">rstrip</span><span class="p">()</span>
+    <span class="n">groups</span> <span class="o">=</span> <span class="p">[</span><span class="n">key</span> <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">groupby</span><span class="p">(</span><span class="n">s</span><span class="p">)]</span>
+    <span class="n">m</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">groups</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">groups</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"G"</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">m</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">answer</span> <span class="o">=</span> <span class="n">m</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">answer</span> <span class="o">=</span> <span class="n">m</span> <span class="o">-</span> <span class="mi">1</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">m</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">answer</span> <span class="o">=</span> <span class="n">m</span> <span class="o">-</span> <span class="mi">1</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">answer</span> <span class="o">=</span> <span class="n">m</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">answer</span><span class="p">)</span>
+    
+
+<span class="n">solution</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+    </details>
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="로봇-팔-조립">
+<a class="anchor" href="#%EB%A1%9C%EB%B4%87-%ED%8C%94-%EC%A1%B0%EB%A6%BD" aria-hidden="true"><span class="octicon octicon-link"></span></a>로봇 팔 조립<a class="anchor-link" href="#%EB%A1%9C%EB%B4%87-%ED%8C%94-%EC%A1%B0%EB%A6%BD"> </a>
+</h2>
+<ul>
+<li>문제 출처: <a href="https://jungol.co.kr/problem/21049">정올 21049번</a>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> $(0,0)$과 $(X, Y)$ 사이의 거리를 $d$라 하자. $(L_1 + L_2)^2 &lt; d^2$이면 목표 좌표가 너무 멀리 떨어져서 닿을 수 없다. 반대로 $|L_1 - L_2| &gt; d^2$이라면 목표 좌표가 너무 가까워서 닿을 수없다</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<details class="description">
+      <summary class="btn btn-sm" data-open="Hide Code" data-close="Show Code"></summary>
+        <p></p>
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">solution</span><span class="p">():</span>
+    <span class="n">X</span><span class="p">,</span> <span class="n">Y</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+    <span class="n">L1</span><span class="p">,</span> <span class="n">L2</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+    <span class="n">ds</span> <span class="o">=</span> <span class="n">X</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">Y</span><span class="o">**</span><span class="mi">2</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">L1</span> <span class="o">+</span> <span class="n">L2</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">&lt;</span> <span class="n">ds</span> <span class="ow">or</span> <span class="n">ds</span> <span class="o">&lt;</span> <span class="p">(</span><span class="n">L1</span> <span class="o">-</span> <span class="n">L2</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"NO"</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"YES"</span><span class="p">)</span>
+
+
+<span class="n">solution</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+    </details>
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Double-Up">
+<a class="anchor" href="#Double-Up" aria-hidden="true"><span class="octicon octicon-link"></span></a>Double Up<a class="anchor-link" href="#Double-Up"> </a>
+</h2>
+<ul>
+<li>문제 출처: <a href="https://jungol.co.kr/problem/21050">정올 21050번</a>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 우선 $N$이 짝수라고 하자. $a=1, b=2$부터 시작하자. 탐지기를 작동했을 때 결괏값이 $1$이라면 둘 중 한 곳에 보물이 숨겨져 있다</p>
+<p><code>-</code> 구역 $a$와 이미 보물이 없는 구역으로 확정된 곳에서 탐지기를 작동시키자. 탐지기가 울리면 구역 $a$에 보물이 숨겨져 있는 것이며 그렇지 않다면 구역 $b$에 보물이 숨겨져 있는 것이다</p>
+<p><code>-</code> 만약 탐지기를 작동했을 때 결괏값이 $0$이라면 두 구역 $a,b$에 보물이 없는 것이다. $a,b$를 $a+2, b+2$로 갱신하여 탐색을 재개하자. 단, $a=N-1, b=N$이라면 보물이 $N-1, N$ 구역 중 한 곳에 있는 것이 확정이니 이를 확인하기 위해 탐지기를 작동할 필요는 없다. 바로 구역 $N-1$과 구역 $N$ 중 어디에 보물이 숨겨져 있는지 확인하자. 최악의 경우에도 $\left\lceil\frac{N}{2}\right\rceil$번만 탐지기를 작동시키면 보물을 찾을 수 있다</p>
+<p><code>-</code> 이제 $N$이 홀수라고 하자. 이 경우 탐지기를 최대 $\left\lceil\frac{N}{2}\right\rceil$번 작동시킬 수 있다. 예컨대 $N=7$이라면 탐지기를 최대 $4$번 작동시킬 수 있다</p>
+<p><code>-</code> 보물이 있는 구역을 찾는 방법은 $N$이 짝수일 때와 거의 동일하다. 단, $a=N, b= N+1$이 됐다면 보물은 $N$ 구역에 존재함에 유의하자</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<details class="description">
+      <summary class="btn btn-sm" data-open="Hide Code" data-close="Show Code"></summary>
+        <p></p>
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">solution</span><span class="p">():</span>
+    <span class="n">N</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+    <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span>
+    <span class="n">no_treasure</span> <span class="o">=</span> <span class="n">N</span>
+    <span class="k">while</span> <span class="n">a</span> <span class="o">&lt;</span> <span class="n">N</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"?"</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">flush</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+        <span class="k">if</span> <span class="n">result</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">break</span>
+        <span class="n">a</span> <span class="o">+=</span> <span class="mi">2</span>
+        <span class="n">b</span> <span class="o">+=</span> <span class="mi">2</span>
+        <span class="n">no_treasure</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">if</span> <span class="n">a</span> <span class="o">==</span> <span class="n">N</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"!"</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
+        <span class="k">return</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"?"</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">no_treasure</span><span class="p">,</span> <span class="n">flush</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+    <span class="k">if</span> <span class="n">result</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"!"</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"!"</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+
+
+<span class="n">solution</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+    </details>
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="천막-세우기">
+<a class="anchor" href="#%EC%B2%9C%EB%A7%89-%EC%84%B8%EC%9A%B0%EA%B8%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>천막 세우기<a class="anchor-link" href="#%EC%B2%9C%EB%A7%89-%EC%84%B8%EC%9A%B0%EA%B8%B0"> </a>
+</h2>
+<ul>
+<li>문제 출처: <a href="https://jungol.co.kr/problem/21051">정올 21051번</a>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 기본적으로 $a + b &gt; c$여야 삼각형이 만들어짐에 주목하자. 이를 정리하면 $c - b &lt; a$이며 이는 두 철근의 길이 차이가 $a$ 미만이라는 것이다</p>
+<p><code>-</code> $d = c - b$라고 하자. 그럼 $c = b + d$이다. 피타고라스 정리에 따라 $a^2 + b^2 = c^2$이므로 이를 이용하면 $a^2 + b^2 = (b + d)^2 = b^2 + 2bd + d^2$이므로 $b = \frac{a^2 - d^2}{2d}$이다</p>
+<p><code>-</code> 여기서 $a$와 $d\,(&gt;0)$는 상수이므로 $O(1)$에 $b$를 구할 수 있고 $c = b+ d$이다</p>
+<p><code>-</code> 가능한 $d$의 개수는 $a - 1$이므로 전체 알고리즘의 시간 복잡도는 $O(a)$이며 $a$는 최대 $10^9$이지만 연산이 가벼우므로 제한 시간 내에 통과할 수 있을 것 같다</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<details class="description">
+      <summary class="btn btn-sm" data-open="Hide Code" data-close="Show Code"></summary>
+        <p></p>
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">solution</span><span class="p">():</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+    <span class="n">a_s</span> <span class="o">=</span> <span class="n">a</span><span class="o">**</span><span class="mi">2</span>
+    <span class="n">diff</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">a</span><span class="p">):</span>
+        <span class="n">d_s</span> <span class="o">=</span> <span class="n">d</span><span class="o">**</span><span class="mi">2</span>
+        <span class="n">numerator</span> <span class="o">=</span> <span class="p">(</span><span class="n">a_s</span> <span class="o">-</span> <span class="n">d_s</span><span class="p">)</span>
+        <span class="n">denominator</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">d</span>
+        <span class="k">if</span> <span class="n">numerator</span> <span class="o">%</span> <span class="n">denominator</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">continue</span>
+        <span class="n">b</span> <span class="o">=</span> <span class="n">numerator</span> <span class="o">//</span> <span class="n">denominator</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">b</span> <span class="o">+</span> <span class="n">d</span><span class="p">)</span>
+        <span class="k">return</span>
+
+
+<span class="n">solution</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+    </details>
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="사랑의-상처">
+<a class="anchor" href="#%EC%82%AC%EB%9E%91%EC%9D%98-%EC%83%81%EC%B2%98" aria-hidden="true"><span class="octicon octicon-link"></span></a>사랑의 상처<a class="anchor-link" href="#%EC%82%AC%EB%9E%91%EC%9D%98-%EC%83%81%EC%B2%98"> </a>
+</h2>
+<ul>
+<li>문제 출처: <a href="https://jungol.co.kr/problem/21052">정올 21052번</a>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 색깔별로 장미 개수가 균등해야 상처의 개수가 최소가 된다. 꽃의 개수가 $s$일 때 상처의 개수는 $\frac{s(s - 1)}{2}$이다. 총 $N$가지 색깔의 꽃이 존재하니 전체 상처의 개수는 $N\cdot \frac{s(s - 1)}{2}$이다</p>
+<p><code>-</code> 이것이 $K$를 넘으면 안 되므로 $N\cdot \frac{s(s - 1)}{2} \le K$이고 정리하면 $s^2 - s \le \frac{2K}{N}$이다</p>
+<p><code>-</code> $(s - 1)^2 \le s^2 - s \le \frac{2K}{N}$이므로 $s\le \sqrt\frac{2K}{N} + 1$이고 이를 만족하는 $s$ 중 최댓값은 $\left\lfloor\frac{\left\lfloor\sqrt{2NK}\right\rfloor}{N}\right\rfloor + 1$이다 ($s$가 자연수이므로 소수점 이하는 필요 없음에 유의하자). 단, 이렇게 계산된 $s$는 $(s-1)^2$을 최대로 만들 때의 $s$이니 실제로는 이보다 더 작아져야 할 수 있다. 전체 상처 개수가 $K$를 넘지 않을 때까지 $s$를 $1$씩 감소시키자. 초깃값을 잘 정했으므로 최적의 $s$를 구하기 위해 필요한 반복 횟수는 그리 많지 않다</p>
+<p><code>-</code> 여기서 장미를 최대 $N-1$개 더 늘릴 수 있다. 장미가 하나 추가될 때마다 상처는 $\frac{s(s + 1)}{2} - \frac{s(s - 1)}{2} = s$개 늘어난다. 상처 개수의 여유분은 $K - N\cdot \frac{s(s - 1)}{2}$이며 이것이 $s$ 이상일 동안 장미를 추가할 수 있다</p>
+<p><code>-</code> 최종적으로 계산된 장미 개수를 출력하자. 단, $M$을 초과하는 경우 $M$을 출력하면 된다</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<details class="description">
+      <summary class="btn btn-sm" data-open="Hide Code" data-close="Show Code"></summary>
+        <p></p>
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
+
+
+<span class="k">def</span> <span class="nf">solve_testcase</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">k</span><span class="p">):</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">math</span><span class="o">.</span><span class="n">isqrt</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">n</span> <span class="o">*</span> <span class="n">k</span><span class="p">)</span> <span class="o">//</span> <span class="n">n</span>
+    <span class="k">while</span> <span class="n">n</span> <span class="o">*</span> <span class="n">s</span> <span class="o">*</span> <span class="p">(</span><span class="n">s</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">k</span><span class="p">:</span>
+        <span class="n">s</span> <span class="o">-=</span> <span class="mi">1</span>
+    <span class="n">n_flowers</span> <span class="o">=</span> <span class="n">n</span> <span class="o">*</span> <span class="n">s</span>
+    <span class="n">n_scratches</span> <span class="o">=</span> <span class="n">n</span> <span class="o">*</span> <span class="p">(</span><span class="n">s</span> <span class="o">*</span> <span class="p">(</span><span class="n">s</span> <span class="o">-</span> <span class="mi">1</span><span class="p">))</span> <span class="o">//</span> <span class="mi">2</span>
+    <span class="n">rest</span> <span class="o">=</span> <span class="n">k</span> <span class="o">-</span> <span class="n">n_scratches</span>
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">rest</span> <span class="o">&lt;</span> <span class="n">s</span><span class="p">:</span>
+            <span class="k">break</span>
+        <span class="n">n_flowers</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="n">rest</span> <span class="o">-=</span> <span class="n">s</span>
+    <span class="k">return</span> <span class="nb">min</span><span class="p">(</span><span class="n">n_flowers</span><span class="p">,</span> <span class="n">m</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">solution</span><span class="p">():</span>
+    <span class="n">Q</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">Q</span><span class="p">):</span>
+        <span class="n">N</span><span class="p">,</span> <span class="n">M</span><span class="p">,</span> <span class="n">K</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+        <span class="n">answer</span> <span class="o">=</span> <span class="n">solve_testcase</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">M</span><span class="p">,</span> <span class="n">K</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">answer</span><span class="p">)</span>
+
+
+<span class="n">solution</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+    </details>
+</div>
+    
+
+</div>
+
+
+
+  </div><!-- from https://github.com/utterance/utterances -->
+<script src="https://utteranc.es/client.js"
+        repo="Jaesu26/study-blog"
+        issue-term="title"
+        label="blogpost-comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script><a class="u-url" href="/study-blog/algorithm/2026/08/08/%EC%A0%9C2%ED%9A%8C-AGCU-cup.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer">
+  <div class="wrapper">
+    <div class="footer-col-wrapper" style="display: flex; justify-content: space-between; align-items: center;">
+      
+      <div class="footer-col">
+        <p style="margin-bottom: 0;">Jaesu&#39;s blog</p>
+      </div>
+
+      <div class="footer-col"><a href="https://github.com/Jaesu26" target="_blank" 
+           style="display: inline-flex; 
+                  align-items: center; 
+                  justify-content: center; 
+                  width: 36px; 
+                  height: 36px; 
+                  border: 1px solid #e8e8e8; 
+                  border-radius: 4px; 
+                  transition: all 0.3s ease;">
+          
+          <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" 
+               width="20" height="20" 
+               style="display: block;">
+        </a></div>
+
+    </div>
+  </div>
+</footer>
+
+</body>
+
+</html>
