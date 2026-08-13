@@ -100,7 +100,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      13 min read
+      17 min read
     
 </span></p>
 
@@ -148,6 +148,7 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h2"><a href="#G---Longest-Path">G - Longest Path </a></li>
 <li class="toc-entry toc-h2"><a href="#H---Grid-1">H - Grid 1 </a></li>
 <li class="toc-entry toc-h2"><a href="#I---Coins">I - Coins </a></li>
+<li class="toc-entry toc-h2"><a href="#J---Sushi">J - Sushi </a></li>
 <li class="toc-entry toc-h2"><a href="#K---Stones">K - Stones </a></li>
 <li class="toc-entry toc-h2"><a href="#L---Deque">L - Deque </a></li>
 <li class="toc-entry toc-h2"><a href="#N---Slimes">N - Slimes </a></li>
@@ -717,6 +718,95 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="J---Sushi">
+<a class="anchor" href="#J---Sushi" aria-hidden="true"><span class="octicon octicon-link"></span></a>J - Sushi<a class="anchor-link" href="#J---Sushi"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 앞 번호의 문제 중 가장 어려운 문제이다. 쉬운 버전의 문제를 먼저 풀어 인사이트를 얻고 풀이를 확장할 것이다</p>
+<p><code>-</code> 모든 접시에 초밥이 $1$개만 있다고 가정해보자. 그럼 $N$개의 초밥을 먹기 위해 주사위를 굴리는 횟수의 기댓값은 다음과 같다</p>
+<p><code>-</code> $\text{$N$개의 초밥을 먹기 위해 주사위를 굴리는 횟수의 기댓값} = \text{남은 $N$개의 초밥 중 초밥 $1$개를 먹기 위해 주사위를 굴리는 횟수의 기댓값} + \cdots + \text{남은 $1$개의 초밥 중 초밥 $1$개를 먹기 위해 주사위를 굴리는 횟수의 기댓값}$</p>
+<p><code>-</code> 즉, 초밥을 먹을 확률은 $N$개의 초밥 중 현재 $x$개가 남아있다고 할 때 $\frac{x}{N}$이다. 이를 먹는 데 성공할 때까지 시도할 것이니 주사위를 굴리는 횟수는 기하 분포를 따르게 돼어 기댓값은 확률의 역수가 된다</p>
+<p><code>-</code> 따라서 $N$개의 초밥을 먹기 위해 주사위를 굴리는 횟수의 기댓값은 $\frac{N}{N} + \frac{N}{N - 1} + \cdots  + \frac{N}{1}$이다. 이건 사실 백준 <a href="https://www.acmicpc.net/problem/1643">쿠폰</a> 문제와 동일하다</p>
+<p><code>-</code> 문제는 모든 접시에 $1$개의 초밥만 있는 게 아니라는 것이다. $2$개일 수도 있고 $3$개일 수도 있다. 일단 문제를 쉽게 만들고자 모든 접시에 초밥은 $1$개 또는 $2$개만 있다고 하자</p>
+<p><code>-</code> 처음에 주사위를 굴리면 $1$의 확률로 초밥을 먹는다. 이때 초밥이 $1$개 있는 접시일 수도 있고 $2$개 있는 접시일 수도 있다. 만약 운 좋게 $2$개 있는 접시를 골랐다면 다음번에도 $1$의 확률로 초밥을 먹을 수 있다. 그게 아니라면 $N-1$개의 초밥만 남아있으므로 $\frac{N - 1}{N}$의 확률로 초밥을 먹을 수 있다</p>
+<p><code>-</code> 즉, 주사위를 굴려 나온 번호의 접시에 초밥이 몇 개 있냐에 따라 다음에 초밥을 먹을 수 있는 확률이 달라진다</p>
+<p><code>-</code> 이를 추적하자. 초밥이 $1$개 있는 접시의 개수를 $x_1$이라 하고 $2$개 있는 접시의 개수를 $x_2$라 하고 $\operatorname{dp}[x_1][x_2]$를 모든 초밥을 먹기 위해 주사위를 굴리는 횟수의 기댓값이라 하자</p>
+<p><code>-</code> 초밥이 있는 접시를 고를 확률은 $\frac{x1 + x2}{N}$이다. 이때 초밥이 $1$개 있는 접시를 고를 확률은 $\frac{x_1}{x_1 + x_2}$이고 $2$개 있는 접시를 고를 확률은 $\frac{x_2}{x_1 + x_2}$이다</p>
+<p><code>-</code> 우선 초밥이 있는 접시를 고르고자 기댓값에 해당하는 $\frac{N}{x1 + x2}$번만큼 주사위를 굴려야 한다. 그리고 초밥이 몇 개 있는 접시냐에 이후 기댓값이 달라진다. 이때 초밥이 $2$개 있는 접시를 고르면 해당 접시엔 $1$개만 남게 되므로 초밥이 $1$개 있는 접시의 개수가 $1$ 증가함에 유의하자</p>
+<p><code>-</code> 따라서 $\operatorname{dp}[x_1][x_2] = \frac{N}{x_1 + x_2} + \frac{x_1}{x_1 + x_2} \cdot \operatorname{dp}[x_1 - 1][x_2] + \frac{x_2}{x_1 + x_2} \cdot \operatorname{dp}[x_1 + 1][x_2 - 1]$이 성립한다</p>
+<p><code>-</code> 이를 접시에 초밥이 최대 $3$개 있는 것까지 확장하면 점화식은 다음과 같다</p>
+<p><code>-</code> $\operatorname{dp}[x_1][x_2][x_3] = \frac{N}{x_1 + x_2 + x_3} + \frac{x_1}{x_1 + x_2 + x_3} \cdot \operatorname{dp}[x_1 - 1][x_2][x_3] + \frac{x_2}{x_1 + x_2 + x_3} \cdot \operatorname{dp}[x_1 + 1][x_2 - 1][x_3] + \frac{x_3}{x_1 + x_2 + x_3} \cdot \operatorname{dp}[x_1][x_2 + 1][x_3 - 1]$</p>
+<p><code>-</code> 초깃값으로 $\operatorname{dp}[0][0][0] = 0$이며 $x_1 &gt; 0, x_2 = 0, x_3 = 0$인 경우 <a href="https://www.acmicpc.net/problem/1643">쿠폰</a> 문제와 동일하게 처리하자</p>
+<p><code>-</code> 전체 알고리즘의 시간 복잡도와 공간 복잡도는 $O\left(N^3\right)$이며 $x_1 + x_2 + x_3 = N$이므로 $N^3$의 계수가 작아 제한 시간 안에 동작한다</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<details class="description">
+      <summary class="btn btn-sm" data-open="Hide Code" data-close="Show Code"></summary>
+        <p></p>
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">compute_hamonic_number</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="n">k</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span>
+
+
+<span class="k">def</span> <span class="nf">eat_sushi</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">x3</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">dp</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">dp</span><span class="p">[</span><span class="n">x1</span><span class="p">][</span><span class="n">x2</span><span class="p">][</span><span class="n">x3</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">dp</span><span class="p">[</span><span class="n">x1</span><span class="p">][</span><span class="n">x2</span><span class="p">][</span><span class="n">x3</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">x2</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">x3</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">dp</span><span class="p">[</span><span class="n">x1</span><span class="p">][</span><span class="n">x2</span><span class="p">][</span><span class="n">x3</span><span class="p">]</span> <span class="o">=</span> <span class="n">n</span> <span class="o">*</span> <span class="n">compute_hamonic_number</span><span class="p">(</span><span class="n">x1</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">dp</span><span class="p">[</span><span class="n">x1</span><span class="p">][</span><span class="n">x2</span><span class="p">][</span><span class="n">x3</span><span class="p">]</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="n">x1</span> <span class="o">+</span> <span class="n">x2</span> <span class="o">+</span> <span class="n">x3</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="n">n</span>
+    <span class="k">if</span> <span class="n">x1</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">t</span> <span class="o">+=</span> <span class="n">x1</span> <span class="o">*</span> <span class="n">eat_sushi</span><span class="p">(</span><span class="n">x1</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">x3</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">dp</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">x2</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">t</span> <span class="o">+=</span> <span class="n">x2</span> <span class="o">*</span> <span class="n">eat_sushi</span><span class="p">(</span><span class="n">x1</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">x2</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">x3</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">dp</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">x3</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">t</span> <span class="o">+=</span> <span class="n">x3</span> <span class="o">*</span> <span class="n">eat_sushi</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">x2</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">x3</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">dp</span><span class="p">)</span>
+    <span class="n">t</span> <span class="o">/=</span> <span class="n">s</span>
+    <span class="n">dp</span><span class="p">[</span><span class="n">x1</span><span class="p">][</span><span class="n">x2</span><span class="p">][</span><span class="n">x3</span><span class="p">]</span> <span class="o">=</span> <span class="n">t</span>
+    <span class="k">return</span> <span class="n">t</span>
+
+
+<span class="k">def</span> <span class="nf">solution</span><span class="p">():</span>
+    <span class="n">N</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+    <span class="n">array</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">()))</span>
+    <span class="n">dp</span> <span class="o">=</span> <span class="p">[[[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">N</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)]</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)]</span>
+    <span class="n">dp</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">xs</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="mi">3</span>
+    <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">array</span><span class="p">:</span>
+        <span class="n">xs</span><span class="p">[</span><span class="n">a</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="n">x1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">x3</span> <span class="o">=</span> <span class="n">xs</span>
+    <span class="n">answer</span> <span class="o">=</span> <span class="n">eat_sushi</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">x3</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">dp</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">answer</span><span class="p">)</span>
+
+
+<span class="n">solution</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+    </details>
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="K---Stones">
 <a class="anchor" href="#K---Stones" aria-hidden="true"><span class="octicon octicon-link"></span></a>K - Stones<a class="anchor-link" href="#K---Stones"> </a>
 </h2>
@@ -731,7 +821,7 @@ window.onload = wrap_img;
 <p><code>-</code> 현재 차례에 몇 개의 돌을 제거해도 남은 돌의 개수가 $\text{P}$-포지션에 해당한다면 현재 차례의 돌의 개수는 $\text{N}$-포지션이다. 반대로 현재 차례에서 $\text{N}$-포지션을 만들 수 있는 방법이 적어도 하나 존재하면 현재 차례의 돌의 개수는 $\text{P}$-포지션이다 ($\text{P}$-포지션은 승리, $\text{N}$-포지션은 패배). 따라서 점화식은 다음과 같다</p>
 <p><code>-</code> $\operatorname{dp}[i] = \begin{cases} 
 \\
-\, 0 &amp; \text{if } i &lt; a_1 \\[1.5em]
+\, 0 &amp; \text{if } i &lt; a_1 \\[1.3em]
 \, 0 &amp; \text{if } \displaystyle\prod_{1\le j \le N, \, i \ge a_j} \operatorname{dp}[i - a_j] = 1 \\[0.5em]
 \, 1 &amp; \text{if } \displaystyle\prod_{1\le j \le N, \, i \ge a_j} \operatorname{dp}[i - a_j] = 0
 \end{cases}$</p>
@@ -934,6 +1024,9 @@ window.onload = wrap_img;
     
     
 <div class="cell border-box-sizing code_cell rendered">
+<details class="description">
+      <summary class="btn btn-sm" data-open="Hide Code" data-close="Show Code"></summary>
+        <p></p>
 <div class="input">
 
 <div class="inner_cell">
@@ -967,6 +1060,7 @@ window.onload = wrap_img;
 </div>
 </div>
 
+    </details>
 </div>
     
 
