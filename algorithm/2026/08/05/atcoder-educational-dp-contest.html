@@ -100,7 +100,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      18 min read
+      19 min read
     
 </span></p>
 
@@ -151,6 +151,7 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h2"><a href="#J---Sushi">J - Sushi </a></li>
 <li class="toc-entry toc-h2"><a href="#K---Stones">K - Stones </a></li>
 <li class="toc-entry toc-h2"><a href="#L---Deque">L - Deque </a></li>
+<li class="toc-entry toc-h2"><a href="#M---Candies">M - Candies </a></li>
 <li class="toc-entry toc-h2"><a href="#N---Slimes">N - Slimes </a></li>
 <li class="toc-entry toc-h2"><a href="#O---Matching">O - Matching </a></li>
 <li class="toc-entry toc-h2"><a href="#P---Independent-Set">P - Independent Set </a></li>
@@ -923,6 +924,65 @@ window.onload = wrap_img;
             <span class="k">else</span><span class="p">:</span>
                 <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">dp</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">-</span> <span class="n">array</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">array</span><span class="p">[</span><span class="n">j</span><span class="p">])</span>
     <span class="n">answer</span> <span class="o">=</span> <span class="n">dp</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">N</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">answer</span><span class="p">)</span>
+
+
+<span class="n">solution</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+    </details>
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="M---Candies">
+<a class="anchor" href="#M---Candies" aria-hidden="true"><span class="octicon octicon-link"></span></a>M - Candies<a class="anchor-link" href="#M---Candies"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> $\operatorname{dp}[i][k]$를 $i$번째 아이까지 $k$개의 사탕을 나누어줄 수 있는 경우의 수로 정의하자</p>
+<p><code>-</code> $\operatorname{dp}[i][k] = \sum\limits_{x=0}^{\min(a_i, k)}\operatorname{dp}[i - 1][k - x]$이고 $a_i$는 최대 $K$이므로 총 $O\left(NK^2\right)$이다. 이때 $N$은 최대 $100$, $K$는 최대 $10^5$이므로 시간 초과이다</p>
+<p><code>-</code> 그런데 정의에 의해 $\operatorname{dp}[i][k] = \operatorname{dp}[i][k - 1] - \operatorname{dp}[i - 1][k - 1 - a_i]  + \operatorname{dp}[i - 1][k]$가 성립한다 (나열해보면 당연한데 알아차리기 은근 어려웠다)</p>
+<p><code>-</code> 따라서 $O(NK)$에 문제를 해결할 수 있다. 정답은 $\operatorname{dp}[N][K]$이며 초깃값으로 $\operatorname{dp}[0][0] = 1$이다</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<details class="description">
+      <summary class="btn btn-sm" data-open="Hide Code" data-close="Show Code"></summary>
+        <p></p>
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">solution</span><span class="p">():</span>
+    <span class="n">mod</span> <span class="o">=</span> <span class="mi">10</span><span class="o">**</span><span class="mi">9</span> <span class="o">+</span> <span class="mi">7</span>
+    <span class="n">N</span><span class="p">,</span> <span class="n">K</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+    <span class="n">array</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">()))</span>
+    <span class="n">dp_prev</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">K</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">dp_prev</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">array</span><span class="p">:</span>
+        <span class="n">dp_curr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">K</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">K</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+            <span class="n">dp_curr</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">dp_curr</span><span class="p">[</span><span class="n">k</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">dp_prev</span><span class="p">[</span><span class="n">k</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">k</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">&gt;=</span> <span class="n">a</span><span class="p">:</span>
+                <span class="n">dp_curr</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">-=</span> <span class="n">dp_prev</span><span class="p">[</span><span class="n">k</span> <span class="o">-</span> <span class="n">a</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
+            <span class="n">dp_curr</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">%=</span> <span class="n">mod</span>
+        <span class="n">dp_prev</span> <span class="o">=</span> <span class="n">dp_curr</span>
+    <span class="n">answer</span> <span class="o">=</span> <span class="n">dp_prev</span><span class="p">[</span><span class="n">K</span><span class="p">]</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">answer</span><span class="p">)</span>
 
 
