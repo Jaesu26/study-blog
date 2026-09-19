@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>제6회 SUMPC Open Contest | Jaesu’s blog</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="제6회 SUMPC Open Contest" />
+<meta name="author" content="한재수" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="숙명여대 프로그래밍 경진대회" />
+<meta property="og:description" content="숙명여대 프로그래밍 경진대회" />
+<link rel="canonical" href="https://jaesu26.github.io/study-blog/algorithm/2026/09/19/%EC%A0%9C6%ED%9A%8C-SMUPC-open-contest.html" />
+<meta property="og:url" content="https://jaesu26.github.io/study-blog/algorithm/2026/09/19/%EC%A0%9C6%ED%9A%8C-SMUPC-open-contest.html" />
+<meta property="og:site_name" content="Jaesu’s blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2026-09-19T00:00:00-05:00" />
+<script type="application/ld+json">
+{"url":"https://jaesu26.github.io/study-blog/algorithm/2026/09/19/%EC%A0%9C6%ED%9A%8C-SMUPC-open-contest.html","@type":"BlogPosting","headline":"제6회 SUMPC Open Contest","dateModified":"2026-09-19T00:00:00-05:00","datePublished":"2026-09-19T00:00:00-05:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://jaesu26.github.io/study-blog/algorithm/2026/09/19/%EC%A0%9C6%ED%9A%8C-SMUPC-open-contest.html"},"author":{"@type":"Person","name":"한재수"},"description":"숙명여대 프로그래밍 경진대회","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/study-blog/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://jaesu26.github.io/study-blog/feed.xml" title="Jaesu's blog" /><link rel="shortcut icon" type="image/x-icon" href="/study-blog/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.css" integrity="sha512-h7nl+xz8wgDlNM4NqKEM4F1NkIRS17M9+uJwIGwuo8vGqIl4BhuCKdxjWEINm+xyrUjNCnK5dCrhM0sj+wTIXw==" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.js" integrity="sha512-/CMIhXiDA3m2c9kzRyd97MTb3MC6OVnx4TElQ7fkkoRghwDf6gi41gaT1PwF270W6+J60uTmwgeRpNpJdRV6sg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/contrib/auto-render.min.js" integrity="sha512-Do7uJAaHZm5OLrIv/yN4w0iG1dbu01kzdMNnFfu/mAqgUk6Nniv2JYHcwH+cNwjqgLcqcuBBk+JRvprLVI8azg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha512-0doc9hKxR3PYwso42RD1p5ySZpzzuDiOwMrdCEh2WdJZCjcmFKc/wEnL+z8fBQrnHoiNWbo+3fiGkOYXBdQp4A==" crossorigin="anonymous"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement( document.body, {
+        delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "[%", right: "%]", display: true},
+            {left: "$", right: "$", display: false}
+        ]}
+        );
+    });
+    </script>
+
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper">
+    <a class="site-title" rel="author" href="/study-blog/">Jaesu&#39;s blog</a>
+      <nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon"></span>
+        </label>
+
+        <div class="nav-items">
+  <a class="nav-item" href="/study-blog/about/">About Me</a>
+  <a class="nav-item" href="/study-blog/search/">Search</a>
+  <a class="nav-item" href="/study-blog/categories/">Tags</a>
+</div>
+
+      </nav>
+  </div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">제6회 SUMPC Open Contest</h1><p class="page-description">숙명여대 프로그래밍 경진대회</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2026-09-19T00:00:00-05:00" itemprop="datePublished">
+        Sep 19, 2026
+      </time>• 
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">한재수</span></span>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      6 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/study-blog/categories/#Algorithm">Algorithm</a>
+        
+      
+      </p>
+    
+
+    
+      
+        <div class="pb-5 d-flex flex-wrap flex-justify-end">
+          <div class="px-2">
+
+    <a href="https://github.com/Jaesu26/study-blog/tree/master/_notebooks/2026-09-19-제6회-SMUPC-open-contest.ipynb" role="button" target="_blank">
+<img class="notebook-badge-image" src="/study-blog/assets/badges/github.svg" alt="View On GitHub">
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://mybinder.org/v2/gh/Jaesu26/study-blog/master?filepath=_notebooks%2F2026-09-19-%EC%A0%9C6%ED%9A%8C-SMUPC-open-contest.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/study-blog/assets/badges/binder.svg" alt="Open In Binder"/>
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://colab.research.google.com/github/Jaesu26/study-blog/blob/master/_notebooks/2026-09-19-제6회-SMUPC-open-contest.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/study-blog/assets/badges/colab.svg" alt="Open In Colab"/>
+    </a>
+</div>
+        </div>
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul class="section-nav">
+<li class="toc-entry toc-h2"><a href="#명찰-색-고르기">명찰 색 고르기 </a></li>
+<li class="toc-entry toc-h2"><a href="#독서실-자리-배정">독서실 자리 배정 </a></li>
+<li class="toc-entry toc-h2"><a href="#가위바위보-계단-오르기">가위바위보 계단 오르기 </a></li>
+<li class="toc-entry toc-h2"><a href="#입소문의-힘">입소문의 힘 </a></li>
+<li class="toc-entry toc-h2"><a href="#마감일-정하기">마감일 정하기 </a></li>
+<li class="toc-entry toc-h2"><a href="#최후의-백업-(WA)">최후의 백업 (WA) </a></li>
+<li class="toc-entry toc-h2"><a href="#이전-수">이전 수 </a></li>
+</ul><!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2026-09-19-제6회-SMUPC-open-contest.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 총 7문제였고 웰노운 셋이었다. <code>최후의 백업</code> 문제를 못풀어서 6솔로 끝난는데 틀린 이유를 모르겠다. 뭐가 틀렸을까?</p>
+<p><code>-</code> 맞힌 문제당 평균 11분 정도 걸렸는데 7분 정도로 단축이 필요하다. 구현 속도가 느린 건 어쩔 수 없으니 미리 템플릿이나 만들어두고 사고 과정을 분명히 하자</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="명찰-색-고르기">
+<a class="anchor" href="#%EB%AA%85%EC%B0%B0-%EC%83%89-%EA%B3%A0%EB%A5%B4%EA%B8%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>명찰 색 고르기<a class="anchor-link" href="#%EB%AA%85%EC%B0%B0-%EC%83%89-%EA%B3%A0%EB%A5%B4%EA%B8%B0"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 각 자릿수의 합을 $3$으로 나눈 나머지를 구하는 게 메인</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<details class="description">
+      <summary class="btn btn-sm" data-open="Hide Code" data-close="Show Code"></summary>
+        <p></p>
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">solution</span><span class="p">():</span>
+    <span class="n">N</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+    <span class="n">answers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">rstrip</span><span class="p">())</span>
+        <span class="n">s</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="n">x</span><span class="p">))</span>
+        <span class="n">answers</span><span class="p">[</span><span class="n">s</span> <span class="o">%</span> <span class="mi">3</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="nb">print</span><span class="p">(</span><span class="o">*</span><span class="n">answers</span><span class="p">)</span>
+
+
+<span class="n">solution</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+    </details>
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 예상 티어: 브론즈 $2$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="독서실-자리-배정">
+<a class="anchor" href="#%EB%8F%85%EC%84%9C%EC%8B%A4-%EC%9E%90%EB%A6%AC-%EB%B0%B0%EC%A0%95" aria-hidden="true"><span class="octicon octicon-link"></span></a>독서실 자리 배정<a class="anchor-link" href="#%EB%8F%85%EC%84%9C%EC%8B%A4-%EC%9E%90%EB%A6%AC-%EB%B0%B0%EC%A0%95"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 동시간에 겹치는 예악의 최대 개수만큼 자리가 필요하다</p>
+<p><code>-</code> $S$가 증가하는 순으로 예약을 순회하자. 그럼 시작 시각은 무조건 증가하여 포함 관계이니 마감 시각만 고려하면 된다</p>
+<p><code>-</code> 새로운 $i$번째 예약을 고려할 때 $S_i$보다 작은 마감 시각은 안 겹치니 필요 없다. 따라서 마감 시각들을 최소 힙으로 관리하면 $O(N\log N)$에 문제를 해결할 수 있다</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<details class="description">
+      <summary class="btn btn-sm" data-open="Hide Code" data-close="Show Code"></summary>
+        <p></p>
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">heapq</span>
+
+
+<span class="k">def</span> <span class="nf">solution</span><span class="p">():</span>
+    <span class="n">N</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+    <span class="n">array</span> <span class="o">=</span> <span class="p">[</span><span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">()))</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">)]</span>
+    <span class="n">pq</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">answer</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">s</span><span class="p">,</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">array</span><span class="p">:</span>
+        <span class="k">while</span> <span class="n">pq</span> <span class="ow">and</span> <span class="n">pq</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">s</span><span class="p">:</span>
+            <span class="n">heapq</span><span class="o">.</span><span class="n">heappop</span><span class="p">(</span><span class="n">pq</span><span class="p">)</span>
+        <span class="n">heapq</span><span class="o">.</span><span class="n">heappush</span><span class="p">(</span><span class="n">pq</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
+        <span class="n">answer</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">pq</span><span class="p">),</span> <span class="n">answer</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">answer</span><span class="p">)</span>
+
+
+<span class="n">solution</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+    </details>
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 예상 티어: 실버 $1$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="가위바위보-계단-오르기">
+<a class="anchor" href="#%EA%B0%80%EC%9C%84%EB%B0%94%EC%9C%84%EB%B3%B4-%EA%B3%84%EB%8B%A8-%EC%98%A4%EB%A5%B4%EA%B8%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>가위바위보 계단 오르기<a class="anchor-link" href="#%EA%B0%80%EC%9C%84%EB%B0%94%EC%9C%84%EB%B3%B4-%EA%B3%84%EB%8B%A8-%EC%98%A4%EB%A5%B4%EA%B8%B0"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 현재 몇 번째 계단에 있는지와 사용한 손의 상태에 따른 가짓수를 비트마스크 DP로 계산하자</p>
+<p><code>-</code> 전체 알고리즘의 시간 복잡도는 $O\left(3 \times 2^3 \times N\right)$이다</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<details class="description">
+      <summary class="btn btn-sm" data-open="Hide Code" data-close="Show Code"></summary>
+        <p></p>
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">solution</span><span class="p">():</span>
+    <span class="n">mod</span> <span class="o">=</span> <span class="mi">10</span><span class="o">**</span><span class="mi">9</span> <span class="o">+</span> <span class="mi">7</span>
+    <span class="n">N</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+    <span class="n">dp</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="mi">8</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span> <span class="o">+</span> <span class="mi">3</span><span class="p">)]</span>
+    <span class="n">dp</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">mask</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">8</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+                <span class="n">k</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="n">j</span> <span class="o">+</span> <span class="mi">1</span>
+                <span class="n">b</span> <span class="o">=</span> <span class="n">mask</span> <span class="o">|</span> <span class="p">(</span><span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="n">j</span><span class="p">)</span>
+                <span class="n">dp</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="n">b</span><span class="p">]</span> <span class="o">+=</span> <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">mask</span><span class="p">]</span>
+                <span class="n">dp</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="n">b</span><span class="p">]</span> <span class="o">%=</span> <span class="n">mod</span>
+    <span class="n">answer</span> <span class="o">=</span> <span class="n">dp</span><span class="p">[</span><span class="n">N</span><span class="p">][</span><span class="mi">7</span><span class="p">]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">answer</span><span class="p">)</span>
+
+
+<span class="n">solution</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+    </details>
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 사실 비트마스크를 쓸 필요는 없고 그냥 배열로 관리해도 된다. 단지 고려할 상태가 많아서 귀찮을 뿐</p>
+<p><code>-</code> 예상 티어: 골드 $5$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="입소문의-힘">
+<a class="anchor" href="#%EC%9E%85%EC%86%8C%EB%AC%B8%EC%9D%98-%ED%9E%98" aria-hidden="true"><span class="octicon octicon-link"></span></a>입소문의 힘<a class="anchor-link" href="#%EC%9E%85%EC%86%8C%EB%AC%B8%EC%9D%98-%ED%9E%98"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 매개변수 탐색 + 도달 가능성 DFS로 확인하기</p>
+<p><code>-</code> 총 $O((N + M) \log W)$</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<details class="description">
+      <summary class="btn btn-sm" data-open="Hide Code" data-close="Show Code"></summary>
+        <p></p>
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">binary_search</span><span class="p">(</span><span class="n">graph</span><span class="p">,</span> <span class="n">source</span><span class="p">,</span> <span class="n">sink</span><span class="p">):</span>
+    <span class="n">low</span><span class="p">,</span> <span class="n">high</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="o">**</span><span class="mi">9</span>
+    <span class="k">while</span> <span class="n">low</span> <span class="o">&lt;=</span> <span class="n">high</span><span class="p">:</span>
+        <span class="n">mid</span> <span class="o">=</span> <span class="p">(</span><span class="n">low</span> <span class="o">+</span> <span class="n">high</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span>
+        <span class="n">is_possible</span> <span class="o">=</span> <span class="n">dfs</span><span class="p">(</span><span class="n">graph</span><span class="p">,</span> <span class="n">source</span><span class="p">,</span> <span class="n">sink</span><span class="p">,</span> <span class="n">mid</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">is_possible</span><span class="p">:</span>
+            <span class="n">low</span> <span class="o">=</span> <span class="n">mid</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">high</span> <span class="o">=</span> <span class="n">mid</span> <span class="o">-</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">high</span>
+
+
+<span class="k">def</span> <span class="nf">dfs</span><span class="p">(</span><span class="n">graph</span><span class="p">,</span> <span class="n">source</span><span class="p">,</span> <span class="n">sink</span><span class="p">,</span> <span class="n">k</span><span class="p">):</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">graph</span><span class="p">)</span>
+    <span class="n">visited</span> <span class="o">=</span> <span class="p">[</span><span class="kc">False</span><span class="p">]</span> <span class="o">*</span> <span class="n">n</span>
+    <span class="n">stack</span> <span class="o">=</span> <span class="p">[</span><span class="n">source</span><span class="p">]</span>
+    <span class="k">while</span> <span class="n">stack</span><span class="p">:</span>
+        <span class="n">u</span> <span class="o">=</span> <span class="n">stack</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">v</span><span class="p">,</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">graph</span><span class="p">[</span><span class="n">u</span><span class="p">]:</span>
+            <span class="k">if</span> <span class="n">visited</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="ow">or</span> <span class="n">w</span> <span class="o">&lt;</span> <span class="n">k</span><span class="p">:</span>
+                <span class="k">continue</span>
+            <span class="n">visited</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+            <span class="k">if</span> <span class="n">v</span> <span class="o">==</span> <span class="n">sink</span><span class="p">:</span>
+                <span class="k">return</span> <span class="kc">True</span>
+            <span class="n">stack</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+    <span class="k">return</span> <span class="kc">False</span>
+
+
+<span class="k">def</span> <span class="nf">solution</span><span class="p">():</span>
+    <span class="n">N</span><span class="p">,</span> <span class="n">M</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+    <span class="n">graph</span> <span class="o">=</span> <span class="p">[[]</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)]</span>
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">M</span><span class="p">):</span>
+        <span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">W</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+        <span class="n">graph</span><span class="p">[</span><span class="n">A</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">B</span><span class="p">,</span> <span class="n">W</span><span class="p">))</span>
+        <span class="n">graph</span><span class="p">[</span><span class="n">B</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">A</span><span class="p">,</span> <span class="n">W</span><span class="p">))</span>
+    <span class="n">S</span><span class="p">,</span> <span class="n">E</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+    <span class="n">answer</span> <span class="o">=</span> <span class="n">binary_search</span><span class="p">(</span><span class="n">graph</span><span class="p">,</span> <span class="n">S</span><span class="p">,</span> <span class="n">E</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">answer</span><span class="p">)</span>
+
+
+<span class="n">solution</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+    </details>
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 예상 티어: 골드 $5$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="마감일-정하기">
+<a class="anchor" href="#%EB%A7%88%EA%B0%90%EC%9D%BC-%EC%A0%95%ED%95%98%EA%B8%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>마감일 정하기<a class="anchor-link" href="#%EB%A7%88%EA%B0%90%EC%9D%BC-%EC%A0%95%ED%95%98%EA%B8%B0"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 시작일은 $1$일로 동일하다. 마감일을 기준으로 큰 것부터 고려하자. 역순으로 고려하기에 이들은 마감되지 않으며 점수를 가장 많이 주는 과제를 해결해 나가면 된다</p>
+<p><code>-</code> $\max(D)$부터 $1$까지 순회하며 마감일이 이와 동일한 과제들의 점수를 우선순위 큐에 삽입하자. 그리고 최대 점수를 $O(\log N)$에 고르면 된다</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<details class="description">
+      <summary class="btn btn-sm" data-open="Hide Code" data-close="Show Code"></summary>
+        <p></p>
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">heapq</span>
+
+
+<span class="k">def</span> <span class="nf">solution</span><span class="p">():</span>
+    <span class="n">N</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+    <span class="n">array</span> <span class="o">=</span> <span class="p">[</span><span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">()))</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">)]</span>
+    <span class="n">array</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+    <span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">pq</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">deadline</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">array</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+        <span class="k">while</span> <span class="n">array</span> <span class="ow">and</span> <span class="n">array</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">deadline</span><span class="p">:</span>
+            <span class="n">_</span><span class="p">,</span> <span class="n">s</span> <span class="o">=</span> <span class="n">array</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+            <span class="n">heapq</span><span class="o">.</span><span class="n">heappush</span><span class="p">(</span><span class="n">pq</span><span class="p">,</span> <span class="o">-</span><span class="n">s</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">pq</span><span class="p">:</span>
+            <span class="n">mx</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span> <span class="o">*</span> <span class="n">heapq</span><span class="o">.</span><span class="n">heappop</span><span class="p">(</span><span class="n">pq</span><span class="p">)</span>
+            <span class="n">total</span> <span class="o">+=</span> <span class="n">mx</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">total</span><span class="p">)</span>
+
+
+<span class="n">solution</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+    </details>
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 순서만 반대로 했을 뿐인데 살짝 뇌정지가 왔다</p>
+<p><code>-</code> 예상 티어: 골드 $2$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="최후의-백업-(WA)">
+<a class="anchor" href="#%EC%B5%9C%ED%9B%84%EC%9D%98-%EB%B0%B1%EC%97%85-(WA)" aria-hidden="true"><span class="octicon octicon-link"></span></a>최후의 백업 (WA)<a class="anchor-link" href="#%EC%B5%9C%ED%9B%84%EC%9D%98-%EB%B0%B1%EC%97%85-(WA)"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 나이브하게 풀면 $O(NM\log M)$으로 시간 초과</p>
+<p><code>-</code> 효율적으로 다익 돌리면 $O(N + M\log M)$이다. 근데 왜 틀렸는지 모르겠다</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<details class="description">
+      <summary class="btn btn-sm" data-open="Hide Code" data-close="Show Code"></summary>
+        <p></p>
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">heapq</span>
+
+
+<span class="k">def</span> <span class="nf">dijkstra</span><span class="p">(</span><span class="n">graph</span><span class="p">,</span> <span class="n">source</span><span class="p">):</span>
+    <span class="n">inf</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="s2">"inf"</span><span class="p">)</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">graph</span><span class="p">)</span>
+    <span class="n">distances</span> <span class="o">=</span> <span class="p">[</span><span class="n">inf</span><span class="p">]</span> <span class="o">*</span> <span class="n">n</span>
+    <span class="n">distances</span><span class="p">[</span><span class="n">source</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">predecessors</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="n">n</span> 
+    <span class="n">pq</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">0</span><span class="p">,</span> <span class="n">source</span><span class="p">)]</span>
+    <span class="k">while</span> <span class="n">pq</span><span class="p">:</span>
+        <span class="n">d_u</span><span class="p">,</span> <span class="n">u</span> <span class="o">=</span> <span class="n">heapq</span><span class="o">.</span><span class="n">heappop</span><span class="p">(</span><span class="n">pq</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">distances</span><span class="p">[</span><span class="n">u</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">d_u</span><span class="p">:</span>
+            <span class="k">continue</span>
+        <span class="k">for</span> <span class="n">v</span><span class="p">,</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">graph</span><span class="p">[</span><span class="n">u</span><span class="p">]:</span>
+            <span class="k">if</span> <span class="n">distances</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">d_u</span> <span class="o">+</span> <span class="n">w</span><span class="p">:</span>
+                <span class="k">continue</span>
+            <span class="n">distances</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">=</span> <span class="n">d_u</span> <span class="o">+</span> <span class="n">w</span>
+            <span class="n">predecessors</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">=</span> <span class="n">u</span>
+            <span class="n">heapq</span><span class="o">.</span><span class="n">heappush</span><span class="p">(</span><span class="n">pq</span><span class="p">,</span> <span class="p">(</span><span class="n">distances</span><span class="p">[</span><span class="n">v</span><span class="p">],</span> <span class="n">v</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">distances</span><span class="p">,</span> <span class="n">predecessors</span>
+
+
+<span class="k">def</span> <span class="nf">track</span><span class="p">(</span><span class="n">predecessors</span><span class="p">,</span> <span class="n">source</span><span class="p">,</span> <span class="n">sink</span><span class="p">):</span>
+    <span class="n">route</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">node</span> <span class="o">=</span> <span class="n">sink</span>
+    <span class="k">while</span> <span class="n">predecessors</span><span class="p">[</span><span class="n">node</span><span class="p">]</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">route</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+        <span class="n">node</span> <span class="o">=</span> <span class="n">predecessors</span><span class="p">[</span><span class="n">node</span><span class="p">]</span>
+    <span class="n">route</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">source</span><span class="p">)</span>
+    <span class="n">route</span><span class="o">.</span><span class="n">reverse</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">route</span>
+
+
+<span class="k">def</span> <span class="nf">solution</span><span class="p">():</span>
+    <span class="n">N</span><span class="p">,</span> <span class="n">M</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+    <span class="n">graph</span> <span class="o">=</span> <span class="p">[[]</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)]</span>
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">M</span><span class="p">):</span>
+        <span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+        <span class="n">graph</span><span class="p">[</span><span class="n">A</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">))</span>
+        <span class="n">graph</span><span class="p">[</span><span class="n">B</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">A</span><span class="p">,</span> <span class="n">C</span><span class="p">))</span>
+    <span class="n">S1</span><span class="p">,</span> <span class="n">S2</span><span class="p">,</span> <span class="n">S3</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+    <span class="n">d1</span><span class="p">,</span> <span class="n">p1</span> <span class="o">=</span> <span class="n">dijkstra</span><span class="p">(</span><span class="n">graph</span><span class="p">,</span> <span class="n">S1</span><span class="p">)</span>
+    <span class="n">d2</span><span class="p">,</span> <span class="n">p2</span> <span class="o">=</span> <span class="n">dijkstra</span><span class="p">(</span><span class="n">graph</span><span class="p">,</span> <span class="n">S2</span><span class="p">)</span>
+    <span class="n">d3</span><span class="p">,</span> <span class="n">p3</span> <span class="o">=</span> <span class="n">dijkstra</span><span class="p">(</span><span class="n">graph</span><span class="p">,</span> <span class="n">S3</span><span class="p">)</span>
+    <span class="n">d_min</span><span class="p">,</span> <span class="n">sink</span> <span class="o">=</span> <span class="nb">min</span><span class="p">((</span><span class="n">d1</span><span class="p">[</span><span class="n">s</span><span class="p">]</span> <span class="o">+</span> <span class="n">d2</span><span class="p">[</span><span class="n">s</span><span class="p">]</span> <span class="o">+</span> <span class="n">d3</span><span class="p">[</span><span class="n">s</span><span class="p">],</span> <span class="n">s</span><span class="p">)</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">N</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span>
+    <span class="n">s1_track</span> <span class="o">=</span> <span class="n">track</span><span class="p">(</span><span class="n">p1</span><span class="p">,</span> <span class="n">S1</span><span class="p">,</span> <span class="n">sink</span><span class="p">)</span>
+    <span class="n">s2_track</span> <span class="o">=</span> <span class="n">track</span><span class="p">(</span><span class="n">p2</span><span class="p">,</span> <span class="n">S2</span><span class="p">,</span> <span class="n">sink</span><span class="p">)</span>
+    <span class="n">s3_track</span> <span class="o">=</span> <span class="n">track</span><span class="p">(</span><span class="n">p3</span><span class="p">,</span> <span class="n">S3</span><span class="p">,</span> <span class="n">sink</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">d_min</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">sink</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">s1_track</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="o">*</span><span class="n">s1_track</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">s2_track</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="o">*</span><span class="n">s2_track</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">s3_track</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="o">*</span><span class="n">s3_track</span><span class="p">)</span>
+
+
+<span class="n">solution</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+    </details>
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 예상 티어: 골드 $3$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="이전-수">
+<a class="anchor" href="#%EC%9D%B4%EC%A0%84-%EC%88%98" aria-hidden="true"><span class="octicon octicon-link"></span></a>이전 수<a class="anchor-link" href="#%EC%9D%B4%EC%A0%84-%EC%88%98"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 세그먼트 트리를 쓰면 $x$의 랭크와 $k$번째 원소를 $O(\log N)$에 알 수 있다</p>
+<p><code>-</code> 근데 키가 같으면 기존 인덱스가 작은 걸 출력해야 되서 키별로 인덱스를 스택으로 관리하자 (순차 탐색을 하므로 인덱스는 무조건 증가하니 스택을 쓸 수 있다)</p>
+<p><code>-</code> $h$보다 작은 사람이 $r$명 있을 때 $r \le M$이면 $M$번째 사람의 키를 구하자. $x$라면 $x$의 랭크 $rx$를 구한 뒤 키가 $x$인 사람 중 $M - rx$번째 사람의 인덱스를 단순 배열 인덱싱으로 구하면 된다. 그 후 트리를 갱신하자</p>
+<p><code>-</code> 총 $O(N \log N)$이다</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<details class="description">
+      <summary class="btn btn-sm" data-open="Hide Code" data-close="Show Code"></summary>
+        <p></p>
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">OrderStatisticTree</span><span class="p">:</span>
+    <span class="n">_root</span> <span class="o">=</span> <span class="mi">1</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">max_value_or_counts</span><span class="p">):</span>
+        <span class="n">is_int</span> <span class="o">=</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">max_value_or_counts</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span>
+        <span class="n">n</span> <span class="o">=</span> <span class="n">max_value_or_counts</span> <span class="o">+</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">is_int</span> <span class="k">else</span> <span class="nb">len</span><span class="p">(</span><span class="n">max_value_or_counts</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_size</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="n">n</span><span class="o">.</span><span class="n">bit_length</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_tree</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_size</span> <span class="o">&lt;&lt;</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">is_int</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_build</span><span class="p">(</span><span class="n">max_value_or_counts</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_build</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">array</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">a</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_size</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_tree</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_size</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_tree</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_tree</span><span class="p">[</span><span class="n">i</span> <span class="o">&lt;&lt;</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">_tree</span><span class="p">[</span><span class="n">i</span> <span class="o">&lt;&lt;</span> <span class="mi">1</span> <span class="o">|</span> <span class="mi">1</span><span class="p">]</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">size</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_tree</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_root</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="nf">count</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_tree</span><span class="p">[</span><span class="n">x</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">_size</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">delta</span><span class="p">):</span>
+        <span class="n">i</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">_size</span>
+        <span class="k">while</span> <span class="n">i</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_tree</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+=</span> <span class="n">delta</span>
+            <span class="n">i</span> <span class="o">&gt;&gt;=</span> <span class="mi">1</span>
+
+    <span class="k">def</span> <span class="nf">find_kth</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">k</span><span class="p">):</span>
+        <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">_size</span><span class="p">:</span>
+            <span class="n">i</span> <span class="o">&lt;&lt;=</span> <span class="mi">1</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_tree</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">k</span><span class="p">:</span>
+                <span class="n">k</span> <span class="o">-=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_tree</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+                <span class="n">i</span> <span class="o">|=</span> <span class="mi">1</span>
+        <span class="k">return</span> <span class="n">i</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">_size</span>
+
+    <span class="k">def</span> <span class="nf">bisect_right</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+        <span class="n">i</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">_size</span>
+        <span class="n">f_x</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">while</span> <span class="n">i</span><span class="p">:</span>
+            <span class="k">if</span> <span class="o">~</span><span class="n">i</span> <span class="o">&amp;</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="n">f_x</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_tree</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+                <span class="n">i</span> <span class="o">-=</span> <span class="mi">1</span>
+            <span class="n">i</span> <span class="o">&gt;&gt;=</span> <span class="mi">1</span>
+        <span class="k">return</span> <span class="n">f_x</span>
+
+
+<span class="k">def</span> <span class="nf">solution</span><span class="p">():</span>
+    <span class="n">N</span><span class="p">,</span> <span class="n">M</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+    <span class="n">array</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">()))</span>
+    <span class="n">tree</span> <span class="o">=</span> <span class="n">OrderStatisticTree</span><span class="p">(</span><span class="mi">10</span><span class="o">**</span><span class="mi">5</span><span class="p">)</span>
+    <span class="n">h2indices</span> <span class="o">=</span> <span class="p">[[]</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="o">**</span><span class="mi">5</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)]</span>
+    <span class="n">ranks</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">N</span>
+    <span class="n">mth_indices</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">N</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">h</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">array</span><span class="p">):</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="n">tree</span><span class="o">.</span><span class="n">bisect_right</span><span class="p">(</span><span class="n">h</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">ranks</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">r</span>
+        <span class="k">if</span> <span class="n">r</span> <span class="o">&gt;=</span> <span class="n">M</span><span class="p">:</span>
+            <span class="n">x</span> <span class="o">=</span> <span class="n">tree</span><span class="o">.</span><span class="n">find_kth</span><span class="p">(</span><span class="n">M</span><span class="p">)</span>
+            <span class="n">rx</span> <span class="o">=</span> <span class="n">tree</span><span class="o">.</span><span class="n">bisect_right</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+            <span class="n">j</span> <span class="o">=</span> <span class="n">h2indices</span><span class="p">[</span><span class="n">x</span><span class="p">][</span><span class="n">M</span> <span class="o">-</span> <span class="n">rx</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
+            <span class="n">mth_indices</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">j</span>
+        <span class="n">h2indices</span><span class="p">[</span><span class="n">h</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">tree</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="o">*</span><span class="n">ranks</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="o">*</span><span class="n">mth_indices</span><span class="p">)</span>
+
+
+<span class="n">solution</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+    </details>
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 세그먼트 트리 구현체: <a href="https://github.com/Jaesu26/python-cp-templates/blob/main/src/segment-tree.py">https://github.com/Jaesu26/python-cp-templates/blob/main/src/segment-tree.py</a></p>
+<p><code>-</code> 예상 티어: 플레티넘 $4$</p>
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+  </div><!-- from https://github.com/utterance/utterances -->
+<script src="https://utteranc.es/client.js"
+        repo="Jaesu26/study-blog"
+        issue-term="title"
+        label="blogpost-comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script><a class="u-url" href="/study-blog/algorithm/2026/09/19/%EC%A0%9C6%ED%9A%8C-SMUPC-open-contest.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer">
+  <div class="wrapper">
+    <div class="footer-col-wrapper" style="display: flex; justify-content: space-between; align-items: center;">
+      
+      <div class="footer-col">
+        <p style="margin-bottom: 0;">Jaesu&#39;s blog</p>
+      </div>
+
+      <div class="footer-col"><a href="https://github.com/Jaesu26" target="_blank" 
+           style="display: inline-flex; 
+                  align-items: center; 
+                  justify-content: center; 
+                  width: 36px; 
+                  height: 36px; 
+                  border: 1px solid #e8e8e8; 
+                  border-radius: 4px; 
+                  transition: all 0.3s ease;">
+          
+          <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" 
+               width="20" height="20" 
+               style="display: block;">
+        </a></div>
+
+    </div>
+  </div>
+</footer>
+
+</body>
+
+</html>
