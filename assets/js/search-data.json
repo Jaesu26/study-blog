@@ -709,12 +709,10 @@
   
 
   
-
-  
   
 
   
-      ,"page13": {
+      ,"page12": {
           "title": "",
           "content": "Sitemap: {{ “sitemap.xml” | absolute_url }} | .",
           "url": "https://jaesu26.github.io/study-blog/robots.txt",
