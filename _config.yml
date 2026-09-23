@@ -42,6 +42,7 @@ minima:
     - title: Jaesu26 on GitHub
       icon: github
       url: "https://github.com/Jaesu26"
+  hide_site_feed_link: true
 
 # Set this to true to get LaTeX math equation support
 use_math: true
