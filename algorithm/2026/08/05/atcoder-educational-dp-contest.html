@@ -9,15 +9,15 @@
 <meta property="og:title" content="Atcoder Educational DP Contest" />
 <meta name="author" content="한재수" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="여러 유형의 DP 문제를 풀어보자" />
-<meta property="og:description" content="여러 유형의 DP 문제를 풀어보자" />
+<meta name="description" content="교육적인 DP 문제를 풀어보자" />
+<meta property="og:description" content="교육적인 DP 문제를 풀어보자" />
 <link rel="canonical" href="https://jaesu26.github.io/study-blog/algorithm/2026/08/05/atcoder-educational-dp-contest.html" />
 <meta property="og:url" content="https://jaesu26.github.io/study-blog/algorithm/2026/08/05/atcoder-educational-dp-contest.html" />
 <meta property="og:site_name" content="Jaesu’s blog" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2026-08-05T00:00:00-05:00" />
 <script type="application/ld+json">
-{"url":"https://jaesu26.github.io/study-blog/algorithm/2026/08/05/atcoder-educational-dp-contest.html","@type":"BlogPosting","headline":"Atcoder Educational DP Contest","dateModified":"2026-08-05T00:00:00-05:00","datePublished":"2026-08-05T00:00:00-05:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://jaesu26.github.io/study-blog/algorithm/2026/08/05/atcoder-educational-dp-contest.html"},"author":{"@type":"Person","name":"한재수"},"description":"여러 유형의 DP 문제를 풀어보자","@context":"https://schema.org"}</script>
+{"url":"https://jaesu26.github.io/study-blog/algorithm/2026/08/05/atcoder-educational-dp-contest.html","@type":"BlogPosting","headline":"Atcoder Educational DP Contest","dateModified":"2026-08-05T00:00:00-05:00","datePublished":"2026-08-05T00:00:00-05:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://jaesu26.github.io/study-blog/algorithm/2026/08/05/atcoder-educational-dp-contest.html"},"author":{"@type":"Person","name":"한재수"},"description":"교육적인 DP 문제를 풀어보자","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/study-blog/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://jaesu26.github.io/study-blog/feed.xml" title="Jaesu's blog" /><link rel="shortcut icon" type="image/x-icon" href="/study-blog/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
@@ -92,7 +92,7 @@ window.onload = wrap_img;
         <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title p-name" itemprop="name headline">Atcoder Educational DP Contest</h1><p class="page-description">여러 유형의 DP 문제를 풀어보자</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2026-08-05T00:00:00-05:00" itemprop="datePublished">
+    <h1 class="post-title p-name" itemprop="name headline">Atcoder Educational DP Contest</h1><p class="page-description">교육적인 DP 문제를 풀어보자</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2026-08-05T00:00:00-05:00" itemprop="datePublished">
         Aug 5, 2026
       </time>• 
           <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -194,7 +194,7 @@ window.onload = wrap_img;
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> 현재 $A\sim S$번까지 풀었는데 풀이를 보면 밑도 끝도 없이 $\operatorname{dp}$를 정의하고 시작한다. 예시로 I번 Coins 문제를 보면 $\operatorname{dp}[i][k]$를 $1$번부터 $i$번 동전까지 던졌을 때 앞면이 $k$개 나올 확률로 정의하고 시작한다</p>
 <p><code>-</code> 갑자기 $\operatorname{dp}[i][k]$가 튀어나와서 어색해 보이는데 여기엔 생략된 내용이 있다 (DP 문제를 많이 풀었다보니 그냥 당연하게 여겨버림). $\operatorname{dp}[i][k]$와 같이 정의한 이유는 여태까지 사용한 동전의 개수와 앞면이 나온 개수만이 상태 공간을 정의하는 데 유의미하기 때문이다. 생각해보자. $N$개의 동전을 던져 앞면이 더 많이 나올 확률을 알아야 한다. $N$번째 동전을 던지기 전에는 $N-1$개의 동전을 던졌을 것이며 앞면이 몇 개 나왔는지 알아야 문제의 정답을 구할 수 있다. 즉, 던진 동전 개수와 앞면이 몇 개 나왔는지만이 상태 공간을 결정하는 데 필요하다</p>
-<p><code>-</code> 상태 공간의 전이가 어떻게 이루어지는지도 살펴보자. $i$개의 동전을 사용해서 앞면이 $k$개 나오는 상황을 생각해보자. $i$번째 동전을 던지기 전에는 $i-1$개의 동전을 던졌을 것이다. 이때 $i$번째 동전을 던져 앞면이 나왔다면 $i-1$개의 동전을 던졌을 땐 앞면이 $k-1$개 나와야 하고 뒷면이 나왔다면 앞면이 $k$개 나와야 한다. 이러한 특성은 $\operatorname{dp}[i][k] = \operatorname{dp}[i - 1][k - 1] \cdot p_i + \operatorname{dp}[i - 1][k] \cdot (1 - p_i)$와 같은 점화식을 매우 자연스럽게 도출한다</p>
+<p><code>-</code> 상태 공간의 전이가 어떻게 이루어지는지도 살펴보자. $i$개의 동전을 사용해서 앞면이 $k$개 나오는 상황을 생각해보자. $i$번째 동전을 던지기 전에는 $i-1$개의 동전을 던졌을 것이다. 이때 $i$번째 동전을 던져 앞면이 나왔다면 $i-1$개의 동전을 던졌을 땐 앞면이 $k-1$개 나와야 하고 뒷면이 나왔다면 앞면이 $k$개 나와야 한다. 이러한 특성은 $\operatorname{dp}[i][k] = p_i \cdot \operatorname{dp}[i - 1][k - 1] + (1 - p_i)\cdot \operatorname{dp}[i - 1][k]$와 같은 점화식을 매우 자연스럽게 도출한다</p>
 <p><code>-</code> 이때 각 상태 공간을 노드, 전이를 간선으로 생각할 수 있으며 이는 DAG를 이루니 탑다운 또는 바텀업으로 $O(|V| + |E|)$에 해결할 수 있는 것이다</p>
 
 </div>
@@ -357,7 +357,7 @@ window.onload = wrap_img;
         <span class="n">A</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
         <span class="n">B</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
         <span class="n">C</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
-    <span class="n">dp</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="mi">3</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">)]</span>  <span class="c1"># 0 = a, 1 = b, 2 = c</span>
+    <span class="n">dp</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="mi">3</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">)]</span>
     <span class="n">dp</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">A</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">B</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">C</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">N</span><span class="p">):</span>
         <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="nb">max</span><span class="p">(</span><span class="n">dp</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span> <span class="n">dp</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">][</span><span class="mi">2</span><span class="p">])</span>
@@ -527,7 +527,7 @@ window.onload = wrap_img;
                 <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">dp</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">][</span><span class="n">j</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">dp</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="p">],</span> <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span> <span class="o">-</span> <span class="mi">1</span><span class="p">])</span>
-    <span class="n">track</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">trace</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="n">i</span><span class="p">,</span> <span class="n">j</span> <span class="o">=</span> <span class="n">n</span><span class="p">,</span> <span class="n">m</span>
     <span class="k">while</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">j</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
         <span class="n">s_i</span> <span class="o">=</span> <span class="n">s</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
@@ -536,10 +536,10 @@ window.onload = wrap_img;
         <span class="k">elif</span> <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">==</span> <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]:</span>
             <span class="n">j</span> <span class="o">-=</span> <span class="mi">1</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="n">track</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">s_i</span><span class="p">)</span>
+            <span class="n">trace</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">s_i</span><span class="p">)</span>
             <span class="n">i</span> <span class="o">-=</span> <span class="mi">1</span>
             <span class="n">j</span> <span class="o">-=</span> <span class="mi">1</span>
-    <span class="n">answer</span> <span class="o">=</span> <span class="s2">""</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">track</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+    <span class="n">answer</span> <span class="o">=</span> <span class="s2">""</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">trace</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">answer</span><span class="p">)</span>
 
 
@@ -699,9 +699,9 @@ window.onload = wrap_img;
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> $\operatorname{dp}[i][k]$를 $1$번부터 $i$번 동전까지 던졌을 때 앞면이 $k$개 나올 확률이라고 하자</p>
-<p><code>-</code> 만약 $i$번 동전을 던져 앞면이 나온다면 $\operatorname{dp}[i][k] = \operatorname{dp}[i - 1][k - 1] \cdot p_i$이다 (단, $k &gt; 0$)</p>
-<p><code>-</code> 그렇지 않고 $i$번 동전을 던져 뒷면이 나온다면 $\operatorname{dp}[i][k] = \operatorname{dp}[i - 1][k] \cdot (1 - p_i)$이다</p>
-<p><code>-</code> 따라서 $\operatorname{dp}[i][k] = \operatorname{dp}[i - 1][k - 1] \cdot p_i + \operatorname{dp}[i - 1][k] \cdot (1 - p_i)$이다 ($k=0$이면 앞의 항은 무시)</p>
+<p><code>-</code> 만약 $i$번 동전을 던져 앞면이 나온다면 $\operatorname{dp}[i][k] = p_i \cdot \operatorname{dp}[i - 1][k - 1]$이다 (단, $k &gt; 0$)</p>
+<p><code>-</code> 그렇지 않고 $i$번 동전을 던져 뒷면이 나온다면 $\operatorname{dp}[i][k] = (1 - p_i)\cdot \operatorname{dp}[i - 1][k]  $이다</p>
+<p><code>-</code> 따라서 $\operatorname{dp}[i][k] = p_i \cdot \operatorname{dp}[i - 1][k - 1] + (1 - p_i)\cdot \operatorname{dp}[i - 1][k]$이다 ($k=0$이면 앞의 항은 무시)</p>
 <p><code>-</code> 최종적으로 앞면이 뒷면보다 많이 나올 확률을 구해주면 정답이다</p>
 <p><code>-</code> 전체 알고리즘의 시간 복잡도는 $O\left(N^2\right)$이며 $k$를 역순으로 탐색하면 공간 복잡도는 $O(N)$이다</p>
 
@@ -727,7 +727,7 @@ window.onload = wrap_img;
         <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">):</span>
             <span class="n">dp</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">*=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">p</span><span class="p">)</span>
             <span class="k">if</span> <span class="n">k</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-                <span class="n">dp</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">+=</span> <span class="n">dp</span><span class="p">[</span><span class="n">k</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">p</span>
+                <span class="n">dp</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">+=</span> <span class="n">p</span> <span class="o">*</span> <span class="n">dp</span><span class="p">[</span><span class="n">k</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
     <span class="n">answer</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">dp</span><span class="p">[(</span><span class="n">N</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span><span class="p">:])</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">answer</span><span class="p">)</span>
 
@@ -764,8 +764,8 @@ window.onload = wrap_img;
 <p><code>-</code> 처음에 주사위를 굴리면 $1$의 확률로 초밥을 먹는다. 이때 초밥이 $1$개 있는 접시일 수도 있고 $2$개 있는 접시일 수도 있다. 만약 운 좋게 $2$개 있는 접시를 골랐다면 다음번에도 $1$의 확률로 초밥을 먹을 수 있다. 그게 아니라면 $N-1$개의 초밥만 남아있으므로 $\frac{N - 1}{N}$의 확률로 초밥을 먹을 수 있다</p>
 <p><code>-</code> 즉, 주사위를 굴려 나온 번호의 접시에 초밥이 몇 개 있냐에 따라 다음에 초밥을 먹을 수 있는 확률이 달라진다</p>
 <p><code>-</code> 이를 추적하자. 초밥이 $1$개 있는 접시의 개수를 $x_1$이라 하고 $2$개 있는 접시의 개수를 $x_2$라 하고 $\operatorname{dp}[x_1][x_2]$를 모든 초밥을 먹기 위해 주사위를 굴리는 횟수의 기댓값이라 하자</p>
-<p><code>-</code> 초밥이 있는 접시를 고를 확률은 $\frac{x1 + x2}{N}$이다. 이때 초밥이 $1$개 있는 접시를 고를 확률은 $\frac{x_1}{x_1 + x_2}$이고 $2$개 있는 접시를 고를 확률은 $\frac{x_2}{x_1 + x_2}$이다</p>
-<p><code>-</code> 우선 초밥이 있는 접시를 고르고자 기댓값에 해당하는 $\frac{N}{x1 + x2}$번만큼 주사위를 굴려야 한다. 그리고 초밥이 몇 개 있는 접시냐에 이후 기댓값이 달라진다. 이때 초밥이 $2$개 있는 접시를 고르면 해당 접시엔 $1$개만 남게 되므로 초밥이 $1$개 있는 접시의 개수가 $1$ 증가함에 유의하자</p>
+<p><code>-</code> 초밥이 있는 접시를 고를 확률은 $\frac{x_1 + x_2}{N}$이다. 이때 초밥이 $1$개 있는 접시를 고를 확률은 $\frac{x_1}{x_1 + x_2}$이고 $2$개 있는 접시를 고를 확률은 $\frac{x_2}{x_1 + x_2}$이다</p>
+<p><code>-</code> 우선 초밥이 있는 접시를 고르고자 기댓값에 해당하는 $\frac{N}{x_1 + x_2}$번만큼 주사위를 굴려야 한다. 그리고 초밥이 몇 개 있는 접시냐에 이후 기댓값이 달라진다. 이때 초밥이 $2$개 있는 접시를 고르면 해당 접시엔 $1$개만 남게 되므로 초밥이 $1$개 있는 접시의 개수가 $1$ 증가함에 유의하자</p>
 <p><code>-</code> 따라서 $\operatorname{dp}[x_1][x_2] = \frac{N}{x_1 + x_2} + \frac{x_1}{x_1 + x_2} \cdot \operatorname{dp}[x_1 - 1][x_2] + \frac{x_2}{x_1 + x_2} \cdot \operatorname{dp}[x_1 + 1][x_2 - 1]$이 성립한다</p>
 <p><code>-</code> 이를 접시에 초밥이 최대 $3$개 있는 것까지 확장하면 점화식은 다음과 같다</p>
 <p><code>-</code> $\operatorname{dp}[x_1][x_2][x_3] = \frac{N}{x_1 + x_2 + x_3} + \frac{x_1}{x_1 + x_2 + x_3} \cdot \operatorname{dp}[x_1 - 1][x_2][x_3] + \frac{x_2}{x_1 + x_2 + x_3} \cdot \operatorname{dp}[x_1 + 1][x_2 - 1][x_3] + \frac{x_3}{x_1 + x_2 + x_3} \cdot \operatorname{dp}[x_1][x_2 + 1][x_3 - 1]$</p>
@@ -785,11 +785,7 @@ window.onload = wrap_img;
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">compute_hamonic_number</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-    <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="n">k</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span>
-
-
-<span class="k">def</span> <span class="nf">eat_sushi</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">x3</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">dp</span><span class="p">):</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">eat_sushi</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">x3</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">dp</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">dp</span><span class="p">[</span><span class="n">x1</span><span class="p">][</span><span class="n">x2</span><span class="p">][</span><span class="n">x3</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">dp</span><span class="p">[</span><span class="n">x1</span><span class="p">][</span><span class="n">x2</span><span class="p">][</span><span class="n">x3</span><span class="p">]</span>
     <span class="k">if</span> <span class="n">x2</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">x3</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
@@ -806,6 +802,10 @@ window.onload = wrap_img;
     <span class="n">t</span> <span class="o">/=</span> <span class="n">s</span>
     <span class="n">dp</span><span class="p">[</span><span class="n">x1</span><span class="p">][</span><span class="n">x2</span><span class="p">][</span><span class="n">x3</span><span class="p">]</span> <span class="o">=</span> <span class="n">t</span>
     <span class="k">return</span> <span class="n">t</span>
+
+
+<span class="k">def</span> <span class="nf">compute_hamonic_number</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="n">k</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span>
 
 
 <span class="k">def</span> <span class="nf">solution</span><span class="p">():</span>
@@ -877,10 +877,7 @@ window.onload = wrap_img;
             <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
-    <span class="k">if</span> <span class="n">dp</span><span class="p">[</span><span class="n">K</span><span class="p">]:</span>
-        <span class="n">answer</span> <span class="o">=</span> <span class="s2">"First"</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="n">answer</span> <span class="o">=</span> <span class="s2">"Second"</span>
+    <span class="n">answer</span> <span class="o">=</span> <span class="s2">"First"</span> <span class="k">if</span> <span class="n">dp</span><span class="p">[</span><span class="n">K</span><span class="p">]</span> <span class="k">else</span> <span class="s2">"Second"</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">answer</span><span class="p">)</span>
 
 
@@ -978,7 +975,7 @@ window.onload = wrap_img;
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> $\operatorname{dp}[i][k]$를 $i$번째 아이까지 $k$개의 사탕을 나누어줄 수 있는 경우의 수로 정의하자</p>
 <p><code>-</code> $\operatorname{dp}[i][k] = \sum\limits_{x=0}^{\min(a_i, k)}\operatorname{dp}[i - 1][k - x]$이고 $a_i$는 최대 $K$이므로 총 $O\left(NK^2\right)$이다. 이때 $N$은 최대 $100$, $K$는 최대 $10^5$이므로 시간 초과이다</p>
-<p><code>-</code> 그런데 정의에 의해 $\operatorname{dp}[i][k] = \operatorname{dp}[i][k - 1] - \operatorname{dp}[i - 1][k - 1 - a_i]  + \operatorname{dp}[i - 1][k]$가 성립한다 (나열해보면 당연한데 알아차리기 은근 어려웠다)</p>
+<p><code>-</code> 그런데 정의에 의해 $\operatorname{dp}[i][k] = \operatorname{dp}[i][k - 1] - \operatorname{dp}[i - 1][k - a_i - 1]  + \operatorname{dp}[i - 1][k]$가 성립한다 (나열해보면 당연한데 알아차리기 은근 어려웠다)</p>
 <p><code>-</code> 따라서 $O(NK)$에 문제를 해결할 수 있다. 정답은 $\operatorname{dp}[N][K]$이며 초깃값으로 $\operatorname{dp}[0][0] = 1$이다</p>
 
 </div>
