@@ -164,7 +164,7 @@ window.onload = wrap_img;
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> 대회 링크: <a href="https://atcoder.jp/contests/tdpc">https://atcoder.jp/contests/tdpc</a></p>
 <p><code>-</code> 현재 <a href="https://atcoder.jp/contests/dp">EDPC</a>에서 풀지 못한 문제가 5개(U, V, W, X, Y) 남았는데 오래 걸릴 것 같아서 여기로 이사왔다</p>
-<p><code>-</code> 총 20 문제가 있는데 시간 날 때마다 풀어보자 (일본어라 번역해야 돼). 이번엔 다 풀 수 있을까?</p>
+<p><code>-</code> 총 20 문제가 있는데 시간 날 때마다 풀어보자 (일본어라 번역해야 됨). 이번엔 다 풀 수 있을까?</p>
 
 </div>
 </div>
@@ -316,13 +316,15 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> 토너먼트는 트리 형태임에 주목하자. 임의의 노드 $u$에 대해 $\operatorname{dp}[u][i]$를 $i$번 사람이 노드 $u$의 서브트리 토너먼트에서 우승할 확률로 정의하자. 노드 $u$의 승자는 $u$의 왼쪽 자식 $l$의 승자와 오른쪽 자식 $r$의 승자 중 이긴 사람이 된다. 이에 따라 점화식은 다음과 같다</p>
-<p><code>-</code> $\operatorname{dp}[u][i] = \operatorname{dp}[l][i]\sum\limits_{j}\cdot \operatorname{dp}[r][j] \cdot f(i, j) + \operatorname{dp}[r][i]\sum\limits_{j}\cdot \operatorname{dp}[l][j] \cdot f(i, j), \quad f(i,j) = 1 / \left(1 + 10^{\frac{R_j - R_i}{400}}\right)$</p>
-<p><code>-</code> 이때 실질적으로 $i$는 $l, r$ 중 하나에만 속하므로 $\operatorname{dp}[l][i]$과 $\operatorname{dp}[r][i]$ 중 하나는 $0$임에 유의하자</p>
+<p><code>-</code> 사람별로 토너먼트 우승 확률을 구하는 문제이다</p>
+<p><code>-</code> 토너먼트는 트리 형태임에 주목하자. 임의의 노드 $u$에 대해 $\operatorname{dp}[u][i]$를 $i$번 사람이 노드 $u$의 서브트리 토너먼트에서 우승할 확률로 정의하자. 노드 $u$의 승자는 $u$의 왼쪽 자식 $l$의 승자와 오른쪽 자식 $r$의 승자 중 이긴 사람이 된다. 점화식은 다음과 같다</p>
+<p><code>-</code> $\operatorname{dp}[u][i] = \operatorname{dp}[l][i] \cdot \sum\limits_{j=1}^{2^K} \{\operatorname{dp}[r][j] \cdot f(i, j)\} + \operatorname{dp}[r][i]\cdot \sum\limits_{j=1}^{2^K}\{\operatorname{dp}[l][j] \cdot f(i, j)\}, \quad f(i,j) = 1 \mathbin{/} \left(1 + 10^{\frac{R_j - R_i}{400}}\right)$</p>
+<p><code>-</code> 노드 $u$에 $i$가 속하지 않는 경우 $\operatorname{dp}[u][i] = 0$임에 유의하자. base case로 리프 노드 $t$와 그 때의 사람 $i$에 대해 $\operatorname{dp}[u][i] = 1$이다</p>
 <p><code>-</code> 상태 공간의 크기는 $O\left(2^{2K}\right)$이고 전이가 $O\left(2^{K}\right)$이므로 총 $O\left(2^{3K}\right)$이다. $K$는 최대 $10$이므로 TLE이다. 실제로 필요한 경우만 저장하도록 수정하자</p>
 <p><code>-</code> $\operatorname{dp}[u]$를 해시맵으로 구현하고 실제 서브트리에 존재하는 사람만 저장하자. 트리의 깊이별로 사람의 수는 $O\left(2^K\right)$이다. 따라서 상태 공간의 크기는 $O\left(K 2^{K}\right)$이다</p>
 <p><code>-</code> 또한, 모든 가능한 매치 횟수는 $\sum\limits_{d=0}^{K - 1} 2^{d}\cdot  2^{2(K - d - 1)} = 2^{2(K-1)} \sum\limits_{d=0}^{K - 1} \frac{1}{2^{d}} = O\left(2^{2K}\right)$이다</p>
 <p><code>-</code> 따라서 전체 알고리즘의 시간 복잡도는 $O\left(2^{2K}\right)$이고 공간 복잡도는 $O\left(K2^{K}\right)$이다</p>
+<p><code>-</code> 완전 이진 트리에서 노드 $u$의 왼쪽 자식과 오른쪽 자식이 각각 $2u, 2u+1$임을 이용하면 바텀업으로 간단하게 구현할 수 있다</p>
 
 </div>
 </div>
@@ -348,8 +350,8 @@ window.onload = wrap_img;
     <span class="n">K</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
     <span class="n">N</span> <span class="o">=</span> <span class="mi">2</span><span class="o">**</span><span class="n">K</span>
     <span class="n">R</span> <span class="o">=</span> <span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">)]</span>
-    <span class="n">dp</span> <span class="o">=</span> <span class="p">[</span><span class="n">defaultdict</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">N</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)]</span>
-    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">u</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">N</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)):</span>
+    <span class="n">dp</span> <span class="o">=</span> <span class="p">[</span><span class="n">defaultdict</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">N</span><span class="p">)]</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">u</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">N</span><span class="p">)):</span>
         <span class="n">dp</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
     <span class="k">for</span> <span class="n">u</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">):</span>
         <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">p_i</span> <span class="ow">in</span> <span class="n">dp</span><span class="p">[</span><span class="mi">2</span> <span class="o">*</span> <span class="n">u</span><span class="p">]</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
@@ -361,13 +363,6 @@ window.onload = wrap_img;
 
 
 <span class="n">solution</span><span class="p">()</span>
-
-<span class="c1"># input</span>
-<span class="c1"># 2</span>
-<span class="c1"># 1000</span>
-<span class="c1"># 1000</span>
-<span class="c1"># 2000</span>
-<span class="c1"># 2000</span>
 </pre></div>
 
     </div>
@@ -375,28 +370,6 @@ window.onload = wrap_img;
 </div>
 
     </details>
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-
-</div>
-
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>0.0015761545916301058
-0.0015761545916301058
-0.4984238454083699
-0.4984238454083699
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
 </div>
     
 
