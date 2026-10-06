@@ -100,7 +100,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      7 min read
+      13 min read
     
 </span></p>
 
@@ -149,6 +149,9 @@ window.onload = wrap_img;
 </ul>
 </li>
 <li class="toc-entry toc-h2"><a href="#E---Number">E - Number </a></li>
+<li class="toc-entry toc-h2"><a href="#F---Semi-express">F - Semi-express </a></li>
+<li class="toc-entry toc-h2"><a href="#H---knapsack">H - knapsack </a></li>
+<li class="toc-entry toc-h2"><a href="#J---Ball">J - Ball </a></li>
 <li class="toc-entry toc-h2"><a href="#문제-푼-순서">문제 푼 순서 </a></li>
 </ul><!--
 #################################################
@@ -560,6 +563,194 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="F---Semi-express">
+<a class="anchor" href="#F---Semi-express" aria-hidden="true"><span class="octicon octicon-link"></span></a>F - Semi-express<a class="anchor-link" href="#F---Semi-express"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 총 $N$개의 역이 있다. $1,N$번 역에선 정차해야 하며 연속해서 $K$번 이상 정차할 수 없을 때 열차가 정차할 수 있는 역들의 부분 집합이 몇 개인지 세면 된다</p>
+<p><code>-</code> $\operatorname{dp}[i][s]$를 열차가 현재 $i$번 역에 있고 연속해서 $s$번 정차한 상태로 가능한 경우의 수라 하자. 현재 연속으로 $s$번 정차한 상태라면 이전엔 무조건 연속으로 $s-1$번 정차한 상태여야 한다. 또한 연속으로 최대 $K-1$번까지 정차할 수 있으므로 점화식은 다음과 같다</p>
+<p><code>-</code> $\operatorname{dp}[i][s] = \begin{cases} 
+\,  \sum\limits_{t=0}^{K-1}\operatorname{dp}[i - 1][t], &amp; \text{if $s = 0$}  \\ \\
+\,\operatorname{dp}[i - 1][s - 1], &amp;  \text{if $0 &lt; s &lt; K$}
+\end{cases}$</p>
+<p><code>-</code> base case로 $\operatorname{dp}[1][1] = 1$이고 정답은 $\sum\limits_{t=1}^{K-1}\operatorname{dp}[N][t]$이다. 근데 상태 공간의 크기가 $O(NK)$라 나이브하게 구현하면 TLE이다</p>
+<p><code>-</code> $s=0$을 제외하곤 $\operatorname{dp}[i][s] = \operatorname{dp}[i - 1][s - 1]$임에 주목하자. $\operatorname{dp}[i]$는 $\operatorname{dp}[i - 1]$에서 $\sum \operatorname{dp}[i - 1]$을 맨 앞에 추가하고 맨 뒤의 원소를 삭제한 것과 같다</p>
+<p><code>-</code> $\sum \operatorname{dp}[i] = 2\sum \operatorname{dp}[i - 1] - \operatorname{dp}[i - 1][K-1]$이므로 $O(1)$에 갱신할 수 있고 deque을 사용하면 appendleft와 pop도 $O(1)$에 가능하므로 전체 알고리즘의 시간 복잡도는 $O(N + K)$가 되며 공간 복잡도는 $O(K)$가 된다</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<details class="description">
+      <summary class="btn btn-sm" data-open="Hide Code" data-close="Show Code"></summary>
+        <p></p>
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">deque</span>
+
+
+<span class="k">def</span> <span class="nf">solution</span><span class="p">():</span>
+    <span class="n">mod</span> <span class="o">=</span> <span class="mi">10</span><span class="o">**</span><span class="mi">9</span> <span class="o">+</span> <span class="mi">7</span>
+    <span class="n">N</span><span class="p">,</span> <span class="n">K</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+    <span class="n">dp</span> <span class="o">=</span> <span class="n">deque</span><span class="p">([</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">K</span> <span class="o">-</span> <span class="mi">2</span><span class="p">))</span>
+    <span class="n">Σ</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="n">dp</span><span class="o">.</span><span class="n">appendleft</span><span class="p">(</span><span class="n">Σ</span><span class="p">)</span>
+        <span class="n">Σ</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">Σ</span> <span class="o">-</span> <span class="n">dp</span><span class="o">.</span><span class="n">pop</span><span class="p">())</span> <span class="o">%</span> <span class="n">mod</span>
+    <span class="n">answer</span> <span class="o">=</span> <span class="p">(</span><span class="n">Σ</span> <span class="o">-</span> <span class="n">dp</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">%</span> <span class="n">mod</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">answer</span><span class="p">)</span>
+
+
+<span class="n">solution</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+    </details>
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 더 어렵지만 deque를 사용해 최적화하는 문제로 <a href="https://jungol.co.kr/problem/3621">잔디밭 가꾸기</a>가 있다</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="H---knapsack">
+<a class="anchor" href="#H---knapsack" aria-hidden="true"><span class="octicon octicon-link"></span></a>H - knapsack<a class="anchor-link" href="#H---knapsack"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 풀이 정리 예정</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="J---Ball">
+<a class="anchor" href="#J---Ball" aria-hidden="true"><span class="octicon octicon-link"></span></a>J - Ball<a class="anchor-link" href="#J---Ball"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 각 위치 $0 \le x_i \le 15$에 대해 물건이 없거나 $1$개 있다. 위치 $x$에 공을 던지면 $x-1,x,x+1$ 중 한 곳에 $\frac{1}{3}$의 확률로 날아갈 때 모든 물건을 넘어뜨리기 위해 공을 던지는 횟수의 기댓값을 계산하자</p>
+<p><code>-</code> 물건끼리는 상태가 서로 독립이며 공이 날아가는 확률 또한 항상 같다. 따라서 가장 왼쪽의 물건이 위치 $x$에 있을 때 이를 넘어뜨리기 위해 $x-2,x-1$에 공을 던지는 건 손해이므로 왼쪽부터 그리디하게 처리하면 된다</p>
+<p><code>-</code> $f(s, p_1, p_2, p_3)$를 위치 $0 \sim s-1$에 있는 물건을 전부 넘어뜨렸고 $s, s+1, s+2$에 물건이 $p_1, p_2,p_3$개 존재할 때 모든 물건을 넘어뜨리기 위해 공을 던지는 횟수의 기댓값으로 정의하자. 각 상황마다 함숫값이 어떻게 변화하는지 살펴보자</p>
+<p><code>-</code> $s \ge 16$이면 모든 물건을 넘어뜨렸으므로 함숫값은 $0$이다</p>
+<p><code>-</code> $s &lt; 16, p_1 = 0$이면 조준점을 $1$칸 오른쪽으로 옮기자. $f(s, p_1, p_2, p_3) = f(s + 1, p_2, p_3, k)$이며 $k$는 위치 $s + 3$에 존재하는 물건의 개수이다</p>
+<p><code>-</code> $p_1 \ne 0, p_2 = 0, p_3=0$이면 위치 $s$에 존재하는 물건만 넘어뜨리면 된다. 넘어뜨릴 확률은 $\frac{1}{3}$이므로 기댓값은 $3$이다. 따라서 $f(s, p_1, p_2, p_3) = 3p_1 + f(s, 0, 0, 0)$이다</p>
+<p><code>-</code> $p_1 \ne 0, p_2 = 0, p_3 \ne 0$이면 물건을 넘어뜨릴 확률은 $\frac{2}{3}$이므로 기댓값은 $\frac{3}{2}$이다. 위치 $s+1$에 공을 던져서 물건을 넘어뜨렸다면 $s, s+2$ 중 한 곳이며 각각 $\frac{1}{2}$이므로 $f(s, p_1, p_2, p_3) = \frac{3}{2} + \frac{1}{2}\{f(s, p_1 - 1, 0, p_3) + f(s, p_1, 0, p_3 - 1)\}$이다. $p_1 \ne 0, p_2 \ne 0, p_3 = 0$인 경우도 이와 같은 방식으로 계산하면 된다</p>
+<p><code>-</code> 마지막으로 $p_1 \ne 0, p_2 \ne 0, p_3 \ne 0$이면 물건을 넘어뜨릴 확률은 $1$이므로 기댓값도 $1$이다. $s, s+1, s+2$ 중 한 곳에 $\frac{1}{3}$의 확률로 날아갈테니 $f(s, p_1, p_2, p_3) = 1 + \frac{1}{3}\{f(s, p_1 - 1, p_2, p_3) + f(s, p_1 , p_2 - 1, p_3) + f(s, p_1, p_2, p_3 - 1)\}$이다</p>
+<p><code>-</code> 모든 상황을 정리한 점화식은 다음과 같다</p>
+$$f(s, p_1, p_2, p_3) = \begin{cases} 
+\, 0 , &amp; \text{if $s \ge 16$}  \\ \\
+\,f(s + 1, p_2, p_3, k), &amp;  \text{if $s &lt; 16,p_1 = 0$}\\ \\
+\,3p_1 + f(s, 0, 0, 0), &amp;  \text{if $p_1 \ne 0, p_2 = 0, p_3=0$} \\ \\
+\,\frac{3}{2} + \frac{1}{2}\{f(s, p_1 - 1, 0, p_3) + f(s, p_1, 0, p_3 - 1)\}, &amp;  \text{if $p_1 \ne 0, p_2 = 0, p_3 \ne 0$} \\ \\
+\,\frac{3}{2} + \frac{1}{2}\{f(s, p_1 - 1, p_2, 0) + f(s, p_1, p_2 - 1, 0)\}, &amp;  \text{if $p_1 \ne 0, p_2 \ne 0, p_3 = 0$}\\ \\
+\,1 + \frac{1}{3}\{f(s, p_1 - 1, p_2, p_3) + f(s, p_1 , p_2 - 1, p_3) + f(s, p_1, p_2, p_3 - 1)\}, &amp;  \text{if $p_1 \ne 0, p_2 \ne 0, p_3 \ne 0$}
+\end{cases}$$<p><code>-</code> 가능한 상태 공간의 크기는 $O(16 \times 2 \times 2 \times 2)$이며 전이는 $O(1)$이므로 전체 알고리즘의 시간 복잡도는 $O\left(16 \times 2^3\right)$이다</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<details class="description">
+      <summary class="btn btn-sm" data-open="Hide Code" data-close="Show Code"></summary>
+        <p></p>
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">p1</span><span class="p">,</span> <span class="n">p2</span><span class="p">,</span> <span class="n">p3</span><span class="p">,</span> <span class="n">ks</span><span class="p">,</span> <span class="n">max_x</span><span class="p">,</span> <span class="n">dp</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">s</span> <span class="o">&gt;</span> <span class="n">max_x</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">0</span>
+    <span class="n">state</span> <span class="o">=</span> <span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">p1</span><span class="p">,</span> <span class="n">p2</span><span class="p">,</span> <span class="n">p3</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">state</span> <span class="ow">in</span> <span class="n">dp</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">dp</span><span class="p">[</span><span class="n">state</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">p1</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">k</span> <span class="o">=</span> <span class="n">ks</span><span class="p">[</span><span class="n">s</span> <span class="o">+</span> <span class="mi">3</span><span class="p">]</span> <span class="k">if</span> <span class="n">s</span> <span class="o">+</span> <span class="mi">3</span> <span class="o">&lt;=</span> <span class="n">max_x</span> <span class="k">else</span> <span class="mi">0</span>
+        <span class="n">dp</span><span class="p">[</span><span class="n">state</span><span class="p">]</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">s</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">p2</span><span class="p">,</span> <span class="n">p3</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">ks</span><span class="p">,</span> <span class="n">max_x</span><span class="p">,</span> <span class="n">dp</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">p2</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">p3</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">dp</span><span class="p">[</span><span class="n">state</span><span class="p">]</span> <span class="o">=</span> <span class="mi">3</span> <span class="o">*</span> <span class="n">p1</span> <span class="o">+</span> <span class="n">f</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">ks</span><span class="p">,</span> <span class="n">max_x</span><span class="p">,</span> <span class="n">dp</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">p2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">f1</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">p1</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">p3</span><span class="p">,</span> <span class="n">ks</span><span class="p">,</span> <span class="n">max_x</span><span class="p">,</span> <span class="n">dp</span><span class="p">)</span>
+        <span class="n">f2</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">p1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">p3</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">ks</span><span class="p">,</span> <span class="n">max_x</span><span class="p">,</span> <span class="n">dp</span><span class="p">)</span>
+        <span class="n">dp</span><span class="p">[</span><span class="n">state</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.5</span> <span class="o">+</span> <span class="p">(</span><span class="n">f1</span> <span class="o">+</span> <span class="n">f2</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
+    <span class="k">elif</span> <span class="n">p3</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">f1</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">p1</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">p2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">ks</span><span class="p">,</span> <span class="n">max_x</span><span class="p">,</span> <span class="n">dp</span><span class="p">)</span>
+        <span class="n">f2</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">p1</span><span class="p">,</span> <span class="n">p2</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">ks</span><span class="p">,</span> <span class="n">max_x</span><span class="p">,</span> <span class="n">dp</span><span class="p">)</span>
+        <span class="n">dp</span><span class="p">[</span><span class="n">state</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.5</span> <span class="o">+</span> <span class="p">(</span><span class="n">f1</span> <span class="o">+</span> <span class="n">f2</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">f1</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">p1</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">p2</span><span class="p">,</span> <span class="n">p3</span><span class="p">,</span> <span class="n">ks</span><span class="p">,</span> <span class="n">max_x</span><span class="p">,</span> <span class="n">dp</span><span class="p">)</span>
+        <span class="n">f2</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">p1</span><span class="p">,</span> <span class="n">p2</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">p3</span><span class="p">,</span> <span class="n">ks</span><span class="p">,</span> <span class="n">max_x</span><span class="p">,</span> <span class="n">dp</span><span class="p">)</span>
+        <span class="n">f3</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">p1</span><span class="p">,</span> <span class="n">p2</span><span class="p">,</span> <span class="n">p3</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">ks</span><span class="p">,</span> <span class="n">max_x</span><span class="p">,</span> <span class="n">dp</span><span class="p">)</span>
+        <span class="n">dp</span><span class="p">[</span><span class="n">state</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="p">(</span><span class="n">f1</span> <span class="o">+</span> <span class="n">f2</span> <span class="o">+</span> <span class="n">f3</span><span class="p">)</span> <span class="o">/</span> <span class="mi">3</span>
+    <span class="k">return</span> <span class="n">dp</span><span class="p">[</span><span class="n">state</span><span class="p">]</span>
+
+
+<span class="k">def</span> <span class="nf">solution</span><span class="p">():</span>
+    <span class="n">N</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+    <span class="n">xs</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">()))</span>
+    <span class="n">ks</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="mi">16</span>
+    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">xs</span><span class="p">:</span>
+        <span class="n">ks</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="n">dp</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="n">answer</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">ks</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">ks</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">ks</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">ks</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="n">dp</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">answer</span><span class="p">)</span>
+
+
+<span class="n">solution</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+    </details>
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 내 코드의 실행 시간은 $10\text{ms}$로 파이썬 중 $1$등이다</p>
+<p><code>-</code> 에디토리얼은 비트마스크를 이용한 $O\left(L2^L\right)$ 풀이인데 나는 그리디하게 처리를 해서 알고리즘의 시간 복잡도를 $O(8L)$로 단축시켰다 ($L$은 가능한 좌표 개수로 여기선 $16$)</p>
+<p><code>-</code> 비슷한 유형의 문제: <a href="https://atcoder.jp/contests/dp/tasks/dp_j">Sushi</a></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="문제-푼-순서">
 <a class="anchor" href="#%EB%AC%B8%EC%A0%9C-%ED%91%BC-%EC%88%9C%EC%84%9C" aria-hidden="true"><span class="octicon octicon-link"></span></a>문제 푼 순서<a class="anchor-link" href="#%EB%AC%B8%EC%A0%9C-%ED%91%BC-%EC%88%9C%EC%84%9C"> </a>
 </h2>
@@ -602,6 +793,21 @@ window.onload = wrap_img;
 <td style="text-align:center">5</td>
 <td style="text-align:center">C</td>
 <td style="text-align:center">2026-10-05</td>
+</tr>
+<tr>
+<td style="text-align:center">6</td>
+<td style="text-align:center">F</td>
+<td style="text-align:center">2026-10-05</td>
+</tr>
+<tr>
+<td style="text-align:center">7</td>
+<td style="text-align:center">H</td>
+<td style="text-align:center">2026-10-05</td>
+</tr>
+<tr>
+<td style="text-align:center">8</td>
+<td style="text-align:center">J</td>
+<td style="text-align:center">2026-10-06</td>
 </tr>
 </tbody>
 </table>
