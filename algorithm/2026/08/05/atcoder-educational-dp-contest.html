@@ -100,7 +100,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      28 min read
+      30 min read
     
 </span></p>
 
@@ -160,6 +160,7 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h2"><a href="#R---Walk">R - Walk </a></li>
 <li class="toc-entry toc-h2"><a href="#S---Digit-Sum">S - Digit Sum </a></li>
 <li class="toc-entry toc-h2"><a href="#T---Permutation">T - Permutation </a></li>
+<li class="toc-entry toc-h2"><a href="#U---Grouping">U - Grouping </a></li>
 <li class="toc-entry toc-h2"><a href="#Z---Frog-3">Z - Frog 3 </a></li>
 <li class="toc-entry toc-h2"><a href="#문제-푼-순서">문제 푼 순서 </a></li>
 </ul><!--
@@ -195,7 +196,7 @@ window.onload = wrap_img;
 <p><code>-</code> 현재 $A\sim S$번까지 풀었는데 풀이를 보면 밑도 끝도 없이 $\operatorname{dp}$를 정의하고 시작한다. 예시로 I번 Coins 문제를 보면 $\operatorname{dp}[i][k]$를 $1$번부터 $i$번 동전까지 던졌을 때 앞면이 $k$개 나올 확률로 정의하고 시작한다</p>
 <p><code>-</code> 갑자기 $\operatorname{dp}[i][k]$가 튀어나와서 어색해 보이는데 여기엔 생략된 내용이 있다 (DP 문제를 많이 풀었다보니 그냥 당연하게 여겨버림). $\operatorname{dp}[i][k]$와 같이 정의한 이유는 여태까지 사용한 동전의 개수와 앞면이 나온 개수만이 상태 공간을 정의하는 데 유의미하기 때문이다. 생각해보자. $N$개의 동전을 던져 앞면이 더 많이 나올 확률을 알아야 한다. $N$번째 동전을 던지기 전에는 $N-1$개의 동전을 던졌을 것이며 앞면이 몇 개 나왔는지 알아야 문제의 정답을 구할 수 있다. 즉, 던진 동전 개수와 앞면이 몇 개 나왔는지만이 상태 공간을 결정하는 데 필요하다</p>
 <p><code>-</code> 상태 공간의 전이가 어떻게 이루어지는지도 살펴보자. $i$개의 동전을 사용해서 앞면이 $k$개 나오는 상황을 생각해보자. $i$번째 동전을 던지기 전에는 $i-1$개의 동전을 던졌을 것이다. 이때 $i$번째 동전을 던져 앞면이 나왔다면 $i-1$개의 동전을 던졌을 땐 앞면이 $k-1$개 나와야 하고 뒷면이 나왔다면 앞면이 $k$개 나와야 한다. 이러한 특성은 $\operatorname{dp}[i][k] = p_i \cdot \operatorname{dp}[i - 1][k - 1] + (1 - p_i)\cdot \operatorname{dp}[i - 1][k]$와 같은 점화식을 매우 자연스럽게 도출한다</p>
-<p><code>-</code> 이때 각 상태 공간을 노드, 전이를 간선으로 생각할 수 있으며 이는 DAG를 이루니 탑다운 또는 바텀업으로 $O(|V| + |E|)$에 해결할 수 있는 것이다</p>
+<p><code>-</code> 이때 각 상태 공간을 노드, 전이를 간선으로 생각할 수 있으며 이는 DAG를 이루니 그래프가 세팅되면 탑다운 또는 바텀업으로 $O(|V| + |E|)$에 해결할 수 있는 것이다</p>
 
 </div>
 </div>
@@ -757,8 +758,8 @@ window.onload = wrap_img;
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> 앞 번호의 문제 중 가장 어려운 문제이다. 쉬운 버전의 문제를 먼저 풀어 인사이트를 얻고 풀이를 확장할 것이다</p>
 <p><code>-</code> 모든 접시에 초밥이 $1$개만 있다고 가정해보자. 그럼 $N$개의 초밥을 먹기 위해 주사위를 굴리는 횟수의 기댓값은 다음과 같다</p>
-<p><code>-</code> $\text{$N$개의 초밥을 먹기 위해 주사위를 굴리는 횟수의 기댓값} = \text{남은 $N$개의 초밥 중 초밥 $1$개를 먹기 위해 주사위를 굴리는 횟수의 기댓값} + \cdots + \text{남은 $1$개의 초밥 중 초밥 $1$개를 먹기 위해 주사위를 굴리는 횟수의 기댓값}$</p>
-<p><code>-</code> 즉, 초밥을 먹을 확률은 $N$개의 초밥 중 현재 $x$개가 남아있다고 할 때 $\frac{x}{N}$이다. 이를 먹는 데 성공할 때까지 시도할 것이니 주사위를 굴리는 횟수는 기하 분포를 따르게 돼어 기댓값은 확률의 역수가 된다</p>
+<p><code>-</code> $\text{초밥 $N$개를 먹기 위해 주사위를 굴리는 횟수의 기댓값} = \text{남은 초밥 $N$개 중 초밥 $1$개를 먹기 위해 주사위를 굴리는 횟수의 기댓값} + \cdots + \text{남은 초밥 $1$개 중 초밥 $1$개를 먹기 위해 주사위를 굴리는 횟수의 기댓값}$</p>
+<p><code>-</code> 즉, 초밥을 먹을 확률은 $N$개의 초밥 중 현재 $x$개가 남아있다고 할 때 $\frac{x}{N}$이다. 이를 먹는 데 성공할 때까지 시도할 것이니 주사위를 굴리는 횟수는 기하 분포를 따르게 되어 기댓값은 확률의 역수가 된다</p>
 <p><code>-</code> 따라서 $N$개의 초밥을 먹기 위해 주사위를 굴리는 횟수의 기댓값은 $\frac{N}{N} + \frac{N}{N - 1} + \cdots  + \frac{N}{1}$이다. 이건 사실 백준 <a href="https://www.acmicpc.net/problem/1643">쿠폰</a> 문제와 동일하다</p>
 <p><code>-</code> 문제는 모든 접시에 $1$개의 초밥만 있는 게 아니라는 것이다. $2$개일 수도 있고 $3$개일 수도 있다. 일단 문제를 쉽게 만들고자 모든 접시에 초밥은 $1$개 또는 $2$개만 있다고 하자</p>
 <p><code>-</code> 처음에 주사위를 굴리면 $1$의 확률로 초밥을 먹는다. 이때 초밥이 $1$개 있는 접시일 수도 있고 $2$개 있는 접시일 수도 있다. 만약 운 좋게 $2$개 있는 접시를 골랐다면 다음번에도 $1$의 확률로 초밥을 먹을 수 있다. 그게 아니라면 $N-1$개의 초밥만 남아있으므로 $\frac{N - 1}{N}$의 확률로 초밥을 먹을 수 있다</p>
@@ -768,7 +769,9 @@ window.onload = wrap_img;
 <p><code>-</code> 우선 초밥이 있는 접시를 고르고자 기댓값에 해당하는 $\frac{N}{x_1 + x_2}$번만큼 주사위를 굴려야 한다. 그리고 초밥이 몇 개 있는 접시냐에 이후 기댓값이 달라진다. 이때 초밥이 $2$개 있는 접시를 고르면 해당 접시엔 $1$개만 남게 되므로 초밥이 $1$개 있는 접시의 개수가 $1$ 증가함에 유의하자</p>
 <p><code>-</code> 따라서 $\operatorname{dp}[x_1][x_2] = \frac{N}{x_1 + x_2} + \frac{x_1}{x_1 + x_2} \cdot \operatorname{dp}[x_1 - 1][x_2] + \frac{x_2}{x_1 + x_2} \cdot \operatorname{dp}[x_1 + 1][x_2 - 1]$이 성립한다</p>
 <p><code>-</code> 이를 접시에 초밥이 최대 $3$개 있는 것까지 확장하면 점화식은 다음과 같다</p>
-<p><code>-</code> $\operatorname{dp}[x_1][x_2][x_3] = \frac{N}{x_1 + x_2 + x_3} + \frac{x_1}{x_1 + x_2 + x_3} \cdot \operatorname{dp}[x_1 - 1][x_2][x_3] + \frac{x_2}{x_1 + x_2 + x_3} \cdot \operatorname{dp}[x_1 + 1][x_2 - 1][x_3] + \frac{x_3}{x_1 + x_2 + x_3} \cdot \operatorname{dp}[x_1][x_2 + 1][x_3 - 1]$</p>
+<p>
+$$\operatorname{dp}[x_1][x_2][x_3] = \frac{N}{x_1 + x_2 + x_3} + \frac{x_1}{x_1 + x_2 + x_3} \cdot \operatorname{dp}[x_1 - 1][x_2][x_3] + \frac{x_2}{x_1 + x_2 + x_3} \cdot \operatorname{dp}[x_1 + 1][x_2 - 1][x_3] + \frac{x_3}{x_1 + x_2 + x_3} \cdot \operatorname{dp}[x_1][x_2 + 1][x_3 - 1]$$
+</p>
 <p><code>-</code> 초깃값으로 $\operatorname{dp}[0][0][0] = 0$이며 $x_1 &gt; 0, x_2 = 0, x_3 = 0$인 경우 <a href="https://www.acmicpc.net/problem/1643">쿠폰</a> 문제와 동일하게 처리하자</p>
 <p><code>-</code> 전체 알고리즘의 시간 복잡도와 공간 복잡도는 $O\left(N^3\right)$이며 $x_1 + x_2 + x_3 = N$이므로 $N^3$의 계수가 작아 제한 시간 안에 동작한다</p>
 
@@ -907,15 +910,14 @@ window.onload = wrap_img;
 <p><code>-</code> 난생처음 보는 유형이다 (꽤 흥미로움). 각 플레이어의 목적이 서로 다름을 고려해줘야 한다</p>
 <p><code>-</code> $\operatorname{dp}[i][j]$를 $a_i \sim a_j$만 존재하는 상황에서 각 플레이어가 최적으로 플레이 했을 때 게임 종료시의 $X-Y$라고 하자. $j-i+1$은 구간의 길이 $l$로 만약 $N$과 $l$의 홀짝성이 같다면 Taro 차례이고 다르다면 Jiro 차례이다</p>
 <p><code>-</code> 누구 차례냐에 따라 목적이 다르기에 상태 전이가 달라진다. Taro는 $X-Y$를 최대화하고 Jiro는 $X-Y$를 최소화한다. 이를 고려한 점화식은 다음과 같다</p>
-<p><code>-</code> $\operatorname{dp}[i][j] = \begin{cases} 
+$$\operatorname{dp}[i][j] = \begin{cases} 
 \, \max(\operatorname{dp}[i + 1][j] + a_i , \operatorname{dp}[i][j - 1] + a_j) &amp; \text{if } N - l \text{ is even} \\ \\
 \, \min(\operatorname{dp}[i + 1][j] - a_i , \operatorname{dp}[i][j - 1] - a_j) &amp; \text{if } N - l \text{ is odd}
-\end{cases}$</p>
-<p><code>-</code> 단, $l = j - i + 1$이고 초깃값은 다음과 같다. $\operatorname{dp}[i][i] = \begin{cases} 
+\end{cases}$$<p><code>-</code> 단, $l = j - i + 1$이고 초깃값은 다음과 같다</p>
+$$\operatorname{dp}[i][i] = \begin{cases} 
 \, a_i &amp; \text{if } N \text{ is odd} \\
 \, -a_i &amp; \text{if } N \text{ is even}
-\end{cases}$</p>
-<p><code>-</code> 정답은 $\operatorname{dp}[1][N]$이며 전체 알고리즘의 시간 복잡도는 $O\left(N^2\right)$이다. 바텀업으로 구현할 때 구간의 길이가 작은 순으로 탐색해야 함을 잊지 말자</p>
+\end{cases}$$<p><code>-</code> 정답은 $\operatorname{dp}[1][N]$이며 전체 알고리즘의 시간 복잡도는 $O\left(N^2\right)$이다. 바텀업으로 구현할 때 구간의 길이가 작은 순으로 탐색해야 함을 잊지 말자</p>
 
 </div>
 </div>
@@ -1498,12 +1500,11 @@ window.onload = wrap_img;
 <p><code>-</code> 근데 $p_{i-1}$을 알고자 하는 이유는 사용 가능한 $p_i$의 개수를 확정하기 위함이다. 따라서 꼭 $p_{i-1}$을 알 필요 없이 $p_{i-1}$보다 크면서 사용하지 않은 수의 개수만 알아도 충분하다</p>
 <p><code>-</code> $\operatorname{dp}[i][k]$를 수열의 $i$번째 원소까지 결정됐고 $p_i$보다 큰 수가 $k$개 남아있는 부분 수열의 개수로 정의하자. $p_{i-1} &lt; p_{i}$이고 $p_{i-1}$보다 큰 수가 $s$개 남았다면 $p_i$로 선택 가능한 수는 $s$개이며 그중 작은 순으로 $x$번째 수를 선택했다면 $p_i$보다 큰 수는 $s - x$개 남게 된다</p>
 <p><code>-</code> 참고로 $i$번째 원소까지 고려했고 $p_{i-1}$보다 큰 수가 $s$개 남았다면 작은 수는 $N - i - s + 1$개 남아있다. 따라서 남아있는 큰 수의 개수만 추적해도 충분하며 이를 고려해 점화식을 정의하면 다음과 같다</p>
-<p><code>-</code> $\operatorname{dp}[i][k] = \begin{cases} 
+$$\operatorname{dp}[i][k] = \begin{cases} 
 \, \sum\limits_{s=k+1}^{N - i + 1}\operatorname{dp}[i - 1][s], &amp; \text{if } p_{i-1} &lt; p_i \\
 \, \sum\limits_{s=0}^{k}\operatorname{dp}[i - 1][s], &amp; \text{if } p_{i-1} &gt; p_i
 \end{cases}
-\qquad (0 \le k \le N - i)$</p>
-<p><code>-</code> 점화식이 은근 까다로워서 좀 더 자세히 알아보자. 기본적으로 $0 \le k \le N - i$를 만족해야 한다 (남은 수가 최대 $N-i$개)</p>
+\qquad (0 \le k \le N - i)$$<p><code>-</code> 점화식이 은근 까다로워서 좀 더 자세히 알아보자. 기본적으로 $0 \le k \le N - i$를 만족해야 한다 (남은 수가 최대 $N-i$개)</p>
 <p><code>-</code> $p_{i-1} &lt; p_i$인 경우 $p_{i}$보다 큰 수는 $p_{i-1}$보다 크다. 그리고 $p_{i-1}$보다 큰 수 중 하나를 $p_i$로 고를 것이므로 $s \ge k + 1$를 만족해야 한다. $i-1$번째 원소까지 확정된 시점에서 남은 수는 $N-i+1$개이므로 $s$는 최대 $N-i+1$이다. 따라서 $k + 1 \le s \le N-i+1$이다</p>
 <p><code>-</code> $p_{i-1} &gt; p_i$인 경우 $p_{i-1}$보다 큰 수는 $p_{i}$보다 크다. 따라서 $s &gt; k$라면 모순이다. 기본적으로 $s$는 $0$ 이상, $N-i+1$ 이하이므로 제약을 적용하면 $0 \le s \le k$이다</p>
 <p><code>-</code> base case로 $\forall k \in \{0,1,\dots, N-1\},\;\operatorname{dp}[1][k] = 1$이고 그 외는 $0$이다</p>
@@ -1544,6 +1545,87 @@ window.onload = wrap_img;
             <span class="n">dp_curr</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">count</span> <span class="o">%</span> <span class="n">mod</span>
         <span class="n">dp_prev</span> <span class="o">=</span> <span class="n">dp_curr</span>
     <span class="n">answer</span> <span class="o">=</span> <span class="n">dp_prev</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">answer</span><span class="p">)</span>
+
+
+<span class="n">solution</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+    </details>
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="U---Grouping">
+<a class="anchor" href="#U---Grouping" aria-hidden="true"><span class="octicon octicon-link"></span></a>U - Grouping<a class="anchor-link" href="#U---Grouping"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 알고리즘의 시간 복잡도와 핵심 아이디어를 스포당했다... 자력솔을 못해서 아쉽지만 기억엔 오래 남을 것 같다</p>
+<p><code>-</code> $\operatorname{dp}[S]$를 토끼 집합 $S$에 대해 이들을 적절히 그룹 지어 얻을 수 있는 최대 적합도 점수로 정의하자. 임의의 집합을 분할하지 않거나 또는 그의 부분집합과 나머지로 분할할 수 있으므로 점화식은 다음과 같다</p>
+<p>
+$$\operatorname{dp}[S] = \max \left(f(S), \;\:\, \max\limits_{T \subsetneq S} \{\operatorname{dp}[T] + \operatorname{dp}[S \setminus T]\}  \right)$$
+</p>
+<p><code>-</code> $f(S)$는 토끼 집합 $S$의 적합도 점수이다. $O\left(N^2 2^N\right)$에 전처리해두면 임의의 $S$에 대해 $f(S)$를 $O(1)$에 얻을 수 있다</p>
+<p><code>-</code> 점화식의 시간 복잡도를 계산해보자. 전이는 $S$의 모든 부분집합을 순회하며 이루어진다. $S$를 비트마스크로 나타내자. 임의의 비트마스크의 $1$ 비트 개수를 $K$로 나타내면 $0 \le K \le N$이며 부분집합의 개수는 $2^K$이다. 그러므로 모든 상태 전이 횟수(DAG 간선 개수)는 $\sum\limits_{K=0}^{N}\binom{N}{K} \cdot 2^K$이고 이는 이항 정리에 따라 $\sum\limits_{K=0}^{N}\binom{N}{K} \cdot 2^K \cdot 1^{N-K} = (1+2)^N = 3^N$이다</p>
+<p><code>-</code> DAG로 생각했을 때 노드 간 이동은 $O(1)$이므로 전체 알고리즘의 시간 복잡도는 $O\left(N^2 2^N\right) + O\left( 3^N\right) =  O\left( 3^N\right)$이다</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<details class="description">
+      <summary class="btn btn-sm" data-open="Hide Code" data-close="Show Code"></summary>
+        <p></p>
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">combinations</span>
+
+
+<span class="k">def</span> <span class="nf">compute_group_scores</span><span class="p">(</span><span class="n">a</span><span class="p">):</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+    <span class="n">max_bitmask</span> <span class="o">=</span> <span class="mi">2</span><span class="o">**</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span>
+    <span class="n">group_scores</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">max_bitmask</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">bitmask</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">max_bitmask</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="n">mask</span> <span class="o">=</span> <span class="n">bitmask</span>
+        <span class="n">group</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">while</span> <span class="n">mask</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">i</span> <span class="o">=</span> <span class="p">(</span><span class="n">mask</span> <span class="o">&amp;</span> <span class="o">-</span><span class="n">mask</span><span class="p">)</span><span class="o">.</span><span class="n">bit_length</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span>
+            <span class="n">group</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+            <span class="n">mask</span> <span class="o">&amp;=</span> <span class="p">(</span><span class="n">mask</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">group_scores</span><span class="p">[</span><span class="n">bitmask</span><span class="p">]</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">group</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">group_scores</span>
+
+
+<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">group</span><span class="p">,</span> <span class="n">a</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">combinations</span><span class="p">(</span><span class="n">group</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+
+
+<span class="k">def</span> <span class="nf">solution</span><span class="p">():</span>
+    <span class="n">N</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">()))</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">)]</span>
+    <span class="n">max_bitmask</span> <span class="o">=</span> <span class="mi">2</span><span class="o">**</span><span class="n">N</span> <span class="o">-</span> <span class="mi">1</span>
+    <span class="n">dp</span> <span class="o">=</span> <span class="n">compute_group_scores</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">bitmask</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">max_bitmask</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="n">submask</span> <span class="o">=</span> <span class="n">bitmask</span>
+        <span class="k">while</span> <span class="n">submask</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">submask</span> <span class="o">=</span> <span class="p">(</span><span class="n">submask</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">&amp;</span> <span class="n">bitmask</span>
+            <span class="n">dp</span><span class="p">[</span><span class="n">bitmask</span><span class="p">]</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">dp</span><span class="p">[</span><span class="n">submask</span><span class="p">]</span> <span class="o">+</span> <span class="n">dp</span><span class="p">[</span><span class="n">bitmask</span> <span class="o">^</span> <span class="n">submask</span><span class="p">],</span> <span class="n">dp</span><span class="p">[</span><span class="n">bitmask</span><span class="p">])</span>
+    <span class="n">answer</span> <span class="o">=</span> <span class="n">dp</span><span class="p">[</span><span class="n">max_bitmask</span><span class="p">]</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">answer</span><span class="p">)</span>
 
 
@@ -1761,6 +1843,11 @@ window.onload = wrap_img;
 <td style="text-align:center">21</td>
 <td style="text-align:center">T</td>
 <td style="text-align:center">2026-09-29</td>
+</tr>
+<tr>
+<td style="text-align:center">22</td>
+<td style="text-align:center">U</td>
+<td style="text-align:center">2026-10-08</td>
 </tr>
 </tbody>
 </table>
