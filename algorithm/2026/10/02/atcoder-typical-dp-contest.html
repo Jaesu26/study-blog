@@ -100,7 +100,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      13 min read
+      14 min read
     
 </span></p>
 
@@ -150,7 +150,7 @@ window.onload = wrap_img;
 </li>
 <li class="toc-entry toc-h2"><a href="#E---Number">E - Number </a></li>
 <li class="toc-entry toc-h2"><a href="#F---Semi-express">F - Semi-express </a></li>
-<li class="toc-entry toc-h2"><a href="#H---knapsack">H - knapsack </a></li>
+<li class="toc-entry toc-h2"><a href="#H---Knapsack">H - Knapsack </a></li>
 <li class="toc-entry toc-h2"><a href="#J---Ball">J - Ball </a></li>
 <li class="toc-entry toc-h2"><a href="#문제-푼-순서">문제 푼 순서 </a></li>
 </ul><!--
@@ -186,7 +186,10 @@ window.onload = wrap_img;
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> $N$개의 질문을 고려하자. 각 질문을 해결하여 점수를 얻거나 해결하지 않아 점수를 얻지 않을 수 있다. 이를 통해 최종 점수로 가능한 것들이 총 몇 개 있는지 세면 된다</p>
 <p><code>-</code> $\operatorname{dp}[i][s]$를 $i$번째 질문까지 고려했을 때 $s$점을 획득할 수 있으면 $\text{True}$, 아니면 $\text{False}$로 정의하자. 그럼 점화식은 다음과 같다</p>
-<p><code>-</code> $\operatorname{dp}[i][s] = \operatorname{dp}[i - 1][s] \lor \operatorname{dp}[i - 1][s - p_i]$. base case로 $\operatorname{dp}[0][0] = \text{True},\, \operatorname{dp}[i][p_i] = \text{True}$이며 정답은 $\sum \operatorname{dp}[N]$이다</p>
+<p>
+$$\operatorname{dp}[i][s] = \operatorname{dp}[i - 1][s] \lor \operatorname{dp}[i - 1][s - p_i]$$
+</p>
+<p><code>-</code> base case로 $\operatorname{dp}[0][0] = \text{True},\, \operatorname{dp}[i][p_i] = \text{True}$이며 정답은 $\sum \operatorname{dp}[N]$이다</p>
 <p><code>-</code> 문제 조건에서 $p_i \le 100$이므로 최대 획득 점수는 $100N$에 바운드된다. 따라서 전체 알고리즘의 시간 복잡도는 $O\left(100N^2\right)$이다</p>
 <p><code>-</code> 배낭 용량과 물건 가치는 고려하지 않고 만들 수 있는 배낭 무게의 가짓수만 관심있는 배낭 문제라고 생각할 수 있겠다~</p>
 
@@ -253,7 +256,9 @@ window.onload = wrap_img;
 <p><code>-</code> 각자 번갈아가며 왼쪽 더미와 오른쪽 더미 중 하나를 골라 맨 위의 물건을 가져간다. 각자가 최선을 다했을 때 선공 플레이어가 가져간 물건의 총 가치를 구하면 된다</p>
 <p><code>-</code> 최종적으로 선공 플레이어가 가져간 물건의 총 가치와 후공 플레이어가 가져간 물건의 총 가치의 합은 전체 물건의 총 가치와 동일하다. 최선을 다하는 건 게임에서 승리하도록 행동한다는 것이고 이는 내가 가져간 물건의 총 가치가 상대가 가져간 물건의 총 가치보다 크게 만드는 것이다. 각 플레이어는 지금 점수(=가져간 물건의 총 가치)를 많이 획득하는 것에 신경을 쓰는 게 아니라 게임이 종료되는 시점에 점수 차이가 극대화되는 선택을 한다</p>
 <p><code>-</code> $\operatorname{dp}[i][j]$를 밑에서부터 왼쪽 더미의 물건 $i$개와 오른쪽 더미의 물건 $j$개만 고려한 게임에서 각자 최선을 다해 플레이 할 때 게임 종료시 $\text{본인의 점수 $-$ 상대방의 점수}$로 정의하자. 현재 플레이어는 왼쪽 더미에서 물건을 가져가거나 오른쪽 더미에서 물건을 가져갈 수 있다. 따라서 점화식은 다음과 같다</p>
-<p><code>-</code> $\operatorname{dp}[i][j] = \max(a_{A-i + 1} - \operatorname{dp}[i - 1][j],\, b_{B-j+1} - \operatorname{dp}[i][j - 1])$</p>
+<p>
+$$\operatorname{dp}[i][j] = \max(a_{A-i + 1} - \operatorname{dp}[i - 1][j],\, b_{B-j+1} - \operatorname{dp}[i][j - 1])$$
+</p>
 <p><code>-</code> base case로 $\operatorname{dp}[0][0] = 0$이다. 게임이 종료된 시점에서 $\text{선공 플레이어의 점수 $-$ 후공 플레이어의 점수 = $\operatorname{dp}[A][B]$}$이다</p>
 <p><code>-</code> $\text{선공 플레이어의 점수 $+$ 후공 플레이어의 점수 $=$ 물건의 총 가치}$이므로 연립 방정식을 통해 정답을 얻을 수 있다. 전체 알고리즘의 시간 복잡도는 $O(AB)$이다</p>
 <p><code>-</code> 바텁업으로 구현할 때 남은 물건 개수를 기준으로 오름차순으로 계산해야 함에 주의하자 (물건이 $1$개 남았을 때 가능한 경우 계산 $\to$ 물건이 $2$개 남았을 때 가능한 경우 계산 $\to \cdots \to$ 물건이 $A+B$개 남았을 때 가능한 경우 계산)</p>
@@ -321,7 +326,9 @@ window.onload = wrap_img;
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> 사람별로 토너먼트 우승 확률을 구하는 문제이다</p>
 <p><code>-</code> 토너먼트는 트리 형태임에 주목하자. 임의의 노드 $u$에 대해 $\operatorname{dp}[u][i]$를 $i$번 사람이 노드 $u$의 서브트리 토너먼트에서 우승할 확률로 정의하자. 노드 $u$의 승자는 $u$의 왼쪽 자식 $l$의 승자와 오른쪽 자식 $r$의 승자 중 이긴 사람이 된다. 점화식은 다음과 같다</p>
-<p><code>-</code> $\operatorname{dp}[u][i] = \operatorname{dp}[l][i] \cdot \sum\limits_{j=1}^{2^K} \{\operatorname{dp}[r][j] \cdot f(i, j)\} + \operatorname{dp}[r][i]\cdot \sum\limits_{j=1}^{2^K}\{\operatorname{dp}[l][j] \cdot f(i, j)\}, \quad f(i,j) = 1 \mathbin{/} \left(1 + 10^{\frac{R_j - R_i}{400}}\right)$</p>
+<p>
+$$\operatorname{dp}[u][i] = \operatorname{dp}[l][i] \cdot \sum\limits_{j=1}^{2^K} \{\operatorname{dp}[r][j] \cdot f(i, j)\} + \operatorname{dp}[r][i]\cdot \sum\limits_{j=1}^{2^K}\{\operatorname{dp}[l][j] \cdot f(i, j)\}, \quad f(i,j) = 1 \mathbin{/} \left(1 + 10^{\frac{R_j - R_i}{400}}\right)$$
+</p>
 <p><code>-</code> 노드 $u$에 $i$가 속하지 않는 경우 $\operatorname{dp}[u][i] = 0$임에 유의하자. base case로 리프 노드 $t$와 그 때의 사람 $i$에 대해 $\operatorname{dp}[u][i] = 1$이다</p>
 <p><code>-</code> 상태 공간의 크기는 $O\left(2^{2K}\right)$이고 전이가 $O\left(2^{K}\right)$이므로 총 $O\left(2^{3K}\right)$이다. $K$는 최대 $10$이므로 TLE이다. 실제로 필요한 경우만 저장하도록 수정하자</p>
 <p><code>-</code> $\operatorname{dp}[u]$를 해시맵으로 구현하고 실제 서브트리에 존재하는 사람만 저장하자. 트리의 깊이별로 사람의 수는 $O\left(2^K\right)$이다. 따라서 상태 공간의 크기는 $O\left(K 2^{K}\right)$이다</p>
@@ -477,7 +484,9 @@ window.onload = wrap_img;
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> $1$과 $6$ 사이의 소인수는 $2,3,5$뿐이라 $D = 2^a 3^b 5^c$ 형태임에 주목하자. $a$는 최대 $2N$, $b$와 $c$는 최대 $N$으로 가능한 경우의 수는 $O\left(N^3\right)$이다</p>
 <p><code>-</code> $\operatorname{dp}[i][a][b][c]$를 주사위를 $i$번 던져 나온 눈의 곱이 $2^a \cdot 3^b \cdot 5^c$일 확률로 정의하자. 점화식은 다음과 같다</p>
-<p><code>-</code> $\operatorname{dp}[i][a][b][c] = \frac{1}{6}(\operatorname{dp}[i - 1][a][b][c] + \operatorname{dp}[i - 1][a - 1][b][c] + \operatorname{dp}[i - 1][a][b - 1][c] + \operatorname{dp}[i - 1][a - 2][b][c] + \operatorname{dp}[i - 1][a][b][c - 1] + \operatorname{dp}[i - 1][a - 1][b - 1][c])$</p>
+<p>
+$$\operatorname{dp}[i][a][b][c] = \frac{1}{6}\sum\limits_{(x,y,z)\in S} \operatorname{dp}[i - 1][a - x][b - y][c - z], \;\;\; S = \{(0,0,0), (1,0,0),(0,1,0), (2,0,0), (0,0,1), (1,1,0)\}$$
+</p>
 <p><code>-</code> base case로 $\operatorname{dp}[0][0][0][0]= 1$이며 정답은 $\sum\limits_{D \mid 2^a 3^b 5^c}\operatorname{dp}[N][a][b][c]$이다</p>
 <p><code>-</code> 전체 알고리즘의 시간 복잡도는 $O\left(N^4\right)$이지만 $\left\lfloor\frac{a + b}{2}\right\rfloor + c \le i,\, b \le i$를 만족해야 하므로 계수가 작아 TLE가 발생하지 않는다. 또한 토글링을 사용하면 공간 복잡도도 $O\left(N^3\right)$이므로 MLE가 발생하지 않아 AC를 받을 수 있다</p>
 
@@ -574,11 +583,10 @@ window.onload = wrap_img;
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> 총 $N$개의 역이 있다. $1,N$번 역에선 정차해야 하며 연속해서 $K$번 이상 정차할 수 없을 때 열차가 정차할 수 있는 역들의 부분 집합이 몇 개인지 세면 된다</p>
 <p><code>-</code> $\operatorname{dp}[i][s]$를 열차가 현재 $i$번 역에 있고 연속해서 $s$번 정차한 상태로 가능한 경우의 수라 하자. 현재 연속으로 $s$번 정차한 상태라면 이전엔 무조건 연속으로 $s-1$번 정차한 상태여야 한다. 또한 연속으로 최대 $K-1$번까지 정차할 수 있으므로 점화식은 다음과 같다</p>
-<p><code>-</code> $\operatorname{dp}[i][s] = \begin{cases} 
+$$\operatorname{dp}[i][s] = \begin{cases} 
 \,  \sum\limits_{t=0}^{K-1}\operatorname{dp}[i - 1][t], &amp; \text{if $s = 0$}  \\ \\
 \,\operatorname{dp}[i - 1][s - 1], &amp;  \text{if $0 &lt; s &lt; K$}
-\end{cases}$</p>
-<p><code>-</code> base case로 $\operatorname{dp}[1][1] = 1$이고 정답은 $\sum\limits_{t=1}^{K-1}\operatorname{dp}[N][t]$이다. 근데 상태 공간의 크기가 $O(NK)$라 나이브하게 구현하면 TLE이다</p>
+\end{cases}$$<p><code>-</code> base case로 $\operatorname{dp}[1][1] = 1$이고 정답은 $\sum\limits_{t=1}^{K-1}\operatorname{dp}[N][t]$이다. 근데 상태 공간의 크기가 $O(NK)$라 나이브하게 구현하면 TLE이다</p>
 <p><code>-</code> $s=0$을 제외하곤 $\operatorname{dp}[i][s] = \operatorname{dp}[i - 1][s - 1]$임에 주목하자. $\operatorname{dp}[i]$는 $\operatorname{dp}[i - 1]$에서 $\sum \operatorname{dp}[i - 1]$을 맨 앞에 추가하고 맨 뒤의 원소를 삭제한 것과 같다</p>
 <p><code>-</code> $\sum \operatorname{dp}[i] = 2\sum \operatorname{dp}[i - 1] - \operatorname{dp}[i - 1][K-1]$이므로 $O(1)$에 갱신할 수 있고 deque을 사용하면 appendleft와 pop도 $O(1)$에 가능하므로 전체 알고리즘의 시간 복잡도는 $O(N + K)$가 되며 공간 복잡도는 $O(K)$가 된다</p>
 
@@ -632,8 +640,8 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="H---knapsack">
-<a class="anchor" href="#H---knapsack" aria-hidden="true"><span class="octicon octicon-link"></span></a>H - knapsack<a class="anchor-link" href="#H---knapsack"> </a>
+<h2 id="H---Knapsack">
+<a class="anchor" href="#H---Knapsack" aria-hidden="true"><span class="octicon octicon-link"></span></a>H - Knapsack<a class="anchor-link" href="#H---Knapsack"> </a>
 </h2>
 </div>
 </div>
@@ -641,11 +649,68 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> 풀이 정리 예정</p>
+<p><code>-</code> 일반적인 배낭 문제에 제약이 추가됐다. 배낭에 넣는 물건의 색깔 가짓수는 $C$를 초과할 수 없다</p>
+<p><code>-</code> 물건들을 색깔별로 분류하자. 그리고 각 색깔마다 임의의 물건을 조합해서 만든 물건 그룹을 하나의 아이템으로 보고 무게와 가치를 고려하자. 각 색깔마다 아이템을 최대 $1$개까지 사용할 수 있으며 $C$개 이하의 아이템으로 만들 수 있는 최대 가치를 구하면 된다. 아이템은 각 색깔별로 배낭 문제를 풀어서 만들 수 있다</p>
+<p><code>-</code> 각 색깔마다 $\text{여태까지 사용한 색깔 가짓수 역순 $\to$ 아이템 $\to$ 임시 배낭의 용량 역순}$으로 순회하며 최대 가치를 갱신하면 배낭에 같은 색깔의 아이템을 최대 $1$개만 넣도록 만들 수 있다</p>
+<p><code>-</code> 아이템이 총 $S$개 존재할 때 전체 알고리즘의 시간 복잡도는 $O\left(SCW\right)$이다. 각 색깔마다 배낭에 넣을 수 있는 아이템의 개수는 $W$를 초과하지 않으므로 전체 알고리즘의 시간 복잡도는 최악의 경우에도 $O\left(C^2W^2\right)$이다. 실제론 $S$가 크지 않아 충분히 AC를 받는다</p>
 
 </div>
 </div>
 </div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<details class="description">
+      <summary class="btn btn-sm" data-open="Hide Code" data-close="Show Code"></summary>
+        <p></p>
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">defaultdict</span>
+
+
+<span class="k">def</span> <span class="nf">generate_items</span><span class="p">(</span><span class="n">group</span><span class="p">,</span> <span class="n">max_w</span><span class="p">):</span>
+    <span class="n">dp</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">max_w</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">w</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">group</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">max_w</span><span class="p">,</span> <span class="n">w</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+            <span class="n">dp</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">dp</span><span class="p">[</span><span class="n">t</span> <span class="o">-</span> <span class="n">w</span><span class="p">]</span> <span class="o">+</span> <span class="n">v</span><span class="p">,</span> <span class="n">dp</span><span class="p">[</span><span class="n">t</span><span class="p">])</span>
+    <span class="n">items</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span> <span class="n">max_w</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">max_w</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="n">items</span><span class="p">[</span><span class="n">dp</span><span class="p">[</span><span class="n">t</span><span class="p">]]</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">items</span><span class="p">[</span><span class="n">dp</span><span class="p">[</span><span class="n">t</span><span class="p">]])</span>
+    <span class="k">return</span> <span class="p">[(</span><span class="n">w</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span> <span class="k">for</span> <span class="n">v</span><span class="p">,</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">items</span><span class="o">.</span><span class="n">items</span><span class="p">()]</span>
+
+
+<span class="k">def</span> <span class="nf">solution</span><span class="p">():</span>
+    <span class="n">N</span><span class="p">,</span> <span class="n">W</span><span class="p">,</span> <span class="n">C</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+    <span class="n">groups</span> <span class="o">=</span> <span class="p">[[]</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">51</span><span class="p">)]</span>
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+        <span class="n">w</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+        <span class="n">groups</span><span class="p">[</span><span class="n">c</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">w</span><span class="p">,</span> <span class="n">v</span><span class="p">))</span>
+    <span class="n">dp</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">W</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">C</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)]</span>
+    <span class="k">for</span> <span class="n">group</span> <span class="ow">in</span> <span class="n">groups</span><span class="p">:</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">group</span><span class="p">:</span>
+            <span class="k">continue</span>
+        <span class="n">items</span> <span class="o">=</span> <span class="n">generate_items</span><span class="p">(</span><span class="n">group</span><span class="p">,</span> <span class="n">W</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">C</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">w</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">items</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">W</span><span class="p">,</span> <span class="n">w</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+                    <span class="n">dp</span><span class="p">[</span><span class="n">c</span><span class="p">][</span><span class="n">t</span><span class="p">]</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">dp</span><span class="p">[</span><span class="n">c</span> <span class="o">-</span> <span class="mi">1</span><span class="p">][</span><span class="n">t</span> <span class="o">-</span> <span class="n">w</span><span class="p">]</span> <span class="o">+</span> <span class="n">v</span><span class="p">,</span> <span class="n">dp</span><span class="p">[</span><span class="n">c</span><span class="p">][</span><span class="n">t</span><span class="p">])</span>
+    <span class="n">answer</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">max</span><span class="p">,</span> <span class="n">dp</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">answer</span><span class="p">)</span>
+
+
+<span class="n">solution</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+    </details>
+</div>
+    
+
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
