@@ -100,7 +100,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      30 min read
+      35 min read
     
 </span></p>
 
@@ -161,6 +161,7 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h2"><a href="#S---Digit-Sum">S - Digit Sum </a></li>
 <li class="toc-entry toc-h2"><a href="#T---Permutation">T - Permutation </a></li>
 <li class="toc-entry toc-h2"><a href="#U---Grouping">U - Grouping </a></li>
+<li class="toc-entry toc-h2"><a href="#Y---Grid-2">Y - Grid 2 </a></li>
 <li class="toc-entry toc-h2"><a href="#Z---Frog-3">Z - Frog 3 </a></li>
 <li class="toc-entry toc-h2"><a href="#문제-푼-순서">문제 푼 순서 </a></li>
 </ul><!--
@@ -1643,6 +1644,125 @@ $$\operatorname{dp}[S] = \max \left(f(S), \;\:\, \max\limits_{T \subsetneq S} \{
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Y---Grid-2">
+<a class="anchor" href="#Y---Grid-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>Y - Grid 2<a class="anchor-link" href="#Y---Grid-2"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> Grid 1 문제와 동일한 접급은 $O(HW)$로 TLE이다. 타로가 $(1,1)$에서 $(H,W)$까지 벽에 막히지 않고 이동하는 경우는 전체 경우에서 중간에 $1$번 이상 벽을 통과해서 도착하는 경우를 제외한 것과 같다</p>
+<p><code>-</code> 전체 경우의 수는 총 $H+W - 2$번의 이동 중 아래로 $H - 1$번, 오른쪽으로 $W - 1$번 이동해야 하니 $\binom{H+W - 2}{H - 1}$이다. 이제 $1$번 이상 벽을 통과하는 경우의 수를 구해보자. 먼저 간단하게 벽이 $1$개만 존재한다 가정하고 경로상 $(1,1)\to w_1 \to (H,W)$이라 하자. $1$번 이상 벽을 통과하려면 $w_1$에 도달해야 한다. 따라서 경우의 수는 $\binom{r_1 + c_1 - 2}{r_1 - 1} \times \binom{H + W - r_1 - c_1}{H - r_1}$이다</p>
+<p><code>-</code> 이제 벽이 $2$개만 존재한다 가정하자. 경로도 $(1,1)\to w_1 \to w_2 \to (H,W)$로 가정하자 (앞으로 번호가 작은 벽에서 번호가 큰 벽으로 항상 이동 가능하다 가정). 벽을 $1$번 이상 통과하는 경우는 $w_1$만 통과, $w_2$만 통과, $w_1, w_2$ 둘 다 통과로 총 $3$가지이다. 이게 문제점이 벽이 $N$개 존재하면 최악의 경우 $2^N - 1$개의 경우를 고려해야 되고 이는 오히려 $O(HW)$보다 느리다 (여기서 진전이 안 되서 푸는 데 오래 걸림)</p>
+<p><code>-</code> $(1,1) \to (H,W)$ 과정을 생각해보자. $3$번 벽만 통과할 수도 있고 $1,5,11$번 벽만 통과할 수도 있고 아무 벽도 통과하지 않을 수 있다. 가능한 모든 경로를 생각해보면 각각의 벽에 대해 모든 벽 중 자신을 첫 번째로 방문하는 경우가 존재한다 ($N$개의 그룹으로 구분)</p>
+<p><code>-</code> 즉, $\text{$(1,1)$에서 $(H,W)$까지 벽을 $1$번 이상 통과해서 이동하는 경우의 수} = \text{$1$번 벽을 처음으로 방문하고 도착하는 경우의 수} + \text{$2$번 벽을 처음으로 방문하고 도착하는 경우의 수} + \cdots + \text{$N$번 벽을 처음으로 방문하고 도착하는 경우의 수}$로 분해할 수 있다</p>
+<p><code>-</code> 임의의 $k$번 벽을 처음으로 방문하는 경우의 수는 이전의 $1 \sim k-1$번 벽을 방문하지 않고 $k$번 벽까지 도달하는 경우의 수와 같다. 앞서 사용한 논리와 여집합을 사용해 표현하면 다음과 같다</p>
+<p><code>-</code>  $\text{$k$번 벽을 처음으로 방문하는 경우의 수} = \text{$k$번 벽을 방문하는 경우의 수} - (\text{$1$번 벽을 처음으로 방문하고 $k$번 벽에 도착하는 경우의 수} + \text{$2$번 벽을 처음으로 방문하고 $k$번 벽에 도착하는 경우의 수} + \cdots + \text{$k-1$번 벽을 처음으로 방문하고 $k$번 벽에 도착하는 경우의 수})$</p>
+<p><code>-</code> 이때 $1 \sim k-1$번 벽을 처음으로 방문하는 경우의 수는 이미 알고 있는 값이므로 $k$번 벽을 처음으로 방문하는 경우의 수는 $O(k)$에 계산할 수 있으며 가능한 $k$는 $N$개이므로 총 $O\left(N^2\right)$이다</p>
+<p><code>-</code> 약간의 문제가 있는데 여태까지는 번호가 작은 벽에서 번호가 큰 벽으로 항상 이동 가능하다 가정했지만 주어지는 입력은 그렇지 않을 수 있다. 문제 조건을 보면 타로는 오른쪽 또는 아래로만 이동 가능하므로 경로에 사이클을 존재하지 않는다. 따라서 위상 정렬을 수행하면 벽 간의 이동 관계를 모순 없이 정립할 수 있다. 최종적으로 점화식을 정리하자</p>
+<p><code>-</code> $\operatorname{dp}[u]$를 $u$번 벽을 제외한 어떤 벽도 통과하지 않고 $u$번 벽에 도달하는 경우의 수로 정의하자. base case로 가능한 모든 $u$번 벽에 대해 $\operatorname{dp}[u] = \binom{r_u + c_u - 2}{r_u - 1}$이다. 위상 정렬 순으로 $\operatorname{dp}$ 값을 갱신할 것이다. 노드 $u$의 인접 노드 $v$에 대해 $\operatorname{dp}[v] \leftarrow \operatorname{dp}[v] - \operatorname{dp}[u] \times \binom{r_v + c_v - r_u - c_u}{r_v - r_u}$를 수행하자 (DFS 필요 없음!, DFS는 최악의 경우 $O\left(N^2\right)$). 정답은 $\binom{H+W - 2}{H - 1} - \sum\limits_{u = 1}^{N} \left\{\operatorname{dp}[u] \times \binom{H + W - r_u - c_u}{H - r_u}\right\}$이다</p>
+<p><code>-</code> 조합 계산에 모듈러 역원이 필요하기에 전체 알고리즘의 시간 복잡도는 위상 정렬 결과가 유일한 최악의 경우 $O\left(H + W + N^2 \log \text{P} \right)$이다. 여기서 시간 복잡도를 더 줄일 수 있다</p>
+<p><code>-</code> $\frac{n!}{r! (n-r)!} \bmod \text{P} = \left\{(n!) \times \left(r! (n-r)!\right)^{P - 2}\right\} \bmod P = \left\{(n!) \times (r!)^{P-2} \times \left((n-r)!\right)^{P - 2}\right\} \bmod P$이므로 모듈러 역원을 $O\left(\max(H, W) \cdot \log \text{P}\right)$에 전처리 해두면 시간 복잡도는 $O\left(\max(H, W) \cdot \log \text{P} + N^2\right)$이 된다</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<details class="description">
+      <summary class="btn btn-sm" data-open="Hide Code" data-close="Show Code"></summary>
+        <p></p>
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">partial</span>
+
+
+<span class="k">def</span> <span class="nf">count_possible_paths</span><span class="p">(</span><span class="n">graph</span><span class="p">,</span> <span class="n">walls</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">mod</span><span class="p">):</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="n">precompute_factorial</span><span class="p">(</span><span class="n">h</span> <span class="o">+</span> <span class="n">w</span><span class="p">,</span> <span class="n">mod</span><span class="p">)</span>
+    <span class="n">inv_f</span> <span class="o">=</span> <span class="n">precompute_modular_inverse_factorial</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">w</span><span class="p">),</span> <span class="n">mod</span><span class="p">)</span>
+    <span class="n">nCr</span> <span class="o">=</span> <span class="n">partial</span><span class="p">(</span><span class="n">_nCr</span><span class="p">,</span> <span class="n">f</span><span class="o">=</span><span class="n">f</span><span class="p">,</span> <span class="n">inv_f</span><span class="o">=</span><span class="n">inv_f</span><span class="p">,</span> <span class="n">mod</span><span class="o">=</span><span class="n">mod</span><span class="p">)</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">graph</span><span class="p">)</span>
+    <span class="n">dp</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">n</span>
+    <span class="n">indegrees</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">n</span>
+    <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="p">(</span><span class="n">v</span> <span class="k">for</span> <span class="n">neighbors</span> <span class="ow">in</span> <span class="n">graph</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">neighbors</span><span class="p">):</span>
+        <span class="n">indegrees</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="n">stack</span> <span class="o">=</span> <span class="p">[</span><span class="n">u</span> <span class="k">for</span> <span class="n">u</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="k">if</span> <span class="n">indegrees</span><span class="p">[</span><span class="n">u</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span>
+    <span class="k">while</span> <span class="n">stack</span><span class="p">:</span>
+        <span class="n">u</span> <span class="o">=</span> <span class="n">stack</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+        <span class="n">r_u</span><span class="p">,</span> <span class="n">c_u</span> <span class="o">=</span> <span class="n">walls</span><span class="p">[</span><span class="n">u</span><span class="p">]</span>
+        <span class="n">dp</span><span class="p">[</span><span class="n">u</span><span class="p">]</span> <span class="o">+=</span> <span class="n">nCr</span><span class="p">(</span><span class="n">r_u</span> <span class="o">+</span> <span class="n">c_u</span> <span class="o">-</span> <span class="mi">2</span><span class="p">,</span> <span class="n">r_u</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">dp</span><span class="p">[</span><span class="n">u</span><span class="p">]</span> <span class="o">%=</span> <span class="n">mod</span>
+        <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">graph</span><span class="p">[</span><span class="n">u</span><span class="p">]:</span>
+            <span class="n">r_v</span><span class="p">,</span> <span class="n">c_v</span> <span class="o">=</span> <span class="n">walls</span><span class="p">[</span><span class="n">v</span><span class="p">]</span>
+            <span class="n">dp</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">-=</span> <span class="n">dp</span><span class="p">[</span><span class="n">u</span><span class="p">]</span> <span class="o">*</span> <span class="n">nCr</span><span class="p">(</span><span class="n">r_v</span> <span class="o">+</span> <span class="n">c_v</span> <span class="o">-</span> <span class="n">r_u</span> <span class="o">-</span> <span class="n">c_u</span><span class="p">,</span> <span class="n">r_v</span> <span class="o">-</span> <span class="n">r_u</span><span class="p">)</span>
+            <span class="n">dp</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">%=</span> <span class="n">mod</span>
+            <span class="n">indegrees</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">-=</span> <span class="mi">1</span>
+            <span class="k">if</span> <span class="n">indegrees</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">stack</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+    <span class="n">n_cases</span> <span class="o">=</span> <span class="n">nCr</span><span class="p">(</span><span class="n">h</span> <span class="o">+</span> <span class="n">w</span> <span class="o">-</span> <span class="mi">2</span><span class="p">,</span> <span class="n">h</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="nb">sum</span><span class="p">(</span><span class="n">dp</span><span class="p">[</span><span class="n">u</span><span class="p">]</span> <span class="o">*</span> <span class="n">nCr</span><span class="p">(</span><span class="n">h</span> <span class="o">+</span> <span class="n">w</span> <span class="o">-</span> <span class="n">r</span> <span class="o">-</span> <span class="n">c</span><span class="p">,</span> <span class="n">h</span> <span class="o">-</span> <span class="n">r</span><span class="p">)</span> <span class="k">for</span> <span class="n">u</span><span class="p">,</span> <span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">walls</span><span class="p">))</span>
+    <span class="n">n_cases</span> <span class="o">%=</span> <span class="n">mod</span>
+    <span class="k">return</span> <span class="n">n_cases</span>
+
+
+<span class="k">def</span> <span class="nf">precompute_factorial</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">mod</span><span class="p">):</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="n">f</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">f</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">i</span><span class="p">)</span> <span class="o">%</span> <span class="n">mod</span>
+    <span class="k">return</span> <span class="n">f</span>
+
+
+<span class="k">def</span> <span class="nf">precompute_modular_inverse_factorial</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">mod</span><span class="p">):</span>
+    <span class="n">inv_f</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="n">inv_f</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">inv_f</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="nb">pow</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">mod</span> <span class="o">-</span> <span class="mi">2</span><span class="p">,</span> <span class="n">mod</span><span class="p">))</span> <span class="o">%</span> <span class="n">mod</span>
+    <span class="k">return</span> <span class="n">inv_f</span>
+
+
+<span class="k">def</span> <span class="nf">_nCr</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">inv_f</span><span class="p">,</span> <span class="n">mod</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">f</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">*</span> <span class="n">inv_f</span><span class="p">[</span><span class="n">r</span><span class="p">]</span> <span class="o">*</span> <span class="n">inv_f</span><span class="p">[</span><span class="n">n</span> <span class="o">-</span> <span class="n">r</span><span class="p">])</span> <span class="o">%</span> <span class="n">mod</span>
+
+
+<span class="k">def</span> <span class="nf">solution</span><span class="p">():</span>
+    <span class="n">mod</span> <span class="o">=</span> <span class="mi">10</span><span class="o">**</span><span class="mi">9</span> <span class="o">+</span> <span class="mi">7</span>
+    <span class="n">H</span><span class="p">,</span> <span class="n">W</span><span class="p">,</span> <span class="n">N</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+    <span class="n">walls</span> <span class="o">=</span> <span class="p">[</span><span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">()))</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">)]</span>
+    <span class="n">walls</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+    <span class="n">graph</span> <span class="o">=</span> <span class="p">[[]</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">)]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">N</span><span class="p">):</span> 
+            <span class="k">if</span> <span class="n">walls</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">walls</span><span class="p">[</span><span class="n">j</span><span class="p">][</span><span class="mi">1</span><span class="p">]:</span>
+                <span class="n">graph</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">j</span><span class="p">)</span>
+    <span class="n">answer</span> <span class="o">=</span> <span class="n">count_possible_paths</span><span class="p">(</span><span class="n">graph</span><span class="p">,</span> <span class="n">walls</span><span class="p">,</span> <span class="n">H</span><span class="p">,</span> <span class="n">W</span><span class="p">,</span> <span class="n">mod</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">answer</span><span class="p">)</span>
+
+
+<span class="n">solution</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+    </details>
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> TMI: 첫 번째 AC는 $O\left(N^2\right)$ DFS를 상수 최적화해서 받았다 (쓸모없는 간선을 제거함). 총 $O\left(N^3\right)$이며 <a href="https://www.acmicpc.net/problem/1201">NMK</a> 해의 꼴이 저격 테케가 될 수 있는데 실행 시간이 $0.77$초라 저격 테케가 없는 건지, 있는데 상수가 작아서 빨리 실행된 건지 모르겠다</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Z---Frog-3">
 <a class="anchor" href="#Z---Frog-3" aria-hidden="true"><span class="octicon octicon-link"></span></a>Z - Frog 3<a class="anchor-link" href="#Z---Frog-3"> </a>
 </h2>
@@ -1848,6 +1968,11 @@ $$\operatorname{dp}[S] = \max \left(f(S), \;\:\, \max\limits_{T \subsetneq S} \{
 <td style="text-align:center">22</td>
 <td style="text-align:center">U</td>
 <td style="text-align:center">2026-10-08</td>
+</tr>
+<tr>
+<td style="text-align:center">23</td>
+<td style="text-align:center">Y</td>
+<td style="text-align:center">2026-10-17</td>
 </tr>
 </tbody>
 </table>
