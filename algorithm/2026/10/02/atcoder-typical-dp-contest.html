@@ -100,7 +100,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      17 min read
+      20 min read
     
 </span></p>
 
@@ -154,6 +154,8 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h2"><a href="#H---Knapsack">H - Knapsack </a></li>
 <li class="toc-entry toc-h2"><a href="#J---Ball">J - Ball </a></li>
 <li class="toc-entry toc-h2"><a href="#L---Cat">L - Cat </a></li>
+<li class="toc-entry toc-h2"><a href="#N---Tree">N - Tree </a></li>
+<li class="toc-entry toc-h2"><a href="#S---Grid">S - Grid </a></li>
 <li class="toc-entry toc-h2"><a href="#T---Fibonacci">T - Fibonacci </a></li>
 <li class="toc-entry toc-h2"><a href="#문제-푼-순서">문제 푼 순서 </a></li>
 </ul><!--
@@ -505,8 +507,9 @@ $$\operatorname{dp}[u][i] = \operatorname{dp}[l][i] \cdot \sum\limits_{j=1}^{2^K
 <p><code>-</code> $1$과 $6$ 사이의 소인수는 $2,3,5$뿐이라 $D = 2^a 3^b 5^c$ 형태임에 주목하자. $a$는 최대 $2N$, $b$와 $c$는 최대 $N$으로 가능한 경우의 수는 $O\left(N^3\right)$이다</p>
 <p><code>-</code> $\operatorname{dp}[i][a][b][c]$를 주사위를 $i$번 던져 나온 눈의 곱이 $2^a \cdot 3^b \cdot 5^c$일 확률로 정의하자. 점화식은 다음과 같다</p>
 <p>
-$$\operatorname{dp}[i][a][b][c] = \frac{1}{6}\sum\limits_{(x,y,z)\in S} \operatorname{dp}[i - 1][a - x][b - y][c - z], \;\;\; S = \{(0,0,0), (1,0,0),(0,1,0), (2,0,0), (0,0,1), (1,1,0)\}$$
+$$\operatorname{dp}[i][a][b][c] = \frac{1}{6}\sum\limits_{(x,y,z)\in S} \operatorname{dp}[i - 1][a - x][b - y][c - z]$$
 </p>
+<p><code>-</code> 단, $S = \{(0,0,0), (1,0,0),(0,1,0), (2,0,0), (0,0,1), (1,1,0)\}$</p>
 <p><code>-</code> base case로 $\operatorname{dp}[0][0][0][0]= 1$이며 정답은 $\sum\limits_{D \mid 2^a 3^b 5^c}\operatorname{dp}[N][a][b][c]$이다</p>
 <p><code>-</code> 전체 알고리즘의 시간 복잡도는 $O\left(N^4\right)$이지만 $\left\lfloor\frac{a + b}{2}\right\rfloor + c \le i,\, b \le i$를 만족해야 하므로 계수가 작아 TLE가 발생하지 않는다. 또한 토글링을 사용하면 공간 복잡도도 $O\left(N^3\right)$이므로 MLE가 발생하지 않아 AC를 받을 수 있다</p>
 
@@ -900,6 +903,146 @@ $$\operatorname{dp}[i][k] = \max\limits_{k - 1 \le s \le i - 1}\left\{\operatorn
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="N---Tree">
+<a class="anchor" href="#N---Tree" aria-hidden="true"><span class="octicon octicon-link"></span></a>N - Tree<a class="anchor-link" href="#N---Tree"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 간선을 하나씩 추가하며 최종적으로 트리를 완성해야 된다. 경우의 수를 구하자. 단, 과정 중 컴포넌트를 $1$개로 유지해야 된다 (끊어지면 안 된다는 뜻)</p>
+<p><code>-</code> 간선을 추가하며 트리를 만드는 과정을 거꾸로하면 전체 트리에서 간선을 하나씩 제거하여 최종적으로 모든 간선을 없애는 것과 같다. 순서만 뒤집었을 뿐이므로 경우의 수는 변하지 않는다</p>
+<p><code>-</code> 모든 경우를 따져보면 어떤 노드가 마지막으로 제거되는 간선에 포함되지 않는 경우는 없다. 이 노드를 루트 노드로 정하자. 그럼 루트 노드가 마지막으로 제거된는 간선에 포함된다는 가정하에 임의의 노드와 그 부모 사이의 간선을 제거하기 위해선 자신의 서브트리에 존재하는 모든 간선을 제거해야 한다. 그러니 서브트리 내 모든 간선을 제거하는 경우의 수를 기준으로 점화식을 설계해 볼 수 있다. 근데 이 방식에 문제가 있는데 루트 노드가 항상 마지막으로 제거되는 간선에 포함되는 건 아니다. 이는 간선이 $2$개의 노드를 연결하기 때문이다. 다른 방법을 생각해보자</p>
+<p><code>-</code> 삭제되는 건 간선인데 노드를 기준으로 생각했다. 마지막으로 제거되는 간선이 노드 $u$와 $v$를 연결한다고 하자. $u$와 $v$의 연결을 끊고 각각을 루트로 하는 트리를 고려하면 항상 루트 노드가 마지막으로 제거된다. 따라서 노드를 기준으로 생각할 수 있다!</p>
+<p><code>-</code> $\operatorname{dp}[u]$를 $u$의 서브트리 내 모든 간선을 제거하는 경우의 수로 정의하자. $u$의 자식 노드를 $c_1, c_2,\dots, c_k$라 하고 $\operatorname{size}[u]$를 $u$의 서브트리의 크기라 하자. $k$개의 자식 노드끼리는 서로 독립이므로 삭제 순서를 임의로 정할 수 있는데 각 자식의 서브트리 내 삭제 순서는 유지되어야 한다. 따라서 같은 것이 있는 순열로 볼 수 있으니 점화식을 다음과 같이 설계할 수 있다</p>
+<p>
+$$\operatorname{dp}[u] = \frac{\left(\sum\limits_{i=1}^{k}\operatorname{size}[v_i]\right)!}{\prod\limits_{i=1}^{k}(\operatorname{size}[v_i]!)} \prod\limits_{i=1}^{k}\operatorname{dp}[v_i]$$
+</p>
+<p><code>-</code> base case로 $u$가 리프 노드인 경우 $\operatorname{dp}[u] = 1$이다. 정답은 $\sum\limits_{(u,v) \in E} \frac{(N-2)!}{(\operatorname{size}[u]-1)! \cdot (\operatorname{size}[v]-1)!}\cdot \operatorname{dp}[u]\cdot \operatorname{dp}[v]$이다</p>
+<p><code>-</code> 팩토리얼 결괏값을 전처리 해두면 간선 하나당 $O(N)$이며 간선은 $N-1$개 존재하므로 전체 알고리즘의 시간 복잡도는 $O\left(N^2\right)$이다</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<details class="description">
+      <summary class="btn btn-sm" data-open="Hide Code" data-close="Show Code"></summary>
+        <p></p>
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">dfs</span><span class="p">(</span><span class="n">tree</span><span class="p">,</span> <span class="n">root</span><span class="p">,</span> <span class="n">ignore</span><span class="p">,</span> <span class="n">mod</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">inv_f</span><span class="p">):</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">tree</span><span class="p">)</span>
+    <span class="n">dp</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">n</span>
+    <span class="n">size</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">n</span>
+    <span class="n">_dfs</span><span class="p">(</span><span class="n">tree</span><span class="p">,</span> <span class="n">root</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">ignore</span><span class="p">,</span> <span class="n">mod</span><span class="p">,</span> <span class="n">dp</span><span class="p">,</span> <span class="n">size</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">inv_f</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">dp</span><span class="p">[</span><span class="n">root</span><span class="p">],</span> <span class="n">size</span><span class="p">[</span><span class="n">root</span><span class="p">]</span>
+
+
+<span class="k">def</span> <span class="nf">_dfs</span><span class="p">(</span><span class="n">tree</span><span class="p">,</span> <span class="n">node</span><span class="p">,</span> <span class="n">parent</span><span class="p">,</span> <span class="n">ignore</span><span class="p">,</span> <span class="n">mod</span><span class="p">,</span> <span class="n">dp</span><span class="p">,</span> <span class="n">size</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">inv_f</span><span class="p">):</span>
+    <span class="n">dp</span><span class="p">[</span><span class="n">node</span><span class="p">]</span> <span class="o">=</span> <span class="n">dp_node</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">size</span><span class="p">[</span><span class="n">node</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">for</span> <span class="n">child</span> <span class="ow">in</span> <span class="n">tree</span><span class="p">[</span><span class="n">node</span><span class="p">]:</span>
+        <span class="k">if</span> <span class="n">child</span> <span class="o">==</span> <span class="n">parent</span> <span class="ow">or</span> <span class="n">child</span> <span class="o">==</span> <span class="n">ignore</span><span class="p">:</span>
+            <span class="k">continue</span>
+        <span class="n">_dfs</span><span class="p">(</span><span class="n">tree</span><span class="p">,</span> <span class="n">child</span><span class="p">,</span> <span class="n">node</span><span class="p">,</span> <span class="n">ignore</span><span class="p">,</span> <span class="n">mod</span><span class="p">,</span> <span class="n">dp</span><span class="p">,</span> <span class="n">size</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">inv_f</span><span class="p">)</span>
+        <span class="n">dp_node</span> <span class="o">*=</span> <span class="n">inv_f</span><span class="p">[</span><span class="n">size</span><span class="p">[</span><span class="n">child</span><span class="p">]]</span> <span class="o">*</span> <span class="n">dp</span><span class="p">[</span><span class="n">child</span><span class="p">]</span>
+        <span class="n">dp_node</span> <span class="o">%=</span> <span class="n">mod</span>
+        <span class="n">size</span><span class="p">[</span><span class="n">node</span><span class="p">]</span> <span class="o">+=</span> <span class="n">size</span><span class="p">[</span><span class="n">child</span><span class="p">]</span>
+    <span class="n">dp</span><span class="p">[</span><span class="n">node</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">f</span><span class="p">[(</span><span class="n">size</span><span class="p">[</span><span class="n">node</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)]</span> <span class="o">*</span> <span class="n">dp_node</span><span class="p">)</span> <span class="o">%</span> <span class="n">mod</span>
+    <span class="k">return</span> <span class="n">dp</span>
+
+
+<span class="k">def</span> <span class="nf">precompute_factorial</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">mod</span><span class="p">):</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="n">f</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">f</span><span class="p">[</span><span class="n">x</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">x</span><span class="p">)</span> <span class="o">%</span> <span class="n">mod</span>
+    <span class="k">return</span> <span class="n">f</span>
+
+
+<span class="k">def</span> <span class="nf">precompute_modular_inverse_factorial</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">mod</span><span class="p">):</span>
+    <span class="n">inv_f</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="n">inv_f</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">inv_f</span><span class="p">[</span><span class="n">x</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="nb">pow</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">mod</span> <span class="o">-</span> <span class="mi">2</span><span class="p">,</span> <span class="n">mod</span><span class="p">))</span> <span class="o">%</span> <span class="n">mod</span>
+    <span class="k">return</span> <span class="n">inv_f</span>
+
+
+<span class="k">def</span> <span class="nf">solution</span><span class="p">():</span>
+    <span class="n">mod</span> <span class="o">=</span> <span class="mi">10</span><span class="o">**</span><span class="mi">9</span> <span class="o">+</span> <span class="mi">7</span>
+    <span class="n">N</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+    <span class="n">tree</span> <span class="o">=</span> <span class="p">[[]</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)]</span>
+    <span class="n">edges</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+        <span class="n">tree</span><span class="p">[</span><span class="n">a</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+        <span class="n">tree</span><span class="p">[</span><span class="n">b</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+        <span class="n">edges</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">))</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="n">precompute_factorial</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">mod</span><span class="p">)</span>
+    <span class="n">inv_f</span> <span class="o">=</span> <span class="n">precompute_modular_inverse_factorial</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">mod</span><span class="p">)</span>
+    <span class="n">answer</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">edges</span><span class="p">:</span>
+        <span class="n">dp_u</span><span class="p">,</span> <span class="n">size_u</span> <span class="o">=</span> <span class="n">dfs</span><span class="p">(</span><span class="n">tree</span><span class="p">,</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">mod</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">inv_f</span><span class="p">)</span>
+        <span class="n">dp_v</span><span class="p">,</span> <span class="n">size_v</span> <span class="o">=</span> <span class="n">dfs</span><span class="p">(</span><span class="n">tree</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">u</span><span class="p">,</span> <span class="n">mod</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">inv_f</span><span class="p">)</span>
+        <span class="n">answer</span> <span class="o">+=</span> <span class="n">f</span><span class="p">[</span><span class="n">N</span> <span class="o">-</span> <span class="mi">2</span><span class="p">]</span> <span class="o">*</span> <span class="n">inv_f</span><span class="p">[</span><span class="n">size_u</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">inv_f</span><span class="p">[</span><span class="n">size_v</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">dp_u</span> <span class="o">*</span> <span class="n">dp_v</span>
+        <span class="n">answer</span> <span class="o">%=</span> <span class="n">mod</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">answer</span><span class="p">)</span>
+
+
+<span class="n">solution</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+    </details>
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="S---Grid">
+<a class="anchor" href="#S---Grid" aria-hidden="true"><span class="octicon octicon-link"></span></a>S - Grid<a class="anchor-link" href="#S---Grid"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 각 열마다 흰색, 검은색 여부를 이진 수로 저장. 출발지와의 연결 여부도 이진 수로 저장. 다음 열을 고려. 총 $O\left(W \times 8^{H}\right)$</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">solution</span><span class="p">():</span>
+    <span class="n">H</span><span class="p">,</span> <span class="n">W</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+    <span class="k">pass</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="T---Fibonacci">
 <a class="anchor" href="#T---Fibonacci" aria-hidden="true"><span class="octicon octicon-link"></span></a>T - Fibonacci<a class="anchor-link" href="#T---Fibonacci"> </a>
 </h2>
@@ -1064,6 +1207,11 @@ $$\operatorname{dp}[i][k] = \max\limits_{k - 1 \le s \le i - 1}\left\{\operatorn
 <td style="text-align:center">10</td>
 <td style="text-align:center">L</td>
 <td style="text-align:center">2026-10-20</td>
+</tr>
+<tr>
+<td style="text-align:center">11</td>
+<td style="text-align:center">N</td>
+<td style="text-align:center">2026-10-24</td>
 </tr>
 </tbody>
 </table>
