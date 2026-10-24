@@ -348,8 +348,9 @@ $$\operatorname{dp}[i][j] = \max(a_{A-i + 1} - \operatorname{dp}[i - 1][j],\, b_
 <p><code>-</code> 사람별로 토너먼트 우승 확률을 구하는 문제이다</p>
 <p><code>-</code> 토너먼트는 트리 형태임에 주목하자. 임의의 노드 $u$에 대해 $\operatorname{dp}[u][i]$를 $i$번 사람이 노드 $u$의 서브트리 토너먼트에서 우승할 확률로 정의하자. 노드 $u$의 승자는 $u$의 왼쪽 자식 $l$의 승자와 오른쪽 자식 $r$의 승자 중 이긴 사람이 된다. 점화식은 다음과 같다</p>
 <p>
-$$\operatorname{dp}[u][i] = \operatorname{dp}[l][i] \cdot \sum\limits_{j=1}^{2^K} \{\operatorname{dp}[r][j] \cdot f(i, j)\} + \operatorname{dp}[r][i]\cdot \sum\limits_{j=1}^{2^K}\{\operatorname{dp}[l][j] \cdot f(i, j)\}, \quad f(i,j) = 1 \mathbin{/} \left(1 + 10^{\frac{R_j - R_i}{400}}\right)$$
+$$\operatorname{dp}[u][i] = \operatorname{dp}[l][i] \cdot \sum\limits_{j=1}^{2^K} \{\operatorname{dp}[r][j] \cdot f(i, j)\} + \operatorname{dp}[r][i]\cdot \sum\limits_{j=1}^{2^K}\{\operatorname{dp}[l][j] \cdot f(i, j)\}$$
 </p>
+<p><code>-</code> 단, $f(i,j) = 1 \mathbin{/} \left(1 + 10^{\frac{R_j - R_i}{400}}\right)$</p>
 <p><code>-</code> 노드 $u$에 $i$가 속하지 않는 경우 $\operatorname{dp}[u][i] = 0$임에 유의하자. base case로 리프 노드 $t$와 그 때의 사람 $i$에 대해 $\operatorname{dp}[u][i] = 1$이다</p>
 <p><code>-</code> 상태 공간의 크기는 $O\left(2^{2K}\right)$이고 전이가 $O\left(2^{K}\right)$이므로 총 $O\left(2^{3K}\right)$이다. $K$는 최대 $10$이므로 TLE이다. 실제로 필요한 경우만 저장하도록 수정하자</p>
 <p><code>-</code> $\operatorname{dp}[u]$를 해시맵으로 구현하고 실제 서브트리에 존재하는 사람만 저장하자. 트리의 깊이별로 사람의 수는 $O\left(2^K\right)$이다. 따라서 상태 공간의 크기는 $O\left(K 2^{K}\right)$이다</p>
@@ -434,7 +435,9 @@ $$\operatorname{dp}[u][i] = \operatorname{dp}[l][i] \cdot \sum\limits_{j=1}^{2^K
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> $\operatorname{dp}[i][r]$을 주사위를 $i$번 던져 나온 눈의 곱을 $D$로 나눈 나머지가 $r$일 확률로 정의하자. 주사위를 던지면 $1 \sim 6$ 중 하나가 균등확률로 나오므로 점화식은 다음과 같다</p>
-<p><code>-</code> $\forall x \in \{1,2,3,4,5,6\}, \quad \operatorname{dp}[i][(rx) \bmod D] \mathrel{+}= \frac{1}{6}\operatorname{dp}[i - 1][r]$</p>
+<p>
+$$\forall \omega \in \{1,2,3,4,5,6\}, \quad \operatorname{dp}[i][(r\omega) \bmod D] \mathrel{+}= \frac{1}{6}\operatorname{dp}[i - 1][r]$$
+</p>
 <p><code>-</code> 이때 $r$은 $0 \sim D - 1$이고 $D$는 최대 $10^{18}$이니 배열로 선언하면 MLE이다. 따라서 $\operatorname{dp}[i]$를 해시맵으로 선언해야 된다</p>
 <p><code>-</code> 문제는 상태 공간이 얼마나 희소하냐는 것이다. $1$은 곱해도 그대로라 이전 항이 그대로 누적되며 $2,3,4,5,6$을 곱하면 새로운 값이 되므로 이론상 $\operatorname{dp}[N]$의 크기는 $\sum\limits_{k=1}^{N} {_5 H_k} = O\left(N^5\right)$이다</p>
 <p><code>-</code> 전체 알고리즘의 시간 복잡도는 $O\left(N^6\right)$이고 $N$은 최대 $100$이므로 원칙적으로 TLE, MLE지만 계수가 작고 $4=2\times 2,\,6=2 \times 3$이므로 겹치는 상태가 분명히 존재하니 AC를 노려볼 수 있겠다</p>
@@ -460,13 +463,13 @@ $$\operatorname{dp}[u][i] = \operatorname{dp}[l][i] \cdot \sum\limits_{j=1}^{2^K
     <span class="n">Ω</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
     <span class="n">p</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="mi">6</span>
     <span class="n">dp_prev</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">Ω</span><span class="p">:</span>
-        <span class="n">dp_prev</span><span class="p">[</span><span class="n">x</span> <span class="o">%</span> <span class="n">D</span><span class="p">]</span> <span class="o">+=</span> <span class="n">p</span>
+    <span class="k">for</span> <span class="n">ω</span> <span class="ow">in</span> <span class="n">Ω</span><span class="p">:</span>
+        <span class="n">dp_prev</span><span class="p">[</span><span class="n">ω</span> <span class="o">%</span> <span class="n">D</span><span class="p">]</span> <span class="o">+=</span> <span class="n">p</span>
     <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
         <span class="n">dp_curr</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
         <span class="k">for</span> <span class="n">r</span><span class="p">,</span> <span class="n">f_r</span> <span class="ow">in</span> <span class="n">dp_prev</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-            <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">Ω</span><span class="p">:</span>
-                <span class="n">dp_curr</span><span class="p">[(</span><span class="n">r</span> <span class="o">*</span> <span class="n">x</span><span class="p">)</span> <span class="o">%</span> <span class="n">D</span><span class="p">]</span> <span class="o">+=</span> <span class="n">p</span> <span class="o">*</span> <span class="n">f_r</span>
+            <span class="k">for</span> <span class="n">ω</span> <span class="ow">in</span> <span class="n">Ω</span><span class="p">:</span>
+                <span class="n">dp_curr</span><span class="p">[(</span><span class="n">r</span> <span class="o">*</span> <span class="n">ω</span><span class="p">)</span> <span class="o">%</span> <span class="n">D</span><span class="p">]</span> <span class="o">+=</span> <span class="n">p</span> <span class="o">*</span> <span class="n">f_r</span>
         <span class="n">dp_prev</span> <span class="o">=</span> <span class="n">dp_curr</span>
     <span class="n">answer</span> <span class="o">=</span> <span class="n">dp_prev</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">answer</span><span class="p">)</span>
@@ -915,9 +918,9 @@ $$\operatorname{dp}[i][k] = \max\limits_{k - 1 \le s \le i - 1}\left\{\operatorn
 <p><code>-</code> 간선을 추가하며 트리를 만드는 과정을 거꾸로하면 전체 트리에서 간선을 하나씩 제거하여 최종적으로 모든 간선을 없애는 것과 같다. 순서만 뒤집었을 뿐이므로 경우의 수는 변하지 않는다</p>
 <p><code>-</code> 모든 경우를 따져보면 어떤 노드가 마지막으로 제거되는 간선에 포함되지 않는 경우는 없다. 이 노드를 루트 노드로 정하자. 그럼 루트 노드가 마지막으로 제거된는 간선에 포함된다는 가정하에 임의의 노드와 그 부모 사이의 간선을 제거하기 위해선 자신의 서브트리에 존재하는 모든 간선을 제거해야 한다. 그러니 서브트리 내 모든 간선을 제거하는 경우의 수를 기준으로 점화식을 설계해 볼 수 있다. 근데 이 방식에 문제가 있는데 루트 노드가 항상 마지막으로 제거되는 간선에 포함되는 건 아니다. 이는 간선이 $2$개의 노드를 연결하기 때문이다. 다른 방법을 생각해보자</p>
 <p><code>-</code> 삭제되는 건 간선인데 노드를 기준으로 생각했다. 마지막으로 제거되는 간선이 노드 $u$와 $v$를 연결한다고 하자. $u$와 $v$의 연결을 끊고 각각을 루트로 하는 트리를 고려하면 항상 루트 노드가 마지막으로 제거된다. 따라서 노드를 기준으로 생각할 수 있다!</p>
-<p><code>-</code> $\operatorname{dp}[u]$를 $u$의 서브트리 내 모든 간선을 제거하는 경우의 수로 정의하자. $u$의 자식 노드를 $c_1, c_2,\dots, c_k$라 하고 $\operatorname{size}[u]$를 $u$의 서브트리의 크기라 하자. $k$개의 자식 노드끼리는 서로 독립이므로 삭제 순서를 임의로 정할 수 있는데 각 자식의 서브트리 내 삭제 순서는 유지되어야 한다. 따라서 같은 것이 있는 순열로 볼 수 있으니 점화식을 다음과 같이 설계할 수 있다</p>
+<p><code>-</code> $\operatorname{dp}[u]$를 $u$의 서브트리 내 모든 간선을 제거하는 경우의 수로 정의하자. $u$의 자식 노드를 $c_1, c_2,\dots, c_k$라 하고 $\operatorname{size}[u]$를 $u$의 서브트리의 크기라 하자. 자식 노드끼리는 서로 독립이므로 삭제 순서를 임의로 정할 수 있는데 각 자식의 서브트리 내 삭제 순서는 유지되어야 한다. 따라서 같은 것이 있는 순열로 볼 수 있으니 점화식을 다음과 같이 설계할 수 있다</p>
 <p>
-$$\operatorname{dp}[u] = \frac{\left(\sum\limits_{i=1}^{k}\operatorname{size}[v_i]\right)!}{\prod\limits_{i=1}^{k}(\operatorname{size}[v_i]!)} \prod\limits_{i=1}^{k}\operatorname{dp}[v_i]$$
+$$\operatorname{dp}[u] = \frac{\left(\sum\limits_{i=1}^{k}\operatorname{size}[c_i]\right)!}{\prod\limits_{i=1}^{k}(\operatorname{size}[c_i]!)} \prod\limits_{i=1}^{k}\operatorname{dp}[c_i]$$
 </p>
 <p><code>-</code> base case로 $u$가 리프 노드인 경우 $\operatorname{dp}[u] = 1$이다. 정답은 $\sum\limits_{(u,v) \in E} \frac{(N-2)!}{(\operatorname{size}[u]-1)! \cdot (\operatorname{size}[v]-1)!}\cdot \operatorname{dp}[u]\cdot \operatorname{dp}[v]$이다</p>
 <p><code>-</code> 팩토리얼 결괏값을 전처리 해두면 간선 하나당 $O(N)$이며 간선은 $N-1$개 존재하므로 전체 알고리즘의 시간 복잡도는 $O\left(N^2\right)$이다</p>
