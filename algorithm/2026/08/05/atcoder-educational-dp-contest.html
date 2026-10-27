@@ -100,7 +100,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      35 min read
+      38 min read
     
 </span></p>
 
@@ -161,6 +161,7 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h2"><a href="#S---Digit-Sum">S - Digit Sum </a></li>
 <li class="toc-entry toc-h2"><a href="#T---Permutation">T - Permutation </a></li>
 <li class="toc-entry toc-h2"><a href="#U---Grouping">U - Grouping </a></li>
+<li class="toc-entry toc-h2"><a href="#V---Subtree">V - Subtree </a></li>
 <li class="toc-entry toc-h2"><a href="#Y---Grid-2">Y - Grid 2 </a></li>
 <li class="toc-entry toc-h2"><a href="#Z---Frog-3">Z - Frog 3 </a></li>
 <li class="toc-entry toc-h2"><a href="#문제-푼-순서">문제 푼 순서 </a></li>
@@ -1645,6 +1646,117 @@ $$\operatorname{dp}[S] = \max \left(f(S), \;\:\, \max\limits_{T \subsetneq S} \{
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="V---Subtree">
+<a class="anchor" href="#V---Subtree" aria-hidden="true"><span class="octicon octicon-link"></span></a>V - Subtree<a class="anchor-link" href="#V---Subtree"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 보통은 경우의 수를 셀 때 $10^9 + 7$이나 $998244353$과 같이 큰 소수로 나눈 나머지를 구하라고 한다. 근데 여기선 $M$이 변수로서 주어진다. 그래서 만약 $_nC_r$의 모듈러 역원이 필요하다면 평상시처럼 페르마의 소정리를 사용해서 구하지 못한다. 일단은 신경쓰지 말고 문제를 풀자</p>
+<p><code>-</code> 각 노드별로 경우의 수를 세야한다. 우선 $1$번 노드를 루트 노드로 지정하고 경우의 수를 세자. 검은색 노드끼리는 서로 연결되어야 하므로 어떤 노드가 흰색이라면 그의 서브트리는 모두 흰색 노드로만 구성되어야 하니 경우의 수는 $1$이다. 그렇지 않고 검은색이라면 그의 자식 노드($c_1\sim c_k$)는 흰색이든 검은색이든 상관 없으며 자식노드끼리는 독립이므로 경우의 수를 곱해주면 된다. $\operatorname{dp}[u]$를 $1$번 노드가 루트 노드일 때 $u$번 노드를 검게 칠할 수 있는 경우의 수로 정의하자. 점화식은 다음과 같다</p>
+<p>
+$$\operatorname{dp}[u] = \prod\limits_{i=1}^{k}(\operatorname{dp}[c_i] + 1)$$
+</p>
+<p><code>-</code> base case로 $u$가 리프 노드라면 $\operatorname{dp}[u] = 1$이며 $v=1$일 때의 정답은 $\operatorname{dp}[1]$이다. 고정된 루트에 대해 $O(N)$에 경우의 수를 셀 수 있으며 가능한 루트가 $N$개이므로 총 $O\left(N^2\right)$으로 TLE이다. 리루팅을 이용하자</p>
+<p><code>-</code> $\operatorname{dp}_a[b]$를 $a$번 노드가 루트 노드일 때 노드 $b$를 검게 칠할 수 있는 경우의 수로 정의하자. $v=u$일 때의 정답인 $\operatorname{dp}_u[u]$를 계산하려면 $u$와 연결된 노드들의 $\operatorname{dp}_u$ 결괏값을 알아야 한다. 이때 $u$의 자식 노드 $c_i$의 경우 $\operatorname{dp}_u[c_i] = \operatorname{dp}[c_i]$이므로 $\operatorname{dp}[c_i]$를 사용하면 된다. 그리고 자식 노드들의 결과를 취합한 값은 $\operatorname{dp}[u]$와 동일하다. $u$의 부모 노드 $p$의 경우 $\operatorname{dp}_p[p]$에서 $u$를 고려하면 안 되므로 $\operatorname{dp}_u[p] = \frac{\operatorname{dp}_p[p]}{\operatorname{dp}[u] + 1}$이다. 이에 따라 리루팅은 다음과 같이 전개된다</p>
+<p>
+$$\operatorname{dp}_u[u] = \left(\frac{\operatorname{dp}_p[p]}{\operatorname{dp}[u] + 1} + 1\right) \operatorname{dp}[u]$$
+</p>
+<p><code>-</code> $\operatorname{dp}_u[u]$는 $\operatorname{dp}_p[p]$를 알면 빠르게 구할 수 있고 base case로 $\operatorname{dp}_1[1] = \operatorname{dp}[1]$이다</p>
+<p><code>-</code> 문제가 해결됐다. 모든 게 끝났다. 그랬어야만 했다</p>
+<p><code>-</code> $M$이 일반적으로 주어지는 큰 소수였다면 상관없지만 이 문제에선 아니기에 위 식에서 단순히 $\operatorname{dp}[u] + 1$로 나누는 게 불가능하다. 그렇다고 나머지 연산을 제일 마지막에 하는 건 수가 거의  $2^{10^5}$까지 커질 수 있으므로 불가능하다. 나머지 연산은 수행해야 하니 나눗셈을 포기해야 된다</p>
+<p><code>-</code> 위 식에서 $\operatorname{dp}_u[p] = (\operatorname{dp}_p[q] + 1) \cdot \left\{\prod\limits_{j=1}^{i-1}(\operatorname{dp}[u_j] + 1)\right\} \cdot \left\{\prod\limits_{j=i+1}^{k}(\operatorname{dp}[u_j] + 1)\right\}$이므로 나누기 연산을 사용하지 않고 표현할 수는 있다 ($q$는 $p$의 부모). 하지만 이는 최악의 경우 $O(N)$이므로 총 $O\left(N^2\right)$으로 TLE이다. 그런데 형태를 잘 보면 두 개의 구간 곱이 핵심이다. 구간 곱을 빠르게 계산할 수 있을까? 있다! 세그먼트 트리를 사용하면 구간 곱을 $O(\log \text{degree})$에 계산할 수 있으며 $\sum \text{degree} = O(N)$이므로 전체 알고리즘의 시간 복잡도는 $O(N \log N)$이 된다</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<details class="description">
+      <summary class="btn btn-sm" data-open="Hide Code" data-close="Show Code"></summary>
+        <p></p>
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">from</span> <span class="nn">atcoder.segtree</span> <span class="kn">import</span> <span class="n">SegTree</span>
+
+<span class="n">sys</span><span class="o">.</span><span class="n">setrecursionlimit</span><span class="p">(</span><span class="mi">10</span><span class="o">**</span><span class="mi">5</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">dfs</span><span class="p">(</span><span class="n">tree</span><span class="p">,</span> <span class="n">root</span><span class="p">,</span> <span class="n">mod</span><span class="p">):</span>
+    <span class="n">dp</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">tree</span><span class="p">)</span>
+    <span class="n">_dfs</span><span class="p">(</span><span class="n">tree</span><span class="p">,</span> <span class="n">root</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">mod</span><span class="p">,</span> <span class="n">dp</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">dp</span>
+
+
+<span class="k">def</span> <span class="nf">_dfs</span><span class="p">(</span><span class="n">tree</span><span class="p">,</span> <span class="n">node</span><span class="p">,</span> <span class="n">parent</span><span class="p">,</span> <span class="n">mod</span><span class="p">,</span> <span class="n">dp</span><span class="p">):</span>
+    <span class="n">count</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">for</span> <span class="n">child</span> <span class="ow">in</span> <span class="n">tree</span><span class="p">[</span><span class="n">node</span><span class="p">]:</span>
+        <span class="k">if</span> <span class="n">child</span> <span class="o">==</span> <span class="n">parent</span><span class="p">:</span>
+            <span class="k">continue</span>
+        <span class="n">_dfs</span><span class="p">(</span><span class="n">tree</span><span class="p">,</span> <span class="n">child</span><span class="p">,</span> <span class="n">node</span><span class="p">,</span> <span class="n">mod</span><span class="p">,</span> <span class="n">dp</span><span class="p">)</span>
+        <span class="n">count</span> <span class="o">*=</span> <span class="n">dp</span><span class="p">[</span><span class="n">child</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="n">count</span> <span class="o">%=</span> <span class="n">mod</span>
+    <span class="n">dp</span><span class="p">[</span><span class="n">node</span><span class="p">]</span> <span class="o">=</span> <span class="n">count</span>
+
+
+<span class="k">def</span> <span class="nf">reroot</span><span class="p">(</span><span class="n">tree</span><span class="p">,</span> <span class="n">root</span><span class="p">,</span> <span class="n">mod</span><span class="p">,</span> <span class="n">dp</span><span class="p">):</span>
+    <span class="n">rerooted</span> <span class="o">=</span> <span class="n">dp</span><span class="p">[:]</span>
+    <span class="n">segtrees</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">tree</span><span class="p">)</span>
+    <span class="n">_reroot</span><span class="p">(</span><span class="n">tree</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">root</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">root</span><span class="p">,</span> <span class="n">mod</span><span class="p">,</span> <span class="n">dp</span><span class="p">,</span> <span class="n">segtrees</span><span class="p">,</span> <span class="n">rerooted</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">rerooted</span>
+
+
+<span class="k">def</span> <span class="nf">_reroot</span><span class="p">(</span><span class="n">tree</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">node</span><span class="p">,</span> <span class="n">parent</span><span class="p">,</span> <span class="n">root</span><span class="p">,</span> <span class="n">mod</span><span class="p">,</span> <span class="n">dp</span><span class="p">,</span> <span class="n">segtrees</span><span class="p">,</span> <span class="n">rerooted</span><span class="p">):</span>
+    <span class="n">array</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="n">dp</span><span class="p">[</span><span class="n">child</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span> <span class="k">for</span> <span class="n">child</span> <span class="ow">in</span> <span class="n">tree</span><span class="p">[</span><span class="n">node</span><span class="p">]</span> <span class="k">if</span> <span class="n">child</span> <span class="o">!=</span> <span class="n">parent</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">node</span> <span class="o">!=</span> <span class="n">root</span><span class="p">:</span>
+        <span class="n">pt</span> <span class="o">=</span> <span class="n">segtrees</span><span class="p">[</span><span class="n">parent</span><span class="p">]</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="p">(</span><span class="n">pt</span><span class="o">.</span><span class="n">prod</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span> <span class="o">*</span> <span class="n">pt</span><span class="o">.</span><span class="n">prod</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">pt</span><span class="o">.</span><span class="n">_n</span><span class="p">),</span> <span class="n">pt</span><span class="o">.</span><span class="n">_n</span><span class="p">))</span> <span class="o">%</span> <span class="n">mod</span>
+        <span class="n">rerooted</span><span class="p">[</span><span class="n">node</span><span class="p">]</span> <span class="o">*=</span> <span class="n">r</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="n">rerooted</span><span class="p">[</span><span class="n">node</span><span class="p">]</span> <span class="o">%=</span> <span class="n">mod</span>
+        <span class="n">array</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">r</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="n">segtrees</span><span class="p">[</span><span class="n">node</span><span class="p">]</span> <span class="o">=</span> <span class="n">SegTree</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="p">(</span><span class="n">x</span> <span class="o">*</span> <span class="n">y</span><span class="p">)</span> <span class="o">%</span> <span class="n">mod</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">array</span><span class="p">)</span>
+    <span class="n">offset</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">j</span><span class="p">,</span> <span class="n">child</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">tree</span><span class="p">[</span><span class="n">node</span><span class="p">],</span> <span class="n">start</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">child</span> <span class="o">==</span> <span class="n">parent</span><span class="p">:</span>
+            <span class="n">offset</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="k">continue</span>
+        <span class="n">_reroot</span><span class="p">(</span><span class="n">tree</span><span class="p">,</span> <span class="n">j</span> <span class="o">-</span> <span class="n">offset</span><span class="p">,</span> <span class="n">child</span><span class="p">,</span> <span class="n">node</span><span class="p">,</span> <span class="n">root</span><span class="p">,</span> <span class="n">mod</span><span class="p">,</span> <span class="n">dp</span><span class="p">,</span> <span class="n">segtrees</span><span class="p">,</span> <span class="n">rerooted</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">solution</span><span class="p">():</span>
+    <span class="n">N</span><span class="p">,</span> <span class="n">M</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+    <span class="n">tree</span> <span class="o">=</span> <span class="p">[[]</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)]</span>
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+        <span class="n">tree</span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+        <span class="n">tree</span><span class="p">[</span><span class="n">y</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">root</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">dp</span> <span class="o">=</span> <span class="n">dfs</span><span class="p">(</span><span class="n">tree</span><span class="p">,</span> <span class="n">root</span><span class="p">,</span> <span class="n">M</span><span class="p">)</span>
+    <span class="n">rerooted</span> <span class="o">=</span> <span class="n">reroot</span><span class="p">(</span><span class="n">tree</span><span class="p">,</span> <span class="n">root</span><span class="p">,</span> <span class="n">M</span><span class="p">,</span> <span class="n">dp</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">rerooted</span><span class="p">[</span><span class="n">root</span><span class="p">:])))</span>
+
+
+<span class="n">solution</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+    </details>
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Y---Grid-2">
 <a class="anchor" href="#Y---Grid-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>Y - Grid 2<a class="anchor-link" href="#Y---Grid-2"> </a>
 </h2>
@@ -1974,6 +2086,11 @@ $$\operatorname{dp}[S] = \max \left(f(S), \;\:\, \max\limits_{T \subsetneq S} \{
 <td style="text-align:center">23</td>
 <td style="text-align:center">Y</td>
 <td style="text-align:center">2026-10-17</td>
+</tr>
+<tr>
+<td style="text-align:center">24</td>
+<td style="text-align:center">V</td>
+<td style="text-align:center">2026-10-27</td>
 </tr>
 </tbody>
 </table>
