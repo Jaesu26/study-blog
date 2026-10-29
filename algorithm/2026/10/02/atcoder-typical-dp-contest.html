@@ -100,7 +100,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      20 min read
+      22 min read
     
 </span></p>
 
@@ -154,6 +154,7 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h2"><a href="#H---Knapsack">H - Knapsack </a></li>
 <li class="toc-entry toc-h2"><a href="#J---Ball">J - Ball </a></li>
 <li class="toc-entry toc-h2"><a href="#L---Cat">L - Cat </a></li>
+<li class="toc-entry toc-h2"><a href="#M---House">M - House </a></li>
 <li class="toc-entry toc-h2"><a href="#N---Tree">N - Tree </a></li>
 <li class="toc-entry toc-h2"><a href="#T---Fibonacci">T - Fibonacci </a></li>
 <li class="toc-entry toc-h2"><a href="#문제-푼-순서">문제 푼 순서 </a></li>
@@ -676,7 +677,7 @@ $$\operatorname{dp}[i][s] = \begin{cases}
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> 일반적인 배낭 문제에 제약이 추가됐다. 배낭에 넣는 물건의 색깔 가짓수는 $C$를 초과할 수 없다</p>
 <p><code>-</code> 물건들을 색깔별로 분류하자. 그리고 각 색깔마다 임의의 물건을 조합해서 만든 물건 그룹을 하나의 아이템으로 보고 무게와 가치를 고려하자. 각 색깔마다 아이템을 최대 $1$개까지 사용할 수 있으며 $C$개 이하의 아이템으로 만들 수 있는 최대 가치를 구하면 된다. 아이템은 각 색깔별로 배낭 문제를 풀어서 만들 수 있다</p>
-<p><code>-</code> 각 색깔마다 $\text{여태까지 사용한 색깔 가짓수 역순 $\to$ 아이템 $\to$ 임시 배낭의 용량 역순}$으로 순회하며 최대 가치를 갱신하면 배낭에 같은 색깔의 아이템을 최대 $1$개만 넣도록 만들 수 있다</p>
+<p><code>-</code> 각 색깔마다 $\text{여태까지 사용한 색깔 가짓수 역순}$ $\to$ $\text{아이템}$ $\to$ $\text{임시 배낭의 용량 역순}$으로 순회하며 최대 가치를 갱신하면 배낭에 같은 색깔의 아이템을 최대 $1$개만 넣도록 만들 수 있다</p>
 <p><code>-</code> 아이템이 총 $S$개 존재할 때 전체 알고리즘의 시간 복잡도는 $O\left(SCW\right)$이다. 각 색깔마다 배낭에 넣을 수 있는 아이템의 개수는 $W$를 초과하지 않으므로 전체 알고리즘의 시간 복잡도는 최악의 경우에도 $O\left(C^2W^2\right)$이다. 실제론 $S$가 크지 않아 충분히 AC를 받는다</p>
 
 </div>
@@ -888,6 +889,115 @@ $$\operatorname{dp}[i][k] = \max\limits_{k - 1 \le s \le i - 1}\left\{\operatorn
             <span class="n">mx</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">dp</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">][</span><span class="n">k</span> <span class="o">-</span> <span class="mi">1</span><span class="p">],</span> <span class="n">mx</span><span class="p">)</span>
             <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">mx</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="n">p</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">p</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="n">k</span><span class="p">])</span>
     <span class="n">answer</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">dp</span><span class="p">[</span><span class="n">N</span><span class="p">])</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">answer</span><span class="p">)</span>
+
+
+<span class="n">solution</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+    </details>
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="M---House">
+<a class="anchor" href="#M---House" aria-hidden="true"><span class="octicon octicon-link"></span></a>M - House<a class="anchor-link" href="#M---House"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> $H$층 $1$번 방에서 시작해 같은 방을 거치지 않고 $1$층 $1$번 방에 도착하는 경로의 가짓수를 세면 된다 (단, 모든 층은 같은 구조를 하고 있다)</p>
+<p><code>-</code> 이 문제는 <a href="https://www.acmicpc.net/problem/2098">외판원 순회</a>와 <a href="https://www.acmicpc.net/problem/12850">본대 산책2</a>의 결합이다. $H$층 $1$번 방에서 $H-1$층으로 가는 경우의 수를 기록한 인접 행렬과 $i$층에서 $i-1$층으로 가는 경우의 수를 기록한 인접 행렬을 얻은 뒤 $H$층 $1$번 방에서 $1$층 $1$번 방으로 가는 경우의 수를 행렬의 빠른 거듭제곱을 사용해 계산하면 된다. 두 문제 다 웰노운이라 더 이상의 자세한 설명은 생략한다</p>
+<p><code>-</code> 전체 알고리즘의 시간 복잡도는 $O\left(R^3 2^R + R^3 \log H\right)$이다</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<details class="description">
+      <summary class="btn btn-sm" data-open="Hide Code" data-close="Show Code"></summary>
+        <p></p>
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">operator</span>
+
+
+<span class="k">def</span> <span class="nf">make_weighted_adjacency_matrix</span><span class="p">(</span><span class="n">graph</span><span class="p">,</span> <span class="n">mod</span><span class="p">):</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">graph</span><span class="p">)</span>
+    <span class="n">G</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">source</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">dp</span> <span class="o">=</span> <span class="n">tsp</span><span class="p">(</span><span class="n">graph</span><span class="p">,</span> <span class="n">source</span><span class="p">,</span> <span class="n">mod</span><span class="p">)</span>
+        <span class="n">G</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="nb">sum</span><span class="p">(</span><span class="n">dp</span><span class="p">[</span><span class="n">sink</span><span class="p">])</span> <span class="o">%</span> <span class="n">mod</span> <span class="k">for</span> <span class="n">sink</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)])</span>
+    <span class="k">return</span> <span class="n">G</span>
+
+
+<span class="k">def</span> <span class="nf">tsp</span><span class="p">(</span><span class="n">graph</span><span class="p">,</span> <span class="n">source</span><span class="p">,</span> <span class="n">mod</span><span class="p">):</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">graph</span><span class="p">)</span>
+    <span class="n">max_mask</span> <span class="o">=</span> <span class="mi">2</span><span class="o">**</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span>
+    <span class="n">dp</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">max_mask</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)]</span>
+    <span class="n">dp</span><span class="p">[</span><span class="n">source</span><span class="p">][</span><span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="n">source</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">for</span> <span class="n">mask</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">max_mask</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">curr</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">dp</span><span class="p">[</span><span class="n">curr</span><span class="p">][</span><span class="n">mask</span><span class="p">]:</span>
+                <span class="k">continue</span>
+            <span class="k">for</span> <span class="n">nxt</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+                <span class="n">next_mask</span> <span class="o">=</span> <span class="n">mask</span> <span class="o">|</span> <span class="p">(</span><span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="n">nxt</span><span class="p">)</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="n">graph</span><span class="p">[</span><span class="n">curr</span><span class="p">][</span><span class="n">nxt</span><span class="p">]</span> <span class="ow">or</span> <span class="n">next_mask</span> <span class="o">==</span> <span class="n">mask</span><span class="p">:</span>
+                    <span class="k">continue</span>
+                <span class="n">dp</span><span class="p">[</span><span class="n">nxt</span><span class="p">][</span><span class="n">next_mask</span><span class="p">]</span> <span class="o">+=</span> <span class="n">dp</span><span class="p">[</span><span class="n">curr</span><span class="p">][</span><span class="n">mask</span><span class="p">]</span>
+                <span class="n">dp</span><span class="p">[</span><span class="n">nxt</span><span class="p">][</span><span class="n">next_mask</span><span class="p">]</span> <span class="o">%=</span> <span class="n">mod</span>
+    <span class="k">return</span> <span class="n">dp</span>
+
+
+<span class="k">def</span> <span class="nf">matpow</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">power</span><span class="p">,</span> <span class="n">mod</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">power</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">I</span>
+    <span class="k">if</span> <span class="n">power</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">matmul</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">I</span><span class="p">,</span> <span class="n">mod</span><span class="p">)</span>
+    <span class="n">half</span> <span class="o">=</span> <span class="n">matpow</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">power</span> <span class="o">//</span> <span class="mi">2</span><span class="p">,</span> <span class="n">mod</span><span class="p">)</span>
+    <span class="n">Ap</span> <span class="o">=</span> <span class="n">matmul</span><span class="p">(</span><span class="n">half</span><span class="p">,</span> <span class="n">half</span><span class="p">,</span> <span class="n">mod</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">power</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">Ap</span> <span class="o">=</span> <span class="n">matmul</span><span class="p">(</span><span class="n">Ap</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">mod</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">Ap</span>
+
+
+<span class="k">def</span> <span class="nf">matmul</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">mod</span><span class="p">):</span>
+    <span class="n">n</span><span class="p">,</span> <span class="n">m</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">A</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">B</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="n">matrix</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">m</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)]</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">row_vec</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">A</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">j</span><span class="p">,</span> <span class="n">col_vec</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="n">B</span><span class="p">)):</span>
+            <span class="n">matrix</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">+=</span> <span class="n">dot_product</span><span class="p">(</span><span class="n">row_vec</span><span class="p">,</span> <span class="n">col_vec</span><span class="p">)</span> <span class="o">%</span> <span class="n">mod</span>
+            <span class="n">matrix</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">%=</span> <span class="n">mod</span>
+    <span class="k">return</span> <span class="n">matrix</span>
+
+
+<span class="k">def</span> <span class="nf">dot_product</span><span class="p">(</span><span class="n">vec1</span><span class="p">,</span> <span class="n">vec2</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="n">operator</span><span class="o">.</span><span class="n">mul</span><span class="p">,</span> <span class="n">vec1</span><span class="p">,</span> <span class="n">vec2</span><span class="p">))</span>
+
+
+<span class="k">def</span> <span class="nf">solution</span><span class="p">():</span>
+    <span class="k">global</span> <span class="n">I</span>
+    <span class="n">mod</span> <span class="o">=</span> <span class="mi">10</span><span class="o">**</span><span class="mi">9</span> <span class="o">+</span> <span class="mi">7</span>
+    <span class="n">H</span><span class="p">,</span> <span class="n">R</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+    <span class="n">graph</span> <span class="o">=</span> <span class="p">[</span><span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">()))</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">R</span><span class="p">)]</span>
+    <span class="n">I</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">i</span> <span class="o">+</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">R</span> <span class="o">-</span> <span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">R</span><span class="p">)]</span>
+    <span class="n">G</span> <span class="o">=</span> <span class="n">make_weighted_adjacency_matrix</span><span class="p">(</span><span class="n">graph</span><span class="p">,</span> <span class="n">mod</span><span class="p">)</span>
+    <span class="n">G_1</span> <span class="o">=</span> <span class="p">[</span><span class="n">G</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span> <span class="o">+</span> <span class="p">[[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">R</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">R</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)]</span>
+    <span class="n">matrix</span> <span class="o">=</span> <span class="n">matmul</span><span class="p">(</span><span class="n">G_1</span><span class="p">,</span> <span class="n">matpow</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">H</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">mod</span><span class="p">),</span> <span class="n">mod</span><span class="p">)</span>
+    <span class="n">answer</span> <span class="o">=</span> <span class="n">matrix</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">answer</span><span class="p">)</span>
 
 
@@ -1178,6 +1288,11 @@ $$\operatorname{dp}_v[u] = \frac{\left(\sum\limits_{i=1}^{k}\operatorname{size}_
 <td style="text-align:center">11</td>
 <td style="text-align:center">N</td>
 <td style="text-align:center">2026-10-24</td>
+</tr>
+<tr>
+<td style="text-align:center">12</td>
+<td style="text-align:center">M</td>
+<td style="text-align:center">2026-10-29</td>
 </tr>
 </tbody>
 </table>
