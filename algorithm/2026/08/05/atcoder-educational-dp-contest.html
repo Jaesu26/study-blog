@@ -215,9 +215,11 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> $\operatorname{dp}[i]$를 개구리가 $i$번 돌까지 오는데 필요한 최소 비용이라고 하자. 개구리가 $i$번 돌에 위치하고 있다면 점프 이전에는 $i-1$번 또는 $i-2$번 돌에 위치했을 것이다</p>
-<p><code>-</code> 그러므로 $\operatorname{dp}[i] = \min(\operatorname{dp}[i - 1] + |h_{i-1} - h_i|,\, \operatorname{dp}[i - 2] + |h_{i-2} - h_i|)$이며 초깃값으로 $\operatorname{dp}[1] = 0, \operatorname{dp}[2] = |h_1 - h_2|$이다</p>
-<p><code>-</code> 정답은 $\operatorname{dp}[N]$이며 전체 알고리즘의 시간 복잡도는 $O(N)$이다</p>
+<p><code>-</code> $\operatorname{dp}[i]$를 개구리가 $i$번 돌까지 오는데 필요한 최소 비용이라고 하자. 개구리가 $i$번 돌에 위치하고 있다면 점프 이전에는 $i-1$번 또는 $i-2$번 돌에 위치했을 것이다. 따라서 점화식은 다음과 같다</p>
+<p>
+$$\operatorname{dp}[i] = \min(\operatorname{dp}[i - 1] + |h_{i-1} - h_i|,\, \operatorname{dp}[i - 2] + |h_{i-2} - h_i|)$$
+</p>
+<p><code>-</code> 초깃값으로 $\operatorname{dp}[1] = 0, \operatorname{dp}[2] = |h_1 - h_2|$이며 정답은 $\operatorname{dp}[N]$이다. 전체 알고리즘의 시간 복잡도는 $O(N)$이 된다</p>
 
 </div>
 </div>
@@ -569,8 +571,10 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> $\operatorname{dp}[u]$를 $u$번 노드를 시작으로 할 때 얻을 수 있는 최장 경로의 길이라고 하자</p>
-<p><code>-</code> $u$번 노드에서 $v_1, v_2, \dots, v_k$번 노드로 향하는 간선이 있다고 하면 그래프에 사이클이 없으므로 $\operatorname{dp}[u] = 1 + \max\limits_{i \in \{1,2,\dots, k\}}\operatorname{dp}[v_i]$를 만족한다</p>
+<p><code>-</code> $\operatorname{dp}[u]$를 $u$번 노드를 시작으로 할 때 얻을 수 있는 최장 경로의 길이로 정의하자. 그리고 $u$번 노드에서 $v_1, v_2, \dots, v_k$번 노드로 향하는 간선이 있다고 가정하자. 그래프에 사이클이 없으므로 다음과 같이 점화식을 설계할 수 있다</p>
+<p>
+$$\operatorname{dp}[u] = 1 + \max\limits_{i \in \{1,2,\dots, k\}}\operatorname{dp}[v_i]$$
+</p>
 <p><code>-</code> 초깃값으로 $u$번 노드의 진출차수가 $0$인 경우 $\operatorname{dp}[u] = 0$이다</p>
 <p><code>-</code> 정답은 $\max(\operatorname{dp})$이며 각 노드와 간선을 $O(1)$번만 확인하므로 전체 알고리즘의 시간 복잡도는 $O(N + M)$이다</p>
 
@@ -703,8 +707,10 @@ window.onload = wrap_img;
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> $\operatorname{dp}[i][k]$를 $1$번부터 $i$번 동전까지 던졌을 때 앞면이 $k$개 나올 확률이라고 하자</p>
 <p><code>-</code> 만약 $i$번 동전을 던져 앞면이 나온다면 $\operatorname{dp}[i][k] = p_i \cdot \operatorname{dp}[i - 1][k - 1]$이다 (단, $k &gt; 0$)</p>
-<p><code>-</code> 그렇지 않고 $i$번 동전을 던져 뒷면이 나온다면 $\operatorname{dp}[i][k] = (1 - p_i)\cdot \operatorname{dp}[i - 1][k]  $이다</p>
-<p><code>-</code> 따라서 $\operatorname{dp}[i][k] = p_i \cdot \operatorname{dp}[i - 1][k - 1] + (1 - p_i)\cdot \operatorname{dp}[i - 1][k]$이다 ($k=0$이면 앞의 항은 무시)</p>
+<p><code>-</code> 그렇지 않고 $i$번 동전을 던져 뒷면이 나온다면 $\operatorname{dp}[i][k] = (1 - p_i)\cdot \operatorname{dp}[i - 1][k] $이다. 따라서 점화식은 다음과 같다 (단, $k=0$이면 앞의 항은 무시)</p>
+<p>
+$$\operatorname{dp}[i][k] = p_i \cdot \operatorname{dp}[i - 1][k - 1] + (1 - p_i)\cdot \operatorname{dp}[i - 1][k]$$
+</p>
 <p><code>-</code> 최종적으로 앞면이 뒷면보다 많이 나올 확률을 구해주면 정답이다</p>
 <p><code>-</code> 전체 알고리즘의 시간 복잡도는 $O\left(N^2\right)$이며 $k$를 역순으로 탐색하면 공간 복잡도는 $O(N)$이다</p>
 
@@ -769,10 +775,10 @@ window.onload = wrap_img;
 <p><code>-</code> 이를 추적하자. 초밥이 $1$개 있는 접시의 개수를 $x_1$이라 하고 $2$개 있는 접시의 개수를 $x_2$라 하고 $\operatorname{dp}[x_1][x_2]$를 모든 초밥을 먹기 위해 주사위를 굴리는 횟수의 기댓값이라 하자</p>
 <p><code>-</code> 초밥이 있는 접시를 고를 확률은 $\frac{x_1 + x_2}{N}$이다. 이때 초밥이 $1$개 있는 접시를 고를 확률은 $\frac{x_1}{x_1 + x_2}$이고 $2$개 있는 접시를 고를 확률은 $\frac{x_2}{x_1 + x_2}$이다</p>
 <p><code>-</code> 우선 초밥이 있는 접시를 고르고자 기댓값에 해당하는 $\frac{N}{x_1 + x_2}$번만큼 주사위를 굴려야 한다. 그리고 초밥이 몇 개 있는 접시냐에 이후 기댓값이 달라진다. 이때 초밥이 $2$개 있는 접시를 고르면 해당 접시엔 $1$개만 남게 되므로 초밥이 $1$개 있는 접시의 개수가 $1$ 증가함에 유의하자</p>
-<p><code>-</code> 따라서 $\operatorname{dp}[x_1][x_2] = \frac{N}{x_1 + x_2} + \frac{x_1}{x_1 + x_2} \cdot \operatorname{dp}[x_1 - 1][x_2] + \frac{x_2}{x_1 + x_2} \cdot \operatorname{dp}[x_1 + 1][x_2 - 1]$이 성립한다</p>
+<p><code>-</code> 따라서 $\operatorname{dp}[x_1][x_2] = \frac{N}{x_1 + x_2} + {\frac{x_1}{x_1 + x_2}}  \operatorname{dp}[x_1 - 1][x_2] + {\frac{x_2}{x_1 + x_2}} \operatorname{dp}[x_1 + 1][x_2 - 1]$이 성립한다</p>
 <p><code>-</code> 이를 접시에 초밥이 최대 $3$개 있는 것까지 확장하면 점화식은 다음과 같다</p>
 <p>
-$$\operatorname{dp}[x_1][x_2][x_3] = \frac{N}{x_1 + x_2 + x_3} + \frac{x_1}{x_1 + x_2 + x_3} \cdot \operatorname{dp}[x_1 - 1][x_2][x_3] + \frac{x_2}{x_1 + x_2 + x_3} \cdot \operatorname{dp}[x_1 + 1][x_2 - 1][x_3] + \frac{x_3}{x_1 + x_2 + x_3} \cdot \operatorname{dp}[x_1][x_2 + 1][x_3 - 1]$$
+$$\operatorname{dp}[x_1][x_2][x_3] = \frac{N}{x_1 + x_2 + x_3} + {\frac{x_1}{x_1 + x_2 + x_3}}  \operatorname{dp}[x_1 - 1][x_2][x_3] + {\frac{x_2}{x_1 + x_2 + x_3}} \operatorname{dp}[x_1 + 1][x_2 - 1][x_3] + {\frac{x_3}{x_1 + x_2 + x_3}} \operatorname{dp}[x_1][x_2 + 1][x_3 - 1]$$
 </p>
 <p><code>-</code> 초깃값으로 $\operatorname{dp}[0][0][0] = 0$이며 $x_1 &gt; 0, x_2 = 0, x_3 = 0$인 경우 <a href="https://www.acmicpc.net/problem/1643">쿠폰</a> 문제와 동일하게 처리하자</p>
 <p><code>-</code> 전체 알고리즘의 시간 복잡도와 공간 복잡도는 $O\left(N^3\right)$이며 $x_1 + x_2 + x_3 = N$이므로 $N^3$의 계수가 작아 제한 시간 안에 동작한다</p>
@@ -852,13 +858,12 @@ $$\operatorname{dp}[x_1][x_2][x_3] = \frac{N}{x_1 + x_2 + x_3} + \frac{x_1}{x_1 
 <p><code>-</code> $\operatorname{dp}[i]$를 본인 차례에 돌이 $i$개 남았을 때 게임의 승패 여부라고 하자 ($1$이면 승리, $0$이면 패배)</p>
 <p><code>-</code> 더미에 최소 $a_1$개의 돌이 남아있어야 돌을 제거할 수 있므로 초깃값으로 $\operatorname{dp}[0] \sim \operatorname{dp}[a_1 - 1]$은 $0$이다</p>
 <p><code>-</code> 현재 차례에 몇 개의 돌을 제거해도 남은 돌의 개수가 $\text{P}$-포지션에 해당한다면 현재 차례의 돌의 개수는 $\text{N}$-포지션이다. 반대로 현재 차례에서 $\text{N}$-포지션을 만들 수 있는 방법이 적어도 하나 존재하면 현재 차례의 돌의 개수는 $\text{P}$-포지션이다 ($\text{P}$-포지션은 승리, $\text{N}$-포지션은 패배). 따라서 점화식은 다음과 같다</p>
-<p><code>-</code> $\operatorname{dp}[i] = \begin{cases} 
+$$\operatorname{dp}[i] = \begin{cases} 
 \\
 \, 0, &amp; \text{if } i &lt; a_1 \\[1.3em]
 \, 0, &amp; \text{if } \displaystyle\prod_{1\le j \le N, \, i \ge a_j} \operatorname{dp}[i - a_j] = 1 \\[0.5em]
 \, 1, &amp; \text{if } \displaystyle\prod_{1\le j \le N, \, i \ge a_j} \operatorname{dp}[i - a_j] = 0
-\end{cases}$</p>
-<p><code>-</code> $\operatorname{dp}[K]$가 $1$이면 Taro가 승리하고 $\operatorname{dp}[K]$가 $0$이라면 Jiro가 승리한다. 전체 알고리즘의 시간 복잡도는 $K=10^5$이고 $a_N = N$인 최악의 경우 $O(NK)$이다</p>
+\end{cases}$$<p><code>-</code> $\operatorname{dp}[K]$가 $1$이면 Taro가 승리하고 $\operatorname{dp}[K]$가 $0$이라면 Jiro가 승리한다. 전체 알고리즘의 시간 복잡도는 $K=10^5$이고 $a_N = N$인 최악의 경우 $O(NK)$이다</p>
 
 </div>
 </div>
@@ -977,8 +982,11 @@ $$\operatorname{dp}[i][i] = \begin{cases}
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> $\operatorname{dp}[i][k]$를 $i$번째 아이까지 $k$개의 사탕을 나누어줄 수 있는 경우의 수로 정의하자</p>
-<p><code>-</code> $\operatorname{dp}[i][k] = \sum\limits_{x=0}^{\min(a_i, k)}\operatorname{dp}[i - 1][k - x]$이고 $a_i$는 최대 $K$이므로 총 $O\left(NK^2\right)$이다. 이때 $N$은 최대 $100$, $K$는 최대 $10^5$이므로 시간 초과이다</p>
+<p><code>-</code> $\operatorname{dp}[i][k]$를 $i$번째 아이까지 $k$개의 사탕을 나누어줄 수 있는 경우의 수로 정의하자. 점화식은 아래와 같다</p>
+<p>
+$$\operatorname{dp}[i][k] = \sum\limits_{x=0}^{\min(a_i, k)}\operatorname{dp}[i - 1][k - x]$$
+</p>
+<p><code>-</code> $a_i$는 최대 $K$이므로 총 $O\left(NK^2\right)$이다. 이때 $N$은 최대 $100$, $K$는 최대 $10^5$이므로 시간 초과이다</p>
 <p><code>-</code> 그런데 정의에 의해 $\operatorname{dp}[i][k] = \operatorname{dp}[i][k - 1] - \operatorname{dp}[i - 1][k - a_i - 1]  + \operatorname{dp}[i - 1][k]$가 성립한다 (나열해보면 당연한데 알아차리기 은근 어려웠다)</p>
 <p><code>-</code> 따라서 $O(NK)$에 문제를 해결할 수 있다. 정답은 $\operatorname{dp}[N][K]$이며 초깃값으로 $\operatorname{dp}[0][0] = 1$이다</p>
 
@@ -1039,7 +1047,9 @@ $$\operatorname{dp}[i][i] = \begin{cases}
 <p><code>-</code> <a href="https://www.acmicpc.net/problem/11066">파일 합치기</a> 문제와 동일한 웰노운 구간 DP 문제이다 (처음 접하면 어렵다)</p>
 <p><code>-</code> 슬라임을 합칠 때 인접한 두 슬라임만 합칠 수 있다. 따라서 임의의 합쳐진 슬라임은 연속된 구간의 슬라임을 합친 꼴이 된다</p>
 <p><code>-</code> $\operatorname{dp}[i][j]$를 $i$번째 슬라임부터 $j$번째 슬라임을 하나의 슬라임으로 합칠 때 발생하는 비용의 최솟값이라 하자. 그럼 점화식은 다음과 같다</p>
-<p><code>-</code> $\operatorname{dp}[i][j] = \sum\limits_{l = i}^{j} a_l + \min\limits_{i \le k &lt; j}\{\operatorname{dp}[i][k] + \operatorname{dp}[k + 1][j]\}$</p>
+<p>
+$$\operatorname{dp}[i][j] = \sum\limits_{l = i}^{j} a_l + \min\limits_{i \le k &lt; j}\{\operatorname{dp}[i][k] + \operatorname{dp}[k + 1][j]\}$$
+</p>
 <p><code>-</code> 초깃값으로 $\operatorname{dp}[i][i] = 0$이다</p>
 <p><code>-</code> 누적 합을 $O\left(N^2\right)$에 전처리 해두면 $i$번째 슬라임부터 $j$번째 슬라임을 합친 슬라임의 크기를 $O(1)$에 알 수 있다. 임의의 $\operatorname{dp}[i][j]$를 결정하는 게 $O(N)$이며 가능한 $(i,j)$ 상태의 개수는 $O\left(N^2\right)$이므로 전체 알고리즘의 시간 복잡도는 $O\left(N^3\right)$이다</p>
 <p><code>-</code> 바텀업 구현시 길이($=j-i+1$)를 $2$부터 $N$까지 오름차순으로 순회해야 됨에 주의하자. 정답은 $\operatorname{dp}[1][N]$이다</p>
@@ -1239,7 +1249,10 @@ $$\operatorname{dp}[i][i] = \begin{cases}
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> $\operatorname{dp}[i]$를 $i$번째 꽃이 마지막으로 남아 있을 때 아름다움 합의 최댓값이라 하자. 남은 꽃들의 높이는 단조 증가여야 하므로 $\operatorname{dp}[i] = \max\limits_{1 \le j &lt;i} \{\operatorname{dp}[i] \cdot I(h_j \le h_i)\} + a_i$가 성립한다</p>
+<p><code>-</code> $\operatorname{dp}[i]$를 $i$번째 꽃이 마지막으로 남아 있을 때 아름다움 합의 최댓값이라 하자. 남은 꽃들의 높이는 단조 증가여야 하므로 점화식은 다음과 같다</p>
+<p>
+$$\operatorname{dp}[i] = \max\limits_{1 \le j &lt;i} \{\operatorname{dp}[j] \cdot I(h_j \le h_i)\} + a_i$$
+</p>
 <p><code>-</code> 이를 단순하게 처리하면 $O\left(N^2\right)$이고 $N$이 최대 $2\times 10^5$이므로 TLE이다. 하지만 세그먼트 트리를 사용하면 최댓값 쿼리와 원소 갱신을 $O(\log N)$에 수행할 수 있어 총 $O(N \log N)$에 해결할 수 있다 (높이별로 아름다움 합의 최댓값을 저장하는 세그먼트 트리를 만든 뒤 스위핑하면 된다)</p>
 
 </div>
@@ -1343,8 +1356,10 @@ $$\operatorname{dp}[i][i] = \begin{cases}
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> $\operatorname{dp}[i][j][d]$를 $i$번 정점이 source이고 $j$번 정점이 sink인 길이 $d$의 경로 개수로 정의하자. 그럼 점화식은 다음과 같다</p>
-<p><code>-</code> $\operatorname{dp}[i][j][d] = \sum\limits_{k=1}^{N}\operatorname{dp}[i][k][d - 1] \cdot a_{k, j}$, 이를 나이브하게 계산하면 $O\left(N^3 K\right)$이다</p>
-<p><code>-</code> 그런데 위 점화식은 행렬 곱셈의 정의와 같다 ($d=0$일 때 $\operatorname{dp}$는 단위 행렬). 따라서 $\operatorname{dp}[i][j][d] = G^{d}[i][j]$이며 행렬 제곱은 분할 정복을 이용해서 최악의 경우에도 $O\left(N^3 \log K\right)$에 계산할 수 있다</p>
+<p>
+$$\operatorname{dp}[i][j][d] = \sum\limits_{k=1}^{N}\operatorname{dp}[i][k][d - 1] \cdot a_{k, j}$$
+</p>
+<p><code>-</code> 이를 나이브하게 계산하면 $O\left(N^3 K\right)$이다. 그런데 위 점화식은 행렬 곱셈의 정의와 같다 ($d=0$일 때 $\operatorname{dp}$는 단위 행렬). 따라서 $\operatorname{dp}[i][j][d] = G^{d}[i][j]$이며 행렬 제곱은 분할 정복을 이용해서 최악의 경우에도 $O\left(N^3 \log K\right)$에 계산할 수 있다</p>
 
 </div>
 </div>
