@@ -100,7 +100,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      22 min read
+      24 min read
     
 </span></p>
 
@@ -153,6 +153,7 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h2"><a href="#F---Semi-express">F - Semi-express </a></li>
 <li class="toc-entry toc-h2"><a href="#H---Knapsack">H - Knapsack </a></li>
 <li class="toc-entry toc-h2"><a href="#J---Ball">J - Ball </a></li>
+<li class="toc-entry toc-h2"><a href="#K---Target">K - Target </a></li>
 <li class="toc-entry toc-h2"><a href="#L---Cat">L - Cat </a></li>
 <li class="toc-entry toc-h2"><a href="#M---House">M - House </a></li>
 <li class="toc-entry toc-h2"><a href="#N---Tree">N - Tree </a></li>
@@ -842,6 +843,93 @@ $$f(s, p_1, p_2, p_3) = \begin{cases}
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="K---Target">
+<a class="anchor" href="#K---Target" aria-hidden="true"><span class="octicon octicon-link"></span></a>K - Target<a class="anchor-link" href="#K---Target"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 원의 열 $C_1, C_2, \dots, C_K$에서 각 $i$에 대해 원 $C_{i+1}$이 원 $C_i$를 엄격하게 포함한다고 할 때 이를 크기 $K$의 타켓이라고 부른다 (경계가 겹치면 포함하는 게 아니다). 가능한 타켓의 최대 크기를 구하자</p>
+<p><code>-</code> 나이브하게 지름이 작은 것부터 순회하면 DP를 사용해 $O\left(N^2\right)$에 해결할 수 있다. 물론 $N$이 최대 $10^5$이라 TLE이다. 다른 방법을 생각해야 한다</p>
+<p><code>-</code> 원 $C_i$가 위치하는 구간을 $[s_i, e_i]$와 같이 표현하겠다. $\operatorname{dp}[i]$를 원 $C_i$를 마지막으로 하는 타켓의 크기 중 최댓값이라 하자. 원 $C_i$가 원 $C_j$를 포함한다는 건 $s_i &lt; s_j, e_j &lt; e_i$를 의미하므로 점화식을 다음과 같이 설계할 수 있다</p>
+<p>
+$$\operatorname{dp}[i] = 1 + \max\limits_{s_i &lt; s_j, e_j &lt; e_i} \operatorname{dp}[j]$$
+</p>
+<p><code>-</code> $s$를 기준으로 원을 오름차순 정렬하면 $i &lt; j$를 만족하는 $i,j$에 대해 $s_i \le s_j$를 만족한다. 이때 동일한 $s$를 가지는 것끼리 그룹으로 묶으면 $p, q\, (p &lt; q)$번 그룹간에는 항상 $s_{p_a} &lt; s_{q_b}$ 기준을 만족한다. 이제 그룹 역순으로 스위핑을 하며 $e$ 값에 따른 $\operatorname{dp}$ 최댓값을 세그먼트 트리로 관리하면 쿼리와 갱신을 최악의 경우에도 $O(\log N)$에 할 수 있다. 단, 가능한 $s, e$가 매우 크므로 좌표 압축을 해야 함에 유의하자. 결과적으로 전체 알고리즘의 시간 복잡도는 $O(N\log N)$이 되어 TLE 없이 문제를 해결할 수 있다.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<details class="description">
+      <summary class="btn btn-sm" data-open="Hide Code" data-close="Show Code"></summary>
+        <p></p>
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">groupby</span>
+<span class="kn">from</span> <span class="nn">operator</span> <span class="kn">import</span> <span class="n">itemgetter</span>
+<span class="kn">from</span> <span class="nn">atcoder.segtree</span> <span class="kn">import</span> <span class="n">SegTree</span>
+
+
+<span class="k">def</span> <span class="nf">compress</span><span class="p">(</span><span class="n">array</span><span class="p">):</span>
+    <span class="n">sorted_unique</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">array</span><span class="p">))</span>
+    <span class="n">rank</span> <span class="o">=</span> <span class="p">{</span><span class="n">a</span><span class="p">:</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">a</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">sorted_unique</span><span class="p">)}</span>
+    <span class="k">return</span> <span class="n">rank</span>
+
+
+<span class="k">def</span> <span class="nf">solution</span><span class="p">():</span>
+    <span class="n">N</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+    <span class="n">circles</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+        <span class="n">x</span><span class="p">,</span> <span class="n">r</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+        <span class="n">circles</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">x</span> <span class="o">-</span> <span class="n">r</span><span class="p">,</span> <span class="n">x</span> <span class="o">+</span> <span class="n">r</span><span class="p">))</span>
+    <span class="n">circles</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+    <span class="n">rank</span> <span class="o">=</span> <span class="n">compress</span><span class="p">([</span><span class="n">e</span> <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">circles</span><span class="p">])</span>
+    <span class="n">groups</span> <span class="o">=</span> <span class="p">[</span><span class="nb">list</span><span class="p">(</span><span class="n">group</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">group</span> <span class="ow">in</span> <span class="n">groupby</span><span class="p">(</span><span class="n">circles</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="n">itemgetter</span><span class="p">(</span><span class="mi">0</span><span class="p">))]</span>
+    <span class="n">groups</span><span class="o">.</span><span class="n">reverse</span><span class="p">()</span>
+    <span class="n">dp</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">N</span>
+    <span class="n">tree</span> <span class="o">=</span> <span class="n">SegTree</span><span class="p">(</span><span class="nb">max</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">group</span> <span class="ow">in</span> <span class="n">groups</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">group</span><span class="p">:</span>
+            <span class="n">e_rank</span> <span class="o">=</span> <span class="n">rank</span><span class="p">[</span><span class="n">e</span><span class="p">]</span>
+            <span class="n">mx</span> <span class="o">=</span> <span class="n">tree</span><span class="o">.</span><span class="n">prod</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">e_rank</span><span class="p">)</span>
+            <span class="n">dp</span><span class="p">[</span><span class="n">e_rank</span><span class="p">]</span> <span class="o">=</span> <span class="n">mx</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">group</span><span class="p">:</span>
+            <span class="n">e_rank</span> <span class="o">=</span> <span class="n">rank</span><span class="p">[</span><span class="n">e</span><span class="p">]</span>
+            <span class="n">tree</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">e_rank</span><span class="p">,</span> <span class="nb">max</span><span class="p">(</span><span class="n">dp</span><span class="p">[</span><span class="n">e_rank</span><span class="p">],</span> <span class="n">tree</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">e_rank</span><span class="p">)))</span>
+    <span class="n">answer</span> <span class="o">=</span> <span class="n">tree</span><span class="o">.</span><span class="n">all_prod</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">answer</span><span class="p">)</span>
+
+
+<span class="n">solution</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+    </details>
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 비슷한 유형의 문제: <a href="https://jungol.co.kr/problem/2790">타이어 팔기</a></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="L---Cat">
 <a class="anchor" href="#L---Cat" aria-hidden="true"><span class="octicon octicon-link"></span></a>L - Cat<a class="anchor-link" href="#L---Cat"> </a>
 </h2>
@@ -1293,6 +1381,11 @@ $$\operatorname{dp}_v[u] = \frac{\left(\sum\limits_{i=1}^{k}\operatorname{size}_
 <td style="text-align:center">12</td>
 <td style="text-align:center">M</td>
 <td style="text-align:center">2026-10-29</td>
+</tr>
+<tr>
+<td style="text-align:center">13</td>
+<td style="text-align:center">K</td>
+<td style="text-align:center">2026-11-02</td>
 </tr>
 </tbody>
 </table>
