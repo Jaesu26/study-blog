@@ -48,10 +48,14 @@ permalink: /about/
 
 ### 프로그래밍 언어
 
-`-` Python ($\star\star\star$)
+`-` Python
 
 ### 자격증
 
 `-` 컴퓨터활용능력 1급
+
+`-` 한능검 2급
+
+`-` 토익 750
 
 [^1]:a blogging platform that natively supports Jupyter notebooks in addition to other formats.
